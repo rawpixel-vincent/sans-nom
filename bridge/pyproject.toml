@@ -14,6 +14,7 @@ dependencies = [
 
 [project.scripts]
 comic-lore = "bridge.comic_lore:main"
+peer-cards = "bridge.peer_cards:main"
 
 [dependency-groups]
 dev = [

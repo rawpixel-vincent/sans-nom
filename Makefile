@@ -1,4 +1,4 @@
-.PHONY: test cli sidecar dev lore-manifest lore-extract-dry-run lore-extract-volume-1 lore-validate lore-ingest
+.PHONY: test cli sidecar dev lore-manifest lore-extract-dry-run lore-extract-volume-1 lore-validate lore-ingest peer-identity-map peer-validate
 
 test:
 	go test ./...
@@ -30,3 +30,9 @@ lore-validate:
 
 lore-ingest:
 	uv run --project bridge comic-lore --root . ingest-qdrant
+
+peer-identity-map:
+	uv run --project bridge peer-cards --root . identity-map
+
+peer-validate:
+	uv run --project bridge peer-cards --root . validate --strict
