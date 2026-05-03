@@ -1,0 +1,49 @@
+# Dev-Loop Ergonomics
+
+How the narrative designer iterates on the Narrator's voice without redeploying the server. This was missing from the original draft; specified here.
+
+## The Narrator card lives in a file, not a config
+
+Path: `lore/narrator/peer-card.md` in the repo. Plain markdown. Edited by the narrative designer in any editor.
+
+## Hot reload in dev
+
+The Go server watches `lore/` for file changes. When `narrator/peer-card.md` changes:
+
+- The Narrator's prompt assembly picks up the new card on the *next* turn.
+- In-flight turns finish with the old card (no mid-turn switching).
+- A telemetry event is emitted: `narrator.card.reloaded` with a hash of the new card content.
+
+## In-prod card revisions
+
+Production deployment ships the card baked into the Docker image. Card revisions are deploys. This is intentional — production card changes affect every player and should go through the regression corpus first. See [Phase 0 deliverables](../../phases/phase-0-preproduction/deliverables.md) for the corpus spec.
+
+## CLI testbed for fast iteration
+
+`cmd/cli/` is a Bubble Tea testbed. It can:
+
+- Replay a regression scene from the corpus with the current Narrator card.
+- Diff the Narrator's output against the corpus's reference output.
+- Step through a manual scene at terminal speed (no UI to wait on).
+- Run the full corpus with a summary pass/fail.
+
+This is the designer's primary workspace during Phase 0. Bubble Tea is reused from Council of Castaka — see `external/references/council of castaka/` Go source for the patterns.
+
+## Lore-retrieval iteration
+
+Lore corpus changes (new comic page transcripts, new character card edits) also hot-reload via file watching. The vector index rebuilds incrementally — only touched files re-embed. See [lore-retrieval.md](../lore-retrieval.md).
+
+## Actor card iteration
+
+Same pattern. Actor cards live at `lore/actors/<name>.md`. File watcher reloads. The seed is loaded from these files; in-Honcho evolution is a separate channel — editing the seed file does *not* retroactively change a workspace's evolved actor representation. To re-seed an actor in an existing workspace, use the seed-honcho script (see [repo structure](../repo-structure.md)).
+
+## What this enables
+
+- Designer can iterate on the Narrator's voice without bothering the engineer.
+- Designer can test changes against the regression corpus *before* committing — fast feedback loop.
+- Engineer can focus on the loop architecture without being interrupted for prompt tweaks.
+
+## What this rules out
+
+- Live-edited cards in production. Deploy is the cadence in prod, intentionally.
+- Per-player card customization. The Narrator is one Narrator per build. Multi-tenancy is out of scope.
