@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "One armored character is in extreme distress and expects to die.",
+    "That same character possesses or is associated with a bow.",
+    "Another entity, not clearly shown, speaks with authority or influence over the distressed character.",
+    "The large pale beast-like figure appears incapacitated or overwhelmed by the destruction on the page."
+  ],
+  "characters_present": [
+    "A small armored humanoid warrior",
+    "At least one additional small armored figure in the vertical panels",
+    "A large pale reptilian or beast-like creature, apparently downed",
+    "An unseen or off-panel speaking presence addressing the desperate speaker"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page occurs in the middle of an ongoing battle or catastrophic confrontation rather than at its start.",
+    "The dialogue implies an immediate crisis point for the bow-bearing character."
+  ],
+  "dialogue_meaning": [
+    "One character believes defeat is imminent and sees their weapon as useless in the situation.",
+    "A second voice responds not with a practical tactic but by telling the speaker to withdraw into a state where consciousness disappears, implying surrender, collapse, or a mental retreat."
+  ],
+  "image_sha256": "e072039b35f9e0cf015e06d0a5205eea256244652d4d52456fc84a9817caf5c5",
+  "is_spread": false,
+  "locations": [
+    "A ruined battlefield or interior space filled with rubble, fire, and explosions"
+  ],
+  "lore_facts": [
+    "The page depicts a combat setting involving giant clawed or bladed appendages threatening much smaller armored combatants.",
+    "A bow is present or relevant enough for a speaker to mention it, indicating at least one combatant is armed with one.",
+    "The setting is violently unstable, with fire, debris, and collapsing structures surrounding the characters."
+  ],
+  "page_id": "288_The_Metabarons_11_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A destructive impact or collapse leaves a mound of rubble in a blazing environment.",
+    "A large pale creature is shown fallen or pinned amid the debris.",
+    "Small armored figures appear exposed beneath or beside enormous descending claws or blade-like limbs.",
+    "One speaker expresses that they are finished and questions the use of a bow.",
+    "Another speaker answers with a line urging withdrawal back into unconsciousness or oblivion."
+  ],
+  "source_image": "external/comics/meta-barons/288_The_Metabarons_11_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e072039b35f9e0cf015e06d0a5205eea256244652d4d52456fc84a9817caf5c5",
+      "page_id": "288_The_Metabarons_11_p11",
+      "source_image": "external/comics/meta-barons/288_The_Metabarons_11_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The dialogue is partly hard to read; wording may be slightly inaccurate, especially the second speech balloon.",
+    "Character identities and proper names are not given on this page.",
+    "It is unclear whether the large pale creature is dead, unconscious, or merely trapped.",
+    "It is unclear whether the huge claws or spikes belong to a creature, a machine, or an energy/weapon effect."
+  ],
+  "visual_summary": "A fiery, orange-lit battlefield is covered in shattered masonry and debris. In the top panel, a crash or collapse throws up rubble. A large pale reptilian or beast-like body lies sprawled among the wreckage, with a small armored humanoid nearby or partly beneath it. Narrow vertical panels then emphasize huge curved claws or blade-like appendages descending through flame and smoke toward tiny armored figures. In the final wide panel, several massive dark spikes or limbs frame an armored figure amid explosions while dialogue suggests despair and a command to retreat into unconsciousness.",
+  "volume": 11
+}

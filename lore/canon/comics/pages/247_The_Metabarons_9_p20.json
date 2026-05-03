@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "One figure publicly unveils or presents the destructive device.",
+    "A senior figure speaks to his son in a commanding manner.",
+    "The son is expected to perform the next action involving the device's 'roots.'"
+  ],
+  "characters_present": [
+    "A central robed figure with an outstretched arm, likely the main presenter or speaker",
+    "An older or authoritative off-panel/on-panel speaker addressing 'my son'",
+    "Several attendants or armored observers at the edges of the scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the reveal or activation phase of an important superweapon or powerful artifact.",
+    "The father-son dynamic is directly tied to the operation or deployment of the device."
+  ],
+  "dialogue_meaning": [
+    "The speakers frame the machine as possessing effectively limitless power.",
+    "They describe it as a newly unveiled instrument of destruction.",
+    "They state that there is no way to hold its power back once revealed.",
+    "A father or senior authority addresses his son and commands him to give the 'flower' roots, suggesting it must be planted, grounded, or established."
+  ],
+  "image_sha256": "4c04269a2eb5707d809bba331d5de02a483b528a9007f38a53c5663f93b316a6",
+  "is_spread": false,
+  "locations": [
+    "A vast golden interior or chamber filled with radiant light",
+    "A ceremonial or technological space where the device is being unveiled"
+  ],
+  "lore_facts": [
+    "There exists a powerful golden device referred to as a 'flower.'",
+    "The device is associated with destruction on a major scale.",
+    "The characters believe its power cannot currently be restrained.",
+    "The device appears to require a further step called giving it 'roots.'",
+    "A red seed- or pod-like element is involved in activating or completing the flower-like machine."
+  ],
+  "page_id": "247_The_Metabarons_9_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A large golden mechanism resembling a flower or bloom is revealed in close-up.",
+    "The object is shown floating alone in a bright luminous space, emphasizing its scale and significance.",
+    "A central robed figure presents the device to an audience of attendants or observers.",
+    "The speakers describe the object as immensely powerful and as a destructive mystery that cannot be restrained.",
+    "An older speaker addresses 'my son' and orders him to 'give it roots,' implying the next step is to anchor, plant, or integrate the device.",
+    "A red, seed-like component is inserted into or aligned with the glowing core of the golden structure."
+  ],
+  "source_image": "external/comics/meta-barons/247_The_Metabarons_9_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4c04269a2eb5707d809bba331d5de02a483b528a9007f38a53c5663f93b316a6",
+      "page_id": "247_The_Metabarons_9_p20",
+      "source_image": "external/comics/meta-barons/247_The_Metabarons_9_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, so exact wording may be imperfect.",
+    "The specific identities of the speaking figures are not confirmed on this page alone.",
+    "It is unclear from the page alone whether the final red object is being inserted, descending naturally, or symbolically shown in alignment with the core."
+  ],
+  "visual_summary": "A golden, flower-like mechanical object dominates the page, first shown in close-up and then suspended in a glowing yellow space. In the main scene, robed and armored figures stand beneath it while one central figure gestures toward it and speaks. A final panel shows a red, seed-like core descending or being placed into the radiant center of the machine, as if activating or completing it.",
+  "volume": 9
+}

@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Steelhead is portrayed as the architect of the ongoing plan and kidnapping.",
+    "Amalek XII is important enough that his abduction is called the seizure of one of the galaxy's most powerful and influential people.",
+    "Amalek XII is also portrayed by one speaker as replaceable within a numbered succession system.",
+    "The large goggle-wearing nonhuman character is aggressive, taunting, and confident that the besieged side will starve.",
+    "The campfire group appears to be in a defensive, waiting posture rather than actively attacking."
+  ],
+  "characters_present": [
+    "Off-panel speaker discussing Steelhead and Amalek XII",
+    "Second off-panel speaker insulting and silencing the first",
+    "A robed or shadowed figure near the campfire",
+    "A droid or armored mechanical figure by the fire",
+    "Several humanoid companions gathered in the shelter",
+    "A large goggle-wearing, sluglike or heavily padded nonhuman speaker",
+    "Background soldiers or attendants",
+    "Space fleet personnel not individually visible"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a storyline involving Steelhead's plan against Amalek XII and the Technoguild.",
+    "The siege of Philodendra is tied directly to Steelhead's broader strategy.",
+    "The secured technopope at the ruined presidential palace appears to be an operational objective within the same campaign."
+  ],
+  "dialogue_meaning": [
+    "Steelhead has abducted Amalek XII, and one speaker argues this should not cripple the Technoguild because Amalek rulers can be replaced.",
+    "Another speaker is furious at interruptions and orders silence and attention.",
+    "The group around the fire expects a prolonged siege or hiding period and is conserving food.",
+    "An opposing figure insists the trapped group will starve while a superior Technoguild or Technonaval force besieges the planet.",
+    "The caption boxes present the siege as part of Steelhead's methodical plan."
+  ],
+  "image_sha256": "a7f454089e958790c4bd1160d494eae83cdb8f2e77429ddcf51e202760b0d864",
+  "is_spread": false,
+  "locations": [
+    "Metallic interior structure or platform",
+    "A hidden shelter/campfire gathering place",
+    "Space above the planet Philodendra",
+    "The ruins of the presidential palace on Philodendra, mentioned in narration"
+  ],
+  "lore_facts": [
+    "Steelhead abducted Amalek XII.",
+    "The Technoguild has multiple Amalek successors or numbered replacements, including XIII, XIV, and XV.",
+    "Philodendra is a planet with a presidential palace now in ruins.",
+    "A technopope can be physically secured or held at a location as part of a larger plan.",
+    "The planet is under siege by thousands of technodestroyers.",
+    "The term 'Technoarmada' or equivalent technonaval force is used for the besieging fleet."
+  ],
+  "page_id": "372_The_Metabarons_14_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "Off-panel dialogue frames Steelhead's abduction of Amalek XII as a major shock and discusses the replaceability of Amalek rulers.",
+    "Another speaker harshly silences the first, indicating tension among the people in hiding.",
+    "A group sheltering around a fire prepares to endure a long wait and speaks of rationing or survival food.",
+    "A large hostile figure tells the others that they, not the attackers, will starve to death.",
+    "Narration states that Steelhead's plan is advancing successfully.",
+    "Narration states that a technopope has been secured in the ruins of the presidential palace on Philodendra.",
+    "Narration states that thousands of technodestroyers are laying siege to the planet."
+  ],
+  "source_image": "external/comics/meta-barons/372_The_Metabarons_14_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a7f454089e958790c4bd1160d494eae83cdb8f2e77429ddcf51e202760b0d864",
+      "page_id": "372_The_Metabarons_14_p14",
+      "source_image": "external/comics/meta-barons/372_The_Metabarons_14_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely due to small text and image resolution.",
+    "Several character identities are not explicitly named on this page and cannot be confirmed from the image alone.",
+    "The exact spelling of some institutional terms may be unclear from the page image alone, especially the fleet labels and certain place or animal names.",
+    "The roasted animal's name is partially legible but uncertain."
+  ],
+  "visual_summary": "The page opens on a metallic interior seen from above while off-panel speakers argue about Steelhead, Amalek XII, and the Technoguild. It then cuts to a cramped shelter or camp where a mixed group of figures, including armored and nonhuman characters, sit around a fire roasting food. A large, goggle-wearing, sluglike figure dominates the next panel, angrily declaring that the besieged people will starve while the Technonavy surrounds the planet. The final panel shows a large fleet of ships in space above a planet, while caption boxes explain that Steelhead's plan is proceeding and that a technopope has been secured in the ruins of the presidential palace on Philodendra.",
+  "volume": 14
+}

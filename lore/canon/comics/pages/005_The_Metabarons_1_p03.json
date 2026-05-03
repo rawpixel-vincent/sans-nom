@@ -1,0 +1,52 @@
+{
+  "character_facts": [
+    "The adult man is physically imposing, bald, and has a mechanical right hand.",
+    "The adult appears calm and intentional rather than frantic during the act.",
+    "The smaller character is also bald and significantly younger or smaller than the adult.",
+    "The youth remains still and eyes-closed or downcast as the hand approaches, suggesting submission, endurance, or acceptance."
+  ],
+  "characters_present": [
+    "A large bald adult man with a mechanical right hand",
+    "A smaller bald youth or child facing the adult"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts a direct interaction between an older cybernetic figure and a younger successor or subordinate figure.",
+    "The sequence presents the injury as a formal act rather than random combat, suggesting it may be part of a larger tradition or training process."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "e5bb7ef40384376d9b522cf14e92c377d468b9a4ee23f94c50efb5d1a4e73ced",
+  "is_spread": false,
+  "locations": [
+    "A bare, symmetrical interior chamber or hall with strong overhead lighting"
+  ],
+  "lore_facts": [
+    "The setting emphasizes ritual, discipline, or formal instruction through its symmetrical composition and kneeling posture.",
+    "Advanced prosthetic technology exists in this world, as shown by the highly detailed mechanical hand.",
+    "The mechanical prosthesis is used directly in a bodily act of violence or modification."
+  ],
+  "page_id": "005_The_Metabarons_1_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A large adult and a smaller youth sit facing each other in an empty, ceremonial-looking room.",
+    "The adult studies the youth with a stern, controlled expression.",
+    "The adult lifts a mechanical hand toward the side of the youth's head.",
+    "The mechanical hand makes forceful contact near the youth's ear.",
+    "The contact causes an explosive injury with visible blood, implying the youth's ear or side of the head is violently damaged."
+  ],
+  "source_image": "external/comics/meta-barons/005_The_Metabarons_1_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e5bb7ef40384376d9b522cf14e92c377d468b9a4ee23f94c50efb5d1a4e73ced",
+      "page_id": "005_The_Metabarons_1_p03",
+      "source_image": "external/comics/meta-barons/005_The_Metabarons_1_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No readable dialogue or caption text is visible on the provided page image.",
+    "The exact relationship between the two figures is not stated on this page alone.",
+    "The precise body part being removed or damaged appears to be the ear/side of the head, but the page does not label it explicitly."
+  ],
+  "visual_summary": "In a stark, symmetrical chamber lit from above, a large bald man and a smaller bald youth kneel facing each other. The older man, whose right hand is mechanical, raises that hand to the youth's head. A sequence of close-ups shows the mechanical fingers touching the side of the youth's skull, followed by a violent burst at the ear and blood spatter, indicating the older man has inflicted a severe injury or mutilation in a deliberate ritual-like act.",
+  "volume": 1
+}

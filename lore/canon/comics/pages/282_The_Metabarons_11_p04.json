@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Steelhead has a mechanical or armored head and is mocked for it.",
+    "Steelhead wants a wife, a child, love, and a medallion or recognition of high nobility.",
+    "Steelhead uses physical violence during the confrontation.",
+    "Steelhead can issue commands publicly and speaks as someone with power or military authority.",
+    "Dona Vicenta Gabriela de Rokha refuses to submit or give Steelhead her vote.",
+    "Dona Vicenta Gabriela de Rokha is associated with Philodendra.",
+    "Dona Vicenta Gabriela de Rokha's father practiced meditation and is called enlightened."
+  ],
+  "characters_present": [
+    "Armored man addressed as Steelhead",
+    "Woman addressed as Dona Vicenta Gabriela de Rokha",
+    "Dark-skinned man in black with a red sash or scarf",
+    "Large crowd of onlookers or nobles"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers on Steelhead's conflict with Dona Vicenta Gabriela de Rokha.",
+    "Steelhead's stated quest for someone to teach him love sets up a next objective beyond this scene.",
+    "His threat against the Golden Planet and its rulers points to a larger political conflict."
+  ],
+  "dialogue_meaning": [
+    "The woman attacks the armored man's humanity, saying his mechanical head means he cannot feel true emotion.",
+    "The armored man rejects the insult and insists he can still attain domestic life, love, and high status.",
+    "He treats the encounter like a political or ceremonial demand by insisting she give him her vote.",
+    "Her refusal escalates the confrontation.",
+    "After overpowering her, he issues formal public orders and threats against a planet, its nobles, and its empress.",
+    "He admits he must learn what love is and intends to seek someone who can teach him."
+  ],
+  "image_sha256": "9df1a4962cb0989365ecf59e595a7a1a0c660e645e57d9cd899675e4ed7c452c",
+  "is_spread": false,
+  "locations": [
+    "A ceremonial or public audience hall",
+    "Before a crowded assembly, possibly on the Golden Planet"
+  ],
+  "lore_facts": [
+    "The woman is identified as Dona Vicenta Gabriela de Rokha.",
+    "The armored man is called Steelhead.",
+    "Philodendra is a place to which the woman can be sent back.",
+    "The Golden Planet is a political target of the armored man's threatened destruction.",
+    "The Golden Planet has nobles and an empress.",
+    "A formal vote appears to matter in this public dispute.",
+    "The woman's father is described as enlightened and associated with meditation."
+  ],
+  "page_id": "282_The_Metabarons_11_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A woman tells the armored man that his mechanical nature prevents him from experiencing a sublime emotion and declares his clan dead.",
+    "The armored man silences her, physically seizes her by the throat, and angrily insists he will have a wife, child, love, and noble recognition.",
+    "He demands that she appear before him on her knees and grant him her vote.",
+    "The woman refuses him.",
+    "He throws or hurls her aside into the crowd or toward the floor.",
+    "He publicly orders that she be returned to Philodendra safely while her 'Nolonger' lives.",
+    "He vows that after returning he will destroy the Golden Planet, its hypocritical nobles, and its stinking empress.",
+    "He tells Dona Vicenta Gabriela de Rokha to waste her time on meditation as her enlightened father did while he seeks a teacher who can show him what love is.",
+    "He closes by framing love as an emotion she knows little about."
+  ],
+  "source_image": "external/comics/meta-barons/282_The_Metabarons_11_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9df1a4962cb0989365ecf59e595a7a1a0c660e645e57d9cd899675e4ed7c452c",
+      "page_id": "282_The_Metabarons_11_p04",
+      "source_image": "external/comics/meta-barons/282_The_Metabarons_11_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are difficult to read precisely; wording such as titles, oath phrases, and one proper noun may be imperfectly transcribed.",
+    "The exact identity of the dark-skinned man in black and red is not stated on this page.",
+    "The exact nature of the 'vote' and the institutional setting are not fully explained on this page.",
+    "The exact spelling of 'Philodendra' and whether 'Nolonger' is a title, name, or phrase is hard to verify from the image alone."
+  ],
+  "visual_summary": "In a bright ceremonial hall before a large crowd, an armored man in white and silver confronts a woman in a bodysuit and boots. He grabs her by the throat and boasts angrily about marriage, children, love, and nobility. She refuses his demand, and he throws her down in front of the assembled spectators. He then addresses the crowd, orders the woman sent back to Philodendra under protection, promises to destroy the Golden Planet and its nobility when he returns, and says he will seek a teacher to learn about love.",
+  "volume": 11
+}

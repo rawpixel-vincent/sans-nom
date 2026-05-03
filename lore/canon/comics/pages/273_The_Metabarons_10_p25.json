@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Steelhead is capable of stealth infiltration and bypassing defenses with ease.",
+    "Steelhead is accused on this page of killing Nacnor Rosaamel de Rokha.",
+    "The robotic speakers are emotionally invested in Steelhead's actions and in the honor of the Metabarons/Castakas lineage."
+  ],
+  "characters_present": [
+    "Steelhead (not directly seen clearly, identified by narration)",
+    "Two robotic or cybernetic speakers inside the opening panels"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "Steelhead is linked to the Metabarons and specifically to the Castakas clan through the speakers' condemnation.",
+    "The page connects Steelhead's current infiltration to an earlier killing of Nacnor Rosaamel de Rokha."
+  ],
+  "dialogue_meaning": [
+    "The speakers report that Steelhead has breached a defense system using a cloaked craft.",
+    "One speaker accuses Steelhead of murdering Nacnor Rosaamel de Rokha, described as the last planar Tay priest tied to traditional ecology.",
+    "The exchange frames Steelhead's behavior as dishonorable and disgraceful to the Metabarons and Castakas legacy.",
+    "The conversation becomes openly hostile, with one speaker threatening violence if interrupted or judged."
+  ],
+  "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or communications setting with robotic figures",
+    "Philodendra, identified as the capital planet",
+    "Airspace above villages and non-artificial forests",
+    "The Troglosocialik defensive line/system"
+  ],
+  "lore_facts": [
+    "Steelhead uses a 'poly-cloaked psy-glider' for stealthy penetration.",
+    "There exists a Troglosocialik line or system of defense.",
+    "Nacnor Rosaamel de Rokha is identified as the last planar Tay priest associated with preserving traditional ecology.",
+    "Philodendra is identified as the capital planet.",
+    "The region below includes villages harmonized with non-artificial forests.",
+    "The defensive line Steelhead crosses is described as outdated."
+  ],
+  "page_id": "273_The_Metabarons_10_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "Steelhead infiltrates the Troglosocialik defense system while flying a poly-cloaked psy-glider.",
+    "Two robotic figures discuss and condemn Steelhead's actions in heated, insulting terms.",
+    "The narration shifts to an exterior approach over the capital planet's landscape under several moons.",
+    "Steelhead passes above villages blended with natural forest.",
+    "Steelhead penetrates an outdated defensive line with little difficulty."
+  ],
+  "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+      "page_id": "273_The_Metabarons_10_p25",
+      "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read; exact spellings of names and terms such as 'Troglosocialik' and 'Nacnor Rosaamel de Rokha' may be imperfect.",
+    "The robotic speakers are not named on the page.",
+    "Steelhead is identified by captions, but the craft/pilot is not shown in a clearly character-identifiable close-up."
+  ],
+  "visual_summary": "A sequence of narrow panels shows robots or machine beings in conversation inside a metallic setting, followed by wide exterior views of a starry planetary landscape with multiple moons. Captions describe Steelhead infiltrating a defensive system in a camouflaged psy-glider and flying over villages and forested terrain toward the capital world.",
+  "volume": 10
+}

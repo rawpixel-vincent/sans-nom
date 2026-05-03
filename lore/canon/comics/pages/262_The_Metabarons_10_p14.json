@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Aghora is addressed by name.",
+    "Aghora is described or addressed as a great warrior.",
+    "Oda is identified as Aghora's wife.",
+    "Honorata is identified as Aghora's mother.",
+    "The antagonist is accused of being a traitor and a 'bio-rat.'",
+    "The antagonist presents himself as willing to use any means necessary to win."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Oda",
+    "Honorata (present as a spirit within Oda's body)",
+    "Unnamed cybernetic/biomechanical antagonist called a traitor and 'bio-rat'"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page depends on an existing lineage tradition centered on fathering sons.",
+    "It follows prior events involving Honorata's spirit being placed or remaining within Oda's body.",
+    "The emotional stakes rely on earlier established relationships among Aghora, Oda, and Honorata.",
+    "The conflict continues an ongoing dispute over warrior honor versus treacherous survival tactics."
+  ],
+  "dialogue_meaning": [
+    "The woman accepts a fatal duty and frames it as honorable.",
+    "She prioritizes continuation of the family line over her own survival.",
+    "Aghora is emotionally vulnerable because the woman before him is both his wife and the vessel of his mother's spirit.",
+    "The antagonist deliberately weaponizes that taboo and emotional conflict to break Aghora.",
+    "Aghora still clings to a warrior code of honor, while the antagonist rejects it as obsolete.",
+    "The confrontation turns from physical struggle into psychological torture centered on lineage, motherhood, and honor."
+  ],
+  "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+  "is_spread": false,
+  "locations": [
+    "A cramped biomechanical or spaceship-like chamber filled with cables, armor, and machinery"
+  ],
+  "lore_facts": [
+    "This warrior lineage is expected to continue through producing another son if necessary.",
+    "Aghora is part of a hereditary martial line governed by tradition and honor.",
+    "Honorata's spirit is said to be contained within Oda's body on this page.",
+    "Characters in this setting can exist in heavily cybernetic bodies or environments where body, machinery, and identity are entangled.",
+    "At least some figures in this world explicitly debate a formal 'code of honor' versus purely pragmatic victory."
+  ],
+  "page_id": "262_The_Metabarons_10_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A woman tells Aghora she must fulfill her duty and says he will die painlessly.",
+    "She urges Aghora to forget them, take another partner, father another son, and preserve the hereditary line.",
+    "Aghora is shocked by what he hears and sees.",
+    "A cybernetic enemy takes control of or physically restrains the woman's body.",
+    "The enemy reveals he is exploiting Aghora's emotional bond to the woman and to the spirit of Aghora's mother inside her.",
+    "The enemy threatens to cut the woman apart gradually as a tactic against Aghora.",
+    "Aghora denounces the enemy as a dishonorable traitor and not a true warrior.",
+    "The enemy dismisses honor and says victory justifies any weapon, specifically using Honorata within Oda's body against Aghora."
+  ],
+  "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+      "page_id": "262_The_Metabarons_10_p14",
+      "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely from the image, so exact wording may be imperfect.",
+    "The first speaker appears to be Oda or the figure containing Honorata, but the page image alone does not make the speaker identity fully certain in every panel.",
+    "The antagonist's personal name is not legible or not stated on this page."
+  ],
+  "visual_summary": "Inside a dense biomechanical chamber, an armored woman first faces forward in close-up, then shouts toward Aghora, urging him to forget her and continue the lineage. Aghora, also armored, recoils in shock as a grotesque cybernetic opponent seizes or manipulates the woman's body. The villain threatens to mutilate her piece by piece, using her as an emotional weapon against Aghora. In the final panel, a blade or sharp instrument is pressed to the woman's body while Aghora confronts the attacker from below.",
+  "volume": 10
+}

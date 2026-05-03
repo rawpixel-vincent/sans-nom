@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The master speaks with authority and the others address him as 'master.'",
+    "The master says he lives in another dimension of the universe.",
+    "The master says he must return to an important battle.",
+    "The master explicitly says he came to destroy the servants rather than take them with him.",
+    "The robots or attendants appear loyal and surprised by the master's declaration."
+  ],
+  "characters_present": [
+    "A stern male-presenting master or leader",
+    "Multiple robot or mechanical servants/attendants",
+    "A small spherical object or vessel associated with the scene; its exact status is unclear"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page treats the city-shaft and its destruction as part of an ongoing larger cosmic history.",
+    "The reference to a galaxy having disintegrated many centuries earlier points to prior backstory.",
+    "The mention of an important battle elsewhere sets up or connects to events beyond this page."
+  ],
+  "dialogue_meaning": [
+    "The city-shaft is identified as a surviving fragment of a destroyed larger world or galactic structure.",
+    "The destruction of the fragment is presented as inevitable.",
+    "The master claims origin in another dimension of the universe.",
+    "The master says an important battle elsewhere requires his return.",
+    "The servants expect loyalty to be rewarded with continued service, but the master reveals he intends to destroy them instead."
+  ],
+  "image_sha256": "216551c4cb382ae4283abb755770e600edd3520a966c193d5d109f092868f745",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "A floating planetary/city fragment called the city-shaft",
+    "Interior or exterior edge of a spacecraft/structure where the servants and master observe the fragment"
+  ],
+  "lore_facts": [
+    "The 'city-shaft' exists as a chunk floating in space rather than a complete world or structure.",
+    "The city-shaft is described as the last fragment of a galaxy that disintegrated many centuries ago.",
+    "Travel or existence across another dimension of the universe is possible for at least one character.",
+    "There is an important battle occurring in that other dimension or elsewhere in the universe.",
+    "The master-servant relationship shown here is real within the story, but the master is hostile to his own faithful servants."
+  ],
+  "page_id": "330_The_Metabarons_12_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "Characters observe that the 'city-shaft' is not intact but a chunk of planet drifting in space.",
+    "A speaker explains that this fragment is the last remnant of a galaxy that disintegrated many centuries earlier.",
+    "A destructive energy beam strikes and shatters the floating fragment.",
+    "After the destruction, a servant asks where the master came from.",
+    "The master says he lives in another dimension of the universe and must return because an important battle awaits him.",
+    "When asked whether the servants will accompany him, the master says no and states that he came to destroy them."
+  ],
+  "source_image": "external/comics/meta-barons/330_The_Metabarons_12_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "216551c4cb382ae4283abb755770e600edd3520a966c193d5d109f092868f745",
+      "page_id": "330_The_Metabarons_12_p21",
+      "source_image": "external/comics/meta-barons/330_The_Metabarons_12_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be slightly imprecise.",
+    "It is unclear whether the spherical object in space is a craft, pod, or purely symbolic visual element.",
+    "The exact identity and names of the master, servants, and destroyed structure are not established on this page alone."
+  ],
+  "visual_summary": "A fragment of a ruined world or city-shaft floats in open space beside a small spherical craft or object. Inside or alongside a mechanical vessel, robots and a grim human-looking figure observe the scene. A powerful beam then blasts the rocky fragment apart. In the final panel, the small sphere remains in space while dialogue reveals that a master from another dimension has come only to destroy the faithful servants addressing him.",
+  "volume": 12
+}

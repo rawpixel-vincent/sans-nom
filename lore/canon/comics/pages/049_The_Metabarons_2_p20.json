@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Bari is young and has crippled or severely weakened legs, but is determined to fight anyway.",
+    "Bari is the son of Baron Othon.",
+    "Baron Othon is white-haired, commands armed retainers, and responds decisively to threats against his household.",
+    "Iku-Itta is addressed directly by Baron Othon and appears to serve within the household during the emergency.",
+    "A kneeling subordinate expresses extreme shame and self-blame over the incident."
+  ],
+  "characters_present": [
+    "Young Bari",
+    "Baron Othon",
+    "Iku-Itta",
+    "Kneeling household servant or guard reporting the incident",
+    "Several bed companions/attendants in the baron's chamber",
+    "At least one additional retainer near Bari"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page establishes an immediate chase after horse thieves and frames Bari's disability as a narrative obstacle.",
+    "It also sets up Baron Othon's direct intervention rather than relying on a household-wide alarm."
+  ],
+  "dialogue_meaning": [
+    "Bari is enraged by the kidnapping or seizure of someone associated with him and the theft of his horse, and wants immediate revenge.",
+    "Retainers protest that Bari is physically unfit to give chase and suggest informing his father instead.",
+    "A servant formally reports the theft to Baron Othon and says Bari has already gone after the thieves.",
+    "The report specifies the pursuers' targets: four armored men moving uncertainly through the fog and still within reach.",
+    "Baron Othon suppresses any public alarm because he does not want others to learn of Bari's inability or failure.",
+    "Othon takes personal responsibility for retaliating and orders his armor at once."
+  ],
+  "image_sha256": "ca0c6c894c5ae66708d1e39fefc5e706aa8494c3ff309aa122860b3fe2e2ec50",
+  "is_spread": false,
+  "locations": [
+    "Foggy exterior near a fortified residence or stable",
+    "Baron Othon's bedchamber",
+    "Interior corridor or threshold between chambers"
+  ],
+  "lore_facts": [
+    "The setting includes advanced equipment called 'SBR-17 spin-accelerator armor.'",
+    "Mounted pursuit matters enough that a stolen horse triggers an immediate armed response.",
+    "Physical disability is central to status and combat expectations on this page; Bari is described as having crippled or weak legs.",
+    "The household is organized hierarchically, with servants or guards reporting formally to a baron and requesting permission for extreme acts of atonement.",
+    "Family reputation and concealment of weakness are treated as important concerns by the baron."
+  ],
+  "page_id": "049_The_Metabarons_2_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A horse is stolen and the thieves flee into dense fog.",
+    "A disabled nobleman rushes out to pursue the thieves himself, despite warnings that his legs are too weak.",
+    "A subordinate says he will alert the man's father, the baron.",
+    "Inside the baron's bedchamber, a kneeling servant reports the theft and says young Bari is already pursuing the thieves.",
+    "The servant reports there are four men, equipped with SBR-17 spin-accelerator armor, and that they are only minutes ahead.",
+    "The baron refuses to sound the alarm so Bari's failure will not become public knowledge.",
+    "The baron orders his armor brought and vows to kill the bandits personally."
+  ],
+  "source_image": "external/comics/meta-barons/049_The_Metabarons_2_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ca0c6c894c5ae66708d1e39fefc5e706aa8494c3ff309aa122860b3fe2e2ec50",
+      "page_id": "049_The_Metabarons_2_p20",
+      "source_image": "external/comics/meta-barons/049_The_Metabarons_2_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The bottom page number visible in the image appears to be '22,' which conflicts with the provided page label 'p20.'",
+    "One early speech balloon says 'They've taken him,' but the exact referent is unclear from this page alone.",
+    "The exact identity of the kneeling reporter in the bedchamber is unclear; he appears to be a servant or guard.",
+    "Some names and technical terms are stylized and could be slightly misread, though 'Bari,' 'Othon,' 'Iku-Itta,' and 'SBR-17 spin-accelerator armor' are reasonably legible."
+  ],
+  "visual_summary": "A chaotic nighttime sequence unfolds in heavy fog around a fortified residence. A long-haired man with impaired legs insists on personally pursuing thieves who stole his horse, while attendants and retainers try to stop him. The scene then shifts to an interior bedchamber where a servant kneels before a white-haired baron in bed with companions, reporting that young Bari has already chased the thieves despite his crippled legs. In the final panels, the white-haired baron orders armor brought, forbids raising a general alarm, and resolves to handle the matter himself.",
+  "volume": 2
+}

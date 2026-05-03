@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Melmoth is impulsive, possessive, and physically forceful toward the woman.",
+    "Melmoth is addressed by name on this page.",
+    "The older white-haired man is protective of the woman and willing to use violence to defend her.",
+    "The older man is identified as the woman's father by his own statement.",
+    "The young woman resists Melmoth's advances and also tries to prevent the older man from killing him."
+  ],
+  "characters_present": [
+    "Dark-haired young woman",
+    "Balding bearded man in blue uniform/clothing, addressed as Melmoth",
+    "Older white-haired, white-bearded man identified by dialogue as the woman's father",
+    "At least one guard or armored figure in the background"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an attempted forced courtship or abduction escalating into a confrontation between Melmoth and the woman's father.",
+    "The family relationship revealed here is likely important to the surrounding conflict."
+  ],
+  "dialogue_meaning": [
+    "The bearded man insists his age does not matter and claims intense desire for the woman.",
+    "The woman rejects his language and treatment.",
+    "He says she is ideal for him and talks about marriage in grandiose terms.",
+    "The older man forcefully interrupts and orders the woman to be released.",
+    "He asserts the woman is his daughter and therefore not the attacker's to claim.",
+    "The attacker argues back even while physically overpowered.",
+    "The woman pleads for mercy toward the attacker and asks the older man to let go.",
+    "The attacker tries to reassert authority by summoning guards."
+  ],
+  "image_sha256": "b12e5764e672a0fc56b8fc4e23a0f90e964e3f9416abc2251f26502924cec216",
+  "is_spread": false,
+  "locations": [
+    "Interior metallic chamber or ship room with seats and red drapery/paneling"
+  ],
+  "lore_facts": [
+    "The woman is explicitly identified on this page as the older white-haired man's daughter.",
+    "The bearded man called Melmoth wants to marry the woman immediately.",
+    "Melmoth speaks in extravagant terms about a future marriage, including a 'paleo-wedding'.",
+    "Guards are available nearby or within calling distance in this setting."
+  ],
+  "page_id": "317_The_Metabarons_12_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "A middle-aged or older bearded man aggressively embraces a young woman and professes obsessive romantic desire.",
+    "The woman protests and tries to reject him.",
+    "The man declares that they will marry and frames her as his future wife.",
+    "An older white-haired man intervenes physically to stop the assault.",
+    "The older man identifies the woman as his daughter and tells the attacker to let her go.",
+    "The attacker accuses the older man of being a liar and a mercenary while being choked or restrained.",
+    "The woman begs the older man to calm down and not kill the attacker.",
+    "After being released or escaping the hold, the attacker calls for guards."
+  ],
+  "source_image": "external/comics/meta-barons/317_The_Metabarons_12_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b12e5764e672a0fc56b8fc4e23a0f90e964e3f9416abc2251f26502924cec216",
+      "page_id": "317_The_Metabarons_12_p08",
+      "source_image": "external/comics/meta-barons/317_The_Metabarons_12_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some small dialogue is difficult to read precisely, especially in lower panels; wording may not be exact.",
+    "The exact identity of the young woman is not stated by name on this page.",
+    "The exact nature of the room or vehicle is not explicitly named on this page.",
+    "It is visually implied that the older man is choking or restraining Melmoth, but the exact hold is not fully clear in every panel."
+  ],
+  "visual_summary": "A bearded, balding man in a blue uniform forcibly embraces a dark-haired young woman inside what looks like a ship or metallic chamber. He declares his desire to marry her while she recoils in shock. An older white-haired, white-bearded man intervenes, grabs or chokes the suitor to stop him, and orders him to release her. The young woman pleads for the older man not to kill the attacker. The bearded suitor then calls for guards as the woman kneels nearby.",
+  "volume": 12
+}

@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The man being described has metal feet.",
+    "He occasionally goes outside for recreation.",
+    "He uses a dart gun and chooses to bring back a wounded ape-like creature.",
+    "The narrator is hostile toward irrational organic life and especially its bodily waste."
+  ],
+  "characters_present": [
+    "The narrator",
+    "A man with metal feet",
+    "A wounded ape-like creature",
+    "Other falling ape-like creatures"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page introduces or continues the presence of a rescued ape-like creature brought into the home.",
+    "The narration frames the relationship between the metal-footed man and the disgusted narrator as an ongoing domestic arrangement."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that the man's rare leisure activity is walking outside.",
+    "His metal feet protect him from the flat monsters there.",
+    "Seeing dying apes fall, he deliberately shoots one with a special dart and retrieves it alive but wounded.",
+    "The narrator dislikes the rescued organism because cleaning up after biological creatures is repulsive."
+  ],
+  "image_sha256": "b42fa193277b97c621917c9b70eb769a1009263c10accf608d4da62e0869bcce",
+  "is_spread": false,
+  "locations": [
+    "An exterior biome or wasteland filled with 'flat monsters'",
+    "The home/interior the wounded creature is brought back to"
+  ],
+  "lore_facts": [
+    "There are creatures called 'flat monsters' in the outside environment.",
+    "Metal feet prevent the flat monsters from devouring the walker, at least as stated here.",
+    "Ape-like beings are seen falling in a dying state from above.",
+    "An 'epiphyte-soaked' dart can be used on such a creature.",
+    "Organic creatures are described as leaving waste throughout the living space."
+  ],
+  "page_id": "162_The_Metabarons_6_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "The narrator says the metal-footed man sometimes went outside for recreation.",
+    "The exterior terrain is shown as packed with large organic 'flat monsters' that cannot eat his metal feet.",
+    "The man notices ape-like creatures falling and shoots one with a dart treated with epiphytes.",
+    "The struck creature falls wounded rather than escaping.",
+    "The man brings the wounded creature home.",
+    "The narrator reacts with disgust to having an irrational organic creature in the home because of the waste and filth it creates."
+  ],
+  "source_image": "external/comics/meta-barons/162_The_Metabarons_6_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b42fa193277b97c621917c9b70eb769a1009263c10accf608d4da62e0869bcce",
+      "page_id": "162_The_Metabarons_6_p10",
+      "source_image": "external/comics/meta-barons/162_The_Metabarons_6_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity/names of the narrator, the metal-footed man, and the ape-like creature are not given on this page alone.",
+    "The precise nature of the small vehicle or platform beneath the man is visually ambiguous.",
+    "The text says 'dying apes falling,' but the larger context for why they are falling is not explained here."
+  ],
+  "visual_summary": "A narrated sequence shows a man with metallic lower legs walking through a strange landscape crowded with huge rounded, organic-looking 'flat monsters.' He looks upward as ape-like creatures fall from above, fires a dart gun, and hits one. The wounded creature tumbles down while the man rides or maneuvers a small craft/board below. In the final narrow panel, the rescued small creature is brought back toward a domestic interior, while the narrator complains about the mess living organisms create.",
+  "volume": 6
+}

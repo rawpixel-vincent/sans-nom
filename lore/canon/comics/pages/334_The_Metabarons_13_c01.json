@@ -1,0 +1,45 @@
+{
+  "character_facts": [
+    "The featured woman has dark hair and is portrayed with a serious, unsmiling expression.",
+    "She is shown wearing dark attire, a choker, and is framed beside advanced weaponry or machinery.",
+    "She is likely important to the issue's focus because her name appears in the cover title."
+  ],
+  "characters_present": [
+    "Dona Vicenta (identified by the cover title, exact visual identification implied rather than confirmed in-story)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page establishes the issue identity and foregrounds Dona Vicenta as a central figure for the story."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+  "is_spread": false,
+  "locations": [
+    "Unspecified interior or decorative mechanical setting on the cover background"
+  ],
+  "lore_facts": [
+    "This is issue #13 of The Metabarons.",
+    "The issue/story title presented on the cover is 'The Torment of Dona Vicenta.'",
+    "The cover associates a woman character with the title 'Dona Vicenta.'"
+  ],
+  "page_id": "334_The_Metabarons_13_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No in-story action is depicted; this page functions as the issue cover and title image.",
+    "The cover introduces or identifies the story focus as 'The Torment of Dona Vicenta.'"
+  ],
+  "source_image": "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+      "page_id": "334_The_Metabarons_13_c01",
+      "source_image": "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover rather than a story panel, no explicit narrative event, setting, or dialogue is confirmed on-page.",
+    "The woman's identity is inferred from the cover title and may not be explicitly labeled within the artwork itself."
+  ],
+  "visual_summary": "Comic cover page for The Metabarons issue #13. A dark-haired woman is shown in close-up, seated or posed against an ornate, mechanical-looking background. She wears dark clothing with exposed shoulders and a small choker, and a large futuristic firearm appears along the left side of the image. The cover prominently labels the story as 'The Torment of Dona Vicenta.'",
+  "volume": 13
+}

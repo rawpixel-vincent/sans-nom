@@ -1,0 +1,77 @@
+{
+  "character_facts": [
+    "Janus-Jana is shown as an imperial ruler in elaborate ceremonial or military regalia.",
+    "Aghnar is portrayed in the recap as powerful, feared, aging, and available for hire as a mercenary.",
+    "Aghnar is said to be capable of defeating all existing imperial solutions.",
+    "Steelhead is described as faceless or featureless and capable of extreme psychic or spiritual force.",
+    "Oda/Honoratza is associated with the reveal behind the Techno-Techno ambassador projection."
+  ],
+  "characters_present": [
+    "Janus-Jana",
+    "Aghnar",
+    "Steelhead",
+    "Oda/Honoratza",
+    "Pthagureans",
+    "Purple Endoguards",
+    "Techno-Techno ambassador"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page functions as a 'previously in The Metabarons' summary connecting earlier imperial, mercenary, and Pthagurean plotlines to the coming duel.",
+    "It directly sets up the confrontation between Steelhead and the Metabaron as the next major conflict."
+  ],
+  "dialogue_meaning": [
+    "The prose explains that Aghnar publicly breaks with the Empire and stops serving it.",
+    "It states that Aghnar later accepts a genocidal contract from the Pthagureans against the Empire.",
+    "It explains that the Empire cannot find a conventional way to defeat the Metabaron.",
+    "It reveals that the supposed Techno-Techno envoy is a disguise leading to the presentation of Steelhead as a counterforce.",
+    "It sets up an imminent duel between Steelhead and the Metabaron, with both sides massing spacecraft."
+  ],
+  "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+  "is_spread": false,
+  "locations": [
+    "Imperial Palace",
+    "Anasirma",
+    "Imperial dome"
+  ],
+  "lore_facts": [
+    "Janus-Jana is identified as Emperoress and is associated with the Imperial Palace.",
+    "The Empire has Purple Endoguards.",
+    "Aghnar is referred to as the new Metabaron in the recap.",
+    "Aghnar once served the Empire but later renounced that service.",
+    "Anasirma is identified as Aghnar's natal planet, described here as reduced to its last remains.",
+    "The Pthagureans seek control of the galaxy and are willing to exterminate all life in the Empire to achieve it.",
+    "The Techno-Techno can project or employ holo-images.",
+    "Steelhead is Aghnar's son.",
+    "Steelhead pilots or is associated with a purple Metacraft.",
+    "The Metabaron pilots or is associated with a black Metacraft."
+  ],
+  "page_id": "251_The_Metabarons_10_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recaps earlier story events rather than depicting a new scene.",
+    "At the Imperial Palace, Janus-Jana oversees the arming of Purple Endoguards when Aghnar enters, kills guards, and announces he is ending his service to the Empire.",
+    "Aghnar becomes a mercenary and sells his services to many clients over a span of years.",
+    "In a secret lair on Anasirma, Aghnar notices his own aging while looking in a mirror.",
+    "A delegation of Pthagureans offers Aghnar payment to exterminate all life within the Empire so they can seize the galaxy, and he accepts.",
+    "Panic spreads in the Imperial Palace because no weapon can defeat the Metabaron.",
+    "A Techno-Techno ambassador appears as a holo-image, then reveals Oda/Honoratza and Aghnar's son Steelhead.",
+    "Steelhead demonstrates overwhelming power by reshaping the Imperial dome into a gigantic golden flower.",
+    "Steelhead is chosen as humanity's champion and a duel is arranged between him and the Metabaron, with fleets gathering around their respective Metacraft."
+  ],
+  "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+      "page_id": "251_The_Metabarons_10_ic1",
+      "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several proper names are difficult to read precisely from the image; spellings such as 'Anasirma,' 'Pthagureans,' and 'Oda/Honoratza' may be imperfect.",
+    "The five small circular portraits at the bottom are not labeled on-page, so not every face can be identified with certainty.",
+    "Because this is a recap/credits page, most events are narrated in summary prose rather than shown directly in sequential panels."
+  ],
+  "visual_summary": "A recap and credits page for The Metabarons. The page is dominated by a large painted portrait of Empress Janus-Jana in ornate armor and jewelry, with a decorative sci-fi border and five small circular character portraits along the bottom. The right side contains a prose summary of prior events, and the bottom band contains creator and publication credits.",
+  "volume": 10
+}

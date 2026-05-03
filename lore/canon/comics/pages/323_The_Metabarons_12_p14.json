@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "The materializing figure is humanoid and appears to have metallic or artificial structural elements.",
+    "The technicians are capable of operating specialized machinery related to temporary embodiment or projection."
+  ],
+  "characters_present": [
+    "Two or more armored or suited technicians/operators.",
+    "A humanoid bio-electrogram or artificial being in the process of materializing."
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a technological activation sequence leading to the temporary embodiment of a humanoid figure, implying continuation from a prior setup and leading into whatever interaction follows once the figure is fully formed."
+  ],
+  "dialogue_meaning": [
+    "An operator orders activation of a solidification procedure.",
+    "A system or operator explains that the bio-electrogram can remain solid only for a short maximum time before it dissolves."
+  ],
+  "image_sha256": "d1b0eebd51e13f6de3a25fbb255c113db39c235bb39b064203116f6223d5cc0f",
+  "is_spread": false,
+  "locations": [
+    "A high-tech industrial or spacecraft-like chamber open to or adjacent to outer space.",
+    "An interior laboratory, workshop, or control room with a console used for the materialization process."
+  ],
+  "lore_facts": [
+    "A technology called a solidification program can temporarily make a bio-electrogram physically solid.",
+    "A bio-electrogram is treated as something that can exist in both non-solid and solid states.",
+    "The solid state has a strict time limit of about 5 minutes and 6 seconds before dissolution.",
+    "The materialization process is performed with advanced machinery and monitored by technicians.",
+    "The resulting form can take on a humanoid, partly mechanical appearance."
+  ],
+  "page_id": "323_The_Metabarons_12_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A small geometric object is isolated or targeted within circular machinery or fields.",
+    "A bright containment or solidification effect forms around the object in a space-facing mechanical setting.",
+    "Technicians activate a 'solidification' program.",
+    "A system announces that the bio-electrogram has a limited duration in solid form before dissolving.",
+    "On a work surface, the projected or constructed humanoid form begins materializing.",
+    "The humanoid head progresses from a luminous schematic state to a solid, human-like mechanical face."
+  ],
+  "source_image": "external/comics/meta-barons/323_The_Metabarons_12_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d1b0eebd51e13f6de3a25fbb255c113db39c235bb39b064203116f6223d5cc0f",
+      "page_id": "323_The_Metabarons_12_p14",
+      "source_image": "external/comics/meta-barons/323_The_Metabarons_12_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the materializing humanoid is not stated on this page.",
+    "The small geometric object shown in the upper panels may be the same entity or a component of the process, but the page alone does not confirm this.",
+    "Some dialogue is small and partially hard to read; the time limit appears to be approximately 5:09.06, but the exact punctuation or formatting may be uncertain.",
+    "The exact setting name, ship, or installation is not identified on the page."
+  ],
+  "visual_summary": "A small geometric object is shown suspended within concentric circular fields, then enclosed by a bright energy lattice or containment effect against a starry space backdrop and large mechanical structures. In an interior lab or ship workspace, bulky armored technicians oversee a glowing holographic or bio-electronic construct laid out on a console. Over three lower panels, a humanoid head progressively solidifies from a luminous wireframe-like form into a reflective metallic face and finally a more fully defined human-like visage with mechanical ear components.",
+  "volume": 12
+}

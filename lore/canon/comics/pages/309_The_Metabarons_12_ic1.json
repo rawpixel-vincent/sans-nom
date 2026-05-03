@@ -1,0 +1,84 @@
+{
+  "character_facts": [
+    "Steelhead is honored with the Medallion of Hight Nobility.",
+    "Steelhead is accused of murdering Dona Vicenta's father, exterminating millions of Dylvaks, and vaporizing the Halerce tree.",
+    "Steelhead seeks to learn love after Dona Vicenta's denunciation.",
+    "Dona Vicenta is the daughter of the man Steelhead killed, according to the recap.",
+    "Dona Vicenta is prepared to oppose Steelhead publicly and then commit suicide.",
+    "Zaran Krleza is the last poet and survives as a bodiless head.",
+    "Melmoth is the new personality produced from the merger of Steelhead with other elements associated with poet and warrior identities.",
+    "Melmoth loves Dona Vicenta and tries to atone for Steelhead's actions."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Dona Vicenta",
+    "Zaran Krleza",
+    "Melmoth",
+    "Endo-robots",
+    "elderly bearded figure in the left illustration (identity not explicitly labeled on the page)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is explicitly a 'Previously' recap summarizing events before the current issue's main story.",
+    "It links Steelhead's public honor, Dona Vicenta's accusation, the quest to learn love, the meeting with Zaran Krleza, and the creation of Melmoth into a single prior arc.",
+    "The bottom credits and character portraits indicate this is an introductory recap/credit page rather than a standard story page."
+  ],
+  "dialogue_meaning": [
+    "Dona Vicenta condemns Steelhead's past atrocities and rejects his public honor.",
+    "She argues that a being lacking a human brain cannot truly know love.",
+    "The recap frames Steelhead's quest as an attempt to learn love through Zaran Krleza.",
+    "Melmoth's later words to Dona Vicenta are presented as poetic and seductive, but the relationship is shattered when his identity is understood.",
+    "Melmoth's final gesture is self-sacrificial, offering his life to Dona Vicenta."
+  ],
+  "image_sha256": "1ce5fbd6b10234982cbe92656f03283f16824f3ac79e491610df1c18a10ae21c",
+  "is_spread": false,
+  "locations": [
+    "Philodendra",
+    "Zaran's fortress/stronghold",
+    "an award setting where Steelhead receives the Medallion of Hight Nobility"
+  ],
+  "lore_facts": [
+    "The Medallion of Hight Nobility is an honor bestowed in this setting.",
+    "The Dylvaks are a people or population said here to have suffered mass extermination.",
+    "The Halerce tree is treated as an ancient and important living entity; one is described as 250,000 years old.",
+    "A machine without a human brain is presented as distinct from a fully human being in this world.",
+    "Ancient texts on love exist but are insufficient for Steelhead's understanding.",
+    "Zaran Krleza is known as the last poet.",
+    "Zaran has existed for about 5,000 years as only a preserved head.",
+    "Endo-robots can perform a delicate personality/body integration, merging multiple identities into one.",
+    "The merged identity names itself Melmoth.",
+    "Philodendra is the world or place where the Halerce tree is restored."
+  ],
+  "page_id": "309_The_Metabarons_12_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recaps that Steelhead receives the Medallion of Hight Nobility.",
+    "Dona Vicenta publicly accuses Steelhead of killing her father, exterminating millions of Dylvaks, and destroying an ancient Halerce tree.",
+    "Dona Vicenta declares her opposition to the honor and intends to kill herself afterward so Steelhead cannot keep the award.",
+    "Her criticism includes that a machine without a human brain cannot know true love, prompting Steelhead to seek someone who can teach him love.",
+    "Steelhead studies old writings about love but fails to understand it.",
+    "He finds the image of Zaran Krleza, identified as the last poet, and tracks him down.",
+    "Steelhead crosses deadly hazards to reach Zaran and undergoes a trial requiring him to abandon his powers to enter the poet's stronghold.",
+    "Steelhead discovers Zaran survives only as a 5,000-year-old head that has long sacrificed its body.",
+    "Zaran wants Steelhead's body, and Steelhead accepts.",
+    "Steelhead, the poet, and warrior elements are merged by Endo-robots into a new personality called Melmoth.",
+    "Melmoth falls in love with Dona Vicenta and tries to repair Steelhead's wrongs.",
+    "He restores the Halerce tree on Philodendra and speaks to Dona Vicenta with the poet's words, moving and seducing her.",
+    "When Dona Vicenta realizes the man she loves is also her father's murderer, Melmoth offers her his life."
+  ],
+  "source_image": "external/comics/meta-barons/309_The_Metabarons_12_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1ce5fbd6b10234982cbe92656f03283f16824f3ac79e491610df1c18a10ae21c",
+      "page_id": "309_The_Metabarons_12_ic1",
+      "source_image": "external/comics/meta-barons/309_The_Metabarons_12_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The identity of the large bearded figure in the left-side illustration is not explicitly labeled on this page.",
+    "Some small-print credits and fine details in the lower section are difficult to read at this resolution, though the main recap text is legible.",
+    "The exact name/spelling of some terms, especially 'Hight Nobility,' is taken from the visible text and may reflect stylized or imperfect print reproduction."
+  ],
+  "visual_summary": "A recap/credits page headed 'The Metabarons' and 'Previously, in The Metabarons.' On the left is a painted portrait of an elderly, long-haired, long-bearded figure in dark robes with mechanical apparatus in front of him. On the right, dense recap text summarizes the prior storyline. Along the bottom are small circular character portraits and publication credits.",
+  "volume": 12
+}

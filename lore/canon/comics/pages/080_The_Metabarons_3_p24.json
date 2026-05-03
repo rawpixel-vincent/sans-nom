@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Baron von Salza is status-conscious and insists on respect tied to both military recognition and nobility.",
+    "Baron von Salza is assigned to the rear of an escort formation rather than its head.",
+    "He is ambitious and frustrated by the possibility that others will receive public credit.",
+    "The opposing personnel are insubordinate in tone toward him but still clearly control or relay his tactical assignment."
+  ],
+  "characters_present": [
+    "Baron von Salza, a helmeted pilot in a small craft",
+    "Unidentified command or escort personnel speaking to him over comms, including at least one visible armored/helmeted crew member"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing space operation involving an escort mission and pirate-related conflict.",
+    "Baron von Salza's grievance centers on recognition and battlefield prestige, suggesting an established hierarchy and prior action before this moment."
+  ],
+  "dialogue_meaning": [
+    "The pilot believes his honors and rank should entitle him to better treatment and a more prestigious position.",
+    "The responding personnel dismiss his arrogance and imply he is unfit for a leading role.",
+    "They enforce military discipline by ordering him to stay in the rear assignment.",
+    "The pilot internally resents that others may receive praise for suppressing pirates and wants to prove his own worth.",
+    "He outwardly complies with the command to take position."
+  ],
+  "image_sha256": "97d1ab2028395e63dde8372fbe2edf82ea7fded5269d053ddc5603565d623268",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "Inside Baron von Salza's cockpit",
+    "Inside another spacecraft or command compartment",
+    "Around a large angular spacecraft or space structure accompanied by escort fighters"
+  ],
+  "lore_facts": [
+    "An imperial commendation is treated as a meaningful mark of status in this setting.",
+    "Baron is a recognized noble title within the social or imperial order shown here.",
+    "The group is operating as an escort formation in space.",
+    "Pirates have recently been or are being confronted, and their surrender is a point of discussion among the characters.",
+    "'Paleo-devil' is used here as an in-world expletive or curse."
+  ],
+  "page_id": "080_The_Metabarons_3_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "A pilot protests his placement at the rear of the formation and demands more respect based on an imperial commendation and his noble title.",
+    "Crew or command personnel aboard another craft ridicule his claim to status and refuse to move him to the front of the escort.",
+    "The pilot is told to take the rear position or leave for the 'paleo-devil.'",
+    "Angered, the pilot thinks that others are unfairly taking credit for defeating pirates and vows to show what Baron von Salza is made of.",
+    "He finally acknowledges the order and says he will maneuver into position.",
+    "The final panels show a large space vessel/object escorted by numerous smaller fighters in formation."
+  ],
+  "source_image": "external/comics/meta-barons/080_The_Metabarons_3_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "97d1ab2028395e63dde8372fbe2edf82ea7fded5269d053ddc5603565d623268",
+      "page_id": "080_The_Metabarons_3_p24",
+      "source_image": "external/comics/meta-barons/080_The_Metabarons_3_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity, ranks, and number of the personnel speaking back to Baron von Salza are not fully clear from the page alone.",
+    "The large dark triangular object and adjacent pale structure in the final wide panel are visually clear as major spacecraft/structures, but their exact names or functions are not given on this page.",
+    "Some dialogue is stylized and could be slightly misread, but the overall exchange and meaning are clear."
+  ],
+  "visual_summary": "A helmeted pilot in a small spacecraft argues over radio about being placed at the rear of an escort formation. Other soldiers inside a transport/mock cockpit mock him and order him to take the assigned rear position or go to the 'paleo-devil.' The page ends with wide shots of a large angular capital ship or structure in space surrounded by many smaller red fighters as the pilot acknowledges the order and moves into formation.",
+  "volume": 3
+}

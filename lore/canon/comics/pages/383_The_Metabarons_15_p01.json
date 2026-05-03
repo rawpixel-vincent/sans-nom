@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The central machine/entity is sentient or remotely voiced, since it speaks for itself.",
+    "Lothar is someone who can be ordered to trigger or manage an attack.",
+    "Tonto is someone who reports activation of the hyper-infrasound system.",
+    "The attacking creatures are aggressive and organized enough to use named tactics and commands."
+  ],
+  "characters_present": [
+    "A speaking geometric machine, vessel, or structure at the center of the page",
+    "Large reptilian ground creatures surrounding the structure",
+    "Flying manta- or bird-like creatures above the structure",
+    "Lothar, addressed by name in dialogue but not visually distinguished",
+    "Tonto, addressed by name in dialogue but not visually distinguished"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page opens in the middle of a confrontation, suggesting the metallic structure has just arrived or crashed before this moment.",
+    "The final panel escalates the conflict immediately by showing the attack being carried out."
+  ],
+  "dialogue_meaning": [
+    "The central metallic entity protests that the surrounding organisms should not eat it.",
+    "The attacking creatures describe their targets as stubborn and order a hyper-infrasound attack.",
+    "One attacker expresses hostility toward the flying creatures and calls for punishment.",
+    "A subordinate confirms that the hyper-infrasound has been activated."
+  ],
+  "image_sha256": "02f945844518ea741a6ae9b7976cbed103aa6b6878d6e2522111b25478dd1917",
+  "is_spread": false,
+  "locations": [
+    "An open rocky or dusty exterior landscape",
+    "The crash or landing site of the central metallic structure",
+    "Airspace above the landing site filled with flying creatures"
+  ],
+  "lore_facts": [
+    "At least some nonhuman or beast-like characters can speak and coordinate attacks.",
+    "A technology or weapon called hyper-infrasound exists in this setting.",
+    "The central metallic entity is capable of speech.",
+    "The page depicts a world inhabited by large reptilian and flying fauna hostile to the newcomer."
+  ],
+  "page_id": "383_The_Metabarons_15_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "A geometric metallic structure or craft descends or impacts onto a hostile landscape.",
+    "Surrounding creatures converge on the newcomer from the air and ground.",
+    "The central machine/entity speaks defensively, indicating the creatures are trying to eat it.",
+    "The attacking side discusses using a hyper-infrasound attack.",
+    "A subordinate activates the attack, and the lower panel shows a violent blast or impact around the landed structure."
+  ],
+  "source_image": "external/comics/meta-barons/383_The_Metabarons_15_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "02f945844518ea741a6ae9b7976cbed103aa6b6878d6e2522111b25478dd1917",
+      "page_id": "383_The_Metabarons_15_p01",
+      "source_image": "external/comics/meta-barons/383_The_Metabarons_15_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear whether the central object is a spacecraft, a robot, a building-like machine, or another type of device.",
+    "Some dialogue is partially hard to read, especially the exact insult/species terms used by the attackers.",
+    "It is unclear which visible creature is speaking each balloon.",
+    "The exact effect shown in the lower panel may be an explosion, a sonic discharge, or impact debris rather than a conventional blast."
+  ],
+  "visual_summary": "A large faceted metallic structure or vessel has come down amid smoke and dust on a barren landscape. It is surrounded by multiple animal-like creatures: large reptilian beasts on the ground and manta- or bird-like fliers overhead. A speech balloon from the central machine/entity rejects the creatures as food. In the lower panel, the scene erupts into a bright explosive or sonic impact as the surrounding creatures attack, with dialogue indicating a hyper-infrasound weapon has been activated.",
+  "volume": 15
+}

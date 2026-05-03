@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The central figure is trusted or tasked with performing the key interaction with the glowing object.",
+    "The central figure wears armor and a forehead circlet/headband, visually marking them as distinct from the others.",
+    "The central figure appears physically affected by the procedure, ending the page unconscious, injured, or severely weakened.",
+    "The surrounding figures appear to assist with positioning, hauling, or stabilizing the massive cube."
+  ],
+  "characters_present": [
+    "A central armored figure with a headband/circlet who manipulates the glowing orb",
+    "Several attendants or companions gathered around the giant cube",
+    "A figure in the final panel reaching toward the collapsed central character"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the culmination of a procedure involving a giant cube and a glowing orb-like object, suggesting continuation from prior setup and leading into the aftermath of the central figure's collapse."
+  ],
+  "dialogue_meaning": [
+    "No clearly legible dialogue is visible in the provided image; the page reads primarily as a silent action sequence focused on activating or interacting with the giant cube."
+  ],
+  "image_sha256": "fb4026ad73f5f04f59cb9a9e44a0f0c9e5a30eba33d5b75b8d41e1f2ce3ad19c",
+  "is_spread": false,
+  "locations": [
+    "A rocky open area or excavation-like site",
+    "On top of and around a gigantic pale-blue cube or monolithic block"
+  ],
+  "lore_facts": [
+    "A small glowing orb or pearl-like object is important enough to be stored in a dedicated container and manipulated carefully.",
+    "The giant cube/monolith appears to respond when the glowing object is applied or brought close to it.",
+    "The activation or interaction is associated with cables, scale-intensive handling, and a dramatic environmental or energy effect.",
+    "Using the object seems dangerous or exhausting, as the operator collapses immediately afterward."
+  ],
+  "page_id": "017_The_Metabarons_1_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "A group is positioned around a gigantic rectangular/cuboid structure in a rocky area.",
+    "The lead armored figure handles a small device or container and extracts a glowing orb from it.",
+    "The glowing orb is brought into contact with or very near the larger structure.",
+    "After the orb is used, the giant cube is shown elevated or suspended above the ground with cables trailing from it.",
+    "The lead figure collapses onto the rubble afterward, implying the action had a severe physical cost or immediate consequence.",
+    "Another nearby figure reaches toward the fallen person at the end of the page."
+  ],
+  "source_image": "external/comics/meta-barons/017_The_Metabarons_1_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fb4026ad73f5f04f59cb9a9e44a0f0c9e5a30eba33d5b75b8d41e1f2ce3ad19c",
+      "page_id": "017_The_Metabarons_1_p15",
+      "source_image": "external/comics/meta-barons/017_The_Metabarons_1_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No readable text is discernible in the image, so any spoken context, names, or explicit explanations cannot be recovered from this page alone.",
+    "It is unclear whether the cube is being raised, lowered, unlocked, or otherwise transformed; only that its state changes after the orb is used.",
+    "It is unclear whether the central figure is dead, unconscious, injured, or simply exhausted in the final panel.",
+    "Character identities and the exact function of the glowing orb cannot be confirmed from this page alone."
+  ],
+  "visual_summary": "An armored, headbanded figure kneels or crouches on top of a massive pale-blue cuboid structure while other small figures stand below on rocky ground. In a sequence of close-ups, the central figure opens or manipulates a small container and removes a glowing orb or pearl-like object with two fingers. The orb is lowered toward the large cube, after which the huge block appears suspended or rising with cables hanging from it and swirling energy-like forms in the background. In the final wide panel at the bottom, the armored figure lies collapsed face-down among rubble while another figure reaches toward them.",
+  "volume": 1
+}

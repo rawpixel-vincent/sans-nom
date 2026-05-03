@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "The mechanized male subject is driven by grief over lost love and seeks to purge that pain through bodily transformation.",
+    "He is authoritative, harsh, and determined to eliminate emotional vulnerability by replacing his heart.",
+    "Robidiot is a subordinate robot assisting with the organ replacement procedure.",
+    "Aghora is specifically named as undergoing the final trial of initiation at age sixteen."
+  ],
+  "characters_present": [
+    "A mechanized male patient/master undergoing full-body replacement",
+    "A small robotic assistant addressed as Robidiot",
+    "Another robot or mechanical subordinate who makes an emotional-sounding remark",
+    "Aghora (named in narration, likely one of the two armored figures in the final panel)",
+    "A second armored figure facing Aghora in the final panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page connects an origin-like cybernetic transformation to the broader lineage or title of the Metabarons.",
+    "The final narration transitions from the surgery scene to Aghora's rite of passage, suggesting a shift to the next stage of the family/tradition narrative."
+  ],
+  "dialogue_meaning": [
+    "The narration frames the body replacement as a response to overwhelming grief from lost love.",
+    "The assistant confirms that major internal organs have already been substituted with artificial components.",
+    "The central figure insists the heart must also be removed because it still carries attachment to a woman named Dona Vicenta.",
+    "The replacement heart is explicitly described as an unemotional mechanical pump, showing a desire to eradicate feeling.",
+    "The exchange about condensation or oil presents the robots as imitating emotion while being denied true human sentiment.",
+    "The closing narration links this personal transformation sequence to the larger rite involving Aghora's initiation."
+  ],
+  "image_sha256": "767be642c85e77de53a61dc2a5a2ee5c43e06b7cd955b4e04c5483e540d675f6",
+  "is_spread": false,
+  "locations": [
+    "A surgical or reconstruction chamber with an operating table",
+    "A stark interior hall or trial chamber in the final panel"
+  ],
+  "lore_facts": [
+    "The setting includes advanced surgical technology capable of replacing flesh, bones, and organs with a flexible metal called Storlon.",
+    "A person can become extensively cybernetic while retaining a recognizable personal identity or status as 'master.'",
+    "Dona Vicenta is identified as the lost love associated with the subject's grief.",
+    "Castaka tradition requires a final initiation trial on Aghora's sixteenth birthday.",
+    "The term 'Metabaron' is used as a status or role that someone may prove worthy of becoming."
+  ],
+  "page_id": "396_The_Metabarons_15_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "Narration states that a man devastated by lost love replaces his flesh, bones, and internal organs with flexible metal.",
+    "During surgery or reconstruction, a robotic assistant lists organs that have already been replaced.",
+    "The patient or commanding figure interrupts and demands that the heart be removed and replaced with a mechanical pump so no trace of former love remains.",
+    "A second robot comments sentimentally, and the commanding figure mocks that reaction as mechanical malfunction rather than real emotion.",
+    "The page ends with narration announcing that Aghora, on her sixteenth birthday, must face the final trial of her initiation."
+  ],
+  "source_image": "external/comics/meta-barons/396_The_Metabarons_15_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "767be642c85e77de53a61dc2a5a2ee5c43e06b7cd955b4e04c5483e540d675f6",
+      "page_id": "396_The_Metabarons_15_p14",
+      "source_image": "external/comics/meta-barons/396_The_Metabarons_15_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, especially the exact wording of the robots' exchange.",
+    "The identity of the mechanized patient/master is not explicitly named on this page.",
+    "The exact identities of the two armored figures in the final panel are not fully confirmed visually, though Aghora is named in narration."
+  ],
+  "visual_summary": "A heavily mechanized patient lies on an operating table while a small robot/assistant reports replaced organs and a larger armored figure angrily directs the procedure. Close-up mechanical details emphasize the cyborg body. In the final panel, two armored figures stand in a stark chamber as narration shifts to Aghora's coming initiation trial.",
+  "volume": 15
+}

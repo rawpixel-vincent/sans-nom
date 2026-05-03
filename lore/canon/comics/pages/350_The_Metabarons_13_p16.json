@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "A high-status figure is being addressed as an 'eminence.'",
+    "The Immaculate Techno-Cardinal speaks in overtly ritualistic, ideological terms.",
+    "The Technobishops are presented as followers or attendants who respond in agreement."
+  ],
+  "characters_present": [
+    "An unnamed speaker addressing an 'eminence'",
+    "Technobishops",
+    "An Immaculate Techno-Cardinal"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the arrival or protected passage of a religious-technological delegation.",
+    "The page reinforces the fusion of ecclesiastical hierarchy and advanced technology in this setting."
+  ],
+  "dialogue_meaning": [
+    "A subordinate announces that defensive protection is now active for a high-ranking leader.",
+    "A senior religious-technological figure declares that visiting this planet/system is a sacred act done in the name of the Holy Technocru...",
+    "Another religious figure affirms the declaration with a devotional response to the Techno-Cardinal."
+  ],
+  "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+  "is_spread": false,
+  "locations": [
+    "A futuristic planetary cityscape",
+    "Beneath a gigantic overhead structure or enclosed superstructure",
+    "A monumental religious or administrative complex within the city"
+  ],
+  "lore_facts": [
+    "There exists a rank or title called 'Immaculate Techno-Cardinal.'",
+    "There are figures identified as Technobishops.",
+    "The setting includes religious-technological institutions and terminology, including a 'Holy Technocru...' name that is partially legible.",
+    "A protective shield can be activated over or around this location or procession.",
+    "The planet or system being visited is described by the speakers as filthy, indicating contempt from the visitors' perspective."
+  ],
+  "page_id": "350_The_Metabarons_13_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "An attendant reports that a protective shield has been activated for a superior figure.",
+    "A vast protective or energy effect spreads across the sky above a futuristic city.",
+    "A large craft or procession travels beneath an immense overhead structure.",
+    "Religious-technological authorities frame their journey to the planet/system as a holy pilgrimage and sacrifice."
+  ],
+  "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+      "page_id": "350_The_Metabarons_13_p16",
+      "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; the phrase naming the 'Holy Technocru...' appears partially obscured or too small to confirm exactly.",
+    "The exact identity of the 'eminence' is not shown on this page.",
+    "The exact nature of the huge overhead structure and the moving object beneath it is visually suggestive but not explicitly labeled on the page."
+  ],
+  "visual_summary": "A massive cityscape sits beneath an enormous overhead structure. Bright, sweeping energy or atmospheric streaks fill the sky as a protective field is activated. A long vessel or platform moves across the scene below the giant ceiling-like structure. In the bottom panel, a monumental urban complex with towers and crowds is shown while religious-technological leaders speak about their arrival as a sacred pilgrimage and sacrifice.",
+  "volume": 13
+}

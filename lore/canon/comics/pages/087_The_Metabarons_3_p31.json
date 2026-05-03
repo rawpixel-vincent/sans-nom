@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The white-haired woman is presented as mysterious and possibly supernatural through her glowing-eyed close-up and the accusation against her.",
+    "The armed man is addressed as 'master,' indicating authority over at least one subordinate present.",
+    "The female warning character is loyal enough to physically intervene and urge lethal action.",
+    "The attendants in the background appear frightened and physically submissive during the confrontation."
+  ],
+  "characters_present": [
+    "White-haired woman in a shimmering dress, likely the focus of the next episode",
+    "Armed male 'master' confronting her",
+    "Female subordinate or servant who warns the master",
+    "Several frightened background attendants or captives"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The closing teaser directly links this scene to the next episode, 'Honorata, The Sorceress.'",
+    "The page ends on an unresolved threat, implying immediate continuation from this confrontation."
+  ],
+  "dialogue_meaning": [
+    "The warning identifies the white-haired woman as one of the 'Shabda-Ouds' and frames that group as witches.",
+    "The subordinate believes the woman is dangerous and presses the master to act without hesitation.",
+    "The armed man does not speak on this page, but his physical response shows he takes the warning seriously enough to threaten the woman with his blade."
+  ],
+  "image_sha256": "9631c1a5df8d5de529ba7a127732e591d4aa9676f9f1661e14f3eb58646e357d",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber or hall with no detailed background visible"
+  ],
+  "lore_facts": [
+    "There is a group or category called the 'Shabda-Ouds.'",
+    "Within this speaker's worldview, Shabda-Ouds are considered witches.",
+    "The title teaser identifies an upcoming figure or chapter as 'Honorata, The Sorceress.'"
+  ],
+  "page_id": "087_The_Metabarons_3_p31",
+  "page_label": "p31",
+  "plot_events": [
+    "A white-haired woman is revealed in a series of dramatic close-ups.",
+    "An armed man steps close to her and faces her directly.",
+    "Several background women cower behind or beside the armed man during the confrontation.",
+    "A female subordinate throws herself forward and warns her master that the newcomer belongs to a witch-like group called the Shabda-Ouds.",
+    "The subordinate urges immediate violence against the white-haired woman.",
+    "The armed man brings a blade to the white-haired woman's throat, ending the page on a threat of execution or attack.",
+    "A teaser announces that the next episode centers on 'Honorata, The Sorceress.'"
+  ],
+  "source_image": "external/comics/meta-barons/087_The_Metabarons_3_p31.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9631c1a5df8d5de529ba7a127732e591d4aa9676f9f1661e14f3eb58646e357d",
+      "page_id": "087_The_Metabarons_3_p31",
+      "source_image": "external/comics/meta-barons/087_The_Metabarons_3_p31.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the white-haired woman is not explicitly stated in-panel; she is only indirectly linked to 'Honorata' by the next-episode teaser.",
+    "The exact spelling and meaning of 'Shabda-Ouds' may be uncertain because it is read from a small speech balloon.",
+    "The setting is visually sparse, so the precise location cannot be determined from this page alone.",
+    "It is unclear whether the final blade contact is an execution, a restraint, or the start of an attack, since the action cuts off immediately."
+  ],
+  "visual_summary": "A pale, white-haired woman in a shimmering dress appears before a heavily built armed man. The page alternates between close-ups of their faces and wider shots showing the man confronting her while several frightened attendants crouch behind him. A subordinate woman lunges in and warns her master that all 'Shabda-Ouds' are witches, then urges him to kill the newcomer immediately. In the final panel, the armed man presses or swings a sword-like blade across the white-haired woman's throat as the scene cuts on a cliffhanger.",
+  "volume": 3
+}

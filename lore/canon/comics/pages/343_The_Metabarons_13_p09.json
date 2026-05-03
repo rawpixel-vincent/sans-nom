@@ -1,0 +1,77 @@
+{
+  "character_facts": [
+    "The robot narrator speaks in first person and presents himself as directly involved in events.",
+    "The narrator claims to have been present during the events concerning the blind girl.",
+    "Doña Vicenta Gabriela de Rokha is associated here with blindness and later surgical restoration or enhancement of sight.",
+    "Melmoth is publicly acclaimed as a hero and elevated in rank.",
+    "Melmoth internally distrusts those honoring him."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "The robot narrator",
+    "Doña Vicenta Gabriela de Rokha",
+    "Ant-robots",
+    "Ceremonial officials of the Galactic Union",
+    "An empress or imperial representative shown in the ceremony imagery",
+    "Crowd/audience members",
+    "A large damaged or organic-mechanical figure in the opening panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narrator is explicitly continuing an earlier story thread after being interrupted or dirtied.",
+    "The 'poor little blind girl' is treated as someone already introduced earlier.",
+    "The award ceremony is presented as a later stage in the narrator's account of his master's rise."
+  ],
+  "dialogue_meaning": [
+    "The opening exchange conveys crude mockery and anger between non-human figures.",
+    "The narrator comments with disgust about biological bodily functions while noting that ant-robots have cleaned him.",
+    "Another speaker asks about the fate of a blind girl, prompting the next part of the story.",
+    "The narration explains that Doña Vicenta Gabriela de Rokha received advanced robotic eyes.",
+    "The ceremony proclaims Melmoth the galaxy's greatest warrior and grants him noble honors.",
+    "Melmoth's thought reveals he sees the public honor as hypocrisy and expects betrayal."
+  ],
+  "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+  "is_spread": false,
+  "locations": [
+    "A place where the narrator is being cleaned",
+    "The microsurgery room",
+    "The imperial palace",
+    "The golden planet",
+    "A ceremonial hall or throne room"
+  ],
+  "lore_facts": [
+    "Ant-robots exist and can perform cleaning tasks.",
+    "Advanced microsurgery can implant or fit robotic eyes.",
+    "Doña Vicenta Gabriela de Rokha received 'vento-robotic' eyes.",
+    "There is an office or rank called Supreme Metabaron.",
+    "The Galactic Union can bestow titles and noble medallions.",
+    "There is an imperial palace located on a golden planet.",
+    "The setting includes empresses tied to the Galactic Union's authority or ceremony."
+  ],
+  "page_id": "343_The_Metabarons_13_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "The narrator is cleaned by ant-robots and resumes the story.",
+    "A question is raised about what happened to the 'poor little blind girl.'",
+    "The narrator says Doña Vicenta Gabriela de Rokha was fitted with remarkable robotic eyes in a microsurgery room.",
+    "The page cuts to a formal ceremony in an imperial palace on a golden planet.",
+    "Melmoth is awarded the title of Supreme Metabaron and given a medallion of high nobility by unanimous vote.",
+    "The crowd celebrates Melmoth, while his internal reaction suggests suspicion and resentment toward the honor."
+  ],
+  "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+      "page_id": "343_The_Metabarons_13_p09",
+      "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely, especially the opening insult and parts of the technical description of the eyes.",
+    "It is not fully certain from this page alone whether the blind girl and Doña Vicenta Gabriela de Rokha are the same person, though the sequence strongly suggests it.",
+    "The exact identity of the ceremonial figure shown in the inset portrait is unclear from this page alone.",
+    "The exact spelling or meaning of 'vento-robotic' may be uncertain due to image legibility."
+  ],
+  "visual_summary": "A small robot narrator resumes speaking after being cleaned by tiny ant-like robots. The page first shows bickering between mechanical/biological-looking figures, then shifts to a surgical scene where a covered patient is operated on by articulated instruments while a robot observes. The final large scene is a ceremonial hall in a golden imperial palace, where Melmoth is publicly honored before a crowd while he privately distrusts the praise.",
+  "volume": 13
+}

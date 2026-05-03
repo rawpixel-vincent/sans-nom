@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Deyanira is the target of the crowd's aggression on this page.",
+    "Deyanira is presented as defiant despite being surrounded and threatened.",
+    "The crowd is collectively sadistic, mocking, and willing to use sexual violence as domination.",
+    "A central shouting face appears to be the one asserting that the soul cannot be exposed, indicating resistance or pride under assault."
+  ],
+  "characters_present": [
+    "Deyanira",
+    "A speaker addressed as 'Metabaron' or 'Metabaroni' in the crowd's taunts",
+    "A hostile crowd of armored/masked people or soldiers",
+    "A large creature or mount near the center of the scene",
+    "A beast-like head shown in the lower center-right panel",
+    "Possible victims or bystanders in the final blood-splashed panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on the revelation or acknowledgment that Deyanira is a woman, implying this was newly exposed or contested just before this scene.",
+    "The final bloody interruption suggests an immediate escalation that likely continues onto the next page."
+  ],
+  "dialogue_meaning": [
+    "The crowd jeers that Deyanira is a woman and treats this as shameful or absurd.",
+    "The mob openly threatens sexual assault and demands that her body be exposed for proof or humiliation.",
+    "The attackers speak with contempt, calling her degrading names and enjoying her vulnerability.",
+    "A defiant voice says the attackers are fools and claims that bodily exposure cannot reveal or conquer the soul.",
+    "The final moments include predatory sound effects and cries for help, signaling sudden violence and panic."
+  ],
+  "image_sha256": "177a9aa081517f30efdec7d016ac3c38d5aa55c6742b3dd708534d643eb56b6c",
+  "is_spread": false,
+  "locations": [
+    "A crowded interior or arena-like chamber with bright yellow lighting",
+    "A public platform or central space where Deyanira is surrounded"
+  ],
+  "lore_facts": [
+    "This setting includes a brutal crowd culture in which public humiliation and sexualized violence are used as threats.",
+    "Deyanira is identified on-page as female.",
+    "The name 'Metabaron' or a close variant is used by the mob when addressing or mocking the central figure.",
+    "Large nonhuman creatures are present alongside the armored crowd in this environment."
+  ],
+  "page_id": "409_The_Metabarons_16_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A hostile crowd realizes Deyanira is a woman and begins ridiculing her.",
+    "Multiple attackers threaten to strip and rape Deyanira in public.",
+    "Deyanira is physically overwhelmed or forced down amid the crowd.",
+    "A speaker identified in dialogue as Metabaron rejects the mob's humiliation and insists they cannot truly violate the inner self.",
+    "A creature or beast suddenly acts in the final sequence, followed by blood, broken fragments, and cries for help."
+  ],
+  "source_image": "external/comics/meta-barons/409_The_Metabarons_16_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "177a9aa081517f30efdec7d016ac3c38d5aa55c6742b3dd708534d643eb56b6c",
+      "page_id": "409_The_Metabarons_16_p03",
+      "source_image": "external/comics/meta-barons/409_The_Metabarons_16_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; the exact spelling and attribution of 'Metabaron/Metabaroni' may be uncertain.",
+    "It is not fully clear whether the defiant speech is spoken by Deyanira, the Metabaron, or another central figure.",
+    "The exact identity of the creature in the 'slurp' panel and the victim in the final panel are unclear.",
+    "The precise nature of the location is not named on the page and is inferred only from the visuals."
+  ],
+  "visual_summary": "A crowd of armored and masked figures surrounds Deyanira and a large insectoid or reptilian mount/creature in a bright, enclosed arena-like setting. The mob mocks her after learning she is a woman and threatens sexual violence. Close-ups emphasize jeering faces and aggressive gestures. In the lower panels, Deyanira is knocked down or overwhelmed while the crowd shouts. A large face declares that even if her body is exposed, her inner self will remain unseen. A creature head appears with a 'slurp' sound effect, followed by a narrow panel showing blood and shattered fragments as someone off-panel cries for help.",
+  "volume": 16
+}

@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Tonto and Lothar are in conversation on this page.",
+    "Lothar is the one addressed when the claim is made that Steelhead had only one child, a little girl.",
+    "Tonto appears to be the more knowledgeable speaker, withholding the full explanation until later.",
+    "One of the speakers is highly impatient and threatens violence over unanswered questions.",
+    "Steelhead is characterized by one speaker as having acted for love when he saved the girl."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Lothar",
+    "Steelhead (discussed, not seen)",
+    "the current Metabaron (discussed, not seen)",
+    "an unnamed little girl/daughter of Steelhead (discussed, not seen)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explicitly continues an ongoing explanation about the survival of the Metabaron/Castaka line.",
+    "The ending banner announces that the answer will continue in the next episode, titled 'Aghora, The Father-Mother...'."
+  ],
+  "dialogue_meaning": [
+    "The speakers debate Steelhead's motive for saving a girl; one interprets it as love.",
+    "They reject the assumption that Steelhead continued the male line with another woman.",
+    "They state that Steelhead's only child was a little girl.",
+    "One speaker wants to know how the Castaka/Metabaron lineage continued despite the father-to-son tradition.",
+    "The other postpones the explanation because they are compelled to prepare their master's breakfast.",
+    "The speakers believe the returning Metabaron does not know where they are, but they still continue their assigned task due to robotic laws or programming.",
+    "One speaker reacts with frustration and threatens the other over excessive curiosity."
+  ],
+  "image_sha256": "c2124212c16a3336a5d88d01561f467f55da5fbf1b0590eb88f0d3ce972f4b2b",
+  "is_spread": false,
+  "locations": [
+    "A ruined or abandoned industrial wasteland",
+    "A colossal latticework face-shaped structure in the landscape",
+    "An open sky at sunset/nightfall"
+  ],
+  "lore_facts": [
+    "The Castaka name is described on this page as traditionally passing from father to son.",
+    "According to the speakers, Steelhead's only child was a daughter, not a son.",
+    "The speakers refer to 'the laws of robotics' as binding commands they cannot violate.",
+    "The speakers serve a master and are responsible for preparing that master's breakfast.",
+    "There is an active 'current Metabaron' distinct from Steelhead."
+  ],
+  "page_id": "380_The_Metabarons_14_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "Two unseen speakers argue over why Steelhead spared a girl instead of killing all witnesses.",
+    "One speaker insists Steelhead saved the girl out of love rather than simple mistake.",
+    "The conversation establishes that Steelhead never fathered a son, only a daughter.",
+    "A speaker is confused because the Castaka name is said to pass from father to son, and asks how the clan survived.",
+    "The explanation is deferred until tomorrow because they must prepare their master's breakfast.",
+    "One speaker claims the current Metabaron may soon return and says he does not know their location.",
+    "The page ends on a cliffhanger promising the explanation in the next episode."
+  ],
+  "source_image": "external/comics/meta-barons/380_The_Metabarons_14_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c2124212c16a3336a5d88d01561f467f55da5fbf1b0590eb88f0d3ce972f4b2b",
+      "page_id": "380_The_Metabarons_14_p24",
+      "source_image": "external/comics/meta-barons/380_The_Metabarons_14_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The speakers themselves are not visually identified; their names come only from the dialogue balloons.",
+    "Some dialogue is small and partially hard to read, so wording may be imperfect even though the main points are clear.",
+    "It is unclear from this page alone whether the giant face structure is a building, monument, machine, or ruin.",
+    "The flying creatures' exact nature is unclear; they appear pterosaur-like or mechanical but are not labeled."
+  ],
+  "visual_summary": "A vast, skeletal metal face or mask rises over a ruined industrial landscape at sunset under a starry sky. Several winged, pterosaur-like flying creatures cross the scene. Most of the page is a conversation in caption balloons, ending with a note that the story continues in the next episode.",
+  "volume": 14
+}

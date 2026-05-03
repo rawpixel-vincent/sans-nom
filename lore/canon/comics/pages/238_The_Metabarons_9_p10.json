@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Aghnar works, or has worked, under contract for the Empress.",
+    "Aghnar is credited with defeating an immense enemy force single-handedly.",
+    "Aghnar also acts as a leader who directs civilian relocation and settlement."
+  ],
+  "characters_present": [
+    "Aghnar (named in narration, likely the lone figure shown in the upper scene)",
+    "The Empress (mentioned only)",
+    "The inhabitants of Morga-the-Beautiful (mentioned; represented by the convoy of cities)",
+    "Janus-Jana (mentioned only)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a narrated account of Aghnar's past deeds and reputation.",
+    "Both scenes build his legend through alternating acts of extreme violence and large-scale leadership."
+  ],
+  "dialogue_meaning": [
+    "The narration presents Aghnar as an extraordinarily effective war figure, capable of annihilating an enormous army alone in a very short time.",
+    "It frames the opposing battalion as deranged cannibalistic attackers targeting the Golden Planet and Janus-Jana.",
+    "It also presents Aghnar as a protector and organizer, relocating a displaced population after their home world was depleted.",
+    "The destination is portrayed as harsh but secure, beyond the reach of hostile clans."
+  ],
+  "image_sha256": "3b2c0938807cf9b856199ed9e5913bb984e49476a13d6928d1c816596f571b73",
+  "is_spread": false,
+  "locations": [
+    "Jupiter Nova",
+    "The Golden Planet",
+    "Morga-the-Beautiful",
+    "The Teflon satellite"
+  ],
+  "lore_facts": [
+    "Jupiter Nova exists as a setting in this story.",
+    "There is an Empress who can hire Aghnar by contract.",
+    "A battalion of 300,000 soldiers is said to have been eliminated in eight minutes by a single individual.",
+    "The Golden Planet is associated with Janus-Jana, whose flesh the attackers intended to consume.",
+    "Morga-the-Beautiful was depleted by overexploitation of the planet's riches.",
+    "Its inhabitants possessed floating cities capable of space travel.",
+    "The Teflon satellite is described as sterile land but defensible enough to deter voracious clans."
+  ],
+  "page_id": "238_The_Metabarons_9_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A narrator credits Aghnar with destroying a massive infantry force on Jupiter Nova while working under contract to the Empress.",
+    "The destroyed force is described as preparing to invade the Golden Planet and consume Janus-Jana.",
+    "The inhabitants of Morga-the-Beautiful are said to have exhausted their world through greed-driven extraction.",
+    "Aghnar leads a convoy of their floating cities toward the Teflon satellite.",
+    "The migrants settle on the satellite's barren terrain, where the narration says no predatory clan would dare attack them."
+  ],
+  "source_image": "external/comics/meta-barons/238_The_Metabarons_9_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3b2c0938807cf9b856199ed9e5913bb984e49476a13d6928d1c816596f571b73",
+      "page_id": "238_The_Metabarons_9_p10",
+      "source_image": "external/comics/meta-barons/238_The_Metabarons_9_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The caption text is readable but small, so some wording may be imperfectly transcribed.",
+    "The upper figure is likely Aghnar based on narration, but the image does not label him directly.",
+    "It is unclear whether the upper battle occurs in open space, a planetary atmosphere, or a stylized battlefield environment."
+  ],
+  "visual_summary": "The page has two large painted scenes framed by narration boxes. In the upper scene, a lone armored figure floats amid blinding explosions or energy bursts, surrounded by heaps of twisted bodies and monstrous faces, illustrating a mass slaughter in space or on a devastated battlefield. In the lower scene, enormous floating city-ships and spherical structures travel through space near planets, illustrating an organized migration or evacuation convoy.",
+  "volume": 9
+}

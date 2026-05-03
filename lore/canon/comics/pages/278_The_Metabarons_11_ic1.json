@@ -1,0 +1,80 @@
+{
+  "character_facts": [
+    "Steelhead is portrayed as ruthless, treacherous, and willing to mutilate Honorata, bargain for status, and assassinate a political opponent.",
+    "Aghnar is experienced enough to take the lead in the duel before the surrender.",
+    "Honorata is grievously harmed by Steelhead.",
+    "Oda/Honorata chooses to reunite with Aghnar in death.",
+    "The Empress appeals to Steelhead for help against the invading entities.",
+    "Don Nicanor Rosamel de Rokha is identified as President of the Troglosocialik Confederation and as the only expected opponent to Steelhead's ceremony."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Aghnar",
+    "Honorata",
+    "Oda/Honorata",
+    "the Empress",
+    "the Imperial Couple",
+    "Don Nicanor Rosamel de Rokha"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page explicitly recaps events from the prior installment(s), connecting the duel with Aghnar to the current political ceremony around Steelhead.",
+    "The invasion by the wall-passing vampires is linked directly to the dimensional breach caused during Steelhead's earlier battle."
+  ],
+  "dialogue_meaning": [
+    "The page functions as a 'previously' recap rather than a scene of live dialogue.",
+    "It explains that Steelhead's actions during and after the duel with Aghnar led both to disaster and to his rise toward formal recognition as Supreme Metabaron.",
+    "It frames Steelhead as militarily effective but morally monstrous, emphasizing betrayal, mutilation, political murder, and opportunism."
+  ],
+  "image_sha256": "9dd6cb585a89f36bdc7f182f5ec31f82dd8e30eae9c3fe9b46f645a2ba6c6faa",
+  "is_spread": false,
+  "locations": [
+    "multiple dimensions",
+    "Imperial Palace",
+    "Philodendra",
+    "the Halerce, described as the oldest tree in the galaxy",
+    "a ceremonial or monumental interior shown in the recap illustration"
+  ],
+  "lore_facts": [
+    "Combat can occur in 'Metacraft' and can traverse different dimensions.",
+    "Mini-bombs can be set within bodies for suicide.",
+    "The Pthagureans are capable of collective suicide and can decree or halt it.",
+    "Cross-dimensional conflict can open breaches through which hostile entities enter the universe.",
+    "The office or title of 'Supreme Metabaron' exists.",
+    "The 'Medallion of High Nobility' is a formal distinction tied to ambassadorial approval.",
+    "Philodendra is identified as the Troglosocialik capital.",
+    "The Halerce is described as the oldest tree in the galaxy.",
+    "Millions of sweet-voiced Dyukkas sing at the Halerce.",
+    "The Troglosocialik Confederation has a president."
+  ],
+  "page_id": "278_The_Metabarons_11_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Steelhead and Aghnar fight each other to the death in their separate Metacraft and move across dimensions during the battle.",
+    "Aghnar gains the advantage, and Honorata and Steelhead surrender.",
+    "At the last moment, Steelhead badly mutilates Honorata; Aghnar cannot bear it, and Steelhead is identified as cold and treacherous.",
+    "Oda/Honorata chooses to rejoin Aghnar, and the two commit suicide by detonating mini-bombs in their bodies.",
+    "Despite being despised for his methods, Steelhead is said to have saved humanity and the Pthagureans halt their collective suicide.",
+    "Vampiric entities come through walls, devour guests' brains, and include the Imperial Couple among their victims.",
+    "The Empress asks Steelhead for help; the entities are said to have entered through a breach opened by Steelhead's cross-dimensional battle with Aghnar.",
+    "Steelhead defeats the vampires and reseals the breach.",
+    "In exchange for helping, Steelhead demands the title of Supreme Metabaron and the Medallion of High Nobility, which requires the ambassadors' agreement.",
+    "To remove opposition to the ceremony, Steelhead travels to Philodendra and executes Don Nicanor Rosamel de Rokha during his morning meditation.",
+    "Steelhead then returns to the Imperial Palace to receive the honor he seeks."
+  ],
+  "source_image": "external/comics/meta-barons/278_The_Metabarons_11_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9dd6cb585a89f36bdc7f182f5ec31f82dd8e30eae9c3fe9b46f645a2ba6c6faa",
+      "page_id": "278_The_Metabarons_11_ic1",
+      "source_image": "external/comics/meta-barons/278_The_Metabarons_11_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some proper names and terms are difficult to read with full certainty from the image, including 'Pthagureans,' 'Troglosocialik,' 'Halerce,' and possibly 'Don Nicanor Rosamel de Rokha.'",
+    "The four circular portraits at the bottom are not labeled on the page, so character-to-portrait matches are uncertain.",
+    "The left-side inset image is illustrative and not clearly tied to a single specific recap moment."
+  ],
+  "visual_summary": "A recap page titled 'The Metabarons' presents a block of summary text over a pale abstract background. At left, an inset illustration shows small figures and glowing capsule-like forms in a cavernous or ceremonial interior. Along the bottom are four circular character portraits and publication credits.",
+  "volume": 11
+}

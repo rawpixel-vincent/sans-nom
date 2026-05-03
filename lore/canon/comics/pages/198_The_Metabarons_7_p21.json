@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The silver-armored fighter is willing to sacrifice his own arm to carry out an attack plan.",
+    "He is tactically minded and uses deception, poison, and concealed explosives.",
+    "The giant golden being physically bites through armored flesh or a limb with ease.",
+    "At least one other combatant or observer believes the giant had a broader plan that can be thwarted."
+  ],
+  "characters_present": [
+    "A silver-armored fighter with dark hair, who sacrifices his arm as part of a plan",
+    "A giant golden humanoid being addressed as a 'holy deity' or god",
+    "Multiple armored soldiers or troops observing or fighting in the surrounding battle",
+    "Large dark clawed or monstrous figures visible at the edges of the tall battle scene"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an ongoing confrontation between the armored fighter and the giant golden godlike being.",
+    "The page also continues a larger mass battle already in progress around them.",
+    "The final dialogue implies the giant had an established plan preceding this moment."
+  ],
+  "dialogue_meaning": [
+    "The armored fighter taunts the giant being and invites it to eat him as a trap.",
+    "After losing his arm, the fighter explains the consumed flesh was poisoned and internally weaponized.",
+    "He says the internal bombs are designed to trigger upon contact with the being's stomach fluids.",
+    "Another speaker declares the giant's scheme has failed and dismisses its bravado."
+  ],
+  "image_sha256": "a74f61f198211cd842e9a35a4a81ee2b733aef22cae9fbd69dcc7b7eda575f55",
+  "is_spread": false,
+  "locations": [
+    "A large bright interior battlefield or vertical chamber",
+    "The immediate close-quarters space at the giant being's mouth and upper body",
+    "A lower platform or ledge where armed soldiers look upward"
+  ],
+  "lore_facts": [
+    "The giant golden being is treated by other characters as a deity or godlike entity.",
+    "This being is believed to be invulnerable externally, but characters think it can be harmed from within.",
+    "Miniaturized bombs can be concealed inside a prosthetic or armored limb and activated by digestive fluids.",
+    "The conflict is occurring amid a large-scale battle involving many armored combatants and aerial or falling movement through a vast space."
+  ],
+  "page_id": "198_The_Metabarons_7_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "An armored fighter provokes a giant golden being into eating him or at least biting off his arm.",
+    "The giant being bites down and tears off the fighter's arm.",
+    "The fighter reveals the flesh or arm was poisoned and rigged with mini-bombs.",
+    "He claims the bombs will react with the being's gastric fluids and make it implode.",
+    "Other combatants nearby respond that the giant's plan has been foiled.",
+    "The wider battle continues around them with many troops falling or flying through a huge open space."
+  ],
+  "source_image": "external/comics/meta-barons/198_The_Metabarons_7_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a74f61f198211cd842e9a35a4a81ee2b733aef22cae9fbd69dcc7b7eda575f55",
+      "page_id": "198_The_Metabarons_7_p21",
+      "source_image": "external/comics/meta-barons/198_The_Metabarons_7_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the armored fighter, the giant golden being, and the surrounding troops are not given on this page alone.",
+    "One speech balloon in the last panel is partially attributed by placement only; the exact speaker is visually ambiguous.",
+    "The dark figures at the sides of the tall right-hand panel may be creatures, machinery, or architectural elements; the page does not clearly define them."
+  ],
+  "visual_summary": "A silver-armored fighter is partly inside the mouth of a large golden, godlike humanoid creature and goads it into biting down. The creature bites off the fighter's arm, spraying blood. The fighter then reveals this was intentional: his severed arm was loaded with mini-bombs that will react inside the creature's stomach. Around them, a large battle continues in a vast bright chamber or shaft filled with flying and falling armored troops, explosions, and looming dark creatures or machine-organic forms at the edges. In the final panel, soldiers below look upward as the confrontation continues overhead.",
+  "volume": 7
+}

@@ -1,0 +1,54 @@
+{
+  "character_facts": [
+    "The visible humanoid is armed with at least one device or weapon used for breaching.",
+    "The figure is proactive and attempts infiltration or sabotage while the target is vulnerable."
+  ],
+  "characters_present": [
+    "One armed humanoid figure in armor or protective gear"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an infiltration or assault in progress against a colossal living or bio-mechanical ship/entity."
+  ],
+  "dialogue_meaning": [
+    "The lone figure judges the vessel to be enormous and decides to pierce its hull while it is asleep or inactive."
+  ],
+  "image_sha256": "ec0895e345e39b0118bb8f241feeaed7fecda6bb2aeba6124c74ed56992fd754",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "On or just inside the hull/interior passage of a gigantic organic-mechanical vessel"
+  ],
+  "lore_facts": [
+    "The setting includes a gigantic vessel with an organic, creature-like exterior and interior.",
+    "This vessel can be described as 'sleeping,' implying it is living or treated as a living entity.",
+    "Its hull can be penetrated by directed explosive or cutting weaponry.",
+    "Inside the vessel are fleshy or bio-mechanical structures, including red spherical components."
+  ],
+  "page_id": "140_The_Metabarons_5_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A massive bio-mechanical vessel is shown drifting in space.",
+    "An armed figure approaches or stands within an opening near the vessel's hull.",
+    "The figure resolves to penetrate the vessel's hull while it is dormant.",
+    "Explosive or cutting fire breaches the outer surface of the vessel.",
+    "The attack opens access to internal tissue-like or mechanical-organic structures.",
+    "Red spherical internal components are shown in the final narrow panel, apparently affected by the breach or attack."
+  ],
+  "source_image": "external/comics/meta-barons/140_The_Metabarons_5_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ec0895e345e39b0118bb8f241feeaed7fecda6bb2aeba6124c74ed56992fd754",
+      "page_id": "140_The_Metabarons_5_p19",
+      "source_image": "external/comics/meta-barons/140_The_Metabarons_5_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The attacker is not identified by name on this page alone.",
+    "It is unclear whether the figure is already inside the vessel or entering through a newly opened breach.",
+    "The exact nature of the red spherical structures is not explained on this page.",
+    "Some fine visual details of the interior structures are ambiguous because of the painterly art style and small inset panels."
+  ],
+  "visual_summary": "A large organic-looking spacecraft or creature-like vessel floats in space. In an inset, an armed figure inside or near the target observes its immense interior and prepares to breach it while it sleeps. The lower panels show explosions and drilling or weapons fire punching through the hull, followed by close views of interior organic structures and red orb-like components being struck or exposed.",
+  "volume": 5
+}

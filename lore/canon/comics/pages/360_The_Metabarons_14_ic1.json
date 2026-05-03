@@ -1,0 +1,85 @@
+{
+  "character_facts": [
+    "Don Nicanor commands Philodendran forces and does not remember Dona Vicenta is his daughter during this recap.",
+    "Dona Vicenta is capable of extreme bodily sacrifice and later pleads for her people.",
+    "Melmoth reacts with horror to Dona Vicenta's altered eyes.",
+    "Steelhead is presented as one facet of Melmoth and favors action or hardness.",
+    "Zaran is presented as the poet side of Melmoth and responds with revulsion and despair.",
+    "Tonto and Lothar survive the destruction of the Metabunker and start constructing another one."
+  ],
+  "characters_present": [
+    "The Metabaron",
+    "Tonto",
+    "Lothar",
+    "Don Nicanor",
+    "Dona Vicenta",
+    "Melmoth",
+    "Steelhead",
+    "Zaran",
+    "TechnoCardinal",
+    "Techno-Technos",
+    "Philodendrans"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is explicitly a recap of events from earlier chapters in The Metabarons.",
+    "The page sets up the frame narrative involving Tonto and Lothar telling Metabaron history after the Metabunker's destruction.",
+    "The recap ties together the family conflict around Dona Vicenta and Melmoth with the larger planetary conflict involving the Techno-Technos."
+  ],
+  "dialogue_meaning": [
+    "The recap explains prior events rather than presenting active scene dialogue.",
+    "Dona Vicenta's question to Don Nicanor tests what he truly values in her, leading to her self-mutilating response.",
+    "The TechnoCardinal delivers an ultimatum that Don Nicanor's people abandon their world for resource extraction.",
+    "Dona Vicenta appeals to Steelhead for help, while Zaran's outlook is fatalistic."
+  ],
+  "image_sha256": "40975eaf7be8c2e310f42f49fc0db2984a9676228096c9b4b62d98482d9f40b0",
+  "is_spread": false,
+  "locations": [
+    "A primitive, muddy planet where Tonto and Lothar are stranded",
+    "The place where Melmoth and Dona Vicenta are barricaded",
+    "A palace or area outside it",
+    "Don Nicanor's home planet",
+    "The Metabunker"
+  ],
+  "lore_facts": [
+    "The Metabunker can be destroyed and rebuilt.",
+    "Tonto and Lothar act as narrators or custodians of Metabaron history while stranded.",
+    "Dona Vicenta has cybernetic eyes by this point in the story.",
+    "Melmoth's psyche is divided into Steelhead and Zaran.",
+    "The Techno-Technos seek to harvest a mineral called Bikramen.",
+    "A TechnoCardinal serves as a representative or authority figure for the Techno-Technos.",
+    "The invading force attacks by dropping huge rectangular blocks onto the planet."
+  ],
+  "page_id": "360_The_Metabarons_14_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The Metabaron destroys the Metabunker, leaving Tonto and Lothar stranded on a muddy, primitive world.",
+    "Tonto and Lothar begin building a new Metabunker and continue recounting Metabaron history.",
+    "Don Nicanor and his Philodendran forces break into the place where Melmoth and Dona Vicenta are barricaded.",
+    "Don Nicanor tries to claim Dona Vicenta without recognizing she is his daughter.",
+    "Dona Vicenta asks what feature he values most in her, and after he answers, she removes her fingernails and gives them to him.",
+    "Don Nicanor, tormented by this, permits her marriage to Melmoth and grants a high-status decoration.",
+    "Melmoth is horrified by his wife's new cybernetic eyes, and his split personality fractures again into its two parts.",
+    "One side of Melmoth, Steelhead, approves of the new eyes, while the poet side, Zaran, is disgusted.",
+    "A TechnoCardinal tells Don Nicanor that his people must leave their planet so the Techno-Technos can mine Bikramen.",
+    "Don Nicanor refuses, and the Techno-Technos begin bombarding the planet with massive rectangular blocks.",
+    "Don Nicanor's forces cannot resist the invaders' weapons.",
+    "Dona Vicenta begs Steelhead to fight for her people, but Zaran sees no future for them.",
+    "Steelhead kills himself to remove the poet side from the situation."
+  ],
+  "source_image": "external/comics/meta-barons/360_The_Metabarons_14_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "40975eaf7be8c2e310f42f49fc0db2984a9676228096c9b4b62d98482d9f40b0",
+      "page_id": "360_The_Metabarons_14_ic1",
+      "source_image": "external/comics/meta-barons/360_The_Metabarons_14_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The inset illustration is symbolic or recap art; the identity of the depicted dark figure is not explicitly labeled on the page.",
+    "Several small portrait faces along the bottom are not individually named in the page design.",
+    "Some fine-print credits and small text are difficult to read completely, but the main recap text is legible."
+  ],
+  "visual_summary": "An introductory recap page for The Metabarons. The page features the series logo, a large 'previously' summary block, a painted inset image of a dark figure amid violent debris, and a decorative biomechanical border with small circular character portraits along the bottom. Credits and publisher information fill the lower margin.",
+  "volume": 14
+}

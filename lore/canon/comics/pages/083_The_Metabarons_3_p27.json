@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The honored warrior is publicly celebrated but privately unhappy.",
+    "He appears alienated by the idea of descendants, suggesting a problem related to lineage or reproduction.",
+    "He considers himself still a warrior despite saying he is no longer a man.",
+    "He is intensely loyal to the ruler and promises a galaxy-wide quest on his behalf.",
+    "The ruler is emotionally attached to the warrior, grateful for what he has restored or brought back.",
+    "The ruler attempts a compassionate, personal consolation by offering another horse."
+  ],
+  "characters_present": [
+    "The newly titled Metabaron / honored warrior",
+    "The ruler or emperor addressed as 'Your Majesty'",
+    "Courtiers, soldiers, and attendants in the audience"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "A footnote references issue #2, 'The Last Stand.'",
+    "The discussion of 'another horse' explicitly points back to an earlier event involving a lost or broken horse.",
+    "This page functions as an origin point for the title 'Metabaron' within the lineage."
+  ],
+  "dialogue_meaning": [
+    "The page marks the official creation or bestowal of the title 'Metabaron.'",
+    "The title is stated to extend to the warrior's descendants, making it dynastic rather than personal only.",
+    "Public acclaim contrasts with the warrior's inner anguish.",
+    "The ruler is deeply grateful to the warrior and wants to reward him.",
+    "The warrior's response shows emotional and likely bodily loss: he defines himself as a warrior, 'not a man.'",
+    "His vow to roam the galaxy frames his next purpose as seeking an impossible or transcendent gift.",
+    "The reference to sending 'another horse' ties this scene to a prior significant loss.",
+    "The warrior refuses consolation, implying some wounds cannot be repaired or replaced."
+  ],
+  "image_sha256": "f4bd640a7a0819326979a09530f27e3ad6a291133f413fc79e925495d29fd79e",
+  "is_spread": false,
+  "locations": [
+    "A royal or imperial ceremonial hall / court"
+  ],
+  "lore_facts": [
+    "'Metabaron' is presented here as a formal title bestowed by imperial authority.",
+    "The title is hereditary, extending to the recipient's descendants.",
+    "The ruler's court includes armored retainers and ceremonial witnesses, indicating a structured aristocratic or imperial society.",
+    "Travel across the galaxy is treated as normal within the setting.",
+    "A previously lost horse remains symbolically important enough to be offered as a replacement."
+  ],
+  "page_id": "083_The_Metabarons_3_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "A ruler announces a hereditary honor for the warrior and his descendants.",
+    "The assembled court celebrates the proclamation of the title 'Metabaron.'",
+    "The warrior privately reacts with confusion or bitterness at the mention of descendants.",
+    "In a close embrace, the ruler expresses heartfelt gratitude and wishes happiness for the warrior.",
+    "The warrior answers that despite having everything, he feels empty and says he is a warrior but no longer a man.",
+    "He vows to search the galaxy for a gift that could satisfy the ruler.",
+    "The ruler suggests another horse, recalling an earlier loss.",
+    "The warrior rejects the idea, saying what is broken will not grow again."
+  ],
+  "source_image": "external/comics/meta-barons/083_The_Metabarons_3_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f4bd640a7a0819326979a09530f27e3ad6a291133f413fc79e925495d29fd79e",
+      "page_id": "083_The_Metabarons_3_p27",
+      "source_image": "external/comics/meta-barons/083_The_Metabarons_3_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The ruler's personal name is not given on the page.",
+    "The warrior's exact personal name is not stated on this page.",
+    "One or two small text fragments are slightly hard to read, but the main dialogue is legible.",
+    "The exact nature of why the warrior says he is 'not a man' is not explained on this page alone."
+  ],
+  "visual_summary": "At a formal court ceremony, a ruler publicly honors an armored warrior before a crowd of nobles and soldiers. The crowd applauds as the title 'Metabaron' is proclaimed. Close-up panels then shift to an intimate exchange: the warrior, emotionally strained, embraces the ruler and speaks with visible grief rather than triumph. The ruler appears aged and weary, and the warrior answers his generosity with devotion mixed with despair.",
+  "volume": 3
+}

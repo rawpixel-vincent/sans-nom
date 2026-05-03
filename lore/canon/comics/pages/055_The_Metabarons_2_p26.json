@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Othon von Salza is associated with both advanced weapon development and cybernetic augmentation.",
+    "Othon is described in dialogue as having been castrated.",
+    "Despite castration, Othon fathered a son.",
+    "Tonto is addressed as a participant in the discussion.",
+    "Lothar is corrected after apparently suggesting adoption.",
+    "The Metabaron is the master of at least one speaking servant figure and is expected to return for dinner."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "Tonto",
+    "Lothar",
+    "Bari Didi (mentioned in dialogue, not clearly shown)",
+    "Multiple robotic opponents",
+    "A small robot servant/speaker"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page connects Othon's personal history to the later traditions of the Metabaron lineage, especially weapons and bodily augmentation.",
+    "The heir question links directly to succession in Othon's bloodline.",
+    "The final teaser sets up the following episode, 'The Knighting of Othon.'"
+  ],
+  "dialogue_meaning": [
+    "One speaker is confused about reproduction and asks whether life forms need genitals.",
+    "Another speaker answers in biological terms, mentioning reproductive organs and sperm.",
+    "The speakers wonder how castrated Othon von Salza could still produce an heir.",
+    "A reply explains that Othon did not adopt; he fathered a son with a woman he loved, emphasizing direct blood descent.",
+    "Another speaker reacts with amazement and wants to know the method.",
+    "A servant cuts off the explanation, saying their master the Metabaron will return and the rest can be told tomorrow."
+  ],
+  "image_sha256": "3d657b620b7f6d3ca4728df4c20bbc5c2b119eefcaed48179ed6f99b64b42c0c",
+  "is_spread": false,
+  "locations": [
+    "A combat/training or industrial interior with tiled floor",
+    "A lower industrial corridor or shaft with pipes and floor grating",
+    "Outer space view with a moon or small planetary body"
+  ],
+  "lore_facts": [
+    "Othon von Salza abandoned exclusive reliance on pure martial arts.",
+    "He used much of his fortune to develop the first metabaronic weapons.",
+    "He began the family tradition of cybernetic implants.",
+    "One specifically named implant is a multi-protonic pelvis.",
+    "Othon's line continued through a biological son rather than an adopted heir.",
+    "The story is segmented episodically, with the next installment focused on Othon's knighting."
+  ],
+  "page_id": "055_The_Metabarons_2_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "Narration states that Othon invested heavily in developing the first metabaronic weapons.",
+    "Narration states that Othon also initiated the tradition of cybernetic body implants in the lineage.",
+    "A combat scene shows Othon battling several robotic enemies with an energy-like sword.",
+    "Two small onlookers discuss Othon's ability to continue his bloodline despite castration.",
+    "The discussion concludes that Othon did not adopt an heir but fathered a son biologically.",
+    "A closing caption announces that the next episode will cover Othon's knighting."
+  ],
+  "source_image": "external/comics/meta-barons/055_The_Metabarons_2_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3d657b620b7f6d3ca4728df4c20bbc5c2b119eefcaed48179ed6f99b64b42c0c",
+      "page_id": "055_The_Metabarons_2_p26",
+      "source_image": "external/comics/meta-barons/055_The_Metabarons_2_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and visual distinction of the small speakers is somewhat unclear; names such as Tonto and Lothar come from dialogue.",
+    "Bari Didi is only mentioned in dialogue; the page does not clearly identify a visible figure as Bari Didi.",
+    "The exact nature of the moon/planet image in the last panel is not explained on this page alone."
+  ],
+  "visual_summary": "Narration boxes explain that Othon von Salza redirected his wealth into creating the first metabaronic weapons and began a tradition of cybernetic implants, including a 'multi-protonic pelvis.' The main art shows Othon, partly nude except for gear and implants, fighting multiple robotic opponents with a glowing blade. Below, small robot-like speakers discuss how the castrated Othon could still have a son, concluding that he fathered a biological child rather than adopting one. The page ends with a moon/planetoid view and a caption teasing the next episode about Othon's knighting.",
+  "volume": 2
+}

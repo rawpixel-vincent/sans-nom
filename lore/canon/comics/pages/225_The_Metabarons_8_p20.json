@@ -1,0 +1,54 @@
+{
+  "character_facts": [
+    "The attacking figure is depicted with long, windblown hair and a wide-open mouth, emphasizing strain or aggression during the attack.",
+    "The victimized figure appears human-sized and is overwhelmed physically by the force of the blast."
+  ],
+  "characters_present": [
+    "Long-haired energy-projecting figure",
+    "Dark-clad humanoid figure being blasted backward",
+    "Possible additional small distant figure in the final lower-center panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing combat or destruction sequence rather than a self-contained quiet scene.",
+    "The action appears to continue from an earlier buildup into a peak-energy release and likely carries into the next page via the same attack."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "bf811df1711f0ff991d5f85b2cb804b2b6cec171c694b76eb5ae2dbf212e440d",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or industrial/mechanical chamber",
+    "Area filled with large armored or machine-like structures"
+  ],
+  "lore_facts": [
+    "A character on this page can emit or channel an extremely powerful beam-like energy attack.",
+    "The attack is strong enough to destroy heavy metal or armored structures in the immediate environment.",
+    "The setting includes massive machinery or armored components rather than an open natural environment."
+  ],
+  "page_id": "225_The_Metabarons_8_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A long-haired figure unleashes a concentrated beam of energy from the head/face area.",
+    "The blast fills the surrounding space with intense light, obscuring detail.",
+    "The beam strikes large mechanical or armored structures and breaks them apart.",
+    "A person in dark clothing is thrown backward amid the explosion and debris.",
+    "The destructive force continues across multiple panels, suggesting a sustained or sweeping attack."
+  ],
+  "source_image": "external/comics/meta-barons/225_The_Metabarons_8_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bf811df1711f0ff991d5f85b2cb804b2b6cec171c694b76eb5ae2dbf212e440d",
+      "page_id": "225_The_Metabarons_8_p20",
+      "source_image": "external/comics/meta-barons/225_The_Metabarons_8_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No dialogue is readable on the provided image.",
+    "The exact identity of all characters cannot be determined from this page alone.",
+    "It is unclear whether the beam originates from the eyes, forehead, mouth, or a device integrated near the face because the light obscures the source.",
+    "The precise nature of the damaged structures (robots, armor, ship interior, or machinery) is not fully visible.",
+    "A small figure in the lower-center panel may be another character or a distant bystander, but the detail is too limited to confirm."
+  ],
+  "visual_summary": "A blinding energy blast erupts from the face or forehead area of a long-haired figure shown in close-up. The central panel is nearly washed out by the flash. Subsequent panels show the beam tearing through a mechanical or armored interior, shattering large metal structures and hurling at least one dark-clad person through the air. The page is dominated by white-blue light, debris, and violent motion.",
+  "volume": 8
+}

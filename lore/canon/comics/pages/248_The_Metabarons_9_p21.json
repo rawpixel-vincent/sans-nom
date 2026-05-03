@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The speaking woman occupies a formal or authoritative role in the ceremony.",
+    "Steelhead is important enough to be named champion of the human galaxy.",
+    "The Pythagoreans are portrayed as highly competitive by the narration."
+  ],
+  "characters_present": [
+    "A woman in ornate headgear and armor-like attire who speaks to the rulers",
+    "Two foreground figures in helmets or ceremonial armor observing the scene",
+    "A large assembled crowd of humans and/or alien spectators",
+    "Unseen royal figures referred to as 'your majesties'",
+    "Steelhead (mentioned in narration, not clearly identifiable on the page)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents the formal outcome of a prior dispute, demonstration, or challenge.",
+    "It directly sets up the next event in the story: a duel on the following day."
+  ],
+  "dialogue_meaning": [
+    "The speaking woman is presenting the spectacle or demonstration as proof intended to persuade royal authorities.",
+    "Her question indicates she is seeking the rulers' approval or acknowledgment."
+  ],
+  "image_sha256": "a91edc94476dcabfc67357dee39519b3d25c492e5d5728e2cda5f3f511265f8c",
+  "is_spread": false,
+  "locations": [
+    "A vast golden ceremonial hall or palace interior",
+    "A public assembly space with elevated architecture and bright light columns"
+  ],
+  "lore_facts": [
+    "There are ruling figures addressed as monarchs or majesties.",
+    "Steelhead is appointed champion of the human galaxy.",
+    "The Pythagoreans are a distinct group or race capable of issuing or accepting formal challenges.",
+    "A duel is scheduled for the next day after this assembly.",
+    "The setting supports large formal public ceremonies involving mixed crowds and advanced technology."
+  ],
+  "page_id": "248_The_Metabarons_9_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "People descend and converge into a large ceremonial hall.",
+    "A large crowd assembles before an elevated or central area in the golden chamber.",
+    "A red flying craft or symbolic object appears above the crowd.",
+    "A woman addresses ruling figures, asking if they are convinced.",
+    "The narration states that Steelhead is appointed champion of the human galaxy.",
+    "The narration states that the Pythagoreans accept the challenge and that a duel begins the following day."
+  ],
+  "source_image": "external/comics/meta-barons/248_The_Metabarons_9_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a91edc94476dcabfc67357dee39519b3d25c492e5d5728e2cda5f3f511265f8c",
+      "page_id": "248_The_Metabarons_9_p21",
+      "source_image": "external/comics/meta-barons/248_The_Metabarons_9_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The small caption text is readable only in part, so exact narration wording may be incomplete.",
+    "Steelhead is mentioned in narration but not clearly identifiable among the crowd on this page.",
+    "The exact identity and function of the red hovering object are not explicitly stated on the page.",
+    "The specific names or identities of the foreground observers and the speaking woman are not given on this page alone."
+  ],
+  "visual_summary": "A crowd gathers inside a vast golden ceremonial chamber filled with curved metallic architecture, bright vertical light beams, and arcing fountains or energy streams. A red, dart-shaped craft or device hovers above the assembly. In the foreground, armored or formally dressed figures watch as a woman addresses unseen royalty, and a caption box explains the outcome of the gathering and what follows next.",
+  "volume": 9
+}

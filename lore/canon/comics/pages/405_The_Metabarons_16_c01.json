@@ -1,0 +1,51 @@
+{
+  "character_facts": [
+    "The human/humanoid figure is shown bald, pale, and visibly distressed.",
+    "The larger figure has a white armored or robotic body with a sleek, mechanical head design.",
+    "Both figures are visually associated with heavy tubing or cable-like apparatus."
+  ],
+  "characters_present": [
+    "An unidentified pale, bald human or humanoid figure inside a transparent helmet/dome",
+    "An unidentified large white armored/robotic humanoid figure"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "As a cover, this page appears to set the tone and imagery for issue #16 rather than depict a clear sequential event.",
+    "The title 'The Mirror Effect' likely identifies the issue's featured story or theme, but no further continuity details are explicit on this page."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "2f206585595271b9c372128c0100b096285962a53b29d82019c557f916837cef",
+  "is_spread": false,
+  "locations": [
+    "An unspecified biomechanical or technological environment suggested by dense cables/tubes"
+  ],
+  "lore_facts": [
+    "This page is the cover of The Metabarons issue #16.",
+    "The cover presents the subtitle/story title 'The Mirror Effect.'",
+    "The creators credited on the cover are Jodorowsky and Gimenez.",
+    "The imagery emphasizes biomechanical technology, tubing, and armored/helmeted figures."
+  ],
+  "page_id": "405_The_Metabarons_16_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No interior story action is shown; this page functions as a cover image introducing issue #16.",
+    "A distressed human figure is depicted trapped or surrounded by biomechanical tubing.",
+    "A large armored or robotic figure is shown looming over or behind the human figure.",
+    "The cover identifies the story/chapter title as 'The Mirror Effect' and credits Jodorowsky and Gimenez."
+  ],
+  "source_image": "external/comics/meta-barons/405_The_Metabarons_16_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2f206585595271b9c372128c0100b096285962a53b29d82019c557f916837cef",
+      "page_id": "405_The_Metabarons_16_c01",
+      "source_image": "external/comics/meta-barons/405_The_Metabarons_16_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is cover art, the exact in-story event, setting, and character identities are not explicitly confirmed on the page.",
+    "It is unclear whether the larger white figure is a robot, powered armor, or a stylized humanoid character.",
+    "No spoken dialogue or narration is present beyond cover titling and publication text."
+  ],
+  "visual_summary": "This is the cover image for The Metabarons issue #16. A pale, bald human figure with an alarmed or screaming expression is enclosed in a transparent helmet or dome and entangled among thick, dark biomechanical tubes. Behind and above them looms a large white armored or robotic form with a sleek, birdlike head, also wrapped in cables. The title logo, issue number, price box, creators' names, and the subtitle 'The Mirror Effect' frame the composition.",
+  "volume": 16
+}

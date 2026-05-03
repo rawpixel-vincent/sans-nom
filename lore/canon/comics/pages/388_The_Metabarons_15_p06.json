@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghora is born female.",
+    "Steelhead acts in secretive, long-range ways, preserving a corpse without sharing his reasons.",
+    "The orange-gold cyborg master is emotionally affected and speaks of 'my beloved Klezea,' indicating a deep attachment.",
+    "The cyborg master is terminally ill or mortally wounded on this page, suffering coughing, blood loss, and organ-related failure.",
+    "The masked attendant serves the master and delivers the baby to him while invoking a fulfilled promise.",
+    "Dona Vicenta is said in narration to have spurned Steelhead for the love of another man."
+  ],
+  "characters_present": [
+    "Aghora as a newborn infant girl",
+    "Steelhead, referenced in narration but not clearly identifiable with certainty on the page",
+    "A dying orange-gold cyborg/master figure",
+    "A blue-faced masked attendant or servant",
+    "A medical system or monitor voice"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narration explicitly connects this birth to Steelhead's earlier decision to store a boy's corpse in stasis.",
+    "Dona Vicenta and another unnamed man are referenced as part of the backstory leading into Aghora's birth.",
+    "The beloved Klezea is invoked as another important prior figure connected to the newborn's significance."
+  ],
+  "dialogue_meaning": [
+    "The narration frames the newborn girl as a significant destined figure named Aghora, created through an unusual transfer involving a man's brain in a woman's body.",
+    "The page explains that Steelhead secretly preserved a boy's corpse, implying the current birth is tied to that earlier act.",
+    "An attendant announces the child's sex and presents her as fulfillment of a promise.",
+    "The dying master claims emotional injury despite earlier assumptions that he lacked human feeling, and connects the baby to a beloved woman named Klezea.",
+    "He tries to comfort or address the infant even as he is physically collapsing.",
+    "A medical alert confirms his condition cannot be reversed and that he is about to die."
+  ],
+  "image_sha256": "92d7081202c29879b52999b53444f18f8440ca5f243dfa2dec0a74b63e8319e3",
+  "is_spread": false,
+  "locations": [
+    "A high-tech medical or laboratory chamber",
+    "A stasis chamber containing a preserved corpse"
+  ],
+  "lore_facts": [
+    "A person described as having a man's brain in a woman's body will be called Aghora.",
+    "Aghora is described in narration as profoundly significant, using the epithet 'deeper than deep.'",
+    "Steelhead ordered a boy's corpse kept in stasis for unexplained reasons.",
+    "Advanced stasis technology exists and can preserve a corpse.",
+    "The page links Aghora's birth to prior events involving that preserved boy and to the woman Dona Vicenta mentioned in narration.",
+    "The setting includes advanced medical monitoring capable of diagnosing fatal pulmonary hemorrhage and cardiopathy in real time."
+  ],
+  "page_id": "388_The_Metabarons_15_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "Narration identifies the future child as Aghora and describes her as 'deeper than deep.'",
+    "It is revealed that Steelhead had earlier ordered the boy's corpse stored in a stasis chamber without explaining why.",
+    "The preserved body is shown inside a stasis pod in a laboratory-like setting.",
+    "A masked attendant presents a newborn to a superior, stating that the child is a girl and that a promise has been kept.",
+    "The dying cyborg man reacts emotionally, asking for the daughter of his beloved and speaking to the infant.",
+    "The infant cries while the man suffers repeated coughing fits and visible hemorrhaging.",
+    "A medical readout announces that the man's pulmonary hemorrhage and cardiopathy are irreversible and that death is imminent."
+  ],
+  "source_image": "external/comics/meta-barons/388_The_Metabarons_15_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "92d7081202c29879b52999b53444f18f8440ca5f243dfa2dec0a74b63e8319e3",
+      "page_id": "388_The_Metabarons_15_p06",
+      "source_image": "external/comics/meta-barons/388_The_Metabarons_15_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names and lines are difficult to read precisely due to image resolution; 'Klezea' and some medical terminology may be approximate.",
+    "It is not fully clear which visible figure, if any, is Steelhead; the name appears in narration, but on-page visual identification is uncertain.",
+    "The exact relationship between the preserved boy's corpse and the newborn girl is implied but not explicitly explained on this single page."
+  ],
+  "visual_summary": "In a medical-industrial chamber full of pipes, screens, and stasis equipment, narration explains that a child conceived from a male brain placed in a female body is to be called Aghora. A masked blue-faced attendant and a sick, orange-gold cyborg man oversee the opening of a stasis pod containing a preserved boy’s corpse. The attendant presents a newborn girl to the dying cyborg, who addresses the baby with intense emotion. As he coughs and bleeds heavily, alarms and a monitor indicate his condition is terminal while the infant cries in his arms or nearby.",
+  "volume": 15
+}

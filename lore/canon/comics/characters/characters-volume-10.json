@@ -1,0 +1,803 @@
+[
+  {
+    "aliases": [
+      "Aghnar",
+      "Aghnar von Salza",
+      "the Metabaron",
+      "the new Metabaron"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['ic1', 'p01', 'p04', 'p05', 'p06-p07', 'p08-p09', 'p10-p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18']"
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "Publicly renounced imperial service by killing guards and walking out [v10 ic1]",
+      "Accepted Pthagurean genocide contract [v10 ic1]",
+      "Piloted metacraft in formal duel against Steelhead including traversal of inter-space and the Omphall [v10 p05–p11]",
+      "Defeated Steelhead in the duel [v10 p13]",
+      "Confronted antagonist who tortured Oda using her as emotional leverage [v10 p14–p16]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the Metabaron ancestral lineage and the father-son succession rite [v10 p05]",
+      "Aware of Pthagurean plans for galactic conquest [v10 ic1]",
+      "Knows the practice of bodily/neural connection to metacraft inherited from his own father [v10 p05]"
+    ],
+    "relationships": [
+      "character: Steelhead; type: father; notes: Steelhead is Aghnar's son; formal duel arranged between them as father vs. son Metabaron rite [v10 ic1]",
+      "character: Othon; type: son of (uncertain); notes: A warrior on p16 names his father as Othon and condemns him; if that warrior is Aghnar, Othon is his father [v10 p16 — uncertain]",
+      "character: Oda-Honorada; type: companion / wife; notes: She insisted on accompanying Aghnar aboard his metacraft for the formal duel [v10 p05]",
+      "character: Janus-Jana; type: former sovereign (renounced); notes: Aghnar killed her guards and publicly renounced imperial service [v10 ic1]",
+      "character: Pthagureans; type: contractor; notes: Accepted Pthagurean genocide contract to exterminate all life in the Empire [v10 ic1]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "page_id": "251_The_Metabarons_10_ic1",
+        "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+      },
+      {
+        "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "page_id": "252_The_Metabarons_10_p01",
+        "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+      },
+      {
+        "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "page_id": "255_The_Metabarons_10_p04",
+        "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+      },
+      {
+        "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+        "page_id": "256_The_Metabarons_10_p05",
+        "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg"
+      },
+      {
+        "image_sha256": "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+        "page_id": "257_The_Metabarons_10_p06-p07",
+        "source_image": "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg"
+      },
+      {
+        "image_sha256": "28fa97fa77a642785692e0e24c5c8cda22d9c49d226073361a95fa43dd2c3da8",
+        "page_id": "258_The_Metabarons_10_p08-p09",
+        "source_image": "external/comics/meta-barons/258_The_Metabarons_10_p08-p09.jpg"
+      },
+      {
+        "image_sha256": "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+        "page_id": "259_The_Metabarons_10_p10-p11",
+        "source_image": "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg"
+      },
+      {
+        "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+        "page_id": "261_The_Metabarons_10_p13",
+        "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+      },
+      {
+        "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "page_id": "262_The_Metabarons_10_p14",
+        "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+      },
+      {
+        "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+        "page_id": "263_The_Metabarons_10_p15",
+        "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+      },
+      {
+        "image_sha256": "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f",
+        "page_id": "264_The_Metabarons_10_p16",
+        "source_image": "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg"
+      },
+      {
+        "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+        "page_id": "265_The_Metabarons_10_p17",
+        "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+      },
+      {
+        "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+        "page_id": "266_The_Metabarons_10_p18",
+        "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+      }
+    ],
+    "traits": [
+      "Emotionally cold — 'colder than a Venusian salmon's blood' [v10 p05]",
+      "Feared; cannot be defeated by conventional imperial weapons [v10 ic1]",
+      "Aging; observed his own deterioration in a mirror on Anasirma [v10 ic1]",
+      "Adheres to a warrior honor code; denounces dishonorable tactics as treason [v10 p14, p16]",
+      "Transactional mercenary — willing to accept genocidal contracts for payment [v10 ic1]"
+    ],
+    "voice_notes": [
+      "Mostly silent in direct dialogue; characterized through narration and others' reactions",
+      "Described as profoundly cold and detached — piloting method echoes his own father before him [v10 p05]",
+      "Denounces dishonorable tactics with sharp moral indignation; calls antagonist 'bio-rat' and 'traitor' [v10 p14]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Served the Empire, then publicly broke with it, killing Janus-Jana's guards on departure [v10 ic1]",
+      "Worked as mercenary across many clients over years [v10 ic1]",
+      "Noticed his own aging while alone on Anasirma, described as reduced to its last remains [v10 ic1]",
+      "Accepted Pthagurean contract to exterminate all life in the Empire in exchange for payment [v10 ic1]",
+      "Participated in formal duel against Steelhead witnessed by millions of human and Ptaguan spectators [v10 p06-p07]",
+      "Duel carried both combatants through inter-space, the dimension of infinite geometric straight lines, the dimension of origins, and into the Omphall [v10 p08-p09, p10-p11]",
+      "Defeated Steelhead; Steelhead yielded and offered his life honorably in open space [v10 p13]",
+      "Confronted a cybernetic antagonist who seized Oda and tortured her to break him emotionally [v10 p14, p15]",
+      "A warrior in the battle context condemns his father named Othon as dishonorable and requests honorable death [v10 p16 — speaker identity uncertain]",
+      "Two armored figures chose mutual self-destruction via internal mini-bombs, producing a galaxy-scale explosion [v10 p18]"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['ic1', 'p04', 'p12', 'p13', 'p20', 'p21', 'p22', 'p23', 'p24', 'p25', 'p27', 'p28']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [
+      "Reshaping the Imperial dome into a golden flower as a power demonstration [v10 ic1]",
+      "Fought formal duel against Aghnar through multiple cosmic dimensions ending at the Omphall [v10 p06-p11]",
+      "Resisted psychic assault by the mother figure using a mega-hypnotic head and psychotrons [v10 p12]",
+      "Yielded honorably to Aghnar in open space [v10 p13]",
+      "Sealed the interspace breach, defeating the vampire invaders [v10 p24]",
+      "Infiltrated Troglosocialik defense system; assassinated the supreme Troglosocialik president [v10 p25, p27]",
+      "Killed Nacnor Rosaamel de Rokha (reported by robotic observers) [v10 p25]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the Metabaron succession tradition and the Castaka lineage [v10 ic1, p16]",
+      "Knows the interspace breach created by the duel and its cosmic danger [v10 p23]",
+      "Knows the political requirement for unanimous ambassadorial consent for the noble medallion [v10 p23]",
+      "Aware that his cybernetic nature makes him immune to vampire cerebral attacks [v10 p24]"
+    ],
+    "relationships": [
+      "character: Aghnar; type: son of; notes: Fought formal duel against Aghnar as humanity's champion; the Metabaron succession rite frames this as son proving himself mightier than father [v10 ic1]",
+      "character: Tonto; type: attendant / companion; notes: Tonto advises Steelhead on appearance and manages his communications [v10 p22]",
+      "character: Neocerth Empress; type: patron (negotiated); notes: Empress contacts Steelhead for help with the interspace breach; he negotiates political elevation as payment [v10 p23]",
+      "character: Don Nicanor Rosamel de Rokha; type: assassination target; notes: Identified as the sole political obstacle to Steelhead's noble medallion; Steelhead concluded elimination was the solution [v10 p23, p25, p27]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "page_id": "251_The_Metabarons_10_ic1",
+        "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+      },
+      {
+        "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "page_id": "255_The_Metabarons_10_p04",
+        "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+      },
+      {
+        "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+        "page_id": "260_The_Metabarons_10_p12",
+        "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+      },
+      {
+        "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+        "page_id": "261_The_Metabarons_10_p13",
+        "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+      },
+      {
+        "image_sha256": "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+        "page_id": "268_The_Metabarons_10_p20",
+        "source_image": "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg"
+      },
+      {
+        "image_sha256": "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07",
+        "page_id": "269_The_Metabarons_10_p21",
+        "source_image": "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg"
+      },
+      {
+        "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+        "page_id": "270_The_Metabarons_10_p22",
+        "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg"
+      },
+      {
+        "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+        "page_id": "271_The_Metabarons_10_p23",
+        "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+      },
+      {
+        "image_sha256": "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+        "page_id": "272_The_Metabarons_10_p24",
+        "source_image": "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg"
+      },
+      {
+        "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+        "page_id": "273_The_Metabarons_10_p25",
+        "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+      },
+      {
+        "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+        "page_id": "275_The_Metabarons_10_p27",
+        "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg"
+      },
+      {
+        "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+        "page_id": "276_The_Metabarons_10_p28",
+        "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+      }
+    ],
+    "traits": [
+      "Faceless or featureless in appearance [v10 ic1]",
+      "Head composed of deadly weapons, concealed under helmets [v10 p22]",
+      "Highly ambitious and self-important; treats any summons as proof of his indispensability [v10 p22]",
+      "Explicitly transactional — refuses altruism and demands personal reward before acting [v10 p23]",
+      "Indifferent to humanity's welfare as a moral concern [v10 p23]",
+      "Vain or theatrical: solicits aesthetic opinions on helmet styles [v10 p22]",
+      "Capable of stealth infiltration through outdated defensive systems [v10 p25]",
+      "Immune to vampire cerebral attacks due to cybernetic construction [v10 p24]",
+      "Bitter and resentful when not publicly recognized despite victory [v10 p20]"
+    ],
+    "voice_notes": [
+      "Speaks with wounded pride and resentment when unrecognized [v10 p20]",
+      "Negotiates transactionally, explicitly rejecting moral appeals as irrelevant [v10 p23]",
+      "Seeks validation through titles and status, not love or loyalty [v10 p22, p23]",
+      "Addresses Tonto with casual authority as a trusted aide [v10 p22]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Revealed to the Empire via a Techno-Techno ambassador who appeared first as a holo-image [v10 ic1]",
+      "Demonstrated power by reshaping the Imperial dome into a gigantic golden flower [v10 ic1]",
+      "Chosen as humanity's champion; associated with a purple metacraft [v10 ic1]",
+      "Resisted an intense psychic attack during the duel to the point of threatening his own molecular unity [v10 p12]",
+      "Defeated by Aghnar in formal duel; yielded honorably in open space [v10 p13]",
+      "Departed the victory celebration without public recognition, carrying reward treasure, course set for Metabunker [v10 p20]",
+      "Expressed angry resentment at being ignored despite his role in victory [v10 p20]",
+      "Received urgent galactic transmission from the new Golden Palace requesting an audience [v10 p22]",
+      "Negotiated with the neocerth empress for title Supreme Metabaron and a high nobility medallion requiring unanimous ambassador consent [v10 p23]",
+      "Immune to vampire cerebral attack; sealed the interspace breach, causing the vampires to disintegrate [v10 p24]",
+      "Infiltrated the Troglosocialik defense system via poly-cloaked psy-glider over capital planet Philodendra [v10 p25]",
+      "Accused by robotic observers of having killed Nacnor Rosaamel de Rokha, last planar Tay priest [v10 p25]",
+      "Fired a Cerebrak IK-8 at the supreme Troglosocialik president during morning meditation among the Djykka-birds at the Halerce Tree [v10 p27]"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon von Salza",
+      "Othon"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p16', 'p28']"
+    ],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "Credited with saving humanity on two occasions (nature of the acts not detailed in these pages) [v10 p28]"
+    ],
+    "knowledge_boundaries": [
+      "No direct dialogue or internal perspective given in these pages"
+    ],
+    "relationships": [
+      "character: unnamed warrior (p16); type: father of; notes: Warrior condemns 'father Othon' as eternally shamed; if warrior is Aghnar then Othon is Aghnar's father; relationship uncertain [v10 p16]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f",
+        "page_id": "264_The_Metabarons_10_p16",
+        "source_image": "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg"
+      },
+      {
+        "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+        "page_id": "276_The_Metabarons_10_p28",
+        "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+      }
+    ],
+    "traits": [
+      "Condemned as cold, dishonorable, and inhuman by a warrior identifying himself as Othon's son [v10 p16]",
+      "Publicly credited as having saved humanity on two separate occasions [v10 p28]"
+    ],
+    "voice_notes": [
+      "Does not speak directly in these pages; known only through others' references and the award ceremony"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Named by a warrior during the battle as the warrior's father; condemned as dishonorable [v10 p16]",
+      "Unanimously awarded high nobility by all planetary ambassadors at a formal ceremony [v10 p28]",
+      "Stated to have saved humanity twice from complete annihilation [v10 p28]"
+    ]
+  },
+  {
+    "aliases": [
+      "Janus-Jana",
+      "Empress",
+      "Emperoress"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['ic1']"
+    ],
+    "character_id": "janus-jana",
+    "important_actions": [
+      "Oversaw arming of Purple Endoguards at moment of Aghnar's defection [v10 ic1]",
+      "Accepted the Techno-Techno proposal that led to Steelhead being designated humanity's champion [v10 ic1]"
+    ],
+    "knowledge_boundaries": [
+      "Aware of the Metabaron's invincibility against conventional imperial weapons [v10 ic1]",
+      "Aware of the Pthagurean threat [v10 ic1]"
+    ],
+    "relationships": [
+      "character: Aghnar; type: former sovereign over; notes: Aghnar killed her guards and renounced service to her [v10 ic1]",
+      "character: Purple Endoguards; type: commander of; notes: Was overseeing their arming when Aghnar broke away [v10 ic1]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "page_id": "251_The_Metabarons_10_ic1",
+        "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+      }
+    ],
+    "traits": [
+      "Imperial ruler shown in elaborate ceremonial or military regalia [v10 ic1]",
+      "Commands Purple Endoguards from the Imperial Palace [v10 ic1]"
+    ],
+    "voice_notes": [
+      "No direct dialogue captured in these pages; known only through recap narration [v10 ic1]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Present when Aghnar entered, killed guards, and announced the end of his service [v10 ic1]",
+      "The Empire under her could find no conventional weapon capable of defeating Aghnar [v10 ic1]",
+      "Accepted a Techno-Techno proposal presenting Steelhead as humanity's champion against Aghnar [v10 ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda",
+      "Oda-Honorada",
+      "Honoratza",
+      "Oda/Honoratza"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['ic1', 'p05', 'p14', 'p15', 'p17']"
+    ],
+    "character_id": "oda",
+    "important_actions": [
+      "Accompanied Aghnar into his metacraft for the formal duel [v10 p05]",
+      "Explicitly framed the father-killing as the fulfillment of Metabaron tradition [v10 p05]",
+      "Endured systematic dismemberment by the antagonist [v10 p15]",
+      "Condemned the son's dishonorable victory and declared the Metabarons clan lost to him [v10 p17]",
+      "Chose to depart with the son into death [v10 p17]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the Metabaron succession tradition in detail [v10 p05]",
+      "Knows the importance of the hereditary line's continuation [v10 p14]",
+      "Aware of what constitutes honorable vs. dishonorable victory in the warrior code [v10 p17]"
+    ],
+    "relationships": [
+      "character: Aghnar; type: wife / companion; notes: Identified as Aghnar's wife; insisted on accompanying him in his metacraft for the duel [v10 p05, p14]",
+      "character: Honorata; type: vessel of; notes: Honorata's spirit is explicitly stated to be contained within Oda's body [v10 p14]",
+      "character: Unnamed cybernetic antagonist; type: captive / torture victim; notes: Seized and tortured as emotional leverage against Aghnar; all ten fingers severed [v10 p14, p15]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "page_id": "251_The_Metabarons_10_ic1",
+        "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+      },
+      {
+        "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+        "page_id": "256_The_Metabarons_10_p05",
+        "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg"
+      },
+      {
+        "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "page_id": "262_The_Metabarons_10_p14",
+        "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+      },
+      {
+        "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+        "page_id": "263_The_Metabarons_10_p15",
+        "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+      },
+      {
+        "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+        "page_id": "265_The_Metabarons_10_p17",
+        "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+      }
+    ],
+    "traits": [
+      "Strong moral conviction; refuses to accept victory obtained through dishonorable means [v10 p17]",
+      "Deeply devoted to the Metabaron warrior code [v10 p17]",
+      "Physically resilient despite extreme torture [v10 p15]",
+      "Wife of Aghnar and vessel of Honorata's spirit [v10 p14]",
+      "Emotionally volatile — can shift within a single scene from proud rage to fierce possessive devotion [v10 p17]",
+      "Prioritizes continuation of the family line over personal survival [v10 p14]"
+    ],
+    "voice_notes": [
+      "Speaks with moral authority and warrior conviction [v10 p17]",
+      "Urges continuation of lineage over personal survival [v10 p14]",
+      "Explosive and shifting: pride, then condemnation, then fierce attachment all within one confrontation [v10 p17]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Associated with the Techno-Techno ambassador reveal in the recap [v10 ic1]",
+      "Insisted on accompanying Aghnar aboard his metacraft for the formal duel [v10 p05]",
+      "Told Aghnar that killing his father fulfills the Metabaron tradition [v10 p05]",
+      "Seized by cybernetic antagonist and used as emotional leverage; antagonist invoked Honorata's spirit within her [v10 p14]",
+      "Had all ten fingers severed sequentially by the antagonist [v10 p15]",
+      "Urged continuation of the lineage over personal survival [v10 p14]",
+      "Declared that victory through treachery cost the winner her loyalty and the entire Metabarons clan [v10 p17]",
+      "Reversed course and declared she would depart with the son even into death [v10 p17]",
+      "Drifted into open space alongside an armored figure at the end of p17 [v10 p17]"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p14', 'p17', 'p18']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "Her spiritual presence in Oda's body is weaponized by the antagonist to psychologically break Aghnar [v10 p14]"
+    ],
+    "knowledge_boundaries": [
+      "No direct dialogue clearly attributed to Honorata separately from Oda in these pages"
+    ],
+    "relationships": [
+      "character: Aghnar; type: mother of; notes: Identified directly as Aghnar's mother [v10 p14]",
+      "character: Oda; type: spirit residing within; notes: Honorata's spirit resides inside Oda's body [v10 p14]",
+      "character: dying speaker on p18; type: former lover (of speaker's father); notes: A speaker before death conditionally forgives Honorata, framing her past actions as love for his father [v10 p18]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "page_id": "262_The_Metabarons_10_p14",
+        "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+      },
+      {
+        "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+        "page_id": "265_The_Metabarons_10_p17",
+        "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+      },
+      {
+        "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+        "page_id": "266_The_Metabarons_10_p18",
+        "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+      }
+    ],
+    "traits": [
+      "Present as a spirit within Oda's body [v10 p14]",
+      "Her past unspecified actions are framed as motivated by love for the speaker's father [v10 p18]"
+    ],
+    "voice_notes": [
+      "Voice not clearly distinguished from Oda's in these page summaries; may speak through Oda"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Her spirit is confirmed as present within Oda's body [v10 p14]",
+      "The cybernetic antagonist explicitly invokes her presence within Oda as leverage against Aghnar [v10 p14]",
+      "A dying speaker conditionally forgives her, framing past actions as stemming from love for his father [v10 p18]"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p01', 'p04', 'p22', 'p25']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Narrating the story of the Steelhead/Aghnar duel to Lothar at the Metabunker [v10 p01, p04]",
+      "Managing Steelhead's communications and appearance choices [v10 p22]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the full account of the Steelhead/Aghnar duel (he is narrating it) [v10 p01]",
+      "Knows how to inspect circuits to determine a combatant's survival status [v10 p04]",
+      "Knows the Metabarons/Castaka lineage history and cares about its honor [v10 p25]"
+    ],
+    "relationships": [
+      "character: Lothar; type: co-attendant, frequent arguer; notes: Both are robots at the Metabunker; regularly argue over timing, procedure, and story interpretation [v10 p01]",
+      "character: Steelhead; type: attendant to; notes: Advises Steelhead on appearance and manages his transmissions [v10 p22]",
+      "character: the Metabaron (frame story); type: subordinate to; notes: Responsible for monitoring the Metabaron's status and maintaining daily service routines [v10 p01]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "page_id": "252_The_Metabarons_10_p01",
+        "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+      },
+      {
+        "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "page_id": "255_The_Metabarons_10_p04",
+        "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+      },
+      {
+        "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+        "page_id": "270_The_Metabarons_10_p22",
+        "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg"
+      },
+      {
+        "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+        "page_id": "273_The_Metabarons_10_p25",
+        "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+      }
+    ],
+    "traits": [
+      "Small robot with a screen-like face; functions as a storyteller and attendant [v10 p01]",
+      "Serves as narrator of past events to other robots [v10 p01]",
+      "Trusted enough to be asked to inspect circuits to determine if Steelhead survived [v10 p04]",
+      "Blunt and direct in aesthetic opinions [v10 p22]",
+      "Manages communications for Steelhead [v10 p22]",
+      "Emotionally invested in the honor of the Metabarons/Castaka lineage [v10 p25]"
+    ],
+    "voice_notes": [
+      "Tells stories with clear dramatic investment [v10 p01]",
+      "Blunt and direct in practical assessments [v10 p22]",
+      "Becomes agitated and morally indignant when Steelhead's dishonorable acts are discussed [v10 p25]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Prepared breakfast and tracked the Metabaron's scheduled return time [v10 p01]",
+      "Was in the middle of recounting the Steelhead/Aghnar duel story when interrupted [v10 p01]",
+      "Asked to inspect circuits to check whether Steelhead survived the duel [v10 p04]",
+      "Advised Steelhead against one helmet design as 'too poetic' [v10 p22]",
+      "Relayed an urgent galactic transmission from the new Golden Palace to Steelhead [v10 p22]",
+      "Present when robotic observers accused Steelhead of having killed Nacnor Rosaamel de Rokha [v10 p25]"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p01', 'p03', 'p04']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Decided to check the Metabaron's bio-electrogram when he failed to return on schedule [v10 p01]",
+      "Holographic Lothar destroyed all cerebomaks in under a minute and disabled an opposing ship's weapons [v10 p03]"
+    ],
+    "knowledge_boundaries": [
+      "Knows precise service schedules and timing for the Metabaron [v10 p01]",
+      "Can operate or read a bio-electrogram monitoring device [v10 p01]"
+    ],
+    "relationships": [
+      "character: Tonto; type: co-attendant / audience; notes: Tonto tells stories to Lothar; they frequently argue over timing and interpretations [v10 p01]",
+      "character: the Metabaron (frame story); type: subordinate to; notes: Responsible for the Metabaron's routine maintenance and monitoring [v10 p01]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "page_id": "252_The_Metabarons_10_p01",
+        "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+      },
+      {
+        "image_sha256": "afe0aec5e388498e856405a32770f5a674c6ae4bb484e330ab5d115fe733ae4c",
+        "page_id": "254_The_Metabarons_10_p03",
+        "source_image": "external/comics/meta-barons/254_The_Metabarons_10_p03.jpg"
+      },
+      {
+        "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "page_id": "255_The_Metabarons_10_p04",
+        "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+      }
+    ],
+    "traits": [
+      "Impatient, literal-minded, highly focused on exact timing and procedure [v10 p01]",
+      "Can manifest as a devastating holographic form; real form is described as far more powerful [v10 p03]",
+      "Holographic form possesses tentacle-like or bandage-like appendages that can physically foul machinery [v10 p03]",
+      "Willing to admit fault; apologized to Tonto for showing too little faith [v10 p04]",
+      "Willing to threaten memory-wipe of fellow robots to enforce compliance [v10 p01]"
+    ],
+    "voice_notes": [
+      "Speaks in an agitated, procedure-obsessed manner [v10 p01]",
+      "Threatening in tone when annoyed; will invoke memory-wipe as leverage [v10 p01]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Became alarmed when the Metabaron did not return after breakfast [v10 p01]",
+      "Described in Tonto's story as a holographic form that destroyed all cerebomaks in under a minute [v10 p03]",
+      "Holographic form fouled an opposing ship's firing tubes with tentacle-like appendages [v10 p03]",
+      "Real Lothar stated to be vastly stronger than the holographic projection [v10 p03]",
+      "Apologized to Tonto for doubting his judgment [v10 p04]"
+    ]
+  },
+  {
+    "aliases": [
+      "Don Nicanor Rosamel de Rokha",
+      "Nacnor Rosaamel de Rokha",
+      "the supreme Troglosocialik president",
+      "last planar Tay priest"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p23', 'p25', 'p27']"
+    ],
+    "character_id": "don-nicanor-rosamel-de-rokha",
+    "important_actions": [
+      "Would have vetoed Steelhead's noble elevation — the act that caused his assassination [v10 p23]"
+    ],
+    "knowledge_boundaries": [
+      "No internal perspective given; characterized entirely through external description"
+    ],
+    "relationships": [
+      "character: Steelhead; type: assassination target; notes: Identified by the empress as the sole obstacle to unanimous ambassador consent; Steelhead concluded elimination was necessary [v10 p23]; accused of killing him [v10 p25]; fired upon during meditation [v10 p27]",
+      "character: Neocerth Empress; type: political obstacle to her plan; notes: She identified him as the one ambassador who would block Steelhead's appointment [v10 p23]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+        "page_id": "271_The_Metabarons_10_p23",
+        "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+      },
+      {
+        "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+        "page_id": "273_The_Metabarons_10_p25",
+        "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+      },
+      {
+        "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+        "page_id": "275_The_Metabarons_10_p27",
+        "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg"
+      }
+    ],
+    "traits": [
+      "Fanatically attached to traditions of nobility; identified as the sole ambassador who would never approve Steelhead's elevation [v10 p23]",
+      "Practices a calm morning meditation ritual among tiny birds [v10 p27]",
+      "Identified as the last planar Tay priest associated with preserving traditional ecology [v10 p25]"
+    ],
+    "voice_notes": [
+      "Does not speak directly in these pages"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Identified by the neocerth empress as president of the Under-Developed Petroglotosocialik Federation [v10 p23]",
+      "Described as the sole obstacle to unanimous ambassadorial consent for the noble medallion [v10 p23]",
+      "Accused by robotic observers of having been murdered by Steelhead [v10 p25]",
+      "Identified as the last planar Tay priest associated with traditional ecology [v10 p25]",
+      "Was meditating among Djykka-birds at the Halerce Tree when Steelhead fired the Cerebrak IK-8 [v10 p27]"
+    ]
+  },
+  {
+    "aliases": [
+      "Unnamed Cybernetic Antagonist",
+      "bio-rat",
+      "traitor"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p14', 'p15']"
+    ],
+    "character_id": "unnamed-cybernetic-antagonist",
+    "important_actions": [
+      "Seized Oda and tortured her systematically to psychologically break Aghnar [v10 p14, p15]",
+      "Explicitly rejected the warrior honor code, arguing victory justifies any method [v10 p14]"
+    ],
+    "knowledge_boundaries": [
+      "Knows Aghnar's dual emotional attachment — to Oda as wife and to Honorata's spirit within her [v10 p14]",
+      "Aware of the Metabaron honor code and deliberately rejects it [v10 p14]"
+    ],
+    "relationships": [
+      "character: Aghnar; type: adversary; notes: Seized Oda to exploit Aghnar's emotional attachment to both wife and mother [v10 p14]",
+      "character: Oda; type: captor / torturer; notes: Restrained Oda and severed her fingers sequentially as psychological leverage [v10 p14, p15]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "page_id": "262_The_Metabarons_10_p14",
+        "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+      },
+      {
+        "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+        "page_id": "263_The_Metabarons_10_p15",
+        "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+      }
+    ],
+    "traits": [
+      "Heavily cybernetic or biomechanical; gold-faced appearance [v10 p15]",
+      "Explicitly rejects warrior honor codes in favor of pragmatic victory at any cost [v10 p14]",
+      "Sadistic and methodical; counts each act of torture in sequence [v10 p15]",
+      "Fixated on the loss of his own humanity, which he blames on his victim [v10 p15]",
+      "Weaponizes emotional bonds and family ties deliberately [v10 p14]"
+    ],
+    "voice_notes": [
+      "Speaks with cold contempt when dismissing honor: 'victory justifies any weapon' [v10 p14]",
+      "Becomes ranting and emotionally raw when invoking his lost humanity [v10 p15]",
+      "Counts torture acts methodically — calculated cruelty, not rage [v10 p15]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Seized Oda (vessel of Honorata's spirit) and presented her as leverage against Aghnar [v10 p14]",
+      "Threatened to dismember Oda piece by piece unless Aghnar submitted [v10 p14]",
+      "Systematically severed all ten of Oda's fingers, counting aloud from one to ten [v10 p15]",
+      "Declared he would leave her 'only half-woman' [v10 p15]",
+      "Stated he is a machine with no mother or father and accused the victim of taking his humanity [v10 p15]"
+    ]
+  },
+  {
+    "aliases": [
+      "Neocerth Empress",
+      "neocerth empress of the galaxy",
+      "holographic imperial woman",
+      "the imperial couple (partial)"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p23']"
+    ],
+    "character_id": "neocerth-empress",
+    "important_actions": [
+      "Contacted Steelhead and set in motion the chain of events leading to the assassination of Don Nicanor Rosamel de Rokha [v10 p23]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the interspace breach and its origin in the duel with Aghnar [v10 p23]",
+      "Knows the political mechanics of the noble medallion process [v10 p23]",
+      "Does not appear to anticipate or attempt to prevent Steelhead's choice of assassination to remove the obstacle"
+    ],
+    "relationships": [
+      "character: Steelhead; type: patron / client; notes: Contacted Steelhead to request help sealing the interspace breach in exchange for the title Supreme Metabaron and a high nobility medallion [v10 p23]",
+      "character: Don Nicanor Rosamel de Rokha; type: political obstacle named by her; notes: She identified him as the sole ambassador who would block unanimous consent [v10 p23]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+        "page_id": "271_The_Metabarons_10_p23",
+        "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+      }
+    ],
+    "traits": [
+      "Presents herself as the supreme galactic ruler facing a universe-level emergency [v10 p23]",
+      "Desperate; describes having suffered military losses and mass casualties before escaping [v10 p23]",
+      "Pragmatic negotiator: shifts quickly from moral appeals to transactional offers when altruism fails [v10 p23]",
+      "Uses holographic communication to contact distant parties [v10 p23]"
+    ],
+    "voice_notes": [
+      "Appeals first to friendship, duty, and survival; pivots to transactional offers when moral framing fails [v10 p23]",
+      "Projects authority as supreme ruler while clearly operating from a position of desperation [v10 p23]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Contacted Steelhead via hologram with an urgent request for help [v10 p23]",
+      "Explained that the duel with Aghnar opened a reality breach releasing devourers from interspace threatening the universe [v10 p23]",
+      "Offered the title Supreme Metabaron and a high nobility medallion requiring unanimous planetary ambassador consent as reward [v10 p23]",
+      "Identified Don Nicanor Rosamel de Rokha as the one obstacle to unanimous consent [v10 p23]"
+    ]
+  },
+  {
+    "aliases": [
+      "Unnamed Mother Figure (p12)",
+      "master figure (p12 operators)"
+    ],
+    "appearances": [
+      "volume: 10; pages: ['p12', 'p13']"
+    ],
+    "character_id": "unnamed-mother-figure-p12",
+    "important_actions": [
+      "Directed psychic assault on Aghnar via son and probe, escalating to full psychotron reserves [v10 p12]",
+      "Counseled the defeated son to accept death honorably [v10 p13]"
+    ],
+    "knowledge_boundaries": [
+      "Knows how to operate or direct psychic amplification via probe [v10 p12]",
+      "Knows the limits of her psychotron reserves [v10 p12]"
+    ],
+    "relationships": [
+      "character: unnamed son (p12); type: mother of; notes: Directs her son to wield a mega-hypnotic head against Aghnar [v10 p12]",
+      "character: Steelhead; type: commanding ally; notes: Urges Steelhead to keep fighting a little longer while she amplifies psychic power [v10 p12]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+        "page_id": "260_The_Metabarons_10_p12",
+        "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+      },
+      {
+        "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+        "page_id": "261_The_Metabarons_10_p13",
+        "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+      }
+    ],
+    "traits": [
+      "Physically integrated with elaborate biomechanical machinery [v10 p12]",
+      "Commands both her son (subordinate) and Steelhead simultaneously [v10 p12]",
+      "Possesses psychic powers; transmits them through a probe at personal cost [v10 p12]",
+      "Willing to endure pain to amplify her psychic attack [v10 p12]",
+      "Urges acceptance of honorable death as a warrior's highest dignity [v10 p13]"
+    ],
+    "voice_notes": [
+      "Commands with urgency and conviction [v10 p12]",
+      "Shifts to intimate, maternal counsel when urging honorable death [v10 p13]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Directed her son to use a mega-hypnotic head device to incapacitate an armored opponent [v10 p12]",
+      "Had a probe inserted into her body to transmit and amplify psychic power to her son [v10 p12]",
+      "Urged Steelhead that the enemy (Aghnar) was close to permanent incapacitation [v10 p12]",
+      "Committed all remaining psychotron reserves in a final escalation when she could endure no more [v10 p12]",
+      "Told the defeated son that a warrior's dignity lies in turning defeat into honorable triumph [v10 p13]"
+    ]
+  }
+]

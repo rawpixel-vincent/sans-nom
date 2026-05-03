@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "The white-haired woman was originally part of, or complicit in, a plan to manipulate imperial succession.",
+    "She fell in love and chose to defy orders.",
+    "She gave birth to a son and wants his sex kept secret.",
+    "The armored man is emotionally affected by the revelation and agrees to a long-term plan centered on the child.",
+    "The armored man speaks of their bond as temporary and shared only within this life, indicating a fatalistic or sacrificial outlook."
+  ],
+  "characters_present": [
+    "A white-haired woman recounting the failed succession plot and the hidden birth of her son",
+    "A gold-faced, armored man who reacts to the story and agrees to protect and train the boy",
+    "Small distant figures in a ceremonial crowd, including robed and armored attendees"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page ties the survival of the Metabarons' line to the secret birth of a male child.",
+    "It establishes a seven-year countdown before the child is to be taken, setting up future conflict around concealment, abduction, and training.",
+    "It links a larger imperial conspiracy to the personal relationship between the two speakers."
+  ],
+  "dialogue_meaning": [
+    "The woman reveals a dynastic conspiracy centered on using an idealized androgynous figure to secure political legitimacy and seize imperial power.",
+    "She confesses that love and childbirth disrupted that conspiracy.",
+    "The existence of a male child is presented as both a scandal and a means for the Metabarons' lineage to survive.",
+    "The law of their society is described as severe enough to require multiple murders if the secret is exposed.",
+    "The pair choose secrecy, a delayed handover at the child's seventh year, and preparation for violent resistance.",
+    "The closing lines frame their separation from society as deliberate self-erasure tied to protecting the child."
+  ],
+  "image_sha256": "facd9959fcbdfcf1f617c86a36c44a6e04de8f936da6ffa27f2226b57846673e",
+  "is_spread": false,
+  "locations": [
+    "A futuristic aircraft or transport in flight",
+    "Sky above a sprawling futuristic city",
+    "A ceremonial or public gathering space with monumental architecture and a crowd"
+  ],
+  "lore_facts": [
+    "There was a plan to use a 'perfect androgyne' to gain support from the majority of the planets and take the throne.",
+    "Janus-Jana is identified as the intended poisoning victim in that succession plot.",
+    "The Oiders are a group or authority whose orders the woman says she disobeyed.",
+    "A child born from this forbidden relationship is a boy, and his existence matters to the continuation of the Metabarons' clan.",
+    "Their law treats this situation as scandalous enough to mandate execution of those involved if discovered.",
+    "A child is supposed to be kidnapped and delivered at the age of seven under the stated plan.",
+    "Training the boy as a warrior is treated as a necessary defensive response."
+  ],
+  "page_id": "101_The_Metabarons_4_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A woman explains that an earlier plan was to present a 'perfect androgyne' to win support from the major planets and seize the throne after poisoning Janus-Jana.",
+    "She says the plan failed because she fell in love, disobeyed the orders of the Oiders, and gave birth to a boy.",
+    "She states that this son would allow the clan of the Metabarons to continue, contrary to the original intent discussed.",
+    "The speakers discuss the danger that, under their law and to avoid scandal, they would be forced to assassinate both parents, the child, and another involved person if the truth were known.",
+    "They decide to keep the child's sex secret for at least seven years.",
+    "A plan is stated in which the child will be kidnapped at age seven and delivered to the relevant authorities or faction.",
+    "The man accepts the need to use the seven-year window to prepare a defense and make the child into a warrior.",
+    "The page ends with a public or ceremonial scene and a statement that they will all disappear and leave this world."
+  ],
+  "source_image": "external/comics/meta-barons/101_The_Metabarons_4_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "facd9959fcbdfcf1f617c86a36c44a6e04de8f936da6ffa27f2226b57846673e",
+      "page_id": "101_The_Metabarons_4_p12",
+      "source_image": "external/comics/meta-barons/101_The_Metabarons_4_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and terms are difficult to read at this resolution; 'Oiders' and 'Sabeda-Oud' may be imprecise transcriptions.",
+    "The identity of the gold-faced armored man is not stated on this page.",
+    "The final ceremonial scene may be literal present action or part of the narration; the page alone does not fully clarify the transition.",
+    "One line refers to killing 'the child and me' or possibly another party, but the exact wording is partially unclear due to image size."
+  ],
+  "visual_summary": "A woman with white hair recounts a past political scheme and its failure while speaking with a gold-faced, armored man during transport over a futuristic city. Their conversation is intercut with views of a black aircraft, a close view of the man lying or reclining, and then a public ceremonial scene with crowds and robed figures. The page closes on a solemn declaration that they must disappear from the world.",
+  "volume": 4
+}

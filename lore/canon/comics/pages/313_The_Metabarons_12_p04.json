@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The elderly man is emotionally invested in reviving both the woman and her father, and presents himself as responsible for the cloning success.",
+    "Tonto is a robot assistant that follows the master's instructions and explains the science behind the revival.",
+    "The awakened woman has been in a coma for a few weeks and is in acute emotional distress upon waking.",
+    "The woman associates her father's presence with intense pain and explicitly asks for permanent sleep instead of continued life.",
+    "The recreated father is presented as alive again, though his exact state of consciousness on this page is unclear."
+  ],
+  "characters_present": [
+    "An elderly bearded man, likely a scientist or master figure",
+    "A small robot identified as Tonto",
+    "A woman being awakened from suspended sleep or coma",
+    "A suspended older male figure in a chamber, presented as the recreated father / Don Nicanor Rosamel de Rokha"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows an apparent cloning or resurrection attempt focused on Don Nicanor Rosamel de Rokha.",
+    "The woman's coma and induced sleep state predate this page and are central to the current scene.",
+    "The emotional conflict hinges on the return of the woman's father, implying prior history between them."
+  ],
+  "dialogue_meaning": [
+    "The man believes he has successfully recreated a specific person, Don Nicanor Rosamel de Rokha, and expects gratitude or vindication.",
+    "He understands cloning as imperfect in practice, stressing that identity may only hold up to a point before dangerous divergence appears.",
+    "The woman does not experience the revival as comforting; her father's return intensifies her suffering rather than healing it.",
+    "The man frames the father's return as a reason for the woman to rejoin the world instead of remaining in induced sleep.",
+    "The robot frames the achievement as a technical miracle, emphasizing reconstruction of both body and mind from minimal biological material."
+  ],
+  "image_sha256": "9b2df6d7e3c464c9f273302408836a10d0b4dd45a30f4e7f88c1fbe0f49fd641",
+  "is_spread": false,
+  "locations": [
+    "A futuristic cloning, laboratory, or medical revival chamber",
+    "A sleep or coma recovery apparatus containing the woman",
+    "A separate suspended pod or support system containing the recreated father"
+  ],
+  "lore_facts": [
+    "Don Nicanor Rosamel de Rokha can apparently be cloned or recreated in this setting.",
+    "The setting includes electronic sleep or suspended-coma systems that can be disconnected by attendants.",
+    "A clone is described as identical to the original only up to a certain point, with remaining differences capable of causing catastrophic biological or personal consequences.",
+    "Advanced biotechnology in this world can rebuild a human body and neural programming from a single cell, at least according to the robot's explanation."
+  ],
+  "page_id": "313_The_Metabarons_12_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "An elderly man claims success in making a perfect copy of Don Nicanor Rosamel de Rokha.",
+    "He cautions the robot assistant that even small differences in a clone can cause disastrous results.",
+    "The robot disconnects the woman's electronic sleep system.",
+    "The woman wakes after being in a coma for several weeks.",
+    "The woman reacts with distress, saying her father's presence causes her emotional pain and asking to be put to sleep forever.",
+    "The man pleads that she should choose life and peace in the world because her father lives again.",
+    "The robot defends the man's actions by explaining that he reconstructed the woman's father from a single cell."
+  ],
+  "source_image": "external/comics/meta-barons/313_The_Metabarons_12_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9b2df6d7e3c464c9f273302408836a10d0b4dd45a30f4e7f88c1fbe0f49fd641",
+      "page_id": "313_The_Metabarons_12_p04",
+      "source_image": "external/comics/meta-barons/313_The_Metabarons_12_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The woman's name is not given on this page.",
+    "The exact identity and name of the elderly bearded man are not stated on this page.",
+    "Whether the recreated father is fully conscious here or only being presented as a successful reconstruction is not visually certain.",
+    "Some dialogue is small and stylized; while the major points are readable, minor wording may be imprecise."
+  ],
+  "visual_summary": "In a cluttered sci-fi laboratory or medical chamber, an elderly bearded man and a small robot attend to a woman lying in a suspended sleep apparatus. The man celebrates creating a perfect copy of Don Nicanor Rosamel de Rokha, then warns the robot that clones can still diverge from their originals. The woman is awakened from a weeks-long coma, recoils in pain and despair, begs to be put back to sleep forever, and accuses the others of cruelty. The robot argues that its master has recreated her father from a single cell by rebuilding both flesh and the neural programming of his mind.",
+  "volume": 12
+}

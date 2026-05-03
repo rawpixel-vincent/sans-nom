@@ -1,0 +1,49 @@
+{
+  "character_facts": [
+    "The occupants of the craft are not visible on this page.",
+    "The craft appears maneuverable enough to traverse tight passages and broad caverns."
+  ],
+  "characters_present": [
+    "A single small flying craft with unseen occupants"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts continuous forward movement by the same craft through successive underground spaces."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "2cfae34e3546a4f89a8eb77974800b2e9e86061006f8e6fd800d6460f82ee9c3",
+  "is_spread": false,
+  "locations": [
+    "A subterranean cave system",
+    "A deep vertical or funnel-shaped rock shaft",
+    "A large cavern chamber with layered stone walls",
+    "A dark tunnel with a bright illuminated opening"
+  ],
+  "lore_facts": [
+    "The setting includes immense natural or natural-looking underground spaces with smooth, layered rock formations.",
+    "Travel through this environment is conducted by a compact airborne vehicle rather than on foot.",
+    "The underground area is large enough to contain open chambers and navigable tunnels for the craft."
+  ],
+  "page_id": "041_The_Metabarons_2_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A small aircraft navigates into a deep rock shaft or cave passage.",
+    "The craft crosses a much larger subterranean chamber with stratified, sculpted stone formations.",
+    "The vehicle continues onward through a darker tunnel toward a lit exit or corridor."
+  ],
+  "source_image": "external/comics/meta-barons/041_The_Metabarons_2_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2cfae34e3546a4f89a8eb77974800b2e9e86061006f8e6fd800d6460f82ee9c3",
+      "page_id": "041_The_Metabarons_2_p12",
+      "source_image": "external/comics/meta-barons/041_The_Metabarons_2_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No readable dialogue or captions are visible on this page.",
+    "The identities and number of the craft's occupants cannot be determined from the image alone.",
+    "It is unclear whether the cave system is wholly natural or modified, since no explicit structures are clearly identified."
+  ],
+  "visual_summary": "Three wide panels show a small flying craft moving deeper through enormous layered cavern interiors. The first panel shows the vehicle entering or descending along a narrow rock funnel. The second panel opens into a vast chamber with banded stone walls and shafts of light. The third panel shows the craft traveling through a darker tunnel toward a bright opening or illuminated passage.",
+  "volume": 2
+}

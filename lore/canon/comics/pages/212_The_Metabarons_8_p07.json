@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Aghnar can recognize or is strongly affected by a specific perfume tied to his past.",
+    "Aghnar remembers his mother's final words clearly enough to identify them when repeated.",
+    "Aghnar believes he witnessed his mother's death personally.",
+    "Honorata, if the claim is true, knows intimate details tied to Aghnar's mother and his family memory.",
+    "The cloaked woman is calm and insistent, while Aghnar reacts with shock, grief, and anger."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Honorata (claimed identity of the cloaked woman)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page refers back to the prior death of Aghnar's mother.",
+    "It introduces or reinforces a connection between Honorata and Aghnar through bloodline, memory, and scent.",
+    "It references earlier events involving Okkhar's carnivorous flowers and the bombing that killed Aghnar's mother."
+  ],
+  "dialogue_meaning": [
+    "The woman uses scent as proof of identity, implying a deeply personal memory link with Aghnar.",
+    "She connects herself to a remembered promise involving Okkhar's carnivorous flowers.",
+    "Aghnar recognizes the phrase as something his mother said before dying, which makes the encounter emotionally destabilizing.",
+    "The woman explicitly claims to be Honorata, Aghnar's mother.",
+    "Aghnar counters with eyewitness testimony of her apparent death by an implanted explosive device.",
+    "The woman appeals to blood lineage or instinct as evidence, while Aghnar interprets the encounter as fraudulent or hallucinatory."
+  ],
+  "image_sha256": "2789c1e5877920b3d43b1b2efea7fa249f9d53fa23ca0ae0aa21fe7c416f1f0d",
+  "is_spread": false,
+  "locations": [
+    "A blue-lit industrial or mechanical interior chamber"
+  ],
+  "lore_facts": [
+    "Okkhar is associated with carnivorous flowers whose scent is memorable and significant.",
+    "Aghnar's mother allegedly spoke a distinctive phrase about those flowers before her death.",
+    "Honorata is presented on this page as Aghnar's mother.",
+    "Aghnar believes his mother died in an explosion caused by a bowl implanted in her heart.",
+    "Shabda-Oud whores are accused by Aghnar of being responsible for that bombing."
+  ],
+  "page_id": "212_The_Metabarons_8_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A cloaked woman prompts Aghnar to recognize her by her perfume.",
+    "The scent causes Aghnar to recall or recognize a phrase associated with his mother and Okkhar’s carnivorous flowers.",
+    "Aghnar states that the words were spoken by his mother before her death.",
+    "The woman identifies herself as Honorata and claims she is alive.",
+    "Aghnar says he personally witnessed the explosion of the bowl implanted in his mother's heart.",
+    "The woman urges Aghnar to trust what his blood tells him, but he rejects her claim as a trick or hallucination."
+  ],
+  "source_image": "external/comics/meta-barons/212_The_Metabarons_8_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2789c1e5877920b3d43b1b2efea7fa249f9d53fa23ca0ae0aa21fe7c416f1f0d",
+      "page_id": "212_The_Metabarons_8_p07",
+      "source_image": "external/comics/meta-barons/212_The_Metabarons_8_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of the woman's appearance or disguise is not fully explained on this page.",
+    "The industrial location is visible but unnamed on the page.",
+    "One accusation line about the implanted explosive is dense and could contain minor wording ambiguity, though its meaning is clear.",
+    "The page presents Honorata's identity claim but does not independently verify it."
+  ],
+  "visual_summary": "In a blue-lit industrial chamber, a cloaked woman asks Aghnar to identify her perfume by scent. A close-up shows Aghnar reacting as the smell triggers a memory or recognition. The page then shifts into layered, ghostly imagery of a woman’s eyes and flowing hair as she invokes an old promise about Okkhar’s carnivorous flowers. Aghnar is shocked, saying these are the words his mother spoke before her death. The cloaked figure reveals herself as Honorata, claiming she is not dead, while Aghnar angrily insists he witnessed her death in the bombing of the bowl of his mother’s heart by Shabda-Oud whores. The final panels focus on the unveiled woman’s face as she tells him to trust his blood, while Aghnar rejects the revelation as an impossible deception or hallucination.",
+  "volume": 8
+}

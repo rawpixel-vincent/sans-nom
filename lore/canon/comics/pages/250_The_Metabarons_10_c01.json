@@ -1,0 +1,48 @@
+{
+  "character_facts": [
+    "The depicted figure wears full-body metallic armor with a sealed helmet that obscures identity.",
+    "The figure is visually associated with heavy machinery or weaponized equipment."
+  ],
+  "characters_present": [
+    "An unidentified armored humanoid warrior or cyborg figure on the cover"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "As a cover, this page introduces the issue rather than depicting a clearly sequenced interior story event.",
+    "The subtitle implies a broader conflict involving Meta-Warriors relevant to this installment."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "bcbce0f670683ee6afb2b007e01d8e7b2df7ef6651f241d66a30e9c063b461a9",
+  "is_spread": false,
+  "locations": [
+    "An unspecified stylized battlefield or space-combat backdrop"
+  ],
+  "lore_facts": [
+    "This page is the cover for The Metabarons, issue 10.",
+    "The cover associates this installment with the phrase 'Clash of the Meta-Warriors.'",
+    "The series branding credits Jodorowsky, Gimenez, and Moebius on the cover.",
+    "The publisher logo shown is Humanoids Publishing / Comics."
+  ],
+  "page_id": "250_The_Metabarons_10_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover introducing issue 10 of The Metabarons.",
+    "The imagery presents an armored warrior in a combat-oriented pose against an explosive or battlefield-like backdrop.",
+    "The subtitle frames the issue's apparent central conflict as a clash involving 'Meta-Warriors'."
+  ],
+  "source_image": "external/comics/meta-barons/250_The_Metabarons_10_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bcbce0f670683ee6afb2b007e01d8e7b2df7ef6651f241d66a30e9c063b461a9",
+      "page_id": "250_The_Metabarons_10_c01",
+      "source_image": "external/comics/meta-barons/250_The_Metabarons_10_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The character's exact identity is not stated on the page.",
+    "The background may represent space, an explosion, or an abstract combat scene; the location is not explicit.",
+    "No interior dialogue or narrative captions are present on this cover page."
+  ],
+  "visual_summary": "Front cover image for The Metabarons issue 10. A large armored humanoid figure in smooth silver-gray battle armor dominates the foreground, surrounded by machinery or weapon components. Behind it, a fiery orange-and-black space-like backdrop with bright explosive light suggests combat or destruction. The masthead, issue box, publisher mark, and the subtitle identifying this installment as 'Clash of the Meta-Warriors' are prominently displayed.",
+  "volume": 10
+}

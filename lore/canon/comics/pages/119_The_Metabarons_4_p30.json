@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Aghnar is the subject of the test and shows extreme pain tolerance.",
+    "Aghnar seeks approval from his father.",
+    "Othon administers or supervises the test and enforces its rules without mercy.",
+    "Honorata objects to the test and shows concern for Aghnar's survival."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Othon",
+    "Honorata",
+    "a seated boy being tested"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on a deliberate endurance trial involving familial authority, suggesting an ongoing father-child proving dynamic.",
+    "The named relationships among Aghnar, Othon, and Honorata imply an established family or household conflict already in progress."
+  ],
+  "dialogue_meaning": [
+    "Othon introduces the device as a voice-controlled test that will crush Aghnar's feet and cannot be stopped by anyone else.",
+    "Aghnar accepts the challenge as a way to prove himself to his father.",
+    "Honorata is horrified by the severity of the ordeal and urges Othon to stop it.",
+    "Othon insists on the rule of the trial even after the pain exceeds normal human tolerance."
+  ],
+  "image_sha256": "1dbd4ae3110cd2d91d24e1fe319d285e3339ff1ee9bea6c0d786b902a23a0857",
+  "is_spread": false,
+  "locations": [
+    "A laboratory or medical torture chamber with machinery and control consoles"
+  ],
+  "lore_facts": [
+    "A device exists that can be compressed around a person's feet to apply escalating crushing force.",
+    "This capsule is keyed to a single user's voice and only that person can activate or deactivate it.",
+    "The scene presents an ordeal in which endurance of extreme pain appears to function as a test or rite."
+  ],
+  "page_id": "119_The_Metabarons_4_p30",
+  "page_label": "p30",
+  "plot_events": [
+    "An older man fits a compressing capsule around a seated boy's feet and explains its rules.",
+    "The man states that only the boy's voice can activate or stop the device.",
+    "The boy accepts the ordeal and says he wants to make his father proud.",
+    "The capsule tightens around the boy's feet while the man watches for signs of weakness.",
+    "The boy endures the pain without calling for it to stop.",
+    "A woman protests after the boy withstands more than an ordinary human should.",
+    "The man refuses to intervene, insisting that only the boy can stop the machine.",
+    "The opened or released device is shown as bloodied and lined with spikes, emphasizing the brutality of the test."
+  ],
+  "source_image": "external/comics/meta-barons/119_The_Metabarons_4_p30.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1dbd4ae3110cd2d91d24e1fe319d285e3339ff1ee9bea6c0d786b902a23a0857",
+      "page_id": "119_The_Metabarons_4_p30",
+      "source_image": "external/comics/meta-barons/119_The_Metabarons_4_p30.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The image text is mostly readable, but some lettering and sound effects are faint, so exact wording may be imperfect.",
+    "The page image footer shows the printed number 31 while the provided page label is p30.",
+    "The boy is addressed as Aghnar, but the page alone does not fully clarify his broader role beyond being the one tested."
+  ],
+  "visual_summary": "In a clinical or laboratory room, an older man places a domed device over a seated boy's bare feet while a woman watches. The man explains that the capsule will squeeze only the boy's feet and responds only to the boy's voice. He challenges the boy to begin; the boy answers that he wants to make his father proud. The device tightens, the boy silently endures severe pain, and the woman becomes alarmed. When the device is removed, it has transformed into a spiked, bloodied crushing mechanism on the floor. The woman begs the man to stop, but he says only the boy can stop it.",
+  "volume": 4
+}

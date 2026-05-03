@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Lothar is highly curious, talkative, and emotionally agitated by unanswered questions.",
+    "Lothar is treated by others as a machine whose circuitry, mouth, and casing can malfunction or be repaired.",
+    "Diaghana is associated with ambition toward the apes' kingship and with disrupting their world.",
+    "Tonto is involved in medical treatment and follows or receives procedural orders.",
+    "The wounded ape-like patient is important enough that the treatment scene is narratively framed around him."
+  ],
+  "characters_present": [
+    "Lothar",
+    "A small robot/companion speaking to Lothar",
+    "Tonto",
+    "An ape-like wounded patient identified in narration as Oda or Ohowata (text unclear)",
+    "A human woman assisting or present at the treatment scene",
+    "Additional medical robots or robotic apparatus",
+    "Diaghana (mentioned only, not clearly shown)",
+    "Aghnar (mentioned only in narration, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page references prior events involving Diaghana and the apes.",
+    "It also ties to an ongoing injury/treatment subplot involving Oda or Ohowata.",
+    "The arrival of the long-awaited message appears to be a major development connected to earlier anticipation."
+  ],
+  "dialogue_meaning": [
+    "One robot warns Lothar that his curiosity is becoming physically self-destructive.",
+    "Lothar is preoccupied with the unresolved question of why Diaghana wanted rulership over the apes and why he disrupted their ecological balance.",
+    "Another speaker loses patience with Lothar's constant talking and demands silence so he can listen.",
+    "Narration frames the scene as a past moment during treatment of serious wounds on Aghnar's eighteenth birthday.",
+    "The group receives an awaited external communication through a device described as a spy-needle."
+  ],
+  "image_sha256": "5ab707360913d85faa0a6aa3f345816b11ef101ce99740141e9b083b9a9ccf19",
+  "is_spread": false,
+  "locations": [
+    "A mechanical or laboratory-like interior",
+    "A medical treatment/surgical room with robotic equipment"
+  ],
+  "lore_facts": [
+    "Lothar has a body with a casing and verbal/emotional components that can be repaired or replaced, implying a robotic or partly mechanical nature.",
+    "Diaghana sought to become king of the apes.",
+    "Diaghana disturbed the apes' ecological balance.",
+    "Aghnar has an eighteenth birthday that serves as a time marker for this event.",
+    "A wounded ape-like figure named Oda or Ohowata was undergoing treatment when the message arrived.",
+    "The setting includes advanced medical procedures such as cauterization performed by robots.",
+    "A communication device or mechanism called a spy-needle exists and can contact the group."
+  ],
+  "page_id": "169_The_Metabarons_6_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A small robot cautions Lothar not to open or split his casing.",
+    "Lothar keeps talking and is threatened with repair to stop his nonsense.",
+    "Lothar says he cannot understand Diaghana's motives regarding the apes and is mentally overloaded by the contradiction.",
+    "Another speaker angrily tells Lothar to stop complaining and listen quietly.",
+    "The narration reveals the current scene takes place while wounded Oda/Ohowata is being treated on Aghnar's eighteenth birthday.",
+    "During the treatment, a long-awaited message arrives.",
+    "A character orders Tonto to finish cauterizing the wounds because a spy-needle is trying to contact them."
+  ],
+  "source_image": "external/comics/meta-barons/169_The_Metabarons_6_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5ab707360913d85faa0a6aa3f345816b11ef101ce99740141e9b083b9a9ccf19",
+      "page_id": "169_The_Metabarons_6_p18",
+      "source_image": "external/comics/meta-barons/169_The_Metabarons_6_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names are difficult to read with certainty: the wounded patient's name appears to be 'Oda' or 'Ohowata'; the birthday name appears to be 'Aghnar'; the exact speaker attribution is sometimes unclear.",
+    "It is not fully clear from the page alone whether the small robot is separate from the speaker commanding silence, or whether multiple off-panel/mechanical speakers are involved.",
+    "The exact physical form of the 'spy-needle' is not clearly visible on the page."
+  ],
+  "visual_summary": "In a mechanical treatment room, two robots argue while one tends to another larger machine or patient. A small hovering/rolling robot warns Lothar not to split his casing out of curiosity, while Lothar complains about not understanding why Diaghana wanted to become king of the apes and says his circuits are overheating from the puzzle. The scene then shifts to a surgical bed where an ape-like being is being treated with robotic instruments as a human woman and robots react to an incoming contact. Caption boxes state that during Aghnar's eighteenth birthday, while they were treating Oda/Ohowata's wounds, a long-awaited message finally arrived.",
+  "volume": 6
+}

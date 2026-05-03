@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The master is treated with obedience and reverence.",
+    "The attendants are patient, long-serving, and apparently committed to completing a mission or ending on the master's behalf.",
+    "The attendants may be nonhuman or heavily armored/mechanical, based on their visual appearance."
+  ],
+  "characters_present": [
+    "A dark human-like figure identified by dialogue as the 'master'",
+    "At least two mechanical or armored attendants/servitors"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the payoff of a wait lasting centuries, implying a long-running plan or suspended service from earlier events.",
+    "The destruction appears deliberate rather than accidental, suggesting it follows prior setup on preceding pages."
+  ],
+  "dialogue_meaning": [
+    "The attendants frame the moment as the culmination of long-term loyalty.",
+    "They say they have awaited the master's return for centuries.",
+    "The master authorizes the act, triggering the destructive event."
+  ],
+  "image_sha256": "0fee8eded977fc7393392a68cb0b099c5e6bbe3ed5d69549ec620e8b5d87e84c",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior chamber or corridor",
+    "A vast domed or spherical structure, possibly inside a large facility or vessel"
+  ],
+  "lore_facts": [
+    "The master has followers or servants who remained loyal over a span of centuries.",
+    "These servants see the current destruction or conclusion as a meaningful completion of their service.",
+    "A technologically advanced environment contains a large domed structure that can be shattered by a powerful light or energy event.",
+    "A glowing glass tube-like object is directly associated in sequence with the destructive event, though its exact function is not stated on the page."
+  ],
+  "page_id": "332_The_Metabarons_12_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "Servants or attendants declare that the ending fulfills their loyal service and that they have waited centuries for their master.",
+    "A figure identified as the master gives assent with a brief command.",
+    "A luminous tube-like object is shown falling or being discarded inside the structure.",
+    "A large triangular light or energy formation appears over or within a vast domed chamber.",
+    "The dome or shell catastrophically shatters, filling the scene with debris and blinding light."
+  ],
+  "source_image": "external/comics/meta-barons/332_The_Metabarons_12_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0fee8eded977fc7393392a68cb0b099c5e6bbe3ed5d69549ec620e8b5d87e84c",
+      "page_id": "332_The_Metabarons_12_p23",
+      "source_image": "external/comics/meta-barons/332_The_Metabarons_12_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the master is not stated on this page alone.",
+    "The attendants' exact nature is unclear: they may be robots, armored beings, or other servants.",
+    "The glowing tube's contents and purpose are not explicitly explained on this page.",
+    "The precise structure being destroyed is unclear; it reads visually as a dome, shell, or enclosure.",
+    "Some dialogue is small and partially hard to read, so nuance may be missing."
+  ],
+  "visual_summary": "In a metallic interior, attendants address a returning \"master\" and complete a long-awaited act of service. A glowing glass tube or vial is released or cast away. A bright inverted triangular beam or energy shape then appears against a large domed structure, which immediately fractures and bursts apart in a massive explosion of shards and white light.",
+  "volume": 12
+}

@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The white-haired man can project destructive energy from his eyes and is associated with mental powers.",
+    "The white-haired man is identified by another character as that character's son.",
+    "The white-haired man is described on-page as paralyzed.",
+    "The armored man carries a large multi-barreled or heavy firearm.",
+    "The standing speaker is confident enough to taunt or instruct the white-haired man during the confrontation."
+  ],
+  "characters_present": [
+    "White-haired man using eye-beam or mental powers",
+    "Armored gunman confronting him",
+    "Standing male figure holding a long-handled weapon and speaking to the white-haired man"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page presents the conflict as both a physical fight and a test or lesson between father and son.",
+    "The dialogue suggests an ongoing martial or familial philosophy about what makes a complete warrior."
+  ],
+  "dialogue_meaning": [
+    "A father figure acknowledges the younger man's choice to fight with mental power.",
+    "The speaker frames true warriorhood as requiring more than one mode of strength.",
+    "The praise is immediately undercut by a reminder that the battle is still unresolved.",
+    "The speaker points out that the white-haired fighter is physically paralyzed despite his apparent power."
+  ],
+  "image_sha256": "83d3879de9a7f452dae23c393fb4c85ba4a6ab90ef99650bc47896b43c25f1f0",
+  "is_spread": false,
+  "locations": [
+    "A cramped industrial or mechanical chamber filled with pipes, cables, and metal structures"
+  ],
+  "lore_facts": [
+    "Mental or psychic powers exist and can be used offensively, here projected through the eyes as visible energy.",
+    "Combat in this setting mixes advanced weaponry, heavy armor, and close-quarters industrial environments.",
+    "A father-son relationship is explicitly present between the speaker and the white-haired combatant.",
+    "Paralysis is treated as a meaningful tactical condition even for a character with mental powers."
+  ],
+  "page_id": "158_The_Metabarons_6_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "A white-haired character emits powerful eye-beams in a confined mechanical space.",
+    "An armed armored opponent is shown confronting the beam-user at close range.",
+    "The action slows into dialogue after the beam attack.",
+    "A standing figure addresses the white-haired character as his son.",
+    "The speaker says the son chose to use mental or psychic power rather than only physical force.",
+    "The speaker warns that despite this achievement, the son has not yet won.",
+    "The speaker states that the son is paralyzed, limiting what he can do next."
+  ],
+  "source_image": "external/comics/meta-barons/158_The_Metabarons_6_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "83d3879de9a7f452dae23c393fb4c85ba4a6ab90ef99650bc47896b43c25f1f0",
+      "page_id": "158_The_Metabarons_6_p06",
+      "source_image": "external/comics/meta-barons/158_The_Metabarons_6_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The proper names of all characters are not given on this page.",
+    "It is visually unclear whether the armored gunman and the father/standing speaker are the same person shown in different panels or separate characters.",
+    "The exact cause and extent of the paralysis are not explained on this page alone.",
+    "Some fine dialogue wording may be approximate due to image resolution, but the meaning is clear."
+  ],
+  "visual_summary": "A white-haired figure trapped or seated amid dense machinery unleashes bright energy from the eyes, striking or threatening opponents at close range. An armored man with a heavy gun faces him, while another dark-clad figure stands over the scene holding a long-handled weapon. The page shifts from action to confrontation, with the standing figure addressing the white-haired character as his son and praising his use of mental powers before warning that the fight is not over because he is paralyzed.",
+  "volume": 6
+}

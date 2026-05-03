@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Melmoth is badly damaged or altered and appears under a patterned veil.",
+    "Melmoth identifies as only 'what is left' of themself.",
+    "Melmoth speaks in militant terms and embraces a warrior identity over a poetic or loving one.",
+    "The pleading woman is emotionally invested in Melmoth and wants protection for her people plus revenge for her father.",
+    "A character named Tonto is being directed to act quickly, though the exact speaker attribution is somewhat unclear.",
+    "The young woman is resourceful and knowledgeable enough to evaluate specialized cybernetic or armored heads."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "A helmeted soldier or servant",
+    "A woman pleading with Melmoth, possibly a noblewoman or mistress",
+    "A small attendant addressing the pleading woman",
+    "A young woman searching through stored heads/helmets",
+    "A collapsed or wounded red-armored figure, identity unclear"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page opens in the middle of a siege or assault on a noble stronghold.",
+    "The dialogue implies prior history between Melmoth and the pleading woman, involving love, loyalty, or divided identity.",
+    "The mention of the Metabaron/Petro suggests an ongoing conflict with a powerful enemy already established before this page."
+  ],
+  "dialogue_meaning": [
+    "A panicked onlooker says an overwhelming attacker is destroying the castle and that Don Nicanor Rosamel de Rokha has already been horribly killed.",
+    "The woman at the door urges Melmoth to set aside personal feelings and fight for her people and her dead father.",
+    "Another voice encourages her to stop appealing to the poet and instead call on the warrior.",
+    "Melmoth answers that the poet side is dead and only the warrior remains.",
+    "Melmoth frames war as reality and dismisses love as illusion.",
+    "Melmoth calls themself a frightening cyborg remnant and orders someone named Tonto to act quickly.",
+    "The young woman identifies a selected replacement head as having all-around vision."
+  ],
+  "image_sha256": "8366499e03763617475bd6f348ba2740dd8ddd23861f353d8dda5b13ec802b6e",
+  "is_spread": false,
+  "locations": [
+    "A castle or fortress interior under attack",
+    "A doorway or chamber where Melmoth is being addressed",
+    "A storage room or armory area containing multiple heads or helmets"
+  ],
+  "lore_facts": [
+    "A figure named Petro or the Metabaron is actively assaulting a castle or stronghold on this page.",
+    "Don Nicanor Rosamel de Rokha is said to have been killed during the attack.",
+    "Melmoth is presented as both poet and warrior, with the poet persona declared dead.",
+    "Melmoth is now at least partly cybernetic, explicitly described as a cyborg.",
+    "There exists a collection of interchangeable or stored heads/helmets, including one with multi-ocular, 360-degree vision."
+  ],
+  "page_id": "361_The_Metabarons_14_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "An explosion or heavy impact strikes the castle/interior space, filling it with smoke and debris.",
+    "A frightened soldier or attendant warns that Petro/Metabaron is about to crush the castle and says Don Nicanor Rosamel de Rokha has already been reduced to 'soup.'",
+    "A woman calls through a door for Melmoth to ignore concern for her and instead defend her people and avenge her father's death.",
+    "Melmoth rejects appeals to love and declares commitment to the reality of war.",
+    "Melmoth reveals a horrifying, damaged form beneath a veil and identifies themself as what remains of Melmoth.",
+    "A bloodied armored figure is shown collapsed or slumped nearby.",
+    "A young woman hurriedly searches a storage wall full of heads/helmets and chooses a robotic head with multi-ocular, 360-degree vision."
+  ],
+  "source_image": "external/comics/meta-barons/361_The_Metabarons_14_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8366499e03763617475bd6f348ba2740dd8ddd23861f353d8dda5b13ec802b6e",
+      "page_id": "361_The_Metabarons_14_p01",
+      "source_image": "external/comics/meta-barons/361_The_Metabarons_14_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely due to image resolution; names and exact phrasing may be partially inaccurate.",
+    "The attacker is referred to as Petro and seemingly the Metabaron, but the exact wording is slightly unclear.",
+    "The identity of the bloodied red-armored figure is not established on this page.",
+    "The exact identity of the pleading woman and the small attendant is not given clearly in the page text alone.",
+    "It is unclear whether the stored objects are literal interchangeable heads, helmets, or cybernetic components, though they are treated as selectable headgear/components."
+  ],
+  "visual_summary": "A chaotic opening page shows a castle or fortified interior under bombardment, with smoke, fire, and debris filling a large hall. On the right, a helmeted figure shouts in panic while another character behind a door begs Melmoth to defend her people and avenge her father. In the lower panels, a hooded figure identified as Melmoth answers harshly, rejects love in favor of war, and appears grotesquely mutilated or partly mechanical under a patterned veil. A wounded or bloodied red-armored body lies nearby while a young woman rummages through shelves of heads or helmets and selects a robotic-looking head with multi-ocular, 360-degree vision.",
+  "volume": 14
+}

@@ -1,0 +1,587 @@
+[
+  {
+    "aliases": [
+      "Aghora",
+      "the Metabaron",
+      "father-mother"
+    ],
+    "appearances": [
+      "description: Female body altered to suppress breast development so she could live as male; breasts reduced to scar tissue by volume 17, preventing nursing.; source_refs: ['427_The_Metabarons_17_ic1', '439_The_Metabarons_17_p13']",
+      "description: Nine months pregnant during the main events of volume 17; in labor while climbing Rock Dragonis.; source_refs: ['432_The_Metabarons_17_p05', '435_The_Metabarons_17_p08-p09']",
+      "description: Shown as a caped figure carrying a newborn during escape through Flos's pollen layer.; source_refs: ['439_The_Metabarons_17_p13']"
+    ],
+    "character_id": "aghora",
+    "important_actions": [
+      "action: Refused command of the Imperial fleet and fought the enemy universe-nucleus alone using psycho-mimetic aura and spirit attack, destroying it.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "action: Mercy-killed Deyanira after Tonto diagnosed the tarantuwolf's fatal brain tumor.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "action: Extracted male cells from the twin brother's brain tissue within herself, self-impregnated, and hid on Flos to give birth.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "action: Climbed Rock Dragonis during labor while the Metabaron held off the Zombra swarm.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+      "action: Mentally redirected the metablade's battle-hunger against itself, sacrificing the weapon; used the resulting explosion to escape the Zombra mass.; source_refs: ['438_The_Metabarons_17_p12']",
+      "action: Escaped Flos's pollen layer with the newborn; ordered the Metacraft to deploy a flaming maxi-oko; fed the infant artificial milk.; source_refs: ['439_The_Metabarons_17_p13']",
+      "action: Refused to give the newborn a personal name, designating him No-Name and declaring him destined to be the perfect warrior and supreme technopope.; source_refs: ['446_The_Metabarons_17_p20']"
+    ],
+    "knowledge_boundaries": [
+      "Not shown to know about the assassination plot against her at the time of volume 17.",
+      "Not shown to know the identities or motives of the conspirators beyond being attacked."
+    ],
+    "relationships": [
+      "character: Steelhead; nature: Parent (Aghora is Steelhead's daughter); source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: Aghora's Siamese Twin Brother (deceased); nature: Aghora carries the twin brother's brain in her female body; extracted his cells to self-impregnate; source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: Deyanira; nature: Companion tarantuwolf; mercy-killed by Aghora after terminal brain tumor diagnosis; source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: No-Name; nature: Aghora's son, conceived via self-impregnation using the twin brother's brain cells; referred to as 'father-mother'; source_refs: ['427_The_Metabarons_17_ic1', '446_The_Metabarons_17_p20']",
+      "character: Tonto; nature: Robot servant/narrator; Tonto witnessed the battle scene around Aghora's birth; source_refs: ['444_The_Metabarons_17_p18']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Formidable close-quarters warrior capable of fighting multiple armored enemies simultaneously",
+      "Possesses a psycho-mimetic aura and can mount spirit attacks",
+      "Holds the Metabaron title; wields the metablade",
+      "Adheres to Bushitaka warrior doctrine",
+      "Tactical: abandons unwinnable fights and sacrifices resources to survive",
+      "Can mentally direct and trigger the metablade's self-destruction",
+      "Feels deep grief; capable of choosing life and creation over destruction"
+    ],
+    "voice_notes": [
+      "Addresses the unborn child as 'little tadpole' during labor.",
+      "Invokes Rock Dragonis for protection during childbirth.",
+      "Declares the child's destiny outweighs personal identity: the child will be the perfect warrior and technopope and will have no name."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Received the Pluri-Galactic Medallion after destroying a universe-scale enemy whose nucleus constituted an entire universe.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Was mocked at the Imperial Court for being a woman; imperial troops attempted to rape her.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Let Deyanira kill the attacking troops; Deyanira then killed the Technopope at the subsequent award ceremony.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Hidden on garden planet Flos to give birth in peace after deciding to create life.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Surrouned by Zombra swarm at the summit of Rock Dragonis during active labor.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+      "fact: Shown kneeling in the battle chamber at the Golden Planet — described by Tonto as unprecedented relative to prior generations of masters.; source_refs: ['444_The_Metabarons_17_p18']",
+      "fact: Described as dead by the frame narrative; the golden planet was confirmed intact, contradicting a claim that mini-bombs destroyed it.; source_refs: ['443_The_Metabarons_17_p17']"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: Small floating robot with a screen-like face; round-headed. Progressively dismembered by Lothar until reduced to essentially a head unit.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "action: Attempted to narrate the story of Aghora to Lothar; interrupted with sarcastic asides until dismembered.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']",
+      "action: Submitted fully to Lothar after progressive dismemberment, agreeing to narrate properly and address him as 'Sir Master Lothar.'; source_refs: ['437_The_Metabarons_17_p11']",
+      "action: Corrected Lothar's misreading of events by clarifying the golden planet was not destroyed and that this cannot account for Aghora's death.; source_refs: ['443_The_Metabarons_17_p17']"
+    ],
+    "knowledge_boundaries": [
+      "Acts as primary narrator of these events to Lothar; his account is the frame through which the reader learns the story.",
+      "Corrects Lothar's assumption about how Aghora died, noting the golden planet remained intact."
+    ],
+    "relationships": [
+      "character: Master Lothar; nature: Subordinate narrator; forced to recount Aghora's story to Lothar under duress; addresses him as 'Sir Master Lothar' after submission; source_refs: ['437_The_Metabarons_17_p11']",
+      "character: Aghora; nature: Served Aghora's lineage; was present at the battle breach and witnessed events directly; source_refs: ['444_The_Metabarons_17_p18']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Talkative and sarcastic under normal conditions",
+      "Quickly submissive when physically threatened",
+      "Can function and speak even after losing most of his body",
+      "Curious and analytical; presses for narrative detail",
+      "Serves a lineage of 'masters' across generations"
+    ],
+    "voice_notes": [
+      "Mockingly calls Lothar 'big bad paleo-wolf' during the chase.",
+      "Repeatedly apologizes after dismemberment: 'sorry, sorry, sorry.'",
+      "Narrator voice is ironic and intrusive; treats heroic events with dry commentary."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Diagnosed Deyanira's fatal brain tumor.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Entered the battle chamber through a breach left by the witches; saw Aghora on her knees — described as unprecedented versus prior masters.; source_refs: ['444_The_Metabarons_17_p18']",
+      "fact: Witnessed the baby crawl unharmed through crossing mental beams toward Aghora.; source_refs: ['444_The_Metabarons_17_p18']"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar",
+      "Master Lothar",
+      "Sir Master Lothar"
+    ],
+    "appearances": [
+      "description: Large humanoid robot or heavily mechanized being; physically much bigger than Tonto; visibly overheating, smoking, and leaking dark fluid during their confrontation.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "action: Progressively dismembered Tonto — legs, arms, then torso — to force compliance and proper narration.; source_refs: ['437_The_Metabarons_17_p11']",
+      "action: Ordered Tonto to recount the full story without arrogant interruptions and to address him as 'sir.'; source_refs: ['437_The_Metabarons_17_p11']"
+    ],
+    "knowledge_boundaries": [
+      "Seeks to understand how Aghora triumphed over the Metabaron.",
+      "Has a misreading of events that Tonto corrects: Lothar apparently believed the golden planet was destroyed, which Tonto refutes."
+    ],
+    "relationships": [
+      "character: Tonto; nature: Authority figure over Tonto; Tonto narrates Aghora's story to him under coercion; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Physically dominant; capable of dismembering smaller robots",
+      "Forceful and punitive; enforces compliance through violence",
+      "Status-conscious; insists on being addressed as 'sir'",
+      "Claims robots can feel emotions including hatred",
+      "Needs to pause for eight hours when overheating"
+    ],
+    "voice_notes": [
+      "Insists robots can feel hatred when Tonto challenges the claim.",
+      "Demands formal address: 'sir' or 'Sir Master Lothar.'",
+      "A meta-narrative aside on p20 references returning a body to 'Master Lothar,' suggesting the narrator may temporarily be inhabiting another form."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Listening to Tonto's account of how Aghora got the better of the Metabaron and the events surrounding No-Name's birth.; source_refs: ['436_The_Metabarons_17_p10']"
+    ]
+  },
+  {
+    "aliases": [
+      "Zombra"
+    ],
+    "appearances": [
+      "description: Dark-haired woman with extensive circular or spiral body tattoos/patterns.; source_refs: ['433_The_Metabarons_17_p06']",
+      "description: Shown restrained in a prison chamber on p03; undergoing biomechanical reintegration via spiked contact-point apparatus on p06.; source_refs: ['430_The_Metabarons_17_p03', '433_The_Metabarons_17_p06']"
+    ],
+    "character_id": "zombra",
+    "important_actions": [
+      "action: Freed from Kgen-Kgen planetary prison by the whore-priestesses.; source_refs: ['430_The_Metabarons_17_p03']",
+      "action: Underwent biomechanical reintegration; declared herself restored and complete.; source_refs: ['433_The_Metabarons_17_p06']",
+      "action: Demonstrated swarm-division ability: split from one into two, then multiplied into many identical warrior-units while armored observers watched.; source_refs: ['434_The_Metabarons_17_p07']",
+      "action: Swarm copies (Zombras) deployed against Aghora in the Gardens of Flos; overwhelmed the Metabaron's rearguard defense.; source_refs: ['435_The_Metabarons_17_p08-p09']"
+    ],
+    "knowledge_boundaries": [
+      "The exact nature of what was restored inside her during reintegration is not shown explicitly on the pages.",
+      "Whether she retained awareness of or coordination with her swarm copies is not stated."
+    ],
+    "relationships": [
+      "character: The Four Whore-Priestesses of Shabda-Oud; nature: Freed by them from Kgen-Kgen; calls one a 'double-voiced witch'; aware of their near-extermination by the Metabaron; source_refs: ['430_The_Metabarons_17_p03']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Defiant and openly hostile toward even her rescuers",
+      "Suspicious of others' motives; demands explanations",
+      "Experiences biomechanical reintegration as pleasurable and completing",
+      "Possesses power to divide into millions of identical humanoid warrior-units that can recombine into one body",
+      "Swarm-division is said to be capable of devastating an entire planet"
+    ],
+    "voice_notes": [
+      "Immediately demands to know why she is being rescued rather than accepting the act.",
+      "Calls one rescuer a 'double-voiced witch,' suggesting either a title, personal insult, or recognition of unusual speech.",
+      "Declares herself 'reborn and complete' after reintegration."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Was held in a planetary-scale prison — dialogue states an entire planet was built specifically to contain her.; source_refs: ['430_The_Metabarons_17_p03']",
+      "fact: Learned that only four clan members survived after the Metabaron wiped out nearly the entire clan.; source_refs: ['430_The_Metabarons_17_p03']",
+      "fact: Underwent biomechanical reintegration using shadow rods and psycho-essence; reported an internal presence returning.; source_refs: ['433_The_Metabarons_17_p06']",
+      "fact: Her copies (Zombras) were unleashed in the Gardens of Flos by the whore-priestesses; all Zombras were incinerated when planet Flos was destroyed.; source_refs: ['435_The_Metabarons_17_p08-p09', '440_The_Metabarons_17_p14']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Four Whore-Priestesses of Shabda-Oud",
+      "surviving whore-priestesses of Shabda-Oud",
+      "the witches (p16)"
+    ],
+    "appearances": [
+      "description: Cybernetically integrated women operating inside a biomechanical octocyborg; at least one commands attendants who address her as 'Mother.'; source_refs: ['428_The_Metabarons_17_p01']",
+      "description: Pale, luminous priestess-like women shown advancing inside the fortress interior.; source_refs: ['429_The_Metabarons_17_p02']"
+    ],
+    "character_id": "the-four-whore-priestesses-of-shabda-oud",
+    "important_actions": [
+      "action: Traveled covertly to Kgen-Kgen in an octocyborg with invisibility shield and emptied spirits; ordered the Kantylopter awakened.; source_refs: ['428_The_Metabarons_17_p01']",
+      "action: Breached Kgen-Kgen via orbital beam and killed guards with combined mental force.; source_refs: ['429_The_Metabarons_17_p02']",
+      "action: Used shadow rods and psycho-essence to free Zombra from her planetary-scale prison.; source_refs: ['430_The_Metabarons_17_p03']",
+      "action: Unleashed the Zombra swarm in the Gardens of Flos while Aghora was in labor.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+      "action: Led or participated in the psychic assault against the Empress's court at the Golden Planet.; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "knowledge_boundaries": [
+      "Knew Aghora was nine months pregnant and exploited this tactical window.",
+      "Their larger plan for galactic domination beyond the immediate events is not detailed."
+    ],
+    "relationships": [
+      "character: Zombra; nature: Freed her from Kgen-Kgen; plan to use her as instrument of galactic domination; source_refs: ['430_The_Metabarons_17_p03']",
+      "character: The Metabaron; nature: Adversary who previously wiped out nearly their entire clan, leaving only four survivors; source_refs: ['430_The_Metabarons_17_p03']",
+      "character: Aghora; nature: Target; orchestrated the Zombra swarm ambush against her during labor; source_refs: ['435_The_Metabarons_17_p08-p09']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Act collectively rather than individually, pooling psychic force for lethal mental attacks",
+      "Cautious against mental probing: emptied their spirits before approaching Kgen-Kgen",
+      "Covert operatives capable of bypassing detection systems",
+      "Motivated by survival, revenge on the Metabaron, and plans for galactic domination",
+      "Only four survive at the time of volume 17"
+    ],
+    "voice_notes": [
+      "At least one is addressed as 'Mother' by attendant servitors.",
+      "Stated explicit goal: 'seize control and rule the galaxy.'"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Activated an invisibility shield and emptied their spirits to evade mental probes during approach to Kgen-Kgen.; source_refs: ['428_The_Metabarons_17_p01']",
+      "fact: Bypassed Kgen-Kgen's orbital defenses via a directed beam from the octocyborg; killed guards with combined psychic force.; source_refs: ['429_The_Metabarons_17_p02']",
+      "fact: Only four of the clan survived after the Metabaron's earlier assault.; source_refs: ['430_The_Metabarons_17_p03']"
+    ]
+  },
+  {
+    "aliases": [
+      "Deyanira",
+      "the tarantuwolf"
+    ],
+    "appearances": [
+      "description: Companion beast of Aghora; described as a tarantuwolf. Not shown directly in volume 17; present only in recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "character_id": "deyanira",
+    "important_actions": [
+      "action: Killed imperial troops attacking Aghora.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "action: Killed the Technopope during the award ceremony.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "action: Mercy-killed by Aghora after terminal brain tumor diagnosis; her death prompted Aghora's decision to create life.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "knowledge_boundaries": [
+      "Deceased before volume 17's main events; all facts are from recap only."
+    ],
+    "relationships": [
+      "character: Aghora; nature: Companion beast; killed by Aghora as a mercy killing; source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: Tonto; nature: Tonto diagnosed Deyanira's fatal brain tumor; source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: The Technopope; nature: Killed the Technopope at an award ceremony during an episode of savage fury; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Deadly companion beast prone to episodes of savage fury",
+      "Capable of destroying multiple armored imperial soldiers",
+      "Developed a fatal brain tumor prior to volume 17"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Destroyed imperial soldiers who attempted to rape Aghora.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Killed the Technopope at an award ceremony when overtaken by savage fury.; source_refs: ['427_The_Metabarons_17_ic1']",
+      "fact: Diagnosed by Tonto with a brain tumor that would cause a painful death.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead"
+    ],
+    "appearances": [
+      "description: Not physically described in these pages; mentioned only as Aghora's parent in the recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "No actions or traits are described in volume 17; referenced only to establish Aghora's parentage."
+    ],
+    "relationships": [
+      "character: Aghora; nature: Parent; Aghora is identified as Steelhead's daughter; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Technopope"
+    ],
+    "appearances": [
+      "description: Not physically described in volume 17; present only as a named death in the recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "character_id": "the-technopope",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "No further information provided in volume 17."
+    ],
+    "relationships": [
+      "character: Deyanira; nature: Killed by Deyanira at an award ceremony; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Sufficiently important to be named in the recap as a notable casualty"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Killed by Deyanira at the award ceremony when the tarantuwolf entered savage fury.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "No-Name",
+      "Trino-Viscount",
+      "Metabaron's heroic baby",
+      "little tadpole (in utero)"
+    ],
+    "appearances": [
+      "description: Newborn; bald, wide-eyed, unusually alert expression. Laughs in a strikingly adult-like way. Eyes glow with a diamond-like brilliance.; source_refs: ['439_The_Metabarons_17_p13', '445_The_Metabarons_17_p19']",
+      "description: Crawls on all fours across a battle-damaged room; shown glowing in narration. Cradled by Aghora in close-up at the naming ceremony.; source_refs: ['444_The_Metabarons_17_p18', '446_The_Metabarons_17_p20']"
+    ],
+    "character_id": "no-name",
+    "important_actions": [
+      "action: Survived birth during active combat assault by the Zombra swarm.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+      "action: Crawled unharmed through mental beams during battle at the Golden Planet.; source_refs: ['444_The_Metabarons_17_p18']",
+      "action: Diamond-bright eyes appear to have neutralized the psychic attackers threatening the Empress (implied, not explicitly confirmed).; source_refs: ['445_The_Metabarons_17_p19']"
+    ],
+    "knowledge_boundaries": [
+      "Infant; no knowledge or intent attributable beyond possible innate powers.",
+      "Future backstory flagged by narrator: harsh training and a scar over the right eyebrow to be explained in subsequent episodes."
+    ],
+    "relationships": [
+      "character: Aghora; nature: Parent; Aghora is referred to as 'father-mother'; Aghora refuses to give the child a personal name; source_refs: ['444_The_Metabarons_17_p18', '446_The_Metabarons_17_p20']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Unusually alert and adult-like in expression for a newborn",
+      "Immune to or unaffected by mental beam attacks",
+      "Diamond-bright glowing eyes; implied connection to the destruction of the psychic attacking force",
+      "Calm amid active battle conditions"
+    ],
+    "voice_notes": [
+      "Laughs in a way narration describes as adult-like, treated as abnormal and significant."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Born during the Zombra assault on Rock Dragonis while Aghora climbed and the Metabaron fought rearguard.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+      "fact: Escaped Flos with Aghora through the pollen layer aboard the Metacraft; fed artificial milk because Aghora could not nurse.; source_refs: ['439_The_Metabarons_17_p13']",
+      "fact: Crawled unharmed between Aghora (kneeling) and an androgynous monkey-like figure through crossing mental beams.; source_refs: ['444_The_Metabarons_17_p18']",
+      "fact: His diamond-bright eyes appeared to be associated with the destruction of the psychic attacking force at the Golden Planet battle.; source_refs: ['445_The_Metabarons_17_p19']",
+      "fact: Formally honored by the imperial court with a high-nobility medallion, the title Trino-Viscount, and three billion kiblars.; source_refs: ['445_The_Metabarons_17_p19']",
+      "fact: Designated 'No-Name' by Aghora; declared destined to be the perfect warrior and supreme technopope.; source_refs: ['446_The_Metabarons_17_p20']"
+    ]
+  },
+  {
+    "aliases": [
+      "Crow"
+    ],
+    "appearances": [
+      "description: Floating blue brain-like entity; depicted as a brain-shaped or brain-sized being.; source_refs: ['440_The_Metabarons_17_p14']"
+    ],
+    "character_id": "crow",
+    "important_actions": [
+      "action: Navigated the ship toward the Golden Planet at the armored leader's command; pushed to maximum speed despite warnings.; source_refs: ['440_The_Metabarons_17_p14', '441_The_Metabarons_17_p15']"
+    ],
+    "knowledge_boundaries": [
+      "Nature is ambiguous: possibly a living brain, a ship intelligence, or a brain-based control interface — not clarified in these pages."
+    ],
+    "relationships": [
+      "character: The Armored Leader (unnamed); nature: Subordinate; receives navigation and strategy orders from him; source_refs: ['440_The_Metabarons_17_p14']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Obedient navigator/pilot intelligence",
+      "Responds to navigation and speed commands",
+      "Capable of pressing ship to dangerous speeds when ordered"
+    ],
+    "voice_notes": [
+      "Addressed as a subordinate; obeys without objection even when warned excessive speed could be fatal."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Found the Endoguard drifting in space near the Golden Planet during approach.; source_refs: ['441_The_Metabarons_17_p15']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Dark-Haired Female Warrior (unnamed)"
+    ],
+    "appearances": [
+      "description: Dark-haired woman in revealing armor; appears at a council with elderly cybernetic advisors and later in a separate meeting with the conspirators.; source_refs: ['431_The_Metabarons_17_p04', '432_The_Metabarons_17_p05']"
+    ],
+    "character_id": "the-dark-haired-female-warrior-unnamed",
+    "important_actions": [
+      "action: Warned the council that any attempt on the Golden Planet must first overcome the Metabaron, the Empress's guardian.; source_refs: ['431_The_Metabarons_17_p04']",
+      "action: Agreed to the assassination contract upon receiving the cloned kantylopter.; source_refs: ['432_The_Metabarons_17_p05']"
+    ],
+    "knowledge_boundaries": [
+      "Her name is not given in volume 17.",
+      "Her ultimate fate following recruitment is not shown in these pages.",
+      "Whether she actually attempted the assassination is not depicted."
+    ],
+    "relationships": [
+      "character: The Metabaron; nature: Previously defeated by the Metabaron; acknowledges he is stronger than her; source_refs: ['431_The_Metabarons_17_p04']",
+      "character: The Cybernetic Conspirators (unnamed); nature: Recruited by them to assassinate Aghora in exchange for a cloned kantylopter and supreme command of imperial forces; source_refs: ['432_The_Metabarons_17_p05']",
+      "character: Aghora; nature: Contracted to kill Aghora while she is nine months pregnant and limited to the Metablade; source_refs: ['432_The_Metabarons_17_p05']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Warns against underestimating the Metabaron from personal experience",
+      "Considers herself powerless without her kantylopter",
+      "Willing to accept an assassination contract in exchange for power and a cloned kantylopter",
+      "Mocks the two-headed ape-like claimant's bid for the prophetic androgyne role"
+    ],
+    "voice_notes": [
+      "States she is 'nothing' without her kantylopter.",
+      "Reacts with visible shock when shown the cloned specimen.",
+      "Dismisses the two-headed ape-like claimant's prophetic claim as absurd."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Her kantylopter was destroyed by the Empire, leaving her effectively powerless.; source_refs: ['432_The_Metabarons_17_p05']",
+      "fact: Presented with a cloned kantylopter grown from a cell recovered from her destroyed specimen.; source_refs: ['432_The_Metabarons_17_p05']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Two-Headed Ape-Like Claimant (unnamed)"
+    ],
+    "appearances": [
+      "description: Hooded figure with two heads in an ape-like or simian form; body is described as a genetically modified prehistoric animal into which a spirit was transferred.; source_refs: ['431_The_Metabarons_17_p04']"
+    ],
+    "character_id": "the-two-headed-ape-like-claimant-unnamed",
+    "important_actions": [
+      "action: Volunteered as the prophesied androgyne replacement for the Empress at the conspiracy council.; source_refs: ['431_The_Metabarons_17_p04']"
+    ],
+    "knowledge_boundaries": [
+      "Name not given in volume 17.",
+      "The validity of its claim to the prophecy is disputed by another character and unconfirmed by the narrative."
+    ],
+    "relationships": [
+      "character: The Cybernetic Conspirators / Council of Elders; nature: Member or candidate presented by the council as a replacement for the Empress; source_refs: ['431_The_Metabarons_17_p04']",
+      "character: The Dark-Haired Female Warrior; nature: Dismissed by her; she ridicules the claim and redirects to the practical obstacle of the Metabaron; source_refs: ['431_The_Metabarons_17_p04']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Believes itself destined to be the 'perfect androgyne' of prophecy",
+      "Claims legitimacy via spirit transfer and genetic modification",
+      "Member of a conspiracy council willing to discuss regicide against the Empress"
+    ],
+    "voice_notes": [
+      "Presents spirit-transfer and genetic modification as its credentials for ruling."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Claims a spirit was transferred into its genetically modified prehistoric animal body.; source_refs: ['431_The_Metabarons_17_p04']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Armored Leader (unnamed, travels with Crow)"
+    ],
+    "appearances": [
+      "description: Armored male figure aboard the ship carrying Crow and the baby.; source_refs: ['440_The_Metabarons_17_p14']"
+    ],
+    "character_id": "the-armored-leader-unnamed-travels-with-crow",
+    "important_actions": [
+      "action: Ordered destruction of planet Flos, wiping out Zombras and all flora.; source_refs: ['440_The_Metabarons_17_p14']",
+      "action: Declared the victory incomplete and described intent to engineer enemies into attacking the Empire.; source_refs: ['440_The_Metabarons_17_p14']",
+      "action: Ordered Crow to proceed to the Golden Planet at maximum speed.; source_refs: ['440_The_Metabarons_17_p14']"
+    ],
+    "knowledge_boundaries": [
+      "Name not confirmed in volume 17.",
+      "Exact relationship to the main Metabaron lineage or faction is not stated."
+    ],
+    "relationships": [
+      "character: Crow; nature: Commands Crow; gives navigation and tactical orders; source_refs: ['440_The_Metabarons_17_p14']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Strategic and ruthless; considers a victory incomplete unless engineered treachery eliminates all involved parties",
+      "Commands Crow as a subordinate navigation intelligence",
+      "Travels with the group that escaped Flos, including the baby"
+    ],
+    "voice_notes": [
+      "Frames incomplete victory as requiring the death of those tied to engineered betrayal.",
+      "Shows no sentiment about the destruction of Flos."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Ordered the destruction of planet Flos, incinerating the Zombras and the planet's flora.; source_refs: ['440_The_Metabarons_17_p14']",
+      "fact: Set course for the Golden Planet with intent to engineer treachery against the Empire.; source_refs: ['440_The_Metabarons_17_p14']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Empress"
+    ],
+    "appearances": [
+      "description: Female leader; shown inside a translucent floating pod during the battle at the Golden Planet.; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "character_id": "the-empress",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Her name is not given in volume 17.",
+      "Her own dialogue is minimal or absent in these pages; described and spoken about rather than speaking."
+    ],
+    "relationships": [
+      "character: The Metabaron (Aghora); nature: Protected by Aghora in the role of Metabaron; the Metabaron's absence is treated as a decisive vulnerability; source_refs: ['431_The_Metabarons_17_p04', '442_The_Metabarons_17_p16']",
+      "character: The Bald Defender (unnamed); nature: He intervenes on her behalf during the witch assault, invoking Bushitaka; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Ruler from the Golden Planet",
+      "Protected by the Metabaron as her designated guardian",
+      "Described as exhausted from battle and recent childbirth during the Golden Planet assault"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Targeted for assassination by the conspiracy council; seen as vulnerable with the Metabaron absent.; source_refs: ['431_The_Metabarons_17_p04']",
+      "fact: Under psychic assault by witches at the Golden Planet during the climactic battle.; source_refs: ['442_The_Metabarons_17_p16']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Bald Defender (unnamed)"
+    ],
+    "appearances": [
+      "description: Bald, dark-clad man who intervenes in the witches' assault at the Golden Planet.; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "character_id": "the-bald-defender-unnamed",
+    "important_actions": [
+      "action: Interrupted the witches' assault; accused them of self-betrayal; invoked Bushitaka as he faced their energy attack.; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "knowledge_boundaries": [
+      "Name not confirmed in volume 17.",
+      "His relationship to Aghora or the Metabaron lineage is not specified."
+    ],
+    "relationships": [
+      "character: The Empress; nature: Defends her during the witch assault at the Golden Planet; source_refs: ['442_The_Metabarons_17_p16']",
+      "character: The Witches / Whore-Priestesses; nature: Directly opposes them; accuses them of betraying themselves; source_refs: ['442_The_Metabarons_17_p16']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Loyal to the Empress; opposes the witches and labels them traitors",
+      "Invokes Bushitaka doctrine: 'Victory or Death'",
+      "Withstands or channels a concentrated psychic energy attack in the final panels"
+    ],
+    "voice_notes": [
+      "Declares 'Victory or Death' as a Bushitaka oath while under direct psychic assault.",
+      "Characterizes the witches as traitors rather than enemies."
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Intervened in the battle and argued the witches cannot match the Metabaron's feat and that the Empress is weakened by battle and childbirth.; source_refs: ['442_The_Metabarons_17_p16']",
+      "fact: Stood under concentrated psychic energy beams from the witches invoking 'Victory or Death' under Bushitaka.; source_refs: ['442_The_Metabarons_17_p16']"
+    ]
+  },
+  {
+    "aliases": [
+      "Aghora's Siamese Twin Brother (deceased)"
+    ],
+    "appearances": [
+      "description: Not physically depicted in volume 17; present only as a brain surviving inside Aghora's body.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "character_id": "aghora-s-siamese-twin-brother-deceased",
+    "important_actions": [
+      "action: His brain tissue was used by Aghora to self-impregnate, making him the biological father of No-Name.; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "knowledge_boundaries": [
+      "Dead; no agency in volume 17."
+    ],
+    "relationships": [
+      "character: Aghora; nature: Siamese twin; brain resides in Aghora's body; biological father of No-Name via extracted cells; source_refs: ['427_The_Metabarons_17_ic1']",
+      "character: No-Name; nature: Biological father via brain cells extracted by Aghora for self-impregnation; source_refs: ['427_The_Metabarons_17_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Deceased; brain transferred into Aghora's female body at birth or early life",
+      "Male; his brain tissue was the source of cells Aghora used to self-impregnate"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

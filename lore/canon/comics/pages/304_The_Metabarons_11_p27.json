@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The elderly man is recognized as very old but still considers himself far from the proper end of life for his people.",
+    "The elderly man appears to belong to or speak for a long-lived group and may identify them as albinos.",
+    "The pale blond man is openly hostile and voices the page's youth-versus-age ideology.",
+    "The conspirators are familiar enough to the old man that he recognizes at least two by name.",
+    "The black-haired woman and the dark-skinned man support the takeover and join in taunting the old man."
+  ],
+  "characters_present": [
+    "Elderly white-haired man in a white robe",
+    "Pale blond male conspirator",
+    "Black-haired female conspirator in a black bodysuit",
+    "Dark-skinned male conspirator in a black bodysuit",
+    "At least two additional armed black-suited guards/conspirators",
+    "Kristian (name spoken, likely one of the conspirators)",
+    "Joachim (name spoken, likely one of the conspirators)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an internal coup rather than an external attack.",
+    "Control of the ship is a central stake in the conflict.",
+    "The old man's recognition of the attackers suggests prior personal or institutional relationships."
+  ],
+  "dialogue_meaning": [
+    "The attackers are not acting as random killers; at least one wants the victim to understand who is overthrowing him and why.",
+    "The old man sees the attackers as weak and short-sighted, contrasting them with a people whose lives are meant to last centuries.",
+    "The confrontation is framed as a revolt of youth against age and old authority.",
+    "The conspirators ridicule the old man's beliefs, celibacy or renunciation, and attachment to old doctrine.",
+    "They claim they are now taking command of the vessel.",
+    "The betrayal is presented as coming from within the old man's own trusted circle."
+  ],
+  "image_sha256": "613ea722d271e2f70ec13d9ba2ae8f62b4a69e27dd091a7e95bbb0e2b1c78109",
+  "is_spread": false,
+  "locations": [
+    "Interior chamber of a ship",
+    "Organic or biomechanical control-room-like environment"
+  ],
+  "lore_facts": [
+    "The old man describes a people whose natural lifespan is measured in centuries, with flourishing expected for roughly nine centuries.",
+    "The setting includes a ship important enough that seizing control of it is a major objective.",
+    "There exist priestly or technical subordinates whom the old man had trusted and who may have joined the coup.",
+    "The environment and technology appear biomechanical or organic rather than purely mechanical."
+  ],
+  "page_id": "304_The_Metabarons_11_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "Armed figures confront an elderly robed man inside a ship-like chamber.",
+    "Some of the attackers argue over whether to kill him immediately or tell him why first.",
+    "The old man reflects that his people are extremely long-lived and sees their violence as a product of weakness.",
+    "He recognizes at least two of the conspirators by name, identifying them as familiar rather than anonymous attackers.",
+    "The blond conspirator declares that age must give way to youth.",
+    "The group states that it is time for them to take control of the ship.",
+    "One conspirator says the old man has been betrayed by people he considered loyal, apparently including priests or technical attendants."
+  ],
+  "source_image": "external/comics/meta-barons/304_The_Metabarons_11_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "613ea722d271e2f70ec13d9ba2ae8f62b4a69e27dd091a7e95bbb0e2b1c78109",
+      "page_id": "304_The_Metabarons_11_p27",
+      "source_image": "external/comics/meta-barons/304_The_Metabarons_11_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue boxes are difficult to read at this resolution, especially the lower-panel taunts and the exact phrasing about priests and corruption.",
+    "It is unclear which specific conspirator is Kristian and which is Joachim.",
+    "The exact name of the old man's people or whether 'albino' is self-description or insult is hard to confirm from the page alone.",
+    "The page number printed on the image appears different from the provided page_label metadata."
+  ],
+  "visual_summary": "In a dark, organic-looking chamber aboard a ship, several black-suited figures with glowing red eye-lenses surround an elderly white-haired man in a long white robe and hold weapons on him. The old man faces them calmly at first, then recognizes at least two of the attackers by name. The scene shifts to close-ups of the conspirators: a pale blond man, a black-haired woman, and a dark-skinned man. They mock the old man, explain that they are seizing control of the ship, and frame their move as both a political and generational overthrow.",
+  "volume": 11
+}

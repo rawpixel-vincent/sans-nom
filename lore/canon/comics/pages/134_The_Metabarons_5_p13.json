@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Honorata is responsible for Aghnar and was supposed to hand him over.",
+    "Honorata is frightened, defensive, and tries to justify the child's condition to hostile superiors.",
+    "Aghnar is Honorata's son.",
+    "Aghnar has lost both feet and now has metallic prosthetic replacements.",
+    "Honorata internally believes Aghnar is completely male, conflicting with what the authorities expect.",
+    "Tonto is a small robot that speaks sharply and disciplines another robot for interrupting."
+  ],
+  "characters_present": [
+    "Helmeted woman identified in dialogue as Honorata",
+    "Unseen or partially seen armored authority figures / judges",
+    "Aghnar (mentioned, not shown directly on this page)",
+    "Small robot identified in dialogue as Tonto",
+    "Another small robot addressed by Tonto"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page hinges on a prior order to produce or surrender a special child.",
+    "Aghnar's injury and prosthetic feet are presented as consequences of an earlier encounter with poisonous brambles.",
+    "The demand to bring Aghnar forward sets up a likely confrontation or inspection on the following pages."
+  ],
+  "dialogue_meaning": [
+    "Honorata says she followed instructions but complications during birth or retrieval caused the infant's feet to be poisoned and removed.",
+    "The authorities consider the injury an unacceptable failure because the child was supposed to be physically ideal.",
+    "Honorata argues that advanced prosthetics compensate for the loss and claims the child can still be delivered.",
+    "The authorities do not accept her explanation at face value and command her to bring Aghnar for inspection.",
+    "Honorata's private thoughts reveal that the deeper problem is not only the injury: Aghnar is male rather than the expected hermaphrodite.",
+    "The robot exchange provides a comic beat and shows a strict, petty hierarchy even among minor machine characters."
+  ],
+  "image_sha256": "b8e7f8be76dc22146fd30798d71352a9546f46ce688eaa4900b3e943d3222785",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber or communications space where Honorata speaks under threat",
+    "A barren outdoor setting with a monumental tower-like structure"
+  ],
+  "lore_facts": [
+    "There is an order or mandate requiring Honorata to deliver a hermaphrodite child to powerful figures.",
+    "Poisonous brambles are dangerous enough to infect an infant's feet and force amputation.",
+    "Metallic prostheses can be grafted onto a body and are described as functional replacements for human feet.",
+    "Aghnar is referred to as a 'divine hermaphrodite' by the authorities, indicating ritual or ideological significance.",
+    "The authorities threatening Honorata are presented as killers or executioners in her own fearful framing."
+  ],
+  "page_id": "134_The_Metabarons_5_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A woman explains that she obeyed orders to produce and surrender a hermaphrodite child, but the infant's feet were poisoned and later amputated.",
+    "Her superiors react with fury, calling the outcome negligence and denouncing the child as imperfect because he is now crippled.",
+    "She insists the child, Aghnar, can still be presented because metallic prosthetic feet have been attached to him.",
+    "The distant authorities order her to bring them her son so they can judge whether she is telling the truth.",
+    "After the exchange, the woman worries that Aghnar is completely male and fears what will happen if he is delivered to violent people.",
+    "In a side scene, a small robot rebukes another for interrupting and makes it repeat an apology many times."
+  ],
+  "source_image": "external/comics/meta-barons/134_The_Metabarons_5_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b8e7f8be76dc22146fd30798d71352a9546f46ce688eaa4900b3e943d3222785",
+      "page_id": "134_The_Metabarons_5_p13",
+      "source_image": "external/comics/meta-barons/134_The_Metabarons_5_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and number of the enraged authority figures are not stated clearly on this page; they are shown mostly in fragments or via speech balloons.",
+    "Some dialogue labels and names are slightly hard to parse from the image alone, though 'Honorata,' 'Aghnar,' and 'Tonto' are legible.",
+    "The relationship between the exterior tower panel and the speaking authorities is implied but not explicitly explained on the page."
+  ],
+  "visual_summary": "A helmeted woman reports to enraged armored figures in a sequence of tight close-ups. She explains that the baby she was ordered to deliver was injured by poisonous brambles and had both feet amputated, then argues that metallic prosthetic feet were grafted onto him. A large exterior panel shows a towering dark structure in a barren landscape as unseen speakers demand that she bring them her son. In the final panels, she panics privately about Aghnar being fully male, while a small robot scolds another for interrupting and forces repeated apologies.",
+  "volume": 5
+}

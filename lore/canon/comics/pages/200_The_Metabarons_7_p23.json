@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Jejoh provides the energy source for the witches' psychic abilities.",
+    "Oda is present on the battlefield and is in a vulnerable enough state to be reassured directly.",
+    "At least one armored character is close enough to physically control, support, or confront Oda.",
+    "A battlefield fighter is explicitly concerned with immortality as a central trait of the opponent."
+  ],
+  "characters_present": [
+    "Oda",
+    "Jejoh",
+    "Armored warrior restraining or addressing Oda",
+    "Another fighter in the battlefield shouting about immortality",
+    "Numerous witch-like shadowy figures",
+    "Multiple fallen or attacking monstrous/humanoid combatants"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explains an ongoing battle condition by tying the witches' strength to Jejoh.",
+    "The mention of defeating a thousand-headed dragon suggests this page is resolving or explaining a larger confrontation involving such a creature.",
+    "The focus on immortality indicates a continuing conflict over how to kill or neutralize an otherwise unkillable foe."
+  ],
+  "dialogue_meaning": [
+    "One speaker is shocked that the being or substance could be affected at all.",
+    "A statement identifies a target as immortal, emphasizing the apparent impossibility of killing them normally.",
+    "Jejoh is urgently addressed by name, linking him to the event or the witches' state.",
+    "A combatant frames the conflict as seizing or overcoming another's immortality.",
+    "An armored character reassures Oda that the danger has ended.",
+    "The narration states that the witches' psychic power depended on Jejoh's brainwaves and that without his energy they became diminished, while also giving a rule for killing a many-headed dragon by striking its heart once."
+  ],
+  "image_sha256": "0370ffb69b9ef56e2d85dd7c9b284ba9ec7813066d28e4eebb0dab2b0543e87f",
+  "is_spread": false,
+  "locations": [
+    "A battlefield filled with bodies and combatants",
+    "A close-up area around an ornate pedestal or device holding the strange mass"
+  ],
+  "lore_facts": [
+    "The witches' psychic powers are fueled by Jejoh's brainwaves.",
+    "Without Jejoh's energy, the witches become drastically weakened or degraded.",
+    "The degraded state is compared to headless paleo-chickens.",
+    "A dragon with many heads can be defeated by piercing its heart with a single blow."
+  ],
+  "page_id": "200_The_Metabarons_7_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A strange organic-looking mass on a pedestal/device is shown and then appears to diminish or collapse.",
+    "A character reacts with disbelief to the apparent change and another says that someone is immortal.",
+    "Jejoh is called out by name as the scene shifts to a small dark sphere and surrounding figures.",
+    "During the battle, a fighter declares that they will take another character's immortality.",
+    "An armored character tells Oda not to be afraid because it is over.",
+    "The page's exposition explains how the witches' psychic powers function and how a dragon can be defeated."
+  ],
+  "source_image": "external/comics/meta-barons/200_The_Metabarons_7_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0370ffb69b9ef56e2d85dd7c9b284ba9ec7813066d28e4eebb0dab2b0543e87f",
+      "page_id": "200_The_Metabarons_7_p23",
+      "source_image": "external/comics/meta-barons/200_The_Metabarons_7_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read clearly, so exact wording and speaker attribution are uncertain.",
+    "The precise identity of all armored figures besides Oda and Jejoh is not explicit on the page alone.",
+    "The exact nature of the blob-like mass and the small dark sphere is unclear from this page alone.",
+    "The narration may be summarizing prior knowledge rather than revealing it for the first time; the page alone does not establish which."
+  ],
+  "visual_summary": "A small blob-like organic or smoky mass sits on an ornate pedestal/device in the first panels. A warrior in armor leans over it while another figure reacts in shock. The blob reduces to a small dark sphere on the ground as shadowy witch-like beings surge through a battlefield. A fighter shouts about taking someone's immortality, while another armored figure restrains or addresses Oda at close range. The large bottom panel shows chaos across a corpse-strewn battlefield, including monstrous and humanoid bodies, while a narration/exposition box explains the witches' powers and Jejoh's role.",
+  "volume": 7
+}

@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "Tonto is important enough to be addressed directly during the attack.",
+    "The off-panel speaker is startled by the event unfolding.",
+    "The visible creatures are presented as dangerous, with prominent teeth, claws, and bloodied injuries."
+  ],
+  "characters_present": [
+    "A large carnivorous dinosaur-like creature",
+    "A second smaller reptilian/dinosaur-like creature attacking or attached to the first",
+    "An off-panel or mostly unseen speaker",
+    "Tonto (named in dialogue, not clearly identifiable in the image)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an ongoing action sequence rather than a self-contained moment.",
+    "The dialogue implies prior context involving Tonto and the speaker's relationship or shared situation."
+  ],
+  "dialogue_meaning": [
+    "A speaker expresses shock at the chaotic scene.",
+    "The speaker addresses Tonto directly, implying Tonto is nearby or involved.",
+    "The exclamation \"Paleo-Christmas\" suggests a humorous or emphatic reaction to a prehistoric crisis."
+  ],
+  "image_sha256": "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+  "is_spread": false,
+  "locations": [
+    "A jungle or prehistoric forest",
+    "A shallow stream, riverbank, or water-filled ravine"
+  ],
+  "lore_facts": [
+    "The setting includes prehistoric-looking fauna and lush tropical vegetation.",
+    "A character named Tonto exists in the scene's immediate context.",
+    "The page mixes violent action with comedic or exaggerated dialogue."
+  ],
+  "page_id": "336_The_Metabarons_13_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A violent struggle between two large reptilian/dinosaur-like creatures is underway.",
+    "One creature appears to be attacking or clinging to the larger predator's neck.",
+    "The larger animal surges through water and foliage, creating a large splash.",
+    "An unseen or barely seen speaker reacts with surprise and addresses someone named Tonto."
+  ],
+  "source_image": "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+      "page_id": "336_The_Metabarons_13_p02",
+      "source_image": "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact species or identity of the reptilian creatures is not stated on the page.",
+    "The speaker is not clearly visible, so their identity cannot be confirmed from this page alone.",
+    "It is unclear whether Tonto is the speaker's companion, one of the creatures, or another off-panel character."
+  ],
+  "visual_summary": "A large dinosaur-like predator bursts through shallow water in dense prehistoric-looking vegetation, jaws open wide and blood visible around its mouth and neck. Another reptilian creature is pressed against or biting into its neck as debris and water spray outward. A speech balloon from off-panel or a mostly unseen speaker calls out in alarm to someone named Tonto, using the phrase \"Paleo-Christmas\" and asking what is happening.",
+  "volume": 13
+}

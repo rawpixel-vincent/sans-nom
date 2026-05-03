@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Lothar is eager for saga-like stories and specifically wants to hear about the Metabaron.",
+    "Tonto is the one who knows or tells the history and addresses Lothar by name.",
+    "Tonto is frustrated by Lothar's repeated fixation on the Metabaron, but ultimately agrees to continue.",
+    "Lothar describes himself as thrilled in anticipation, suggesting strong emotional investment despite being robotic."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Lothar",
+    "A large seated machine or robot in the room"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as a transition into a longer flashback or narrated origin story about the Metabarons.",
+    "The dialogue references a conversation that occurred very recently before this page, about Meta-warrior mutilation customs."
+  ],
+  "dialogue_meaning": [
+    "A robot explains that extreme bodily mutilation within the Metabaron line is hereditary custom rather than an isolated act.",
+    "The listener is fascinated by violent epic history and pushes for more details.",
+    "The storyteller is exasperated by the listener's obsession with the Metabaron subject.",
+    "The exchange ends with the storyteller formally starting a foundational history of the Metabarons."
+  ],
+  "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or space station room",
+    "Exterior space visible outside the structure"
+  ],
+  "lore_facts": [
+    "The Metabaron's father is said on this page to have destroyed his son's right ear and part of his brain.",
+    "The page states that the father's own left hand had earlier been cut off by his father.",
+    "These injuries are described as part of a long-standing initiation or mutilation tradition among the Meta-warriors.",
+    "The story about these mutilations is said to begin with the master's great-great-grandfather.",
+    "There is a named 'caste of the Metabarons' with an origin story."
+  ],
+  "page_id": "007_The_Metabarons_1_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "One robot recounts that a Metabaron ancestor was mutilated by his own father, including loss of an ear and brain damage.",
+    "The speaker explains that paternal mutilation is presented as an old Meta-warrior tradition.",
+    "The listener becomes even more eager for more stories about the Metabaron.",
+    "The storyteller complains that the listener always redirects conversation back to the Metabaron.",
+    "The listener cites a very recent prior conversation about ritual mutilations, contradicting the complaint.",
+    "The storyteller relents and agrees to tell the origin story of the Metabaron caste."
+  ],
+  "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+      "page_id": "007_The_Metabarons_1_p05",
+      "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature and identity of the large seated machine/figure is unclear; it may be equipment rather than a speaking character.",
+    "Some lettering is small, so exact phrasing of a few lines may be imperfect even though the overall meaning is clear."
+  ],
+  "visual_summary": "Inside a worn, industrial spacecraft interior, two small robots converse while a larger seated machine and another bulky robot appear in different panels. The page alternates between medium shots of the room and close-ups of the robots’ faces. One robot reacts with excitement to gruesome details about the Metabaron lineage, while the other is initially irritated, then agrees to begin a longer tale. Exterior space and a small ship are visible below one panel, reinforcing that the scene is aboard a vessel.",
+  "volume": 1
+}

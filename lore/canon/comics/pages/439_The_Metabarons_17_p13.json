@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The newborn has an unusually alert, intelligent expression and laughs in a strikingly adult-like way.",
+    "The adult figure is transporting and protecting the baby during an escape or ascent.",
+    "The adult figure claims responsibility for feeding the baby with artificial milk.",
+    "Aghora is said to be physically unable to breastfeed because her breasts are reduced to scars."
+  ],
+  "characters_present": [
+    "A caped adult figure, likely the narrator/parent",
+    "A newborn baby",
+    "Aghora (mentioned, not clearly shown on-page)",
+    "The Metacraft/its responding system or pilot"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an escape or extraction involving a parent, a newborn, and Planet Flos.",
+    "It refers to prior damage or transformation affecting Aghora's body.",
+    "It introduces or continues use of Metacraft technology and the metablade in the ongoing sequence."
+  ],
+  "dialogue_meaning": [
+    "Narration says the parent and child quickly escaped the pollen layer around Planet Flos.",
+    "Narration emphasizes that the baby is abnormally intelligent-looking and laughs like an adult.",
+    "Narration says the Metacraft arrived just in time, before the metablade finished burning away.",
+    "Narration explains the baby was fed artificial milk because Aghora's breasts were only scar tissue.",
+    "A command is issued to the Metacraft to launch a 'flaming maxi-oko.'",
+    "The craft replies that the maxi-oko has been deployed."
+  ],
+  "image_sha256": "07fb3137106cf866f7aab42b0e13d2e3b610891fe249acb56ff22bd7845fab61",
+  "is_spread": false,
+  "locations": [
+    "The pollen layer surrounding Planet Flos",
+    "Open sky/upper atmosphere above Planet Flos",
+    "A spacecraft or mechanized craft interior/exterior in space",
+    "Near planetary orbit with the planet visible below"
+  ],
+  "lore_facts": [
+    "Planet Flos is surrounded by a pollen layer.",
+    "A vehicle or entity called the Metacraft can arrive on command and deploy weapons or devices.",
+    "A 'metablade' can burn itself down to the hilt.",
+    "A device or weapon called a 'maxi-oko' exists; this page specifies a 'flaming' version.",
+    "Artificial milk is available and used to feed infants in this setting."
+  ],
+  "page_id": "439_The_Metabarons_17_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "Parent and child pass through the pollen layer surrounding Planet Flos.",
+    "The newborn is shown as unusually alert and laughing.",
+    "The Metacraft arrives just before the figure’s 'metablade' burns down to the hilt.",
+    "The narrator states that artificial milk was used to feed the baby because Aghora could not nurse.",
+    "The figure orders the Metacraft to launch a 'flaming maxi-oko.'",
+    "The craft deploys the device and flies off into space."
+  ],
+  "source_image": "external/comics/meta-barons/439_The_Metabarons_17_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "07fb3137106cf866f7aab42b0e13d2e3b610891fe249acb56ff22bd7845fab61",
+      "page_id": "439_The_Metabarons_17_p13",
+      "source_image": "external/comics/meta-barons/439_The_Metabarons_17_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some small narration text and the exact spelling/context of terms like 'maxi-oko' are hard to read from the image.",
+    "The identity of the caped adult is not explicitly confirmed on this page alone.",
+    "It is unclear whether the mechanical-looking hand near the baby belongs to the adult, armor, or another figure/device.",
+    "Aghora is mentioned in narration, but it is uncertain whether she is physically present in the visible panels."
+  ],
+  "visual_summary": "A caped figure carrying a newborn blasts upward through the cloudy pollen layer around Planet Flos on a jet-like flame, while a small spacecraft approaches. Close-ups show the baby’s alert, almost adult-like expression and mechanical-looking hands near the cloak. In the lower panels, the figure is inside or alongside machinery with the infant and orders the Metacraft to launch a 'flaming maxi-oko'; the craft then streaks away into space.",
+  "volume": 17
+}

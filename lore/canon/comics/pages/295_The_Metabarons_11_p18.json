@@ -1,0 +1,52 @@
+{
+  "character_facts": [
+    "The only visible figure is capable of fighting through heavy destruction.",
+    "The figure is shown directly interacting with the self-destruct controls."
+  ],
+  "characters_present": [
+    "An unidentified armored/mechanical figure with heavy weaponry"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the execution of a self-destruct sequence referenced by the narration.",
+    "The destruction here likely follows an ongoing assault or infiltration inside the temple."
+  ],
+  "dialogue_meaning": [
+    "A narration box explains that the figure has arrived at the temple's self-destruct switch and is about to trigger it."
+  ],
+  "image_sha256": "e038cec69d0fa9b55426a7d2fa30f6f6e7563865ac528d9a55c46467a599e9db",
+  "is_spread": false,
+  "locations": [
+    "Inside a temple",
+    "A control point or switch station within the temple",
+    "Exploding interior filled with machinery, rubble, and debris"
+  ],
+  "lore_facts": [
+    "This temple contains a self-destruct switch.",
+    "The self-destruct mechanism appears to be a physical lever or control assembly.",
+    "Triggering the mechanism causes a large-scale internal explosion."
+  ],
+  "page_id": "295_The_Metabarons_11_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A destructive firefight or explosion rips through the temple interior.",
+    "An armored or robotic figure reaches the temple's self-destruct mechanism.",
+    "The figure operates an orange lever or switch.",
+    "The temple begins exploding, with the blast spreading through the structure."
+  ],
+  "source_image": "external/comics/meta-barons/295_The_Metabarons_11_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e038cec69d0fa9b55426a7d2fa30f6f6e7563865ac528d9a55c46467a599e9db",
+      "page_id": "295_The_Metabarons_11_p18",
+      "source_image": "external/comics/meta-barons/295_The_Metabarons_11_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The narration text is only partially legible; the exact wording after mentioning the self-destruct switch is unclear.",
+    "The visible figure's identity, species, and name cannot be confirmed from this page alone.",
+    "It is unclear whether the top-panel blast occurs before or as part of the self-destruct sequence."
+  ],
+  "visual_summary": "A heavily armed mechanical or armored figure fights amid wreckage inside a temple-like structure. The top panel shows a massive blast tearing through dark machinery and debris. A caption indicates the figure reaches the temple's self-destruct switch. In the middle tier, the figure moves through shattered stone and manipulates an orange lever or switch assembly. The bottom panels show the resulting detonation expanding through the structure in fire, smoke, and blinding light.",
+  "volume": 11
+}

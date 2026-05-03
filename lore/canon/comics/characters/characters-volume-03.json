@@ -1,0 +1,415 @@
+[
+  {
+    "aliases": [
+      "Othon von Salza",
+      "Baron of Castaka",
+      "Shazam",
+      "Baron von Salza",
+      "the first Metabaron"
+    ],
+    "appearances": [
+      "{'description': 'White-haired, heavily muscular, older man. Wears pale armored suit. Has cybernetic or armored hand/arm. Physically imposing even after severe injury.', 'source_refs': ['056_The_Metabarons_3_c01', '067_The_Metabarons_3_p10', '073_The_Metabarons_3_p17', '082_The_Metabarons_3_p26', '083_The_Metabarons_3_p27', '084_The_Metabarons_3_p28']}"
+    ],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "action: Negotiated share of epyphite revenues, a new planet (Okhar), and a genetically recreated horse for Bari from the Imperial Couple; source_refs: ['057_The_Metabarons_3_ic1']",
+      "action: Invested fortune in early Metabaronic weapon development after abandoning pure martial arts; source_refs: ['067_The_Metabarons_3_p10']",
+      "action: Transformed the rural Castaka fortress on Okkar into a maxi-protonic tower-city using an army of machines; source_refs: ['067_The_Metabarons_3_p10']",
+      "action: Infiltrated the Golden Planet alone, fought through palace guards, and won imperial command of fifty endoguard ships; source_refs: ['073_The_Metabarons_3_p17', '074_The_Metabarons_3_p18', '075_The_Metabarons_3_p19', '076_The_Metabarons_3_p20']",
+      "action: Attacked Namar's mega-carrier and destroyed the pirate fleet; the counterfeit planet surrendered; source_refs: ['077_The_Metabarons_3_p21', '078_The_Metabarons_3_p22', '079_The_Metabarons_3_p23']",
+      "action: Stole the sacred egg and raced to the Golden Planet at unprecedented hyper-light speed; source_refs: ['081_The_Metabarons_3_p25']",
+      "action: Received the hereditary title 'Metabaron' from the Emperor, founding the dynasty; source_refs: ['083_The_Metabarons_3_p27']",
+      "action: Isolated himself in his great hall of weapons on Otho, refusing all visitors, after Bari's death; source_refs: ['084_The_Metabarons_3_p28']",
+      "action: Threatened Honorata with a blade after recognizing her as a Shabda-Oud; source_refs: ['085_The_Metabarons_3_p29', '087_The_Metabarons_3_p31']"
+    ],
+    "knowledge_boundaries": [
+      "Does not know whether Honorata will serve his dynastic needs; vol. 3 ends before resolution",
+      "Has no heir after Bari's death and his own reproductive mutilation"
+    ],
+    "relationships": [
+      "character: Bari; type: son (deceased by vol. 3); notes: Othon mourns Bari deeply. Previously prevented Bari from joining his dying mother, which Bari called cowardice. Bari lost use of his legs before his death.; source_refs: ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']",
+      "character: Iku-Itta; type: slave; notes: Othon took Iku-Itta's daughters as enforced-silent companions after his mutilation.; source_refs: ['067_The_Metabarons_3_p10']",
+      "character: Honorata; type: imperial gift / antagonistic encounter; notes: Honorata arrives veiled, identifying herself as a gift. Othon recognizes her as a Shabda-Oud, reacts with contempt and hostility, presses blade to her throat.; source_refs: ['085_The_Metabarons_3_p29', '086_The_Metabarons_3_p30', '087_The_Metabarons_3_p31']",
+      "character: The Imperial Couple (Emperor and Empress); type: sovereign / patron; notes: Othon negotiated planetary and commercial concessions from them after the Marmola war. Later persuades them to grant command of fifty endoguard ships. Receives the hereditary title 'Metabaron' from the Emperor.; source_refs: ['057_The_Metabarons_3_ic1', '076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Cunning and extremely lethal in battle",
+      "Contemptuous of others, including imperial elites and adoring crowds",
+      "Cruel and solitary after mutilation",
+      "Emotionally volatile: grief-stricken over lost son Bari",
+      "Status-conscious; insists on recognition of rank",
+      "Impatient and theatrically bold",
+      "Pilots through sophisticated planetary defenses by instinct",
+      "Does not trust the empire or those who celebrate him"
+    ],
+    "voice_notes": [
+      "Internally mocks the empire's celebrated warriors as weaker than himself (vol.3 p17)",
+      "At his knighting says he is 'a warrior, but no longer a man' — links mutilation to loss of masculine identity (vol.3 p27)",
+      "Vows to roam the galaxy to find a gift worthy of the Emperor (vol.3 p27)",
+      "Privately views the celebrating crowd as hypocrites who wanted him to fail and steal 'the egg' (vol.3 p26)",
+      "Refuses consolation about descendants: 'what is broken will not grow again' (vol.3 p27)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Cannot be stopped by poly-radars, quantum sensors, or photonic barriers on the Golden Planet (vol.3 p17)",
+      "Fought through imperial palace guards unassisted (vol.3 p19)",
+      "Defeated pirate fleet using concealed FB3 bombs in asteroid fissures and a forbidden tri-H torpedo as diversion (vol.3 p21–p23)",
+      "Stole the sacred egg from the Mother-Coach and fled at hyper-light speed (vol.3 p25)",
+      "Previously killed multiple soldiers with only a dagger on Marmola (vol.3 ic1)",
+      "Survived destruction of groin and hips by a dying bandit's shot (vol.3 ic1)"
+    ]
+  },
+  {
+    "aliases": [
+      "Bari"
+    ],
+    "appearances": [
+      "{'description': \"Othon's son. Physically disabled — lost use of his legs at an unspecified point before the main narrative of vol. 3. Deceased by vol. 3.\", 'source_refs': ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']}"
+    ],
+    "character_id": "bari",
+    "important_actions": [
+      "action: Accused Othon of cowardice on the Marmola battlefield; source_refs: ['057_The_Metabarons_3_ic1']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: father; notes: Conflict over the Marmola battlefield; Bari accused Othon of cowardice. Othon later grieved deeply after Bari's death.; source_refs: ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Accusatory: called Othon a coward for pulling him back from certain death alongside his mother",
+      "Beloved by Othon despite conflict"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Lost use of his legs before the imperial negotiation on Marmola (vol.3 ic1)",
+      "Received a genetically recreated horse (extinct 20,000 years) as an imperial gift; thieves stole it, leading to Othon's mutilation (vol.3 ic1)",
+      "Dead by vol. 3 p28; Othon mourns him on the planet Otho"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "{'description': 'Robot. Bulky build. Operates consoles in machinery-filled chambers. Distinct from Tonto, though which is physically larger is uncertain from the pages alone.', 'source_refs': ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05', '066_The_Metabarons_3_p09']}"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "action: Activated the solidification program to manifest the Metabaron's bio-electrogram during the assault; source_refs: ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05']"
+    ],
+    "knowledge_boundaries": [
+      "Does not know how Othon fathered a child given his destroyed reproductive organs — this is the central question he poses with Tonto (vol.3 p09)"
+    ],
+    "relationships": [
+      "character: Tonto; type: companion / fellow robot narrator; notes: The two robots jointly narrate the Metabaron lineage to each other while operating the Metabunker.; source_refs: ['066_The_Metabarons_3_p09', '084_The_Metabarons_3_p28']",
+      "character: The Metabaron (bald, present-day); type: servant / subordinate; notes: Lothar is commanded by the Metabaron; he carries out technical orders and is addressed by name.; source_refs: ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Technical operator: activates solidification programs, bio-electrograms, readies the metacraft",
+      "At least partially defiant — willing to talk back to the Metabaron",
+      "Addressed as a co-narrator of the Metabaron lineage story alongside Tonto"
+    ],
+    "voice_notes": [
+      "Shows defiance to the Metabaron when given orders (vol.3 p05)",
+      "Engages in philosophical dialogue with Tonto about organic grief and artificial rebirth (vol.3 p28)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Activated the Metabaron's bio-electrogram under time pressure during the Metabunker assault (vol.3 p04–p05)",
+      "Participated in the Metabaron's solidification program activation (vol.3 p04)",
+      "Was addressed by the other artificial speaker on p28 by name, placing him in the framing narrative on Otho"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "{'description': 'Small hovering or floating robot. Screen-like face or monitor-headed. Emotionally expressive, highly attached to the Metabaron. Smaller than Lothar.', 'source_refs': ['062_The_Metabarons_3_p05', '066_The_Metabarons_3_p09']}"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "action: Resumed narration of Othon's lineage story with Lothar after the Metabaron's dematerialization; source_refs: ['066_The_Metabarons_3_p09']"
+    ],
+    "knowledge_boundaries": [
+      "Poses the dynastic question: how did Othon conceive an heir with no genitals? (vol.3 p09)"
+    ],
+    "relationships": [
+      "character: Lothar; type: companion / fellow robot narrator; notes: Tonto is the smaller, emotionally reactive partner; Lothar (or the larger machine) guides and corrects him.; source_refs: ['066_The_Metabarons_3_p09']",
+      "character: The Metabaron (bald, present-day); type: devoted servant; notes: Tonto calls the Metabaron his master and is distraught when he dematerializes.; source_refs: ['066_The_Metabarons_3_p09']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Highly emotional — theatrically distressed when the Metabaron disappears",
+      "Idolizes the Metabaron, calls him 'master' and 'invincible human warrior'",
+      "Takes the role of eager listener in the storytelling frame, asking questions that drive the narration forward",
+      "Sarcastic and openly dismissive of organic life (vol.3 p16)",
+      "More controlled robot (the larger machine) corrects Tonto's sentimentality"
+    ],
+    "voice_notes": [
+      "Expresses existential envy of humans for their ability to display grief outwardly (vol.3 p28)",
+      "Claims to suffer internally despite robotic nature (vol.3 p28)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Witnessed the Metabaron manifest as a bio-electrogram, praise him for victory, then watched him dematerialize (vol.3 p09)",
+      "Narrates Metabaron lineage stories with Lothar; recalls Othon's mutilation, multi-protonic pelvic implant, and dynastic question (vol.3 p09)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Metabaron",
+      "the master (per Tonto)",
+      "bald Metabaron"
+    ],
+    "appearances": [
+      "{'description': 'Bald male, stern expression. Appears as a luminous bio-electric projection rather than a physical body in these pages. Wears dark gear in cockpit/combat context. Exact personal name not stated in vol. 3.', 'source_refs': ['062_The_Metabarons_3_p05', '063_The_Metabarons_3_p06', '064_The_Metabarons_3_p07', '065_The_Metabarons_3_p08', '066_The_Metabarons_3_p09']}"
+    ],
+    "character_id": "the-metabaron",
+    "important_actions": [
+      "action: Armed the metacraft and launched through the Metabunker under attack; source_refs: ['062_The_Metabarons_3_p05']",
+      "action: Defeated three armored fighters in under three seconds as a solidified bio-electrogram; source_refs: ['063_The_Metabarons_3_p06']",
+      "action: Destroyed multiple space targets in timed combat run before bio-electrogram dissolved; source_refs: ['064_The_Metabarons_3_p07', '065_The_Metabarons_3_p08']"
+    ],
+    "knowledge_boundaries": [
+      "Identity not confirmed on-page in vol. 3; appears only as temporary bio-electrogram manifestation"
+    ],
+    "relationships": [
+      "character: Lothar; type: subordinate robot; notes: Commands Lothar by name; Lothar activates the bio-electrogram and prepares the metacraft.; source_refs: ['062_The_Metabarons_3_p05']",
+      "character: Tonto; type: devoted servant robot; notes: Tonto idolizes the Metabaron and is distressed by his disappearance.; source_refs: ['066_The_Metabarons_3_p09']",
+      "character: Othon von Salza; type: ancestor (contextual — lineage told by robots); notes: The robots narrate Othon's history as the lineage of this Metabaron.; source_refs: ['066_The_Metabarons_3_p09']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Forceful, impatient, gives commands to robots",
+      "Near-invincible in combat — defeats three armored fighters in under three seconds as a bio-electrogram",
+      "Operates through solidified bio-electrogram that dissolves after roughly three minutes"
+    ],
+    "voice_notes": [
+      "Refuses to accept the robots' tone and asserts authority immediately upon manifesting (vol.3 p05)",
+      "Asks directly whether the metacraft is armed before departing (vol.3 p05)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Manifested via bio-electrogram during the Metabunker assault (vol.3 p05)",
+      "Destroyed multiple armored opponents and space targets during the timed combat sequence (vol.3 p06–p08)",
+      "Dematerialized in front of Tonto after the combat session ended (vol.3 p09)"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata",
+      "the gift",
+      "Honorata, The Sorceress (episode title teaser)"
+    ],
+    "appearances": [
+      "{'description': 'Tall female figure with enormous white hair. Enters fully veiled in layered black coverings. Stands barefoot after dark garments fall away. Eyes remain hidden; only lips visible in close-up. Presented as eerie and ceremonial.', 'source_refs': ['085_The_Metabarons_3_p29', '086_The_Metabarons_3_p30', '087_The_Metabarons_3_p31']}"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "action: Entered Othon's great hall of weapons veiled, identified herself as 'Honorata' and as a gift; source_refs: ['085_The_Metabarons_3_p29']",
+      "action: Removed all dark coverings, revealing herself fully to Othon in a ceremonial unveiling; source_refs: ['086_The_Metabarons_3_p30']"
+    ],
+    "knowledge_boundaries": [
+      "Her purpose and survival beyond vol. 3 are unresolved"
+    ],
+    "relationships": [
+      "character: Othon von Salza; type: antagonistic arrival / imperial gift; notes: Delivered to Othon as an imperial gift; Othon reacts with contempt and presses a blade to her throat. Vol. 3 ends unresolved.; source_refs: ['085_The_Metabarons_3_p29', '087_The_Metabarons_3_p31']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Presented as mysteriously powerful and possibly supernatural",
+      "Identified by Othon and a female servant as a Shabda-Oud — regarded as a witch",
+      "Calm and self-presenting: identifies herself as 'a gift' on arrival",
+      "Associated with a 'kingdom of mysteries'"
+    ],
+    "voice_notes": [
+      "Says only her name and that she is 'a gift' before Othon threatens her (vol.3 p29)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Took control of the room's door mechanism on arrival, alarming Othon (vol.3 p29)"
+    ]
+  },
+  {
+    "aliases": [
+      "Namar",
+      "pirate commander"
+    ],
+    "appearances": [
+      "{'description': 'Named in narration only; no confirmed single close-up in the pages reviewed. Associated with the counterfeit planet / pirate mega-carrier.', 'source_refs': ['071_The_Metabarons_3_p14-p15']}"
+    ],
+    "character_id": "namar",
+    "important_actions": [
+      "action: Deployed 100,000 Ostrov-class armored mini-fighters from the counterfeit planet to attack the Mother-Coach; source_refs: ['071_The_Metabarons_3_p14-p15']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The Imperial Couple / Mother-Coach convoy; type: enemy / attacker; notes: Namar's fleet ambushes the Mother-Coach convoy transporting the perfect androgyne in the Harp constellation.; source_refs: ['071_The_Metabarons_3_p14-p15']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Commands massive pirate forces: 100,000 Ostrov-class armored mini-fighters",
+      "Possesses or operates a counterfeit planet — a mega spacecraft-carrier disguised as a planetary body"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Launched 100,000 Ostrov-class fighters from his counterfeit planet against the Mother-Coach convoy (vol.3 p14–p15)",
+      "His mega-carrier was destroyed by Othon's FB3 bombs and tri-H torpedo stratagem; counterfeit planet surrendered (vol.3 p23)"
+    ]
+  },
+  {
+    "aliases": [
+      "Janus-Jana",
+      "the perfect androgyne",
+      "the sacred egg",
+      "the imperial embryo"
+    ],
+    "appearances": [
+      "{'description': 'Conjoined male-female twins joined at the neck and shoulders. Depicted in vol. 3 only as a fetus/embryo inside a mesh-like womb or incubator under scientific supervision.', 'source_refs': ['069_The_Metabarons_3_p12']}"
+    ],
+    "character_id": "janus-jana",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Whether Janus-Jana survived the transport and Othon's theft of the sacred egg is unresolved in vol. 3"
+    ],
+    "relationships": [
+      "character: The Emperor and Empress; type: offspring / heir; notes: Product of thirty years of effort on a hospital-planet using the sterile Emperor's sperm. The Union of Planets' future depends on the imperial line.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Biologically male and female simultaneously — conjoined twins",
+      "Classified as a potential mutant by the narration",
+      "Presented as messianic: expected to unite all factions of the galaxy"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Produced after 30 years, 10 days, 5 hours, and 8 minutes on a hospital-planet at immense cost (vol.3 p11)",
+      "Transported aboard the Mother-Coach fortress-ship toward the Golden Planet under purple endoguard escort (vol.3 p13)",
+      "Sacred egg associated with Janus-Jana was stolen by Othon from the Mother-Coach (vol.3 p25)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Emperor",
+      "His Majesty",
+      "member of the Imperial Couple"
+    ],
+    "appearances": [
+      "{'description': 'Not distinctly described in vol. 3 visuals; seen with the Empress in a golden ceremonial hall. Appears aged and weary at the knighting ceremony.', 'source_refs': ['076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']}"
+    ],
+    "character_id": "the-emperor",
+    "important_actions": [
+      "action: Granted command of fifty remaining endoguard ships to Othon; source_refs: ['076_The_Metabarons_3_p20']",
+      "action: Bestowed the hereditary title 'Metabaron' on Othon von Salza; source_refs: ['083_The_Metabarons_3_p27']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The Empress; type: spouse / co-ruler; notes: Rules together; the future of the Union of Planets depends on their heir.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']",
+      "character: Othon von Salza; type: sovereign / grateful patron; notes: Previously negotiated with Othon after the Marmola war. Later bestows the title 'Metabaron' on him and his descendants.; source_refs: ['057_The_Metabarons_3_ic1', '076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']",
+      "character: Janus-Jana; type: parent / heir's progenitor; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Sterile — required thirty years and a hospital-planet to father a child",
+      "Emotionally attached to Othon; expresses heartfelt gratitude and wishes him happiness",
+      "Attempts compassionate consolation (offers Othon 'another horse')",
+      "Acts with the Empress in public appeals and court decisions"
+    ],
+    "voice_notes": [
+      "Expresses deep personal gratitude to Othon in private embrace at the knighting (vol.3 p27)",
+      "Offers 'another horse' as consolation for Othon's losses (vol.3 p27)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Issued a galaxy-wide civilian appeal for help against the pirates alongside the Empress (vol.3 p16–p17)",
+      "Granted Othon command of fifty endoguard ships (vol.3 p20)",
+      "Bestowed the hereditary title 'Metabaron' on Othon and his descendants (vol.3 p27)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Empress",
+      "member of the Imperial Couple"
+    ],
+    "appearances": [
+      "{'description': 'Not distinctly described visually in vol. 3 beyond appearing with the Emperor in court and broadcast contexts.', 'source_refs': ['072_The_Metabarons_3_p16', '076_The_Metabarons_3_p20']}"
+    ],
+    "character_id": "the-empress",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The Emperor; type: spouse / co-ruler; source_refs: ['068_The_Metabarons_3_p11']",
+      "character: Janus-Jana; type: mother / progenitor; notes: Her ovum was successfully fertilized after the Emperor's sperm was used — a galaxy-wide historic event.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Acts jointly with the Emperor in public appeals and court governance"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Successfully fertilized by the Emperor's previously sterile sperm after thirty years on a hospital-planet (vol.3 p11)",
+      "Broadcast a public appeal with the Emperor for civilian help against pirates (vol.3 p16)"
+    ]
+  },
+  {
+    "aliases": [
+      "Iku-Itta"
+    ],
+    "appearances": [
+      "{'description': \"Othon's slave. Not individually described in physical detail in vol. 3 pages reviewed.\", 'source_refs': ['067_The_Metabarons_3_p10']}"
+    ],
+    "character_id": "iku-itta",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: slave / household member; notes: Othon took Iku-Itta's daughters as enforced-silent companions after his mutilation.; source_refs: ['067_The_Metabarons_3_p10']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Loyal to Othon's household",
+      "Has daughters who are part of Othon's domestic and sexual arrangements"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Zacuda Frolex / Mutant Zacuda Frolex",
+      "last of its kind (original)",
+      "enormous mutant Zacuda Frolex (offspring)"
+    ],
+    "appearances": [
+      "{'description': 'Insect-like lifeform. Original is small; the mutant offspring is described as enormous by comparison. Exact visual form is small and indistinct in the pages.', 'source_refs': ['058_The_Metabarons_3_p01', '059_The_Metabarons_3_p02', '060_The_Metabarons_3_p03']}"
+    ],
+    "character_id": "zacuda-frolex-mutant-zacuda-frolex",
+    "important_actions": [
+      "action: Original Zacuda Frolex entered Terra 2014 and died in Police Central computer, laying a mutated egg; source_refs: ['058_The_Metabarons_3_p01', '059_The_Metabarons_3_p02']",
+      "action: Mutant offspring deliberately crashed into control banks, reactivating attack program and proto-nuclear units; source_refs: ['060_The_Metabarons_3_p03']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [
+      "Capable of independent navigation through large structures",
+      "Can lay a single egg at the moment of death",
+      "Egg is susceptible to mutation from machine electrical shocks during incubation",
+      "Mutant offspring acts with apparent desperation and agency — crashes itself into controls",
+      "Mutant offspring capable of triggering system-wide attack programs and activating proto-nuclear units"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Last original individual drifted through a ventilation hatch into Terra 2014, reached Police Central, and died in a minor computer keyboard (vol.3 p01–p02)",
+      "Laid one egg before dying; egg was mutated by machine shocks into an enormous offspring (vol.3 p02)",
+      "Mutant offspring navigated interior of a facility, crashed into control banks, and reactivated an attack program, bringing three proto-nuclear units online (vol.3 p03)"
+    ]
+  }
+]

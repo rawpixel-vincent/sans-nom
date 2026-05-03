@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The armored central figure is socially prominent and is in the process of receiving noble recognition.",
+    "The armored figure speaks in a way that suggests greed or hypocrisy regarding honor and payment.",
+    "The young woman is directly connected to Don Nicanor Rosamel de Rokha as his daughter.",
+    "The young woman is forceful enough to interrupt a major public event and accuse the honoree in front of witnesses.",
+    "The bearded uniformed man appears to assist the young woman in presenting physical evidence from a box or case."
+  ],
+  "characters_present": [
+    "An armored noble or warrior being honored",
+    "A young woman accuser",
+    "Crowd of spectators and officials",
+    "Guards or attendants near the dais",
+    "An older bearded uniformed man assisting with the evidence",
+    "A hooded or robed attendant near the interruption"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page opens with an ongoing ceremony rather than introducing it from scratch.",
+    "The accusation implies an earlier off-page or prior-page death of Don Nicanor Rosamel de Rokha.",
+    "The physical remains shown here likely connect to a murder investigation or revenge storyline involving the accuser and the armored noble."
+  ],
+  "dialogue_meaning": [
+    "The crowd praises the central armored figure for valor and thanks him enthusiastically.",
+    "The ceremony frames the figure as entering or joining the nobility.",
+    "The honoree's speech presents a cynical view of service: he will display honor outwardly while profiting from others.",
+    "The interruption asserts the medal or distinction cannot be legitimately granted yet.",
+    "The accuser says her father's vote is absent because he was killed.",
+    "She publicly denounces the honoree as a murderer and offers bone remains as proof of the dead man's fate."
+  ],
+  "image_sha256": "7c2d49ef9db63da45ab4a192374451cc80180e2703c535251fee731436a98663",
+  "is_spread": false,
+  "locations": [
+    "A ceremonial public hall, arena, or amphitheater",
+    "A raised dais or presentation platform before the crowd"
+  ],
+  "lore_facts": [
+    "There exists a nobility with formal public ceremonies and some kind of medal, investiture, or recognition process.",
+    "Admission to or recognition by this nobility appears to involve votes.",
+    "A person named Don Nicanor Rosamel de Rokha held a vote important enough to affect the ceremony.",
+    "The page depicts a society where military or armored elites are publicly celebrated before large crowds."
+  ],
+  "page_id": "279_The_Metabarons_11_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "A large public audience celebrates an armored warrior or official during a formal investiture or award ceremony.",
+    "The speaker or honoree is welcomed into the nobility and makes a self-serving pledge about honor and payment.",
+    "A young woman interrupts the ceremony and demands it be stopped.",
+    "She claims a required vote is missing, specifically her father's vote.",
+    "She identifies her father by name as Don Nicanor Rosamel de Rokha.",
+    "She accuses the armored noble of murdering her father.",
+    "A container is opened and human remains, including a skull or bone fragment, are displayed as evidence before the crowd."
+  ],
+  "source_image": "external/comics/meta-barons/279_The_Metabarons_11_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7c2d49ef9db63da45ab4a192374451cc80180e2703c535251fee731436a98663",
+      "page_id": "279_The_Metabarons_11_p01",
+      "source_image": "external/comics/meta-barons/279_The_Metabarons_11_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; the exact wording of the honoree's pledge may be imprecise in this summary.",
+    "The precise name spelling 'Don Nicanor Rosamel de Rokha' is read from small text and may contain minor errors.",
+    "It is unclear whether the remains shown are a full skull plus fragments or only fragments arranged to represent the victim.",
+    "The exact title of the award or whether it is specifically a medallion/medal is not fully certain from the page alone."
+  ],
+  "visual_summary": "A public ceremony is underway before a large crowd in a grand arena or civic hall. A heavily armored noble figure stands on a dais, being acclaimed by the audience and seemingly welcomed into the nobility. The scene is interrupted when a young woman pushes forward shouting to stop the award. She accuses the candidate of being unworthy because one decisive vote is missing: her father’s, whom she says was murdered by the armored figure. In the final panels, a chest is opened and a skull or bone fragment is presented as evidence while the woman points at the accused.",
+  "volume": 11
+}

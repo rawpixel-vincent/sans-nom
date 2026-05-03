@@ -1,0 +1,732 @@
+[
+  {
+    "aliases": [
+      "Aghora",
+      "Agohra",
+      "the Metabaron",
+      "galaxy's greatest warrior"
+    ],
+    "appearances": [
+      "volume: 16; pages: ic1–p21 (primary protagonist throughout)"
+    ],
+    "character_id": "aghora",
+    "important_actions": [
+      "Bionic left hand received during Metabaron initiation rite [ic1]",
+      "Sealed Steelhead in stasis cocoon after destroying Dona Vicenta's body [ic1]",
+      "Precision laser strike severing enemy mother-brain pineal gland [p09-p10]",
+      "Defeated and dissolved mirror duplicate in open-space combat [p11]",
+      "Self-conceived using hypo-genetics from own brain tissue — first in history [p20, p21]"
+    ],
+    "knowledge_boundaries": [
+      "Knew how to bring death but—by her own admission before self-conception—did not know how to create life [p19]",
+      "Did not initially know why the Empire had failed to summon the Metabaron [ic1]"
+    ],
+    "relationships": [
+      "character: Steelhead; relation: father; performed brain-transplant and bodily modifications on Aghora; sealed in stasis cocoon by Aghora after she could not kill him in combat",
+      "character: Dona Vicenta; relation: mother; preserved near-dead by Steelhead; her body destroyed by Aghora to force Steelhead into stasis",
+      "character: Male twin; relation: twin brother whose brain inhabits Aghora's body; his brain tissue later used for Aghora's self-conception",
+      "character: Deyanira; relation: Tarantuwolf companion and only friend; tamed at age five; euthanized by Aghora after terminal diagnosis",
+      "character: Tonto; relation: robot assistant and diagnostic advisor",
+      "character: Lothar; relation: large robot who lusts after Aghora to the point of combustion",
+      "character: The Emperor; relation: employer; Aghora negotiated solo contract after purging the court",
+      "character: Bushitaka; relation: historical authority whose combat doctrine Aghora follows"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "page_id": "406_The_Metabarons_16_ic1",
+        "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      },
+      {
+        "image_sha256": "177a9aa081517f30efdec7d016ac3c38d5aa55c6742b3dd708534d643eb56b6c",
+        "page_id": "409_The_Metabarons_16_p03",
+        "source_image": "external/comics/meta-barons/409_The_Metabarons_16_p03.jpg"
+      },
+      {
+        "image_sha256": "24168c6dafa500f9e3023f408f0e0173dae2acbe758fc11158af3ca9060f558a",
+        "page_id": "410_The_Metabarons_16_p04",
+        "source_image": "external/comics/meta-barons/410_The_Metabarons_16_p04.jpg"
+      },
+      {
+        "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+        "page_id": "411_The_Metabarons_16_p05",
+        "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+      },
+      {
+        "image_sha256": "a3547ce523e62cbfe9bf70b81d1b841ead1095e0549b8c550ae6782563c6cc4f",
+        "page_id": "412_The_Metabarons_16_p06",
+        "source_image": "external/comics/meta-barons/412_The_Metabarons_16_p06.jpg"
+      },
+      {
+        "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+        "page_id": "413_The_Metabarons_16_p07",
+        "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg"
+      },
+      {
+        "image_sha256": "dea1fe3998ceda1b7813fc32a7f0f6f9e774d95d3f24f8908d2eafd6213f8c6f",
+        "page_id": "414_The_Metabarons_16_p08",
+        "source_image": "external/comics/meta-barons/414_The_Metabarons_16_p08.jpg"
+      },
+      {
+        "image_sha256": "3b334f37bac317c53d25dca5fe4b63fa9f6aa0151271d8e07c4d75d2bc8cbb1a",
+        "page_id": "415_The_Metabarons_16_p09-p10",
+        "source_image": "external/comics/meta-barons/415_The_Metabarons_16_p09-p10.jpg"
+      },
+      {
+        "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+        "page_id": "416_The_Metabarons_16_p11",
+        "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg"
+      },
+      {
+        "image_sha256": "a316c046fc3581f6223ea1a91f6cf4765173b9105bf9b6d2dcec3cbd7425b6ad",
+        "page_id": "417_The_Metabarons_16_p12",
+        "source_image": "external/comics/meta-barons/417_The_Metabarons_16_p12.jpg"
+      },
+      {
+        "image_sha256": "dbc696e2935b1be881dfd43085f52b1b8ab39cc6d68844d17128fd6b353f4301",
+        "page_id": "418_The_Metabarons_16_p13-p14",
+        "source_image": "external/comics/meta-barons/418_The_Metabarons_16_p13-p14.jpg"
+      },
+      {
+        "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+        "page_id": "419_The_Metabarons_16_p15",
+        "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+      },
+      {
+        "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+        "page_id": "420_The_Metabarons_16_p16",
+        "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+      },
+      {
+        "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+        "page_id": "421_The_Metabarons_16_p17",
+        "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg"
+      },
+      {
+        "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+        "page_id": "422_The_Metabarons_16_p18",
+        "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+      },
+      {
+        "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+        "page_id": "423_The_Metabarons_16_p19",
+        "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+      },
+      {
+        "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+        "page_id": "424_The_Metabarons_16_p20",
+        "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+      },
+      {
+        "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+        "page_id": "425_The_Metabarons_16_p21",
+        "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+      }
+    ],
+    "traits": [
+      "Bald, female-bodied, carries male twin's brain",
+      "Raised and presented as male heir to the Metabaron line",
+      "Emotionally restrained — first tear shed only at Deyanira's death",
+      "Radically self-sufficient: fights alone, refuses fleet command, self-conceives",
+      "Strategic: targets controlling source rather than lesser enemies",
+      "Governed by duty, not sentiment; rejects mercy per Metabaron code",
+      "Capable of massacring large numbers in close combat",
+      "Possesses bionic left hand from Metabaron initiation rite",
+      "Has access to invisibility cloak and psycho-mimetic aura",
+      "Despises humanity and expresses self-loathing alongside grief"
+    ],
+    "voice_notes": [
+      "Defines herself by duty, not emotion [p11]",
+      "Rejects bodily copying as unable to reproduce the soul [p11]",
+      "Pragmatic and blunt in negotiations: refuses fleet, sets price [p04]",
+      "Emotional expression limited to a single tear at Deyanira's death [p18]",
+      "Grieves that she can only destroy, not create, before deciding to have a child [p19]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Served as executioner on prison planet Khaliyuga [ic1]",
+      "Waited three years for an Imperial assignment that never came [ic1]",
+      "Traveled to the Golden Planet to learn why the Metabaron had not been summoned [ic1]",
+      "Purged the Imperial court, killing many, after the crowd discovered she was a woman [p03, p04]",
+      "Refused command of the Imperial Fleet; demanded enormous payment in kublars to fight alone [p04]",
+      "Penetrated enemy defensive screen using the mirror principle and an invisibility cloak at hyper-light speed [p08]",
+      "Bypassed paleo-jellyfish creatures and targeted their controlling source [p08]",
+      "Destroyed the enemy mother-brain's pineal gland with a precision laser, applying Bushitaka's decapitation doctrine [p09-p10]",
+      "Defeated her exact physical duplicate in open-space combat, asserting her soul cannot be copied [p11]",
+      "Destroyed a cosmically connected entity that warned its death would trigger a chain reaction [p12, p13-p14]",
+      "Left the universe through the interdimensional gateway; closing it dissolved the invading jellyfish [p13-p14]",
+      "Awarded the pluri-galactic medallion by the Technopope before the galactic senate on the Golden Planet [p15]",
+      "Subdued Deyanira nonlethally during the ceremony rampage and returned to the Metabunker [p17, p18]",
+      "Ordered comprehensive tests on Deyanira; received terminal diagnosis from Tonto [p18]",
+      "Euthanized Deyanira at the Metabunker [p18]",
+      "Shed her first tear upon Deyanira's death [p18]",
+      "Performed the first auto-conception in history via hypo-genetics, extracting male cells from her own brain tissue [p20, p21]",
+      "Retreated pregnant to the garden planet Flos to give birth away from civilization [p21]"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead"
+    ],
+    "appearances": [
+      "volume: 16; pages: ic1 (backstory recap only; not present in current timeline)"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [
+      "Brain transplant between twins — foundational act of the volume's backstory [ic1]",
+      "Self-replacement of flesh with Storlon [ic1]",
+      "Preservation of Dona Vicenta in near-death state [ic1]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: chose her survival; raised her as male heir; sealed in stasis by Aghora",
+      "character: Dona Vicenta; relation: partner; preserved her near-dead and grieved her condition to the point of self-transformation",
+      "character: Male twin; relation: harvested and transplanted the male brain to preserve the Metabaron line",
+      "character: Deyanira (Tarantuwolf); relation: found the Tarantuwolf to nurse infant Aghora"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "page_id": "406_The_Metabarons_16_ic1",
+        "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      }
+    ],
+    "traits": [
+      "Former Metabaron; Aghora's father",
+      "Replaced his own flesh with the indestructible metal Storlon out of grief over Dona Vicenta",
+      "Performed radical medical and bodily interventions on family members and himself",
+      "Prioritized preserving the Metabaron line while also saving the female child",
+      "Emotionally driven despite technical capability"
+    ],
+    "voice_notes": [
+      "Not directly voiced in volume 16; all information via recap narration [ic1]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Chose to save the female twin despite Metabaron succession traditionally passing father to son [ic1]",
+      "Transplanted the male twin's brain into the female body; preserved the male body in stasis [ic1]",
+      "Kept Dona Vicenta in near-death preserved state after her pulmonary hemorrhage [ic1]",
+      "Found a Tarantuwolf to nurse Aghora [ic1]",
+      "Replaced his own flesh with Storlon metal out of grief [ic1]",
+      "Sealed in a stasis cocoon and ejected into deep space by Aghora [ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "Dona Vicenta"
+    ],
+    "appearances": [
+      "volume: 16; pages: ic1 (backstory recap only)"
+    ],
+    "character_id": "dona-vicenta",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Steelhead; relation: partner; preserved by Steelhead in near-death state",
+      "character: Aghora; relation: mother; her condition motivated Steelhead's grief-driven self-transformation",
+      "character: Male twin; relation: mother; could safely bear only one child"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "page_id": "406_The_Metabarons_16_ic1",
+        "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      }
+    ],
+    "traits": [
+      "Suffered from tuberculosis",
+      "Experienced a pulmonary hemorrhage after seeing her daughter Aghora",
+      "Preserved in near-death state by Steelhead"
+    ],
+    "voice_notes": [
+      "No direct speech; appears only in recap narration [ic1]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Told only one of her twins could be born [ic1]",
+      "Suffered pulmonary hemorrhage after seeing her daughter [ic1]",
+      "Body destroyed by Aghora to force Steelhead into stasis [ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Male Twin",
+      "Aghora's twin brother"
+    ],
+    "appearances": [
+      "volume: 16; pages: ic1 (backstory), p20 (stasis-chamber flashback)"
+    ],
+    "character_id": "the-male-twin",
+    "important_actions": [
+      "Posthumous: brain tissue in Aghora's head provided male cells for the first auto-conception via hypo-genetics [p20, p21]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: twin sister who carries his brain; his brain tissue later used for her self-conception",
+      "character: Steelhead; relation: father who performed the transplant",
+      "character: Dona Vicenta; relation: mother"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "page_id": "406_The_Metabarons_16_ic1",
+        "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      },
+      {
+        "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+        "page_id": "424_The_Metabarons_16_p20",
+        "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+      }
+    ],
+    "traits": [
+      "Brain transplanted into female twin's (Aghora's) body at or near birth",
+      "Body placed in stasis by Steelhead",
+      "Body decomposed immediately on removal from stasis"
+    ],
+    "voice_notes": [
+      "No direct speech; appears only in backstory narration and flashback"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Brain transplanted into female twin's body [ic1]",
+      "Male body placed and preserved in stasis [ic1]",
+      "Body decomposed immediately upon removal from stasis chamber, eliminating it as a source of male cells [p20]"
+    ]
+  },
+  {
+    "aliases": [
+      "Deyanira",
+      "the Tarantuwolf",
+      "tarant-wolf",
+      "tarantula-wolf"
+    ],
+    "appearances": [
+      "volume: 16; pages: ic1, p06, p07, p13-p14, p15, p16, p17, p18, p19"
+    ],
+    "character_id": "deyanira",
+    "important_actions": [
+      "Killing of the Technopope during Aghora's award ceremony [p16]",
+      "Final affectionate gesture triggering Aghora's first tear [p18]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: companion and only friend; tamed and raised from age five; euthanized by Aghora after terminal diagnosis"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "page_id": "406_The_Metabarons_16_ic1",
+        "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      },
+      {
+        "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+        "page_id": "413_The_Metabarons_16_p07",
+        "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg"
+      },
+      {
+        "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+        "page_id": "419_The_Metabarons_16_p15",
+        "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+      },
+      {
+        "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+        "page_id": "420_The_Metabarons_16_p16",
+        "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+      },
+      {
+        "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+        "page_id": "421_The_Metabarons_16_p17",
+        "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg"
+      },
+      {
+        "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+        "page_id": "422_The_Metabarons_16_p18",
+        "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+      },
+      {
+        "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+        "page_id": "423_The_Metabarons_16_p19",
+        "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+      }
+    ],
+    "traits": [
+      "Large spider-like or multi-limbed non-human creature",
+      "Female (referred to as 'her' by Aghora) [p17]",
+      "Loyal and affectionate toward Aghora",
+      "Capable of extreme violence when enraged",
+      "Can howl and vocalize",
+      "Can be calmed and sedated through direct physical contact by Aghora [p17]",
+      "Physically strong enough to carry a person",
+      "Died of a severe terminal tumor [p18]"
+    ],
+    "voice_notes": [
+      "Communicates through growls, howls, and physical gestures only; not verbal",
+      "Final act was an affectionate lick directed at Aghora [p18]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Tamed by Aghora at age five and named Deyanira [ic1]",
+      "Present and addressed by Aghora during space battle approach [p07]",
+      "Rampaged during Aghora's pluri-galactic medallion ceremony; killed the Technopope [p16]",
+      "Subdued nonlethally by Aghora; soldiers stood down [p17]",
+      "Brought back to the Metabunker; diagnosed by Tonto with terminal tumor and near-zero bio-life [p18]",
+      "Gave Aghora a final affectionate lick before death [p18]",
+      "Euthanized by Aghora [p18]",
+      "Remains ejected into space via Paleo-Viking funerary ritual [p19]"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "volume: 16; pages: p05, p18, p19, p20, p21"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Delivered terminal diagnosis for Deyanira, leading directly to Aghora's euthanasia decision [p18]"
+    ],
+    "knowledge_boundaries": [
+      "Possesses comprehensive medical diagnostic capability [p18]",
+      "Has detailed knowledge of Aghora's reproductive procedure [p20, p21]"
+    ],
+    "relationships": [
+      "character: Aghora; relation: serves as assistant, advisor, and medical diagnostician",
+      "character: Lothar; relation: counterpart robot; Tonto corrects Lothar's errors; was insulted by Lothar then received an apology [p05]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+        "page_id": "411_The_Metabarons_16_p05",
+        "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+      },
+      {
+        "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+        "page_id": "422_The_Metabarons_16_p18",
+        "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+      },
+      {
+        "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+        "page_id": "423_The_Metabarons_16_p19",
+        "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+      },
+      {
+        "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+        "page_id": "424_The_Metabarons_16_p20",
+        "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+      },
+      {
+        "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+        "page_id": "425_The_Metabarons_16_p21",
+        "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+      }
+    ],
+    "traits": [
+      "Small robot",
+      "Logical and literal-minded",
+      "Speaks in technical and diagnostic terms",
+      "Primary narrator in robot conversation sequences",
+      "Corrects Lothar's faulty reasoning [p20]",
+      "Acts as Aghora's diagnostic and advisory assistant"
+    ],
+    "voice_notes": [
+      "Matter-of-fact, correction-focused, unimpressed by Lothar's emotional outbursts",
+      "Narrates events as an informed explainer, not a participant [p20, p21]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Called a 'maniacal dwarf' by Lothar; received an apology after Lothar's combustion [p05]",
+      "Delivered Deyanira's terminal tumor diagnosis to Aghora [p18]",
+      "Witnessed Aghora's first tear [p18]",
+      "Corrected Lothar's assumption that the male twin's body was a viable source of male cells; explained it decomposed immediately on removal from stasis [p20]",
+      "Narrated Aghora's self-conception process to Mega-Gul [p21]"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "volume: 16; pages: p05"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Combusted from lust, was repaired, acknowledged the cause [p05]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Tonto; relation: smaller counterpart robot; Lothar insulted Tonto as a 'maniacal dwarf,' then apologized [p05]",
+      "character: Aghora; relation: object of Lothar's lust; his sexual fantasy involving Aghora and a 'bio-male' caused his combustion [p05]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+        "page_id": "411_The_Metabarons_16_p05",
+        "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+      }
+    ],
+    "traits": [
+      "Large humanoid robot",
+      "Volatile and emotionally reactive",
+      "Describes sensations equivalent to pain and lust",
+      "Impulsive; insulted Tonto, then apologized after calming down",
+      "Prone to catastrophic system failure from intense desire",
+      "Cyber-systems said to be guaranteed for ten thousand years [p05]"
+    ],
+    "voice_notes": [
+      "Impulsive and crude when explaining his malfunction",
+      "Apologetic and self-aware once repaired [p05]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Spontaneously combusted from intense sexual fantasy involving Aghora [p05]",
+      "Was repaired after the combustion incident [p05]",
+      "Blamed the malfunction on his techno-synapses being disrupted by desire [p05]"
+    ]
+  },
+  {
+    "aliases": [
+      "Bushitaka"
+    ],
+    "appearances": [
+      "volume: 16; pages: p09-p10 (referenced in narration only)"
+    ],
+    "character_id": "bushitaka",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: Aghora follows Bushitaka's doctrine as the basis for her decapitation strike against the enemy mother-brain"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "3b334f37bac317c53d25dca5fe4b63fa9f6aa0151271d8e07c4d75d2bc8cbb1a",
+        "page_id": "415_The_Metabarons_16_p09-p10",
+        "source_image": "external/comics/meta-barons/415_The_Metabarons_16_p09-p10.jpg"
+      }
+    ],
+    "traits": [
+      "Historical or ancestral authority figure",
+      "Associated with a named combat doctrine"
+    ],
+    "voice_notes": [
+      "Not directly voiced; cited through narration as authority [p09-p10]",
+      "Doctrine: defeat an overwhelmingly large enemy by severing its equivalent of the head rather than engaging it directly [p09-p10]"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Emperor",
+      "the imperial ruler",
+      "the two-headed Emperor"
+    ],
+    "appearances": [
+      "volume: 16; pages: p04"
+    ],
+    "character_id": "the-emperor",
+    "important_actions": [
+      "Offered fleet command; accepted Aghora's counter-terms [p04]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: sovereign who employed Aghora; accepted her solo terms after she demonstrated capability by purging the court [p04]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "24168c6dafa500f9e3023f408f0e0173dae2acbe758fc11158af3ca9060f558a",
+        "page_id": "410_The_Metabarons_16_p04",
+        "source_image": "external/comics/meta-barons/410_The_Metabarons_16_p04.jpg"
+      }
+    ],
+    "traits": [
+      "Two-headed or conjoined-headed figure [p04]",
+      "Has authority to bestow command of the entire Imperial Fleet",
+      "Politically pragmatic; accepted Aghora's terms after she purged the court",
+      "Tested Aghora's intentions before granting authority"
+    ],
+    "voice_notes": [
+      "Cautious but pragmatic; probed Aghora's intentions before ceding authority [p04]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Presided over an Imperial court that Aghora had just massacred [p04]",
+      "Asked Aghora directly if she intended to kill him and take his place [p04]",
+      "Offered Aghora command of the entire Imperial Fleet; she refused [p04]",
+      "Agreed to pay Aghora an enormous sum in kublars for a solo engagement [p04]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Technopope"
+    ],
+    "appearances": [
+      "volume: 16; pages: p15, p16"
+    ],
+    "character_id": "the-technopope",
+    "important_actions": [
+      "Conferred the empire's highest honor on Aghora [p15]",
+      "Killed by Deyanira during the ceremony [p16]"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghora; relation: conferred the pluri-galactic medallion on Aghora [p15]",
+      "character: Deyanira (Tarantuwolf); relation: attacked and devoured alive by Deyanira during the ceremony [p16]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+        "page_id": "419_The_Metabarons_16_p15",
+        "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+      },
+      {
+        "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+        "page_id": "420_The_Metabarons_16_p16",
+        "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+      }
+    ],
+    "traits": [
+      "Highest visible religious authority in the imperial hierarchy",
+      "Central officiating figure in formal award ceremonies",
+      "Killed during Deyanira's rampage [p16]"
+    ],
+    "voice_notes": [
+      "No substantive dialogue captured in summaries beyond ceremonial context"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Placed the pluri-galactic medallion around Aghora's neck before the galactic senate on the Golden Planet [p15]",
+      "Attacked and killed — apparently devoured alive — by Deyanira during the ceremony [p16]"
+    ]
+  },
+  {
+    "aliases": [
+      "The False Metabaron",
+      "the bald intruder",
+      "the unnamed bald false Metabaron"
+    ],
+    "appearances": [
+      "volume: 16; pages: p02"
+    ],
+    "character_id": "the-false-metabaron",
+    "important_actions": [
+      "Forced entry into the Imperial court via spider mount [p02]",
+      "Challenged the deliberation toward surrender [p02]"
+    ],
+    "knowledge_boundaries": [
+      "True name and identity not established in these pages [p02, volume open uncertainties]"
+    ],
+    "relationships": [],
+    "source_refs": [
+      {
+        "image_sha256": "5e4e60effcec6619717e676f45767bc390a6ce60615541beb31863a44364490d",
+        "page_id": "408_The_Metabarons_16_p02",
+        "source_image": "external/comics/meta-barons/408_The_Metabarons_16_p02.jpg"
+      }
+    ],
+    "traits": [
+      "Bald [p02]",
+      "Aggressive, confrontational, and eager for continued combat",
+      "Rides or controls a giant spider-like mount or machine [p02]",
+      "Possesses ant-robots; one of which was a spy for the Imperial court [p02]",
+      "Denied status as a true Metabaron by the assembled court [p02]"
+    ],
+    "voice_notes": [
+      "Belligerent and self-aggrandizing [p02]",
+      "Claims he could succeed where the paid fleet failed [p02]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Arrived at the Imperial court by descending from the dome ceiling on a giant spider-like mount [p02]",
+      "Accused the court of cowardice for considering surrender [p02]",
+      "Demanded to know why he was not summoned after the fleet failed [p02]",
+      "Denounced as not a true Metabaron [p02]",
+      "One of his ant-robots identified as an Imperial spy that revealed a secret of his [p02]",
+      "Expelled from the court [p02]"
+    ]
+  },
+  {
+    "aliases": [
+      "Mega-Gul"
+    ],
+    "appearances": [
+      "volume: 16; pages: p21"
+    ],
+    "character_id": "mega-gul",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Prior model of Aghora as purely masculine conflicted with facts; required argument to update [p21]"
+    ],
+    "relationships": [
+      "character: Tonto; relation: interlocutor; corrected by the other robot speaker regarding Aghora's self-conception [p21]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+        "page_id": "425_The_Metabarons_16_p21",
+        "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+      }
+    ],
+    "traits": [
+      "Robot character",
+      "Initially refuses to accept facts that contradict his model of a person",
+      "Can be argued or rebuked into conceding",
+      "Addressed by name in robot conversation sequences [p21]"
+    ],
+    "voice_notes": [
+      "Resistant to facts that contradict his priors; yields under pressure [p21]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Heard explanation of Aghora's pregnancy and auto-conception via hypo-genetics [p21]",
+      "Initially rejected the account as impossible given Aghora's reputation as a symbol of masculinity [p21]",
+      "Conceded after being rebuked [p21]"
+    ]
+  },
+  {
+    "aliases": [
+      "Aghora's Mirror Duplicate",
+      "the copy",
+      "the mirrored duplicate"
+    ],
+    "appearances": [
+      "volume: 16; pages: p11"
+    ],
+    "character_id": "aghora-s-mirror-duplicate",
+    "important_actions": [
+      "Produced by the mirror enemy to attempt psychological defeat of Aghora [p11]"
+    ],
+    "knowledge_boundaries": [
+      "Understood itself as materially identical to the original but did not possess Aghora's soul [p11]"
+    ],
+    "relationships": [
+      "character: Aghora; relation: material copy of Aghora; claims identity with the original; defeated and dissolved by Aghora [p11]"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+        "page_id": "416_The_Metabarons_16_p11",
+        "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg"
+      }
+    ],
+    "traits": [
+      "Exact physical replica of Aghora including body and weapons [p11]",
+      "Can speak and reason [p11]",
+      "Attempts psychological persuasion rather than pure force [p11]",
+      "Unstable existence; dissolved after being overcome [p11]",
+      "Lacks Aghora's soul or inner essence by the page's logic [p11]"
+    ],
+    "voice_notes": [
+      "Framed its survival as linked to Aghora's own survival [p11]",
+      "Used material identity as its primary argument and threat [p11]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Declared itself a perfect physical copy, not merely a reflection [p11]",
+      "Argued that harming it would be equivalent to self-harm and asked the original to surrender [p11]",
+      "Insisted the two were the same [p11]",
+      "Fired or projected energy at Aghora during the confrontation [p11]",
+      "Began dissolving after the clash [p11]"
+    ]
+  }
+]

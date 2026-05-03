@@ -1,0 +1,83 @@
+{
+  "id": "phase0-toy-001",
+  "entry_node_id": "eastern-hall",
+  "context_snapshot": {
+    "workspace_id": "phase0-dev",
+    "session_id": "compound-childhood",
+    "location": "Castaka compound",
+    "time": "childhood",
+    "latest_narrator_prose": "",
+    "present_actors": ["sans-nom", "tonto"],
+    "representations": {
+      "tonto:sans-nom": "Sans-Nom has begun watching the eastern hall instead of asking about it."
+    }
+  },
+  "nodes": [
+    {
+      "id": "eastern-hall",
+      "title": "The locked eastern hall",
+      "beats": [
+        {
+          "id": "beat-1",
+          "text": "Sans-Nom stops where the corridor narrows and the eastern hall begins to feel less like architecture than a held breath."
+        }
+      ],
+      "actor_needs": [
+        {
+          "actor_id": "tonto",
+          "mode": "present",
+          "reason": "Tonto is physically present and can react to the child's hesitation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "ask-tonto",
+          "label": "Ask Tonto what lies beyond the door",
+          "target_node_id": "tonto-story",
+          "player_intent": "question"
+        },
+        {
+          "id": "walk-away",
+          "label": "Walk away before anyone notices",
+          "target_node_id": "retreat",
+          "player_intent": "avoidance"
+        }
+      ],
+      "memory_intents": [
+        {
+          "id": "hesitation",
+          "summary": "Sans-Nom hesitated at the eastern hall and did not yet cross into it.",
+          "policy": "rolled_out_canon",
+          "witnesses": ["sans-nom", "tonto"]
+        }
+      ],
+      "writer_notes": "Do not reveal Steelhead yet."
+    },
+    {
+      "id": "tonto-story",
+      "title": "Tonto begins too far back",
+      "beats": [
+        {
+          "id": "beat-1",
+          "text": "Tonto answers by beginning somewhere before Sans-Nom was born."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "retreat",
+      "title": "The door remains behind him",
+      "beats": [
+        {
+          "id": "beat-1",
+          "text": "Sans-Nom turns away, and the unopened door becomes heavier because it has not been touched."
+        }
+      ],
+      "choices": []
+    }
+  ],
+  "revision_notes": [
+    "Bounded Phase 0 packet: three nodes, no all-cast fanout."
+  ]
+}
+

@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Dona Vicenta is the master's wife.",
+    "Dona Vicenta is pregnant or at minimum being examined to determine whether she can still give birth.",
+    "Dona Vicenta is near death on this page.",
+    "The master is personally involved in her medical care and transport.",
+    "General Zoththo is acting as president or has taken over the presidency.",
+    "The medical figure is subordinate to the master and reports directly on Dona Vicenta's condition."
+  ],
+  "characters_present": [
+    "Dona Vicenta",
+    "the Master",
+    "General Zoththo",
+    "a masked medical specialist or surgeon",
+    "a robotic or armored assistant"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page connects Dona Vicenta's illness to a broader political transition in which General Zoththo assumes presidential authority.",
+    "Her medical crisis is tied to dynastic continuity because the examination focuses on whether she can give birth and on imaging the child.",
+    "The mention of petro-morph attacks links the private medical emergency to a larger ongoing external conflict."
+  ],
+  "dialogue_meaning": [
+    "Dona Vicenta is in severe respiratory distress.",
+    "The narration frames her illness as both medically urgent and relevant to pregnancy or succession.",
+    "The master acts immediately to move her to a secure medical facility.",
+    "General Zoththo publicly presents himself as a courageous leader during attacks or instability.",
+    "The medical diagnosis is extremely grim: conventional advanced treatment is failing.",
+    "Dona Vicenta feels ruined by cumulative losses and speaks as if death may be all she has left.",
+    "The examination shifts toward the unborn child through holographic ultrasound imaging."
+  ],
+  "image_sha256": "e0758573d8feb2bec75fef2c10f58d3a9fbdcd2ffd00eaaf48ae454ed881e186",
+  "is_spread": false,
+  "locations": [
+    "the Metabunker",
+    "a public ceremonial or governmental hall",
+    "a metasurgery or medical chamber",
+    "outer-space or the exterior approach to a large installation"
+  ],
+  "lore_facts": [
+    "The setting includes highly advanced medicine such as metasurgery, mega-antibiotics, and holographic ultrasound.",
+    "Despite advanced technology, an ancient disease called paleo-tuberculosis still exists and can be lethal.",
+    "The Metabunker functions as a place important enough to receive Dona Vicenta for emergency treatment.",
+    "There is a political office of presidency, and General Zoththo can assume control of it.",
+    "The wider society is described as a federation.",
+    "The federation is facing petro-morph attacks, at least according to the public speech on this page."
+  ],
+  "page_id": "378_The_Metabarons_14_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "Dona Vicenta is shown gravely ill, coughing repeatedly.",
+    "A narrator explains that the ruler's wife has contracted 'paleo-tuberculosis' and must be examined to determine whether she can still give birth.",
+    "The master urgently brings Dona Vicenta to the Metabunker.",
+    "General Zoththo is shown taking over the presidency and addressing the public during a period of crisis or political transition.",
+    "In a metasurgery chamber, the master and a medical specialist examine the dying Dona Vicenta.",
+    "The medical specialist states that her body is rejecting mega-antibiotics and that her lungs are being opened to the ravages of the ancient disease.",
+    "A holographic ultrasound is prepared to examine the child/fetus inside Dona Vicenta."
+  ],
+  "source_image": "external/comics/meta-barons/378_The_Metabarons_14_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e0758573d8feb2bec75fef2c10f58d3a9fbdcd2ffd00eaaf48ae454ed881e186",
+      "page_id": "378_The_Metabarons_14_p22",
+      "source_image": "external/comics/meta-barons/378_The_Metabarons_14_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The scanned page footer appears to show page number 24, while the supplied page label is p22.",
+    "Some names and terms are difficult to read with full certainty, especially 'Zoththo,' 'petro-morph,' and parts of the narration.",
+    "The exact identity/title of the masked medical figure is unclear beyond being a surgeon or medical specialist.",
+    "It is not fully clear whether the space/exterior panel depicts transport to the Metabunker, an insertion, or a launch from it."
+  ],
+  "visual_summary": "A montage-like page shows Dona Vicenta coughing into a patterned cloth or mask, a dark-armored ruler carrying or handling her, and a spacecraft-like launch or insertion into a vast structure under the stars. Another panel shows General Zoththo addressing a large crowd from a ceremonial platform. In a surgical chamber, a masked medical figure and attendants examine Dona Vicenta on a sealed medical bed while machinery surrounds her. The final panel shows a holographic ultrasound being prepared over her body as she speaks despairingly about everything she has lost.",
+  "volume": 14
+}

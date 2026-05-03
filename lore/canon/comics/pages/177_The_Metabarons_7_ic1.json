@@ -1,0 +1,82 @@
+{
+  "character_facts": [
+    "Othon is dying from poisonous gas exposure and wants Aghnar hardened for vengeance.",
+    "Aghnar is Othon's son and is able to defeat his father in single combat.",
+    "Aghnar is motivated by avenging Honorata.",
+    "Kiowata is a floating ape identified as a Magon.",
+    "Kiowata can speak and is described as having a soul.",
+    "Princess Oda is described as beautiful and genetically important to the Shabda-Oud plan.",
+    "Aghnar falls in love with Oda immediately after seeing her holovid."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Othon",
+    "Honorata",
+    "Kiowata",
+    "the Magon leader",
+    "the Shabda-Oud witches",
+    "three Shabda-Oud pilots",
+    "Princess Oda",
+    "the Castakas"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly recaps events from earlier installments rather than advancing a new scene.",
+    "It sets up Aghnar's next movement toward Amadis and Princess Oda.",
+    "It connects the deaths and trials involving Othon and Honorata to the ongoing conflict with the Shabda-Oud."
+  ],
+  "dialogue_meaning": [
+    "There is no character dialogue; the page provides editorial recap narration summarizing prior events and stakes.",
+    "The narration explains Aghnar's recent trials, Othon's death, the threat posed by the Shabda-Oud, and Aghnar's new goal involving Princess Oda."
+  ],
+  "image_sha256": "9b67f3a6535d8d71937c497f40520187482c684243cbf9c9049b5244b08fd5ff",
+  "is_spread": false,
+  "locations": [
+    "a refuge planet dominated by powerful gravity",
+    "the planet's giant mushrooms",
+    "the Diamond Planet",
+    "Amadis"
+  ],
+  "lore_facts": [
+    "The Castakas have been living in hiding on a planet marked by powerful gravity.",
+    "That planet features giant mushrooms, floating apes, and flat carnivorous animals.",
+    "Othon dispatched spy-needles into space to gather information about the Shabda-Oud witches.",
+    "A Cetacyborg can be destroyed in a way that releases poisonous gas.",
+    "A Magon can be a floating ape that speaks and possesses a soul.",
+    "There exists a prophecy concerning a little white ape leading the Magon to the Diamond Planet.",
+    "A Cetacyborg can be taken over or controlled with aid from the floating apes.",
+    "The Shabda-Oud seek a hermaphrodite and believe Princess Oda's genes can help produce one.",
+    "A holovid recording can be used to show Oda remotely.",
+    "Amadis is a place associated with Oda and her line of suitors."
+  ],
+  "page_id": "177_The_Metabarons_7_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The Castakas are said to have taken refuge on a planet with extreme gravity, giant mushrooms, floating apes, and predatory flat animals.",
+    "Spy-needles sent into space by Othon are expected to return information that can help locate the Shabda-Oud witches.",
+    "Othon is dying from poison gas exposure caused by the destruction of a Cetacyborg.",
+    "Othon demands that his son Aghnar kill him in single combat so the son will be strong enough to avenge Honorata.",
+    "Aghnar defeats his father through both intellect and force.",
+    "Aghnar saves a floating ape from being seized after a fall.",
+    "The ape, identified as Kiowata, is revealed to be a Magon who can speak and has a soul.",
+    "Aghnar and Kiowata ascend to the tops of the giant mushrooms, where Aghnar confronts and defeats the Magon leader.",
+    "This victory fulfills a prophecy about a little white ape leading the Magon to the Diamond Planet.",
+    "Aghnar learns where the Shabda-Oud are and uses a Cetacyborg with help from the floating apes.",
+    "He overcomes three Shabda-Oud pilots and learns their mission: to abduct Princess Oda because her genes can produce the hermaphrodite sought by the witches.",
+    "After seeing a holovid of Oda, Aghnar falls in love with her and sets out alone and unarmed for Amadis to join her suitors."
+  ],
+  "source_image": "external/comics/meta-barons/177_The_Metabarons_7_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9b67f3a6535d8d71937c497f40520187482c684243cbf9c9049b5244b08fd5ff",
+      "page_id": "177_The_Metabarons_7_ic1",
+      "source_image": "external/comics/meta-barons/177_The_Metabarons_7_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The left-side illustration and bottom circular portraits are decorative and not explicitly labeled, so precise character identifications from the art alone are uncertain.",
+    "Some small-print credits and minor recap wording may be difficult to read at full precision, but the main recap text is legible."
+  ],
+  "visual_summary": "An illustrated recap and credits page for The Metabarons. The page is dominated by a large series logo and a prose summary under the heading 'Previously, in The Metabarons'. On the left is a monochrome sci-fi illustration showing several figures, including a pale woman standing in profile and armored or mechanical-looking figures around her. Along the bottom are small circular portraits of several characters, and the lower black band contains creator, translation, design, publication, and copyright credits.",
+  "volume": 7
+}

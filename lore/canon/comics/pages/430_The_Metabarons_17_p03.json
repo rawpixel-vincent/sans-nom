@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Zombra is a female captive powerful or important enough to merit planetary-scale imprisonment.",
+    "Zombra is defiant and openly hostile toward the people freeing her.",
+    "The rescuers speak collectively as survivors of a devastated clan.",
+    "One rescuer is called a 'double-voiced witch' by Zombra, suggesting either a title, insult, or unusual manner of speech.",
+    "The Metabaron is identified as the destroyer of the rescuers' clan, though he does not appear on this page."
+  ],
+  "characters_present": [
+    "Zombra",
+    "White-robed/white-armored priestess or witch-like rescuers/captors",
+    "One or more spiked-helmet priestly figures handling staffs or rods"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page references an earlier massacre in which the Metabaron wiped out nearly an entire clan.",
+    "The rescue of Zombra is framed as part of a larger ongoing conflict involving imprisoned threats, surviving clans, and incoming reinforcements."
+  ],
+  "dialogue_meaning": [
+    "The speakers are in a hurry because hostile reinforcements are expected soon.",
+    "They are using special devices called shadow rods together with psycho-essence as part of Zombra's release or activation.",
+    "Zombra is treated as an exceptional prisoner, with extraordinary resources devoted to containing her.",
+    "Zombra is suspicious of her rescuers' motives and asks what scheme lies behind her release.",
+    "The rescuers identify themselves as remnants of a clan nearly exterminated by the Metabaron.",
+    "Their motive is explicit: survival, recovery of power, and eventual galactic rule."
+  ],
+  "image_sha256": "09b94b5053e0c3f29fddff9856f82c5a3409d15c9cdb437b65bb8b83c2d9f15d",
+  "is_spread": false,
+  "locations": [
+    "A fortified interior chamber or prison room",
+    "A cell or containment site said in dialogue to be part of a planet built to hold Zombra"
+  ],
+  "lore_facts": [
+    "'Shadow rods' and 'psycho-essence' are named as operative tools or forces in this setting.",
+    "Zombra has been imprisoned under extreme security.",
+    "Dialogue claims an entire planet was built to hold Zombra.",
+    "A figure referred to as the Metabaron previously wiped out most of the rescuers' clan, leaving only four survivors.",
+    "The surviving clan members aim to regain power and dominate the galaxy."
+  ],
+  "page_id": "430_The_Metabarons_17_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A white-robed figure says there is little time before reinforcements arrive and instructs another to activate 'shadow rods' and combine psycho-essence.",
+    "A captive woman called Zombra is shown held in a chamber that is described as an entire planet built to contain her.",
+    "A priestly figure addresses Zombra and says she is uniquely imprisoned and over-honored by her captors.",
+    "Zombra dismisses one speaker and demands to know why she is being rescued.",
+    "The rescuers explain that only four survived when the Metabaron wiped out their clan.",
+    "They state they refuse defeat and intend to seize control and rule the galaxy.",
+    "Zombra appears active and combative by the end of the page, surrounded by crackling glowing rods and clustered enemies or attendants."
+  ],
+  "source_image": "external/comics/meta-barons/430_The_Metabarons_17_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "09b94b5053e0c3f29fddff9856f82c5a3409d15c9cdb437b65bb8b83c2d9f15d",
+      "page_id": "430_The_Metabarons_17_p03",
+      "source_image": "external/comics/meta-barons/430_The_Metabarons_17_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially technical terms and names; 'shadow rods' and 'psycho-essence' appear most likely but may need verification against a higher-resolution page.",
+    "The exact identities and count of the white-robed figures are unclear from this single page alone.",
+    "It is not fully clear whether the surrounding figures are rescuers, jailers being overpowered, or both in succession across panels."
+  ],
+  "visual_summary": "In a metallic prison-like chamber, robed and armored figures work to free a captive woman amid sparks, smoke, and bright energy discharges. The woman, identified in dialogue as Zombra, is restrained in the center while large white-armored priestly figures with spiked headgear and staffs or rods surround her. A close-up shows Zombra glaring at one speaker. In the final panels, she rises and fights among the glowing rods while the priests speak of their clan’s survival and a plan for galactic domination.",
+  "volume": 17
+}

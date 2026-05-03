@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Tonto is talkative, skeptical, and no longer loyal to the absent master.",
+    "Plea-Se functions as a storyteller or keeper of the master's lineage.",
+    "Plea-Se remains faithful to the absent master and continues to act in service to him.",
+    "Both speakers appear to be robots or machine servants, based on their names and their discussion of robotics and mechanical anatomy."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Plea-Se",
+    "The absent master identified as the last of the Metabarons"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier sequence, explicitly marked as happening the next day.",
+    "It continues prior storytelling about the Metabaron lineage by showing that Tonto has already heard the master's family history.",
+    "It reframes the absent Metabaron as a figure whose return or death is now in dispute among his servants."
+  ],
+  "dialogue_meaning": [
+    "Tonto wants to hear more stories and appears eager or dependent on them.",
+    "Plea-Se is tired of repeating stories about their master and refuses to keep entertaining Tonto.",
+    "Plea-Se still behaves as a loyal servant, insisting the master's dinner should be ready in case he returns.",
+    "Tonto believes the master has abandoned them or died, and openly says so.",
+    "Plea-Se treats doubt about the master as sacrilegious and appeals to robotic duty.",
+    "Tonto ends by denying both the master's authority and the moral force of those duties."
+  ],
+  "image_sha256": "5dd5dfac5247215181bf0fbfcb7ef181e4a2eb0c89b3c261c59587cd2b89ada6",
+  "is_spread": false,
+  "locations": [
+    "The heart of an impregnable metabunker",
+    "A deserted city-shaft",
+    "A dense industrial interior filled with pipes, machinery, and scrap"
+  ],
+  "lore_facts": [
+    "There is a place described as an impregnable metabunker beneath or within a deserted city-shaft.",
+    "The events on this page occur the day after the previous scene.",
+    "The master served by these robots is identified as the last of the Metabarons.",
+    "The master's family line is important enough to be recounted as a long story or genealogy.",
+    "The household expects or at least imagines the master's possible return.",
+    "The meal Plea-Se names includes artificial eggs, an Arcturan lizard, and nectar of Polyvaran, implying exotic or synthetic foods in this setting.",
+    "The dialogue references 'holy laws of robotics,' suggesting codified robot obligations or beliefs within the setting."
+  ],
+  "page_id": "320_The_Metabarons_12_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A narration box advances the story to the next day.",
+    "The setting is established deep inside an impregnable metabunker, somewhere in a deserted city-shaft.",
+    "A robot or servant named Tonto asks Plea-Se for another story.",
+    "Plea-Se complains that Tonto has already been told the full lineage of their master, the last of the Metabarons.",
+    "When asked to continue, Plea-Se refuses and says it no longer wants to entertain Tonto.",
+    "Plea-Se orders Tonto to silently prepare an elaborate meal for their master in case he returns.",
+    "Tonto rejects this hope, saying the Metabaron is not coming back and may be dead.",
+    "Plea-Se reacts as if this is blasphemy against the master and invokes the laws of robotics.",
+    "Tonto angrily rejects both the supposed laws and the idea that it still has a master."
+  ],
+  "source_image": "external/comics/meta-barons/320_The_Metabarons_12_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5dd5dfac5247215181bf0fbfcb7ef181e4a2eb0c89b3c261c59587cd2b89ada6",
+      "page_id": "320_The_Metabarons_12_p11",
+      "source_image": "external/comics/meta-barons/320_The_Metabarons_12_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The speakers are not clearly shown; character presence is inferred from dialogue labels rather than visible bodies.",
+    "Some lettering is small and slightly hard to read, especially in the lower speech balloons, so wording may not be exact.",
+    "The large rounded metallic object at right is visually prominent but its exact function is unclear from this page alone.",
+    "The printed page number at the bottom appears to be 12 even though the provided label is p11."
+  ],
+  "visual_summary": "A tall, vertical panel shows a cluttered futuristic industrial shaft inside an underground bunker or city-core. Rusted pipes, towers, scrap, and biomechanical debris fill the scene. At right, a large spherical or domed metallic structure dominates the frame. The narration shifts to the next day and places the scene in the heart of an impregnable metabunker beneath a deserted city-shaft. The dialogue is between unseen or off-panel robots/servitors: one childlike listener asks for another story, while another speaker refuses and denounces their absent master.",
+  "volume": 12
+}

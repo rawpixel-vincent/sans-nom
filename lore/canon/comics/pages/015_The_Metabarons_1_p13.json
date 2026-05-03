@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Bari is identified as a warrior raised to reject fear, confusion, and distress.",
+    "Bari is emotionally attached to her father Othon and openly defies the order to let him die.",
+    "Bari addresses one elder as her grandfather.",
+    "The grandfather or elder male authority is hostile to rescuing Othon.",
+    "That elder has never accepted Othon because he is 'not of noble birth,' according to Bari."
+  ],
+  "characters_present": [
+    "Bari",
+    "Othon (present by reference; likely the fallen armored figure being discussed)",
+    "Bari's grandfather or elder male authority",
+    "Several additional elders or attendants in armor/robes"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers on an immediate family and political dispute over whether Othon should be rescued or sacrificed.",
+    "The argument connects a private family crisis to larger stakes involving the Empire, secrecy, galactic peace, and technology."
+  ],
+  "dialogue_meaning": [
+    "Bari is being pressured to accept her father's death as a necessary sacrifice.",
+    "The group believes saving him would reveal a hidden secret to the Empire and destabilize a larger political peace.",
+    "Bari's stance is personal and defiant: she wants Othon saved.",
+    "The older generation frames Bari's motives as emotional weakness, while Bari reframes their position as prejudice and resentment.",
+    "One elder uses the crisis to argue for a broader ideological shift away from anti-technology constraints."
+  ],
+  "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+  "is_spread": false,
+  "locations": [
+    "A damaged interior chamber or hall filled with wreckage and machinery",
+    "A bright doorway, portal, or illuminated opening within that chamber"
+  ],
+  "lore_facts": [
+    "There is an Empire that could discover a protected secret if Othon is rescued.",
+    "The speakers believe that discovery would end a state described as galactic peace.",
+    "The group possesses secret information or capabilities they are actively concealing.",
+    "There is an ideology or policy described as anti-technology, and at least one speaker wants the galaxy freed from it.",
+    "Othon's birth status is politically or socially contentious within this family or group."
+  ],
+  "page_id": "015_The_Metabarons_1_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "An elder authority figure tells Bari that she was raised as a warrior and must sacrifice her father.",
+    "Another speaker argues that rescuing the father would expose their secret to the Empire and end galactic peace.",
+    "Bari refuses and insists that Othon will live.",
+    "An older man accuses Bari of being blinded by love.",
+    "Bari counters that the older man is blinded by hatred and says he never accepted Othon because of his birth.",
+    "A speaker then claims that accidents happen for a reason and suggests this may be the moment for the galaxy to break free from dependence on anti-technology and enter a new era."
+  ],
+  "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+      "page_id": "015_The_Metabarons_1_p13",
+      "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of each elder or attendant besides Bari and Othon is not stated on this page.",
+    "The fallen armored figure appears to be Othon based on dialogue context, but the page does not label him directly.",
+    "The precise nature of the bright opening and the hidden secret is not explained on this page alone."
+  ],
+  "visual_summary": "In a ruined, technology-filled interior, a cloaked elder and several armored figures confront a young armored woman, Bari. One large panel shows a group facing a bright opening or energy-lit chamber amid wreckage. Other panels cut between close confrontations: Bari argues emotionally about her father Othon, an older man rebukes her, and stern elders stand behind him. The page emphasizes conflict through pointing hands, anguished faces, and cramped staging around a collapsed armored figure.",
+  "volume": 1
+}

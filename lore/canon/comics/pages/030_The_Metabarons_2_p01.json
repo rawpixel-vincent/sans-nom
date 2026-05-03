@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The central speaker is bold enough to confront armed guards publicly from an exposed position.",
+    "He presents himself as defending duty, dignity, and loyalty to the imperial couple.",
+    "The guard officer shown is willing to silence the speaker by ordering gunfire.",
+    "The soldiers act in disciplined formation under command."
+  ],
+  "characters_present": [
+    "An armored male speaker addressing the guards from an elevated platform",
+    "A helmeted guard or officer who gives the firing order",
+    "A formation of armed guards/soldiers",
+    "A large crowd gathered below"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page opens in the middle of an active political or military confrontation.",
+    "The speaker's accusations imply an ongoing conflict involving disobedience, treachery, and rival chains of command."
+  ],
+  "dialogue_meaning": [
+    "The speaker tries to halt the troops and force them to listen.",
+    "He frames the guards' current obedience as dishonorable dereliction of duty.",
+    "He claims their generals are traitorous and motivated by power.",
+    "The troops respond with immediate lethal force rather than debate."
+  ],
+  "image_sha256": "e079f6cd05e85eb2a24259549e097fb25cfdc0422659967c15af088241ccf276",
+  "is_spread": false,
+  "locations": [
+    "A monumental exterior structure or elevated platform",
+    "An open public space filled with a crowd",
+    "The firing line position of the imperial guards"
+  ],
+  "lore_facts": [
+    "There exists an imperial couple with private guards.",
+    "Military authority appears divided between the imperial couple and powerful generals.",
+    "The guards are equipped with firearms and can act in organized volleys.",
+    "A large public gathering is present during this confrontation."
+  ],
+  "page_id": "030_The_Metabarons_2_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "An armored speaker reaches an elevated ledge or monument above a large crowd and calls for attention.",
+    "He identifies the troops as the imperial couple's private guards and rebukes them for obeying contrary orders.",
+    "He urges them to reject 'treacherous' and power-seeking generals and recover their dignity.",
+    "A guard issues the command to fire.",
+    "Multiple soldiers open fire in a massed volley toward the speaker."
+  ],
+  "source_image": "external/comics/meta-barons/030_The_Metabarons_2_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e079f6cd05e85eb2a24259549e097fb25cfdc0422659967c15af088241ccf276",
+      "page_id": "030_The_Metabarons_2_p01",
+      "source_image": "external/comics/meta-barons/030_The_Metabarons_2_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The speaker's identity is not given on this page.",
+    "The exact location and institution of the crowd scene are not named.",
+    "Some wording may be slightly imprecise due to image resolution, but the speech's meaning is clear."
+  ],
+  "visual_summary": "An armored figure climbs onto a high architectural platform above a dense crowd and tries to address armed troops below. He denounces their obedience to commanders and appeals to their honor. A helmeted soldier gives the order to fire, and a line of troops unleashes a coordinated volley at him.",
+  "volume": 2
+}

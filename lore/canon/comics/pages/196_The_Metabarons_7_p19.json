@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The helmeted group is participating in or endorsing the killing of women they define as enemies.",
+    "The hooded or armored fighter in the upper-right panel is engaged in lethal melee combat.",
+    "The silver-haired figure is in immediate danger, falling amid the invasion while calling for Oda.",
+    "Oda is important enough to be called out during the crisis, but the page does not clearly identify them visually."
+  ],
+  "characters_present": [
+    "Helmeted/armored figures with ornate faceplates, likely attackers or zealots",
+    "A hooded or armored combatant in the blood-splatter panel",
+    "At least one victim being torn apart",
+    "A silver-haired suited figure falling in the right panel",
+    "Oda, mentioned but not clearly visible",
+    "Multiple alien or animal-like invasive creatures",
+    "A massive tentacled probe or biomechanical organism"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing assault rather than a self-contained event.",
+    "The mention of Oda implies a preexisting relationship or storyline thread carried from earlier pages.",
+    "The system alert suggests the invasion is being observed from within a controlled technological environment."
+  ],
+  "dialogue_meaning": [
+    "The attackers frame their enemies as female traitors and witches, indicating ideological or religious hatred.",
+    "The taunt in the gore panel signals active combat and a missed attack.",
+    "The alarm message identifies the threat as a nonhuman probe and flags it as illegally modified for aggression.",
+    "The cry of \"Oda\" suggests the falling figure is trying to reach or warn someone by that name."
+  ],
+  "image_sha256": "568205f3f6e0b8959cc572e5b88727ff903b1c1a29af1424f68914fb4dbed828",
+  "is_spread": false,
+  "locations": [
+    "A futuristic interior under attack",
+    "An area with bright energy spheres or weapons fire",
+    "A chamber or shaft containing a large organic/mechanical beam emitter",
+    "A vertical space filled with invasive creatures and debris"
+  ],
+  "lore_facts": [
+    "The setting includes automated or monitored systems capable of diagnosing biological or mental characteristics of an intruding probe.",
+    "A probe of animal origin is considered distinct enough to be flagged by the system.",
+    "Illegal mental programming and aggressive brainwave modification exist in this world.",
+    "Large organic or biomechanical entities can be deployed alongside swarms of smaller creatures in an invasion or attack."
+  ],
+  "page_id": "196_The_Metabarons_7_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A group of hostile figures publicly calls for the killing of women they label traitors and witches.",
+    "A violent close-quarters strike kills or maims at least one combatant.",
+    "A large organic or biomechanical apparatus emits a beam into a luminous patterned platform or dome.",
+    "An onboard or automated alert identifies an invading probe of animal origin and says it is illegally programmed with aggressive brainwaves.",
+    "A large tentacled entity and many smaller creatures flood into the scene.",
+    "A suited figure falls through the incursion zone while calling for Oda."
+  ],
+  "source_image": "external/comics/meta-barons/196_The_Metabarons_7_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "568205f3f6e0b8959cc572e5b88727ff903b1c1a29af1424f68914fb4dbed828",
+      "page_id": "196_The_Metabarons_7_p19",
+      "source_image": "external/comics/meta-barons/196_The_Metabarons_7_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is partially hard to read, especially the exact phrasing in the top-left speech bubbles and the long alert text; wording here is paraphrased.",
+    "The precise identities, affiliations, and species of the attackers and creatures are not stated on this page alone.",
+    "It is unclear whether the large tentacled form is a vehicle, probe, organism, or hybrid biomechanical entity.",
+    "Oda is named in dialogue, but the page does not clearly show which figure, if any, is Oda."
+  ],
+  "visual_summary": "A chaotic battle page. In the top left, helmeted figures with ornate faceplates shout for the death of female traitors/witches while bright energy orbs flare behind them. In the top right, a hooded or armored attacker tears through a body in a burst of blood. The lower left shows a huge organic or biomechanical structure projecting a beam downward into a glowing geometric surface. The central tall panel shows a massive tentacled probe or creature descending amid many smaller animal-like or alien forms while an alarm reports invasive and aggressive mental programming. In the narrow right panel, a silver-haired person in a suit falls or drops through a shaft of organic debris, calling out \"Oda.\"",
+  "volume": 7
+}

@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "The bald man is directly involved in the attack or observation, holding a device that appears related to targeting, control, or monitoring.",
+    "The armored machine is vulnerable to aerial attack and is destroyed on-page."
+  ],
+  "characters_present": [
+    "A bald adult man with a stern expression, seen holding a handheld device inside a cockpit or control position.",
+    "A large armored machine or robot-like figure.",
+    "An angular black aircraft or attack craft.",
+    "Small dart-like flying objects or missiles."
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page depicts an ongoing combat or strike sequence rather than a standalone moment.",
+    "The final panel's isolated focus on the geometric platform/device suggests a narrative link between the aerial attack and this interior location or object."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "1ec534aa68d2732d4532a9ab52d9305f74b2948b88f5a44fe4a777656ce513fe",
+  "is_spread": false,
+  "locations": [
+    "A futuristic industrial city or interior megastructure with towers, pipes, and platforms.",
+    "A cockpit, control seat, or enclosed observation position.",
+    "A dark interior chamber containing a bright geometric platform or device."
+  ],
+  "lore_facts": [
+    "The setting includes advanced aircraft, heavy armored machinery, and guided or fast-moving aerial weapons.",
+    "The environment is highly industrialized, with dense vertical infrastructure and enclosed flight space.",
+    "The page presents action with timestamp-like numeric overlays, suggesting recorded, monitored, or precisely tracked events.",
+    "A distinct geometric illuminated platform or structure is important enough to receive its own final panel."
+  ],
+  "page_id": "065_The_Metabarons_3_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "An angular aircraft flies into or through a dense futuristic industrial zone.",
+    "Explosions break out near a floating faceted object and among the surrounding structures.",
+    "Small fast-moving projectiles or craft converge on a large armored machine.",
+    "A mechanical target is struck and explodes apart in midair.",
+    "The burning wreckage streaks away while a bald man monitors or controls the action with a handheld device.",
+    "The page ends on a separate view of a lit geometric platform or chamber interior."
+  ],
+  "source_image": "external/comics/meta-barons/065_The_Metabarons_3_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1ec534aa68d2732d4532a9ab52d9305f74b2948b88f5a44fe4a777656ce513fe",
+      "page_id": "065_The_Metabarons_3_p08",
+      "source_image": "external/comics/meta-barons/065_The_Metabarons_3_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No readable dialogue or captions are visible on this page image.",
+    "The exact identity of the bald man, the aircraft, the robot-like machine, and the geometric object cannot be confirmed from this page alone.",
+    "The timestamp-like numbers are legible as overlays but their exact meaning is not explicitly explained on the page."
+  ],
+  "visual_summary": "A black, angular flying craft moves through an industrial or futuristic city interior while explosions erupt around it. A large armored machine or robot is shown in close-up as small dart-like projectiles approach. The next panels show a violent midair impact and the destruction of a mechanical target, tracked with timestamp-style overlays. In the bottom left, a stern bald man watches or aims a handheld device from a cockpit or observation position while the burning wreck trails across the sky. The final panel focuses on a geometric, illuminated structure or platform inside a dark chamber.",
+  "volume": 3
+}

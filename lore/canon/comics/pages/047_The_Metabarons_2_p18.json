@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Ulkran is a member of the expedition and is directly addressed during the approach.",
+    "Wulthor is associated with the correct judgment that the paleo-compass would work.",
+    "Tokkar is associated with operating or being responsible for the marble disintegrator.",
+    "The group appears to be an armed expedition or raiding party, equipped with armor, navigation gear, and breaching weaponry."
+  ],
+  "characters_present": [
+    "Ulkran",
+    "Wulthor",
+    "Tokkar",
+    "Several unnamed armored expedition members"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an expedition already underway, focused on reaching a marble fortress.",
+    "The group has a specific quarry referred to only as 'that horse,' implying an ongoing pursuit from earlier pages.",
+    "The page sets up a forced entry into the fortress as the next stage of the operation."
+  ],
+  "dialogue_meaning": [
+    "The party is moving through dangerous fog but sees concealment as an advantage.",
+    "A character reassures Ulkran that a paleo-compass can home in on the marble fortress, preventing them from getting lost.",
+    "Another character credits Wulthor's judgment after the compass successfully finds the target.",
+    "The group places responsibility on Tokkar and his marble disintegrator to open the way.",
+    "They believe treasure or major reward lies ahead and move to begin the assault or break-in."
+  ],
+  "image_sha256": "ebde4743fa5cdc40a6c4b8e60d7c4bb9ffd26a012eeeedbbba39e959f1a7d504",
+  "is_spread": false,
+  "locations": [
+    "Foggy exterior landscape",
+    "Approach to a large marble fortress",
+    "Fortress entrance or outer wall"
+  ],
+  "lore_facts": [
+    "A device called a paleo-compass can guide its user to a marble fortress.",
+    "The target location is referred to as a marble fortress.",
+    "A tool or weapon called a marble disintegrator is used to break through marble barriers.",
+    "The group is trying to get their hands on 'that horse,' though the page does not identify it further.",
+    "'Bulgor' is invoked in an oath, suggesting a named figure, beast, or cultural reference in this setting."
+  ],
+  "page_id": "047_The_Metabarons_2_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A group travels through dense fog in a flying craft or transport.",
+    "One member worries the fog will make them lose their way, but another says the fog also hides them.",
+    "The group relies on a 'paleo-compass' to locate a 'marble fortress'.",
+    "They confirm the compass has successfully guided them to the target.",
+    "The group prepares to breach the structure using Tokkar's 'marble disintegrator'.",
+    "An armored figure fires the breaching device into the fortress entrance while the others stand ready."
+  ],
+  "source_image": "external/comics/meta-barons/047_The_Metabarons_2_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ebde4743fa5cdc40a6c4b8e60d7c4bb9ffd26a012eeeedbbba39e959f1a7d504",
+      "page_id": "047_The_Metabarons_2_p18",
+      "source_image": "external/comics/meta-barons/047_The_Metabarons_2_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page image is labeled p18 in the prompt, but the printed page number at the bottom appears to read 20.",
+    "Some dialogue attributions are uncertain because the speakers are not always clearly identified by panel placement.",
+    "The exact identity of 'that horse' is not explained on this page.",
+    "The exact nature of the opening vehicle and whether it is landing or merely approaching is not fully clear from the single page.",
+    "Some names and device terms are slightly hard to read due to image quality, though Ulkran, Wulthor, Tokkar, paleo-compass, and marble disintegrator appear most likely."
+  ],
+  "visual_summary": "In heavy fog, a small craft approaches or lands near a dark, monumental structure. A band of armored, heavily equipped figures advances with glowing instruments and large weapons. Their navigation device leads them to the structure, and one member uses a powerful tool or gun to cut into a massive door or wall while the others cover the entry.",
+  "volume": 2
+}

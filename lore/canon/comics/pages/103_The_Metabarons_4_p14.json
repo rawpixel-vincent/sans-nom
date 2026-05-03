@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "Honorata is present and is directly addressed by name.",
+    "Aghnar is identified in dialogue as the person whose cells were altered.",
+    "The adults present are frightened and urgently trying to understand the child's condition.",
+    "The infant is alive and visibly floating without support."
+  ],
+  "characters_present": [
+    "Floating infant",
+    "Honorata (named in dialogue)",
+    "Aghnar (named in dialogue, exact visual identification uncertain)",
+    "At least one additional adult figure in the chamber"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to an earlier incident involving a dart, an embryonic sac, and a wound to someone's belly.",
+    "The levitation is presented as a consequence of that earlier biological or technological intervention."
+  ],
+  "dialogue_meaning": [
+    "A character alerts Honorata that the child is hovering in the air and asks what it signifies.",
+    "A character gives a causal explanation linking the child's condition to an earlier dart impact, an embryonic sac, and an implanted 'epiphyte' in Aghnar's cells.",
+    "The final shout conveys panic, anguish, and rejection of what is happening."
+  ],
+  "image_sha256": "a6bc12f8851441440e949945603c1185cd41d41fc84fc0d12f5001f756af30b3",
+  "is_spread": false,
+  "locations": [
+    "A dark interior room or chamber filled with mechanical equipment or robotic devices"
+  ],
+  "lore_facts": [
+    "An 'epiphyte' can install itself in a person's cells.",
+    "A dart previously pierced an embryonic sac and someone's belly.",
+    "Aghnar's body is described as weightless after the epiphyte installed itself in his cells.",
+    "The infant's levitation is treated as a significant and abnormal event by the characters."
+  ],
+  "page_id": "103_The_Metabarons_4_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A baby is shown floating in midair inside a dark technological chamber.",
+    "An onlooker calls attention to the child's unexplained levitation.",
+    "Another character explains that a dart passed through an embryonic sac, pierced the speaker's belly, and caused an 'epiphyte' to install itself in Aghnar's cells.",
+    "The explanation concludes that Aghnar's body is now weightless.",
+    "One of the adults reacts with a scream of horror or grief."
+  ],
+  "source_image": "external/comics/meta-barons/103_The_Metabarons_4_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a6bc12f8851441440e949945603c1185cd41d41fc84fc0d12f5001f756af30b3",
+      "page_id": "103_The_Metabarons_4_p14",
+      "source_image": "external/comics/meta-barons/103_The_Metabarons_4_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of the two adults in the art are not fully certain from this page alone, aside from Honorata and the mention of Aghnar in dialogue.",
+    "It is unclear whether the floating infant is Aghnar or a child affected through Aghnar; the dialogue is partially hard to interpret.",
+    "Some wording in the explanatory caption/dialogue may be difficult to read precisely, including the technical term 'epiphyte.'"
+  ],
+  "visual_summary": "In a dim, machinery-filled interior, a swaddled infant rises unsupported into the air while two adults react in alarm. Close panels emphasize the baby's levitation, the adults' shocked expressions, and a final cry of despair.",
+  "volume": 4
+}

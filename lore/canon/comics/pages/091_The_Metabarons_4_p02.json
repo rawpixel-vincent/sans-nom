@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The silver-haired man is emotionally distressed and speaks in tragic terms about an impossible union.",
+    "The silver-haired man has visible cybernetic or mechanical genital/hip components.",
+    "Honorata is the person directly addressed in the conversation about the impossible union.",
+    "The two robots function as observers and commentators on the larger characters' situation."
+  ],
+  "characters_present": [
+    "A muscular silver-haired man, likely the speaker addressing Honorata",
+    "Honorata, a seated woman with long light hair",
+    "Two small robot or droid observers/commentators"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page develops an ongoing emotional conflict involving the 'great ancestor' and Honorata.",
+    "The robots' commentary links the eclipse scene and the private conversation into the same narrative thread.",
+    "The man's exit with a case suggests an immediate departure following his confession."
+  ],
+  "dialogue_meaning": [
+    "The robots frame the situation as a possible love story but one of them is irritated and wants a direct explanation.",
+    "The reply indicates the ancestor is in love, but with a serious complication.",
+    "The silver-haired man tells Honorata that a relationship or consummation between them cannot happen and that fate has made the situation cruel or ironic."
+  ],
+  "image_sha256": "c663ffd67cab044e8978b543eeb7e2d090ab2dbf68625f46260c437d1bcdc567",
+  "is_spread": false,
+  "locations": [
+    "Exterior view of a tall tower or structure under an eclipsed moon",
+    "A futuristic interior chamber with machinery and a spherical containment field",
+    "A private room or compartment inside the same technological complex"
+  ],
+  "lore_facts": [
+    "The setting includes an eclipse of the moon significant enough to be narrated as a notable event.",
+    "'Protoglow-worms' exist in this world and are said to produce light during a mass mating behavior.",
+    "There is a figure referred to as the 'great ancestor.'",
+    "Highly advanced technology is present, including robots, cybernetic body parts, and a spherical energy-like containment field."
+  ],
+  "page_id": "091_The_Metabarons_4_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A narration box states that a lunar eclipse occurs that night and that vast numbers of 'protoglow-worms' emit light during a frantic mating event.",
+    "Two robot-like observers discuss whether a 'great ancestor' has fallen in love, while one impatiently demands the practical details.",
+    "The male figure admits to Honorata that their union is impossible and says destiny has mocked him.",
+    "The page ends with the male figure leaving through a doorway carrying a case."
+  ],
+  "source_image": "external/comics/meta-barons/091_The_Metabarons_4_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c663ffd67cab044e8978b543eeb7e2d090ab2dbf68625f46260c437d1bcdc567",
+      "page_id": "091_The_Metabarons_4_p02",
+      "source_image": "external/comics/meta-barons/091_The_Metabarons_4_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity/name of the silver-haired man is not stated on this page, only that the robots refer to a 'great ancestor.'",
+    "The precise function and contents of the faceted object inside the spherical field are unclear.",
+    "Some dialogue is stylized and small; while readable overall, exact wording may be imperfect.",
+    "It is unclear whether the bright particles around the tower are literally visible protoglow-worms or a symbolic depiction of the narrated event."
+  ],
+  "visual_summary": "During a lunar eclipse, a tall dark tower stands against a glowing blackened moon while bright particles or organisms fill the night. Inside a futuristic mechanical chamber, two small robots observe and comment as a large faceted object sits inside a transparent spherical field. A muscular pale-haired male figure stands near a seated woman in a cluttered, metallic interior; he appears troubled. In the lower panels, the woman is shown close to his cybernetic groin area and profile, while in the final panel he departs through a doorway carrying a case or suitcase.",
+  "volume": 4
+}

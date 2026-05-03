@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "The soldiers are frightened and losing confidence once they see their attack failing.",
+    "The bearded commander is aggressive and refuses defeat even after hearing that the attack is ineffective.",
+    "At least one soldier reacts in shock the moment the targets begin moving."
+  ],
+  "characters_present": [
+    "A large group of soldiers or troopers in battle gear",
+    "A bearded officer or commander directing the attack",
+    "Unseen giant box-like entities or machines being targeted"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page escalates an ongoing confrontation by revealing that the box-like targets are not only durable but mobile.",
+    "The shift from ineffective bombardment to movement suggests an imminent counterattack or breakthrough in the surrounding sequence."
+  ],
+  "dialogue_meaning": [
+    "The troops report that lasers and missiles are ineffective against the targets and describe them as effectively invulnerable.",
+    "An officer rejects surrender and orders continued fire despite the lack of results.",
+    "A soldier or observer then shouts that the targets have started moving, causing a general order or impulse to run."
+  ],
+  "image_sha256": "f9f7e2e4525e562f315ee1995168df2420272a03f9080ccfbaceed251f7c743c",
+  "is_spread": false,
+  "locations": [
+    "A large open battlefield filled with artillery, armored vehicles, and infantry"
+  ],
+  "lore_facts": [
+    "The page depicts giant box-like targets or entities that withstand sustained combined-arms fire.",
+    "These targets are described by the combatants as taking no damage from both lasers and missiles.",
+    "The attackers use religious or cultural exclamations such as 'Paleo-Christ,' suggesting a setting-specific speech culture.",
+    "The attacking force includes conventional-looking massed artillery and armored vehicles alongside energy weapons."
+  ],
+  "page_id": "354_The_Metabarons_13_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "Armored vehicles, missiles, lasers, and massed artillery attack enormous box-shaped targets.",
+    "The attackers observe that their weapons are not damaging the targets.",
+    "A commander insists they keep firing and wear the targets down through persistence.",
+    "The situation abruptly changes when the targets begin moving.",
+    "Soldiers panic and start to flee."
+  ],
+  "source_image": "external/comics/meta-barons/354_The_Metabarons_13_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f9f7e2e4525e562f315ee1995168df2420272a03f9080ccfbaceed251f7c743c",
+      "page_id": "354_The_Metabarons_13_p21",
+      "source_image": "external/comics/meta-barons/354_The_Metabarons_13_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and nature of the giant box-like targets are not stated on this page alone.",
+    "One shouted term for the enemy/targets is difficult to read precisely, so the exact wording may be uncertain.",
+    "The page does not confirm whether the moving targets are vehicles, creatures, or some other form of entity."
+  ],
+  "visual_summary": "A battlefield page shows a massive bombardment against huge box-like targets. Tanks and artillery fire upward while missiles and laser beams strike the targets in bright explosions. In the lower panels, frightened soldiers and a bearded commander react as they realize the bombardment is ineffective and that the giant targets have begun to move, triggering a panicked retreat.",
+  "volume": 13
+}

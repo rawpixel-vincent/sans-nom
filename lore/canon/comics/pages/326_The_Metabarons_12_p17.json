@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Lothar is accused of losing faith.",
+    "The robots speak in a frantic, argumentative way under pressure.",
+    "One robot interprets events through belief and metaphysical causation.",
+    "Another robot is skeptical of that explanation and prefers an immediate defensive action.",
+    "The enemy is presented as powerful enough to break through defenses and destroy key constructs."
+  ],
+  "characters_present": [
+    "Lothar",
+    "small service/combat robots",
+    "an unnamed enemy",
+    "the master referred to by the robots",
+    "the real Metabaron (mentioned, not clearly shown)",
+    "a simulacrum (mentioned, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depends on an ongoing conflict involving the Metabaron, a simulacrum, and hostile forces.",
+    "The mention of the real Metabaron versus a simulacrum implies prior setup about duplicated or projected presence.",
+    "The emergency over fading solidity suggests the page follows an earlier manifestation or transformation event."
+  ],
+  "dialogue_meaning": [
+    "The robots believe the situation is immediately dangerous and that their side may collapse if their master does not recover quickly.",
+    "A time limit is placed on the master's remaining solidity, implying an unstable manifested state.",
+    "The destruction of the bio-electrogram is treated as proof that the enemy is stronger than expected.",
+    "One interpretation is mystical or psychological: loss of faith in the real Metabaron weakened the simulacrum.",
+    "A competing interpretation rejects that metaphysical claim and favors a practical defensive response."
+  ],
+  "image_sha256": "732f5d92971d077a15fa70b1d1a4cea272878886d9419ae31fab180cfdb7d183",
+  "is_spread": false,
+  "locations": [
+    "inside a large industrial or spacecraft-like mechanical complex",
+    "corridors or chambers being torn apart by explosions"
+  ],
+  "lore_facts": [
+    "A being on this page has a measurable amount of remaining 'solidity,' suggesting temporary or unstable materialization.",
+    "The term 'bio-electrogram' refers to something that can be destroyed in combat and is important to the robots' side.",
+    "A 'simulacrum' of the Metabaron exists or can act independently of the real Metabaron.",
+    "Belief or faith is claimed by one speaker to affect the power available to the simulacrum.",
+    "There is a defensive system or tactic called the 'Porcupine Defense.'"
+  ],
+  "page_id": "326_The_Metabarons_12_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "Robotic observers panic because someone they depend on is close to losing physical solidity.",
+    "A fast, luminous projectile or energy-form tears through a large mechanical environment, causing repeated explosions and debris.",
+    "The robots conclude that the enemy has destroyed a 'bio-electrogram.'",
+    "One robot blames Lothar's loss of faith, arguing it weakened the simulacrum by denying the presence of the real Metabaron.",
+    "Another robot dismisses that explanation as foolish and urges activating a 'Porcupine Defense.'"
+  ],
+  "source_image": "external/comics/meta-barons/326_The_Metabarons_12_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "732f5d92971d077a15fa70b1d1a4cea272878886d9419ae31fab180cfdb7d183",
+      "page_id": "326_The_Metabarons_12_p17",
+      "source_image": "external/comics/meta-barons/326_The_Metabarons_12_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be read perfectly; phrasing around the exact remaining time and technical terms could be slightly off.",
+    "It is unclear whether the bright white object is a ship, projectile, energy being, or the destabilizing simulacrum itself.",
+    "The printed page number at the bottom appears to read 18, while the provided page label is p17.",
+    "The identities of the individual robots are not fully explicit from this single page."
+  ],
+  "visual_summary": "Several small robots watch a crisis unfold inside a metallic industrial setting. One warns that a figure has only a little over one minute of remaining solidity. The main action panels show a bright white, torpedo-like energy form or craft streaking through the structure and blasting apart machinery in multiple explosions. In the final tier, the robots argue about why the enemy overpowered their master and whether belief, rather than a defensive mechanism, is the real issue.",
+  "volume": 12
+}

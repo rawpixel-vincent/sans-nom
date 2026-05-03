@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "Aghnar is associated with damaged or impaired reproductive function before this page's operation.",
+    "Oda has been unconscious, comatose, or otherwise dormant before appearing revived here.",
+    "Honorata is treated as someone with authority or responsibility in Oda's revival process.",
+    "The silver-haired man receives a new mechanical arm and is emotionally invested in Oda's awakening.",
+    "The small robot is talkative, interpretive, and prone to framing events theatrically or simplistically."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda",
+    "Honorata",
+    "small robot assistant or commentator",
+    "off-panel male speaker with a new prosthetic arm",
+    "medical/robotic attendants"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an extended medical or reproductive operation already in progress.",
+    "Oda's appearance is presented as the payoff to a prior coma or suspended state.",
+    "The emotional recognition between Aghnar and Oda suggests a preexisting close relationship."
+  ],
+  "dialogue_meaning": [
+    "A conflict is underway over lineage: one speaker focuses on producing a son, while another insists his existing sons and daughters matter.",
+    "The man is undergoing or has undergone installation of a new prosthetic arm during a longer reproductive or medical operation.",
+    "The robot interprets the situation as a successful resolution involving Oda's revival, Honorata's recovery work, and restoration of Aghnar's reproductive function.",
+    "Another character rejects that optimistic framing and calls the event a catastrophe in which they were complicit.",
+    "The completed arm surgery lets the man immediately seek news of Oda.",
+    "Oda's return is emotionally overwhelming, reducing both her and Aghnar to speaking only each other's names."
+  ],
+  "image_sha256": "8f2a3e53974bef884c7d40e24d830b22aa2acc51f86906c8dbc8b58b32df1f6e",
+  "is_spread": false,
+  "locations": [
+    "a spacecraft-like or futuristic surgical chamber",
+    "a revival or medical pod room"
+  ],
+  "lore_facts": [
+    "Advanced surgery on this page includes grafting or installing a 'protonic' prosthetic arm.",
+    "The setting has technology capable of reviving or awakening someone from a coma or coma-like state.",
+    "Aghnar's reproductive capacity is discussed as something that can be medically restored.",
+    "Honorata appears to be responsible for or involved in Oda's awakening.",
+    "Family lineage and the production of an heir are explicit concerns in the scene."
+  ],
+  "page_id": "219_The_Metabarons_8_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A disembodied or off-panel speaker insists on returning consciousness to a woman who will bear a son, while another speaker objects that he has children already.",
+    "A second speaker says the operation will take a long time, giving the man time to receive a new prosthetic arm.",
+    "A robot enthusiastically summarizes the apparent happy outcome: Honorata should wake from her coma, Oda should be revived, and Aghnar's reproductive capability is expected to be restored.",
+    "Another speaker corrects the robot, saying the event was not a happy ending and that they were partly responsible for a catastrophe.",
+    "The prosthetic-arm procedure is completed unusually quickly.",
+    "The man rushes to see whether his mother has succeeded in awakening Oda.",
+    "A woman identified as Oda appears revived, emerging from a chamber while onlookers react.",
+    "Someone warns Honorata to stop and not speak of failure or fatal words.",
+    "Aghnar and Oda recognize each other and say each other's names.",
+    "The page ends by noting that their names are the only words they manage to speak."
+  ],
+  "source_image": "external/comics/meta-barons/219_The_Metabarons_8_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8f2a3e53974bef884c7d40e24d830b22aa2acc51f86906c8dbc8b58b32df1f6e",
+      "page_id": "219_The_Metabarons_8_p14",
+      "source_image": "external/comics/meta-barons/219_The_Metabarons_8_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speakers in the opening captions are off-panel, making exact attribution uncertain.",
+    "Some dialogue is difficult to read precisely from the image, especially technical terms and names in the upper captions.",
+    "The identity of the silver-haired man with the new prosthetic arm is not fully explicit from this page alone.",
+    "The exact nature of the relationship between the silver-haired man, Aghnar, and Honorata is not fully clear from this page alone."
+  ],
+  "visual_summary": "Inside a dark, futuristic medical or laboratory chamber, dialogue boxes continue an argument over reproduction and family. A small robot comments excitedly while a man is fitted with a mechanical arm by machines. In the central panel, a pale woman emerges upright from a pod or recovery chamber, draped in a translucent sheet, while several figures and robots turn toward her. The man with the new arm reacts with urgency, and the revived woman and the man each speak the other's name. A closing caption states that speaking each other's names is all they can manage.",
+  "volume": 8
+}

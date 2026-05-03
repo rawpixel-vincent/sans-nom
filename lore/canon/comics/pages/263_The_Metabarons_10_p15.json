@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The assailant is enraged and fixated on the idea that his humanity was taken from him.",
+    "The assailant is capable of sadistic, methodical violence and uses a cutting blade.",
+    "The victim is identified as female by the assailant's words and has both flesh and mechanical components."
+  ],
+  "characters_present": [
+    "A gold-faced machine/cyborg assailant",
+    "A female victim who is partly organic and partly mechanical"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The assailant's accusation that the victim 'took away' his humanity points to an earlier transformation or injury not shown on this page.",
+    "The torture scene appears to be part of an ongoing conflict between these two characters rather than an isolated encounter."
+  ],
+  "dialogue_meaning": [
+    "The attacker frames himself as a machine without mother or father and blames the victim for destroying or removing his humanity.",
+    "He issues an ultimatum: submit or he will keep cutting her apart.",
+    "He counts each severed finger in order, emphasizing deliberate cruelty.",
+    "The victim screams in protest as the mutilation continues.",
+    "The attacker says he will leave her only half-woman when he is finished and lists more body parts he intends to remove."
+  ],
+  "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+  "is_spread": false,
+  "locations": [
+    "An enclosed industrial or mechanical chamber filled with cables, pipes, and metal apparatus"
+  ],
+  "lore_facts": [
+    "This setting includes beings with visibly mixed human and machine anatomy.",
+    "Machines or cyborgs in this story can speak in terms of lineage, humanity, and bodily mutilation.",
+    "Graphic physical dismemberment is presented as an intentional act of domination or punishment."
+  ],
+  "page_id": "263_The_Metabarons_10_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "A machine-like attacker confronts a woman integrated with machinery and speaks angrily about lost humanity and parentage.",
+    "The attacker threatens further mutilation unless she surrenders.",
+    "He cuts off the victim's fingers sequentially, counting from one to ten across a row of panels.",
+    "The victim cries out during the mutilation.",
+    "After severing all ten fingers, the attacker declares he will continue cutting off other body parts.",
+    "The scene ends with the attacker still grappling with and mutilating the victim amid blood and exposed machinery."
+  ],
+  "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+      "page_id": "263_The_Metabarons_10_p15",
+      "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue in the opening speech balloon is difficult to read precisely; the summary preserves meaning rather than exact wording.",
+    "The exact identities and names of both characters are not given on this page.",
+    "It is visually clear that fingers are being severed, but the exact hand positioning and whether both hands are involved at different moments is not fully certain from this single page alone."
+  ],
+  "visual_summary": "A cramped mechanical interior becomes a scene of torture. A gold-faced cyborg or robot restrains a partly organic, partly mechanical woman and methodically cuts off her fingers one by one with a blade. The page shows a counting sequence across narrow panels as severed fingers and blood spray through the air. In the final large panels, the attacker continues mutilating her while ranting that machines have no parents and accusing her of taking away his humanity.",
+  "volume": 10
+}

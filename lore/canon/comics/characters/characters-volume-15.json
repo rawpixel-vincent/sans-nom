@@ -1,0 +1,341 @@
+[
+  {
+    "aliases": [
+      "Aghora",
+      "The Father-Mother",
+      "new Metabaron"
+    ],
+    "appearances": [
+      "description: Cover portrait: bald figure with heavy dark eye shadow, cybernetic tubing/armor around neck and shoulder, holding a large futuristic weapon; source_refs: ['381_The_Metabarons_15_c01']",
+      "description: Infant: small, cries; golden-skinned as child; bald young figure on surgical table; armored warrior with gold-colored face mask in combat; source_refs: ['388_The_Metabarons_15_p06', '390_The_Metabarons_15_p08', '391_The_Metabarons_15_p09', '393_The_Metabarons_15_p11', '394_The_Metabarons_15_p12', '398_The_Metabarons_15_p16']"
+    ],
+    "character_id": "aghora",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Whether she knows Steelhead is expected to return for revenge is not stated",
+      "The mirror-fleet invasion is encountered but not yet resolved by end of volume 15",
+      "The fate of her male twin after the brain transplant is unknown to the reader and presumably to her"
+    ],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Resolute, mission-focused; orders Deyanira directly; chose decisive action over waiting during the mirror-fleet crisis"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Tamed the tarantuwolf by age five; rode it in live meteor-defense exercises around the metabunker",
+      "Underwent the Metabaron slicer ordeal at age seven: submitted left hand progressively—fingers, then hand, then forearm—earning a bionic replacement",
+      "Deployed to prison planet Khaliyuga; killed 200 condemned prisoners per day for three years, total exceeding 200,000 executions",
+      "Fought Oq Fresthulz (Odaen's poisonous traitor) in a fluid/aquatic containment environment",
+      "Fought Algholkar of Rieidar—described as nearly unbeatable",
+      "Fought Krgptah (self-generating multi-lizard from Pengrix system); realized severing multiplied them; changed weapons mid-combat",
+      "Dueled Steelhead with swords (invoking Othon's code) for three days; sword strike to Steelhead's waist had no effect",
+      "Destroyed Dona Vicenta's omni-cryoshroud pod with a sword, killing her preserved mother",
+      "Defeated Steelhead with a freezing weapon; had him launched into deep space",
+      "Claimed the title of new Metabaron",
+      "Infiltrated the Golden Planet via Metashadow stealth craft with Deyanira; directed toward the glass dome"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead"
+    ],
+    "appearances": [
+      "description: Blue-faced, armored adult male; later extensively cybernetic—flesh, bones, and organs replaced with Storlon flexible metal; visually distinguished by blue-faced armor; source_refs: ['391_The_Metabarons_15_p09', '396_The_Metabarons_15_p14', '398_The_Metabarons_15_p16']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "His eventual return and role in the master's eyebrow wound are anticipated but not yet depicted within volume 15"
+    ],
+    "relationships": [
+      "{'wife': 'Dona Vicenta Gabriela de Rokha (placed in omni-cryoshroud after near-death; installed in Hall of Weapons)', 'daughter': 'Aghora (chosen over male twin; raised as warrior heir)', 'internal_split': \"Associated with poet Zaran Klezra—narration says he removed 'the part of himself' linked to Zaran before the Techno-Techno war\", 'source_refs': ['382_The_Metabarons_15_ic1', '389_The_Metabarons_15_p07']}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Cold, commanding; speaks calmly during combat; frames emotional vulnerability as weakness; dismisses sentimental reaction as 'mechanical malfunction'"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Defeated the Techno-Technos; nearly destroyed Philodendra",
+      "Abducted the TechnoPope and brought him to Philodendra",
+      "Publicized the value of bikramen to attract galaxy-wide fleets",
+      "Negotiated sale of Philodendra with Dona Vicenta's reluctant help; relocated the Troglosocialists to an artificial world",
+      "Chose the female twin (by Zaran) over the male twin (his own) at birth, fracturing the succession rule",
+      "Performed or led the surgical separation of the conjoined twins and the brain transplant into the girl",
+      "Secretly stored the boy's corpse in stasis",
+      "Placed Dona Vicenta in an omni-cryoshroud; installed her in the Hall of Weapons",
+      "Assigned a tarantuwolf as Aghora's nursemaid",
+      "Administered the slicer ordeal to Aghora at age seven; awarded bionic hand upon completion",
+      "Oversaw or directed Aghora's Khaliyuga executioner assignment",
+      "Conducted Aghora's gender-transformation rite; recognized her as male",
+      "Replaced his own body with Storlon metal; removed his heart to erase grief over Dona Vicenta",
+      "Fought a three-day sword duel with Aghora; survived a cut to his waist without effect",
+      "Was defeated by Aghora's freezing weapon; launched into deep space"
+    ]
+  },
+  {
+    "aliases": [
+      "Dona Vicenta Gabriela de Rokha",
+      "Milday",
+      "Doña Vicenta"
+    ],
+    "appearances": [
+      "description: Elderly or gravely ill noblewoman on operating table in the metasurgery; later sealed upright in an omni-cryoshroud capsule installed in the Hall of Weapons; transparent pod shattered by Aghora in the initiation duel; source_refs: ['385_The_Metabarons_15_p03', '389_The_Metabarons_15_p07', '399_The_Metabarons_15_p17']"
+    ],
+    "character_id": "dona-vicenta-gabriela-de-rokha",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'husband': 'Steelhead', 'lover': 'Zaran Klezra (poet; father of the female twin Aghora)', 'children': 'Conjoined twins—male (by Steelhead), female (by Zaran; survived as Aghora)', 'granddaughter_implied': \"The current no-name Metabaron (Tonto's narration identifies her as his grandmother)\"}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Despairing and self-resigned at time of surgery ('I have lost everything'); pleaded for both twins to be saved"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Reluctantly helped Steelhead negotiate sale of Philodendra",
+      "Developed tuberculosis on the new artificial world",
+      "Revealed she was pregnant with twins from different fathers",
+      "Was told only one twin could be safely delivered",
+      "Assumed Steelhead would choose the male heir; he chose the female",
+      "Preserved in omni-cryoshroud; installed in Hall of Weapons to watch Aghora grow up",
+      "Pod destroyed by Aghora during the initiation trial"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: Small robot; shown traveling through a fiery mechanical environment; inset portrait on Metabunker glossary page; source_refs: ['385_The_Metabarons_15_p03', '404_The_Metabarons_15_p23']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Narrates prior Metabaron history; treats the Metabaron's secrets as dangerous knowledge",
+      "Claims personal experience of Steelhead's operations on him (per p13 narration)"
+    ],
+    "relationships": [
+      "{'companion': 'Lothar (co-narrator)', 'master': 'The Metabaron (resident of Metabunker)'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Bickering, dramatic, reluctant to be silenced; frames dangerous lineage secrets as hooks to continue the tale"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Recounts the full lineage story including Dona Vicenta's illness, the twin birth, Aghora's upbringing, and Steelhead's fate",
+      "Identifies the master's grandmother as Dona Vicenta (p03)",
+      "States the master's scar is on his right eyebrow and was inflicted when he was 'only seconds old' (p03)"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar",
+      "Tin-Tin (uncertain; alternate name mentioned in summary, not confirmed)"
+    ],
+    "appearances": [
+      "description: Addressed by name in dialogue on p01 and p02; mentioned in Metabunker glossary page; exact visual appearance uncertain from summaries alone; source_refs: ['383_The_Metabarons_15_p01', '384_The_Metabarons_15_p02', '404_The_Metabarons_15_p23']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Why their former masters chose to destroy them is stated as background fact but not elaborated in these pages"
+    ],
+    "relationships": [
+      "{'companion': 'Tonto (co-narrator)', 'former_masters': 'Beings who decided to destroy the speakers; drove them to hide on the hostile planet', 'master': 'The Metabaron (resident of Metabunker)'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Accused by companion of causing their current situation by trusting their former masters",
+      "Understands the Metabaron succession and wonders how it can be preserved after Steelhead's choice of the female twin (recap, p ic1)",
+      "Building or overseeing completion of the metabunker on a hostile planet; expects it to take two to three centuries",
+      "Can be ordered to trigger or manage weapons such as hyper-infrasound (p01)"
+    ]
+  },
+  {
+    "aliases": [
+      "Zaran Klezra",
+      "the poet",
+      "my poet"
+    ],
+    "appearances": [],
+    "character_id": "zaran-klezra",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'linked_to': 'Steelhead (identified as an aspect of him that was excised)', 'beloved_of': 'Dona Vicenta (she chose him over Steelhead)', 'daughter': 'Aghora (biological father of the female twin)'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Identified in recap as father of the female twin",
+      "A speaker on p05 calls the girl child 'the offspring of my poet' and vows to raise her",
+      "The dying cyborg master on p06 refers to 'my beloved Klezea'—possibly an alternate spelling of Klezra or a related figure (uncertain)"
+    ]
+  },
+  {
+    "aliases": [
+      "Don Nicanor"
+    ],
+    "appearances": [],
+    "character_id": "don-nicanor",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Death mentioned in recap as the event preceding Steelhead's rise and war against the Techno-Technos"
+    ]
+  },
+  {
+    "aliases": [
+      "The Dying Cyborg Master",
+      "orange-gold cyborg",
+      "master"
+    ],
+    "appearances": [
+      "description: Sick, orange-gold cyborg man; suffers coughing fits and visible hemorrhaging while holding or near the infant Aghora; source_refs: ['388_The_Metabarons_15_p06']"
+    ],
+    "character_id": "the-dying-cyborg-master",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'beloved': \"'Klezea' (possibly Zaran Klezra or related figure; uncertain)\", 'infant_received': 'Aghora', 'attendant': 'Blue-faced masked servant who delivers the baby and invokes a fulfilled promise'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Receives newborn Aghora; addresses her with intense emotion before dying",
+      "Attendant says 'the child is a girl and a promise has been kept'"
+    ]
+  },
+  {
+    "aliases": [
+      "The No-Name Metabaron",
+      "the master",
+      "the great warrior",
+      "the galaxy's greatest warrior"
+    ],
+    "appearances": [],
+    "character_id": "the-no-name-metabaron",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "The exact circumstances of the eyebrow scar are anticipated but not yet depicted within volume 15"
+    ],
+    "relationships": [
+      "{'grandmother': \"Dona Vicenta Gabriela de Rokha (per Tonto's narration, p03)\", 'parent': 'Aghora (asserted by one speaker; contested by another who proposes a different Steelhead as father)'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Eyebrow scar is tied to an injury inflicted when he was 'only seconds old' (p03)",
+      "Tonto identifies the expected return of Steelhead as the event that will produce this wound (p19)",
+      "Sits in control room drinking ganya; dismisses robot's concern; relies on Deyanira for protection (p19)"
+    ]
+  },
+  {
+    "aliases": [
+      "Deyanira"
+    ],
+    "appearances": [
+      "description: Addressed directly by Aghora during Golden Planet infiltration; appears to be a living or biomechanical mount ridden by Aghora along a towering structure; source_refs: ['403_The_Metabarons_15_p22']"
+    ],
+    "character_id": "deyanira",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Oq Fresthulz",
+      "Odaen's poisonous traitor"
+    ],
+    "appearances": [
+      "description: Named in narration; associated with a giant creature or organism inside a transparent dome/containment tank; exact visual identity uncertain; source_refs: ['395_The_Metabarons_15_p13']"
+    ],
+    "character_id": "oq-fresthulz",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Fought by an armored humanoid attacker (context implies Aghora) in a fluid/aquatic containment environment"
+    ]
+  },
+  {
+    "aliases": [
+      "Algholkar of Rieidar"
+    ],
+    "appearances": [],
+    "character_id": "algholkar-of-rieidar",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Mentioned as a particularly hard opponent among the prisoners Aghora faced during her three-year executioner assignment"
+    ]
+  },
+  {
+    "aliases": [
+      "TechnoPope"
+    ],
+    "appearances": [],
+    "character_id": "technopope",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Abducted from the Techno-Techno stronghold by Steelhead and brought to Philodendra"
+    ]
+  },
+  {
+    "aliases": [
+      "Robidiot"
+    ],
+    "appearances": [],
+    "character_id": "robidiot",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

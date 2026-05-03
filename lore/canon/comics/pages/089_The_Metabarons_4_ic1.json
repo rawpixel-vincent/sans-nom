@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "Othon von Salza is described as cruel, solitary, and without regrets after the death of his son.",
+    "Othon is both a warrior and an inventor/user of advanced weapon technology.",
+    "Othon lives with the two daughters of his faithful servant after remaking Castaka fortress.",
+    "Othon regains purpose by joining the fight against the pirates.",
+    "Honorata is presented as magnificent and desirable, and she strongly affects Othon.",
+    "Othon's servants are jealous of Honorata and interfere with her influence over him."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "Honorata",
+    "the Empress",
+    "the Emperor",
+    "Bari",
+    "Othon's faithful servant (unnamed)",
+    "the servant's two daughters",
+    "pirates",
+    "scientists"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly summarizes prior chapters and leads directly into the forthcoming confrontation between Othon and Honorata.",
+    "The page frames Othon's elevation to Metabaron as the result of rescuing the Imperial offspring.",
+    "The recap connects Othon's personal tragedy, technological turn, Imperial service, and current situation on Okhar into one chain of events."
+  ],
+  "dialogue_meaning": [
+    "There is no scene dialogue; the page provides an editorial 'previously' recap of Othon's recent history and the setup for his encounter with Honorata."
+  ],
+  "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431",
+  "is_spread": false,
+  "locations": [
+    "Okhar",
+    "Castaka fortress",
+    "a maxi-protonic tower on Okhar",
+    "the Golden Planet",
+    "the galaxy / Imperial realm"
+  ],
+  "lore_facts": [
+    "Othon von Salza becomes associated with the first Metabaronic weapons.",
+    "Okhar contains the Castaka fortress, which Othon transforms into a protonic tower.",
+    "The Emperor is sterile at this point in the story.",
+    "Imperial heirs are described as embryos of androgynous Siamese twins created through extraordinary scientific means.",
+    "The Golden Planet is a place where the Emperor can be personally addressed and where Imperial security is concentrated.",
+    "The title 'Metabaron' is bestowed by the Emperor as a knighthood or honor.",
+    "Honorata is identified as a priestess of Shabda-Oud and has a reputation as a witch."
+  ],
+  "page_id": "089_The_Metabarons_4_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recaps that Othon von Salza, after accidentally killing his own son and being castrated, abandons pure martial arts to create the first Metabaronic weapons.",
+    "Othon sacrifices Okhar's natural beauty and converts the Castaka fortress into a large protonic tower where he lives with the two daughters of his faithful servant.",
+    "Scientists reportedly achieve the creation of embryos of androgynous Siamese twins from an ovum of the Empress fertilized by the sperm of the now-sterile Emperor.",
+    "Pirates attack the priceless Imperial offspring, prompting the Emperor to appeal to his subjects for help.",
+    "Othon answers the appeal, reaches the Golden Planet, defeats the pirates through advanced technology and trickery, and restores the Imperial egg to its parents.",
+    "The Emperor knights Othon as a Metabaron, and the Empress promises to search the galaxy for a gift that could reward or benefit him.",
+    "On Okhar, while Othon rides Bari's horse at night, a Shabda-Oud priestess named Honorata approaches him, saying she was sent by the Empress.",
+    "Honorata entrances Othon, but his jealous servants interrupt the moment and Othon prepares to kill the witch."
+  ],
+  "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431",
+      "page_id": "089_The_Metabarons_4_ic1",
+      "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The illustrated figure is likely Othon, but the page does not caption the portrait directly.",
+    "Some small-print credits and fine text at the bottom are difficult to read precisely, though the recap text is legible."
+  ],
+  "visual_summary": "A recap/credits page for The Metabarons. The page is dominated by the series logo and a prose summary of prior events. On the left is an illustration of a grim, long-haired armored/cybernetic man aiming a gun, with mechanical ornamentation around him. At the bottom are five small circular character portraits and publication credits.",
+  "volume": 4
+}

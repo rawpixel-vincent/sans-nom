@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Aghnar sheds a tear only once before being punished for it.",
+    "Aghnar develops exceptional control over his nervous system.",
+    "He is trained to endure pain and maintain concentration under threat of immediate violence.",
+    "He accepts or repeats the principle that no one is to be trusted, not even his mother.",
+    "Aghnar matures from childhood toward adulthood during the sequence shown on the page."
+  ],
+  "characters_present": [
+    "Aghnar as a child/adolescent",
+    "Aghnar's mother",
+    "A hooded attendant or trainer"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents Aghnar's childhood conditioning and explains how his pain tolerance and distrust were formed.",
+    "The emphasis on maternal punishment and anti-trust doctrine suggests these experiences shape his later behavior and identity."
+  ],
+  "dialogue_meaning": [
+    "The narration frames Aghnar's upbringing as deliberately cruel and emotionally repressive.",
+    "Aghnar's meditation training is presented as a method for mastering pain through extreme self-control.",
+    "The supervising adult enforces constant vigilance and punishes distraction.",
+    "Aghnar has internalized a core lesson of total distrust, extending even to his mother."
+  ],
+  "image_sha256": "73628044416368e1c64e4b642631b57dda04e61c297d99570fde74079e2d8844",
+  "is_spread": false,
+  "locations": [
+    "An angular interior chamber or training room",
+    "A snowy or icy outdoor setting",
+    "A machinery-filled work or training area with large circular structures"
+  ],
+  "lore_facts": [
+    "Aghnar is trained using Shabda-Oud meditation techniques.",
+    "In this setting, auto-hypnosis can be used to reduce or overcome the experience of pain.",
+    "Aghnar's mother personally administers corporal punishment as part of his upbringing.",
+    "Aghnar's development into adulthood is described as unusually rapid."
+  ],
+  "page_id": "110_The_Metabarons_4_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "Narration states that Aghnar is lashed by his mother after shedding a tear, leaving a lasting mark on him.",
+    "Aghnar is subjected to painful bodily discipline involving restraints, pins, or piercing implements.",
+    "He learns Shabda-Oud meditation techniques and uses self-control and auto-hypnosis to suppress or escape pain.",
+    "The page indicates that Aghnar reaches adulthood very quickly.",
+    "He continues training or labor under strict supervision, and any lapse in attention is immediately punished.",
+    "Aghnar voices the lesson that he must trust no one, including his own mother."
+  ],
+  "source_image": "external/comics/meta-barons/110_The_Metabarons_4_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "73628044416368e1c64e4b642631b57dda04e61c297d99570fde74079e2d8844",
+      "page_id": "110_The_Metabarons_4_p21",
+      "source_image": "external/comics/meta-barons/110_The_Metabarons_4_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and narration are small and may not be perfectly transcribed from the image alone.",
+    "The identity of the hooded figure in the snowy panel is unclear from this page.",
+    "The exact nature of the machinery or task in the bottom panels is not explicitly stated."
+  ],
+  "visual_summary": "A montage page shows Aghnar as a child undergoing harsh discipline and training. In the top panels, a dark-haired woman oversees or punishes him; he appears injured, partially unclothed, and fitted with metal restraints or pins while inside a stark, angular interior. Mid-page, narration describes his use of Shabda-Oud meditation, paired with images of him enduring pain and being handled in a snowy setting by a hooded figure. In the bottom panels, he is shown older and working or training among large circular machinery or drums; when his concentration slips, he is struck, and a woman rebukes him while he repeats the lesson that he must trust no one, including his mother.",
+  "volume": 4
+}

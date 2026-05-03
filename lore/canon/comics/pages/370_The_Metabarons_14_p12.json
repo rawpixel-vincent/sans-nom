@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The woman is close enough to the event to witness the creature being opened and to comment on it.",
+    "The masked or helmeted figure appears confident and forceful, speaking both to the woman and to the unseen Amalek XII.",
+    "Amalek XII does not appear visibly on this page, but another character believes he can hear or respond from nearby or from a broader planetary context."
+  ],
+  "characters_present": [
+    "A dark-haired woman with glasses or goggles",
+    "A large biomechanical/insectoid creature or machine-beast",
+    "A helmeted or masked speaker addressing the woman and Amalek XII"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the immediate aftermath of an attack on a large biomechanical creature.",
+    "The final threat toward Amalek XII sets up a confrontation with an off-panel character."
+  ],
+  "dialogue_meaning": [
+    "A speaker sarcastically asks the woman if she is enjoying the scene.",
+    "The woman says the sight has become disgusting now that the creature is opened up.",
+    "The speaker calls out to Amalek XII and threatens total destruction unless he appears immediately."
+  ],
+  "image_sha256": "b72f32e3cdec80fd0ce2191534699a40c2e59ed603f19207c4f0876d154e17e2",
+  "is_spread": false,
+  "locations": [
+    "A large industrial or technological interior hall with high walls and circular openings",
+    "The wreckage-filled interior area where the destroyed creature has collapsed"
+  ],
+  "lore_facts": [
+    "A figure named Amalek XII exists and is important enough to be directly summoned under threat.",
+    "The setting contains giant biomechanical entities or machines with organic-looking interiors.",
+    "The technology/aesthetic on this page blends machinery, flesh-like textures, and monstrous forms."
+  ],
+  "page_id": "370_The_Metabarons_14_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A bright slash or cutting strike hits the large biomechanical creature.",
+    "The creature ruptures violently, with sparks, debris, and fluid-like spray bursting from its body.",
+    "Its shell splits further, exposing a mass of internal organic-mechanical components.",
+    "A woman recoils from the scene and reacts with disgust.",
+    "Another figure appears in the wreckage and issues a threat or command directed at 'Amalek XII,' demanding that he reveal himself immediately."
+  ],
+  "source_image": "external/comics/meta-barons/370_The_Metabarons_14_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b72f32e3cdec80fd0ce2191534699a40c2e59ed603f19207c4f0876d154e17e2",
+      "page_id": "370_The_Metabarons_14_p12",
+      "source_image": "external/comics/meta-barons/370_The_Metabarons_14_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact source of the initial slash is not fully visible; the attacker may be off-panel or obscured.",
+    "Some dialogue is small and slightly hard to read, so wording may not be exact.",
+    "The exact identity of the helmeted speaker and the woman is not stated on this page alone.",
+    "It is unclear whether the destroyed entity is fully alive, fully mechanical, or a hybrid."
+  ],
+  "visual_summary": "A woman watches as a huge biomechanical, insect-like machine-creature is cut open and explodes inside a vast industrial chamber. The opened body spills tangled organic-mechanical innards across the floor. In the final panels, a helmeted or masked figure addresses the woman while standing amid the wreckage.",
+  "volume": 14
+}

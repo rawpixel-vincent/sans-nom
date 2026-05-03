@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The armored warrior/pilot is aggressive, battle-focused, and contemptuous of sentiment.",
+    "The young passenger has visible mechanical eyes and is emotionally affected by the destruction.",
+    "The small robot or targeting system can confirm commands and target counts."
+  ],
+  "characters_present": [
+    "A helmeted armored warrior or pilot",
+    "A young passenger with mechanical eyes",
+    "A small robot, drone, or onboard targeting system",
+    "An additional armored figure seen moving through debris, possibly the same warrior in another moment"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to prior losses suffered by the young passenger, including eyes, father, and uncle.",
+    "The mention of Steelhead suggests an earlier-established figure whose legacy motivates the current violence."
+  ],
+  "dialogue_meaning": [
+    "One speaker frames the attack as vengeance connected to Steelhead's legacy.",
+    "A combat system or subordinate receives an order to destroy seven targets and acknowledges it.",
+    "The young passenger laments the loss of a family castle and wants to remember its final moments.",
+    "The warrior dismisses that grief, listing other losses and insisting the battle matters more.",
+    "The aircraft is instructed to pass over the ruins for inspection or continuation of the attack."
+  ],
+  "image_sha256": "2d899409fbbf33906450da65a5ef91fbb62f0b071e874405092171eca63e0789",
+  "is_spread": false,
+  "locations": [
+    "A ruined castle or family stronghold",
+    "The surrounding battlefield or ruins below",
+    "The cockpit/interior of a black aircraft"
+  ],
+  "lore_facts": [
+    "Steelhead is associated with weapons, blood-written poems, and vengeance.",
+    "There are seven identified targets referred to as fossils.",
+    "The destroyed site is described as the young passenger's family castle.",
+    "The young passenger has already lost eyes, a father, and an uncle according to the warrior's speech.",
+    "The setting involves advanced aircraft and mechanical or cybernetic technology."
+  ],
+  "page_id": "362_The_Metabarons_14_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A speaker invokes Steelhead's violent poetic legacy and urges vengeance.",
+    "An armored character smashes through or advances amid collapsing masonry and debris.",
+    "A small robotic companion or system is ordered to pulverize seven fossil-like targets and confirms the command.",
+    "A black triangular aircraft attacks the ruins from above, producing major explosions.",
+    "A frightened youth reacts emotionally to the destruction of a family castle.",
+    "The pilot or armored warrior orders an overflight of the ruins, which is confirmed.",
+    "In a cockpit close-up, the warrior rebukes the youth's grief and insists on focusing on battle."
+  ],
+  "source_image": "external/comics/meta-barons/362_The_Metabarons_14_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2d899409fbbf33906450da65a5ef91fbb62f0b071e874405092171eca63e0789",
+      "page_id": "362_The_Metabarons_14_p02",
+      "source_image": "external/comics/meta-barons/362_The_Metabarons_14_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely, especially names and phrasing in the speech balloons.",
+    "It is unclear whether the armored figure in the debris and the helmeted cockpit speaker are definitely the same character.",
+    "The exact nature of the '7 fossils' targets is unclear from the page alone.",
+    "The exact identity of Steelhead is not established on this page."
+  ],
+  "visual_summary": "A chaotic aerial attack unfolds over stone ruins or a castle-like complex. An armored figure and a small robot or craft companion move through flying debris while a sleek black aircraft fires or drops munitions into the site, causing multiple explosions. In a cockpit close-up, a large helmeted warrior speaks forcefully to a frightened young passenger with visible mechanical eyes. The page ends with the aircraft flying over the ruined area as the warrior dismisses the passenger's grief and demands to continue the battle.",
+  "volume": 14
+}

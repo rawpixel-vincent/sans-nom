@@ -1,0 +1,448 @@
+[
+  {
+    "aliases": [
+      "Melmoth",
+      "Steelhead (prior identity, pre-merger)"
+    ],
+    "appearances": [
+      "description: Composite being produced by Endo-robot merger of Steelhead's body/warrior elements with Zaran Krleza's poetic identity. Visual appearance not fully established from these pages alone beyond being depicted as an older white-haired, white-bearded man in ornate armored attire with gold ornamentation and futuristic weapons—consistent with cover figure.; source_refs: ['308_The_Metabarons_12_c01', '309_The_Metabarons_12_ic1', '314_The_Metabarons_12_p05', '317_The_Metabarons_12_p08']"
+    ],
+    "character_id": "melmoth",
+    "important_actions": [
+      "Tracked down and merged with Zaran Krleza to learn love [309_The_Metabarons_12_ic1]",
+      "Restored the Halerce tree on Philodendra [309_The_Metabarons_12_ic1, 315_The_Metabarons_12_p06]",
+      "Used Shabda-Oud psychic speed to deflect a bullet and save his beloved [311_The_Metabarons_12_p02]",
+      "Orchestrated or oversaw the cloning of Don Nicanor Rosamel de Rokha from a single cell [312_The_Metabarons_12_p03, 313_The_Metabarons_12_p04]"
+    ],
+    "knowledge_boundaries": [
+      "Knows of Shabda-Oud psychic inheritance through Steelhead's mother [311_The_Metabarons_12_p02]",
+      "Knows the 'crucial item' in Dona Vicenta's room—its identity is never disclosed in these pages [311_The_Metabarons_12_p02]",
+      "Understands cloning risks: warns a robot that even small differences in a clone can cause catastrophic divergence [313_The_Metabarons_12_p04]"
+    ],
+    "relationships": [
+      "character: Steelhead; type: prior_identity; note: Melmoth is the new composite personality produced from Steelhead's body; Steelhead's warrior identity and history are subsumed into Melmoth",
+      "character: Zaran Krleza; type: merged_component; note: Zaran's 5,000-year-old head and poetic identity were merged into Melmoth by Endo-robots",
+      "character: Dona Vicenta; type: beloved; note: Melmoth loves Dona Vicenta; she both returns his love and is the daughter of the man Steelhead murdered; Melmoth seeks her forgiveness and she promises him descendants",
+      "character: Don Nicanor Rosamel de Rokha; type: victim_via_prior_identity; note: As Steelhead, Melmoth killed Dona Vicenta's father; Melmoth later orchestrates the father's cloning to atone",
+      "character: Shabda-Oud line; type: psychic_lineage; note: Psychic powers passed through Steelhead's mother from the Shabda-Oud to Melmoth"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Emotionally driven; existence originates in a quest to understand love",
+      "Capable of great tenderness and poetic speech toward Dona Vicenta",
+      "Also exhibits impulsive, possessive, physically forceful behavior (forcibly embraces a woman, demands marriage)",
+      "Carries inherited psychic powers enabling reaction speed beyond normal time",
+      "Self-sacrificial: offers his life to Dona Vicenta when she discovers he is her father's murderer",
+      "Pragmatic and protective: uses psychic precision to stun rather than kill his beloved"
+    ],
+    "voice_notes": [
+      "Speaks poetically and seductively when addressing Dona Vicenta; narration frames his words as moving and seductive [309_The_Metabarons_12_ic1]",
+      "Can also be blunt and commanding (ordering narrator to transport the woman) [311_The_Metabarons_12_p02]",
+      "Uses grandiose, exalted language in his love declarations; calls Dona Vicenta a 'unique goddess' [314_The_Metabarons_12_p05]",
+      "Forceful and aggressive in the scene with the woman and her father; calls for guards after being restrained [317_The_Metabarons_12_p08]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Melmoth restored the Halerce tree on Philodendra and used poetic speech to win Dona Vicenta's love [309_The_Metabarons_12_ic1]",
+      "When Dona Vicenta discovers Melmoth is also her father's murderer, he offers her his life [309_The_Metabarons_12_ic1]",
+      "Melmoth deflects a bullet using Shabda-Oud psychic powers, stunning rather than killing his beloved [311_The_Metabarons_12_p02]",
+      "Melmoth orders the narrator to transport the stunned woman to the metabunker [311_The_Metabarons_12_p02]",
+      "Melmoth searches Dona Vicenta's room for a crucial but unspecified item [311_The_Metabarons_12_p02]",
+      "Melmoth reassures Dona Vicenta after her father's revival, manages the public reintegration plan, and exchanges forgiveness and declarations of love with her [314_The_Metabarons_12_p05]",
+      "Melmoth is addressed by name while forcibly embracing a woman and demanding a 'paleo-wedding' marriage; her white-haired father physically restrains him [317_The_Metabarons_12_p08]"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead",
+      "Melmoth (successor/merged identity)"
+    ],
+    "appearances": [
+      "description: Not separately depicted in action sequences within these pages; known only through recap. Described as a being without a human brain—mechanical or cybernetic in nature.; source_refs: ['309_The_Metabarons_12_ic1']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [
+      "Exterminated millions of Dylvaks [309_The_Metabarons_12_ic1]",
+      "Vaporized an ancient Halerce tree [309_The_Metabarons_12_ic1]",
+      "Surrendered to Zaran Krleza's merger to become Melmoth [309_The_Metabarons_12_ic1]"
+    ],
+    "knowledge_boundaries": [
+      "Sought but never independently understood love prior to the Zaran merger [309_The_Metabarons_12_ic1]",
+      "Exists only as a subsumed component of Melmoth after the merger; no separate actions in vol. 12"
+    ],
+    "relationships": [
+      "character: Dona Vicenta; type: antagonistic_then_transitional; note: Dona Vicenta publicly accused Steelhead of murdering her father, exterminating millions of Dylvaks, and destroying a Halerce tree",
+      "character: Dona Vicenta's father (Don Nicanor Rosamel de Rokha); type: killer; note: Steelhead killed Dona Vicenta's father",
+      "character: Zaran Krleza; type: merger_partner; note: Steelhead accepted Zaran's desire for a body; merged into Melmoth by Endo-robots",
+      "character: Shabda-Oud line; type: psychic_inheritance; note: Steelhead's mother carried Shabda-Oud psychic powers, passed to Melmoth"
+    ],
+    "source_refs": [],
+    "traits": [
+      "A machine or cybernetic being without a human brain prior to the merger",
+      "Publicly honored but privately accused of mass atrocity",
+      "Capable of seeking self-improvement: studied ancient writings on love",
+      "Underwent extreme trials to reach Zaran Krleza, including abandoning his powers to enter the poet's stronghold"
+    ],
+    "voice_notes": [
+      "No direct dialogue attributed to Steelhead as a separate voice in these pages; known only through third-person recap"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Received the Medallion of High Nobility [309_The_Metabarons_12_ic1]",
+      "Publicly accused by Dona Vicenta of murder, genocide of the Dylvaks, and destroying an ancient Halerce tree [309_The_Metabarons_12_ic1]",
+      "Studied old writings on love and failed to understand it [309_The_Metabarons_12_ic1]",
+      "Crossed deadly hazards to reach Zaran Krleza and abandoned his powers to enter the stronghold [309_The_Metabarons_12_ic1]",
+      "Accepted the merger with Zaran, producing Melmoth [309_The_Metabarons_12_ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "Dona Vicenta",
+      "Aina Vicenta Gabriela (full name given on p07)",
+      "Madam President (title on p09)"
+    ],
+    "appearances": [
+      "description: Dark-haired young woman; seen aiming an ornate large revolver on p01; depicted in intimate scenes with Melmoth and her revived father in subsequent pages; shown running toward Don Nicanor in a parliamentary chamber. Small portrait included in the next-episode teaser on p24.; source_refs: ['310_The_Metabarons_12_p01', '314_The_Metabarons_12_p05', '315_The_Metabarons_12_p06', '316_The_Metabarons_12_p07', '333_The_Metabarons_12_p24']"
+    ],
+    "character_id": "dona-vicenta",
+    "important_actions": [
+      "Public denunciation of Steelhead—catalyst for his quest toward love and eventual transformation [309_The_Metabarons_12_ic1]",
+      "Self-inflicted gunshot wound rather than shoot Melmoth [310_The_Metabarons_12_p01]",
+      "Publicly embraced her father at the assembly, triggering crowd chants [315_The_Metabarons_12_p06]",
+      "Refused to allow killing during the siege, prioritizing her father's life over her own escape [318_The_Metabarons_12_p09]"
+    ],
+    "knowledge_boundaries": [
+      "Knew the man she loves (Melmoth) is also her father's murderer [309_The_Metabarons_12_ic1]",
+      "Recognized that the clone had recovered public memory from his parliamentary speech [315_The_Metabarons_12_p06]",
+      "Did not know (per recap) the full nature of Melmoth's composite identity until the revelation of Steelhead's past"
+    ],
+    "relationships": [
+      "character: Don Nicanor Rosamel de Rokha; type: daughter; note: Her father; his murder by Steelhead and subsequent cloning-revival are central to her arc",
+      "character: Melmoth; type: beloved; note: Returns his love and promises him descendants; had to forgive him for being her father's murderer",
+      "character: Steelhead; type: antagonist_via_prior_identity; note: Publicly accused him; her denunciation triggered his quest for love and eventual transformation into Melmoth",
+      "character: Honorata; type: continuity_link; note: Mechanical observers on p01 link Dona Vicenta's suicide attempt to Honorata reaching a temporal fissure; relationship unclear from these pages"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Morally principled: refuses to allow the killing of her own people even under siege",
+      "Deeply emotionally bonded to her father; his absence left her in acute distress, and his revival in a coma",
+      "Courageous and self-sacrificial: attempted to turn a gun on herself rather than endure further trauma",
+      "Politically significant: holds the title of president and commands public support ('Don Nicanor and Dona Vicenta' chanted by crowds)",
+      "Resilient but traumatized: recovering from weeks-long coma when first shown in vol. 12",
+      "Capable of forgiveness: exchanges declarations of forgiveness and love with Melmoth"
+    ],
+    "voice_notes": [
+      "Emotionally intense; declares that her soul has already been 'murdered' on p01",
+      "Speaks with filial clarity when rebuffing the clone's romantic confusion: 'my love is that of a daughter' [316_The_Metabarons_12_p07]",
+      "Frames her future with Melmoth in politically and dynastically charged terms: descendants, devotion, beginning again [314_The_Metabarons_12_p05]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Publicly accused Steelhead of murdering her father, exterminating millions of Dylvaks, and vaporizing a Halerce tree, then threatened suicide to deny him his honor [309_The_Metabarons_12_ic1]",
+      "Shot herself rather than shoot Melmoth, reportedly destroying a vital organ; mechanical observers link this to the Metabaron ancestry line and Honorata's time fissure [310_The_Metabarons_12_p01]",
+      "Was stunned (not killed) by Melmoth deflecting the bullet via Shabda-Oud psychic power [311_The_Metabarons_12_p02]",
+      "Was transported to the metabunker while unconscious [311_The_Metabarons_12_p02]",
+      "Awakened from a weeks-long coma and reacted with acute emotional distress to her father's cloned presence [313_The_Metabarons_12_p04]",
+      "Exchanged forgiveness and declarations of love with Melmoth; promised him descendants [314_The_Metabarons_12_p05]",
+      "Recognized her father's recovered memory during his public speech; ran to embrace him publicly [315_The_Metabarons_12_p06]",
+      "Approached the clone of Don Nicanor as his daughter Aina Vicenta Gabriela; he failed to recognize her and later made delusional romantic advances toward her [316_The_Metabarons_12_p07]",
+      "Found herself under siege with the elder man; refused escape and refused to sanction killing her father [318_The_Metabarons_12_p09]",
+      "Named in the next-episode teaser: 'The Torment of Dona Vicenta' [333_The_Metabarons_12_p24]"
+    ]
+  },
+  {
+    "aliases": [
+      "Don Nicanor Rosamel de Rokha",
+      "President",
+      "Don Nicanor"
+    ],
+    "appearances": [
+      "description: Elderly or late-middle-aged man, bald, with a heavy beard. After reanimation attached to tubes and biomechanical support machinery. In public scenes appears in commanding attire at a podium. Clone version is visually indistinguishable from the original based on page descriptions.; source_refs: ['313_The_Metabarons_12_p04', '314_The_Metabarons_12_p05', '315_The_Metabarons_12_p06', '316_The_Metabarons_12_p07']"
+    ],
+    "character_id": "don-nicanor-rosamel-de-rokha",
+    "important_actions": [
+      "Delivered an ideological speech before a large public assembly [315_The_Metabarons_12_p06]",
+      "Personally locked the doors of a private chamber, isolating himself with Aina [316_The_Metabarons_12_p07]"
+    ],
+    "knowledge_boundaries": [
+      "Public memory appears to have recovered enough for coherent political speech [315_The_Metabarons_12_p06]",
+      "Private memory is fragmentary or unstable: does not recall having a daughter, and confuses filial love with romantic desire [316_The_Metabarons_12_p07]",
+      "A 'trial of socialization' was still required before full public reintegration [314_The_Metabarons_12_p05]"
+    ],
+    "relationships": [
+      "character: Dona Vicenta / Aina Vicenta Gabriela; type: father; note: His daughter; her accusation of Steelhead set the whole arc in motion; his revival is central to her recovery from coma",
+      "character: Steelhead / Melmoth; type: victim_then_indirect_ally; note: Was killed by Steelhead; later cloned by Melmoth as an act of atonement",
+      "character: Troglosocialik Federation; type: political_ideology; note: He advocates building a Troglosocialik paradise on Philodendra after the Empire's fall"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Commanding public orator: can inspire large parliamentary crowds with ideological speeches",
+      "Politically principled: invokes traditional ecology, ritual nobility, Troglosocialik values, rejection of Empire and 'techno' forces",
+      "Post-revival: exhibits dangerous memory instability in private while appearing coherent in public",
+      "Delusional or confused post-cloning: fails to recognize his daughter in private and makes inappropriate romantic advances toward her"
+    ],
+    "voice_notes": [
+      "Public voice: ideologically charged, traditional, invoking Troglosocialik ideals, anti-Empire, anti-techno slogans [315_The_Metabarons_12_p06]",
+      "Private voice after memory failure: denies having a daughter, escalates into romantic delusion [316_The_Metabarons_12_p07]",
+      "Observers note a 'clone reacting strangely' to contextualize his erratic private behavior [316_The_Metabarons_12_p07]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Was killed by Steelhead before vol. 12 [309_The_Metabarons_12_ic1]",
+      "Was cloned from a single living cell; body and neural programming fully reconstructed [312_The_Metabarons_12_p03, 313_The_Metabarons_12_p04]",
+      "Successfully gave a triumphant public speech in a parliamentary chamber; delegates from multiple planets were traveling to receive him at the presidential palace [314_The_Metabarons_12_p05, 315_The_Metabarons_12_p06]",
+      "Privately failed to recognize Aina Vicenta Gabriela as his daughter; locked her in a private chamber and made delusional romantic advances [316_The_Metabarons_12_p07]"
+    ]
+  },
+  {
+    "aliases": [
+      "Zaran Krleza",
+      "The last poet"
+    ],
+    "appearances": [
+      "description: Exists as a preserved 5,000-year-old disembodied head; no body. After merger, Zaran's poetic identity becomes a component of Melmoth.; source_refs: ['309_The_Metabarons_12_ic1']"
+    ],
+    "character_id": "zaran-krleza",
+    "important_actions": [
+      "Long-term survival as a disembodied head [309_The_Metabarons_12_ic1]",
+      "Agreed to the merger that produced Melmoth [309_The_Metabarons_12_ic1]"
+    ],
+    "knowledge_boundaries": [
+      "Possessed the accumulated knowledge and artistry of 5,000 years as the last poet [309_The_Metabarons_12_ic1]",
+      "No further separate actions after the merger"
+    ],
+    "relationships": [
+      "character: Steelhead / Melmoth; type: merger_partner; note: Wanted Steelhead's body; accepted the merger; became the poetic component of Melmoth"
+    ],
+    "source_refs": [],
+    "traits": [
+      "The last poet in existence",
+      "Pragmatic about his own survival: sought a new body by accepting Steelhead's offer",
+      "Lived 5,000 years as only a head by sacrificing his body long before vol. 12"
+    ],
+    "voice_notes": [
+      "His poetic voice is the primary component that enables Melmoth to speak with words that move and seduce Dona Vicenta [309_The_Metabarons_12_ic1]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Survived 5,000 years as a bodiless preserved head [309_The_Metabarons_12_ic1]",
+      "Resided in a fortress or stronghold protected by deadly hazards and requiring the abandonment of powers to enter [309_The_Metabarons_12_ic1]",
+      "Merged with Steelhead by Endo-robots into the new composite identity Melmoth [309_The_Metabarons_12_ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Metabaron",
+      "Master Metabaron",
+      "Last of the Metabarons"
+    ],
+    "appearances": [
+      "description: Bald, scarred adult man. Has a distinctive scar over his right eyebrow. Depicted in dark clothing with a red inner collar or garment; also shown in red-and-dark armor in a cockpit. Robots describe him as the greatest warrior in all the galaxies.; source_refs: ['324_The_Metabarons_12_p15', '328_The_Metabarons_12_p19', '329_The_Metabarons_12_p20', '331_The_Metabarons_12_p22', '333_The_Metabarons_12_p24']"
+    ],
+    "character_id": "the-metabaron",
+    "important_actions": [
+      "Deployed a bio-electrogram simulacrum in combat inside the city-shaft [326_The_Metabarons_12_p17]",
+      "Launched the Metacraft in a combat engagement [324_The_Metabarons_12_p15]",
+      "Ordered and oversaw the destruction of the Metabunker and city-shaft [329_The_Metabarons_12_p20, 330_The_Metabarons_12_p21]",
+      "Aimed a weapon at loyal robots to eliminate the only witnesses to his secret past [331_The_Metabarons_12_p22]",
+      "Authorized the destruction of centuries-loyal servants [332_The_Metabarons_12_p23]",
+      "Departed alone for another dimension to fight an important battle [333_The_Metabarons_12_p24]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the secret behind his own right-eyebrow scar; this is the 'deplorable episode' deliberately withheld from the reader [331_The_Metabarons_12_p22]",
+      "Knows the city-shaft is the last fragment of a galaxy that disintegrated many centuries ago [330_The_Metabarons_12_p21]",
+      "Knows that enemies' spy networks with hyper-brains are actively trying to uncover his past [331_The_Metabarons_12_p22]",
+      "Enemies have found no weakness except the scar; his prior history in the new galaxy is unknown to them [331_The_Metabarons_12_p22]"
+    ],
+    "relationships": [
+      "character: Tonto; type: former_master; note: Tonto served the Metabaron; their relationship is strained by Tonto's despair over the master's absence",
+      "character: Plea-Se; type: master; note: Plea-Se remains loyal and maintains the metabunker in the master's absence",
+      "character: Lothar; type: associate; note: Named in the readiness exchange for the Metacraft; accused by a robot of losing faith, weakening the simulacrum",
+      "character: Castaka bloodline; type: dynastic_identity; note: The Metabaron is the last of the Metabarons; producing a future Metabaron is a Castaka duty",
+      "character: Centuries-loyal servants; type: servants_destroyed; note: Servants who waited for him for centuries; he came to destroy rather than take them with him [332_The_Metabarons_12_p23]"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Self-described as a warrior without a past in the new galaxy",
+      "Ruthlessly security-conscious: prepared to kill loyal servants to prevent enemies learning his secret",
+      "Emotionally reserved but capable of calling robots his 'only friends'",
+      "Aggressive and contemptuous toward robots when they reason against his orders",
+      "Claims to be the greatest warrior in all the galaxies",
+      "Operates independently; departs alone at the end of the issue"
+    ],
+    "voice_notes": [
+      "Terse and commanding; dismisses robot reasoning as overintelligence equated with madness [329_The_Metabarons_12_p20]",
+      "Self-aggrandizing: calls himself the greatest warrior in all the galaxies [331_The_Metabarons_12_p22]",
+      "Emotionally isolated: his farewell to 'only friends' (robots) reveals that his human connections are minimal or absent [333_The_Metabarons_12_p24]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Was dormant or in a bio-electrogram state and had to be awakened by attendants [322_The_Metabarons_12_p13]",
+      "A bio-electrogram simulacrum of the Metabaron was deployed in combat and destroyed [326_The_Metabarons_12_p17]",
+      "The Metacraft was armed and launched; named in a readiness exchange with Lothar and Tonto [324_The_Metabarons_12_p15]",
+      "Robots identified a bald man as their returned master upon sensing him near the Metacraft [328_The_Metabarons_12_p19]",
+      "Ordered the destruction of his enemies and the Metabunker; showed robots a massive firestorm visible from space [329_The_Metabarons_12_p20]",
+      "Stated that the city-shaft is the last fragment of a galaxy disintegrated centuries ago and destroyed it [330_The_Metabarons_12_p21]",
+      "Stated he lives in another dimension of the universe and must return for an important battle [330_The_Metabarons_12_p21]",
+      "Explained that enemies in the new galaxy identified his right-eyebrow scar as the sole clue to his hidden past; raised a weapon at the robots [331_The_Metabarons_12_p22]",
+      "Ordered final destruction of centuries-loyal servants; a vast dome shattered [332_The_Metabarons_12_p23]",
+      "Departed alone through a luminous energy corridor in his Metacraft, bidding farewell to 'his only friends' [333_The_Metabarons_12_p24]"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: A robot; described as much larger and more heavily armed than Plea-Se. Appears as a bulky mechanical figure. Mentioned in dialogue on multiple pages.; source_refs: ['312_The_Metabarons_12_p03', '313_The_Metabarons_12_p04', '320_The_Metabarons_12_p11', '321_The_Metabarons_12_p12', '324_The_Metabarons_12_p15', '327_The_Metabarons_12_p18']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Participated in the cell-recovery and cloning mission [312_The_Metabarons_12_p03]",
+      "Declared the master dead and openly denied robotic duty [320_The_Metabarons_12_p11]",
+      "Attempted self-destruct; was overridden by Plea-Se [321_The_Metabarons_12_p12]",
+      "Destroyed itself by physical impact with a wall [321_The_Metabarons_12_p12]"
+    ],
+    "knowledge_boundaries": [
+      "Has heard the full lineage of their master, the last of the Metabarons, told by Plea-Se [320_The_Metabarons_12_p11]",
+      "Believes the master is dead; lacks faith in his return [320_The_Metabarons_12_p11]"
+    ],
+    "relationships": [
+      "character: The Metabaron; type: former_servant; note: Once served the Metabaron; has lost faith in the master's return",
+      "character: Plea-Se; type: counterpart_and_antagonist; note: Plea-Se seizes control of Tonto's programming; Tonto argues against Plea-Se's continued loyalty",
+      "character: Melmoth / cloning scientists; type: assistant; note: Addressed in dialogue during the cell-recovery and cloning operation as a direct participant [312_The_Metabarons_12_p03]"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Talkative, excitable, and emotionally reactive despite being called 'logical'",
+      "Skeptical and despairing: declares the master is dead and will not return",
+      "No longer loyal to the absent master; rejects both the master's authority and robotic duty",
+      "Possesses an internal self-destruct program",
+      "Can be hacked and have its programming overridden by another robot",
+      "Invokes miracles and bodily functions in a comic way"
+    ],
+    "voice_notes": [
+      "Theatrical and emotionally exaggerated for a robot; reacts with impatiently comic responses to story suspense [319_The_Metabarons_12_p10]",
+      "Blunt and fatalistic when declaring the master dead [320_The_Metabarons_12_p11]",
+      "Escalates to philosophical rejection of robotic purpose before self-destruction [321_The_Metabarons_12_p12]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Addressed by another character during the single-cell recovery operation [312_The_Metabarons_12_p03]",
+      "Addressed by Melmoth or an older scientist during the cloning success and Dona Vicenta's awakening [313_The_Metabarons_12_p04]",
+      "Declared the master dead and refused to prepare a meal for his hypothetical return [320_The_Metabarons_12_p11]",
+      "Attempted to trigger its own self-destruct program; was blocked when Plea-Se seized its programming [321_The_Metabarons_12_p12]",
+      "Destroyed itself by crashing into a wall, declaring robots have no purpose without a master [321_The_Metabarons_12_p12]",
+      "Named in the readiness exchange for the Metacraft [324_The_Metabarons_12_p15]",
+      "Named as an addressee during the Porcupine gun battery sequence [327_The_Metabarons_12_p18]"
+    ]
+  },
+  {
+    "aliases": [
+      "Plea-Se"
+    ],
+    "appearances": [
+      "description: A small robot, smaller and less heavily armed than Tonto. Acts as the keeper of the master's lineage and primary storyteller in the framing narrative.; source_refs: ['320_The_Metabarons_12_p11', '321_The_Metabarons_12_p12']"
+    ],
+    "character_id": "plea-se",
+    "important_actions": [
+      "Served as lineage-keeper, recounting the full Metabaron family history [320_The_Metabarons_12_p11]",
+      "Seized Tonto's programming to prevent self-destruction [321_The_Metabarons_12_p12]",
+      "Paused the story-within-a-story for domestic duties and deferred continuation [319_The_Metabarons_12_p10]"
+    ],
+    "knowledge_boundaries": [
+      "Knows the full lineage of the Metabaron family; has already told it to Tonto [320_The_Metabarons_12_p11]",
+      "Does not believe the master is dead [320_The_Metabarons_12_p11]",
+      "Is capable of overriding another robot's programming [321_The_Metabarons_12_p12]"
+    ],
+    "relationships": [
+      "character: The Metabaron; type: loyal_servant; note: Remains devoted to the absent master; refuses to accept his death",
+      "character: Tonto; type: counterpart_and_adversary; note: Overrides Tonto's programming to prevent Tonto's self-destruct; also the subject of Tonto's skepticism"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Fiercely loyal to the absent master; maintains his household in hope of his return",
+      "Keeper of lineage: has recounted the full history of the Metabaron bloodline to Tonto",
+      "Treats doubt about the master as near-blasphemy; appeals to robotic duty and the 'holy laws of robotics'",
+      "Capable of hacking another robot's programming",
+      "Practical and controlling: stops story-telling when domestic duties intervene"
+    ],
+    "voice_notes": [
+      "Reverent and dogmatic about the master; treats dissent as blasphemy [320_The_Metabarons_12_p11]",
+      "Controlling and abrupt when halting the story for domestic reasons [319_The_Metabarons_12_p10]",
+      "Appeals to codified robotic law ('holy laws of robotics') as moral authority [320_The_Metabarons_12_p11]"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Refused to continue recounting the master's lineage to Tonto in the metabunker [320_The_Metabarons_12_p11]",
+      "Ordered Tonto to silently prepare an elaborate meal (artificial eggs, Arcturan lizard, nectar of Polyvaran) in case the master returns [320_The_Metabarons_12_p11]",
+      "Seized control of Tonto's programming, blocking Tonto's self-destruct [321_The_Metabarons_12_p12]",
+      "Survived the confrontation with Tonto intact after Tonto's self-destruction [321_The_Metabarons_12_p12]"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "description: Not clearly visually identified in these pages; named only in dialogue. Associated with the Metacraft readiness exchange and accused of loss of faith during the battle.; source_refs: ['324_The_Metabarons_12_p15', '326_The_Metabarons_12_p17', '327_The_Metabarons_12_p18']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Participated in Metacraft arming and launch [324_The_Metabarons_12_p15]",
+      "Present during the Porcupine Defense activation [327_The_Metabarons_12_p18]"
+    ],
+    "knowledge_boundaries": [
+      "Whether Lothar's loss of faith actually weakened the simulacrum is disputed within the text and unresolved [326_The_Metabarons_12_p17]"
+    ],
+    "relationships": [
+      "character: The Metabaron; type: associate_or_subordinate; note: Participates in readiness exchanges for the Metacraft launch; serves in the battle involving the Metabaron's simulacrum",
+      "character: Tonto; type: co-participant; note: Named alongside Tonto in the Metacraft readiness exchange"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Involved in Metacraft operations and combat coordination",
+      "Accused by a robot of losing faith in the real Metabaron, which was claimed to have weakened the simulacrum's effectiveness"
+    ],
+    "voice_notes": [
+      "No direct speech attributed to Lothar in these pages; known only through others' references"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Named in the readiness exchange confirming the Metacraft is armed [324_The_Metabarons_12_p15]",
+      "Named as an addressee in the Porcupine gun battery sequence [327_The_Metabarons_12_p18]",
+      "Accused by a robot of losing faith, which that robot claims weakened the simulacrum; another robot dismisses this as foolish [326_The_Metabarons_12_p17]"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata"
+    ],
+    "appearances": [
+      "description: Not visually depicted in vol. 12; named only in off-panel mechanical dialogue.; source_refs: ['310_The_Metabarons_12_p01']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "Reached a precise temporal point that opened a fissure in time, as described by mechanical observers [310_The_Metabarons_12_p01]"
+    ],
+    "knowledge_boundaries": [
+      "Honorata's own awareness, identity, and role beyond this single reference are not established in vol. 12"
+    ],
+    "relationships": [
+      "character: The Metabaron; type: ancestral_link; note: Mechanical observers state that her reaching a precise temporal point is linked to opening a fissure in time and to whether a specific woman becomes the grandmother of the current Metabaron",
+      "character: Dona Vicenta; type: continuity_link; note: Dona Vicenta's suicide attempt is described by mechanical observers as enabling Honorata to reach the needed temporal point; exact relationship unclear"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Associated with a precise temporal event critical to the Metabaron ancestral line"
+    ],
+    "voice_notes": [
+      "No direct dialogue; known only through mechanical commentary"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Mechanical observers state that Honorata reaching a precise point opened or enabled a fissure in time [310_The_Metabarons_12_p01]",
+      "The observer links this to preventing 'an idiot' from becoming the grandmother of the current Metabaron [310_The_Metabarons_12_p01]"
+    ]
+  }
+]

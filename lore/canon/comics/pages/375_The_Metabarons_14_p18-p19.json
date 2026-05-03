@@ -1,0 +1,84 @@
+{
+  "character_facts": [
+    "Doña Vicenta is the central authority receiving ambassadors and overseeing the agreement.",
+    "She is associated with a ruined castle on Philodendra and with her father's tomb there.",
+    "She remains emotionally attached to Philodendra even as people depart.",
+    "An unnamed speaker in the assembly accepts the deal in the name of the people's welfare.",
+    "An unnamed mother in the final panel wishes to be buried on Philodendra, indicating personal attachment to the planet."
+  ],
+  "characters_present": [
+    "Doña Vicenta",
+    "Ambassadors from multiple powers",
+    "Representatives of the Empire",
+    "Representatives of the Magnate",
+    "Representatives of the Techno Guild",
+    "Alien and human attendees at the assembly",
+    "Military pilots and fleet personnel implied by the battle imagery",
+    "Emigrants and carriers leaving Philodendra",
+    "An unnamed mother addressed in the final panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows earlier persuasion of Doña Vicenta by the narrator's 'master,' leading directly to the diplomatic agreement.",
+    "The ruined castle is now explicitly tied to Vicenta's father, linking present events to earlier family conflict or loss.",
+    "The evacuation to Magna appears to be a direct consequence of the contract and subsequent military purge of the trade routes."
+  ],
+  "dialogue_meaning": [
+    "The contract creates a shared governing structure between major powers over Bikramen distribution.",
+    "The displaced or bargaining population is promised economic uplift through a percentage of harvest profits.",
+    "They are also promised replacement homes in an artificial system comparable to their original worlds.",
+    "One participant agrees to the arrangement as a sacrifice for collective welfare.",
+    "Vicenta expresses enduring attachment to Philodendra despite large-scale resettlement.",
+    "The final exchange conveys grief and a wish to remain tied to the native land, answered with a request for patience."
+  ],
+  "image_sha256": "c06f79e9145d05a96c84b184f8cb99e836fd68c1c7c11411a70bf91e48b4b4bc",
+  "is_spread": true,
+  "locations": [
+    "A council or audience chamber where the contract is negotiated",
+    "Space trade routes under military assault",
+    "Philodendra",
+    "The ruins of Doña Vicenta's castle",
+    "Her father's tomb at or near the castle ruins",
+    "Magna",
+    "A Techno-Techno space freighter or transport"
+  ],
+  "lore_facts": [
+    "The Empire, the Magnate, and the Techno Guild can enter formal joint agreements over planetary resources and governance.",
+    "Bikramen is important enough to require multinational or multipower oversight of its distribution.",
+    "Planetary populations can be compensated with profit-sharing and relocation rather than keeping their original worlds.",
+    "Artificial planets exist and can be offered as substitutes for native worlds.",
+    "Imperial, Techno-Techno, and Magnate armadas can coordinate military action.",
+    "Philodendra is being depopulated or evacuated after the agreement and violence.",
+    "Magna is a destination for the departing emigrants.",
+    "Doña Vicenta's castle is in ruins, and the site is linked to her father's burial or memorial."
+  ],
+  "page_id": "375_The_Metabarons_14_p18-p19",
+  "page_label": "p18-p19",
+  "plot_events": [
+    "Doña Vicenta receives multiple ambassadors and finalizes a joint contract for the sale of a planet.",
+    "Representatives of the Empire, the Magnate, and the Techno Guild agree to jointly control distribution of Bikramen.",
+    "The inhabitants whose planets are being exchanged are promised a share of profits and admission into the Magnate's prosperity.",
+    "They are also promised an artificial planetary system matching their native worlds in scale.",
+    "A speaker accepts the arrangement for the good of the people.",
+    "After the agreements are signed, Imperial, Techno-Techno, and Magnate fleets carry out a brutal campaign to clear pirate forces from the trade routes.",
+    "Afterward, carriers and emigrants leave Philodendra for Magna aboard Techno-Techno transport ships.",
+    "From the ruins of her castle, now also associated with her father's tomb, Doña Vicenta watches the evacuation and reflects on not forgetting Philodendra.",
+    "A final exchange suggests a mother wishes to remain or be buried on Philodendra, while another character tells her to wait."
+  ],
+  "source_image": "external/comics/meta-barons/375_The_Metabarons_14_p18-p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c06f79e9145d05a96c84b184f8cb99e836fd68c1c7c11411a70bf91e48b4b4bc",
+      "page_id": "375_The_Metabarons_14_p18-p19",
+      "source_image": "external/comics/meta-barons/375_The_Metabarons_14_p18-p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several text boxes and speech balloons are small and partially difficult to read, especially exact institutional terms and the wording of the compensation promises.",
+    "The exact identity of the speaker who says the agreement is for the good of the people is unclear from the image alone.",
+    "The final panel's speaker attribution is ambiguous: the line about burial may come from an off-panel or enclosed mother rather than a clearly visible figure.",
+    "The source metadata labels the image as p18-p19, while the printed page numbers visible at the bottom appear to be 20 and 21."
+  ],
+  "visual_summary": "A two-page spread alternates between political negotiation and mass violence. On the left, Doña Vicenta presides over a formal assembly in a damaged, crowded chamber while alien and human representatives discuss a contract over planets, resource distribution, and relocation. On the right, large warships and smaller craft blast through space in a chaotic battle, followed by quieter scenes on a ruined, snowy landscape where carriers and emigrants depart from Philodendra near the remains of Vicenta's castle and her father's tomb.",
+  "volume": 14
+}

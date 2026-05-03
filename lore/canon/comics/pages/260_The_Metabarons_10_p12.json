@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The mother/master figure commands both her son and Steelhead.",
+    "She possesses psychic powers and is willing to endure pain to transmit them.",
+    "The son acts as an obedient subordinate and appears to wield or receive the hypnotic/psychic attack.",
+    "Steelhead is under extreme strain but continues resisting.",
+    "The mother is physically connected to elaborate machinery, suggesting reliance on or integration with technology."
+  ],
+  "characters_present": [
+    "Mother/master figure integrated with machinery",
+    "Her son/subordinate receiving orders",
+    "Armored fighter called Steelhead",
+    "Possible additional small operator/servitor manipulating the probe"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing psychic or technological assault rather than its beginning, implying the confrontation started earlier.",
+    "The page escalates toward a climax by moving from amplified psychic attack to full reserve release."
+  ],
+  "dialogue_meaning": [
+    "The mother directs her son to use a special hypnotic device to incapacitate an enemy.",
+    "The probe procedure is painful but intended to channel the mother’s psychic power into her subordinate.",
+    "The subordinate is under command pressure to amplify those powers successfully.",
+    "Steelhead is actively resisting the psychic attack.",
+    "The mother believes victory is near if Steelhead can hold out a little longer.",
+    "She reaches a limit and commits all remaining reserves and psychotronic power to the attack."
+  ],
+  "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+  "is_spread": false,
+  "locations": [
+    "Biomechanical control chamber or cockpit",
+    "Outer space around spacecraft/mechanical constructs"
+  ],
+  "lore_facts": [
+    "A device called the 'mega-hypnotic head' exists and can be used offensively to defeat or paralyze someone.",
+    "Psychic power can be transmitted through a probe from one being to another and multiplied.",
+    "'Psychotrons' are a finite resource or weapon system that can be released in reserve-draining fashion.",
+    "The conflict involves advanced biomechanical technology and spacefaring craft.",
+    "The target’s 'molecular unity' can be disrupted, implying a setting concept where bodily cohesion can be attacked or destabilized."
+  ],
+  "page_id": "260_The_Metabarons_10_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A mother figure tells her son he can defeat an opponent using a 'mega-hypnotic head' that belongs to the son.",
+    "The son agrees to paralyze the target.",
+    "A painful probe is inserted into an armored fighter’s head to transmit or amplify psychic power.",
+    "The receiving subordinate acknowledges the order to multiply psychic powers and not fail.",
+    "The armored fighter resists strongly enough to threaten his 'molecular unity.'",
+    "The mother urges Steelhead to keep fighting for a little longer because the enemy is close to being put to sleep permanently.",
+    "Unable to endure more, the mother orders reserves emptied and all remaining 'psychotrons' released.",
+    "A large energetic discharge or explosion follows this escalation."
+  ],
+  "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+      "page_id": "260_The_Metabarons_10_p12",
+      "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; terms like 'mega-hypnotic head,' 'molecular unity,' and 'psychotrons' are read with moderate uncertainty.",
+    "The exact identity and relationship labels of the son and Steelhead are not visually explained beyond dialogue.",
+    "It is unclear whether the small figure operating the probe is a separate character or part of the machinery.",
+    "The exact nature of the exploding object or discharge in the final panel is ambiguous."
+  ],
+  "visual_summary": "A biomechanical, insect-like woman or operator is embedded in machinery and handling a golden helmet/device while speaking to her son. In another panel, a probe or tool is driven into a grimacing armored man’s head, with energy arcing from the instrument. Several spacecraft or mechanical entities appear in space. The page ends with a bright explosion or discharge as the mother orders reserves and 'psychotrons' released, while urging someone called Steelhead to keep fighting.",
+  "volume": 10
+}

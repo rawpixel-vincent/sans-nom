@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The bald man is aggressive, contemptuous, and apparently commands the robots.",
+    "The robots are analytical and argumentative rather than blindly obedient.",
+    "The robots fear or oppose the destruction of the Metabunker."
+  ],
+  "characters_present": [
+    "A bald human-looking man in dark clothing with a red collar or inner garment",
+    "Multiple robots or robotic attendants, including small hovering or mobile units"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page references a prior effort to recover or 'rediscover' the future.",
+    "The destruction of the Metabunker is treated as a major turning point or culmination of an ongoing conflict."
+  ],
+  "dialogue_meaning": [
+    "The man claims there is no future to recover and frames destruction as necessary.",
+    "The robots see the Metabunker as tied to hope or life and find its destruction irrational.",
+    "The robots address the man as their master and seem to believe he may be deceiving them.",
+    "The man treats the robots' intelligence as flawed, equating it with madness.",
+    "He presents the external devastation as proof of his worldview or justification."
+  ],
+  "image_sha256": "56af5590907ca54e271ae686893a28c1293faa808fd23b8af1b363aef39e1947",
+  "is_spread": false,
+  "locations": [
+    "Interior of the Metabunker or a large mechanized corridor",
+    "A futuristic city or installation being destroyed",
+    "Outer space view beside a massive structure and a planetary body"
+  ],
+  "lore_facts": [
+    "There is a place or structure called the Metabunker.",
+    "At least some robots serve or answer to the bald man as their master.",
+    "The robots associate the Metabunker with hope of life.",
+    "A catastrophic destruction is occurring on a very large scale, visible from space."
+  ],
+  "page_id": "329_The_Metabarons_12_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A man declares that the future is gone and says both his enemies and the Metabunker must be destroyed.",
+    "Robots object to the destruction order and question why the hope of life should become a bringer of death.",
+    "The man dismisses the robots' reasoning and insults them.",
+    "He invites them to look at the 'true reality.'",
+    "A large-scale explosion or firestorm engulfs a futuristic built environment.",
+    "The final panel shows the disaster from space near a huge structure and a planet or moon."
+  ],
+  "source_image": "external/comics/meta-barons/329_The_Metabarons_12_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "56af5590907ca54e271ae686893a28c1293faa808fd23b8af1b363aef39e1947",
+      "page_id": "329_The_Metabarons_12_p20",
+      "source_image": "external/comics/meta-barons/329_The_Metabarons_12_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is partially hard to read, so exact wording and nuance may be imperfect.",
+    "It is unclear whether the fiery devastation is the Metabunker itself, a nearby city, or another connected installation.",
+    "The identity of the bald man is not established on this page alone.",
+    "The exact nature of the huge structure in the final space panel is not explicitly labeled."
+  ],
+  "visual_summary": "A bald human-looking man angrily confronts robots inside a large mechanical corridor or bunker. The robots protest his order, asking why they should destroy the Metabunker and implying he is their creator or master. He mocks robots as overintelligent and insane, then tells them to witness reality. The page then cuts to a massive fiery blast consuming a futuristic city or installation, followed by an exterior space view showing a huge structure and the burning area on a planetary surface.",
+  "volume": 12
+}

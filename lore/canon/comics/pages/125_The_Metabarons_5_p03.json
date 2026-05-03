@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "The Master is associated with overwhelming destructive force on this page.",
+    "At least one observer is shocked by the Master's action.",
+    "An armored figure is present as a witness or monitor rather than an active combatant on this page."
+  ],
+  "characters_present": [
+    "The Master (named in dialogue, not clearly seen in ordinary detail)",
+    "An armored observer or technician in a control room",
+    "A glowing humanoid figure aligned with the energy beam (identity uncertain)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an active assault on the Metabunker and likely continues a larger attack sequence.",
+    "The naming of 'the Master' implies this figure was introduced earlier or is already known to the speakers."
+  ],
+  "dialogue_meaning": [
+    "An observer reacts in alarm that the Master is cutting the Metabunker in half."
+  ],
+  "image_sha256": "f93a4e89252946a537a0b590b8e57f431bc51f722053efc42c77b5993d01d9ac",
+  "is_spread": false,
+  "locations": [
+    "An industrial urban or factory-like environment",
+    "The exterior area containing the Metabunker",
+    "A control room or observation station overlooking or monitoring the attack"
+  ],
+  "lore_facts": [
+    "A structure called the Metabunker exists and is important enough to be specifically identified.",
+    "The Master has the power or technology to project a destructive beam capable of cutting into the Metabunker.",
+    "The Metabunker is shown surrounded by a luminous spherical field or enclosure during the attack.",
+    "The setting includes heavy industrial architecture with pipes, towers, and machinery."
+  ],
+  "page_id": "125_The_Metabarons_5_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A powerful energy beam is directed at the Metabunker.",
+    "The beam appears to be slicing through the Metabunker.",
+    "Observers inside a control room witness the strike on screens or through a window.",
+    "The page ends with the Metabunker still enclosed in a glowing spherical barrier amid the industrial surroundings."
+  ],
+  "source_image": "external/comics/meta-barons/125_The_Metabarons_5_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f93a4e89252946a537a0b590b8e57f431bc51f722053efc42c77b5993d01d9ac",
+      "page_id": "125_The_Metabarons_5_p03",
+      "source_image": "external/comics/meta-barons/125_The_Metabarons_5_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The ghostly face-like figure behind the energy sphere may represent the Master visually, but the page does not state this explicitly.",
+    "The identity of the glowing humanoid figure in the beam is unclear from this page alone.",
+    "The small control-room text is readable in essence, but finer visual details of speakers and devices are limited by image resolution."
+  ],
+  "visual_summary": "Inside a dense industrial cityscape, a large faceted bunker-like structure sits inside a glowing spherical field. In three narrow top panels, a bright vertical energy beam descends onto or through the structure; a luminous figure appears aligned with the beam, and a ghostly, symmetrical, imposing visage is superimposed behind the energy sphere. A control-room view shows the beam cutting across monitors while an armored observer watches. The final wide panel returns to the exterior, emphasizing the bunker enclosed in its field as the strike continues.",
+  "volume": 5
+}

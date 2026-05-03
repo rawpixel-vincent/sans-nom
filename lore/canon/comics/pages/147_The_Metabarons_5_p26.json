@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The central white-haired woman knows Othon and Aghnar personally and speaks to them in an intimate, emotional farewell.",
+    "She cries openly on this page, and another character states this has happened only once before in their experience.",
+    "She cannot freely leave because a micro-bomb has been implanted in her chest.",
+    "She has superiors above her and considers her actions potentially treasonous to them.",
+    "One present character is addressed as 'Mother,' indicating a family relationship within the group."
+  ],
+  "characters_present": [
+    "A white-haired woman who is crying and making the confession",
+    "Othon",
+    "Aghnar",
+    "An older woman addressed as 'Mother'",
+    "A small robot or droid companion"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to occur during a departure or parting scene already in progress.",
+    "The dialogue references a prior first occasion when the crying woman was seen crying.",
+    "The revelation reframes her earlier refusal to leave as coercion rather than simple choice."
+  ],
+  "dialogue_meaning": [
+    "The crying woman tries to leave a vivid memory behind for Othon and Aghnar, linking herself to Okhar's carnivorous flowers.",
+    "She refuses to depart with the others, implying a forced separation.",
+    "Her tears are presented as rare and significant to those around her.",
+    "She admits she concealed the truth deliberately so the others would still leave.",
+    "Her final explanation is that she is under lethal control by her superiors through an implanted explosive."
+  ],
+  "image_sha256": "86e508e73ceeacdf3edf9f5116ff5de218937be05852cc671e30ee7608c88161",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or hangar-like departure area",
+    "A large industrial shaft or machinery-filled structure shown in a wide panel"
+  ],
+  "lore_facts": [
+    "Okhar is associated with carnivorous flowers whose scent is memorable enough to be used as a point of comparison or remembrance.",
+    "At least some superiors in this setting enforce loyalty with implanted micro-bombs.",
+    "Betrayal in that organization is punished by automatic death rather than ordinary discipline.",
+    "Small robot companions exist in this world and can be physically present in intimate personal scenes."
+  ],
+  "page_id": "147_The_Metabarons_5_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "A woman emotionally asks Othon and Aghnar not to forget the scent of Okhar's carnivorous flowers.",
+    "She states that she cannot accompany the departing group.",
+    "One character remarks that this is only the second time they have seen her cry, emphasizing how unusual her emotion is.",
+    "Her refusal shocks the others, shown through repeated startled reactions.",
+    "She says she withheld the truth until now because telling them earlier might have prevented their departure.",
+    "She reveals that a micro-bomb was implanted in her chest.",
+    "She explains that her superiors warned her that betraying them would mean death."
+  ],
+  "source_image": "external/comics/meta-barons/147_The_Metabarons_5_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "86e508e73ceeacdf3edf9f5116ff5de218937be05852cc671e30ee7608c88161",
+      "page_id": "147_The_Metabarons_5_p26",
+      "source_image": "external/comics/meta-barons/147_The_Metabarons_5_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and wording are difficult to read precisely; 'Aghnar' and parts of the flower reference may be slightly misread.",
+    "The exact identity of each white-haired figure is not fully explicit from this page alone.",
+    "The relationship of the older figure called 'Mother' to the crying woman and the others is not fully clarified on this page alone."
+  ],
+  "visual_summary": "A farewell scene turns into a revelation. In cold, metallic surroundings, a white-haired woman embraces or stands close to two white-haired companions while speaking emotionally through tears. Another figure calls attention to her crying, and several shocked close-ups follow. The page then cuts to a large industrial shaft or machinery-filled interior as the woman explains the reason she cannot leave: she says a micro-bomb was implanted in her chest and that her superiors made betrayal a death sentence.",
+  "volume": 5
+}

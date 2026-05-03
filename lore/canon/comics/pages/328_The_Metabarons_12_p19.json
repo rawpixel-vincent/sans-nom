@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The bald man is physically recognized by the robots as matching their master.",
+    "He appears surprised or unsettled when the comparison to the departed master is made.",
+    "The robots are intensely loyal and emotionally expressive toward the returning master figure."
+  ],
+  "characters_present": [
+    "A bald adult man in dark clothing",
+    "Multiple robots or mechanical servants",
+    "A small robot observer near the spacecraft"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page refers to a 'departed master,' implying an important prior figure in the story.",
+    "The recognition of the man as the returned master suggests a resemblance, identity claim, or legacy connection carried over from earlier events.",
+    "The Metacraft's duplication of an earlier ship suggests continuity with an older lineage, owner, or mission."
+  ],
+  "dialogue_meaning": [
+    "A robot recognizes the craft and links it directly to an earlier master's vessel.",
+    "The bald man is startled by the suggestion that he resembles or is connected to that departed master.",
+    "The robots' sensors identify the man as their returned master.",
+    "The robots express reverence, relief, and purpose at the master's apparent return."
+  ],
+  "image_sha256": "9eddcfe6e046df88706b2e88633157eb6f3a04ae5ce8c82d38927d98ac96b21f",
+  "is_spread": false,
+  "locations": [
+    "A large metallic hangar or interior chamber",
+    "The area around the stored spacecraft",
+    "A floor-level passage within the same industrial interior"
+  ],
+  "lore_facts": [
+    "There is a ship called the Metacraft.",
+    "The Metacraft is said on-page to be an exact copy of a departed master's ship, but larger.",
+    "The robots serve or once served a figure they call their master.",
+    "These robots rely on sensors to identify individuals.",
+    "The master's absence has left the robots with a diminished or suspended sense of purpose, which they say is restored by the return."
+  ],
+  "page_id": "328_The_Metabarons_12_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A hidden or stored spacecraft is shown inside a large interior chamber.",
+    "A robot identifies the vessel as the Metacraft.",
+    "The robot claims the ship is an exact but larger copy of the departed master's ship.",
+    "A bald man reacts to being associated with the departed figure.",
+    "Robots detect the man's presence and conclude that their master has returned.",
+    "The robots respond with extreme devotion and emotional excitement as the man walks onward."
+  ],
+  "source_image": "external/comics/meta-barons/328_The_Metabarons_12_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9eddcfe6e046df88706b2e88633157eb6f3a04ae5ce8c82d38927d98ac96b21f",
+      "page_id": "328_The_Metabarons_12_p19",
+      "source_image": "external/comics/meta-barons/328_The_Metabarons_12_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the bald man is not stated on this page alone.",
+    "The exact identity of the departed master is not stated on this page alone.",
+    "Some dialogue is small and partially difficult to read precisely, though the main meaning is clear.",
+    "It is unclear whether the robots' identification is correct, mistaken, or symbolic."
+  ],
+  "visual_summary": "A sleek black spacecraft is revealed inside a vast metallic interior, highlighted by bright beams of light. A small robot identifies it as the Metacraft and says it is an enlarged exact copy of the ship of the 'departed master.' A bald, stern-looking man reacts in surprise, then stands as nearby robots emit bright energy or sparks around him. In the final panel he walks away while damaged or kneeling robots address him reverently, believing their master has returned.",
+  "volume": 12
+}

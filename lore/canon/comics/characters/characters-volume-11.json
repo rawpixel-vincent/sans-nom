@@ -1,0 +1,430 @@
+[
+  {
+    "aliases": [
+      "Steelhead",
+      "the Master",
+      "supreme Metabaron",
+      "future Supreme Metabaron"
+    ],
+    "appearances": [
+      "description: Large white and silver heavily armored humanoid with a rigid mechanical head, mounted guns/cannons, and metal fingers. Physically imposing and much larger than most opponents.; source_refs: ['277_The_Metabarons_11_c01', '279_The_Metabarons_11_p01', '281_The_Metabarons_11_p03', '282_The_Metabarons_11_p04']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [
+      "Fought and defeated Aghnar across dimensions in Metacraft; mutilated Honorata; drove both to suicide by mini-bomb (recap, ic1)",
+      "Defeated dimensional vampires that breached reality through the battle-rift (ic1)",
+      "Assassinated Don Nicanor Rosamel de Rokha during morning meditation on Philodendra to clear the way for his investiture (ic1)",
+      "Overpower Dona Vicenta at the investiture ceremony, threw her aside, ordered her safely returned to Philodendra (p03–p04)",
+      "Vowed to destroy the Golden Planet and its empress after learning love (p04)",
+      "Searched more than 3,500 planets and artificial satellites for written knowledge of love (p05)",
+      "Destroyed Terra Prima's omni-library in frustration when ancient paper crumbled uselessly (p05)",
+      "Survived acid storms and giant pachydermic jellyfish to reach Zaran Krleza's fortress at the galaxy's edge (p08–p09)",
+      "Passed the soul trial by producing a musical note with the ancient bow, soothing the octo-tiger to sleep without killing it (p10–p12)",
+      "Agreed to surgical ego-erasing fusion with Zaran Krleza's surviving head; endured without anesthetic (p14)"
+    ],
+    "knowledge_boundaries": [
+      "Does not know how to love and explicitly admits this (p04, p13)",
+      "Does not know how to use an ancient bow without arrows until he abandons rational logic (p12)",
+      "Unaware at investiture ceremony that Dona Vicenta would appear with evidence (p01)"
+    ],
+    "relationships": [
+      "target: Aghnar; nature: Fought in cross-dimensional duel; mutilated Aghnar's companion Honorata to force surrender; Steelhead won; source_refs: ['278_The_Metabarons_11_ic1']",
+      "target: Honorata; nature: Grievously mutilated her during the duel with Aghnar as a tactical act of cruelty; source_refs: ['278_The_Metabarons_11_ic1']",
+      "target: Don Nicanor Rosamel de Rokha; nature: Assassinated him during morning meditation on Philodendra to remove the only blocking vote at his investiture; source_refs: ['278_The_Metabarons_11_ic1', '279_The_Metabarons_11_p01']",
+      "target: Dona Vicenta Gabriela de Rokha; nature: She is his adversary and the object of his dynastic reproductive ambitions; he physically overpowers her, orders her returned safely, and declares he will learn love for her; source_refs: ['280_The_Metabarons_11_p02', '281_The_Metabarons_11_p03', '282_The_Metabarons_11_p04']",
+      "target: Tonto; nature: Robot companion/servant at the Metabunker; traces signals and warns Steelhead of relational consequences; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15']",
+      "target: The Central Brain; nature: Advising intelligence that directed him to Terra Prima's omni-library; source_refs: ['283_The_Metabarons_11_p05']",
+      "target: Lothar; nature: Machine interlocutor on his ship; holds an anti-romantic philosophy Steelhead argues against; source_refs: ['283_The_Metabarons_11_p05']",
+      "target: Zaran Krleza; nature: Sought him as a teacher of love; agreed to surgical fusion with his surviving head, dissolving both egos to form Melmoth; source_refs: ['285_The_Metabarons_11_p07', '291_The_Metabarons_11_p14']",
+      "target: The Empress; nature: She appealed to him to defeat dimensional vampires; in exchange he demanded the title of Supreme Metabaron; later threatens to destroy the Golden Planet and its empress; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Ruthless and treacherous — mutilated Honorata to break Aghnar's resolve",
+      "Militarily devastating — capable of killing thousands of enemies in minutes",
+      "Emotionally volatile — smashes ant-robots in rage at Metabunker",
+      "Prideful about combat supremacy — dismisses the need for any further trial",
+      "Persistent — searched 3,500+ planets for knowledge of love",
+      "Politically opportunistic — leveraged the vampire crisis to demand the title of Supreme Metabaron",
+      "Admits openly he does not know how to feel love"
+    ],
+    "voice_notes": [
+      "Cynical about honor in public speech: plans to display honor outwardly while profiting (p01)",
+      "Boastful: calls himself the galaxy's greatest warrior and dismisses the soul trial requirement (p08–p09)",
+      "Admits vulnerability openly: states he must find a teacher who can show him what love is (p04)",
+      "Speaks with contempt toward Dona Vicenta while physically dominating her (p03–p04)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Cross-dimensional combat can tear open reality breaches that admit hostile vampiric entities (ic1)",
+      "Ancient paper on Terra Prima disintegrates on contact with his metal fingers (p05)",
+      "Many seekers attempted Zaran Krleza's fortress over 5,000 years; he is the first to survive the approach (p08-p09)",
+      "The soul trial cannot be won by brute force alone — the octo-tiger must be subdued without killing (p10)",
+      "A musical note from the ancient bow pacifies the octo-tiger (p12)"
+    ]
+  },
+  {
+    "aliases": [
+      "Melmoth",
+      "the Master (post-fusion)",
+      "another Melmoth (p23 self-identification)",
+      "formerly Steelhead (body) + Zaran Krleza (head)"
+    ],
+    "appearances": [
+      "description: Elderly human head with long white hair and beard mounted on a humanoid mechanical/armored body. Wears a cape in public and a blue robe in intimate settings. The head appears organic and aged; the body is non-natural.; source_refs: ['292_The_Metabarons_11_p15', '299_The_Metabarons_11_p22']",
+      "description: In combat configuration retains Steelhead's massive armored war-machine form with gun-like limbs.; source_refs: ['294_The_Metabarons_11_p17']"
+    ],
+    "character_id": "melmoth",
+    "important_actions": [
+      "Named himself Melmoth upon emerging from surgery; declared love for Dona Vicenta (p15)",
+      "Traveled to Gzayn in the Dark Galaxy and killed all 72,000 macromite defenders of the temple (p17)",
+      "Triggered the temple's buried self-destruct switch (p18)",
+      "Extracted the Halerce tree and its 9 million Djy-ouk birds in a containment cylinder before the planet's destruction (p19)",
+      "Delivered the Halerce tree to Philodendra as an act of love; neutralized the Imperial Endoguards (p20–p21)",
+      "Confronted Dona Vicenta in a radiant golden environment and revealed his identity (p22–p23)",
+      "Offered her the Castaka paleo-revolver and urged her to take revenge on him (p24)"
+    ],
+    "knowledge_boundaries": [
+      "Knows his past violence against Dona Vicenta's family makes his love-quest appear impossible (p15)",
+      "Believes love can overcome murder and death — Dona Vicenta explicitly rejects this (p23)"
+    ],
+    "relationships": [
+      "target: Dona Vicenta Gabriela de Rokha; nature: Loves her and wants to father a child with her to continue the Metabaron clan; she both loves and hates him because he murdered her father; source_refs: ['292_The_Metabarons_11_p15', '300_The_Metabarons_11_p23', '301_The_Metabarons_11_p24']",
+      "target: Tonto; nature: Small robot servant and companion who warns him of relational impossibilities and admires his power; source_refs: ['292_The_Metabarons_11_p15', '298_The_Metabarons_11_p21']",
+      "target: Steelhead; nature: Prior ego dissolved in surgical fusion; Melmoth's body originates from Steelhead; source_refs: ['291_The_Metabarons_11_p14', '292_The_Metabarons_11_p15', '300_The_Metabarons_11_p23']",
+      "target: Zaran Krleza; nature: Prior ego dissolved in surgical fusion; Melmoth's head and poetic/emotional qualities originate from Zaran Krleza; source_refs: ['291_The_Metabarons_11_p14', '300_The_Metabarons_11_p23']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Claims to have developed genuine emotional capacity after the fusion",
+      "Theatrically romantic and poetic — addresses Dona Vicenta in devotional language",
+      "Still tactically lethal — slaughtered 72,000 macromites without hesitation",
+      "Seeks procreation to continue/perfect the Metabaron lineage",
+      "Capable of rendering an entire army unconscious without killing",
+      "Believes forgiveness and redemption are possible despite his past crimes"
+    ],
+    "voice_notes": [
+      "Describes himself as 'complete' — a union of poet and warrior (p15, p23)",
+      "Speaks in elaborate, devotional romantic language to Dona Vicenta (p22–p24)",
+      "Argues that love and forgiveness can supersede murder; Dona Vicenta refuses (p23–p24)",
+      "Theatrically frames his deeds — the massacre of 72,000 beings — as romantic gifts (p21)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "The Halerce tree had been a scorched hole on Philodendra the day before he restored it (p21)",
+      "Dona Vicenta's Imperial Endoguards could be rendered unconscious by his means (p20–p21)"
+    ]
+  },
+  {
+    "aliases": [
+      "Dona Vicenta Gabriela de Rokha",
+      "Doña Vicenta Gabriela de Rokha",
+      "Donna Vicenta Gabriela de Rokha (variant spelling in p15)"
+    ],
+    "appearances": [
+      "description: Dark-haired woman in military-style clothing and boots. Armed with a hyper-pistol. Later shown in civilian attire in bedroom scenes on Philodendra.; source_refs: ['280_The_Metabarons_11_p02', '297_The_Metabarons_11_p20']"
+    ],
+    "character_id": "dona-vicenta-gabriela-de-rokha",
+    "important_actions": [
+      "Interrupted the investiture ceremony by presenting her father's remains and naming Steelhead as his murderer (p01)",
+      "Formally cast a dissenting vote blocking the unanimous requirement for the Medallion of High Nobility (p02)",
+      "Drew her hyper-pistol to her own head as a protest suicide threat (p02)",
+      "Refused to submit to Steelhead's demand for her vote even under physical coercion (p03–p04)",
+      "Woke to Djy-ouk birdsong, investigated her open room and sleeping guards, discovered the Halerce tree restored (p20–p21)",
+      "Confronted Melmoth in the golden environment; learned he killed her father; refused forgiveness (p22–p23)",
+      "Received the Castaka paleo-revolver from Melmoth at end of volume; outcome deferred (p24)"
+    ],
+    "knowledge_boundaries": [
+      "Did not know Melmoth's identity when she first found herself attracted to him in the golden environment (p22–p23)",
+      "Does not know who put her guards to sleep at the start of p20"
+    ],
+    "relationships": [
+      "target: Don Nicanor Rosamel de Rokha; nature: Her father; President of the Troglosocialik Confederation; murdered by Steelhead before the investiture ceremony; she presents his remains as evidence; source_refs: ['279_The_Metabarons_11_p01', '282_The_Metabarons_11_p04']",
+      "target: Steelhead / Melmoth; nature: He murdered her father; physically overpowered her; she blocked his ceremony; later develops feelings for him as Melmoth before learning his identity; declares she loves and hates him most; source_refs: ['280_The_Metabarons_11_p02', '300_The_Metabarons_11_p23', '301_The_Metabarons_11_p24']",
+      "target: The Empire / The Empress; nature: Imperial Purple Endoguards have been stationed around her, implying imperial protection or surveillance; source_refs: ['297_The_Metabarons_11_p20']",
+      "target: Metabaron lineage; nature: Claims clan membership or descent; invokes it as authority at the ceremony; source_refs: ['280_The_Metabarons_11_p02']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Forceful and principled — interrupts a major public ceremony alone",
+      "Willing to die publicly rather than endorse a corrupt ceremony",
+      "Identifies herself as a member or descendant of the Metabaron lineage",
+      "Refuses to submit even when physically overpowered",
+      "Emotionally conflicted — loves and hates Melmoth simultaneously",
+      "Alert and investigative — immediately notices birdsong, open doors, sleeping guards",
+      "Refuses to accept the Halerce tree's return as compensation for her father's murder"
+    ],
+    "voice_notes": [
+      "Accuses Steelhead of destroying the 250,000-year-old Halerce tree and exterminating five million Dyukka-birds (p02)",
+      "Invokes Metabaron lineage: 'a Metabaron is part of a lineage that will continue after her death' (p02)",
+      "To Melmoth: 'I love you most and hate you most' (p23–p24)",
+      "Refuses the Halerce tree as atonement: 'a tree can be replaced but her father cannot' (p23)",
+      "Her father is described as enlightened, meditating, and associated with Philodendra (p04)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Her father's remains — a skull or bone fragments — were presented by her at the investiture ceremony as evidence of murder (p01)",
+      "Steelhead physically threw her aside before a large public crowd (p03–p04)",
+      "The site of the Halerce tree on Philodendra was a scorched hole the day before Melmoth restored it (p21)",
+      "Her Imperial Endoguards were rendered unconscious by an unknown actor (p20)"
+    ]
+  },
+  {
+    "aliases": [
+      "Zaran Krleza",
+      "Zaran Kleza (variant spelling, p08-09)",
+      "Zoran Krleza (variant spelling, p23)",
+      "Zaran Kreza (variant spelling, p13)",
+      "the last poet"
+    ],
+    "appearances": [
+      "description: Disembodied human head with long white hair and beard, suspended in cables and machinery inside his fortress. Only the head survives of his original body.; source_refs: ['290_The_Metabarons_11_p13', '291_The_Metabarons_11_p14']"
+    ],
+    "character_id": "zaran-krleza",
+    "important_actions": [
+      "Survived 5,000 years as a preserved disembodied head by sacrificing the rest of his body to keep his soul alive (p13)",
+      "Greeted Steelhead as a long-awaited 'culmination' and refused forced entry to his fortress (p08–p09)",
+      "Devised the soul trial: ancient bow without arrows, must defeat octo-tiger without killing it (p10)",
+      "Proposed and accepted surgical fusion with Steelhead's body; endured without anesthetic (p14)"
+    ],
+    "knowledge_boundaries": [
+      "Cannot pursue physical love — lacks a body; substitutes verbal/spiritual love",
+      "Poetry still survives within his mind even without a body (p13)"
+    ],
+    "relationships": [
+      "target: Steelhead / Melmoth; nature: Agreed to surgical fusion of his surviving head with Steelhead's body; both prior egos dissolved to produce Melmoth; source_refs: ['291_The_Metabarons_11_p14', '292_The_Metabarons_11_p15']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Extremely patient — waited 5,000 years for his 'culmination'",
+      "Values soul and inner worth over combat strength",
+      "Poetic and emotionally refined",
+      "Sacrificed his body to preserve his soul and keep poetry alive",
+      "Contrasts verbal/spiritual love with physical/carnal love",
+      "Frames emotion as something that must be opened into, not academically taught",
+      "Believed dead or extinct for approximately 5,000 years before Steelhead found him"
+    ],
+    "voice_notes": [
+      "States emotions cannot be taught directly (p13)",
+      "Frames entry requirements as a soul trial, not a strength test: 'I want to judge your soul' (p08–p09)",
+      "Philosophy of love: verbal and spiritual love over carnal — regrets lack of body but does not regret the sacrifice (p13)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Many seekers attempted to reach his fortress over 50 centuries; none succeeded before Steelhead (p08–p09)",
+      "Steelhead passed his soul trial by producing music rather than violence (p12)"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: Small spherical or round robot. Compact and mobile. Rides on or near Steelhead/Melmoth.; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Traced the accidental signal to Zaran Krleza's planet at the galaxy's edge (p06–p07)",
+      "Warned Melmoth that Dona Vicenta would hate him because of his past violence toward her family (p15)",
+      "Explained Melmoth's deeds — massacre of 72,000 macromites, recovery of the Halerce tree and birds — to Dona Vicenta on Philodendra (p21)",
+      "Provided a crude reductionist counter-explanation for Dona Vicenta's feelings for Melmoth, dismissed by others (p23)"
+    ],
+    "knowledge_boundaries": [
+      "Knows Melmoth's full history of violence against Dona Vicenta's family (p15)",
+      "Familiar with the concept that poetry was considered galaxy-wide extinct (p06)"
+    ],
+    "relationships": [
+      "target: Steelhead / Melmoth; nature: Loyal robot servant and companion; resides at the Metabunker; accompanies him to Philodendra; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15', '298_The_Metabarons_11_p21']",
+      "target: Dona Vicenta Gabriela de Rokha; nature: Explains Melmoth's deeds to her; admires Melmoth's power and wants to meet him; source_refs: ['298_The_Metabarons_11_p21']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Capable of tracing and identifying signal sources",
+      "Knowledgeable enough to distinguish modern poetry from ancient recorded material",
+      "Excitable and reverential toward his master",
+      "Pragmatic — warns Melmoth of relational impossibilities",
+      "Occasionally abrasive and vulgar in his explanations (p23)",
+      "Loyal but candid"
+    ],
+    "voice_notes": [
+      "Admires Melmoth's power, especially his ability to render an entire army unconscious (p21)",
+      "Blunt and vulgar when explaining romantic attraction in biological/mechanical terms (p23)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "The accidental activation of the signal-detection machine at the Metabunker that projected a man reciting poetry (p06)",
+      "The projected man was reciting love poetry, considered impossible because poetry was believed extinct (p06)",
+      "Successfully traced the signal source to the galaxy's edge after six months of travel (p07)"
+    ]
+  },
+  {
+    "aliases": [
+      "Don Nicanor Rosamel de Rokha"
+    ],
+    "appearances": [
+      "description: Not depicted alive. Only remains — a skull or bone fragments — are presented by his daughter at the investiture ceremony.; source_refs: ['279_The_Metabarons_11_p01']"
+    ],
+    "character_id": "don-nicanor-rosamel-de-rokha",
+    "important_actions": [
+      "Held the ambassadorial vote required for unanimity at the Medallion of High Nobility ceremony (ic1, p01)",
+      "Was killed by Steelhead during morning meditation on Philodendra (ic1)"
+    ],
+    "knowledge_boundaries": [
+      "Deceased before the volume's present action; all information is secondhand via recap and Dona Vicenta's testimony"
+    ],
+    "relationships": [
+      "target: Dona Vicenta Gabriela de Rokha; nature: Father; she presents his remains and invokes his memory throughout the volume; source_refs: ['279_The_Metabarons_11_p01', '282_The_Metabarons_11_p04']",
+      "target: Steelhead; nature: Assassinated by Steelhead during morning meditation on Philodendra to remove the only expected opponent to his investiture ceremony; source_refs: ['278_The_Metabarons_11_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Described as enlightened",
+      "Associated with meditation",
+      "Political authority: held the decisive vote that could have blocked Steelhead's Medallion of High Nobility"
+    ],
+    "voice_notes": [
+      "Dona Vicenta's father: 'waste your time on meditation as your enlightened father did' — Steelhead's contemptuous description (p04)"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Aghnar"
+    ],
+    "appearances": [
+      "description: Armored warrior; fought in a cross-dimensional duel against Steelhead in Metacraft. Specific armor color/design not described beyond prior-arc context.; source_refs: ['278_The_Metabarons_11_ic1']"
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "Fought Steelhead across dimensions in Metacraft and gained the upper hand before surrendering (ic1)",
+      "Detonated a mini-bomb inside his body in suicide pact with Honorata/Oda after Steelhead mutilated her (ic1)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "target: Honorata / Oda; nature: Companion; died together by detonating mini-bombs in their bodies after Steelhead mutilated her; source_refs: ['278_The_Metabarons_11_ic1']",
+      "target: Steelhead; nature: Opponent in a cross-dimensional duel; defeated when Steelhead mutilated Honorata to force surrender; later died by suicide; source_refs: ['278_The_Metabarons_11_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Experienced and skilled fighter — gained the advantage in the duel before the surrender",
+      "Emotionally committed to Honorata/Oda — could not bear to watch her mutilated",
+      "Chose death over capitulation"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Steelhead's treachery in mutilating Honorata after a surrender was indicated (ic1)"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata",
+      "Oda",
+      "Oda/Honorata"
+    ],
+    "appearances": [
+      "description: Not visually described in detail; mentioned only in the recap summary.; source_refs: ['278_The_Metabarons_11_ic1']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "Was mutilated by Steelhead as a tactical move to break Aghnar's resolve (ic1)",
+      "Chose to rejoin Aghnar and detonated a mini-bomb in her body in a suicide pact (ic1)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "target: Aghnar; nature: Companion; chose to rejoin him in a mutual suicide after Steelhead's mutilation; source_refs: ['278_The_Metabarons_11_ic1']",
+      "target: Steelhead; nature: Victim of grievous mutilation used as tactical leverage against Aghnar; source_refs: ['278_The_Metabarons_11_ic1']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Chose reunion with Aghnar in death over survival under Steelhead's control"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Empress",
+      "the Imperial Couple (with her consort, prior arc)"
+    ],
+    "appearances": [
+      "description: Not clearly depicted in surviving pages of this volume; referenced in recap and dialogue.; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']"
+    ],
+    "character_id": "the-empress",
+    "important_actions": [
+      "Appealed to Steelhead for help against the vampiric entities invading through the dimensional breach (ic1)",
+      "Stationed Purple Endoguards around Dona Vicenta Gabriela de Rokha on Philodendra (p20)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "target: Steelhead / Melmoth; nature: She appealed to him to defeat dimensional vampires; he demanded the Supreme Metabaron title in exchange; he later threatens to destroy the Golden Planet and its 'stinking empress'; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']",
+      "target: Dona Vicenta Gabriela de Rokha; nature: The Empress stationed Purple Endoguards around Dona Vicenta on Philodendra; source_refs: ['297_The_Metabarons_11_p20']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Appealed to Steelhead for help when the imperial palace was overrun by vampiric entities",
+      "Rules the empire from the Golden Planet",
+      "Target of Steelhead's future threat after the failed investiture"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Vampiric entities entered the Imperial Palace through a breach caused by Steelhead's cross-dimensional battle with Aghnar (ic1)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Central Brain"
+    ],
+    "appearances": [
+      "description: Advising intelligence; not visually depicted with detail in this volume.; source_refs: ['283_The_Metabarons_11_p05']"
+    ],
+    "character_id": "the-central-brain",
+    "important_actions": [
+      "Directed Steelhead to visit Terra Prima and its omni-library as a potential source of knowledge about love (p05)"
+    ],
+    "knowledge_boundaries": [
+      "Directed Steelhead to Terra Prima but the library's ancient paper proved useless on contact (p05)"
+    ],
+    "relationships": [
+      "target: Steelhead; nature: Advising intelligence that directed him to Terra Prima's omni-library in his search for knowledge of love; source_refs: ['283_The_Metabarons_11_p05']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Knowledgeable about galactic geography and ancient sites",
+      "Analytical and advisory in function"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "description: Machine interlocutor aboard Steelhead's ship or at the Metabunker; associated with a giant robot-like presence in one panel.; source_refs: ['283_The_Metabarons_11_p05']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Believes machines cannot understand or learn love — explicitly stated (p05)"
+    ],
+    "relationships": [
+      "target: Steelhead; nature: Associated with his ship/bunker; argues against Steelhead's quest for love; source_refs: ['283_The_Metabarons_11_p05']"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Hard rationalist and anti-romantic — insists machines have no teacher for love",
+      "Dismisses romantic ideas as volatile and foolish human concepts",
+      "Rebuked by another voice for allowing too narrow a philosophy"
+    ],
+    "voice_notes": [
+      "Argues love is 'a foolish, volatile human concept' and machines have no teacher for it (p05)"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

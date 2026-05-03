@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Doña Vicenta Gabriela de Rokha is a named female character on this page.",
+    "She is under imperial guard protection.",
+    "She is alert enough to immediately notice the birdsong, the open doors, and her sleeping guards.",
+    "She appears alarmed but takes action to investigate the disturbance herself."
+  ],
+  "characters_present": [
+    "Doña Vicenta Gabriela de Rokha",
+    "Purple Endoguard bodyguards"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The mention that dyukka-birds are thought dead refers to prior story knowledge not explained on this page.",
+    "The presence of imperial guards implies an ongoing political or security situation carried over from earlier pages.",
+    "The final reveal beyond the curtains is set up to continue on the next page."
+  ],
+  "dialogue_meaning": [
+    "Narration establishes the time and place and identifies the waking woman as Doña Vicenta Gabriela de Rokha.",
+    "Her thoughts focus on the unexpected return of dyukka-bird song.",
+    "The narration states her guards, sent by the Empire, are asleep.",
+    "She internally asks who could have incapacitated them.",
+    "Her final expression indicates shock at whatever is beyond the balcony curtains."
+  ],
+  "image_sha256": "7df03c6ae7f6e61e65964f62f9eac7a3e333dab63a5b7f0168880d422ae0c7ee",
+  "is_spread": false,
+  "locations": [
+    "Philodendra",
+    "Doña Vicenta Gabriela de Rokha's bedroom",
+    "living room",
+    "presidential balcony"
+  ],
+  "lore_facts": [
+    "Philodendra is the setting of this scene.",
+    "Doña Vicenta Gabriela de Rokha resides in a presidential suite or residence with a balcony.",
+    "Dyukka-birds are considered dead or absent enough that hearing them alive is startling.",
+    "The Empire has stationed Purple Endoguard guards around Doña Vicenta Gabriela de Rokha.",
+    "Those guards can be rendered unconscious or put to sleep by an unknown actor."
+  ],
+  "page_id": "297_The_Metabarons_11_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "The scene shifts to Philodendra at dawn.",
+    "Doña Vicenta Gabriela de Rokha is awakened by birdsong coming from outside.",
+    "She questions how dyukka-birds can be singing if they were believed dead.",
+    "She finds the doors to her room standing open.",
+    "She discovers her imperial bodyguards asleep in the living room.",
+    "She concludes someone put the guards to sleep and wonders who did it.",
+    "She opens the balcony curtains and is startled by what she sees."
+  ],
+  "source_image": "external/comics/meta-barons/297_The_Metabarons_11_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7df03c6ae7f6e61e65964f62f9eac7a3e333dab63a5b7f0168880d422ae0c7ee",
+      "page_id": "297_The_Metabarons_11_p20",
+      "source_image": "external/comics/meta-barons/297_The_Metabarons_11_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption wording is small and partially hard to read, especially the exact phrasing around the birdsong and the balcony location.",
+    "The exact nature of what Doña Vicenta sees after opening the curtains is not shown on this page.",
+    "The page label in the image footer appears as 22 even though the provided metadata labels it p20."
+  ],
+  "visual_summary": "An opening caption places the scene on Philodendra. At dawn, a dark-haired woman wakes in a luxurious bedroom with sheer curtains and a balcony view. She hears the sweet song of the dyukka-birds and wonders how that can be possible if they are supposed to be dead. She notices her room is open and steps out to find several purple-clad bodyguards collapsed asleep in the living room. Pulling back the balcony curtains, she reacts in surprise.",
+  "volume": 11
+}

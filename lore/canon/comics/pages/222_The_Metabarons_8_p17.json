@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Agnhar is generally content during the waiting period but becomes impatient and emotional about his mother's silence.",
+    "Agnhar deeply wants recognition from Honorata and runs to share family news with her.",
+    "Oda is the mother who gives birth on this page and immediately nurses or tends to the baby.",
+    "Honorata is Agnhar's mother and the newborn's grandmother.",
+    "Honorata is isolated, silent, and appears with machine-like precision."
+  ],
+  "characters_present": [
+    "Agnhar",
+    "Oda",
+    "Honorata",
+    "newborn son of Oda and Agnhar"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers on the birth of Oda and Agnhar's son.",
+    "It reinforces an ongoing relationship between Agnhar and his mother Honorata, marked by ritual visits and her silence."
+  ],
+  "dialogue_meaning": [
+    "A tense close-up suggests someone tells Oda that speaking of the future frightens her because she has changed.",
+    "Narration explains Agnhar's patient routine and his repeated visits to his mother during this period.",
+    "Narration describes Honorata's nightly, precisely timed appearances and immediate withdrawal.",
+    "Agnhar pleads with his mother to answer him and speak his name.",
+    "Oda encourages the crying newborn to drink.",
+    "Agnhar proudly declares that the child looks like him and then announces the birth to Honorata, calling her the grandmother of a handsome grandson."
+  ],
+  "image_sha256": "f6d1f25fea50aa07037216fe384848a949b6fd8197cff92430921f606db49419",
+  "is_spread": false,
+  "locations": [
+    "the south gallery",
+    "Honorata's elevated balcony or chamber",
+    "a childbirth room with mechanical medical apparatus"
+  ],
+  "lore_facts": [
+    "Agnhar has an appointed routine of visiting his mother during this period.",
+    "Honorata appears in the south gallery at the first twelve strokes of artificial night and remains for only about thirty seconds.",
+    "Honorata performs a formal wave or salute with a right anterior limb or extremity before returning to isolation.",
+    "The child is explicitly described in narration as a 'bio-male'."
+  ],
+  "page_id": "222_The_Metabarons_8_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "Narration says Agnhar spends a waiting period contentedly and regularly visits his mother at an appointed time.",
+    "Honorata appears each night in the south gallery only briefly, with precise regularity, then retreats again.",
+    "Agnhar calls up to his mother, asking her to break her silence and say his name.",
+    "Oda gives birth to a bio-male child.",
+    "Agnhar reacts with excitement and says the baby resembles him.",
+    "After waiting until around the middle of the night, Agnhar runs to the south gallery to tell Honorata about the birth."
+  ],
+  "source_image": "external/comics/meta-barons/222_The_Metabarons_8_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f6d1f25fea50aa07037216fe384848a949b6fd8197cff92430921f606db49419",
+      "page_id": "222_The_Metabarons_8_p17",
+      "source_image": "external/comics/meta-barons/222_The_Metabarons_8_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several narration boxes are partially hard to read; exact wording may be imperfectly interpreted.",
+    "The opening speech balloon speaker is not fully certain from the page alone.",
+    "The provided page label is 'p17' while the printed page number visible at the bottom appears to be 19."
+  ],
+  "visual_summary": "A page of narrated flashback scenes shows Oda and Agnhar during a waiting period before childbirth, the large setting around the south gallery, and Honorata appearing briefly at midnight. Oda gives birth to a son attended by machinery, Agnhar excitedly compares the baby to himself, and then runs to tell Honorata the news from below her balcony or chamber.",
+  "volume": 8
+}

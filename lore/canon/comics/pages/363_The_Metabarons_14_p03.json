@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "A dark-haired woman is physically present at a mounted control or weapon station, observing the swarm.",
+    "The two off-panel or partially off-panel speakers have a hostile exchange: one is accusatory and fearful, the other is bloodthirsty or is accused of being so.",
+    "The 'masters' are in disagreement about tactical actions, specifically repeated passes over a target."
+  ],
+  "characters_present": [
+    "Narrator/caption voice",
+    "Two unidentified 'masters' mentioned in narration and dialogue",
+    "A seated dark-haired woman at a weapons/control station",
+    "Small machine-like petro-morph forms",
+    "A transformed fleet/swarm of battleships"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing attack or flyover involving a castle mentioned in narration.",
+    "The page escalates a prior conflict by revealing that surviving petro-morphs have become an organized attack swarm."
+  ],
+  "dialogue_meaning": [
+    "The narration says the conflict between two masters continues while the remaining petro-morphs independently transform.",
+    "A small sound-effect style utterance signals the transformation process.",
+    "A caption explicitly identifies the result as transformation into space battleships.",
+    "One speaker blames the other for making two final passes and says the swarm is about to destroy them.",
+    "Another speaker accuses the first of enjoying the danger because it justifies killing their enemies."
+  ],
+  "image_sha256": "3824632f58c9c7873850d47c0c7e79c8c840446c550fbebd80aba87f1c5f67b4",
+  "is_spread": false,
+  "locations": [
+    "Interior structural space or cockpit with beams/windows",
+    "Open sky or near-space battlefield above a built-up area or castle region",
+    "A ship or platform edge overlooking the swarm"
+  ],
+  "lore_facts": [
+    "Entities called petro-morphs can change shape.",
+    "On this page, petro-morphs transform into space battleships.",
+    "There are at least two figures referred to as 'masters' who are directing or arguing during the encounter.",
+    "The transformed craft appear in very large numbers, described as a swarm."
+  ],
+  "page_id": "363_The_Metabarons_14_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "The narrator states that during an argument between two masters, the remaining petro-morphs begin changing form.",
+    "The petro-morphs are shown completing a transformation into numerous spacecraft or battleships.",
+    "A very large swarm of ships fills the sky/space around the observers.",
+    "A seated woman at a gun or control position watches the swarm while two voices argue over the situation and violence."
+  ],
+  "source_image": "external/comics/meta-barons/363_The_Metabarons_14_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3824632f58c9c7873850d47c0c7e79c8c840446c550fbebd80aba87f1c5f67b4",
+      "page_id": "363_The_Metabarons_14_p03",
+      "source_image": "external/comics/meta-barons/363_The_Metabarons_14_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording and speaker attribution are uncertain.",
+    "It is unclear whether the final panel is in space proper or upper atmosphere; the page shows a curved horizon-like view but does not label the setting.",
+    "The exact identities of the woman and the two arguing masters are not given on this page alone."
+  ],
+  "visual_summary": "A narration box explains that while two masters argued about making another pass over a castle, the remaining 'petro-morphs' changed shape. Small rounded machines are shown inside a structure, then a large exterior panel reveals many dark mechanical forms and smaller craft launching upward with bright engine trails. A caption states they transform into space battleships. In the final panel, a woman seated at a weapons station looks out over a dense swarm of ships while dialogue boxes argue about whether this is disaster or an excuse for killing.",
+  "volume": 14
+}

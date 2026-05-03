@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghora is female.",
+    "Aghora was turned into a heavily augmented living weapon through years of painful operations.",
+    "Aghora's father directs or assigns her early super-mercenary work.",
+    "Aghora's first assignment is as an executioner rather than a conventional battlefield mission.",
+    "Aghora is portrayed as disciplined or being taught discipline in lethal combat situations.",
+    "Algholkar of Rieidar is presented as a notoriously hard-to-kill opponent."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Aghora's father (mentioned, not clearly shown)",
+    "Algholkar of Rieidar",
+    "Armed guards or attendants",
+    "Medical/surgical personnel or machines"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page functions as backstory for Aghora, explaining how she was weaponized and what kind of work defined her early career.",
+    "The narration connects Aghora's implanted arsenal to her later effectiveness as an executioner of extreme prisoners.",
+    "The mention of her father establishes his controlling role in shaping her training and assignments."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that Aghora was deliberately weaponized through extensive surgical augmentation.",
+    "It frames her first major role as galaxy-wide executioner duty on Khaliyuga, emphasizing the cruelty and scale of the work.",
+    "It states that her routine involved killing vast numbers of condemned prisoners over multiple years.",
+    "The speech bubble conveys a combat lesson: against deadly attacks such as acid jets, one must maintain total focus in the present moment."
+  ],
+  "image_sha256": "eabab08662f447e2d0a9bad6f59cde92ff5a87efc6ff555d4491887b9f512d2c",
+  "is_spread": false,
+  "locations": [
+    "Surgical/medical chamber",
+    "Space near transport convoys",
+    "Prison planet Khaliyuga"
+  ],
+  "lore_facts": [
+    "Aghora had Oko mini-bombs implanted inside her body.",
+    "Aghora also received multiple other internal weapons said to be capable of enormous destruction.",
+    "Khaliyuga is a prison planet where condemned beings are brought for execution.",
+    "Prisoner convoys arrive from across the galaxy.",
+    "Some condemned prisoners belong to species that are difficult to kill.",
+    "Aghora's execution rate is stated as 200 prisoners per day for three years.",
+    "Algholkar is from Rieidar and is considered one of the difficult or nearly unbeatable prisoners."
+  ],
+  "page_id": "393_The_Metabarons_15_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "Over several years, Aghora undergoes repeated painful operations to have a network of Oko mini-bombs and other weapons implanted in her body.",
+    "Aghora receives her first assignment as a super-mercenary from her father.",
+    "She is assigned to serve as executioner on the prison planet Khaliyuga.",
+    "Convoys continually deliver condemned beings from across the galaxy to Khaliyuga for execution.",
+    "For three years, Aghora kills 200 prisoners per day.",
+    "One highlighted prisoner is Algholkar of Rieidar, described as especially hard to defeat.",
+    "During a confrontation with a creature that uses acid jets, someone instructs that survival depends on constant focus."
+  ],
+  "source_image": "external/comics/meta-barons/393_The_Metabarons_15_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eabab08662f447e2d0a9bad6f59cde92ff5a87efc6ff555d4491887b9f512d2c",
+      "page_id": "393_The_Metabarons_15_p11",
+      "source_image": "external/comics/meta-barons/393_The_Metabarons_15_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some proper nouns are difficult to read with full certainty, especially 'Oko,' 'Khaliyuga,' 'Algholkar,' and 'Rieidar.'",
+    "The speaker of the combat advice in the final panel is not visually identified on this page.",
+    "The exact identity of the small airborne figure in the last panel is unclear from the image alone."
+  ],
+  "visual_summary": "Narration boxes describe Aghora’s transformation and early career while the art shows invasive surgery and mass execution. In the top panels, a bald young Aghora lies restrained as tubes, drills, and mechanical arms implant weapons into her body. The middle panel shifts to space, with armed convoys approaching a large prison-world or station. The bottom panel shows a huge armored spherical prisoner or beast spraying corrosive jets while armed figures surround it, and a small airborne figure appears to evade the attack as a speech bubble offers combat instruction.",
+  "volume": 15
+}

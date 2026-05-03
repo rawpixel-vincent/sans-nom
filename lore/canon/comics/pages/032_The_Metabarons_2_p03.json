@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The white-haired commander is the tactical leader on this page and personally takes the center attack.",
+    "He speaks aggressively and values total commitment in battle.",
+    "Hohenhole is a subordinate trusted with half the men for the northern attack.",
+    "Konrath is a subordinate assigned the southern attack via secret tunnels."
+  ],
+  "characters_present": [
+    "White-haired commander giving orders",
+    "Hohenhole",
+    "Konrath",
+    "Armored soldiers under the commander's authority",
+    "Opposing forces referred to as Endoguards and 'black dogs'"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page presents an organized battle plan immediately before or during a larger conflict.",
+    "The saying attributed to 'the Baron' suggests an inherited martial tradition or doctrine that influences current commanders."
+  ],
+  "dialogue_meaning": [
+    "The commander frames the coming battle as one that favors close-quarters fighting rather than distant or formal warfare.",
+    "He attributes his doctrine to 'the Baron,' presenting ruthless determination as the key to victory even when outnumbered.",
+    "He divides his forces into northern, southern, and central attack groups.",
+    "Hohenhole is assigned the northern assault and told to lock the enemy into hand-to-hand combat.",
+    "Konrath is assigned the southern assault and told to use secret tunnels while keeping the Endoguards compressed together.",
+    "The commander exhorts the men to hold the line against the 'black dogs,' contrasting duty with the lightness of death."
+  ],
+  "image_sha256": "aee3cf6a1b6e77de7178d5a70f6a58f238f867d35267a75732815bc3631ad525",
+  "is_spread": false,
+  "locations": [
+    "A crowded interior staging area or hall where troops assemble",
+    "A battlefield filled with armored fighters, debris, and broken surfaces"
+  ],
+  "lore_facts": [
+    "There is a figure known as 'the Baron' whose sayings are treated as authoritative military wisdom.",
+    "These troops consider themselves specifically trained for man-to-man combat.",
+    "There are military groups or factions called the Endoguards.",
+    "There are secret tunnels available for maneuvering troops.",
+    "An opposing force is referred to as 'black dogs.'"
+  ],
+  "page_id": "032_The_Metabarons_2_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A commander rallies his troops by saying the opposing battalions have forgotten close combat and that his own men are trained for it.",
+    "He invokes a saying from 'the Baron' about victory requiring total willingness to destroy the enemy.",
+    "He orders Hohenhole to attack from the north with half the men and engage the enemy at close range.",
+    "He orders Konrath to attack from the south and force the Endoguards to stay clustered, emerging through secret tunnels.",
+    "He declares that he himself will attack through the center.",
+    "The soldiers charge into battle, with the commander leading or joining the assault and urging them not to yield ground."
+  ],
+  "source_image": "external/comics/meta-barons/032_The_Metabarons_2_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "aee3cf6a1b6e77de7178d5a70f6a58f238f867d35267a75732815bc3631ad525",
+      "page_id": "032_The_Metabarons_2_p03",
+      "source_image": "external/comics/meta-barons/032_The_Metabarons_2_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual identity of Hohenhole and Konrath among the armored figures is not fully explicit.",
+    "The precise nature of the battlefield environment and what structures are breaking apart are not fully clear from this page alone.",
+    "The term 'black dogs' may be a nickname for an enemy force, but the page does not define it directly."
+  ],
+  "visual_summary": "An older, stern commander with white hair addresses a packed force of armored soldiers indoors, giving a three-part battle plan in close-up panels. The page ends with the troops surging into combat with swords drawn amid shattered structures and heavy fighting.",
+  "volume": 2
+}

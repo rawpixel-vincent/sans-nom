@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The gray-haired man is physically imposing and appears to host or stage-manage the ceremony.",
+    "Honorata wears a white robe or body-covering garment and is directly involved in deception or concealment.",
+    "Honorata speaks harshly to Othon and threatens to destroy him if he compromises her.",
+    "Othon is subordinate enough to be warned off and kept at a distance.",
+    "The lady ambassadors are robed, ceremonial, and treated with reverence."
+  ],
+  "characters_present": [
+    "Gray-haired muscular man",
+    "White-robed woman, likely Honorata",
+    "Othon (named in dialogue, not clearly isolated visually)",
+    "Lady ambassadors / robed female envoys",
+    "Small hovering drone or device"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on an ongoing plan involving Honorata, Othon, and the gray-haired man.",
+    "The scene connects political or religious ceremony with the presentation of the Shabda-Oud craft.",
+    "Honorata's secret aside suggests tension between her covert actions and the expectations of her superiors."
+  ],
+  "dialogue_meaning": [
+    "The man is reassuring Honorata that their plan is still on track.",
+    "The white-robed woman is covertly coordinating with Othon but warns him to remain silent and physically distant because her superiors are suspicious.",
+    "The arriving women are treated as important religious-political figures.",
+    "The gray-haired man frames the craft as sacred and describes the ambassadors as prophets of Jejoh, signaling a ritualized or propagandistic reception."
+  ],
+  "image_sha256": "bf259c1c65d1fed6456be7bdc29a5242b37ad0ff8c947978e191f28d6ad50b4e",
+  "is_spread": false,
+  "locations": [
+    "Exterior airspace around a tall tower or temple-like spire",
+    "Interior hangar, ceremonial chamber, or docking bay containing a large suspended craft or machine",
+    "Arrival platform or lift inside the same complex"
+  ],
+  "lore_facts": [
+    "A figure named Honorata is involved in a secret plan with the gray-haired man.",
+    "A figure named Othon is in communication with the white-robed woman but must avoid detection.",
+    "Honorata has 'superiors' who are distrustful, implying a hierarchy above her.",
+    "There are 'Lady Ambassadors' associated with a formal delegation.",
+    "A craft called the 'sacred Shabda-Oud craft' is important enough to be used in ceremony or diplomacy.",
+    "Jejoh is presented as a god, and the ambassadors are called his prophets."
+  ],
+  "page_id": "132_The_Metabarons_5_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A craft approaches or hovers near a tall isolated tower structure.",
+    "Inside the facility, a large suspended machine or craft is being presented or prepared.",
+    "A man addresses Honorata with confidence that their plan will succeed.",
+    "The white-robed woman warns Othon to stay quiet and keep some distance because her superiors are distrustful.",
+    "A group of robed female ambassadors arrives via an interior platform or lift.",
+    "The gray-haired man formally welcomes the ambassadors to a sacred craft and invokes Jejoh and his prophets.",
+    "The white-robed woman bows or kneels before the ambassadors while the man spreads his arms in presentation."
+  ],
+  "source_image": "external/comics/meta-barons/132_The_Metabarons_5_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bf259c1c65d1fed6456be7bdc29a5242b37ad0ff8c947978e191f28d6ad50b4e",
+      "page_id": "132_The_Metabarons_5_p11",
+      "source_image": "external/comics/meta-barons/132_The_Metabarons_5_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some proper names are difficult to read with full certainty; 'Jejoh' and 'Shabda-Oud' may be approximate spellings.",
+    "Othon is named in dialogue, but the exact visual referent for Othon is unclear on this page.",
+    "It is not fully certain whether the large egg-shaped object is a ship, machine, or ceremonial vehicle.",
+    "The exact relationship between the gray-haired man and Honorata is not explicitly stated on this page alone."
+  ],
+  "visual_summary": "An aerial exterior shows a tall spire-like structure and a hovering craft in a barren landscape. Inside a large, futuristic chamber, a muscular gray-haired man stands beside a white-robed, hooded woman before a large egg-shaped machine or vessel suspended on mechanical supports. The woman threatens someone named Othon while the man encourages Honorata. Later, robed religious figures arrive on a platform or lift, and the gray-haired man theatrically welcomes them as prophets of a god named Jejoh while the white-robed woman kneels or bows.",
+  "volume": 5
+}

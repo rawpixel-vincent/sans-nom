@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Tonto is a robot and is physically vulnerable to being opened and modified by another robot.",
+    "Tonto appears emotional or at least equipped with artificial emotions.",
+    "The other robot is domineering, technically capable, and willing to disable Tonto's speech and emotions.",
+    "Honorata is important enough that her destruction provokes intense grief, though she does not appear on the page."
+  ],
+  "characters_present": [
+    "Tonto (named in dialogue)",
+    "A second robot speaking to Tonto",
+    "Honorata (mentioned only, not shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page functions as an ending beat, with a \"to be continued\" notice leading into the next episode, \"The Trials of Aghnar.\"",
+    "The dialogue refers back to a prior event in which Honorata's body disintegrated.",
+    "The Metabunker's disappearance suggests continuation of an ongoing journey or escape."
+  ],
+  "dialogue_meaning": [
+    "The opening narration states that the Metabunker has vanished into space.",
+    "One robot expresses exaggerated grief over Honorata's flesh body breaking apart, describing it as physically affecting its circuitry.",
+    "The other robot is irritated by this emotional display and calls it disruptive.",
+    "The aggressive robot says it is removing Tonto's speech-related memory component and artificial emotion component.",
+    "It declares that Tonto will no longer be able to speak or burn out its diodes and demands attention."
+  ],
+  "image_sha256": "fd6ebb1f07fda8f4f13bf91afa1366495c7633d0585bfc018132990b5720d4fa",
+  "is_spread": false,
+  "locations": [
+    "Outer space near the departing Metabunker",
+    "Interior metallic room or corridor inside the Metabunker"
+  ],
+  "lore_facts": [
+    "The Metabunker is capable of disappearing into infinite space.",
+    "Honorata has recently undergone bodily disintegration or destruction, and this is treated as a tragic event by at least one robot.",
+    "These robots have removable internal parts including a verbal memory plate and an ersatz-emotion plug.",
+    "A robot's emotional overload is described in machine terms such as diodes frying."
+  ],
+  "page_id": "150_The_Metabarons_5_p30",
+  "page_label": "p30",
+  "plot_events": [
+    "The Metabunker disappears into infinite space.",
+    "A robot mourns Honorata's body disintegrating and says the grief is overloading its diodes.",
+    "Another robot angrily interrupts and grabs or confronts the grieving robot.",
+    "The dominant robot removes the other robot's verbal memory plate and ersatz-emotion plug.",
+    "The disabled robot is left unable to speak or fry its diodes, while the dominant robot prepares to explain something further.",
+    "A caption announces the next episode: \"The Trials of Aghnar.\""
+  ],
+  "source_image": "external/comics/meta-barons/150_The_Metabarons_5_p30.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fd6ebb1f07fda8f4f13bf91afa1366495c7633d0585bfc018132990b5720d4fa",
+      "page_id": "150_The_Metabarons_5_p30",
+      "source_image": "external/comics/meta-barons/150_The_Metabarons_5_p30.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be imperfect.",
+    "The identity of the dominant robot is not clearly named on this page.",
+    "Honorata is only mentioned, so her exact status and nature cannot be determined from this page alone."
+  ],
+  "visual_summary": "The page opens with a large space image showing the Metabunker vanishing into deep space beyond a dark planetary curve, framed by a bright red-white light. The lower tiers shift inside to a metallic chamber with two robots. One robot laments Honorata’s bodily destruction in melodramatic terms while another, more forceful robot confronts it. In the final sequence, the dominant robot physically opens the other’s head or torso panel and removes internal components, apparently disabling its speech and emotional functions.",
+  "volume": 5
+}

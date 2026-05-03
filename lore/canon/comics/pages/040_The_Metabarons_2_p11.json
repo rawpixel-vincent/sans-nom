@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The gray-haired speaker is politically assertive and asks for both economic and territorial concessions.",
+    "He has a son whose fortress is to be transferred stone by stone to a new planet.",
+    "Bari has two broken legs and is emotionally affected by the injury, according to the speaker.",
+    "The white-and-gold nobles speak in the name of the Emperor or imperial authority.",
+    "The baron is important enough that imperial representatives negotiate with him and address his demands directly."
+  ],
+  "characters_present": [
+    "Gray-haired negotiator or baron",
+    "Dark-haired attendant or servant behind him",
+    "Red-armored soldiers/guards",
+    "Two white-and-gold robed nobles, likely imperial or court figures",
+    "Bari, mentioned but not shown"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing negotiation rather than introducing it from scratch.",
+    "The reference to Bari's broken legs points to an earlier injury or prior event.",
+    "The promised trip to the Epyphyte sets up the next action in the sequence."
+  ],
+  "dialogue_meaning": [
+    "The negotiator frames his side as loyal servants asking only for material compensation and territory.",
+    "He wants a fertile world so his son's stronghold can be relocated and rebuilt.",
+    "His additional personal demand is a morale-restoring gift for Bari after Bari's legs were broken.",
+    "The ruling side accepts the baron's demands conditionally: they will first travel to the Epyphyte, and the gift will follow."
+  ],
+  "image_sha256": "0dc4ed02e23b221a9c11fd0da765a3f12f4fd17bf7d1019bded59217b1411b01",
+  "is_spread": false,
+  "locations": [
+    "An ornate palace or court interior with stairs and columns",
+    "Outer space above a planet",
+    "A large spacecraft in orbit"
+  ],
+  "lore_facts": [
+    "An Emperor exists and has authority to grant major demands.",
+    "A baron is negotiating directly or indirectly with imperial representatives.",
+    "Planets can be granted or reassigned as possessions.",
+    "A fortress can be moved and reconstructed on a new world.",
+    "A place or objective called the Epyphyte is important enough to take priority over the requested rewards.",
+    "Spacefaring travel between planets is routine in this setting.",
+    "Heavily armed armored guards are used in elite political settings."
+  ],
+  "page_id": "040_The_Metabarons_2_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A speaker presents himself as a loyal servant and proposes a commercial arrangement based on a share of sales.",
+    "The same party asks for a new fertile planet where a fortress can be transferred and rebuilt.",
+    "Armed red-armored guards visibly secure the negotiation site.",
+    "The nobles question the request, prompting the speaker to specify an additional demand concerning Bari.",
+    "The speaker asks for a gift for Bari intended to restore joy lost after Bari's legs were broken.",
+    "One noble initially downplays the need for a present, framing discouragement as dishonorable.",
+    "The negotiation concludes with agreement that the Emperor will meet the baron's demands, but first the group must go to the Epyphyte."
+  ],
+  "source_image": "external/comics/meta-barons/040_The_Metabarons_2_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0dc4ed02e23b221a9c11fd0da765a3f12f4fd17bf7d1019bded59217b1411b01",
+      "page_id": "040_The_Metabarons_2_p11",
+      "source_image": "external/comics/meta-barons/040_The_Metabarons_2_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The personal names of the on-page speakers other than Bari are not explicitly identifiable from this page alone.",
+    "The exact identity and nature of the Epyphyte are not explained on this page.",
+    "It is implied but not fully explicit which of the white-and-gold figures is speaking each line in the middle panels."
+  ],
+  "visual_summary": "A negotiation scene alternates between an ornate palace or court interior and a space view of a large ship above a planet. A stern, gray-haired man and a dark-haired attendant address royalty while red-armored soldiers stand guard with heavy weapons. Two white-and-gold dressed nobles react to a request. In the final panel, a long spacecraft hangs over a planet as the speakers agree to travel to the 'Epyphyte' before a promised gift is delivered.",
+  "volume": 2
+}

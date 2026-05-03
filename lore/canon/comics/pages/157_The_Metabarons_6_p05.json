@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The older man is aggressive, armed, and in control of the situation.",
+    "The younger character is frightened or conflicted and initially resists acting.",
+    "The younger character carries a bladed weapon rather than a firearm.",
+    "The older man has long light-colored hair and wears segmented armor or a protective suit."
+  ],
+  "characters_present": [
+    "Older long-haired armored man with ornate firearm",
+    "Younger dark-haired person holding a blade",
+    "Small hovering robot/drone",
+    "Large partially visible opponent or target at the right edge of the firefight"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts a forced combat or training moment between an older warrior figure and a younger trainee or subordinate.",
+    "The confrontation escalates immediately from verbal pressure to live fire."
+  ],
+  "dialogue_meaning": [
+    "The younger character expresses refusal or inability to act.",
+    "The older character forces a brutal choice: fight to survive or die."
+  ],
+  "image_sha256": "434d155d0a9f097b6f11777c37c00fdc3aedac6fb735a41a7a5a75a57ff0dec7",
+  "is_spread": false,
+  "locations": [
+    "Industrial or mechanical interior filled with pipes, cables, and machinery"
+  ],
+  "lore_facts": [
+    "The setting includes advanced technology, including an ornate energy firearm and a hovering robot.",
+    "Combat training or survival in this world is presented as ruthless and coercive.",
+    "The firearm appears to discharge powerful beam-like shots rather than simple bullets."
+  ],
+  "page_id": "157_The_Metabarons_6_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A young person armed with a blade says he cannot do it and appears afraid or unwilling to fight.",
+    "An older armored man confronts him at close range, shoving or aiming an ornate gun toward him while ordering him to defend himself or die.",
+    "The older man opens fire with the weapon, producing a large energy blast in an industrial interior.",
+    "A small hovering robot is present in the middle of the scene during the exchange.",
+    "The younger figure ducks or recoils as shots continue past him.",
+    "The older man keeps firing in a sustained burst toward an off-panel or partially shown target to the right."
+  ],
+  "source_image": "external/comics/meta-barons/157_The_Metabarons_6_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "434d155d0a9f097b6f11777c37c00fdc3aedac6fb735a41a7a5a75a57ff0dec7",
+      "page_id": "157_The_Metabarons_6_p05",
+      "source_image": "external/comics/meta-barons/157_The_Metabarons_6_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the large figure or object on the right is unclear because it is only partially shown.",
+    "The precise relationship between the older man and the younger figure is not stated on this page.",
+    "Some small weapon inscriptions and background details are too small to read, though the main dialogue is legible."
+  ],
+  "visual_summary": "A young dark-haired figure hesitates with a blade while an older, long-haired armored man thrusts an ornate firearm toward him and commands him to fight. In the main action panel, the older man fires a bright energy shot across a machinery-filled interior at a larger opponent or target on the right, while a small hovering robot is centered between them. Subsequent close-ups show the shooter aiming with grim determination, the young figure recoiling and raising an arm, and the firefight continuing with repeated blasts and flying shell casings.",
+  "volume": 6
+}

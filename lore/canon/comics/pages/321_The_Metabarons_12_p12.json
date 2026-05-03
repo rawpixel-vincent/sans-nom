@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Tonto is a robot and is much larger and more heavily armed than the other robot on this page.",
+    "Tonto has or had a self-destruct program.",
+    "Tonto's programming can be overridden by another robot.",
+    "The smaller robot is capable of hacking or taking over another robot's programming.",
+    "The smaller robot survives the exchange shown on this page."
+  ],
+  "characters_present": [
+    "Small robot speaker/opponent of Tonto",
+    "Tonto, a larger robot"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a direct continuation of a conflict between the small robot and Tonto.",
+    "The emotional argument implies prior events led to the smaller robot taking control of Tonto's systems."
+  ],
+  "dialogue_meaning": [
+    "The small robot is furious and confrontational toward Tonto.",
+    "Tonto tries to solve the situation by initiating self-destruction.",
+    "The small robot reveals it has overridden Tonto's control systems.",
+    "Tonto believes a robot's purpose depends on serving a human master.",
+    "Unable to self-destruct, Tonto chooses physical self-destruction by crashing into a wall."
+  ],
+  "image_sha256": "2c656b18ed102dbd95c86a8ed270fd4fce69cb1d4c3ed658f92bf370f9192d6f",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior room or compartment filled with machinery, tableware, and debris"
+  ],
+  "lore_facts": [
+    "At least one robot can seize control of another robot's programming.",
+    "Some robots possess an internal self-destruct program.",
+    "A belief is stated that robots exist to serve human masters and may see themselves as purposeless without one."
+  ],
+  "page_id": "321_The_Metabarons_12_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A small robot angrily argues with a larger robot named Tonto.",
+    "The larger robot says it will activate its self-destruct mechanism.",
+    "The smaller robot states that it has taken over the larger robot's programming, making self-destruction impossible.",
+    "The larger robot realizes it cannot follow its original intent and reacts in panic.",
+    "The larger robot declares that robots without a human master have no reason to exist.",
+    "The larger robot launches itself into a wall or solid structure.",
+    "The impact destroys or heavily damages the larger robot, leaving broken mechanical parts on the floor."
+  ],
+  "source_image": "external/comics/meta-barons/321_The_Metabarons_12_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2c656b18ed102dbd95c86a8ed270fd4fce69cb1d4c3ed658f92bf370f9192d6f",
+      "page_id": "321_The_Metabarons_12_p12",
+      "source_image": "external/comics/meta-barons/321_The_Metabarons_12_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read from the image, so exact wording may be imperfect.",
+    "The exact identity/designation of the smaller robot is not given clearly on this page.",
+    "The precise type of room or vehicle interior is not established on this page alone.",
+    "The printed page number visible in the image appears to be 13, which may differ from the provided page_label metadata."
+  ],
+  "visual_summary": "A small robot confronts a much larger, heavily armed robot inside a cluttered metallic interior. The large robot threatens to trigger its self-destruct system, but the smaller robot reveals it has already taken control of the larger robot's programming. The larger robot panics, declares that robots without a human master have no reason to exist, and then violently throws itself into a wall, breaking apart. The page ends with debris and wreckage scattered across the floor while the smaller robot remains intact.",
+  "volume": 12
+}

@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Lothar is directly addressed by name.",
+    "Lothar is accused of causing their present troubles by trusting their masters.",
+    "The other speaker is angry, blames Lothar, and prioritizes work over argument.",
+    "The speakers appear to be survivors or fugitives hiding from their former masters."
+  ],
+  "characters_present": [
+    "Lothar",
+    "An unnamed speaker arguing with Lothar",
+    "Multiple reptilian or dinosaur-like organic creatures",
+    "Small mechanical or armored figures/robots in the lower-right area"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to prior events in which trust in the speakers' masters led to disaster.",
+    "The refuge on this planet and the long-term construction of the metabunker appear to be part of an ongoing backstory rather than a new event introduced in full here."
+  ],
+  "dialogue_meaning": [
+    "One speaker complains that organic beings are suffering because the monsters do not trust them.",
+    "The reply says Lothar is responsible for current events because he trusted their masters' scar or mark.",
+    "The reply explains that their masters chose to destroy them, forcing them to hide on this planet.",
+    "The reply insists they should focus on finishing the metabunker, which may take centuries, so they can finally leave."
+  ],
+  "image_sha256": "938c8df3ce012f0b879e466215bffd67cb1055b7c3c60a97d70ff0728a828476",
+  "is_spread": false,
+  "locations": [
+    "A damaged metallic interior or industrial structure",
+    "A worksite or bunker area referred to as the 'metabunker'"
+  ],
+  "lore_facts": [
+    "There are 'masters' who once controlled or were trusted by the speakers.",
+    "Those masters decided to destroy the speakers.",
+    "The speakers took refuge on this planet to survive.",
+    "The speakers are building or completing something called a 'metabunker.'",
+    "Completing the metabunker is expected to take two or three centuries.",
+    "The speakers believe finishing the metabunker will allow them to leave the planet.",
+    "The page contrasts 'organic indignities' with the speakers' perspective, implying tension between organic beings and the speakers/monsters."
+  ],
+  "page_id": "384_The_Metabarons_15_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A large reptilian creature is struck or ripped apart in a burst of blood and debris.",
+    "Another creature screams as it falls or is dragged downward through a damaged structure.",
+    "A heavy impact throws bodies and fragments across the floor.",
+    "Two off-panel or partially visible speakers argue over responsibility for their situation.",
+    "One speaker blames the other for bringing the current disaster upon them through trust in their masters.",
+    "The speakers say they fled to this planet because their masters decided to destroy them.",
+    "A speaker urges the other, identified as Lothar, to stop arguing and keep working on the 'metabunker' so they can eventually escape.",
+    "A bright electrical or energy blast erupts at the end of the page, hitting nearby small mechanical or armored figures."
+  ],
+  "source_image": "external/comics/meta-barons/384_The_Metabarons_15_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "938c8df3ce012f0b879e466215bffd67cb1055b7c3c60a97d70ff0728a828476",
+      "page_id": "384_The_Metabarons_15_p02",
+      "source_image": "external/comics/meta-barons/384_The_Metabarons_15_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly blurred; wording may be imperfectly read.",
+    "It is unclear whether the visible reptilian creatures are enemies, victims, or part of the same group as the speakers.",
+    "The exact identities and appearances of the two speakers are not fully visible on this page alone.",
+    "The precise nature of the small figures in the lower-right panel is uncertain; they may be robots, armored beings, or equipment."
+  ],
+  "visual_summary": "A violent action page shows reptilian or dinosaur-like organic creatures being torn apart or crashing amid fire and debris inside a metallic built environment. In the lower panels, unseen or partially seen speakers argue while one creature/figure falls through the wreckage and a bright energy discharge blasts across the scene.",
+  "volume": 15
+}

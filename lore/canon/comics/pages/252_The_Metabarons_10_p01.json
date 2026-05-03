@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Tonto is telling or has been telling a story about past events.",
+    "Lothar is impatient, literal-minded, and highly concerned with exact timing and procedure.",
+    "The robots appear subordinate to the Metabaron and responsible for monitoring his status and daily service.",
+    "The Metabaron is absent during the page and is important enough that his failure to return causes alarm."
+  ],
+  "characters_present": [
+    "Tonto, a small screen-faced robot storyteller or attendant",
+    "A larger servant robot addressed as Lothar",
+    "The Metabaron, not seen on the page but discussed as absent",
+    "Steelhead, mentioned in dialogue only",
+    "Aghnar von Salza, mentioned in dialogue only"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page resumes a previously interrupted story being told by Tonto.",
+    "The interrupted story concerns a duel between Steelhead and Aghnar von Salza before Phagorean and human fleets."
+  ],
+  "dialogue_meaning": [
+    "The narration establishes that the Metabunker has remained suspended and forgotten for centuries.",
+    "One robot is worried because the Metabaron has missed a precisely regulated return time after breakfast was prepared.",
+    "The second robot is more interested in hearing the rest of an unfinished tale about a famous duel.",
+    "Their argument centers on exact timekeeping and whether enough time has passed to conclude something is wrong.",
+    "Once the final fraction of the waiting period passes, they accept that the master's absence may indicate a problem.",
+    "They decide to check a bio-electrical monitoring system, and one robot uses threats to force compliance."
+  ],
+  "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+  "is_spread": false,
+  "locations": [
+    "The Metabunker",
+    "The ruins of the city-shaft on Terra 2014",
+    "An interior work/dining area inside the Metabunker"
+  ],
+  "lore_facts": [
+    "The Metabunker has been suspended in isolation for centuries.",
+    "It lies amid the ruins of a once-flourishing city-shaft on Terra 2014.",
+    "The Metabaron has servant robots maintaining routines such as preparing breakfast and tracking precise schedules.",
+    "The setting includes both 'Phagorean' and human ships as distinct groups in the recounted story.",
+    "A duel between Steelhead and Aghnar von Salza is important enough to be treated as a major historical or narrative event.",
+    "The Metabunker contains a device referred to as a bio-electrogram, used to check a living being's status."
+  ],
+  "page_id": "252_The_Metabarons_10_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "The page opens with narration situating the long-abandoned Metabunker in the ruins of a city-shaft on Terra 2014.",
+    "A servant robot complains that it prepared breakfast, waited the required time, and believes the Metabaron is not coming back.",
+    "Another robot asks it to continue a story it had been telling about a major duel involving Steelhead and Aghnar von Salza.",
+    "The first robot angrily corrects the timing issue, insisting the full waiting period has only just elapsed.",
+    "The robots conclude their master still has not arrived and decide to check on his condition instead of discarding the meal.",
+    "They move to inspect a biological monitoring device, with one robot threatening to wipe the other's memory if it does not cooperate."
+  ],
+  "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+      "page_id": "252_The_Metabarons_10_p01",
+      "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so names and exact timing details may contain minor transcription errors.",
+    "The robot names appear to be Tonto and Lothar, but the lettering is not perfectly clear.",
+    "The exact spelling of 'Phagorean' and the precise formatting of the time interval are difficult to verify from the image alone."
+  ],
+  "visual_summary": "An exterior view shows the Metabunker hanging inside a transparent sphere amid immense ruined shaft-structures in space or a vast vertical void. Inside, two small service robots argue in a cluttered industrial room beside a table set with breakfast. One robot panics that the Metabaron has not returned on schedule, while the other tries to calm it and then both rush to inspect equipment, causing scattered parts and frantic motion.",
+  "volume": 10
+}

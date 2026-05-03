@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The perfect androgyne is cargo or passenger central to the mission, though not shown directly on this page.",
+    "The imperial couple rules or resides on the golden planet, but they do not appear on this page.",
+    "One robot is aggressive and impatient, pushing for an immediate attack.",
+    "The other robot is more controlling or procedural, silencing the first and insisting it listen."
+  ],
+  "characters_present": [
+    "The Mother-Coach fortress-ship",
+    "Purple endoguard escort ships",
+    "Two robots observing or discussing the ambush",
+    "The 'perfect androgyne' (mentioned in narration, not visibly identifiable)",
+    "Pirates associated with the disguised mega spacecraft-carrier (mentioned, not individually shown)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "Continues a larger transport mission involving the perfect androgyne.",
+    "Connects the hospital-planet, the golden planet, and the imperial couple within the same political or narrative arc.",
+    "Introduces or reinforces pirate opposition targeting the convoy."
+  ],
+  "dialogue_meaning": [
+    "Narration establishes the mission: safely transport the perfect androgyne to the golden planet, home of the imperial couple.",
+    "Narration stresses the extraordinary strength of the purple endoguard escort.",
+    "Narration reveals that the apparent planet ahead is actually a concealed pirate carrier, reframing the scene as an ambush.",
+    "One robot impatiently demands that the attack begin immediately.",
+    "Another rebukes the impatient robot as ill-mannered and tells it to listen first."
+  ],
+  "image_sha256": "eff3e777ed114cdd56b7415a634e9497b866b6fa9514f0b6ac657589ca2bbe97",
+  "is_spread": false,
+  "locations": [
+    "Outer space between the hospital-planet and the golden planet",
+    "The Mother-Coach convoy",
+    "A pirate mega spacecraft-carrier disguised as a planet"
+  ],
+  "lore_facts": [
+    "A being called the 'perfect androgyne' is important enough to require special transport.",
+    "The transport route is from a hospital-planet to the golden planet.",
+    "The golden planet is identified as the home of the imperial couple.",
+    "A dedicated fortress-ship named the Mother-Coach was built for this transport.",
+    "Purple endoguards exist as an elite escort force, and this mission uses the largest or strongest such escort assembled so far.",
+    "Pirates possess a mega spacecraft-carrier capable of masquerading as a planet."
+  ],
+  "page_id": "070_The_Metabarons_3_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A narration explains that a fortress-ship called the Mother-Coach was built to transport the 'perfect androgyne' from a hospital-planet to the golden planet.",
+    "The ship is said to be protected by the strongest escort force of purple endoguards yet assembled.",
+    "The convoy moves through space toward a massive body that is revealed by narration to be a pirate mega spacecraft-carrier disguised as a planet.",
+    "Two robotic observers speak tensely about beginning an attack or listening to instructions, signaling imminent conflict."
+  ],
+  "source_image": "external/comics/meta-barons/070_The_Metabarons_3_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eff3e777ed114cdd56b7415a634e9497b866b6fa9514f0b6ac657589ca2bbe97",
+      "page_id": "070_The_Metabarons_3_p13",
+      "source_image": "external/comics/meta-barons/070_The_Metabarons_3_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and roles of the two robots are not given on this page.",
+    "It is unclear whether the robots are aboard the pirate carrier, the convoy, or another nearby vessel.",
+    "The page states the carrier is disguised as a planet, but the mechanics of the disguise are not explained here.",
+    "The 'perfect androgyne' is only mentioned in narration and is not visibly identifiable in the art."
+  ],
+  "visual_summary": "A large white fortress-ship travels through space under heavy escort by many angular red-purple guard ships. Caption boxes explain the mission and reveal that a seemingly planetary body ahead is actually a hidden pirate mega-carrier. In a small inset, two robots argue while observing the situation. The final panels focus on the looming disguised object as the convoy approaches it.",
+  "volume": 3
+}

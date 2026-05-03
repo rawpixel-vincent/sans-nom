@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Aghnar wants to renounce or escape the role and legacy tied to being a Metabaron.",
+    "Aghnar is presented by the servants as a powerful warrior.",
+    "The unnamed woman supports Aghnar's position and shares an intimate relationship with him.",
+    "The servant who interrupts them is dutiful and focused on orders and household service.",
+    "The off-panel speakers are curious, dramatic, and emotionally invested in Aghnar's fate."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Unnamed woman addressed by Aghnar; described as a princess",
+    "Small robot or servant with glowing eyes",
+    "Additional unseen or partly unseen servants speaking off-panel",
+    "Seated female figure in machinery at right side of the large panel (identity unclear)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers a succession crisis within the Metabaron family.",
+    "It links Aghnar's personal relationship to a larger conflict involving witches, the current Metabaron, and a destination called the ice asteroid.",
+    "The servants' commentary functions like a recap and teaser for whether Aghnar will reject or continue family destiny."
+  ],
+  "dialogue_meaning": [
+    "Aghnar expresses a desire to reject both noble and assassin identities for himself and his partner, and to break hereditary succession for their son.",
+    "The woman reciprocates emotionally and frames their resolve in romantic, life-over-death terms.",
+    "Servants treat the approaching ice asteroid as dangerous and ominous.",
+    "The interruption establishes household hierarchy: servants must obey a primary directive and serve the master.",
+    "The off-panel gossip frames Aghnar as a powerful warrior facing witches and a possible break with family destiny.",
+    "The speakers also worry about succession and use grotesque language about the clan being 'digested' by a cetacyborg if no heir continues it."
+  ],
+  "image_sha256": "286530b74c9ff46eedb4547acc229738864b274e069db865ac3387dbd35819af",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or heavily mechanized chamber",
+    "Approach toward an 'ice asteroid'",
+    "A kitchen is mentioned as a place servants are being sent, but not shown directly"
+  ],
+  "lore_facts": [
+    "There is a hereditary Metabaron line whose continuation matters to the characters.",
+    "Aghnar is connected to that lineage and has a son who could inherit it.",
+    "Aghnar is or has been an assassin.",
+    "The woman is associated with princess status.",
+    "An ice asteroid is an imminent destination tied to a feared confrontation.",
+    "Witches are identified as a major threat Aghnar may have to defeat.",
+    "A 'current Metabaron' exists separately and may return at any moment.",
+    "A 'cetacyborg' exists and is invoked as a threat in relation to the clan's fate.",
+    "The setting includes servants or robots operating under a primary directive and serving a master."
+  ],
+  "page_id": "185_The_Metabarons_7_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "An armored man tells a woman he no longer wants her to remain a princess and no longer wants himself to remain an assassin, adding that he does not want their son to become a Metabaron.",
+    "The woman answers affirmatively to Aghnar.",
+    "The pair embrace and kiss.",
+    "They are said to be nearing an 'ice asteroid' and preparing to confront some coming terror there.",
+    "A servant interrupts the intimate moment and orders a return to meal preparation because the current Metabaron may return soon.",
+    "Other off-panel speakers speculate about whether Aghnar can defeat witches, whether he will renounce his lineage, and who will continue the Metabaron clan if he does not."
+  ],
+  "source_image": "external/comics/meta-barons/185_The_Metabarons_7_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "286530b74c9ff46eedb4547acc229738864b274e069db865ac3387dbd35819af",
+      "page_id": "185_The_Metabarons_7_p08",
+      "source_image": "external/comics/meta-barons/185_The_Metabarons_7_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be perfectly legible; wording around the servants' gossip and the cetacyborg reference could be slightly off.",
+    "The identity of the seated glowing woman in the large right panel is unclear from this page alone.",
+    "The speakers of the bottom dialogue balloons are not fully shown, so exact speaker-to-balloon attribution is uncertain."
+  ],
+  "visual_summary": "In a spacecraft interior, an armored man and a veiled woman speak closely, then kiss. A wider panel shows them together among machinery and a seated female figure, while a small robot-like servant interrupts them. The bottom of the page shifts to disembodied speech balloons around a dome-like structure, framing the scene as servants gossiping about the couple, an approaching destination, and the larger family stakes.",
+  "volume": 7
+}

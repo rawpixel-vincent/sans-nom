@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "The green-skinned fighters have nonhuman or altered features and wear heavy armor with tubing and implants.",
+    "One green-skinned fighter is concerned about missing companions and actively calls for them.",
+    "The white-haired fighter is effective in close combat and overpowers a knife attack.",
+    "The dark-haired lower-left figure appears calm and upright after damaging nearby mechanical appendages."
+  ],
+  "characters_present": [
+    "A green-skinned armored fighter with a firearm",
+    "A green-skinned armored fighter calling for missing companions",
+    "A knife-wielding green-skinned attacker",
+    "A white-haired armored combatant",
+    "A dark-haired standing figure in the lower left panel",
+    "Two distant silhouetted figures in the mist"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing battle sequence involving named companions who are currently missing or out of contact.",
+    "The appearance of approaching silhouettes suggests imminent continuation of the confrontation on the following page."
+  ],
+  "dialogue_meaning": [
+    "One fighter makes a guttural sound while aiming or bracing under pressure.",
+    "A character calls out several names, indicating allies are missing or unresponsive.",
+    "Another speaker counts or signals a third step in an action during the melee.",
+    "A wounded character screams in pain after being struck."
+  ],
+  "image_sha256": "5aca9de801ee284cde5528f23d405a2269be1bd5e59fe60d1f304fac910e0969",
+  "is_spread": false,
+  "locations": [
+    "A battlefield or industrial combat zone with smoke or mist",
+    "A close-quarters interior or enclosed mechanical setting suggested by armor, tubing, and severed machinery"
+  ],
+  "lore_facts": [
+    "The page depicts heavily augmented or armored combatants using firearms, blades, and mechanical gear.",
+    "At least three named individuals are absent or being searched for: Bargoth, Ulkran, and Wulthor.",
+    "Mechanical tentacles, cables, or articulated appendages are present and can be cut apart in combat."
+  ],
+  "page_id": "051_The_Metabarons_2_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "An armored green-skinned fighter searches for companions by shouting their names.",
+    "An opposing fighter attacks at close range with a knife.",
+    "A white-haired armored combatant intercepts the attack and strikes the attacker in melee.",
+    "The attacker cries out in pain after the counterattack.",
+    "A dark-haired figure is shown standing over sliced mechanical appendages or cables.",
+    "Shadowy figures approach through a foggy or smoky background.",
+    "A wounded armored fighter remains alive and grimacing in the final panel."
+  ],
+  "source_image": "external/comics/meta-barons/051_The_Metabarons_2_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5aca9de801ee284cde5528f23d405a2269be1bd5e59fe60d1f304fac910e0969",
+      "page_id": "051_The_Metabarons_2_p22",
+      "source_image": "external/comics/meta-barons/051_The_Metabarons_2_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The supplied page_label is p22, but the printed page number visible at the bottom appears to be 24.",
+    "Some dialogue is small and partially unclear, so exact wording may be imperfect.",
+    "Character identities beyond the names shouted are not explicitly confirmed on this page alone.",
+    "It is unclear whether the lower-left dark-haired figure and the white-haired fighter are the same person shown in different lighting or two distinct characters."
+  ],
+  "visual_summary": "A chaotic combat page shows armored, green-skinned fighters in close quarters. One warrior calls out for missing companions while another enemy lunges with a knife. A white-haired armored fighter counters at close range, disarming or wounding the attacker. In the lower panels, a dark-haired figure stands over severed mechanical tentacles or cables, while distant figures emerge through mist and another wounded combatant recoils.",
+  "volume": 2
+}

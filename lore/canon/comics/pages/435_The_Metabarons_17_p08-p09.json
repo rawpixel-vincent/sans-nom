@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Aghora is pregnant and entering labor on this page.",
+    "Aghora continues upward despite labor pains and danger.",
+    "The Metabaron is acting as the primary defender against the Zombra assault.",
+    "The unborn child is referred to by Aghora with the affectionate phrase 'little tadpole.'"
+  ],
+  "characters_present": [
+    "Aghora",
+    "the Metabaron",
+    "Zombras",
+    "Aghora's unborn child"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "Aghora's childbirth is happening simultaneously with the Zombra assault.",
+    "The pair's climb up Rock Dragonis leads from the foot of the rock to its summit during the battle.",
+    "The attack appears to be part of a larger hostile action initiated by the whore-priestesses."
+  ],
+  "dialogue_meaning": [
+    "Aghora seeks blessing and protection from the shadow of the sacred rock during childbirth.",
+    "She addresses her unborn baby affectionately, urging it to come out.",
+    "The narration frames the Zombra attack as sudden, silent, and overwhelming.",
+    "The closing narration emphasizes that the enemy numbers are beyond even a Metabaron's ability to defeat without collapsing from exhaustion."
+  ],
+  "image_sha256": "b11c22bfa6bf1018280cb6d7aa690f91954bd4dd96b310cee579a6b25142e7de",
+  "is_spread": true,
+  "locations": [
+    "Gardens of Flos",
+    "the foot of Rock Dragonis",
+    "the summit of Rock Dragonis",
+    "outer space/spacecraft exterior"
+  ],
+  "lore_facts": [
+    "The Gardens of Flos are the setting of the Zombra ambush.",
+    "Whore-priestesses are said to have unleashed the Zombras.",
+    "Rock Dragonis is a mystical rock formation.",
+    "Legend says Rock Dragonis emerged from the buried head of the last dragon.",
+    "Zombras fight in large coordinated numbers and attack without spoken warning.",
+    "Even a Metabaron has physical limits against endless enemies."
+  ],
+  "page_id": "435_The_Metabarons_17_p08-p09",
+  "page_label": "p08-p09",
+  "plot_events": [
+    "The page states that the whore-priestesses have unleashed the Zombras in the Gardens of Flos.",
+    "Aghora has gone into labor and is suffering her first labor pains at the foot of Rock Dragonis.",
+    "Aghora invokes the protection of the mystical rock and speaks to the child she is about to deliver.",
+    "A silent ring of Zombras suddenly attacks the Metabaron.",
+    "The Metabaron fights through large numbers of attackers with blades.",
+    "By the time Aghora reaches the summit, she realizes they are surrounded by countless enemies."
+  ],
+  "source_image": "external/comics/meta-barons/435_The_Metabarons_17_p08-p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b11c22bfa6bf1018280cb6d7aa690f91954bd4dd96b310cee579a6b25142e7de",
+      "page_id": "435_The_Metabarons_17_p08-p09",
+      "source_image": "external/comics/meta-barons/435_The_Metabarons_17_p08-p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some small narration and sound-effect text is difficult to read precisely at this resolution.",
+    "The opening spacecraft image may be transitional or atmospheric; its exact narrative function on this page is not fully explicit.",
+    "It is unclear whether all figures in the battle are individual Zombras or if some belong to another group, though the narration attributes the attack to Zombras."
+  ],
+  "visual_summary": "A wide spread opens with a spacecraft over a cosmic backdrop, then shifts to the Gardens of Flos at the base of Rock Dragonis. Aghora, heavily pregnant and in labor, climbs while addressing her unborn child and invoking the rock's protection. Around her, numerous armored Zombras swarm and attack the Metabaron in a dense, chaotic sword battle. The right side escalates into overwhelming carnage, ending on an image of an immense mass of enemies surrounding the pair.",
+  "volume": 17
+}

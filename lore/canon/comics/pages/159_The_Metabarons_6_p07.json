@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The scarred armored man is heavily damaged or scarred and remains verbally forceful despite his condition.",
+    "He appears fanatical or ecstatic about dying in order to attain another form of existence.",
+    "The opposing figure is intelligent enough to challenge part of his threat and is visibly frightened by the situation."
+  ],
+  "characters_present": [
+    "Scarred armored man with long dark hair",
+    "Dark-haired figure confronting him with a blade or spear-like weapon"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page presents an ongoing standoff rather than a self-contained scene, with the armed figure already in position and the scarred man already immobilized or cornered.",
+    "The final panels suggest the confrontation is about to escalate immediately on the following page."
+  ],
+  "dialogue_meaning": [
+    "The scarred man uses the threat of implanted explosives to control the confrontation and make ordinary violence too risky.",
+    "He frames death as a desired transition rather than something to avoid.",
+    "The other figure shows alarm but also demonstrates enough understanding to identify a limit in his claim about hidden bombs.",
+    "The scarred man acknowledges the opponent's intelligence and tries to push them into killing him."
+  ],
+  "image_sha256": "232255dc38a5d418d3923028d7d5fbdebd266263515d9e73df399727e0c199e6",
+  "is_spread": false,
+  "locations": [
+    "An interior space filled with machinery, wreckage, and metal structures"
+  ],
+  "lore_facts": [
+    "A person's body can be implanted with 'Oko' mini-bombs that detonate if the body is pierced.",
+    "These implants can be distributed throughout the body rather than placed in the brain.",
+    "The speaker claims his destruction would also disintegrate others and even the planet.",
+    "Within this setting, death is described by the speaker as a gateway to a higher or 'true' life."
+  ],
+  "page_id": "159_The_Metabarons_6_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A wounded or restrained armored man declares that his body is implanted with mini-bombs, making it dangerous to attack him physically.",
+    "He says that if he is disintegrated, his opponent and the rest of the planet will die with him.",
+    "The opposing figure realizes or states that there is no bomb in his brain, because he is still able to speak.",
+    "The armored man praises the opponent's intelligence and mental mastery.",
+    "He orders the opponent to kill him and send him through death so he can attain a 'true life.'",
+    "The page ends with the opponent reacting in fear and appearing to act while the man screams his final demand."
+  ],
+  "source_image": "external/comics/meta-barons/159_The_Metabarons_6_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "232255dc38a5d418d3923028d7d5fbdebd266263515d9e73df399727e0c199e6",
+      "page_id": "159_The_Metabarons_6_p07",
+      "source_image": "external/comics/meta-barons/159_The_Metabarons_6_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of both characters are not given on this page alone.",
+    "It is unclear whether the scarred man's claim about taking the rest of the planet with him is true or a bluff.",
+    "The precise action in the final right-hand panel is ambiguous; the figure seems to move or press forward, but the result is not shown.",
+    "Some terminology, including 'Oko' and one shouted proper noun or phrase, may be specialized setting language whose broader meaning is not explained on this page."
+  ],
+  "visual_summary": "A long-haired armored man sits amid mechanical debris while another figure confronts him with a bladed weapon pointed at his head. The page alternates between close-ups of the seated man's scarred face and the other figure's alarmed expressions. The seated man boasts and threatens, then demands to be killed so he can pass through death into a higher state of life. The standing figure recoils but appears to move in response by the end of the page.",
+  "volume": 6
+}

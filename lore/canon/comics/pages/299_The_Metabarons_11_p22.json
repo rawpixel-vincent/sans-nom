@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The dark-haired woman is emotionally affected by the man she sees and calls him the most handsome man she has ever seen.",
+    "She compares the observed man's meditative posture to that of her father.",
+    "The older man has white hair, a beard, and wears a blue robe.",
+    "The woman describes herself as carrying a heart-wound that can be soothed by the man's words."
+  ],
+  "characters_present": [
+    "Dark-haired woman",
+    "Older white-haired bearded man in a blue robe",
+    "Meditating man seen from a distance or in partial view"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The woman refers to her father, indicating prior family context important to her interpretation of the scene.",
+    "The page reads as a continuation of an encounter between the woman and a powerful male figure in a mystical environment."
+  ],
+  "dialogue_meaning": [
+    "The woman is immediately struck by the meditating man's beauty and associates him with her father.",
+    "The page centers on an intense vow-like statement of love, devotion, and shared destiny.",
+    "The woman addresses the older man with reverence, suggesting he embodies or channels immense magical power.",
+    "She implies emotional pain and presents his speech or presence as healing."
+  ],
+  "image_sha256": "df5b49b27df5e3f6b5306a4cd120a2a7846aeac18fd0c604891b4f77fd308353",
+  "is_spread": false,
+  "locations": [
+    "A glowing golden chamber or landscape filled with floating fragments and eye-like black-and-gold forms",
+    "A white architectural or mechanical ledge/platform at the top of the page"
+  ],
+  "lore_facts": [
+    "This setting contains numerous floating black-and-gold eye-like or shard-like objects.",
+    "A figure in this scene is explicitly associated by the woman with 'all magic' on the page.",
+    "The page presents love and death as linked in a ritualistic or destiny-laden declaration."
+  ],
+  "page_id": "299_The_Metabarons_11_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "The woman sees a man meditating with his arms outstretched and admires his appearance, comparing him to her father.",
+    "A passionate declaration of love or devotion is presented over the scene, addressed to a beloved and invoking shared nights, days, life, and death.",
+    "The woman approaches an older white-haired man standing in the golden environment.",
+    "She speaks to him about not knowing who he is, but says he seems to be the source of all magic.",
+    "She says his words can soothe a wound in her heart.",
+    "By the end of the page, the two stand facing one another in close proximity."
+  ],
+  "source_image": "external/comics/meta-barons/299_The_Metabarons_11_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "df5b49b27df5e3f6b5306a4cd120a2a7846aeac18fd0c604891b4f77fd308353",
+      "page_id": "299_The_Metabarons_11_p22",
+      "source_image": "external/comics/meta-barons/299_The_Metabarons_11_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some text is small and partially hard to read, so exact wording may be imprecise.",
+    "It is unclear whether the meditating man and the older white-haired man are the same person shown at different moments or two distinct figures.",
+    "The exact nature of the golden environment and floating eye-like forms is not explicitly explained on this page."
+  ],
+  "visual_summary": "A dark-haired woman moves through a radiant golden chamber filled with floating shard-like forms and black-gold eye motifs. She first observes a man apparently meditating with his arms outstretched, then approaches an older white-haired man in a blue robe. Large caption and speech boxes frame the scene as a romantic or devotional declaration, and the two end the page standing close together amid the glowing field.",
+  "volume": 11
+}

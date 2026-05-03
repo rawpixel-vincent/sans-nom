@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "There is a character named Tonto.",
+    "Tonto is someone others ask to narrate stories.",
+    "At least one other character is present in the scene through dialogue, though not visibly depicted."
+  ],
+  "characters_present": [
+    "Tonto (present as an addressed speaker, not clearly shown)",
+    "Unseen second speaker asking for a story"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an opening establishing shot and storytelling frame for the narrative that follows.",
+    "The floating central object/device may be important to the setting or story, but its role is not yet explained on this page."
+  ],
+  "dialogue_meaning": [
+    "The narration identifies the location as deep inside a secure central bunker in a vast urban-industrial setting.",
+    "One unseen character implores Tonto to tell a story, framing the page as the opening of an oral account.",
+    "Tonto's reply implies this is not the first such request."
+  ],
+  "image_sha256": "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a",
+  "is_spread": false,
+  "locations": [
+    "The heart of an impregnable metabunker",
+    "A bustling city-shaft surrounding or containing the bunker"
+  ],
+  "lore_facts": [
+    "A place called a metabunker exists and is described as impregnable.",
+    "The metabunker has a central 'heart' area.",
+    "The metabunker is located somewhere within a bustling city-shaft.",
+    "This world includes dense industrial-futuristic architecture and airborne traffic.",
+    "A large floating faceted structure or device is housed within a glowing spherical enclosure."
+  ],
+  "page_id": "003_The_Metabarons_1_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "The page establishes the setting as a heavily fortified metabunker inside a busy vertical city environment.",
+    "A large geometric object is shown suspended within a luminous energy-like sphere.",
+    "Off-panel, one speaker asks Tonto to tell a story.",
+    "A second off-panel response suggests reluctance or surprise at being asked for yet another story."
+  ],
+  "source_image": "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a",
+      "page_id": "003_The_Metabarons_1_p01",
+      "source_image": "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Neither speaker is visually identified on this page.",
+    "The exact nature and function of the floating faceted object and its glowing sphere are not stated.",
+    "It is unclear whether Tonto is physically in view or entirely off-panel."
+  ],
+  "visual_summary": "An establishing splash page shows a dense futuristic urban shaft or megastructure packed with pipes, platforms, and small flying vehicles. At its center floats a large faceted metallic object inside a glowing spherical field. Captioning places the scene in the heart of an impregnable metabunker within a bustling city-shaft. Off-panel dialogue begins a storytelling exchange addressed to someone named Tonto.",
+  "volume": 1
+}

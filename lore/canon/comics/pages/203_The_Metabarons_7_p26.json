@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The bloodied male figure is badly injured but still speaking and focused on revenge and release from the Metabaron identity.",
+    "Oda is present nearby and reacts with alarm rather than triumph.",
+    "The small white ape-like creature is excited and appears to support the apparent victory.",
+    "The woman shown beside one of the injured figures is also caught in the attack and appears distressed."
+  ],
+  "characters_present": [
+    "A bloodied male figure speaking about avenging his parents and ceasing to be a Metabaron",
+    "Oda",
+    "A small white ape-like creature",
+    "At least one additional injured woman caught near the beam",
+    "Multiple surrounding bystanders or bodies at the edges of the large panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page resolves or seems to resolve a long-running revenge goal involving the speaker's parents.",
+    "The emergence of the glowing cocoon/pod appears to be a direct consequence of the beam attack or the destruction just inflicted.",
+    "The statement about ceasing to be a Metabaron suggests an ongoing character arc about inheritance, duty, or identity."
+  ],
+  "dialogue_meaning": [
+    "One speaker is gleeful that two people are about to die.",
+    "The beam attack is accompanied by pain and panic from those struck.",
+    "A small ape-like companion cheers the apparent outcome.",
+    "The bloodied male figure believes vengeance for his parents has finally been achieved.",
+    "He interprets this moment as the end of his role as a Metabaron and hopes for a peaceful life with Oda.",
+    "Oda is confused or frightened by the sudden appearance or transformation."
+  ],
+  "image_sha256": "fdfbf14b7578dc47990a8d42b1fb051e4c517637307a496170c671ad4f465e4c",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber or battlefield with advanced machinery/energy systems",
+    "The area around a central glowing cocoon or pod"
+  ],
+  "lore_facts": [
+    "The title or identity 'Metabaron' is treated as a condition or role that someone believes can cease.",
+    "A character's motivation on this page is revenge for both his mother and father.",
+    "Oda is someone with whom the speaker imagines a peaceful future.",
+    "A small white ape-like being is present and capable of speech or vocalized reaction.",
+    "The scene involves extremely powerful directed energy weaponry or machinery."
+  ],
+  "page_id": "203_The_Metabarons_7_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "A character exults that two targets will die as a powerful beam fires.",
+    "The beam strikes through a scene containing at least two injured people, causing screams and visible blood.",
+    "After the blast, a large glowing cocoon- or egg-like object appears in the center of the chamber or battlefield.",
+    "Onlookers, including a small ape-like creature, celebrate or react to the apparition.",
+    "A man states that his mother and father have been avenged and says this should end his life as a Metabaron so he can live peacefully with Oda.",
+    "Another character, apparently Oda, looks alarmed and asks what is happening."
+  ],
+  "source_image": "external/comics/meta-barons/203_The_Metabarons_7_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fdfbf14b7578dc47990a8d42b1fb051e4c517637307a496170c671ad4f465e4c",
+      "page_id": "203_The_Metabarons_7_p26",
+      "source_image": "external/comics/meta-barons/203_The_Metabarons_7_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The footer on the scanned page appears to show page number 27, while the provided label is p26.",
+    "Several character identities are not explicitly named on the page; only Oda is clearly named in readable dialogue.",
+    "Some dialogue is partially hard to read due to glare, small lettering, and image resolution.",
+    "The exact nature of the glowing white object (egg, cocoon, pod, or transformed body) is not explicitly identified on this page alone."
+  ],
+  "visual_summary": "A sequence of horizontal panels shows a massive bright energy beam blasting through machinery and people, with two bloodied figures caught in the blast. The page then opens into a large panel where a glowing white cocoon or egg-like form with webbed internal lines descends or stands amid smoke and debris while surrounding figures react. In a side panel, a man embraces or stands closely with a woman while declaring revenge and a hoped-for peaceful future with Oda; below, a shocked bloodied face asks what is happening.",
+  "volume": 7
+}

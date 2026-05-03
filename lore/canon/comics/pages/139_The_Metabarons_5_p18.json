@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Honorata is directly addressed by name.",
+    "A child is credited with a major accomplishment on this page.",
+    "The child is said to be exhausted after the feat.",
+    "One speaker takes responsibility for destroying the organic ship.",
+    "One small robot appears to be smoking or overheating but remains focused on hearing the story."
+  ],
+  "characters_present": [
+    "Wide-eyed child",
+    "Honorata",
+    "Older armored male figure",
+    "Smaller helmeted figure being held",
+    "Shouting face in close-up",
+    "Two small round-bodied robots, one smoking"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page appears to continue an ongoing battle already in progress.",
+    "The final panels continue a separate ongoing storytelling or recap conversation between the two robots."
+  ],
+  "dialogue_meaning": [
+    "The page frames the child's action as an extraordinary success.",
+    "Honorata is told to check on the exhausted child while another character continues the fight.",
+    "The enemy is identified as the CetaCyborgs, and they are described as extremely dangerous.",
+    "The robot conversation functions as a frame or interruption, with one robot impatient to continue the account despite its own apparent malfunction."
+  ],
+  "image_sha256": "62eb04ffc5a08c1a3646f2ef07886cbabe93dd0ddc9f2314ccd6d84264b8916d",
+  "is_spread": false,
+  "locations": [
+    "Near or inside a damaged organic ship",
+    "Conversation space with the two small robots"
+  ],
+  "lore_facts": [
+    "An entity called the CetaCyborgs exists.",
+    "The CetaCyborgs are said to have enough power to destroy entire planets.",
+    "An 'organic ship' exists and is treated as a target that can be destroyed.",
+    "Honorata is close enough to be ordered to go assist an exhausted child after the event."
+  ],
+  "page_id": "139_The_Metabarons_5_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A child witnesses or is framed against a sudden intense flash.",
+    "A major explosion or destructive strike hits an organic ship or organism.",
+    "Someone declares that a child has achieved a remarkable victory.",
+    "A speaker urges Honorata to go to the child because he is exhausted.",
+    "The same speaker says they will destroy the enemy organic ship.",
+    "Another speaker warns that the CetaCyborgs can destroy entire planets.",
+    "An older figure physically supports or restrains a smaller helmeted person during the aftermath.",
+    "The scene shifts to two small robots arguing over whether one of them made a sound while smoke rises from its body.",
+    "The smoking robot insists the smoke is irrelevant and presses to hear what happened next."
+  ],
+  "source_image": "external/comics/meta-barons/139_The_Metabarons_5_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "62eb04ffc5a08c1a3646f2ef07886cbabe93dd0ddc9f2314ccd6d84264b8916d",
+      "page_id": "139_The_Metabarons_5_p18",
+      "source_image": "external/comics/meta-barons/139_The_Metabarons_5_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially unclear, so wording and speaker attribution may be imperfect.",
+    "The exact identities of the older armored figure, the smaller helmeted figure, and the two robots are not confirmed on this page alone.",
+    "It is not fully clear whether the top explosion is caused directly by the child or shown as the result of a prior action."
+  ],
+  "visual_summary": "A child stares wide-eyed as a blinding blast or impact tears through a large organic-looking structure. Below, an older armored figure supports a smaller helmeted person while another face shouts warnings. The final panels cut to two small round robots, one apparently emitting smoke while they bicker about whether it had 'spoken' and demand the rest of the story.",
+  "volume": 5
+}

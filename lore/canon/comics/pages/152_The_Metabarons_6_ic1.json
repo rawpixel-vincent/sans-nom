@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Honorata attempts to protect her child through deception during interrogation.",
+    "Honorata carries an implanted bomb and ultimately remains behind because she cannot safely leave with her loved ones.",
+    "Aghnar is Honorata's son and uses prosthetic weapons in combat.",
+    "Othon is Aghnar's father and acts to destroy the Cetacyborg.",
+    "The Mother Superior leads the Shabda-Oud group pursuing them."
+  ],
+  "characters_present": [
+    "Mother Superior of the Shabda-Oud",
+    "Honorata",
+    "Aghnar",
+    "Othon",
+    "two assassins accompanying the Mother Superior",
+    "hooded Shabda-Oud witches or priestesses shown in the inset art",
+    "five unidentified character portraits shown at the bottom, likely major figures from the recap/cast"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is an explicit 'previously' recap that sets up the next chapter after Honorata's death and Okhar's destruction.",
+    "It establishes the revenge motive carried forward by the surviving father and son."
+  ],
+  "dialogue_meaning": [
+    "There is no scene dialogue; the page functions as a narrated recap of prior events.",
+    "The recap explains the chain of events leading from the Shabda-Oud's arrival and interrogation of Honorata to Okhar's destruction and the surviving family members' vow of revenge."
+  ],
+  "image_sha256": "fd10869756c32f831527e135d32990618a24d58d410b52bbe4d1f90dc39f1739",
+  "is_spread": false,
+  "locations": [
+    "Okhar",
+    "aboard the Cetacyborg",
+    "the Metacraft",
+    "the Metabunker",
+    "space above Okhar"
+  ],
+  "lore_facts": [
+    "The Shabda-Oud have a Mother Superior, witches or priestesses, and assassins.",
+    "A Cetacyborg is described as a gigantic semi-organic vessel.",
+    "Aghnar has claw-tipped prosthetic limbs.",
+    "Epyphite-tipped prosthetics are effective enough to help Aghnar overcome the assassins.",
+    "The Mother Superior can engage in telepathic combat.",
+    "Honorata can link her power to her son's power.",
+    "Othon pilots or uses a craft called the Metacraft.",
+    "The Metabunker is capable of leaving the planet and observing its destruction from space.",
+    "Honorata has an artificial heart, and the implanted micro-H bomb is connected to it.",
+    "Okhar is destroyed in a nuclear annihilation."
+  ],
+  "page_id": "152_The_Metabarons_6_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recaps that the Mother Superior of the Shabda-Oud arrives on Okhar aboard a giant semi-organic vessel called a Cetacyborg, with two assassins.",
+    "Honorata is interrogated and lies that her child is a hermaphrodite, claiming an accident caused the child's amputation.",
+    "The witches attempt to examine the child and uncover the deception, but Aghnar attacks them with claw-tipped prostheses.",
+    "Aghnar defeats the assassins because his prosthetics are tipped with epyphite, then fights the Mother Superior in a telepathic duel while Honorata links her power to his.",
+    "Othon enters his Metacraft to destroy the sleeping Cetacyborg, ultimately destroying it from inside after its outer skin repels missiles.",
+    "Honorata reveals that a micro-H bomb was implanted inside her from the beginning and that it is tied to her artificial heart.",
+    "Honorata cannot leave with her family because doing so would endanger them, and the surgeons cannot remove the implant.",
+    "Father and son depart in the Metabunker and witness Honorata and Okhar being annihilated from space.",
+    "They vow to avenge her."
+  ],
+  "source_image": "external/comics/meta-barons/152_The_Metabarons_6_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fd10869756c32f831527e135d32990618a24d58d410b52bbe4d1f90dc39f1739",
+      "page_id": "152_The_Metabarons_6_ic1",
+      "source_image": "external/comics/meta-barons/152_The_Metabarons_6_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The inset illustration shows hooded figures, but the exact identity of each figure is not individually labeled on the page.",
+    "The five circular portraits at the bottom are not named on this page, so their identities should be treated as unconfirmed from this image alone.",
+    "Some recap text is small; while the main narrative is legible, minor wording details may be imperfectly read."
+  ],
+  "visual_summary": "An introductory recap page for The Metabarons. The page features the series logo, a large block of summary text headed as a previous-installment recap, an inset image of hooded religious figures or witches standing together, and five small circular character portraits along the bottom over an ornate biomechanical border.",
+  "volume": 6
+}

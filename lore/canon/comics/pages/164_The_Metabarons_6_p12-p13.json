@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Aghnar is hungry and speaks as a being from the heights above the domes.",
+    "Aghnar and Kiowotai consider themselves 'brothers,' indicating a personal bond.",
+    "Kiowotai is curious, insistent, and willing to challenge danger to learn what lies above.",
+    "Kiowotai can float, apparently using specialized footwear or devices."
+  ],
+  "characters_present": [
+    "Aghnar, an alien creature associated with the heights above the domes",
+    "Kiowotai, a silver-haired child or youth who can float"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on the established relationship between Aghnar and Kiowotai and turns that bond into a reason for revealing hidden knowledge.",
+    "The ascent above the mushroom domes appears to begin a transition from the ordinary settlement to a more dangerous upper realm."
+  ],
+  "dialogue_meaning": [
+    "Aghnar says hunger and the difference between their living places have made friendship difficult; Aghnar lives high above while Kiowotai lives below.",
+    "Kiowotai reveals or asserts the ability to float, making it possible to follow Aghnar upward.",
+    "Kiowotai appeals to their sworn brotherhood and insists there should be no secrets between them.",
+    "Kiowotai directly asks what exists above the mushroom domes.",
+    "Aghnar warns that the upper region is dangerous, but Kiowotai refuses to be intimidated."
+  ],
+  "image_sha256": "e0ac617ed9aed61676df98921a52dfdd9d9ab24e633f96bba4322ad6c7bee47e",
+  "is_spread": true,
+  "locations": [
+    "A domed settlement or city made of rounded, mushroom-like structures",
+    "The airspace above the mushroom domes",
+    "The region beneath or around a vast luminous swirling formation in the sky"
+  ],
+  "lore_facts": [
+    "This setting includes a lower 'flat world' and a higher zone where Aghnar lives.",
+    "The settlement below consists of many mushroom-like domes.",
+    "There is a massive bright, swirling structure or energy formation in the sky above the domes.",
+    "Numerous small beings or creatures occupy the air around the upper region.",
+    "Travel or ascent into the region above the domes is treated as dangerous by Aghnar."
+  ],
+  "page_id": "164_The_Metabarons_6_p12-p13",
+  "page_label": "p12-p13",
+  "plot_events": [
+    "An alien creature tells the youth that it lives high above while the youth lives in the flat world below.",
+    "The youth demonstrates the ability to float and lifts off the ground.",
+    "The youth presses the creature, invoking their bond as 'brothers' and asking what lies above the mushroom domes.",
+    "The creature warns that going upward is dangerous but begins leading the way.",
+    "The youth follows into the upper air over the domed city toward a vast glowing sky phenomenon surrounded by many airborne beings."
+  ],
+  "source_image": "external/comics/meta-barons/164_The_Metabarons_6_p12-p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e0ac617ed9aed61676df98921a52dfdd9d9ab24e633f96bba4322ad6c7bee47e",
+      "page_id": "164_The_Metabarons_6_p12-p13",
+      "source_image": "external/comics/meta-barons/164_The_Metabarons_6_p12-p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; the exact wording of Aghnar's first speech may be imperfectly interpreted.",
+    "The exact spelling of 'Kiowotai' is slightly uncertain due to image clarity.",
+    "It is unclear whether Kiowotai's floating is an innate ability or entirely dependent on equipment.",
+    "The exact nature of the huge luminous sky formation is not identified on this page alone."
+  ],
+  "visual_summary": "A wingless, alien-looking creature speaks with a silver-haired child or youth inside a domed settlement. The youth activates or wears lift-capable footwear and rises into the air, following the creature upward. The scene opens into a vast spread showing a landscape of rounded, mushroom-like domes under a huge luminous, swirling formation in the sky, with many small creatures flying or drifting around it. The youth insists on going higher despite warnings, and the creature leads the ascent above the domes.",
+  "volume": 6
+}

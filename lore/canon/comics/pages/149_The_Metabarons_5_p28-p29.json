@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Aghnar is a child whose mother has died.",
+    "Honorata is the mother of Aghnar and is the deceased figure being shown or remembered.",
+    "The father is physically unwell or strained in this scene, as indicated by coughing in his speech.",
+    "The father is actively indoctrinating the children with the memory of Honorata's death.",
+    "At least one child is emotionally distressed and objects that the situation is unfair."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Honorata (as projected image, memory, or visual representation)",
+    "An adult male identified in dialogue as 'Father'",
+    "At least one additional child near the father"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page establishes or reinforces a blood-feud motive against the Shabda-Oud.",
+    "The scene ties family memory, parental command, and revenge into the upbringing of Aghnar and the other child."
+  ],
+  "dialogue_meaning": [
+    "Aghnar is being forced to witness his mother's death as a formative memory.",
+    "One child protests the cruelty or unfairness of what is happening.",
+    "The father announces Honorata's death and links it to an obligation of vengeance.",
+    "The Shabda-Oud are named as the future target of that revenge.",
+    "A child accepts the father's command and repeats the vow."
+  ],
+  "image_sha256": "96f63baabc670b3213828435d0e44c43217b592b58a93720c58013da9b24272f",
+  "is_spread": true,
+  "locations": [
+    "A circular industrial or ceremonial platform",
+    "A desert or barren landscape with a distant tower-like structure",
+    "An interior observation area or compartment overlooking the energy sphere"
+  ],
+  "lore_facts": [
+    "Honorata is dead by the end of this scene.",
+    "Aghnar's mother is Honorata.",
+    "The father's side holds the Shabda-Oud responsible enough to target them for annihilation.",
+    "Honorata's death is associated with an 'explosion of her heart' in the dialogue.",
+    "The family treats this death as a defining memory and a basis for inherited revenge."
+  ],
+  "page_id": "149_The_Metabarons_5_p28-p29",
+  "page_label": "p28-p29",
+  "plot_events": [
+    "A giant image or recording of a woman identified as Honorata is displayed or remembered on a massive scale.",
+    "A child named Aghnar is ordered to keep watching his mother's end so he will never forget it.",
+    "A bright spherical energy event is shown as the apparent moment or symbol of Honorata's death.",
+    "An adult male, apparently the father, declares that Honorata is gone and frames her death as something to be avenged.",
+    "The father specifically vows future destruction of the Shabda-Oud.",
+    "A child agrees to avenge the mother."
+  ],
+  "source_image": "external/comics/meta-barons/149_The_Metabarons_5_p28-p29.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "96f63baabc670b3213828435d0e44c43217b592b58a93720c58013da9b24272f",
+      "page_id": "149_The_Metabarons_5_p28-p29",
+      "source_image": "external/comics/meta-barons/149_The_Metabarons_5_p28-p29.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear whether the giant female image is a live projection, a recorded memorial, or a stylized visual metaphor.",
+    "The exact identity of the additional child or children at the bottom of the page is not explicit from this page alone.",
+    "Some dialogue is small and partially difficult to read, so exact wording may be slightly uncertain.",
+    "The precise mechanism of Honorata's death is not visually explained beyond the glowing sphere and the father's reference to her heart exploding."
+  ],
+  "visual_summary": "A two-page spread centers on a monumental, translucent image of a woman’s head projected above a circular industrial platform in a reddish desert setting. On the facing page, intense beams and a glowing sphere suggest a violent energy event or memorialized detonation. Along the bottom, a dark-haired adult and children watch or recall the scene from an interior vantage point, with one child distressed and the adult turning the mother’s death into a vow of future revenge.",
+  "volume": 5
+}

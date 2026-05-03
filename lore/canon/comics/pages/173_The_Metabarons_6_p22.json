@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The attacker is armed, aggressive, and capable of mental intrusion or mind control.",
+    "The robed women are organized as 'sisters.'",
+    "The women seem linked to a hidden mission and know its destination.",
+    "An off-panel robot is outspoken and is insulted by another speaker during the exchange."
+  ],
+  "characters_present": [
+    "An armored, helmeted attacker with a pistol, later shown as a pale-haired figure connected to tubes or cybernetic apparatus",
+    "Several robed women addressed as 'sisters,' wearing pointed headdresses",
+    "An off-panel robot speaker",
+    "Off-panel speakers referencing Aghnar, Kiawoutai, and the masters"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an existing discussion about sacrifices, Aghnar, and the Cetacyborg before the ambush occurs.",
+    "The interrogation suggests the attacker is pursuing information about an ongoing covert journey."
+  ],
+  "dialogue_meaning": [
+    "The page frames an argument about blame: one speaker condemns a prior sacrifice, while another defends their masters and redirects attention to Aghnar's scheme.",
+    "Aghnar is said to have converted the Cetacyborg into a deceptive infiltration device, likened to a Trojan horse.",
+    "The attacker abruptly interrupts the discussion with gunfire and physical domination.",
+    "The attacker uses invasive mental coercion, compelling the women to yield information.",
+    "The immediate goal of the attacker is to learn the destination of the group's hidden mission or voyage."
+  ],
+  "image_sha256": "4692f7c2ea71233372bd0a2ca0c123c71447bea9583817c7df3804c999d87ef2",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or metallic chamber",
+    "Area near a central faceted structure or container within the craft"
+  ],
+  "lore_facts": [
+    "A figure named Aghnar is said to have transformed the Cetacyborg into a 'Trojan horse.'",
+    "The term 'central brain' refers to a source of knowledge or data that can be consulted.",
+    "'Terra Prima' is mentioned as having paleo-literature.",
+    "There are 'masters' whom one speaker defends.",
+    "A secret voyage is underway, and its destination is sensitive information."
+  ],
+  "page_id": "173_The_Metabarons_6_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "Off-panel dialogue accuses someone of sacrificing innocent apes and Kiawoutai.",
+    "A speaker claims Aghnar transformed the Cetacyborg into a Trojan horse and tells another to consult the central brain and ancient literature of Terra Prima.",
+    "An armed armored figure attacks a group of robed women inside the craft.",
+    "The attacker overpowers the women and threatens them while forcing access to their minds.",
+    "The women submit mentally and appear to fall under the attacker's control.",
+    "The attacker interrogates them about the destination of their secret voyage."
+  ],
+  "source_image": "external/comics/meta-barons/173_The_Metabarons_6_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4692f7c2ea71233372bd0a2ca0c123c71447bea9583817c7df3804c999d87ef2",
+      "page_id": "173_The_Metabarons_6_p22",
+      "source_image": "external/comics/meta-barons/173_The_Metabarons_6_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, especially names and technical terms; 'Kiawoutai,' 'Cetacyborg,' and some phrasing may be imperfectly transcribed.",
+    "The exact identity of the armed attacker is not stated on this page.",
+    "The exact nature of the large faceted object and the precise spacecraft location are not explicitly identified on the page."
+  ],
+  "visual_summary": "Inside a metallic spacecraft or chamber, a large faceted structure is shown while off-panel speakers argue about a sacrifice and about Aghnar transforming the 'Cetacyborg' into a Trojan horse. The scene then turns violent: a helmeted, armored figure fires a pistol at robed women with tall pointed headdresses, knocking one back. In the next moments the attacker subdues them and forces entry into their minds, and the women appear mentally overwhelmed and obedient. In the final panel, the armed figure, pale-haired and connected to tubes or cybernetic gear, demands to know the destination of their secret voyage.",
+  "volume": 6
+}

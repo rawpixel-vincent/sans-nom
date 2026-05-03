@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "The armored leader calls Crow 'master' or is called 'master' by Crow, indicating a command hierarchy.",
+    "The leader believes triumph requires the death of those tied to an engineered betrayal.",
+    "Crow responds obediently to navigation or speed commands.",
+    "Metablade is dead, ruined, or reduced to remains by this point.",
+    "The group includes a baby traveling aboard the ship."
+  ],
+  "characters_present": [
+    "An armored male leader or master figure",
+    "Crow, depicted as a floating blue brain-like entity",
+    "A baby or very young child",
+    "At least one additional crew member or attendant",
+    "Metablade, present as remains or a fallen object/body"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page follows a battle or destructive act that has just ended with the eradication of Flos.",
+    "The mention of engineered treachery indicates an earlier plot involving deliberate manipulation.",
+    "The order to head for the Golden Planet sets up the next destination in the story."
+  ],
+  "dialogue_meaning": [
+    "The narration emphasizes the sudden total destruction of a once-lush world.",
+    "The destruction kills the flowers and Zombras, but poisonous insects endure.",
+    "A surviving character pays respect to Metablade's remains.",
+    "The crew is urgently redirecting the ship toward the Golden Planet.",
+    "The baby burps after being encouraged by an attendant.",
+    "The leader treats the recent outcome as incomplete and wants to manipulate events so enemies strike the Empire.",
+    "Crow serves as a subordinate pilot or ship intelligence that obeys the order for maximum speed."
+  ],
+  "image_sha256": "219d5a081b1ba6799818867c09c3a8ca6df42529fbf502c16db6a4c54250b924",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "A destroyed garden planet identified as Flos",
+    "Interior of a spacecraft",
+    "The Golden Planet, mentioned as the destination"
+  ],
+  "lore_facts": [
+    "A planet called Flos is described as a garden planet.",
+    "Flos is destroyed extremely quickly.",
+    "Zombras inhabit or are associated with Flos and are wiped out in the destruction.",
+    "The planet's venomous insects survive the catastrophe.",
+    "There is a place called the Golden Planet.",
+    "There is an Empire significant enough to be a target of planned aggression.",
+    "Crow is a named entity capable of controlling or directing the ship's speed."
+  ],
+  "page_id": "440_The_Metabarons_17_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A garden planet is annihilated in a fraction of a second.",
+    "Narration states that the planet's flowers and Zombras are incinerated, while venomous insects survive.",
+    "Inside a spacecraft, someone addresses Metablade and says its remains will be honored.",
+    "The group sets course for the Golden Planet.",
+    "A small child is prompted to burp.",
+    "An armored leader tells Crow that the victory is only partial because engineered treachery must now be used to provoke an attack on the Empire.",
+    "The leader orders maximum speed, and the ship accelerates."
+  ],
+  "source_image": "external/comics/meta-barons/440_The_Metabarons_17_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "219d5a081b1ba6799818867c09c3a8ca6df42529fbf502c16db6a4c54250b924",
+      "page_id": "440_The_Metabarons_17_p14",
+      "source_image": "external/comics/meta-barons/440_The_Metabarons_17_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names and terms are hard to read with full certainty due to image quality, especially 'Zombras' and possibly 'Metablade'.",
+    "It is visually unclear whether Metablade is a person, title, or weapon; only the remains are shown.",
+    "The exact identity of the armored leader is not stated on this page.",
+    "The exact nature of Crow is uncertain beyond being a brain-like being or interface."
+  ],
+  "visual_summary": "A starship fires or streaks away through space as narration states that a garden planet is destroyed almost instantly. A second narration panel shows scorched insect-like survivors amid the devastation. Inside the ship, a figure mourns or honors the remains of a fallen blade-like weapon or person named Metablade, while others urge the ship onward to the Golden Planet. A baby is prompted to burp. A stern armored man speaks to a floating brain-like being called Crow, saying his victory is incomplete until engineered enemies attack the Empire and are dead. The ship then accelerates away at maximum speed.",
+  "volume": 17
+}

@@ -1,0 +1,50 @@
+{
+  "character_facts": [
+    "The depicted male figure is bald and shown with a stern, imposing expression.",
+    "The figure is visually associated with a large ornate sword.",
+    "The figure appears to have mechanical, cybernetic, or armored components visible near the shoulder/arm area."
+  ],
+  "characters_present": [
+    "An unidentified bald male figure on the cover, likely a major character associated with the series or story"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page serves as the opening cover/title image for volume 1, page label c01.",
+    "It introduces the visual tone and title of the 'Stonecutters' segment before story action begins."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "327adc9dae12a24bc34d80849999ef40429a8db8ad93a210decbeef8c5aa6b50",
+  "is_spread": false,
+  "locations": [
+    "Outer space background",
+    "No specific named in-story location is shown"
+  ],
+  "lore_facts": [
+    "The series title is The Metabarons.",
+    "The story or chapter title on this page is 'The Stonecutters.'",
+    "The credited creators shown are Jodorowsky, Gimenez, and Mobius.",
+    "The setting imagery combines space travel with archaic weaponry and advanced mechanical augmentation."
+  ],
+  "page_id": "001_The_Metabarons_1_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "This page functions as a cover/title page introducing The Metabarons and the chapter/story 'The Stonecutters.'",
+    "A central warrior-like figure is presented as the main visual focus, associated with a sword and cybernetic or armored elements.",
+    "A spacecraft is shown in space behind the figure, establishing a science-fantasy setting."
+  ],
+  "source_image": "external/comics/meta-barons/001_The_Metabarons_1_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "327adc9dae12a24bc34d80849999ef40429a8db8ad93a210decbeef8c5aa6b50",
+      "page_id": "001_The_Metabarons_1_c01",
+      "source_image": "external/comics/meta-barons/001_The_Metabarons_1_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The character is not explicitly named on this page.",
+    "It is unclear whether the visible mechanical parts are cybernetic body modifications, armor, or equipment.",
+    "No narrative events beyond cover-style introduction occur on the page."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue/chapter labeled 'The Stonecutters.' A bald, stern-looking man dominates the foreground, shown from the chest up. A large ornate sword with inset circular jewels or mechanisms stands vertically beside his face, and part of a mechanical or armored arm/shoulder is visible on the other side. The background is outer space with stars and a small spacecraft. Publication branding, issue number, date, price, series title, story title, and creator credits appear on the page.",
+  "volume": 1
+}

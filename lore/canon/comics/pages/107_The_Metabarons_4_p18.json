@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "Honorata is capable of traveling through extreme mountain conditions.",
+    "Honorata is using or riding a 'shazam' as transport."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Bat-like winged creatures"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues Honorata's journey and shifts the focus from travel to the hostile nature of Anasirma's environment."
+  ],
+  "dialogue_meaning": [
+    "The narration says Honorata is riding a shazam to Anasirma.",
+    "The narration frames Anasirma as a sacred mountain.",
+    "The narration emphasizes that the place is forbidden, deadly, and avoided for centuries by even the native inhabitants."
+  ],
+  "image_sha256": "362b9ad9a4f19807398306d9dfc1e676c5208d330f3ae9d5f422a285e5d6eaea",
+  "is_spread": false,
+  "locations": [
+    "Anasirma",
+    "A sacred mountain",
+    "A snowy mountain pass with cliffs and chasms"
+  ],
+  "lore_facts": [
+    "Anasirma is considered a sacred mountain.",
+    "The mountain region is treated as forbidden terrain.",
+    "The area contains deadly chasms.",
+    "Native inhabitants have not ventured there for centuries.",
+    "Large winged creatures inhabit the mountain environment."
+  ],
+  "page_id": "107_The_Metabarons_4_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "Honorata travels by shazam toward Anasirma, identified as a sacred mountain.",
+    "The journey takes her into a snowy, hazardous mountain region marked by deep chasms.",
+    "The page establishes that the area is dangerous and long avoided by local people.",
+    "Winged, bat-like creatures are revealed inhabiting the cliffs near Honorata's route."
+  ],
+  "source_image": "external/comics/meta-barons/107_The_Metabarons_4_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "362b9ad9a4f19807398306d9dfc1e676c5208d330f3ae9d5f422a285e5d6eaea",
+      "page_id": "107_The_Metabarons_4_p18",
+      "source_image": "external/comics/meta-barons/107_The_Metabarons_4_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of a 'shazam' is not explained on this page; it appears to be a vehicle or mount.",
+    "The species and role of the winged creatures are not identified on this page.",
+    "The printed page number at the bottom appears to read 19, while the provided label is p18."
+  ],
+  "visual_summary": "A bundled traveler rides through a blizzard into a steep, icy mountain landscape. Large pale cliffs and chasms dominate the page. In vertical panels, bat-like winged creatures hang or perch among the ice and rock. In the final panels, the traveler is shown close-up against the wind while a small craft or rider passes near one of the creatures.",
+  "volume": 4
+}

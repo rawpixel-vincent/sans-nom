@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The armored figure is capable of surviving and moving through heavy combat conditions.",
+    "The armored figure uses either an energy weapon or armor-mounted energy fire.",
+    "The armored figure speaks in a commanding, protective, or guiding manner to a female addressee referred to as 'milady'."
+  ],
+  "characters_present": [
+    "A large armored figure with a helmet and red chest area",
+    "A small dark humanoid figure, possibly unconscious or limp",
+    "Crowd or fallen figures at the edges of the large chamber, indistinct"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an active breach or rescue-like action involving an armored character, a female addressee, and a smaller figure emerging from within the structure."
+  ],
+  "dialogue_meaning": [
+    "The armored figure addresses someone as 'milady' and tells her to follow her boaster or braggart, implying he is guiding or directing a female character toward another person.",
+    "A large crash sound effect marks the forceful entry or breakage in the last panel."
+  ],
+  "image_sha256": "354abae4acbb5410e9188da3f4fb412627da7967554ce1e4bafbee9a6b17fb04",
+  "is_spread": false,
+  "locations": [
+    "A vast interior chamber or arena-like hall",
+    "An overhead or embedded golden organic/mechanical structure",
+    "A vertical shaft, tube, or containment passage",
+    "A shattered crystal- or glass-like entry point"
+  ],
+  "lore_facts": [
+    "The setting contains large-scale bio-mechanical or organic architecture with tubes, folds, and a visible eye embedded in it.",
+    "The environment combines armored technology, energy weapon fire, and organic-looking infrastructure.",
+    "There is some kind of transparent or crystalline barrier that can be broken through physically."
+  ],
+  "page_id": "368_The_Metabarons_14_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "An armored character is introduced in a dramatic, frontal view beneath strong golden backlighting.",
+    "The character stands in a large damaged arena- or corridor-like space with crowds or bodies visible along the sides.",
+    "Bright energy fire is directed horizontally into a hanging golden organic structure.",
+    "The attack or contact exposes internal details of the mass, including a visible eye-like feature.",
+    "A mechanical device or armored hand presses into or cuts through the structure.",
+    "A small dark figure appears to be released, dropped, or forced downward through a vertical passage.",
+    "The armored figure then enters through a broken crystalline or glass-like barrier with a loud crash."
+  ],
+  "source_image": "external/comics/meta-barons/368_The_Metabarons_14_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "354abae4acbb5410e9188da3f4fb412627da7967554ce1e4bafbee9a6b17fb04",
+      "page_id": "368_The_Metabarons_14_p10",
+      "source_image": "external/comics/meta-barons/368_The_Metabarons_14_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Most background figures are too small and painterly to identify clearly; they may be combatants, spectators, or corpses.",
+    "The exact identity of the small dark figure is unclear from this page alone.",
+    "The readable dialogue is partially uncertain due to image resolution; the phrase appears to include 'milady' and 'braggart' or similar wording.",
+    "It is unclear whether the visible eye belongs to a creature, a living structure, or a bio-mechanical system."
+  ],
+  "visual_summary": "A heavily armored figure stands beneath a radiant, triangular-lit opening as a golden, organic-looking mass hangs overhead. In a wide chamber strewn with bodies or debris, the figure fires bright horizontal energy beams into the amber mass. Close panels reveal a mechanical hand or weapon interfacing with the viscous structure and a slit-pupil eye embedded within it. In the final sequence, a small dark figure is expelled or dropped through a vertical shaft or transparent tube while the armored figure steps through a shattered crystalline opening with a large impact sound effect.",
+  "volume": 14
+}

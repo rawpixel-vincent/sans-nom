@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Aghnar has lost an arm and is still able to stand and fight.",
+    "Aghnar is highly stoic and speaks as though spiritual integrity matters more to him than bodily harm.",
+    "Oda is close enough to assist Aghnar medically or physically and is deeply concerned for him.",
+    "The elders speak collectively and act together in opposition to a person they call a traitor."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda",
+    "a group of elders",
+    "Jejoh (mentioned only, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing battle scene with heavy casualties already present before the page begins.",
+    "The conflict involves Aghnar and Oda on one side and the elders on the other.",
+    "Jejoh is an established figure important enough that the elders define their power in relation to him."
+  ],
+  "dialogue_meaning": [
+    "Oda is urgently trying to treat or warn Aghnar about his life-threatening injury.",
+    "Aghnar minimizes his physical suffering and emphasizes endurance and morale.",
+    "Aghnar frames inner resolve or spirit as something enemies cannot damage.",
+    "The elders reject the idea that their power comes entirely from Jejoh.",
+    "The elders identify someone as a traitor and decide to use their last reserves of power to destroy that person.",
+    "Oda reacts in alarm when Aghnar is hit or thrown by the blast."
+  ],
+  "image_sha256": "43d48467300399f06884a337ed7e9811ef8a5bd520a4713ad49b50a36f1d99b0",
+  "is_spread": false,
+  "locations": [
+    "a large interior hall or chamber filled with corpses and monstrous figures",
+    "the elders' position within the same battle-damaged chamber"
+  ],
+  "lore_facts": [
+    "There exists a faction called the elders.",
+    "The elders are said to have powers of their own and are not entirely dependent on Jejoh.",
+    "The elders can expend stored or remaining energy as a weapon.",
+    "The setting contains both many dead bodies and several large hostile-looking creatures, indicating a major battle or massacre."
+  ],
+  "page_id": "201_The_Metabarons_7_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "Oda warns that Aghnar is losing a great deal of blood from a severed arm.",
+    "Aghnar says only the stump hurts and insists the rest of him is fine.",
+    "Aghnar declares that his spirit cannot be wounded even if his body is injured.",
+    "Aghnar raises a firearm and shoots toward an off-panel target.",
+    "A group of elders reveals itself and states that it has power independent of Jejoh.",
+    "The elders threaten to spend their remaining energy to exterminate the 'traitor.'",
+    "A powerful energy blast erupts and hurls or strikes Aghnar while Oda calls his name."
+  ],
+  "source_image": "external/comics/meta-barons/201_The_Metabarons_7_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "43d48467300399f06884a337ed7e9811ef8a5bd520a4713ad49b50a36f1d99b0",
+      "page_id": "201_The_Metabarons_7_p24",
+      "source_image": "external/comics/meta-barons/201_The_Metabarons_7_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; phrasing may be approximate even though the overall meaning is clear.",
+    "It is unclear whether Aghnar is firing at the elders specifically or at another off-panel enemy.",
+    "Jejoh is only mentioned in dialogue and may not be physically present on the page.",
+    "The printed footer appears to show page number 25, which does not match the provided page label p24.",
+    "The exact nature of the large dark creatures in the hall is not explained on this page."
+  ],
+  "visual_summary": "In a chaotic interior battlefield littered with bodies, Oda tends to the badly wounded Aghnar, whose arm has been severed at the stump. Aghnar remains defiant despite heavy blood loss, draws a gun, and fires at an unseen opponent while Oda recoils behind him. Nearby, shadowy hooded elders declare that they are not wholly dependent on Jejoh and will use their own power against a traitor. A bright purple-white blast then strikes or throws Aghnar backward as Oda cries out to him.",
+  "volume": 7
+}

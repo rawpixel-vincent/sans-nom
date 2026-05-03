@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The narrator is acting in support of a superior referred to as 'my master.'",
+    "The woman in the final panel is emotionally invested in the survival of the Maleroute tree and holds another character responsible.",
+    "A character described as 'metal-head' is present in the scene or nearby, implying a metallic or cybernetic nature."
+  ],
+  "characters_present": [
+    "An unnamed dark-haired woman wearing headgear or armor, likely speaking narration and the final accusation",
+    "An unnamed 'master' referenced by the narrator but not clearly shown",
+    "An unnamed 'metal-head' companion addressed in the final panel",
+    "Crew or operators aboard the attacking craft, not individually identified"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing assault on a flagship or central installation rather than the start of the conflict.",
+    "The speaker's reference to 'my master' implies an established hierarchy from earlier pages.",
+    "The accusation in the final panel suggests prior interaction or tension between the woman and the 'metal-head' character."
+  ],
+  "dialogue_meaning": [
+    "The narrator says their action is meant to give their master time to get close to the enemy flagship.",
+    "The attack craft crew rapidly arms and fires a heavy weapon.",
+    "The destruction of the target causes wider catastrophic collapse.",
+    "The woman in the last panel is furious and blames a cybernetic or metallic ally for failing to stop the damage."
+  ],
+  "image_sha256": "6de6e23d45999a203b6ba868afb422008d9a530e89eda399cc14844fd71b2186",
+  "is_spread": true,
+  "locations": [
+    "Space or aerial zone near a floating mothership",
+    "A gigantic tower/tree-like megastructure identified as the 'Maleroute tree'",
+    "A place possibly named 'Philodendra,' mentioned in narration but difficult to read"
+  ],
+  "lore_facts": [
+    "There exists a very large 'floating mothership' serving as a flagship or central target.",
+    "A weapon called 'atomic maxi-okos' exists and is powerful enough to rupture a massive installation.",
+    "The 'Maleroute tree' is a named structure important enough that its destruction is treated as a major loss.",
+    "Some larger masses, ships, or structures appear dependent on the flagship's energy or on the destroyed central structure."
+  ],
+  "page_id": "365_The_Metabarons_14_p06-p07",
+  "page_label": "p06-p07",
+  "plot_events": [
+    "A narrator indicates they are buying their master time to approach a floating mothership.",
+    "Crew aboard a small craft prepare and fire a weapon identified as 'atomic maxi-okos.'",
+    "The energy attack hits the large structure and rips through it in multiple panels of blinding impact.",
+    "A major structure identified in dialogue as the 'Maleroute tree' is smashed.",
+    "Once the central structure is destroyed, large connected masses or vessels lose support or power and fall as wreckage.",
+    "An angry woman accuses a 'metal-head' companion of being able to prevent the disaster."
+  ],
+  "source_image": "external/comics/meta-barons/365_The_Metabarons_14_p06-p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "6de6e23d45999a203b6ba868afb422008d9a530e89eda399cc14844fd71b2186",
+      "page_id": "365_The_Metabarons_14_p06-p07",
+      "source_image": "external/comics/meta-barons/365_The_Metabarons_14_p06-p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several captions are small or partially unclear, so exact wording is uncertain.",
+    "The name 'Philodendra' is difficult to read and may be slightly incorrect.",
+    "It is unclear whether the falling masses are ships, structural fragments, or attached platforms.",
+    "The narrator and the woman in the final panel may be the same person, but the page alone does not prove it."
+  ],
+  "visual_summary": "A small attack craft closes in on a huge floating mothership or suspended structure and launches a powerful energy strike. The blast lances through the target, splitting and overexposing the structure in white light, then triggering a chain of explosions and showers of debris. In the final panel, a dark-haired woman in headgear angrily blames a metal-headed companion for the destruction.",
+  "volume": 14
+}

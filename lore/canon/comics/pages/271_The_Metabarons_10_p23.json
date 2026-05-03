@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The armored figure is a Metabaron or closely associated with that title.",
+    "He is willing to help with a cosmic threat only in exchange for personal advancement.",
+    "He explicitly shows indifference to humanity's welfare.",
+    "The empress presents herself as desperate, having suffered military losses and mass casualties before escaping.",
+    "Don Nicanor Rosamel de Rokha is president of the Under-Developed Petroglotosocialik Federation.",
+    "Don Nicanor is described as fanatically attached to traditions of nobility and therefore unwilling to approve the honor."
+  ],
+  "characters_present": [
+    "An armored man in a gold-and-black suit, addressed as a Metabaron and proposed as 'Supreme Metabaron'",
+    "A holographic imperial woman who calls herself the neocerth empress of the galaxy",
+    "A holographic bearded man identified as Don Nicanor Rosamel de Rokha, president of the Under-Developed Petroglotosocialik Federation"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to an earlier duel with Aghnar as the cause of the current crisis.",
+    "The offered promotion implies the Metabaron already has a known status within an existing hierarchy of titles and honors.",
+    "The final exchange sets up a likely future mission or assassination targeting Don Nicanor Rosamel de Rokha."
+  ],
+  "dialogue_meaning": [
+    "The woman frames the situation as a universe-level emergency caused by the aftermath of a duel with Aghnar.",
+    "She appeals to friendship, duty, and the survival of humanity, but the armored figure rejects moral appeals.",
+    "The armored figure negotiates transactionally, asking what reward he will receive for resealing the breach.",
+    "The reward offered is political and aristocratic elevation rather than money.",
+    "The process for receiving the noble medallion requires unanimous ambassadorial consent.",
+    "The obstacle is a tradition-minded federation president who will not support the appointment.",
+    "The armored figure treats assassination as an obvious fix for the political obstacle."
+  ],
+  "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+  "is_spread": false,
+  "locations": [
+    "A machinery-filled futuristic interior, likely a ship or technological chamber",
+    "Holographic communication space showing remote speakers"
+  ],
+  "lore_facts": [
+    "A duel with Aghnar allegedly opened a breach in reality.",
+    "Entities described as devourers from interspace are invading or threatening the universe through that breach.",
+    "There is a galactic ruler referred to as the neocerth empress of the galaxy.",
+    "The title 'Supreme Metabaron' exists or can be bestowed.",
+    "A medallion of high nobility exists and requires unanimous consent from planetary ambassadors.",
+    "There is a political body of planetary ambassadors with authority over noble recognition.",
+    "The Under-Developed Petroglotosocialik Federation exists as a named political entity."
+  ],
+  "page_id": "271_The_Metabarons_10_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A holographic imperial woman contacts the armored figure with an urgent cosmic crisis: a reality breach caused during a duel with Aghnar.",
+    "She says devourers from interspace are threatening to overrun the universe.",
+    "The armored figure refuses altruistic motives and demands a personal reward before helping.",
+    "The empress-like figure offers him elevated rank and noble honors, including the title 'Supreme Metabaron' and a medallion of high nobility.",
+    "She adds a condition: all planetary ambassadors must agree unanimously.",
+    "She identifies Don Nicanor Rosamel de Rokha as the one ambassador who would never approve.",
+    "The armored figure concludes that eliminating this ambassador is the simple solution."
+  ],
+  "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+      "page_id": "271_The_Metabarons_10_p23",
+      "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names and titles are hard to read precisely due to image resolution; spellings such as 'neocerth,' 'Petroglotosocialik,' and the full personal name may be imperfect.",
+    "Some dialogue boxes are faint, so fine wording may be slightly off even though the narrative meaning is clear.",
+    "The printed page number visible at the bottom appears to be 25, which does not match the supplied page label 'p23'."
+  ],
+  "visual_summary": "Inside a dense futuristic chamber or ship interior, a seated armored figure in a gold chestpiece speaks with a luminous holographic woman and later a bearded holographic man. The woman urgently explains that a duel with Aghnar opened a breach in reality and that beings from interspace are threatening the universe. The seated figure shows little concern for humanity and instead bargains for status and honors. The woman offers to make him 'Supreme Metabaron' and grant a high noble medallion, but explains that unanimous approval from planetary ambassadors is required. She identifies one ambassador, Don Nicanor Rosamel de Rokha of the Under-Developed Petroglotosocialik Federation, as an obstacle because of his devotion to nobility traditions. The figure immediately concludes that he must eliminate this man.",
+  "volume": 10
+}

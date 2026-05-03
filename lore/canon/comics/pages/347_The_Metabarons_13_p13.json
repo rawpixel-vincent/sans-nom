@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Melmoth is physically disfigured enough that his face provokes shock and revulsion when revealed.",
+    "Melmoth becomes despairing and self-isolates after Doña Vicenta’s reaction.",
+    "Doña Vicenta had been relying on darkness and a veil to sustain an idealized image of Melmoth.",
+    "Tonto is present as an explanatory witness or narrator who knows Melmoth’s state and actions."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "Doña Vicenta",
+    "Tonto"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page refers to an earlier event in which Melmoth became split into two separate personalities.",
+    "The tower confinement follows directly from Doña Vicenta seeing Melmoth clearly and rejecting the illusion she had maintained."
+  ],
+  "dialogue_meaning": [
+    "The narrator describes an extended sexual encounter between Melmoth and Doña Vicenta, emphasizing repeated impregnation attempts.",
+    "The sudden lightning is presented as the event that literally and symbolically removes the protective darkness.",
+    "Doña Vicenta mourns the loss of Melmoth’s hidden beauty and says his revealed appearance horrifies her.",
+    "She says the darkness and veil existed so she could preserve her idealized memory of him.",
+    "Another speaker asks Tonto what Melmoth was doing in the tower.",
+    "Tonto answers that Melmoth was experiencing internal war because two previously separate personalities could not be reunited."
+  ],
+  "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+  "is_spread": false,
+  "locations": [
+    "A dark interior chamber or room where Melmoth and Doña Vicenta were together",
+    "Outside storm/lightning visible beyond the chamber",
+    "A tower room later left damaged and strewn with debris",
+    "A doorway or interior floor area where a figure curls up crying"
+  ],
+  "lore_facts": [
+    "Melmoth and Doña Vicenta had intercourse for hours, with Melmoth attempting multiple inseminations.",
+    "Darkness or a veil had been deliberately used to conceal Melmoth’s appearance from Doña Vicenta.",
+    "A lightning strike exposed Melmoth’s appearance by removing the darkness.",
+    "Melmoth later shut himself away in a tower for days without sleeping, eating, or drinking.",
+    "Melmoth had a prior mental division into two separate personalities, and failure to reconcile them caused a breakdown."
+  ],
+  "page_id": "347_The_Metabarons_13_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A narrator explains that Melmoth repeatedly impregnated Doña Vicenta over several hours in a darkened chamber.",
+    "A lightning strike abruptly destroys the darkness surrounding the scene.",
+    "The woman sees Melmoth’s face and cries out in horror at his disfigurement.",
+    "She explains that the veil and darkness had hidden his condition and says she can no longer maintain her earlier illusion of his beauty.",
+    "Melmoth falls into despair and isolates himself in a tower for days without basic needs.",
+    "The narrator states that Melmoth entered into conflict with himself after a prior mental split could not be reconciled."
+  ],
+  "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+      "page_id": "347_The_Metabarons_13_p13",
+      "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and narration are small and partially difficult to read; exact wording may be imperfectly interpreted.",
+    "The identity of the collapsed crying figure is implied by panel flow to be Melmoth, but the page does not state it explicitly in that panel alone.",
+    "The exact visual extent and cause of Melmoth’s facial disfigurement are not fully shown or explained on this page."
+  ],
+  "visual_summary": "A narrator recounts a catastrophe inside a dark mechanical chamber while lightning flashes outside. The page then cuts to a close-up of a woman with damaged, mechanical-looking eyes and face, reacting in horror to Melmoth’s disfigurement. Smaller panels show a hulking figure, a collapsed naked figure crying on the floor by a door, and a wrecked tower room littered with debris, while narration explains Melmoth’s self-imposed isolation and mental collapse.",
+  "volume": 13
+}

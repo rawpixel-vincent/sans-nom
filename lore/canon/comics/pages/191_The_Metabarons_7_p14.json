@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The unseen narrator can create or maintain a mirage and expects to switch to 'real powers' shortly afterward.",
+    "The unseen narrator is motivated by vengeance connected to Othon and Honorata.",
+    "Oda the Capricious is important enough that capturing them is treated as a major success.",
+    "The probe-like beings are loyal to elders and proud of their role in the capture.",
+    "The checkpoint machine is automated or speaks in a procedural voice while validating identity and mental integrity."
+  ],
+  "characters_present": [
+    "Unseen internal narrator using a mirage and planning an attack",
+    "Oda the Capricious, mentioned as captured",
+    "Othon, mentioned by name only",
+    "Honorata, mentioned by name only",
+    "Large biomechanical checkpoint or spy-probe system",
+    "Small floating probe-like entities referred to as 'sisters' and 'daughters'",
+    "Crowds of humanoid onlookers around the chamber",
+    "Occupant or occupants inside the large capsule-like craft, indistinct"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page follows an apparent infiltration or deception sequence, since a mirage is already in effect.",
+    "Othon and Honorata's deaths or wrongs predate this moment and motivate the present action.",
+    "The capture of Oda the Capricious appears to be a significant ongoing objective in the surrounding story."
+  ],
+  "dialogue_meaning": [
+    "The internal monologue says the current appearance is an intentional temporary illusion before a real attack begins.",
+    "The speaker links the attack to vengeance for Othon and Honorata and to proving personal worthiness.",
+    "The checkpoint system performs layered biological and psychological verification and concludes the subject is authentic.",
+    "The floating probes believe their faction has successfully seized Oda the Capricious and take pride in that success."
+  ],
+  "image_sha256": "19e909d7a0a4e5e270bdb13c0295a103f4ed90a1025076aed15571f273376890",
+  "is_spread": false,
+  "locations": [
+    "A monumental city or palace-like urban complex under a radiant energy structure",
+    "A scanning or security checkpoint associated with a large mechanical system",
+    "A circular interior chamber or docking hall with balconies and assembled crowds"
+  ],
+  "lore_facts": [
+    "This setting contains advanced probe technology capable of checking genetics, brainwaves, and infra-conscious status.",
+    "Passage into this area appears to require successful multi-layer identity verification.",
+    "A mirage or illusion can be used tactically to bypass detection or buy time.",
+    "There exists a figure known as Oda the Capricious.",
+    "There are group entities calling themselves sisters, daughters, and referring to elders, implying a collective or hierarchical social structure."
+  ],
+  "page_id": "191_The_Metabarons_7_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A character internally states that a mirage only needs to hold briefly before they can use their real powers.",
+    "That same speaker frames the coming move as brief deception followed by attack and dedicates the act to avenging Othon and Honorata.",
+    "A surveillance or checkpoint machine activates multiple probes and verifies the target's identity, brainwaves, and infra-conscious state.",
+    "The machine authorizes passage after detecting no anomaly.",
+    "Small floating entities celebrate what they describe as the capture of Oda the Capricious.",
+    "A large vessel or pod is shown entering or occupying a public interior space while many onlookers gather around it."
+  ],
+  "source_image": "external/comics/meta-barons/191_The_Metabarons_7_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "19e909d7a0a4e5e270bdb13c0295a103f4ed90a1025076aed15571f273376890",
+      "page_id": "191_The_Metabarons_7_p14",
+      "source_image": "external/comics/meta-barons/191_The_Metabarons_7_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The internal speaker is not visibly identified on the page.",
+    "It is unclear whether Oda the Capricious is physically inside the large capsule-like craft or only being referred to elsewhere in the scene.",
+    "Some fine text and visual details are small, so exact wording and specific device functions may be slightly uncertain.",
+    "The exact nature of the radiant structure, whether portal, engine, or ceremonial installation, is not stated on the page alone."
+  ],
+  "visual_summary": "A vast bright city or ceremonial complex is flooded by intense blue-white light from a towering energy structure filled with glowing spheres. In the upper area, a large biomechanical device announces a successful identity and mind scan. Smaller floating probes celebrate that their side has captured Oda the Capricious. A large capsule-like craft descends or stands within a circular interior chamber surrounded by crowds and balconies.",
+  "volume": 7
+}

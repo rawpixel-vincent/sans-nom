@@ -1,0 +1,44 @@
+{
+  "character_facts": [
+    "The featured figure has white hair, a serious expression, and is visually linked to an elaborate high-tech weapon.",
+    "The figure's exact identity is not stated on this page."
+  ],
+  "characters_present": [
+    "An unidentified white-haired figure featured on the cover, likely a major character connected to the issue's story"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The cover establishes the next narrative segment as centering on Othon's knighting."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "7ed8d668ef71dbf107970c4ce89e22c348005d34cc5507d8478b88e0aa81aeab",
+  "is_spread": false,
+  "locations": [],
+  "lore_facts": [
+    "This is issue #3 of The Metabarons.",
+    "The story or chapter title presented on the cover is 'The Knighting of Othon.'",
+    "The creators credited on the cover are Jodorowsky, Gimenez, and Moebius.",
+    "The cover imagery associates the story with a warrior or ceremonial martial theme through the prominent futuristic blade."
+  ],
+  "page_id": "056_The_Metabarons_3_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover introducing issue #3 of The Metabarons.",
+    "The installment is identified as 'The Knighting of Othon,' signaling the focus of the upcoming story."
+  ],
+  "source_image": "external/comics/meta-barons/056_The_Metabarons_3_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7ed8d668ef71dbf107970c4ce89e22c348005d34cc5507d8478b88e0aa81aeab",
+      "page_id": "056_The_Metabarons_3_c01",
+      "source_image": "external/comics/meta-barons/056_The_Metabarons_3_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover page, it contains no explicit scene action or dialogue beyond title and credits.",
+    "The identity of the depicted figure is not confirmed on the page itself.",
+    "It is unclear whether the foreground object is strictly a sword or a hybrid ceremonial/technological weapon."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue #3. A close-up portrait shows a stern, white-haired figure in shadow holding or framed by an ornate, futuristic sword or weapon in the foreground. The title branding and the subtitle identifying the installment as 'The Knighting of Othon' are prominently displayed.",
+  "volume": 3
+}

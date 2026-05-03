@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Bari is young, wounded or previously crippled, and emotionally volatile on this page.",
+    "Bari's mother has just died or is being spoken of as dead.",
+    "Bari views his mother's death as heroic and wants to emulate it.",
+    "Bari believes his father broke his legs to prevent him from fighting.",
+    "The opposing speaker is more pragmatic than Bari and values survival and tactical victory over glorious death."
+  ],
+  "characters_present": [
+    "Bari",
+    "Bari's mother (dead or dying on this page)",
+    "Armored companions or clan members",
+    "A speaker identified by Bari as his father is discussed, but not clearly isolated visually"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to Bari's mother dying immediately before or at the start of this page.",
+    "The argument depends on an earlier incident in which Bari's father allegedly broke Bari's legs.",
+    "The mention of the Endoguards frames the current conflict as ongoing rather than resolved."
+  ],
+  "dialogue_meaning": [
+    "The group judges the woman’s death as wasteful rather than glorious.",
+    "Bari feels betrayed by his father, believing he was mutilated out of cowardice to keep him from battle.",
+    "Bari equates death in combat with heroic honor and wants to follow his mother's example.",
+    "The others reject this suicidal idealism and prioritize survival.",
+    "A counterargument redefines honor pragmatically: winning matters more than dying bravely, and deception can be acceptable.",
+    "The final remark suggests the enemy has a ranged advantage and may be vulnerable up close."
+  ],
+  "image_sha256": "d5032ce06f2809317d9fc48544053038f552d9dd556043f2713715d67de261f6",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or chamber with platforms and railings",
+    "A damaged opening or shaft-like space visible in the lower center panel"
+  ],
+  "lore_facts": [
+    "The setting includes 'Endoguards,' a hostile force with powerful ranged weapons.",
+    "Within this warrior culture, honor, bravery, victory, and acceptable tactics are openly contested values.",
+    "Carrying out a fallen relative's remains is treated as a meaningful duty.",
+    "Severe family discipline, including crippling a son to keep him from battle, is presented as something that can occur in this lineage or culture."
+  ],
+  "page_id": "031_The_Metabarons_2_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A woman appears to die in a burst of intense light at the start of the page.",
+    "Armored onlookers identify the death as needless and caused by pride.",
+    "Bari, injured and emotional, says his father crippled him to stop him from joining the fight.",
+    "Bari declares he wants to die like his mother, as a hero, and asks who will carry her remains out.",
+    "Another armored figure rebukes Bari, saying his recklessness endangers everyone.",
+    "A debate breaks out over honor: Bari accuses the others of having none, while another speaker argues victory and even deception can be honorable.",
+    "The page ends with a tactical observation that the Endoguards' weapons kill only from a distance."
+  ],
+  "source_image": "external/comics/meta-barons/031_The_Metabarons_2_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d5032ce06f2809317d9fc48544053038f552d9dd556043f2713715d67de261f6",
+      "page_id": "031_The_Metabarons_2_p02",
+      "source_image": "external/comics/meta-barons/031_The_Metabarons_2_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be imperfectly captured.",
+    "The sword-bearing luminous figure in the opening panels is likely Bari's mother, but the image is too blown out to confirm visually with full certainty.",
+    "Bari's father is mentioned directly in dialogue, but it is unclear which visible armored figure, if any, is him on this page."
+  ],
+  "visual_summary": "The page opens with three narrow panels dominated by a blinding white burst around a sword-bearing figure, suggesting a sudden death or explosion. In the next panel, armored fighters gather around a fallen woman’s body and comment on her pointless death. The lower half shifts to an argument inside a metallic interior: a young armored man, Bari, lies injured and weeping, then rises to denounce his father as a coward for breaking his legs to keep him from fighting. Other armored figures confront him, insisting they want him alive and arguing that honor comes through victory, even through deception. A final panel emphasizes that the enemy’s weapons kill only at range.",
+  "volume": 2
+}

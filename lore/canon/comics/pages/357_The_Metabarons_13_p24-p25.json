@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "A person at the gate knows the Metabaron and is trying to reach him during the crisis.",
+    "A vehicle occupant or nearby person in the chaos calls for help.",
+    "The Metabaron is treated as someone expected to intervene in a major military emergency."
+  ],
+  "characters_present": [
+    "An armored figure outside a large fortress door, speaking to the Metabaron",
+    "The Metabaron, addressed but not clearly shown",
+    "Occupants of a fast-moving ground vehicle",
+    "Numerous fleeing or fallen crowd figures, possibly soldiers, workers, or civilians"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an active assault on Terra Prima reaching or threatening the Metabaron's stronghold.",
+    "The final panels transition from mass destruction to a direct appeal for the Metabaron's involvement."
+  ],
+  "dialogue_meaning": [
+    "A brief plea for help underscores panic during the destruction.",
+    "An urgent speaker appeals to the Metabaron to open the door and act because enemy forces are swarming Terra Prima in huge numbers."
+  ],
+  "image_sha256": "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+  "is_spread": true,
+  "locations": [
+    "A large urban or industrial battle zone under attack",
+    "Roads or causeways leading through a rocky or constructed landscape",
+    "A fortress-like industrial complex with a massive entrance on Terra Prima"
+  ],
+  "lore_facts": [
+    "Terra Prima is explicitly named as the world or location under attack.",
+    "The Metabaron has access to, or resides behind, a large fortified door at an industrial stronghold.",
+    "The speaker uses 'Paleo-Christ' as an exclamation, indicating a religious or cultural oath in this setting.",
+    "The attackers are described as swarming 'like ants,' emphasizing overwhelming numbers."
+  ],
+  "page_id": "357_The_Metabarons_13_p24-p25",
+  "page_label": "p24-p25",
+  "plot_events": [
+    "A massive destructive attack tears through a densely built area, sending debris, smoke, and bodies or troops sprawling.",
+    "Aerial machinery or a projectile passes over the chaos as explosions continue across the spread.",
+    "People on the ground are overwhelmed and one cry for help is shown.",
+    "A vehicle speeds away from the disaster zone along a winding route toward a large fortified industrial complex.",
+    "At the complex entrance, an armored figure urgently calls for the Metabaron to open the door and respond to the invasion on Terra Prima."
+  ],
+  "source_image": "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+      "page_id": "357_The_Metabarons_13_p24-p25",
+      "source_image": "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; wording may not be exact beyond the key names and urgency.",
+    "The exact identity of the gate speaker is unclear from this page alone.",
+    "The exact nature of the attacking force, the overhead craft, and the destroyed structures is not fully identifiable from the image alone.",
+    "The crowd below may include soldiers, civilians, or workers; the page does not clearly distinguish all figures."
+  ],
+  "visual_summary": "A wide double-page spread shows a catastrophic assault or explosion ripping through a vast built-up area filled with geometric structures, debris, smoke, and white energy-like streaks. A craft or projectile cuts through the destruction overhead while crowds, soldiers, or workers scramble below. Along the bottom tier, smaller panels track a vehicle racing along roads toward a heavy industrial fortress, ending with an armored figure at a large door urgently calling to the Metabaron from outside.",
+  "volume": 13
+}

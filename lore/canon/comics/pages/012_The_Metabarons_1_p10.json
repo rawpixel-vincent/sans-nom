@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Othon is impulsive and overconfident on this page.",
+    "Othon resents being told to wait and insists on his own judgment.",
+    "Othon's father-in-law supervises or advises him during the operation.",
+    "The older hooded golden-faced man is emotionally involved in the group and speaks in familial terms."
+  ],
+  "characters_present": [
+    "Othon",
+    "Othon's father-in-law",
+    "Older hooded man with a metallic golden face",
+    "Several workers or technicians in protective gear"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page escalates from argument to accident, turning a family/work dispute into immediate physical danger.",
+    "The premature cut creates a direct threat centered on Othon."
+  ],
+  "dialogue_meaning": [
+    "The older man argues that the people involved are bound by family ties, not just formal roles.",
+    "A worker is frustrated because Othon ignored a timing instruction.",
+    "Othon is portrayed as impatient and dismissive of advice from his father-in-law.",
+    "The others immediately recognize that Othon's action has created a life-threatening accident."
+  ],
+  "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+  "is_spread": false,
+  "locations": [
+    "An industrial workshop or cutting site",
+    "A large interior shaft or open vertical work area"
+  ],
+  "lore_facts": [
+    "Othon works in a hazardous technical environment involving timed cutting operations.",
+    "Othon has a father-in-law who is present and gives him operational instructions.",
+    "Family relationships are directly entangled with the work hierarchy on this page.",
+    "The cutting process appears dangerous enough that a few minutes' timing difference matters."
+  ],
+  "page_id": "012_The_Metabarons_1_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "An older hooded man frames the group as being 'like a family' during a discussion with superiors or coworkers.",
+    "A worker reacts sharply as Othon activates or cuts the base too soon.",
+    "Someone reprimands Othon for not waiting the instructed extra minutes before making the cut.",
+    "Othon answers defiantly, saying he hates waiting and can judge the timing himself.",
+    "A powerful beam or cutting discharge shoots across the work area.",
+    "The premature action causes immediate danger: workers and gear are flung or destabilized.",
+    "Another character says Othon was warned, and someone shouts for him to run."
+  ],
+  "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+      "page_id": "012_The_Metabarons_1_p10",
+      "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may be partially misread; speaker attribution for the opening and warning lines is not fully certain.",
+    "The exact identity of the older hooded golden-faced man is unclear from this page alone.",
+    "The precise object being cut and the full nature of the machinery are not explicitly identifiable from the page alone."
+  ],
+  "visual_summary": "In an industrial interior, a hooded older man with a metallic golden face is shown in close-up as a tense exchange unfolds around a mounted cutting device. A bright beam is fired across the workspace after Othon acts too early despite being told to wait. The blast and sudden motion throw workers and equipment into danger, prompting shouted warnings as Othon and others scramble amid the glare.",
+  "volume": 1
+}

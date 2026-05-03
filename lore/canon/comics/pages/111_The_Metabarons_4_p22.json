@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The child was trained through extreme physical hardship and constant combat.",
+    "The child was able to resist or evade his mother's hypnotic ability by the end of the sequence.",
+    "The mother is both caregiver and combat trainer, combining violence with a rare moment of tenderness.",
+    "The mother is depicted as physically formidable and psychologically severe."
+  ],
+  "characters_present": [
+    "the child/son",
+    "his mother, a blue-haired woman with unusual powers"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page reads as a flashback or narrated backstory segment about the child's upbringing.",
+    "The final kiss is presented as the culmination of a long training relationship rather than an isolated event.",
+    "The narration links the child's eventual victory directly to the prolonged regimen of weights, combat, and endurance."
+  ],
+  "dialogue_meaning": [
+    "Narration explains that the mother systematically intensified the child's training by increasing his burden.",
+    "The mother verbally demands harsher self-defense and more vicious attacks, showing a brutal training method.",
+    "The child voices hatred and defiance during the struggle.",
+    "After being beaten, the exchange shifts into surrender/submission, immediately followed by a rare act of affection."
+  ],
+  "image_sha256": "bc9ef6c4b06c35b02a81d1ecdde7c02f8698b83e2ac8727737654ec32516a9b8",
+  "is_spread": false,
+  "locations": [
+    "a stark interior or platformed environment",
+    "an icy or frozen chasm-like setting during the combat montage"
+  ],
+  "lore_facts": [
+    "The child's upbringing involved deliberate increases in physical burden every six months.",
+    "Mother and son fought every day for hours as part of his development.",
+    "The mother possesses great strength.",
+    "The mother can emit hypnotic waves.",
+    "The child's power grew steadily under this regimen.",
+    "A kiss from the mother is characterized as something almost entirely absent from his childhood."
+  ],
+  "page_id": "111_The_Metabarons_4_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "Narration states that additional weight was added to the child at regular intervals.",
+    "The child is made to fight his mother daily for long periods.",
+    "The mother pressures him to defend himself more effectively and attack more fiercely.",
+    "The child's energy or strength is said to increase day by day.",
+    "In the climactic bout, the child avoids the mother's hypnotic waves and defeats her.",
+    "After the fight, she asks if he gives in, and he submits.",
+    "The mother kisses him, presented as the only kiss he received in childhood."
+  ],
+  "source_image": "external/comics/meta-barons/111_The_Metabarons_4_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bc9ef6c4b06c35b02a81d1ecdde7c02f8698b83e2ac8727737654ec32516a9b8",
+      "page_id": "111_The_Metabarons_4_p22",
+      "source_image": "external/comics/meta-barons/111_The_Metabarons_4_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact names of the mother and child are not stated on this page.",
+    "Some dialogue and narration are partially hard to read at this image resolution, so wording may be approximate.",
+    "The exact nature of the metal apparatus on the child's body is unclear; it appears to be added weight or restraint rather than clearly labeled equipment."
+  ],
+  "visual_summary": "A narrated montage shows a child being physically burdened and trained by his mother. Close-ups show heavy metal restraints or weights on his body, then repeated hand-to-hand combat between the child and a blue-haired woman in a stark, icy-looking setting. The sequence ends with the child finally pinning or overcoming her, after which she asks whether he yields, he submits, and she gives him a kiss while narration frames it as the only kiss of his childhood.",
+  "volume": 4
+}

@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The older man is authoritative and determines the child’s fate and succession conditions.",
+    "He ties his own life to the child’s outcome, saying he would die as well if the child fails.",
+    "The dark-haired woman is the child’s caregiver on the page and holds the infant protectively.",
+    "The small robot is highly inquisitive, imaginative, and talkative.",
+    "The other robots are more forceful and focused on extracting information than speculating."
+  ],
+  "characters_present": [
+    "Older white-haired man",
+    "Dark-haired woman holding an infant",
+    "Infant child",
+    "Small talkative robot",
+    "Larger accompanying robots"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page establishes a future seven-year gap before the child’s trial.",
+    "It sets up the child as a possible heir whose training and initiation will matter later.",
+    "The robots’ questions indicate that the unseen details of those seven years are important to the broader story."
+  ],
+  "dialogue_meaning": [
+    "The older man sets a strict seven-year separation and information blackout concerning the child.",
+    "The child’s future is framed as a lethal rite of succession tied to warrior tradition.",
+    "The stakes are existential for the clan, not just personal for the child.",
+    "The robots function as commentators, with one voicing practical and emotional questions about training, initiation, and separation.",
+    "The larger robots are impatient with speculation and want concrete explanation."
+  ],
+  "image_sha256": "344752ca0a966fd8149bf94ef2f548ac9d7aab798f50bd51e132f5c3a415bf82",
+  "is_spread": false,
+  "locations": [
+    "Interior setting with the human conversation",
+    "A tall tower or citadel under a red sky",
+    "Terra Prima (mentioned in dialogue)"
+  ],
+  "lore_facts": [
+    "A child can be tested for 'warriorhood' after seven years and possibly become a successor.",
+    "Failure in that test means death for the child.",
+    "The clan’s continuity depends on this child’s survival and success.",
+    "A seven-year separation between the child and at least one parent or loved one is part of the plan.",
+    "Terra Prima exists in this setting and is referenced as a point of comparison."
+  ],
+  "page_id": "106_The_Metabarons_4_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "An older man agrees to stop receiving news about a child for the next seven years.",
+    "He says that after those seven years he will test the child’s warrior worthiness and may let him succeed him if he survives.",
+    "He states that if the child fails, the child will die and the clan will end because he would kill himself as well.",
+    "A panel of a tall tower under a red sky punctuates the gravity of the decision.",
+    "A small robot reacts with excited curiosity, wondering how the child will become a great warrior and what the initiation will be like.",
+    "Other robots shut the small robot up and press for details about the seven-year period."
+  ],
+  "source_image": "external/comics/meta-barons/106_The_Metabarons_4_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "344752ca0a966fd8149bf94ef2f548ac9d7aab798f50bd51e132f5c3a415bf82",
+      "page_id": "106_The_Metabarons_4_p17",
+      "source_image": "external/comics/meta-barons/106_The_Metabarons_4_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely, especially the small robot’s speech and proper names within it.",
+    "The exact identities of the woman, infant, and older man are not stated clearly on this page alone.",
+    "It is unclear whether the tower image shows the current location, a symbolic cutaway, or another place.",
+    "One proper name in the robot’s speech may be misread due to image resolution."
+  ],
+  "visual_summary": "The page cuts between a tense conversation among human figures and comic relief from a small robot. In the upper tier, a dark-haired woman cradles a baby while an older white-haired man speaks grimly about not hearing of the child for seven years, later testing him through warrior initiation, and the possibility that the child could die. A tall dark tower stands against a red sky in one panel, then the older man appears in an enraged close-up. In the lower tier, a small round-headed robot excitedly speculates about the child’s future and the mother’s long separation, while larger robots angrily interrupt and demand more information.",
+  "volume": 4
+}

@@ -1,0 +1,48 @@
+{
+  "character_facts": [
+    "A humanoid or alien-looking head is depicted with extensive cybernetic/mechanical integration, but its identity is not stated on the page."
+  ],
+  "characters_present": [
+    "No clearly identifiable story character is confirmed from the cover art alone."
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "As a cover, this page introduces volume/issue 9 and labels the upcoming story segment as 'The Mentrek's Solution.'"
+  ],
+  "dialogue_meaning": [
+    "There is no dialogue on the page.",
+    "The visible text serves as publication and identification information: series title, issue number, date, price, creator credits, and the installment title."
+  ],
+  "image_sha256": "0c275dd37c580e20cb278a4c97e0325721f90b9b33addd0df7f24004708d57e7",
+  "is_spread": false,
+  "locations": [
+    "No specific in-story location is shown or named."
+  ],
+  "lore_facts": [
+    "This page identifies the work as issue 9 of The Metabarons.",
+    "The installment or chapter title is 'The Mentrek's Solution.'",
+    "The credited creators named on the cover are Jodorowsky, Gimenez, and Moebius.",
+    "The cover imagery emphasizes a fusion of flesh and machinery, reinforcing the series' bio-mechanical visual world."
+  ],
+  "page_id": "228_The_Metabarons_9_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No interior story event is depicted; this page functions as the comic's cover and title page for issue 9.",
+    "The cover presents a bio-mechanical figure or head as thematic imagery for this installment.",
+    "The subtitle identifies the issue/chapter as 'The Mentrek's Solution.'"
+  ],
+  "source_image": "external/comics/meta-barons/228_The_Metabarons_9_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0c275dd37c580e20cb278a4c97e0325721f90b9b33addd0df7f24004708d57e7",
+      "page_id": "228_The_Metabarons_9_c01",
+      "source_image": "external/comics/meta-barons/228_The_Metabarons_9_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is cover art, it does not confirm specific plot actions, character identities, or setting details.",
+    "The central figure may represent a character, creature, or symbolic image, but the page itself does not identify it."
+  ],
+  "visual_summary": "Front cover artwork for issue 9 of The Metabarons. The image shows a large bio-mechanical or cybernetic head in profile, with exposed tubing, metal plating, and machine structures integrated into the skull. The series logo appears at the top, and the issue subtitle identifies this installment as 'The Mentrek's Solution.' Creator credits and issue/publication markings are also printed on the cover.",
+  "volume": 9
+}

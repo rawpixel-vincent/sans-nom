@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The white-haired woman is in custody and physically outnumbered.",
+    "The soldiers are aggressive, insulting, and quick to threaten execution.",
+    "The commanding woman has authority over the soldiers and takes interest in the missing rose.",
+    "The commanding woman appears calm enough to question the captive rather than kill her immediately."
+  ],
+  "characters_present": [
+    "White-haired armored woman who is the captive/interrogated figure",
+    "Multiple armed soldiers or guards in helmets and armor",
+    "A commanding woman in a rounded helmet, seen partly from behind and then frontally"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier mission or errand involving the white-haired woman and a rose, since the commander asks where it is.",
+    "The confrontation likely continues from a prior capture or return scene, as the captive is already surrounded and being restrained."
+  ],
+  "dialogue_meaning": [
+    "The guards treat the captive as contemptible and are ready to use lethal force.",
+    "The commanding woman halts the immediate violence so the prisoner can speak.",
+    "The commander expected the captive to bring back a rose and is displeased that she returned without it."
+  ],
+  "image_sha256": "2fca7641979265a6ef579a50243b6f03a8125be936b94dfc239f266a9c76f641",
+  "is_spread": false,
+  "locations": [
+    "An interior setting with a pale floor, crowded by armored guards; exact location unspecified"
+  ],
+  "lore_facts": [
+    "A rose is important enough to be demanded by the commanding woman.",
+    "The armed group uses advanced weaponry and armor.",
+    "There is a clear hierarchy: common soldiers obey a female superior who can overrule them instantly."
+  ],
+  "page_id": "180_The_Metabarons_7_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A group of soldiers manhandle and restrain a white-haired armored woman.",
+    "One soldier aims a firearm at the captive and threatens to kill or disintegrate her.",
+    "Another authority figure orders the soldiers to stop and allow the captive to speak.",
+    "The captive is presented before a higher-status woman wearing a rounded helmet and revealing white garment.",
+    "The superior asks why the captive has come back empty-handed and specifically asks for her rose.",
+    "The captive bends over or is forced downward at the end of the page."
+  ],
+  "source_image": "external/comics/meta-barons/180_The_Metabarons_7_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2fca7641979265a6ef579a50243b6f03a8125be936b94dfc239f266a9c76f641",
+      "page_id": "180_The_Metabarons_7_p03",
+      "source_image": "external/comics/meta-barons/180_The_Metabarons_7_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be perfectly transcribed; the overall meaning is clear but exact wording may differ.",
+    "The identity and names of all characters are not given on this page.",
+    "It is unclear whether the captive bends down voluntarily from exhaustion, in submission, or because of force from others.",
+    "The exact nature of the 'rose' is not explained on this page."
+  ],
+  "visual_summary": "A white-haired armored woman is being roughly restrained by several armed soldiers in a bright interior space. One soldier points a gun directly at her face while others insult and threaten her. An off-panel or elevated female figure in a rounded helmet intervenes, ordering the soldiers to let the captive speak. The white-haired woman is then brought forward before this superior, who questions her for arriving empty-handed and asks about a missing rose. In the final panel, the captive bends down, apparently weakened or forced down, with small sound effects marking the movement.",
+  "volume": 7
+}

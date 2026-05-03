@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "The older man appears emotionally invested in the woman's suffering and pushes her toward vengeance.",
+    "The woman is in severe emotional distress and feels both love and hatred toward the older man.",
+    "The woman is being armed by the older man at the end of the page."
+  ],
+  "characters_present": [
+    "Older white-haired, bearded man",
+    "Dark-haired woman"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page directly sets up the following episode, 'Melmoth's Plight.'",
+    "The focus on avenging past suffering implies continuation of an existing revenge plot from prior pages."
+  ],
+  "dialogue_meaning": [
+    "The man is pleading compassionately and claims he wants to relieve the woman's pain.",
+    "The woman expresses intense emotional contradiction: she loves him most yet also hates him most.",
+    "The man reframes her pain as something that requires revenge rather than consolation.",
+    "He identifies the weapon as a traditional Castaka firearm and urges immediate violent action."
+  ],
+  "image_sha256": "19dfc7e4c6e9a6cf6d8800a19536c6c486a996904e192d3bde6fd9c18bbdce45",
+  "is_spread": false,
+  "locations": [
+    "An undefined bright space filled with floating yellow petal- or shard-like forms"
+  ],
+  "lore_facts": [
+    "The Castakas have a traditional weapon called a 'paleo-revolver.'",
+    "The firearm shown is highly ornate and ceremonial-looking, suggesting cultural or family significance.",
+    "The next chapter or episode is titled 'Melmoth's Plight.'"
+  ],
+  "page_id": "301_The_Metabarons_11_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "An older man tries to comfort or stop a distraught woman and tells her he wants to take away her suffering.",
+    "The woman cries out that she both loves and hates him, describing his presence as poisonous or agonizing.",
+    "The man declares that her suffering will only end through avenging it.",
+    "He hands her an elaborately engraved traditional 'paleo-revolver' associated with the Castakas and instructs her to shoot.",
+    "The page ends on a cliffhanger teasing the next episode, 'Melmoth's Plight.'"
+  ],
+  "source_image": "external/comics/meta-barons/301_The_Metabarons_11_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "19dfc7e4c6e9a6cf6d8800a19536c6c486a996904e192d3bde6fd9c18bbdce45",
+      "page_id": "301_The_Metabarons_11_p24",
+      "source_image": "external/comics/meta-barons/301_The_Metabarons_11_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of both characters is not stated on this page alone.",
+    "The surrounding yellow shapes may be petals, fragments, or another symbolic visual element; the page does not define them.",
+    "Some dialogue is stylized and slightly hard to read, but the overall meaning is clear."
+  ],
+  "visual_summary": "An older white-haired, bearded man restrains and pleads with a distressed dark-haired woman amid a swirling field of yellow petal- or shard-like shapes. She screams conflicting feelings about him, then turns away. In the lower panels, he presents her with an ornate, oversized double-barreled revolver, and she reacts in shock as he tells her to use it for vengeance. A caption announces the next episode title.",
+  "volume": 11
+}

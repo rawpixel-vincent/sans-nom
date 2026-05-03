@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The central female warrior has a replication or swarm-division ability.",
+    "Her duplicates appear visually identical and humanoid.",
+    "She is explicitly described as a warrior.",
+    "An observing speaker is frightened or overwhelmed by the display."
+  ],
+  "characters_present": [
+    "Unnamed female warrior who can split into duplicates",
+    "At least two unseen or off-panel speakers in the final panel",
+    "Several armored observers/soldiers seen from behind"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page functions as an explanation or demonstration of a previously introduced warrior's powers.",
+    "The armored viewers suggest the duplication is being observed, reported, or recounted to others in-story."
+  ],
+  "dialogue_meaning": [
+    "The page counts the warrior's multiplication upward from two to larger numbers.",
+    "One speaker reacts with alarm and describes the sight as a nightmare.",
+    "Another speaker explains that the woman was a warrior with the ability to divide into millions of insect-like units, devastate an entire planet, and then re-form into one self."
+  ],
+  "image_sha256": "fe28d24bad9881eac381089acf1ae76b38f0dbbaf0123511a7e5fa452a46e3cc",
+  "is_spread": false,
+  "locations": [
+    "An enclosed chamber or arena where the duplication occurs",
+    "A futuristic interior/platform with open view to space in the final panel"
+  ],
+  "lore_facts": [
+    "This setting includes beings or technologies capable of a humanoid body splitting into multiple identical bodies.",
+    "The warrior's multiplication is described as comparable to a human-form insect swarm.",
+    "The swarm ability is said to scale from a single individual to potentially millions of units.",
+    "The swarm can later recombine into one individual body.",
+    "The ability is described as powerful enough to waste an entire planet."
+  ],
+  "page_id": "434_The_Metabarons_17_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A female warrior begins physically dividing, first shown at the face level.",
+    "Her body separates into two figures.",
+    "The duplication continues into larger numbers, culminating in many identical warriors present at once.",
+    "Armored observers or soldiers witness the multiplying figures.",
+    "Expository dialogue explains that she could disperse into a vast swarm and later reform as a single individual."
+  ],
+  "source_image": "external/comics/meta-barons/434_The_Metabarons_17_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fe28d24bad9881eac381089acf1ae76b38f0dbbaf0123511a7e5fa452a46e3cc",
+      "page_id": "434_The_Metabarons_17_p07",
+      "source_image": "external/comics/meta-barons/434_The_Metabarons_17_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The warrior's name is not given on this page.",
+    "The identities of the speakers in the final panel are not visible.",
+    "Some dialogue is small and partially difficult to read precisely, so wording may be slightly approximate.",
+    "It is unclear whether the multiplication is happening live, being remembered, or being explained over a separate establishing shot in the last panel."
+  ],
+  "visual_summary": "A female warrior-like figure is shown splitting apart in stages. The top panel shows her face dividing into two contrasting halves, one more organic or patterned and one dark-haired humanlike half. The next panels depict her body duplicating from one into two, then more copies forming. A wider panel shows the multiplication continuing into a line of many identical figures while armored onlookers face them. The final panel shifts to an interior or platform-like setting in space, where off-panel or unseen speakers explain that this warrior could divide into a swarm and later recombine.",
+  "volume": 17
+}

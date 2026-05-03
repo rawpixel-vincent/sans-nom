@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Honorata is able to conceive despite Othon's inability to father a child normally.",
+    "Honorata protects Aghnar from Othon, raises him in exile, and trains him.",
+    "Othon is Aghnar's father and judges warrior worth through brutal tests.",
+    "Aghnar was born during a fall, is lighter than air because of epyphite, and eventually receives metal prosthetic feet.",
+    "Aghnar passes Othon's ordeal by defeating a robot and enduring the crushing of his feet without giving in."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Othon",
+    "Aghnar",
+    "Two unnamed jealous servants",
+    "The Shabda-Oud",
+    "Several unidentified figures shown only as small portrait insets"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page is explicitly a recap of events before the current issue.",
+    "It connects Aghnar's childhood ordeal to the later Metabaron custom of ritual mutilation and prosthetic augmentation."
+  ],
+  "dialogue_meaning": [
+    "The page contains no scene dialogue; it is a prose 'previously' recap summarizing prior story events.",
+    "The recap explains Aghnar's unusual birth, exile, training, ordeal, and the origin of prosthetic mutilation as a Metabaron rite."
+  ],
+  "image_sha256": "daa3d13c103986850c1d192a3cf16a7183e040049d93c1e0d70bc37f38c7399d",
+  "is_spread": false,
+  "locations": [
+    "The Castaka fortress",
+    "The sacred mountain of Ansirma"
+  ],
+  "lore_facts": [
+    "A person can be impregnated in this setting using a drop of a warrior's blood.",
+    "An epyphite cartridge can make a falling person float on the wind.",
+    "Exposure to or introduction of epyphite during birth can make a child lighter than air.",
+    "Steel weights or bracelets can counteract Aghnar's weightlessness by keeping him on the ground.",
+    "Ansirma is described as a sacred mountain.",
+    "Metabaron initiation comes to include mutilation and prosthetic replacement.",
+    "The Shabda-Oud sought a hermaphrodite child as a political instrument to proclaim a perfect androgyne and seize the throne."
+  ],
+  "page_id": "122_The_Metabarons_5_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "A recap explains that Othon can no longer father a child, so Honorata impregnates herself using a drop of his blood.",
+    "Honorata's pregnancy proceeds until two jealous servants push or injure her at the top of the fortress.",
+    "As she falls, Othon fires an epyphite cartridge that lets her float on the wind, and she gives birth to Aghnar.",
+    "Honorata tells Othon that the Shabda-Oud expected a hermaphrodite child they could use to claim a perfect androgynous ruler and seize the throne.",
+    "Because epyphite was introduced during birth, Aghnar becomes lighter than air.",
+    "Othon wants to kill Aghnar because this condition means he cannot become a warrior, but Honorata prevents it.",
+    "Honorata fits Aghnar with steel bracelets at his waist and ankles to keep him grounded.",
+    "Honorata takes Aghnar into exile on the sacred mountain of Ansirma and trains his mental powers and pain resistance.",
+    "At age seven, Aghnar returns to the Castaka fortress for Othon's test.",
+    "Aghnar defeats a formidable robot as part of the test.",
+    "Aghnar endures a machine that crushes his feet without yielding, passes the test, and later receives metal prosthetic feet.",
+    "The recap states that mutilation and prostheses became part of Metabaron initiation from this event onward."
+  ],
+  "source_image": "external/comics/meta-barons/122_The_Metabarons_5_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "daa3d13c103986850c1d192a3cf16a7183e040049d93c1e0d70bc37f38c7399d",
+      "page_id": "122_The_Metabarons_5_ic1",
+      "source_image": "external/comics/meta-barons/122_The_Metabarons_5_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some recap text is small and partially difficult to read; wording may be approximate even where the event sequence is clear.",
+    "The identities of the small circular portraits at the bottom are not labeled on this page.",
+    "The large illustrated woman is likely Honorata based on the recap context, but the image itself does not label her directly."
+  ],
+  "visual_summary": "An introductory recap page for The Metabarons. The page is dominated by the series logo and a large illustration of a woman in a medical or mechanical restraint/chair, with tubes or wiring attached to her body. A long prose recap summarizes prior events. Small circular character portraits run along the bottom above publication credits.",
+  "volume": 5
+}

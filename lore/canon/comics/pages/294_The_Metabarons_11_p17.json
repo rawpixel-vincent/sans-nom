@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "Melmoth is depicted as a massive heavily armed mechanical or armored being with gun-like limbs.",
+    "Melmoth's actions on this page are overwhelmingly destructive and efficient.",
+    "The speaker has a subordinate or reverential relationship to Melmoth, calling him 'my master'."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "Melmoth's unnamed master/narrator figure",
+    "Macromites (swarming temple inhabitants/targets)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page reads as a narrated flashback or recounting of one of Melmoth's past feats.",
+    "The numerical progression suggests an ongoing battle sequence continuing across adjacent pages."
+  ],
+  "dialogue_meaning": [
+    "The speaker presents Melmoth as their master and emphasizes his extreme killing efficiency.",
+    "The narration tracks the slaughter numerically, stressing that the death toll rises from 6,000 in ten minutes to 36,000 in an hour and 72,000 shortly after.",
+    "The final narration says Melmoth had finished off the macromites by the end of the assault."
+  ],
+  "image_sha256": "af88e7899d864e2845229e7842cf7717953e5604bd65df698d60fb06e2ec898a",
+  "is_spread": false,
+  "locations": [
+    "A temple interior filled with dense masses of macromites"
+  ],
+  "lore_facts": [
+    "Melmoth is called 'my master' by the speaker.",
+    "Melmoth is capable of exterminating enormous numbers of enemies in a very short time.",
+    "The enemies in this temple are identified as macromites.",
+    "The temple housed a population large enough for the narrated death toll to reach at least 72,000."
+  ],
+  "page_id": "294_The_Metabarons_11_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A narrator states that Melmoth entered a temple and rapidly began killing its inhabitants.",
+    "The page shows repeated blasts and close-quarters destruction among masses of creatures.",
+    "A body-count escalation is given over time, moving from thousands killed in minutes to tens of thousands within hours.",
+    "Melmoth is depicted still fighting at close range and apparently completing the extermination of the temple's 'macromites'."
+  ],
+  "source_image": "external/comics/meta-barons/294_The_Metabarons_11_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "af88e7899d864e2845229e7842cf7717953e5604bd65df698d60fb06e2ec898a",
+      "page_id": "294_The_Metabarons_11_p17",
+      "source_image": "external/comics/meta-barons/294_The_Metabarons_11_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some text is small and partially hard to read; the confidence is therefore medium.",
+    "It is unclear whether the pale robed figure shown beneath/near Melmoth is the narrator, Melmoth's master, or another observer.",
+    "The exact visual nature of the macromites is ambiguous from this page alone; they appear as dense organic swarms or biomechanical creatures.",
+    "The printed page number visible at the bottom appears to be '19', which does not match the provided page label 'p17'."
+  ],
+  "visual_summary": "A narrator recounts a massacre inside a temple. A huge armed war-machine identified as Melmoth is shown advancing through swarms of organic, insectoid or tentacled creatures. The page alternates between close views of explosions and bodies piling up, and wider views of the machine standing over the slaughter. A robed or seated master figure appears in one panel with hands raised while Melmoth looms over him.",
+  "volume": 11
+}

@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Milady is traveling on the craft and is accused in connection with harm caused by her father.",
+    "The angry young passenger openly hates Milady and speaks confrontationally to her.",
+    "The pilot or controller is confident in the ship's jump and defensive systems.",
+    "Tonto is inside the craft as a protected passenger during the hostile landing.",
+    "The temple guards prefer to capture the intruder alive for questioning."
+  ],
+  "characters_present": [
+    "Milady",
+    "an angry young passenger addressing Milady",
+    "the pilot or navigator of the metacraft",
+    "Tonto",
+    "armed techno-temple guards or defenders",
+    "Amalek XII, Supreme Technopope (mentioned, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues a conflict tied to actions set in motion by Milady's father.",
+    "The travelers are moving from the Troglosocialik system to the Technopope's central seat of power.",
+    "The landing at Amalek XII's temple sets up a direct confrontation with techno-papal authority."
+  ],
+  "dialogue_meaning": [
+    "One speaker blames Milady's father for recent violence and says they must stop it.",
+    "Another speaker frames the voyage as a decisive leap to the techno-papal center.",
+    "The ship's systems confirm the jump and later confirm the multi-shield protection.",
+    "Captions explain that the craft cleaves anti-matter, crosses inter-space, and re-emerges far away after only seconds.",
+    "Temple defenders are shocked an intruder penetrated so deeply and insist on arrest and interrogation.",
+    "The pilot reassures Tonto that the craft's protective shielding will keep him safe despite the attack."
+  ],
+  "image_sha256": "1492d282ea6a0a4b69cff06cab985e71fb7e0aed3ed03bd74e2ae4444bedda2d",
+  "is_spread": false,
+  "locations": [
+    "inside a spacecraft or metacraft",
+    "inter-space during a faster-than-light leap",
+    "the Technopope's power center on the techno central planet",
+    "the exterior of Amalek XII's techno-temple",
+    "a futuristic cityscape surrounding the temple"
+  ],
+  "lore_facts": [
+    "Space travel here uses a leap through 'inter-space' involving anti-matter.",
+    "A destination called the techno central planet contains the techno-papal temple and the seat of the Technopope's power.",
+    "The re-entry point is stated to be thousands of light years from the Troglosocialik system.",
+    "The techno-temple is described as doorless or sealed, emphasizing its impregnability.",
+    "The temple defenses include protective shields, supra-radars, electro-spies, lasers, and paralysis gas.",
+    "The ruler of this place is identified as Amalek XII, Supreme Technopope.",
+    "The metacraft has a protective multi-shield strong enough to endure the surrounding defenses during landing."
+  ],
+  "page_id": "366_The_Metabarons_14_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "Inside the craft, a young figure angrily addresses Milady while another speaker says they must stop harm set in motion by her father.",
+    "A pilot or navigator confirms a leap destination associated with a techno-papal temple on a central planet.",
+    "The craft passes through inter-space and emerges a few seconds later thousands of light years away at the seat of the Technopope's power.",
+    "The ship bypasses or withstands defensive systems and lands before the sealed doors of Amalek XII's techno-temple.",
+    "Temple guards detect the intruder, note a failure in their defenses, and order capture for questioning rather than vaporization.",
+    "The pilot tells Tonto he will be safe inside the protected metacraft as weapons and gas are deployed against it."
+  ],
+  "source_image": "external/comics/meta-barons/366_The_Metabarons_14_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1492d282ea6a0a4b69cff06cab985e71fb7e0aed3ed03bd74e2ae4444bedda2d",
+      "page_id": "366_The_Metabarons_14_p08",
+      "source_image": "external/comics/meta-barons/366_The_Metabarons_14_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names and terms are hard to read precisely from the image, including the exact system name, the central planet name, and some technology labels.",
+    "The identity of the angry young passenger is not established on this page alone.",
+    "It is unclear whether Amalek XII is physically present in the final panels or only mentioned in narration.",
+    "Some short exclamations and system-readout phrases are partially obscured or difficult to decipher."
+  ],
+  "visual_summary": "A spacecraft departs at high speed through a bright geometric corridor of space while two occupants argue inside. Narrative captions then show the craft reappearing above a vast futuristic city of towers and domes on an orange-hued world. It descends to a monumental techno-temple complex as armed guards react to the intrusion. The pilot reassures a passenger named Tonto that the metacraft's layered shield will protect him while the ship lands amid a surrounding security force.",
+  "volume": 14
+}

@@ -1,0 +1,77 @@
+{
+  "character_facts": [
+    "Honorata is Aghnar's mother.",
+    "Honorata is physically vulnerable enough to need a risky operation or mental intervention.",
+    "Aghnar is married to Oda.",
+    "Aghnar still loves both his mother and Oda despite choosing between them.",
+    "Aghnar explicitly rejects becoming or continuing as 'Metabarons.'",
+    "The robotic attendant addresses Honorata as 'mistress,' indicating subordinate service."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Aghnar",
+    "Tonto",
+    "Oda (mentioned only, not clearly shown)",
+    "robotic medical attendant"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers an unresolved conflict between dynastic continuation of the Castakas and rejection of the warrior code.",
+    "Honorata's survival appears contingent on a dangerous procedure, setting up consequences for later pages.",
+    "Aghnar's declaration against the Metabarons marks a major turning point in family tradition."
+  ],
+  "dialogue_meaning": [
+    "Honorata frames the procedure as one requiring total concentration and solitude.",
+    "The machine-assisted intervention is dangerous and leaves her extremely weakened for years.",
+    "Aghnar is emotionally torn between loyalty to his mother and commitment to Oda.",
+    "Honorata forces a binary choice to determine Aghnar's future allegiance.",
+    "Aghnar chooses his wife and also declares an ideological break from the warrior destiny of the Metabarons.",
+    "Honorata still interprets his choice as preserving the Castakas bloodline."
+  ],
+  "image_sha256": "1f3368a51c069db30b26b3f11a920871fbd85120e9df0fdbea5217fc2e9eee53",
+  "is_spread": false,
+  "locations": [
+    "A high-tech medical or mental-probe chamber",
+    "A partitioned viewing or conversation area adjoining the chamber"
+  ],
+  "lore_facts": [
+    "Honorata can undergo or direct an advanced mental procedure involving a 'deep-reaching' probe and extreme concentration.",
+    "The procedure is so taxing that it would nearly extinguish her energy and require several years of strict isolation afterward.",
+    "If that required solitude is broken, Honorata says she will die.",
+    "Tonto is present as an assistant or operator during the procedure.",
+    "The Castakas line is treated as something that 'must live on.'",
+    "Aghnar and Oda have agreed on a future in which the Castakas continue 'but not as warriors.'",
+    "The title or role of 'Metabarons' is associated here with a warrior identity that Aghnar rejects."
+  ],
+  "page_id": "218_The_Metabarons_8_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "Honorata prepares for an extreme mental or medical procedure using a large machine and a mental probe.",
+    "She says Aghnar's anxiety will interfere and asks to be left alone with Tonto so she can focus.",
+    "A robotic assistant reports that the instruments and deep-reaching mental probe are ready.",
+    "Honorata states that the operation will nearly exhaust her energy, requiring years of strict isolation afterward, and that interruption would kill her.",
+    "She asks Aghnar whether he accepts those conditions.",
+    "Aghnar protests that he does not want to lose his mother again and wants to live with both his wife and mother.",
+    "Honorata refuses that option and demands a choice between Oda and herself.",
+    "Aghnar chooses Oda, while insisting he loves both women.",
+    "Honorata approves the choice and says the Castakas must continue.",
+    "Aghnar adds that the Castakas will continue, but not as warriors, and says Oda agrees with him.",
+    "Honorata urges patience, but Aghnar firmly rejects any return to the Metabarons."
+  ],
+  "source_image": "external/comics/meta-barons/218_The_Metabarons_8_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1f3368a51c069db30b26b3f11a920871fbd85120e9df0fdbea5217fc2e9eee53",
+      "page_id": "218_The_Metabarons_8_p13",
+      "source_image": "external/comics/meta-barons/218_The_Metabarons_8_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of the operation is ambiguous: it is described as a mental probe, but the page does not fully explain its purpose.",
+    "The visual identity of Tonto is uncertain; the name may refer to the robot attendant or another off-panel assistant.",
+    "Some dialogue in the lower panels is small and could admit minor transcription ambiguity, though the overall meaning is clear.",
+    "Oda is mentioned in dialogue but is not clearly visible on this page."
+  ],
+  "visual_summary": "In a bright, sterile chamber, a woman identified in dialogue as Honorata lies on a medical platform while a large glowing machine prepares to probe or operate on her mind. A robot attendant stands nearby. The lower panels cut to a tense face-to-face exchange between Honorata and Aghnar through glass or a partition, with Honorata warning him about the cost of saving her and forcing him to choose between her and Oda.",
+  "volume": 8
+}

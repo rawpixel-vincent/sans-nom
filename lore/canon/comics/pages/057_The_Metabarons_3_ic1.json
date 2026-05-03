@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Othon is Baron of Castaka.",
+    "Othon is portrayed as both cunning and extremely lethal in battle.",
+    "Bari is Othon's son.",
+    "Bari is physically disabled and cannot use his legs at this stage of the story.",
+    "Othon survives catastrophic injury to his groin and hips but is left unable to father more children.",
+    "Othon has already lost a son before the end of the recap sequence, as described in the text."
+  ],
+  "characters_present": [
+    "Othon, Baron of Castaka",
+    "Bari",
+    "Othon's wife (mentioned in recap)",
+    "The Imperial Couple",
+    "bandits/thieves",
+    "a horse created for Bari"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page is an explicit recap of prior issues rather than new scene progression.",
+    "It sets up the current volume/issue by summarizing Othon and Bari's recent history, their imperial bargain, relocation to Okhar, and Othon's mutilation."
+  ],
+  "dialogue_meaning": [
+    "The page functions as an editorial recap summarizing the major events leading into this issue.",
+    "It emphasizes Othon's military brilliance and ferocity, Bari's accusation of cowardice, the imperial settlement after the war, and Othon's later mutilation and dynastic loss."
+  ],
+  "image_sha256": "1cb877791deea9164855016abbac2cc1c26720fcbe5a1341980590db9a9bbde3",
+  "is_spread": false,
+  "locations": [
+    "Marmola",
+    "Okhar",
+    "the Castaka fortress or stronghold (mentioned in negotiation)"
+  ],
+  "lore_facts": [
+    "Epyphite is described as a sacred anti-gravity oil flowing in the heart of planet Marmola.",
+    "The conflict centers on control of the epyphite.",
+    "The Imperial Couple has authority to negotiate planetary grants and commercial percentages.",
+    "Bari has lost the use of his legs before the current story point.",
+    "Okhar is described as a fertile planet where Othon and Bari settle.",
+    "Bari's horse is said to have been extinct for 20,000 years and genetically recreated by imperial scientists.",
+    "For the Metabarons lineage, loss of reproductive capacity is framed as loss of hope for continuing the clan."
+  ],
+  "page_id": "057_The_Metabarons_3_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recaps earlier events involving Othon, Baron of Castaka, during a war over the epyphite on Marmola.",
+    "Othon cannot save his wife from death during the conflict.",
+    "Bari accuses Othon of cowardice after Othon stops him from joining his mother in certain death.",
+    "Othon later proves his valor by defeating enemy forces with cunning and personally killing many soldiers with only a dagger.",
+    "The Imperial Couple arrives to negotiate with Othon and Bari after the victory.",
+    "In exchange for the epyphite, Othon requests a share of sales, a new planet for the Castaka stronghold, and a gift for Bari, who has lost the use of his legs.",
+    "The Imperial Couple grants the terms, and Othon and Bari settle on the planet Okhar.",
+    "Bari receives a specially created horse.",
+    "Thieves steal the horse, and Othon pursues them while mistakenly carrying Bari.",
+    "As Othon kills the last bandit, the dying attacker shoots him and destroys his groin and hips.",
+    "Othon is taken back to be healed, but his servants cannot restore his sexual organs, ending his hope of continuing the clan through a son."
+  ],
+  "source_image": "external/comics/meta-barons/057_The_Metabarons_3_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1cb877791deea9164855016abbac2cc1c26720fcbe5a1341980590db9a9bbde3",
+      "page_id": "057_The_Metabarons_3_ic1",
+      "source_image": "external/comics/meta-barons/057_The_Metabarons_3_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The dense recap text is small and partially low-contrast, so some wording may be imprecise even though the overall events are legible.",
+    "The painted figures and circular portraits are not individually labeled on the page, so exact identification of each pictured face is uncertain from this page alone."
+  ],
+  "visual_summary": "A title and recap page for The Metabarons. The page is dominated by the series logo, a block of recap text headed 'Previously,' and painted character art at left showing a grim, damaged warrior figure holding or looming over a bloodied body. Small circular portraits of several faces line the lower middle, and publication credits fill a black band at the bottom.",
+  "volume": 3
+}

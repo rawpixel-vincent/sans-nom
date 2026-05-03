@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The two visible attendants are alarmed but still act to protect or alert the Metabaron.",
+    "At least one attendant trusts the Metabaron's superiority over the apparent attacker.",
+    "The arriving presence is associated with extreme light and apparent heavy weapon capability."
+  ],
+  "characters_present": [
+    "Two small armored or robotic attendants/guards/technicians",
+    "The arriving glowing figure or craft",
+    "The Metabaron (mentioned, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The observers refer to an expected person who may have forgotten them or died, implying prior waiting or abandonment.",
+    "The decision to wake the Metabaron suggests he has been inactive before this page.",
+    "The final identification of the arrival as connected to the Metabaron points into the next page's reveal or confrontation."
+  ],
+  "dialogue_meaning": [
+    "The watchers are startled by an incoming presence and fear an attack.",
+    "They had expected someone else and think that person may have disappeared or died.",
+    "Their sensors suggest the newcomer has overwhelming firepower.",
+    "They believe only the Metabaron is more powerful and decide to wake him.",
+    "A final line suggests the arrival is recognized in relation to the Metabaron."
+  ],
+  "image_sha256": "2390ad5a7a34e1fdb9c37f0e8fffc8da8c67301b215e6d2144efc9cef48a0e39",
+  "is_spread": false,
+  "locations": [
+    "A vast futuristic industrial chamber or citylike interior",
+    "A control room or console area overlooking the chamber",
+    "Lower machinery/platform area within the same complex"
+  ],
+  "lore_facts": [
+    "This setting contains sensor systems capable of evaluating an intruder's power or armament.",
+    "The title 'Metabaron' denotes a being regarded as extraordinarily powerful.",
+    "The Metabaron can exist in a 'bio-electrogram state,' implying an unusual physiological or suspended condition.",
+    "The Metabaron is dormant or resting and must be awakened by attendants or guards."
+  ],
+  "page_id": "322_The_Metabarons_12_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A bright, powerful object or entity enters or manifests above a large metallic complex.",
+    "The arrival triggers alarm and panic among two small armored/robotic observers.",
+    "One observer speculates that a figure they expected may have forgotten them or died, but concludes an enemy may be attacking.",
+    "The observers note that the newcomer appears to carry extremely powerful weapons.",
+    "One observer decides they should go wake the Metabaron despite the danger.",
+    "The final exchange identifies the arrival as someone connected to 'the Metabaron.'"
+  ],
+  "source_image": "external/comics/meta-barons/322_The_Metabarons_12_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2390ad5a7a34e1fdb9c37f0e8fffc8da8c67301b215e6d2144efc9cef48a0e39",
+      "page_id": "322_The_Metabarons_12_p13",
+      "source_image": "external/comics/meta-barons/322_The_Metabarons_12_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and nature of the glowing arrival are unclear from this page alone: it may be a person, ship, or energy form.",
+    "The two small figures appear robotic or heavily armored, but their exact species/status is not certain.",
+    "Some dialogue is slightly hard to read, so wording and names may not be perfectly recovered.",
+    "The final exclamation identifying the arrival is partially unclear in the image, though it clearly references 'the Metabaron.'"
+  ],
+  "visual_summary": "In a vast industrial or spacecraft-like chamber full of pipes, towers, and consoles, a brilliant white energy-form or vessel suddenly arrives, flooding the scene with light. Two small armored/robotic figures react from different vantage points, one near a control console and another below near machinery. The page alternates between wide shots of the glowing arrival over the citylike structure and close shots of the observers raising an alarm and identifying the arrival with the Metabaron.",
+  "volume": 12
+}

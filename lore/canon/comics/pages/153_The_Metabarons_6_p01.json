@@ -1,0 +1,51 @@
+{
+  "character_facts": [],
+  "characters_present": [
+    "No clearly visible individual characters; only environmental and animal life are shown.",
+    "The Metabunker is depicted as a major object/location."
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an establishing introduction to Planet Perdita and the Metabunker's placement there."
+  ],
+  "dialogue_meaning": [
+    "The narration describes Perdita as an extreme-gravity world with a fog-covered, rocky and muddy environment.",
+    "It explains that the Metabunker was dragged down by gravity and became lodged in the landscape.",
+    "It emphasizes that native life has adapted to the planet's harsh gravity, including enormous mushrooms and flattened crawling animals."
+  ],
+  "image_sha256": "1d56e9b17c1570d367f3aadf3144d6a65bcee5dbcc93977f519d7d7961bbd89e",
+  "is_spread": false,
+  "locations": [
+    "Planet Perdita",
+    "The lower system",
+    "A muddy lake on Perdita",
+    "The granite surface of the planet",
+    "The area surrounding the Metabunker"
+  ],
+  "lore_facts": [
+    "Planet Perdita is located in the lower system.",
+    "Perdita is described as a small orb made of granite and mud and covered by fog.",
+    "Perdita has an immense gravity field.",
+    "A structure called the Metabunker was sucked in by that gravity and sank halfway into a muddy lake.",
+    "Mushrooms on the planet can grow to about 160 feet high.",
+    "The planet's surface hosts voracious, flat-bodied animals that struggle to move under the strong gravity."
+  ],
+  "page_id": "153_The_Metabarons_6_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "The narration introduces Planet Perdita in the lower system as a small world of granite and mud hidden by fog.",
+    "The Metabunker is pulled down by the planet's enormous gravity and ends up half-submerged in a muddy lake.",
+    "The page establishes the planet's hostile ecosystem, including towering mushrooms and flat-bodied animals struggling across the ground."
+  ],
+  "source_image": "external/comics/meta-barons/153_The_Metabarons_6_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1d56e9b17c1570d367f3aadf3144d6a65bcee5dbcc93977f519d7d7961bbd89e",
+      "page_id": "153_The_Metabarons_6_p01",
+      "source_image": "external/comics/meta-barons/153_The_Metabarons_6_p01.jpg"
+    }
+  ],
+  "uncertainties": [],
+  "visual_summary": "An opening narration page introduces the planet Perdita. Panels show a fog-shrouded rocky world in space, a massive geometric structure called the Metabunker sinking into a muddy lake under extreme gravity, and a harsh surface landscape with giant mushrooms and low, crawling fauna around the partially embedded structure.",
+  "volume": 6
+}

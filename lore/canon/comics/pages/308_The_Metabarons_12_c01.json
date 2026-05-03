@@ -1,0 +1,45 @@
+{
+  "character_facts": [
+    "The central figure is depicted as an elderly or late-middle-aged man with long white hair and a white beard.",
+    "He is shown in elaborate armored attire with gold ornamentation and multiple futuristic weapons or mechanical devices around him.",
+    "His visual presentation suggests high status or martial significance, but the page does not explicitly state his role."
+  ],
+  "characters_present": [
+    "An older male figure with long white hair and a full white beard, presented as the central cover subject; identity is not explicitly stated on the page."
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page establishes the issue identifier and subtitle for the following story content."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "edf8716da050e671389368a47e0c885860bc21a529f465172cfc3d73761977df",
+  "is_spread": false,
+  "locations": [
+    "No clear story location is shown; the background is an indistinct dark sky or atmospheric backdrop used for cover art."
+  ],
+  "lore_facts": [
+    "The comic is titled The Metabarons.",
+    "This is issue #12.",
+    "The cover labels the story or installment as \"Melmoth's Plight.\"",
+    "The credited creators shown on the cover are Jodorowsky, Gimenez, and Moebius."
+  ],
+  "page_id": "308_The_Metabarons_12_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No in-story action is depicted; this page functions as a cover introducing issue 12 and its subtitle, \"Melmoth's Plight.\""
+  ],
+  "source_image": "external/comics/meta-barons/308_The_Metabarons_12_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "edf8716da050e671389368a47e0c885860bc21a529f465172cfc3d73761977df",
+      "page_id": "308_The_Metabarons_12_c01",
+      "source_image": "external/comics/meta-barons/308_The_Metabarons_12_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover, the central figure's exact identity is not explicitly confirmed on the page.",
+    "No definite location, scene context, or narrative event can be established from the cover alone."
+  ],
+  "visual_summary": "This is the cover image for issue 12 of The Metabarons. It shows a close-up portrait of an older white-haired, bearded man in ornate black-and-gold armor, holding or framed by large futuristic weapons and mechanical components. The series title appears at the top, and the subtitle identifies this installment as \"Melmoth's Plight.\"",
+  "volume": 12
+}

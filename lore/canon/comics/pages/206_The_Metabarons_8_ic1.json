@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Aghnar is pursuing revenge and is capable of long-term deception, direct combat, and mental confrontation.",
+    "Aghnar controls at least one Cetacyborg by mental command.",
+    "Aghnar sacrifices one arm as part of his plan to kill Jejoh.",
+    "Princess Oda helps Aghnar, is captured and used in a ritual setting, and later joins him spiritually or mentally in the final confrontation.",
+    "Oda is left seemingly lifeless after expending herself in the battle.",
+    "Jejoh is depicted as a hideous, powerful being tied to the witches' power structure."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Princess Oda",
+    "Jejoh",
+    "Shabda-Oud",
+    "elder witches",
+    "Cetacyborg",
+    "Magon apes"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly recaps the events immediately preceding the next story segment.",
+    "The final hook leads into Aghnar's attempt to get past six Cetacyborgs and possibly save Oda.",
+    "The bottom portraits likely identify important recurring figures from the recap or upcoming chapter."
+  ],
+  "dialogue_meaning": [
+    "The page functions as a recap of prior events rather than present-time dialogue.",
+    "It explains how Aghnar used deception, sacrifice, and psychic combat to destroy Jejoh and the witches.",
+    "It sets the immediate stakes: Oda may yet be saved, but Aghnar must overcome six Cetacyborgs to escape or return."
+  ],
+  "image_sha256": "c43e1cabe257308b8e4f3fbc2c7c116c6f888ad06d33a538c4f4d73ca2192ce8",
+  "is_spread": false,
+  "locations": [
+    "witches' asteroid",
+    "altar or ritual chamber",
+    "the Metabunker (mentioned as destination)"
+  ],
+  "lore_facts": [
+    "The Shabda-Oud seek Oda for breeding purposes.",
+    "The witches' asteroid is defended or inhabited by Cetacyborgs.",
+    "Jejoh is a monstrous god-being associated with the witches and is initially invulnerable to ordinary attack.",
+    "Magon apes can be deployed from a Cetacyborg and used as a swarm force.",
+    "Aghnar had OKO mini-bombs hidden in his arm, which could detonate inside Jejoh.",
+    "The elder witches can focus their energy into destructive mental attacks.",
+    "The Metabunker is a place Aghnar may need to reach in order to save Oda.",
+    "Six Cetacyborgs still guard the asteroid after the described battle."
+  ],
+  "page_id": "206_The_Metabarons_8_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Aghnar wins Princess Oda's trust and she agrees to help him seek revenge.",
+    "Aghnar disguises himself among witches and has Oda delivered to the Shabda-Oud, who want her for breeding.",
+    "On the witches' asteroid, Oda is chained to an altar and the god Jejoh appears.",
+    "Aghnar orders a Cetacyborg under his control to release a swarm of Magon apes while he attacks Jejoh.",
+    "Jejoh is unaffected by direct attacks, so Aghnar lets Jejoh devour his bomb-rigged arm, causing an internal explosion.",
+    "Jejoh's destruction and the collapse of the witches' power allow the apes to overrun the asteroid.",
+    "Aghnar, after losing an arm, confronts the elder witches mentally and Oda joins him in the battle of minds.",
+    "The elder witches are destroyed and Aghnar's revenge is achieved.",
+    "Oda is left lifeless or spiritually burned out after the final battle.",
+    "Aghnar may still be able to save Oda if he can return to the Metabunker by breaking through the six remaining Cetacyborg guards."
+  ],
+  "source_image": "external/comics/meta-barons/206_The_Metabarons_8_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c43e1cabe257308b8e4f3fbc2c7c116c6f888ad06d33a538c4f4d73ca2192ce8",
+      "page_id": "206_The_Metabarons_8_ic1",
+      "source_image": "external/comics/meta-barons/206_The_Metabarons_8_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some fine print and a few recap lines are small; wording may not be perfectly legible at this resolution.",
+    "The identities of the circular portrait faces at the bottom are not labeled on this page.",
+    "The left-side illustration appears to depict Oda's capture or ritual preparation, but the exact moment is not explicitly labeled."
+  ],
+  "visual_summary": "An illustrated recap page titled as a \"Previously\" summary for The Metabarons. The left side shows a woman in a pale, form-fitting ceremonial outfit being restrained and touched by multiple hands in a dark biomechanical setting. The right side contains recap text. Along the bottom are small circular portraits of key figures and publication credits.",
+  "volume": 8
+}

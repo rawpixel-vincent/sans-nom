@@ -1,0 +1,363 @@
+[
+  {
+    "aliases": [
+      "Aghnar von Salza",
+      "Aghnar",
+      "the Metabaron (self-claimed)"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['229_The_Metabarons_9_ic1', '230_The_Metabarons_9_p01', '232_The_Metabarons_9_p03', '234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06', '236_The_Metabarons_9_p07', '237_The_Metabarons_9_p08-p09', '238_The_Metabarons_9_p10', '239_The_Metabarons_9_p11', '240_The_Metabarons_9_p12', '249_The_Metabarons_9_p22']"
+    ],
+    "character_id": "aghnar-von-salza",
+    "important_actions": [
+      "action: Infiltrated the Imperial Palace, mirroring a feat attributed to his father Othon von Salza; source_refs: ['230_The_Metabarons_9_p01']",
+      "action: Destroyed the Purple Endoguard and declared himself the new Metabaron, ending hereditary Metabaron service to the Imperial House; source_refs: ['234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06']",
+      "action: Broke from Metabaron tradition of imperial loyalty and publicly adopted a mercenary-for-hire stance; source_refs: ['235_The_Metabarons_9_p06']",
+      "action: Organized civilian relocation of an entire displaced population to the Teflon satellite; source_refs: ['238_The_Metabarons_9_p10']"
+    ],
+    "knowledge_boundaries": [
+      "Aware of the prior pact with Oda that their son would not become a Metabaron; overridden by Honorata's reincarnation scheme",
+      "The exact nature of the tentacled being he is obsessed with at Anasirma is not explained in source pages",
+      "The outcome of his duel with Steelhead is unresolved within volume 9"
+    ],
+    "relationships": [
+      "character: Othon von Salza; relation: Son; inherits Othon's feat of infiltrating the Imperial Palace; face resembles Othon in old age",
+      "character: Oda / Honorata; relation: Partner; father of their son Steelhead; prior agreement with Oda that their child would not become a Metabaron; shot in the head by Oda/Honorata during mental struggle",
+      "character: Honorata; relation: Antagonist; Honorata reincarnated inside Oda's body; Aghnar vows to return and duel his son to destroy Honorata's influence",
+      "character: Steelhead; relation: Son; adversary in the culminating father-son lethal duel per Metabaron tradition",
+      "character: The Empress; relation: Employer by contract; worked under contract to eliminate enemies of the Imperial Golden Planet",
+      "character: Ulritch the Red; relation: Temporary ally; piracy operation hijacking epiphyte cargo",
+      "character: General Thato; relation: Antagonist by implication; Aghnar's infiltration and destruction of the Purple Endoguard humiliates Thato's security apparatus"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Declares himself the superior weapon when confronting armed forces (233_The_Metabarons_9_p04)",
+      "Expresses self-loathing and frustration at a life reduced to violence and intoxication (239_The_Metabarons_9_p11)",
+      "Warned Honorata he would return to challenge and destroy his son before leaving after decapitation (229_The_Metabarons_9_ic1)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Survived decapitation: body attached to a machine to continue living; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Honorata reincarnated inside Oda's body; Oda bore a son and urged Aghnar to make him the greatest warrior; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Infiltrated the Imperial Palace by bypassing poly-radars, quantum sensors, and photonic barriers; source_refs: ['230_The_Metabarons_9_p01']",
+      "fact: His severed feet appeared inside the palace, causing security panic before his full presence was revealed; source_refs: ['231_The_Metabarons_9_p02', '232_The_Metabarons_9_p03']",
+      "fact: Destroyed the Purple Endoguard as a demonstration of power; source_refs: ['234_The_Metabarons_9_p05']",
+      "fact: Publicly claimed the title of new Metabaron and auctioned his services; bidding war lasted hours; source_refs: ['234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06', '236_The_Metabarons_9_p07']",
+      "fact: Mercenary campaigns: aided Gords against the aquatic Hireas on Planet Sec-Hum; suppressed machine revolt on Nibal for the Zerkots; source_refs: ['236_The_Metabarons_9_p07']",
+      "fact: Led the Troglosocialik armada against the aristocratic Cybergs; allied with pirate Ulritch the Red to hijack an epiphyte cargo from three mother-coach ships; source_refs: ['237_The_Metabarons_9_p08-p09']",
+      "fact: Under contract to the Empress: single-handedly destroyed a 300,000-soldier battalion at Jupiter Nova in approximately eight minutes; organized relocation of Morga-the-Beautiful inhabitants to the Teflon satellite; source_refs: ['238_The_Metabarons_9_p10']",
+      "fact: Aged roughly twenty years in the ruins of his hidden lair on Anasirma; declined into massacres, drunkenness, and obsessive fixation on a tentacled being; source_refs: ['239_The_Metabarons_9_p11']",
+      "fact: Was interrupted mid-suicide-attempt by Pthagurean ambassadors bearing a massive kublar offer; source_refs: ['240_The_Metabarons_9_p12']",
+      "fact: Faces Steelhead in a father-son lethal duel at the center of a galaxy-scale battle; cliffhanger unresolved; source_refs: ['249_The_Metabarons_9_p22']"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata",
+      "Oda (body host post-reincarnation)",
+      "the mysterious savior"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['229_The_Metabarons_9_ic1', '245_The_Metabarons_9_p17', '246_The_Metabarons_9_p18-p19', '248_The_Metabarons_9_p21']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "action: Used Shabda-Oud time-acceleration on Okhar to survive, get her heart-bomb replaced, and build a planet-proof vessel; source_refs: ['229_The_Metabarons_9_ic1']",
+      "action: Reincarnated inside Oda's body to ensure their son would be raised as a Metabaron warrior, overriding the prior agreement between Aghnar and Oda; source_refs: ['229_The_Metabarons_9_ic1']",
+      "action: Presented Steelhead to the galactic assembly as champion of the human galaxy, wearing a holographic mask as disguise; source_refs: ['245_The_Metabarons_9_p17', '248_The_Metabarons_9_p21']"
+    ],
+    "knowledge_boundaries": [
+      "Her inner motivations beyond securing Metabaron dynastic succession are not elaborated in volume 9 pages",
+      "The exact nature of her spirit-transfer technique and how much of Oda's original personality survives are not explained in these pages"
+    ],
+    "relationships": [
+      "character: Othon von Salza; relation: Widow; publicly identifies herself as his widow (245_The_Metabarons_9_p17)",
+      "character: Aghnar von Salza; relation: Adversary and co-parent; reincarnated into Oda to influence son's destiny; shot Aghnar's head off during mental struggle",
+      "character: Oda; relation: Reincarnated inside Oda's restored body; effectively merged with or supplanted Oda's identity",
+      "character: Steelhead; relation: Mother (via Oda's body); raised him to be warrior capable of killing Aghnar; publicly presents him as champion",
+      "character: Shabda-Oud; relation: Affiliated; possesses and exercises their powers of time-acceleration and psycho-surgical life restoration"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Commands Steelhead to 'give it roots' and defend clan honor before the assembly (247_The_Metabarons_9_p20, 246_The_Metabarons_9_p18-p19)",
+      "Calls Steelhead 'my son' directly in the public ceremony (246_The_Metabarons_9_p18-p19)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Used Shabda-Oud powers to accelerate time on Okhar; approximately twenty years passed for her while only minutes passed for Othon and Aghnar in space; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Expert robots replaced her heart-bomb and built a vessel able to survive a planet's nuclear disintegration during the time-acceleration period on Okhar; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Restored Oda to life using Shabda-Oud psycho-surgical science; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Reincarnated herself inside Oda's restored body; Oda's personality shifted during pregnancy, urging Aghnar to make their son the greatest warrior; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Fired the laser shot that blew off Aghnar's head during their mental struggle; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Vowed to raise her son to be capable of killing Aghnar, accepting the lethal challenge as renewal of Metabaron tradition; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Publicly identified herself as Oda and Honorata, widow of Othon von Salza and mother of Aghnar von Salza, in a formal assembly; source_refs: ['245_The_Metabarons_9_p17']",
+      "fact: Presented Steelhead as champion before the assembly while wearing a holographic mask; the disguise was detected in close-up; source_refs: ['245_The_Metabarons_9_p17']",
+      "fact: Addressed ruling majesties asking if they were convinced after Steelhead demonstrated the Golden Flower; source_refs: ['248_The_Metabarons_9_p21']"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda",
+      "Oda von Salza (implied)",
+      "Oda (merged identity with Honorata post-reincarnation)"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['229_The_Metabarons_9_ic1']"
+    ],
+    "character_id": "oda",
+    "important_actions": [
+      "action: Her body became the vessel for Honorata's reincarnation, transforming the course of Metabaron succession; source_refs: ['229_The_Metabarons_9_ic1']"
+    ],
+    "knowledge_boundaries": [
+      "Whether any original Oda consciousness persists alongside Honorata's is not addressed in volume 9 pages",
+      "Oda's original motivations and full history before her death are not detailed in these pages"
+    ],
+    "relationships": [
+      "character: Aghnar von Salza; relation: Partner; mother of his son; had a prior pact with him against raising their child as a Metabaron",
+      "character: Honorata; relation: Honorata reincarnated inside her restored body; her identity is effectively merged with or supplanted by Honorata",
+      "character: Steelhead; relation: Mother (body-host); bore him and raised him alongside Honorata's guiding spirit"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "During pregnancy (as Honorata-within-Oda): urges Aghnar not to miss the chance to make their son the greatest warrior in the universe (229_The_Metabarons_9_ic1)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Was dead prior to the events of volume 9; restored to life by Honorata using Shabda-Oud psycho-surgery; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Became pregnant with Aghnar's son after restoration; the child was confirmed male before birth; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Personality change during pregnancy attributed to Honorata's reincarnation inside her body; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Took the side of the unborn baby against Aghnar during the mental struggle between Aghnar and Honorata/Oda; source_refs: ['229_The_Metabarons_9_ic1']",
+      "fact: Fired the laser shot that blew off Aghnar's head (as Honorata-within-Oda); source_refs: ['229_The_Metabarons_9_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon von Salza",
+      "Othon"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['229_The_Metabarons_9_ic1', '230_The_Metabarons_9_p01', '239_The_Metabarons_9_p11', '245_The_Metabarons_9_p17']"
+    ],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "action: Performed an earlier infiltration of the Imperial Palace that is held up as the precedent for Aghnar's infiltration; source_refs: ['230_The_Metabarons_9_p01']"
+    ],
+    "knowledge_boundaries": [
+      "Othon is only referenced in volume 9 and does not appear as an active character; his prior story is not recounted here"
+    ],
+    "relationships": [
+      "character: Aghnar von Salza; relation: Father; Aghnar is explicitly identified as his son; Aghnar's aged face resembles Othon",
+      "character: Honorata; relation: Husband; Honorata identifies herself publicly as his widow",
+      "character: Steelhead; relation: Grandfather (implied via lineage)"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Previously infiltrated the Imperial Palace — a feat Aghnar's infiltration in volume 9 is explicitly compared to and framed as repeating or inheriting; source_refs: ['230_The_Metabarons_9_p01']",
+      "fact: Honorata publicly identifies herself as his widow, placing him as part of the von Salza ancestral line; source_refs: ['245_The_Metabarons_9_p17']",
+      "fact: Aghnar's aged reflection reminds him of Othon, implying physical resemblance between father and son; source_refs: ['239_The_Metabarons_9_p11']"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20', '248_The_Metabarons_9_p21', '249_The_Metabarons_9_p22']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [
+      "action: Produced the Golden Flower as a public demonstration of power before the assembled court; source_refs: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20']",
+      "action: Accepted the role of champion of the human galaxy in a formal duel against his father; source_refs: ['248_The_Metabarons_9_p21', '249_The_Metabarons_9_p22']"
+    ],
+    "knowledge_boundaries": [
+      "The precise nature of his cyborg modifications is not detailed in volume 9 pages",
+      "His internal experience of the father-son conflict and his own motivations are not given dialogue in volume 9",
+      "The outcome of the duel with Aghnar is unresolved within volume 9"
+    ],
+    "relationships": [
+      "character: Aghnar von Salza; relation: Son; adversary in father-son lethal duel per Metabaron tradition",
+      "character: Honorata / Oda; relation: Son; raised by Honorata (reincarnated in Oda's body) to be capable of killing Aghnar; maternally tied to both his mother and grandmother as stated publicly",
+      "character: Othon von Salza; relation: Grandson (implied via lineage)"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "No direct dialogue attributed to Steelhead is recorded in volume 9 page summaries; he acts rather than speaks"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Publicly presented as a cyborg before a clan or noble assembly; denounced by a hostile voice as neither fully human nor machine; source_refs: ['246_The_Metabarons_9_p18-p19']",
+      "fact: Identified through his lineage as the son of the current Metabaron (Aghnar) and maternally linked to both his mother and grandmother; source_refs: ['246_The_Metabarons_9_p18-p19']",
+      "fact: Challenged to prove himself superior to his father on the spot; source_refs: ['246_The_Metabarons_9_p18-p19']",
+      "fact: Created the Golden Flower — a massive golden destructive energy construct — on command in front of the assembly; source_refs: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20']",
+      "fact: Formally appointed champion of the human galaxy; the Pythagoreans accepted the challenge and a duel was scheduled for the following day; source_refs: ['248_The_Metabarons_9_p21']",
+      "fact: Faces Aghnar in a father-son duel at the center of a galaxy-scale battle between human and Pthagurean fleets; outcome unresolved within volume 9; source_refs: ['249_The_Metabarons_9_p22']"
+    ]
+  },
+  {
+    "aliases": [
+      "General Thato",
+      "Thato"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['230_The_Metabarons_9_p01', '231_The_Metabarons_9_p02', '232_The_Metabarons_9_p03', '243_The_Metabarons_9_p15']"
+    ],
+    "character_id": "general-thato",
+    "important_actions": [
+      "action: Designed and oversaw the purple defensive enclosure system around the golden planet and the fortification of the Imperial Palace; source_refs: ['230_The_Metabarons_9_p01']",
+      "action: Ordered or directed the execution of Mentreks in the imperial council chamber; source_refs: ['243_The_Metabarons_9_p15']"
+    ],
+    "knowledge_boundaries": [
+      "Thato's knowledge of Aghnar's true capabilities appears limited; the infiltration was not anticipated despite his comprehensive defense system",
+      "His role beyond palace security and execution orders is not detailed in volume 9"
+    ],
+    "relationships": [
+      "character: Imperial rulers / Janus-Jana; relation: Loyal subordinate; credited with building the planetary defense system to protect the Sacred Androgyne",
+      "character: Aghnar von Salza; relation: Antagonist by implication; Aghnar's infiltration directly undermines Thato's claimed impregnable security"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Credited with designing and establishing the purple defensive enclosure around the golden planet and transforming the Imperial Palace into a fortress to protect the Sacred Androgyne; source_refs: ['230_The_Metabarons_9_p01']",
+      "fact: Publicly honored and awarded the first multicogan as reward for his service; source_refs: ['230_The_Metabarons_9_p01']",
+      "fact: His security claims are directly challenged when Aghnar's severed feet appear inside the palace; guards invoke his prior assurances of impregnability; source_refs: ['232_The_Metabarons_9_p03']",
+      "fact: Ordered to execute two Mentreks for proposing a flight-based escape strategy in the imperial council; source_refs: ['243_The_Metabarons_9_p15']"
+    ]
+  },
+  {
+    "aliases": [
+      "Janus-Jana",
+      "the Sacred Androgyne",
+      "divine empress",
+      "master of all galaxies"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['231_The_Metabarons_9_p02', '238_The_Metabarons_9_p10']"
+    ],
+    "character_id": "janus-jana",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Janus-Jana does not appear to act directly in volume 9; all references are to her status and protection",
+      "Whether Janus-Jana is the same entity as 'the Empress' who contracted Aghnar is implied but not confirmed explicitly in these pages"
+    ],
+    "relationships": [
+      "character: Imperial rulers / Purple Endoguard; relation: Divine ruler to whom the Purple Endoguard and the entire imperial military are consecrated",
+      "character: General Thato; relation: Protected by Thato's planetary defense system",
+      "character: Aghnar von Salza; relation: Aghnar worked under contract to the Empress (possibly Janus-Jana) and destroyed the battalion threatening her"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "No direct dialogue attributed to Janus-Jana in volume 9 page summaries"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: The Purple Endoguard is consecrated to serve Janus-Jana; her name is invoked in the request to arm the Purple Endoguard with multicogans; source_refs: ['231_The_Metabarons_9_p02']",
+      "fact: A battalion of 300,000 soldiers on Jupiter Nova was preparing to invade the Golden Planet and consume Janus-Jana's flesh; Aghnar destroyed them under contract; source_refs: ['238_The_Metabarons_9_p10']",
+      "fact: The Imperial Palace fortress exists specifically to protect the Sacred Androgyne; source_refs: ['230_The_Metabarons_9_p01']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Mentreks",
+      "Mentrek (singular)"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['241_The_Metabarons_9_p13', '242_The_Metabarons_9_p14', '243_The_Metabarons_9_p15', '244_The_Metabarons_9_p16']"
+    ],
+    "character_id": "the-mentreks",
+    "important_actions": [
+      "action: Proposed evacuation to the edge of the universe as the only strategic option; were executed for it; source_refs: ['243_The_Metabarons_9_p15']",
+      "action: One surviving Mentrek proposed the champion-duel mechanism that ultimately resolves the political crisis; source_refs: ['244_The_Metabarons_9_p16']"
+    ],
+    "knowledge_boundaries": [
+      "The Mentreks confirm that both galaxies are otherwise militarily balanced; only the Metabaron shifts the balance",
+      "They possess knowledge of the Pthagurean fleet's position and arrival timeline",
+      "Whether additional Mentreks survive beyond those executed in volume 9 is unclear"
+    ],
+    "relationships": [
+      "character: Imperial rulers / General Thato; relation: Advisory subordinates; executed by imperial authority when their proposals are deemed insubordinate",
+      "character: The Metabaron (Aghnar); relation: The Metabaron's strategic dominance is the crisis the Mentreks are tasked with solving"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "One Mentrek: 'There is no other solution — millions of enemy ships are already in interstellar transit led by the Metacraft; they will reach our borders within a day' (paraphrased from 243_The_Metabarons_9_p15)",
+      "Cybernetic Mentrek proposes champion-duel under threat of disintegration (244_The_Metabarons_9_p16)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Mentreks are pressured under threat of death to produce a solution to the Pthagurean invasion crisis (241_The_Metabarons_9_p13); source_refs: ['241_The_Metabarons_9_p13']",
+      "fact: A captive Mentrek openly admits there is no solution; executions are ordered in response (242_The_Metabarons_9_p14); source_refs: ['242_The_Metabarons_9_p14']",
+      "fact: One Mentrek warns that millions of Pthagurean ships led by the Metacraft are already in interstellar transit and will reach the empire's borders within twenty-four hours (243_The_Metabarons_9_p15); source_refs: ['243_The_Metabarons_9_p15']",
+      "fact: Imperial officials order General Thato to execute two Mentreks for proposing flight to the universe's edge; at least one is shot (243_The_Metabarons_9_p15); source_refs: ['243_The_Metabarons_9_p15']",
+      "fact: A cybernetic Mentrek, threatened with disintegration, proposes the champion-duel solution: find a warrior stronger than the Metabaron and resolve the conflict through formal duel (244_The_Metabarons_9_p16); source_refs: ['244_The_Metabarons_9_p16']"
+    ]
+  },
+  {
+    "aliases": [
+      "Ulritch the Red"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['237_The_Metabarons_9_p08-p09']"
+    ],
+    "character_id": "ulritch-the-red",
+    "important_actions": [
+      "action: Led his pirate gang in the epiphyte hijack operation alongside Aghnar; source_refs: ['237_The_Metabarons_9_p08-p09']"
+    ],
+    "knowledge_boundaries": [
+      "Ulritch the Red is only mentioned in narration in volume 9; no dialogue, appearance, or further detail is provided"
+    ],
+    "relationships": [
+      "character: Aghnar von Salza; relation: Temporary ally; cooperated with Aghnar on a piracy operation against three mother-coach ships carrying epiphyte"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Ulritch the Red and his pirate gang allied with Aghnar to hijack a cargo of epiphyte being transported by three mother-coach ships; source_refs: ['237_The_Metabarons_9_p08-p09']"
+    ]
+  },
+  {
+    "aliases": [
+      "The Robot Narrators",
+      "the two robot servants"
+    ],
+    "appearances": [
+      "volume: 9; pages: ['236_The_Metabarons_9_p07', '249_The_Metabarons_9_p22']"
+    ],
+    "character_id": "the-robot-narrators",
+    "important_actions": [
+      "action: Serve as the primary framing and narration device for the entire volume 9 story; source_refs: ['236_The_Metabarons_9_p07', '249_The_Metabarons_9_p22']"
+    ],
+    "knowledge_boundaries": [
+      "Their exact identities, model types, and relationship to specific Metabaron characters are not stated in volume 9",
+      "The identity of their master is not revealed in these pages",
+      "They possess knowledge of the full story history but interpret it with their own moral and predictive biases"
+    ],
+    "relationships": [
+      "character: An absent master; relation: Servants; narrate the story while performing household duties; must stop when the master is expected to return"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "One narrator angrily denounces shameless hypocrisy in Aghnar's career (236_The_Metabarons_9_p07)",
+      "One argues Steelhead must survive because otherwise a later family line could not exist; the other rejects this as a reason and insists Aghnar will win (249_The_Metabarons_9_p22)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Narrate Aghnar's mercenary career with moral condemnation (236_The_Metabarons_9_p07); source_refs: ['236_The_Metabarons_9_p07']",
+      "fact: Debate which combatant — Steelhead or Aghnar — will win their duel; one argues Steelhead must survive to maintain later family lineage; the other insists Aghnar will win (249_The_Metabarons_9_p22); source_refs: ['249_The_Metabarons_9_p22']",
+      "fact: Halt the story because they must prepare dinner for their master before he returns; promise to continue the next day (249_The_Metabarons_9_p22); source_refs: ['249_The_Metabarons_9_p22']"
+    ]
+  }
+]

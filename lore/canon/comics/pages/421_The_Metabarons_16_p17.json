@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The Metabaron intervenes directly instead of letting soldiers kill the creature.",
+    "The Metabaron claims the creature is female by referring to it as 'her.'",
+    "The Metabaron appears able to calm, sedate, or otherwise nonlethally incapacitate the creature through direct contact.",
+    "The tarantuwolf is highly dangerous physically but can be subdued and rendered asleep."
+  ],
+  "characters_present": [
+    "The Metabaron (bald man in black)",
+    "A giant spider-like creature referred to as a tarantuwolf",
+    "Armed soldiers/security personnel in dark armor",
+    "A woman or female-presenting figure restrained or held by a golden multi-legged/mechanical walker",
+    "Civilian onlookers in the background",
+    "Possible officials or speakers commenting on legislation"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents public fear and political backlash directed both at dangerous beasts and at the Metabarons.",
+    "The Metabaron is shown acting as someone who can capture rather than kill a tarantuwolf."
+  ],
+  "dialogue_meaning": [
+    "Soldiers believe the Metabaron is pinning the creature and tell others to hold fire until they can shoot.",
+    "The Metabaron insists the creature should not be shot and says he will sedate it and take it away.",
+    "Once the creature is subdued, people argue that tarantuwolves are a threat to public safety.",
+    "Another speaker counters that Metabarons are an even greater danger."
+  ],
+  "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+  "is_spread": false,
+  "locations": [
+    "A large interior hall or public chamber with steps",
+    "A crowded public/spectator area with security presence"
+  ],
+  "lore_facts": [
+    "The Metabaron is recognized by others on sight or by reputation during the incident.",
+    "There are creatures called tarantuwolves, and they are considered dangerous enough to prompt calls for legislation.",
+    "At least some people in this setting believe Metabarons themselves pose a public danger.",
+    "Security forces in this setting respond to dangerous creatures with armed tactical units."
+  ],
+  "page_id": "421_The_Metabarons_16_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A large spider-like beast attacks or rampages in a public interior space crowded with troops and civilians.",
+    "Soldiers prepare to shoot the creature while saying the Metabaron is holding it down.",
+    "The Metabaron orders them not to shoot and says he will put the creature to sleep and take her home.",
+    "Close-up panels show the Metabaron making contact with the creature's head or sensory organs as he subdues it.",
+    "The creature falls asleep, indicated by a sleep sound effect/text.",
+    "After the immediate danger passes, bystanders or officials debate legal bans on tarantuwolves versus Metabarons."
+  ],
+  "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+      "page_id": "421_The_Metabarons_16_p17",
+      "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be imperfect.",
+    "The precise identity of the restrained figure in the final panel is unclear from this page alone.",
+    "The exact nature of the Metabaron's method for putting the creature to sleep is not explicitly shown or explained on the page."
+  ],
+  "visual_summary": "In a crowded interior with steps and onlookers, armed soldiers confront a giant spider-like creature while a bald man in black, identified in dialogue as the Metabaron, is on top of it. He stops the troops from firing, physically subdues the creature, and appears to put it to sleep. In the final panel, the subdued creature lies collapsed while nearby figures argue politically over whether dangerous beings like tarantuwolves or Metabarons themselves should be outlawed.",
+  "volume": 16
+}

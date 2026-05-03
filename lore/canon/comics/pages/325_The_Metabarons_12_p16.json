@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The enemy is characterized as elusive and difficult to hit.",
+    "The master is capable of unleashing large-scale destructive attacks.",
+    "The observing speakers appear integrated into or connected with a machine intelligence system."
+  ],
+  "characters_present": [
+    "An unnamed 'enemy' or 'mysterious invader' who is evading attacks",
+    "The 'master' whose attacks are being directed at the enemy",
+    "Mechanical or robotic observers/commentators, likely subordinate to the master"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing battle already in progress for several hours.",
+    "The page establishes immediate stakes: if the invader is not stopped almost at once, he will escape and the attackers will be lost."
+  ],
+  "dialogue_meaning": [
+    "The speakers attribute the attack coordination or awareness to a vast ferro-bionic central brain.",
+    "They report that the enemy is successfully evading the master's assault.",
+    "They warn that the battle has lasted a long time and the city-shaft is now finished or destroyed.",
+    "They stress that only a very short amount of time remains to stop the invader before he disappears."
+  ],
+  "image_sha256": "0c722db05782a730772737e8fb30c0f086ae3ed923a06caa3556b04479a58b67",
+  "is_spread": false,
+  "locations": [
+    "A gigantic vertical 'city-shaft' filled with industrial structures and machinery",
+    "An interior mechanical vantage point overlooking the battle"
+  ],
+  "lore_facts": [
+    "A 'central brain' is described as having innumerable ferro-bionic synapses.",
+    "The attacking side serves or follows a figure called the master.",
+    "The setting includes a structure called the city-shaft.",
+    "The conflict involves a time-critical chance to prevent an intruder from escaping or disappearing."
+  ],
+  "page_id": "325_The_Metabarons_12_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "A powerful attacker referred to as the master's force is firing sweeping energy attacks through a massive city-shaft.",
+    "The target is still avoiding or surviving the assault despite prolonged combat.",
+    "Observers or subordinate machines report that the city-shaft is effectively ruined during the ongoing battle.",
+    "A countdown-like warning states that the enemy must be defeated very soon or escape, which would doom the attackers' side."
+  ],
+  "source_image": "external/comics/meta-barons/325_The_Metabarons_12_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0c722db05782a730772737e8fb30c0f086ae3ed923a06caa3556b04479a58b67",
+      "page_id": "325_The_Metabarons_12_p16",
+      "source_image": "external/comics/meta-barons/325_The_Metabarons_12_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact timing figures may be imprecise.",
+    "The identities of the master, the enemy, and the observing speakers are not visually specified on this page alone.",
+    "It is unclear whether the golden forms shown are characters, large biomechanical components, or both."
+  ],
+  "visual_summary": "A chaotic battle scene unfolds inside a vast vertical city-like shaft filled with machinery and debris. Bright, curving energy attacks tear across the space while large golden mechanical or armored forms are struck amid explosions. The page is framed from inside or beneath another machine, emphasizing scale and destruction.",
+  "volume": 12
+}

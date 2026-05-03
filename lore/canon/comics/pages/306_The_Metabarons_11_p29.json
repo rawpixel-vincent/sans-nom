@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The three intruders are vulnerable to the serpent and appear to be captured rather than in control of the encounter.",
+    "The pale, long-haired figure has enough authority to issue an order concerning memory extraction.",
+    "The assembled crowd is hostile toward the Techno-society and openly calls for punishment or revenge."
+  ],
+  "characters_present": [
+    "Three unidentified intruders or agents in dark suits",
+    "A gigantic serpent-like creature",
+    "A pale, long-haired speaker or official at a console",
+    "Several robed attendants or council members",
+    "A large audience or assembly"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The attack scene and the tribunal scene appear intercut, suggesting simultaneous or closely connected events.",
+    "The chamber debate references a prior murder and the question of who is truly responsible for it.",
+    "The accusation against the Techno-society implies an ongoing political conflict already in progress before this page."
+  ],
+  "dialogue_meaning": [
+    "The intruders are startled by the sudden appearance of the creature and warn each other.",
+    "The creature overwhelms them before they can respond effectively.",
+    "In the chamber below, a judicial or political argument is being made about responsibility for murder.",
+    "The crowd rejects restraint and instead demands vengeance against the Techno-society.",
+    "The authority figure orders memory extraction so the accused will remember nothing."
+  ],
+  "image_sha256": "7f956e1d277d837a0e2d99a489fc20bfa376ff63e8bf86f99b34da077ec52f58",
+  "is_spread": false,
+  "locations": [
+    "A bright interior chamber where the serpent attacks",
+    "A large amphitheater, tribunal, or council chamber with tiered seating and suspended organic-looking devices"
+  ],
+  "lore_facts": [
+    "This setting includes very large serpent-like creatures used or encountered inside an interior facility.",
+    "There exists a group called the Techno-society, and it is being publicly accused of treachery on this page.",
+    "The society shown uses 'memory extractors' or a comparable technology capable of erasing or removing memory.",
+    "Public judgment in this world can take place before a large amphitheater-like audience.",
+    "The page presents a philosophical or legal distinction between a murderer and the force that compelled the crime."
+  ],
+  "page_id": "306_The_Metabarons_11_p29",
+  "page_label": "p29",
+  "plot_events": [
+    "Three figures encounter a massive serpent-like creature.",
+    "The creature attacks immediately and wraps itself around the intruders.",
+    "At least two captives cry out for help while being constricted.",
+    "The scene shifts to a large public or ceremonial chamber filled with spectators.",
+    "A pale, long-haired authority figure addresses the assembly from a console near strange floating machinery.",
+    "The assembly condemns members of the Techno-society as traitors and calls for revenge.",
+    "The speaker proposes extracting the culprits' memories rather than letting them remember anything."
+  ],
+  "source_image": "external/comics/meta-barons/306_The_Metabarons_11_p29.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7f956e1d277d837a0e2d99a489fc20bfa376ff63e8bf86f99b34da077ec52f58",
+      "page_id": "306_The_Metabarons_11_p29",
+      "source_image": "external/comics/meta-barons/306_The_Metabarons_11_p29.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech boxes are difficult to read precisely, especially the smaller captions in the lower panels.",
+    "The identities and affiliations of the three intruders are not stated clearly on this page alone.",
+    "It is unclear whether the serpent is a natural creature, engineered guardian, or symbolic entity.",
+    "The exact title or role of the pale, long-haired speaker is not given on the page."
+  ],
+  "visual_summary": "In the top half of the page, three dark-clad figures confront a gigantic snake-like creature with glowing red eyes in a bright, sterile-looking space. The creature moves too quickly and then coils around the intruders, pinning and choking them. In the lower half, the scene cuts to a vast amphitheater or council chamber where robed figures face a pale, long-haired speaker at a control console beside floating organic-looking apparatus. The crowd denounces 'traitors' and calls for vengeance, while the speaker argues that punishment should target the force that drove a body to murder rather than simply killing the murderer.",
+  "volume": 11
+}

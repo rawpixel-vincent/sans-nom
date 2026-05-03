@@ -1,0 +1,54 @@
+{
+  "character_facts": [
+    "The killed man is presented as the father in the narrated ritual context.",
+    "The surviving figure is presented as the son who has carried out the killing required for initiation.",
+    "The surviving figure is emotionally distressed or physically overwhelmed after the act."
+  ],
+  "characters_present": [
+    "A white-haired man who is killed, apparently the father.",
+    "A younger long-haired male figure beside the body, apparently the son and initiate narrator subject."
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page presents the origin or early statement of the Metabaron initiation rule within Castaka tradition.",
+    "The final wide bottom panel functions as a visual transition away from the killing scene."
+  ],
+  "dialogue_meaning": [
+    "The speaker reflects on extreme rootlessness and vulnerability, saying he is only a man with no home.",
+    "The narration explains that this patricidal act is treated as the qualifying ordeal for Metabaron initiation within Castaka tradition."
+  ],
+  "image_sha256": "eddd7774c013248e7d0c8801dc0325c1cb186a988501a9f3970b9b33c9e0f479",
+  "is_spread": false,
+  "locations": [
+    "An interior room or chamber filled with mechanical apparatus, cables, and metal equipment.",
+    "A final bottom panel shows a dark horizontal space or starfield-like transition image."
+  ],
+  "lore_facts": [
+    "There is a Castaka tradition described as foundational or highly important.",
+    "According to the narration, a Metabaron can only be considered initiated after he has killed his own father."
+  ],
+  "page_id": "160_The_Metabarons_6_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "A white-haired man is shot in the head in a close-up sequence.",
+    "The victim's body collapses and lies sprawled on the floor amid machinery and equipment.",
+    "A second figure remains beside the corpse, bent over and holding a vertical pole or support.",
+    "Narration states that an important Castaka tradition begins here: a Metabaron is initiated only after killing his own father."
+  ],
+  "source_image": "external/comics/meta-barons/160_The_Metabarons_6_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eddd7774c013248e7d0c8801dc0325c1cb186a988501a9f3970b9b33c9e0f479",
+      "page_id": "160_The_Metabarons_6_p08",
+      "source_image": "external/comics/meta-barons/160_The_Metabarons_6_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the father and son are not given on this page alone.",
+    "It is unclear whether the surviving figure is speaking aloud or whether the text is internal narration.",
+    "The exact nature of the vertical object the surviving figure grips is unclear from the image alone.",
+    "The bottom panel may depict outer space, a horizon, or a stylized transition rather than a literal location."
+  ],
+  "visual_summary": "A white-haired man is shown in a violent sequence with blood spray and a gun pressed to his head, followed by his body slumped dead in a mechanical interior. Beside the corpse, another long-haired figure sits or kneels, gripping a vertical staff or pole in grief or exhaustion. Caption/narration frames the moment as the beginning of an important Castaka rite.",
+  "volume": 6
+}

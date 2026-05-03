@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The intruder has long silver or white hair and wears a light-colored protective or armored suit.",
+    "He arrives alone in a sleek black craft.",
+    "He is calm under armed confrontation and claims to come in peace.",
+    "He is bold enough to demand immediate contact with the highest political or ceremonial authorities.",
+    "The surrounding soldiers are equipped with bulky armor, firearms, and communications gear, and they treat the breach as an emergency."
+  ],
+  "characters_present": [
+    "A silver-haired male intruder wearing a pale armored suit",
+    "Multiple heavily armed palace or imperial security soldiers",
+    "A radio-using armored officer or trooper in the foreground"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page introduces or continues an incursion into the heart of imperial power by a mysterious visitor.",
+    "The intruder's unexplained ability to bypass defenses and his insistence on speaking only to the highest rulers set up an imminent high-level confrontation or revelation."
+  ],
+  "dialogue_meaning": [
+    "The narration emphasizes that the intruder moved silently and invisibly through the golden cities and reached the imperial palace unopposed.",
+    "Security forces react with alarm, ordering the intruder not to move and declaring the palace security has been violated.",
+    "The intruder insists he is peaceful but urgently demands an audience with the top imperial leadership.",
+    "He refuses to answer basic questions about his identity until he is before the imperial rulers."
+  ],
+  "image_sha256": "b95712350b9d2ab6ba31df42d06df65d2b56cca25e80c553559379ccb2a7be15",
+  "is_spread": false,
+  "locations": [
+    "The golden cities",
+    "The imperial palace",
+    "A large palace landing area, staircourt, or plaza at the palace entrance"
+  ],
+  "lore_facts": [
+    "There are 'golden cities' associated with this setting.",
+    "An imperial palace exists and is guarded by a large military security presence.",
+    "The palace is considered highly secure, and unauthorized entry is treated as an extraordinary scandal.",
+    "The setting includes a galactic military force or military institution of large historical scope.",
+    "The empire's leadership includes figures referred to as the imperial majesties.",
+    "The intruder requests access to a chain of supreme authorities, including an 'ekonomat,' a supreme Endogonad, a technopontificate, and representatives of the colonial planets."
+  ],
+  "page_id": "074_The_Metabarons_3_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A stealthy black craft passes above the golden cities without being stopped.",
+    "The craft lands on the steps or plaza of the imperial palace.",
+    "The landing causes a major military-security scandal because the palace perimeter has been breached.",
+    "Imperial or palace soldiers rush in, surround the intruder, and threaten to shoot if he moves.",
+    "The intruder declares peaceful intent.",
+    "He demands to be taken immediately to the supreme imperial authorities.",
+    "When questioned about his identity and means of arrival, he refuses to explain except in the presence of the imperial majesties."
+  ],
+  "source_image": "external/comics/meta-barons/074_The_Metabarons_3_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b95712350b9d2ab6ba31df42d06df65d2b56cca25e80c553559379ccb2a7be15",
+      "page_id": "074_The_Metabarons_3_p18",
+      "source_image": "external/comics/meta-barons/074_The_Metabarons_3_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some institutional titles in the intruder's demand are stylized or unusual and may be slightly misread from the page lettering, especially 'ekonomat' and 'supreme Endogonad.'",
+    "The exact identity of the silver-haired intruder is not stated on this page.",
+    "The precise architectural sub-location within the palace complex is unclear beyond being steps, a plaza, or a landing area."
+  ],
+  "visual_summary": "A black, angular craft flies silently over tall golden city structures and lands inside a vast, bright yellow plaza or staircourt of the imperial palace. Armed palace troops rapidly surround the ship and a silver-haired man in a pale armored suit who emerges peacefully with raised hands. The scene escalates into a security panic as soldiers aim heavy weapons at him while he demands immediate access to the empire's highest rulers.",
+  "volume": 3
+}

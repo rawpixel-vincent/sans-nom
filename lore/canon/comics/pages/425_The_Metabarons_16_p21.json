@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The pregnant warrior is powerful enough to be called the mightiest or greatest warrior in the galaxy.",
+    "The warrior is hiding in seclusion in order to give birth peacefully.",
+    "Mega-Gul is a robot character who initially rejects the account as impossible.",
+    "Mega-Gul can be argued into accepting an unwanted fact.",
+    "A second robotic character speaks forcefully and claims authority on what is real."
+  ],
+  "characters_present": [
+    "A pregnant warrior woman, identified by narration as the galaxy's greatest warrior",
+    "A small robot addressed as 'Mega-Gul'",
+    "Another robot or robotic speaker arguing with Mega-Gul",
+    "Possible additional robotic attendants or machinery figures in the laboratory scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page acts as a transition into the next episode, 'The Return of The Shabda-Oud.'",
+    "The narration continues an ongoing account of how the warrior's pregnancy happened and why she fled to Flos."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that an unprecedented reproductive process occurred through genetic manipulation, resulting in self-conception.",
+    "A robot finds the pregnancy impossible because it conflicts with the warrior's reputation for extreme masculinity.",
+    "Another speaker rebukes that reaction as a failure to face facts.",
+    "The argument ends when the shocked robot concedes and accepts what happened.",
+    "The narration frames the pregnancy as the reason the warrior withdrew to a peaceful hidden refuge."
+  ],
+  "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+  "is_spread": false,
+  "locations": [
+    "A futuristic medical or laboratory chamber filled with machinery",
+    "An open metallic platform or exterior walkway where robots are speaking",
+    "The garden planet Flos, shown as a lush waterside refuge"
+  ],
+  "lore_facts": [
+    "'Hypo-genetics' is named as the method used to transform brain tissue into sperm cells.",
+    "The page claims this was the first auto-conception in history.",
+    "The galaxy's greatest warrior is also described here as a symbol of masculinity.",
+    "Despite that reputation, the warrior became pregnant.",
+    "Flos is identified as a garden planet associated with peace and distance from civilization and violence.",
+    "'The Return of The Shabda-Oud' is the title of the next episode teaser."
+  ],
+  "page_id": "425_The_Metabarons_16_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "The narration says a woman used advanced genetics to transform brain tissue into sperm cells.",
+    "The narration states that this led to the first self-conception in history.",
+    "The page states that the woman became pregnant with her own child.",
+    "A robot listener reacts with shock at the idea that the galaxy's greatest warrior, described as a symbol of masculinity, could be pregnant.",
+    "Another speaker insults the robot for rejecting reality and tells it to accept the facts.",
+    "The shocked robot yields and says it accepts reality.",
+    "The narration says the warrior went into hiding on the garden planet Flos to give birth in peace, away from civilization and violence.",
+    "The page ends with a teaser for the next episode, 'The Return of The Shabda-Oud.'"
+  ],
+  "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+      "page_id": "425_The_Metabarons_16_p21",
+      "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be imperfect.",
+    "The identity of the pregnant warrior is not explicitly named on this page alone.",
+    "The exact identity of the robot arguing with Mega-Gul is unclear from the page.",
+    "It is not fully clear whether the opening laboratory image depicts the same warrior during the procedure or an illustrative reconstruction by the narrator."
+  ],
+  "visual_summary": "A narrator describes a bizarre scientific procedure in a high-tech chamber where a woman lies connected to machinery while robotic figures react in disbelief. The page then shifts to an exterior or open platform scene with robots arguing, one apparently overwhelmed by what it is hearing. In the final panel, the galaxy's greatest warrior is shown hiding alone in a lush, peaceful place by the water, visibly pregnant and isolated from civilization. A caption announces the next episode as 'The Return of The Shabda-Oud.'",
+  "volume": 16
+}

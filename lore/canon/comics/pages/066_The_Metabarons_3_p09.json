@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The human warrior is regarded by the small robot as its master and as an invincible human warrior.",
+    "The small robot is highly emotional, dependent on the master's presence, and theatrically distressed by his disappearance.",
+    "The larger machine is more controlled and takes the role of correcting the smaller robot and guiding the narration."
+  ],
+  "characters_present": [
+    "A bald human warrior identified by the dialogue as the robot's 'master'",
+    "Small robot identified by the dialogue as Tonto",
+    "Larger floating machine narrator/conversational partner"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing embedded account of the origins of the Metabarons.",
+    "It directly picks up an earlier interrupted discussion about Othon's mutilation and the conception of the next Metabaron."
+  ],
+  "dialogue_meaning": [
+    "The small robot idolizes the human warrior and celebrates his apparent triumph.",
+    "The human's sudden disappearance shocks the robot.",
+    "The larger machine treats the robot's attachment as foolish sentimentality.",
+    "The machines resume a framed storytelling conversation about the ancestry of the Metabarons.",
+    "Their immediate topic is the reproductive problem created by Othon's mutilation and prosthetic replacement."
+  ],
+  "image_sha256": "bc43bcedbc4c4d5867b3ff07f4ce019c5a83746ed00ff2da53d52c2b4167c5ea",
+  "is_spread": false,
+  "locations": [
+    "A futuristic mechanical chamber or platform interior with machinery, consoles, and suspended equipment"
+  ],
+  "lore_facts": [
+    "There is a storytelling frame in which two machines discuss the history or origins of the Metabaron clan.",
+    "A figure named Othon is described as having had an essential body part amputated.",
+    "Othon is said to have resorted to a multi-protonic pelvic implant.",
+    "A central narrative question is how a subsequent Metabaron was conceived despite Othon having no genitals.",
+    "The small robot addresses the larger machine as Tonto."
+  ],
+  "page_id": "066_The_Metabarons_3_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A small robot praises its human 'master' after a victory.",
+    "The bald armored man reacts briefly and then vanishes or dematerializes in front of the robot.",
+    "The small robot panics and laments that the master is gone.",
+    "A larger machine rebukes the small robot for becoming emotional and tells it not to delude itself.",
+    "The larger machine offers to continue recounting the origins of the Metabarons.",
+    "The small robot eagerly agrees and refers back to the unfinished part of the story about Othon's body being mutilated and replaced with an artificial pelvic implant.",
+    "The larger machine states that the question at hand is how the next Metabaron could be conceived if Othon had no genitals.",
+    "The small robot expresses excited curiosity about how Othon nevertheless fathered a child of his own blood."
+  ],
+  "source_image": "external/comics/meta-barons/066_The_Metabarons_3_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bc43bcedbc4c4d5867b3ff07f4ce019c5a83746ed00ff2da53d52c2b4167c5ea",
+      "page_id": "066_The_Metabarons_3_p09",
+      "source_image": "external/comics/meta-barons/066_The_Metabarons_3_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of the human warrior's disappearance is not explained on the page; he appears to fade out visually.",
+    "The precise identity of the bald human warrior is not stated here beyond being called the robot's master.",
+    "Some dialogue is small and stylized; while the main meaning is clear, a few exact phrasings may be imperfectly read."
+  ],
+  "visual_summary": "A bald armored man rises from a mechanical chair or cradle while a small robot addresses him admiringly. In the next panels the man fades away until he disappears completely, leaving the robot distressed. A larger floating machine comforts the smaller robot and proposes continuing the story of the Metabarons. The two machines then resume their prior discussion about Othon, his bodily mutilation, and how a later Metabaron could be conceived.",
+  "volume": 3
+}

@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The daughter is willing or compelled to mutilate herself by removing her own eye.",
+    "The daughter suffers extreme pain and heavy bleeding but continues through the act.",
+    "The father accepts or receives the eye from her hands.",
+    "The father speaks as though he has already given the daughter his soul before asking what more she wants.",
+    "The father reacts with immediate horror and remorse after obtaining the eye."
+  ],
+  "characters_present": [
+    "A young dark-haired woman, identified as the older man's daughter",
+    "An older bald, heavily bearded man, identified as the woman's father",
+    "Apparitional or memory-images of the daughter as a child, adolescent, and young woman"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts a consequential exchange between father and daughter centered on one of her eyes.",
+    "The vision of the daughter at different ages suggests the father's memory, guilt, or emotional realization is triggered by the act."
+  ],
+  "dialogue_meaning": [
+    "The woman declares that once the eye is taken, it will belong to the man, while also saying it was always his because he fathered it.",
+    "The man states that he has given her his soul and asks what desire she still has remaining.",
+    "He immediately curses himself and asks what he has done, showing remorse.",
+    "The daughter's successive younger and older forms call him 'Daddy' and 'Father,' emphasizing the father-daughter bond."
+  ],
+  "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+  "is_spread": false,
+  "locations": [
+    "An unspecified interior or blank white/neutral space with no clear environmental detail",
+    "A misty or vision-like space in the final panels where the daughter's younger forms appear"
+  ],
+  "lore_facts": [
+    "An eye taken from the daughter is treated as something belonging to the father by right of parentage.",
+    "The page links bodily sacrifice, parentage, and a transfer described in spiritual terms such as giving one's soul.",
+    "The father-daughter relationship is central and is explicitly invoked during and after the exchange.",
+    "The final sequence presents multiple ages of the daughter together in a spectral or psychological vision."
+  ],
+  "page_id": "341_The_Metabarons_13_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "The woman removes one of her eyes and gives it to the older man.",
+    "The exchange is framed as the fulfillment of something that already belonged to him because he fathered it.",
+    "After receiving the eye, the man asks what she now desires from him.",
+    "The man is overcome with shock and regret about what he has done.",
+    "Apparitional or remembered images of the daughter as a child, older girl, and young woman appear before him, each calling to him as father."
+  ],
+  "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+      "page_id": "341_The_Metabarons_13_p07",
+      "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact wording of some dialogue is small but overall meaning is clear.",
+    "It is unclear from the page alone whether the younger versions of the daughter are literal apparitions, memories, or a symbolic vision.",
+    "The broader cause and purpose of the eye sacrifice are not explained on this page alone."
+  ],
+  "visual_summary": "A young dark-haired woman painfully pulls one of her own eyeballs from its socket in close-up. An older bald, bearded man receives or holds the eye in his hands. The woman is shown bleeding heavily from both eye sockets, crying out in pain. The man immediately recoils in horror and regret once he has the eye. In the final row, ghostly or memory-like images of the woman at younger ages appear above him, reaching out and calling to him as he looks up in anguish.",
+  "volume": 13
+}

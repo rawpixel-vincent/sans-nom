@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The white-haired woman remains composed while a knife is held to her throat and quickly asserts control over the room.",
+    "The large man is physically imposing, armed with both a firearm and a blade, and is close enough to restrain the woman bodily.",
+    "The attendants or guards are frightened and believe the man has lost autonomy due to the woman's influence."
+  ],
+  "characters_present": [
+    "White-haired woman",
+    "Large armed man restraining her",
+    "Several attendants or guards in black outfits",
+    "A small bald onlooker visible in the background"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page opens in the middle of a tense hostage-like confrontation rather than establishing the setup from scratch.",
+    "The reactions imply prior knowledge of the white-haired woman's persuasive or supernatural influence."
+  ],
+  "dialogue_meaning": [
+    "The woman frames herself as belonging to the man and dares or permits him to carry out his desire.",
+    "Bystanders believe the woman has mentally dominated or seduced the man.",
+    "The woman takes command of the room and orders everyone else out.",
+    "A hesitant objection is cut off by her threat of lethal violence."
+  ],
+  "image_sha256": "23f37cea5ebe1bfb7d484ba46212be2a28dfb739eddd0e209e5f0d9e1f890d2e",
+  "is_spread": false,
+  "locations": [
+    "An interior room or chamber with metallic walls and a doorway"
+  ],
+  "lore_facts": [
+    "The woman is perceived by others as capable of placing someone under a 'spell' or hypnotic influence.",
+    "The group around her is subordinate enough to react to shouted commands and flee the chamber.",
+    "Bladed violence and decapitation are invoked as immediate, credible threats in this scene."
+  ],
+  "page_id": "090_The_Metabarons_4_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "A white-haired woman invites the armed man to act if he desires, indicating submission or taunting compliance.",
+    "A large armed man restrains the woman from behind while also holding a blade near her neck.",
+    "Nearby attendants or guards interpret the situation as the man being hypnotized or enchanted by the woman.",
+    "The woman commands the surrounding people to leave despite one person hesitating.",
+    "She escalates the threat by warning that she will cut off their heads.",
+    "The surrounding figures retreat from the room."
+  ],
+  "source_image": "external/comics/meta-barons/090_The_Metabarons_4_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "23f37cea5ebe1bfb7d484ba46212be2a28dfb739eddd0e209e5f0d9e1f890d2e",
+      "page_id": "090_The_Metabarons_4_p01",
+      "source_image": "external/comics/meta-barons/090_The_Metabarons_4_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Character names are not identifiable from this page alone.",
+    "It is unclear whether the woman truly has supernatural hypnotic powers or whether the bystanders are misinterpreting the scene.",
+    "Some dialogue is small and may not be perfectly transcribed; the overall meaning is clear but exact wording may be uncertain.",
+    "The exact relationship between the armed man, the woman, and the surrounding attendants is not established on this page alone."
+  ],
+  "visual_summary": "A white-haired woman stands nearly nude with a knife held close to her throat while a large man restrains her from behind and points a gun. In close-ups, she appears calm or seductive rather than frightened. Several other figures in revealing black outfits react in alarm, saying the man is under her spell. The woman then orders the others to leave and threatens decapitation, after which the surrounding attendants flee through a doorway.",
+  "volume": 4
+}

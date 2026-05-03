@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The white-haired fighter is calm and tactical enough to exploit environmental conditions.",
+    "The white-haired fighter fights with a bow at very close range as well as from stealth.",
+    "The armored opponent is physically large and encased in substantial armor.",
+    "The armored opponent is vulnerable to precise strikes despite the armor."
+  ],
+  "characters_present": [
+    "White-haired attacker carrying a bow",
+    "Bulky armored opponent with a helmet and mechanical gear"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing fight between the white-haired fighter and armored enemies.",
+    "The page emphasizes the attacker's stealth, precision, and familiarity with the battlefield."
+  ],
+  "dialogue_meaning": [
+    "The attacker believes the blindness affects both sides, but benefits him because he knows the ground well.",
+    "He counts his hits in sequence, signaling a deliberate two-strike takedown."
+  ],
+  "image_sha256": "4cac1064911fec9babb14f5f02f346683fe0307cf4982b518ef1e82f7586a9e7",
+  "is_spread": false,
+  "locations": [
+    "A smoke- or fog-filled combat area with very low visibility"
+  ],
+  "lore_facts": [
+    "Combat on this page takes place in conditions of extreme poor visibility.",
+    "Knowledge of the terrain is treated as a major tactical advantage.",
+    "The weapons shown include a bow and sharp arrow- or blade-like projectiles.",
+    "The armored figure uses heavy protective gear and a large helmet with mechanical fittings."
+  ],
+  "page_id": "050_The_Metabarons_2_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "A white-haired archer-like fighter uses the darkness or obscuring fog as cover.",
+    "The attacker notes internally that he knows the terrain better than his enemies.",
+    "A heavily armored foe moves forward through the mist.",
+    "The attacker ambushes the foe from behind and lands a first hit, marked as 'one'.",
+    "The attacker releases or drives a second projectile through the foe's mouth, marked as 'two'.",
+    "The armored foe appears shocked and badly wounded by the two rapid strikes."
+  ],
+  "source_image": "external/comics/meta-barons/050_The_Metabarons_2_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4cac1064911fec9babb14f5f02f346683fe0307cf4982b518ef1e82f7586a9e7",
+      "page_id": "050_The_Metabarons_2_p21",
+      "source_image": "external/comics/meta-barons/050_The_Metabarons_2_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of both characters are not stated on this page.",
+    "It is unclear whether the setting is indoors or outdoors because the background is mostly obscured by haze.",
+    "Some text is small and partially difficult to read, so exact wording may be imperfect.",
+    "The precise nature of the first weapon impact is ambiguous; it appears to be a bladed projectile or arrow strike from behind."
+  ],
+  "visual_summary": "In a foggy, low-visibility setting, a white-haired fighter crouches with a bow and thinks that blindness or darkness gives him an advantage because he knows the terrain. A bulky armored opponent advances through the haze. The attacker strikes from behind at close range, driving a bladed projectile or arrow through the armored figure, then immediately follows with a second shot that pierces through the victim's open mouth and out the other side.",
+  "volume": 2
+}

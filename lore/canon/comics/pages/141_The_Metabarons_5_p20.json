@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The armored man is close enough to monitor the engagement in real time.",
+    "He is under visible physical strain or alarm while speaking.",
+    "He appears to have operational knowledge about the target's defenses and the metacraft's condition."
+  ],
+  "characters_present": [
+    "An armored male figure with a facial brace or breathing/communication apparatus",
+    "A large biomechanical creature or structure being attacked or analyzed"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing confrontation with a powerful defended target.",
+    "The danger escalates from difficulty damaging the target to imminent environmental or vehicle failure."
+  ],
+  "dialogue_meaning": [
+    "The speaker is surprised by the target's power.",
+    "He judges its defenses to be extremely difficult to overcome.",
+    "He warns that the metacraft itself is reaching dangerous heat levels.",
+    "He decides or is forced to withdraw because staying close is no longer possible."
+  ],
+  "image_sha256": "de5d2166b5b68f20ad2d83d1c31fa35d95087b67866e097d3889f53cae0cfabb",
+  "is_spread": false,
+  "locations": [
+    "Interior of a large industrial or biomechanical spacecraft/metacraft",
+    "A chamber or corridor area near the hostile entity"
+  ],
+  "lore_facts": [
+    "A vehicle or structure called a metacraft exists in this setting.",
+    "The metacraft can overheat to dangerous levels during combat or high-energy stress.",
+    "The opposing entity has exceptionally strong defenses.",
+    "Combat or analysis here involves tracking or directing multiple luminous energy points/projectiles within a biomechanical environment."
+  ],
+  "page_id": "141_The_Metabarons_5_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A hostile or defensive biomechanical target is shown resisting attack.",
+    "Multiple glowing shots or energy points move through the scene, apparently directed at or around the target.",
+    "An armored observer/operator realizes the opponent is stronger than expected.",
+    "The speaker states the target's defenses are nearly impossible to penetrate.",
+    "The same speaker reports that the metacraft is overheating to dangerous levels.",
+    "The sequence ends with the speaker concluding he can no longer remain near the event, as a bright flare or explosion fills the final panel."
+  ],
+  "source_image": "external/comics/meta-barons/141_The_Metabarons_5_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "de5d2166b5b68f20ad2d83d1c31fa35d95087b67866e097d3889f53cae0cfabb",
+      "page_id": "141_The_Metabarons_5_p20",
+      "source_image": "external/comics/meta-barons/141_The_Metabarons_5_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the armored speaker is not given on this page alone.",
+    "It is unclear whether the large figure is a creature, machine, or hybrid biomechanical construct.",
+    "The exact cause of the final bright burst—weapon impact, overheating, or explosion—is not explicitly confirmed by the page alone."
+  ],
+  "visual_summary": "A biomechanical, tentacled or ribbed entity looms inside an industrial spacecraft-like interior while glowing projectiles or energy points trace paths around it. In a narrow side panel, an armored man with a facial apparatus grimaces and grips a control handle, reacting to the escalating danger. The lower panels show the craft’s interior and hull-like structures under strain, ending in a bright burst of light or heat.",
+  "volume": 5
+}

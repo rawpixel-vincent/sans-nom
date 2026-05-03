@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The narrator refers to serving or accompanying a 'master'.",
+    "The narrator or narrator's group is involved in preserving or transporting the Hallerce tree and the Djy-ouk birds.",
+    "The suited figure is equipped for hazardous space operations and carries a large firearm or tool-like weapon."
+  ],
+  "characters_present": [
+    "An armored or spacesuited figure carrying a large weapon",
+    "Numerous yellow bird-like creatures identified by the narration as 'Djy-ouk birds'",
+    "The narrator's 'master' is mentioned but not clearly shown on the page"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing effort to rescue, preserve, or extract the Hallerce tree and its accompanying birds from a dying world.",
+    "The narration ties the birds' song to the master's survival during an environmental or planetary catastrophe."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that a protective cylinder was placed around the Hallerce tree and the birds.",
+    "It states that the birds' sublime song helped the narrator's master endure or cope with the dying planet's final emissions."
+  ],
+  "image_sha256": "1cb6fd35972fc015c96d4c08a4fe16f683855248d8d50fee1ce552685f92b5da",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "A spacecraft or artificial structure with a bright containment chamber",
+    "A transparent containment cylinder or capsule around the tree-like object"
+  ],
+  "lore_facts": [
+    "There is an entity called the Hallerce tree.",
+    "There are creatures called Djy-ouk birds.",
+    "A protective cylindrical containment method can be used to enclose the tree and the birds together.",
+    "The Djy-ouk birds produce a song described as sublime.",
+    "A planet is undergoing final emanations associated with its end or decay."
+  ],
+  "page_id": "296_The_Metabarons_11_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A suited figure operates or maneuvers near a large glowing structure in space while debris drifts around.",
+    "A protective cylinder is placed around a dark tree-like object along with numerous yellow bird-like creatures.",
+    "The birds remain inside the enclosure as the object is lifted or contained.",
+    "The enclosed tree-like mass appears wrapped in long root- or cable-like strands during the containment process.",
+    "The object ends the page sealed inside a transparent bulb or capsule connected to a narrow tube, floating in space."
+  ],
+  "source_image": "external/comics/meta-barons/296_The_Metabarons_11_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1cb6fd35972fc015c96d4c08a4fe16f683855248d8d50fee1ce552685f92b5da",
+      "page_id": "296_The_Metabarons_11_p19",
+      "source_image": "external/comics/meta-barons/296_The_Metabarons_11_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page image footer shows the printed number '21' while the provided page label is 'p19'.",
+    "The narration text is readable but some terms may be slightly uncertain due to image quality; 'Hallerce tree' and 'Djy-ouk birds' are the best-supported readings.",
+    "It is unclear whether the armored figure is the narrator, the master, or another companion.",
+    "The exact nature of the dark object inside the capsule is inferred from the narration as the Hallerce tree, but the image presents it abstractly."
+  ],
+  "visual_summary": "A heavily armed figure in a spacesuit floats amid debris near a luminous structure in space. In adjacent panels, many small yellow bird-like creatures are gathered inside a bright cylindrical enclosure around a dark, tree-like mass. The lower panels show the cylinder extending downward, tangled organic-looking roots or cables wrapped around the enclosed mass, and finally the whole object sealed within a transparent bulb-like container attached to a tube, suspended in space.",
+  "volume": 11
+}

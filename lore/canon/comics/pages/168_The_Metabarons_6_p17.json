@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The airborne humanoid is capable of violently rupturing or exiting a giant creature's body.",
+    "The giant creature is treated by at least one speaker as a prophet.",
+    "The crowd of creatures behaves collectively and speaks in a reverential, almost ritual tone about Kioka and departure."
+  ],
+  "characters_present": [
+    "A small human or humanoid figure with claw-like blades visible in the opening panels",
+    "A giant monstrous creature that is pierced or burst open",
+    "A crowd of beast-like, reptilian or feral humanoid creatures below",
+    "Kioka, mentioned in dialogue but not clearly identifiable as a separate visible character"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an apparent confrontation with a giant creature and turns into a mass reaction scene.",
+    "The references to Kioka, an ark, and a diamond planet indicate ongoing lore established elsewhere rather than introduced with full explanation here."
+  ],
+  "dialogue_meaning": [
+    "A speaker declares that a prophet has died and that what began must end.",
+    "The watching creatures address or invoke Kioka as a master figure, calling him a 'little white ape.'",
+    "They describe going in 'your ark' to a 'diamond planet.'",
+    "Another line frames that destination as far from fog and beneath shining light, suggesting a hoped-for or promised place."
+  ],
+  "image_sha256": "f492645d325c5faa09e1c22df0d3be4ba6b21be21dd28306ff6502ee0f210264",
+  "is_spread": false,
+  "locations": [
+    "An open area filled with many rounded white dome-like structures",
+    "The sky or upper air above those domes",
+    "The immediate body/interior-exit space of the giant creature in the opening action"
+  ],
+  "lore_facts": [
+    "A figure called Kioka is revered by these creatures as their master.",
+    "The term 'ark' is used for something associated with Kioka, implying transport or deliverance.",
+    "A place called the 'diamond planet' exists in the story's vocabulary.",
+    "The creatures contrast their current condition with 'fog' and 'shining light,' indicating symbolic or literal environmental opposition.",
+    "The dead being called a 'prophet' is important enough that its death is announced to the crowd."
+  ],
+  "page_id": "168_The_Metabarons_6_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A human-sized figure tears or blasts out from inside or through a giant creature.",
+    "The giant creature is thrown backward and appears mortally wounded or dead.",
+    "The airborne figure continues rising or being hurled across a vast space above clustered white domes.",
+    "Large numbers of beast-like inhabitants gather below, watching and reacting to the figure overhead.",
+    "The creatures invoke Kioka and speak as if the figure's ascent or removal marks an ending and a passage to another place."
+  ],
+  "source_image": "external/comics/meta-barons/168_The_Metabarons_6_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f492645d325c5faa09e1c22df0d3be4ba6b21be21dd28306ff6502ee0f210264",
+      "page_id": "168_The_Metabarons_6_p17",
+      "source_image": "external/comics/meta-barons/168_The_Metabarons_6_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The source metadata says p17, but the printed page number visible at the bottom appears to be 19.",
+    "It is unclear whether the airborne figure is Kioka or another character being addressed in relation to Kioka.",
+    "Some dialogue is small and partially difficult to read, so exact wording may be imperfect.",
+    "The exact nature of the white domes and whether they are buildings, landscape formations, or vehicles is not explicit on this page alone."
+  ],
+  "visual_summary": "A small human figure bursts out through a large monstrous creature amid a splash of debris or fluid, then is flung upward through open air above a field of rounded white dome-like structures. The dying creature falls back while many other beast-like beings below look up and react. The page ends with the lone figure suspended high above the domes as crowds of creatures reach upward and speak of Kioka, the 'white ape,' and a journey to a 'diamond planet' beneath shining light.",
+  "volume": 6
+}

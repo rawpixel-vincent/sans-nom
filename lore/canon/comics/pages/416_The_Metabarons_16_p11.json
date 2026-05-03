@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The original warrior sees itself as governed by duty rather than feelings.",
+    "The original believes its defining essence is spiritual, not merely physical.",
+    "The duplicate understands itself as materially identical to the original and uses that claim as both argument and threat."
+  ],
+  "characters_present": [
+    "An armored spacefaring warrior, likely the original combatant",
+    "A duplicate or mirrored copy of that warrior"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing confrontation between a warrior and its mirrored or duplicated counterpart.",
+    "The line about not trying the 'mirror' trick again indicates the duplication tactic has already been used earlier in the scene."
+  ],
+  "dialogue_meaning": [
+    "The duplicate frames itself as a true physical replica, not just an illusion.",
+    "It tries persuasion instead of pure attack, linking its survival to the original's own survival.",
+    "The original defines itself by duty and rejects emotional manipulation.",
+    "The conflict turns on a distinction between identical physical form and non-copyable inner essence.",
+    "The page resolves the argument by showing the copy disintegrating after the confrontation."
+  ],
+  "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+  "is_spread": false,
+  "locations": [
+    "Open space",
+    "Near a large blue planetary body",
+    "Beside or near a circular space structure or vehicle component"
+  ],
+  "lore_facts": [
+    "A being or effect in this setting can produce an exact physical duplicate of a person, including flesh, bones, and weapons.",
+    "The duplicate can speak, reason, and attempt psychological persuasion.",
+    "Within the page's logic, a perfect bodily copy is still considered incomplete because it lacks the original's soul or spirit.",
+    "The duplicate's existence appears unstable enough that it can dissolve after being overcome."
+  ],
+  "page_id": "416_The_Metabarons_16_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "An armored duplicate declares that it is a perfect physical copy of the other fighter, including body and weapons.",
+    "The duplicate argues that harming it would be equivalent to self-harm and asks the original to surrender.",
+    "The original refuses, saying it has only duty and intends to destroy the opponent.",
+    "The duplicate insists that the two are the same.",
+    "The original counters that the duplicate misunderstands the difference between body and soul or spirit.",
+    "Both figures fire or project energy at each other, creating a bright collision in space.",
+    "The duplicate begins dissolving after the clash.",
+    "The original declares that physical copying cannot reproduce its spirit and warns the enemy not to repeat the mirror trick."
+  ],
+  "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+      "page_id": "416_The_Metabarons_16_p11",
+      "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity or names of the two armored figures are not stated on this page alone.",
+    "One speech balloon near the energy clash is small and stylized; the exact wording may be slightly uncertain, though the meaning is clear.",
+    "The nearby circular object is visible but its exact nature (ship, station part, or other structure) is not confirmed on this page."
+  ],
+  "visual_summary": "Two armored figures in spacesuits confront each other in open space near a large planet or moon and a circular mechanical structure. One figure claims to be an exact duplicate rather than a reflection and urges surrender; the other rejects the appeal. The pair exchange energy attacks, producing a bright burst, after which the copy begins to dissolve. A tall side panel emphasizes the vast emptiness of space and one combatant descending alone.",
+  "volume": 16
+}

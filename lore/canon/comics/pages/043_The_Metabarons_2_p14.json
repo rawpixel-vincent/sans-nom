@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Magaella is present at the overlook and reacts with amazement to the sight.",
+    "One male character addresses another as 'Father,' establishing a father-child relationship between the two men in the lower-right panel.",
+    "The younger male character is ambitious and openly advocates using Epyphite for imperial expansion and competition.",
+    "The older male character is more cautious or resistant to unleashing this resource in the name of progress."
+  ],
+  "characters_present": [
+    "An older male figure addressed as 'Father'",
+    "A younger male figure speaking ambitiously about empire and progress",
+    "Magaella, a helmeted female-presenting attendant or companion",
+    "A helmeted male-presenting attendant or companion",
+    "Additional small figures on the overlook, likely members of the same party"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page introduces or elaborates on Epyphite as a major strategic resource tied to the Castakas and the marble planet.",
+    "The family conflict over whether to preserve or exploit Epyphite appears to be a key driver of later imperial and dynastic events."
+  ],
+  "dialogue_meaning": [
+    "The scene frames the glowing substance as a sacred and closely guarded planetary resource.",
+    "The Castakas are associated with preserving and revering this secret.",
+    "One faction sees the resource as a new energy source that can radically increase imperial power.",
+    "A generational conflict is shown between reverence/protection and modernization/exploitation.",
+    "The younger speaker argues that control of the resource will reshape imperial politics, war, and commerce."
+  ],
+  "image_sha256": "35b0eede503ac072d8e718f64ab389e0db6b1d06f2eddf888681a281dae5a354",
+  "is_spread": false,
+  "locations": [
+    "A subterranean or enclosed chamber on the marble planet",
+    "An overlook or platform above a vast reservoir of 'Epyphite'"
+  ],
+  "lore_facts": [
+    "A substance called Epyphite exists on this marble planet.",
+    "Epyphite is described as the sacred blood of the marble planet.",
+    "The Castakas have traditionally revered Epyphite.",
+    "The secret of Epyphite has been kept safe by the Castakas.",
+    "Epyphite is presented as a potent new energy source.",
+    "Within the story world, Epyphite is important enough to affect political, military, and commercial power across the empire."
+  ],
+  "page_id": "043_The_Metabarons_2_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A group arrives at an overlook above an enormous reservoir or sea of luminous material.",
+    "One speaker identifies the substance as the planet's greatest treasure and the sacred blood of the marble planet.",
+    "It is stated that the Castakas have long revered this substance and kept its secret protected.",
+    "A younger, ambitious figure declares that this new energy source will transform the empire and make them its most powerful rulers.",
+    "An older father figure objects or cautions that the resource should not simply be exploited as progress.",
+    "The younger man insists that times have changed and says the substance will become the center of political, military, and commercial competition in the empire."
+  ],
+  "source_image": "external/comics/meta-barons/043_The_Metabarons_2_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "35b0eede503ac072d8e718f64ab389e0db6b1d06f2eddf888681a281dae5a354",
+      "page_id": "043_The_Metabarons_2_p14",
+      "source_image": "external/comics/meta-barons/043_The_Metabarons_2_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page's intense brightness washes out some environmental detail, making the exact structure of the reservoir difficult to parse.",
+    "Some dialogue is small and stylized; names and wording appear readable, but minor transcription errors are possible.",
+    "The identities of the older and younger men are not named on this page beyond the familial address 'Father.'"
+  ],
+  "visual_summary": "A vast cavernous interior is shown as a glowing, almost ocean-like expanse of white-blue energy dotted with bubbles or luminous spheres and dominated by giant column-like formations. Several small figures stand on a ledge overlooking the scene. Inset panels below show helmeted attendants reacting with awe and two stern men in conversation, one older and one younger. The page presents the discovery or unveiling of an immense resource deposit and a political disagreement about how it should be used.",
+  "volume": 2
+}

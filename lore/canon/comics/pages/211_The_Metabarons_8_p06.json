@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Aghnar is cautious and distrustful, since he questions whether those taking him are enemies or allies.",
+    "Aghnar is emotionally attached to a woman he calls his love and tries to comfort her.",
+    "Aghnar is defiant toward the cloaked woman and sets a condition before approaching her.",
+    "The cloaked woman is commanding and able to dismiss robot attendants with orders.",
+    "The unseen opening speaker is temperamental and domineering, threatening punishment and demanding ritualized apologies."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "A cloaked female figure or 'witch' addressing Aghnar",
+    "Robot attendants or servants",
+    "An injured or seated woman addressed by Aghnar as 'my love'",
+    "An unseen speaker associated with the opening dialogue"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narration connects the ship being drawn by the beam to the following arrival inside the mechanical chamber.",
+    "Aghnar's refusal to approach the cloaked woman leads directly to her ordering the robots away.",
+    "The final reassurance to Aghnar's beloved suggests he is leaving her temporarily to confront the cloaked woman or the chamber's controller."
+  ],
+  "dialogue_meaning": [
+    "An unseen figure reacts angrily to being interrupted and humiliates another speaker by demanding many apologies.",
+    "The narration says Aghnar does not know whether he is being taken by enemies or allies, but his death wish outweighs his will to live.",
+    "A cloaked woman invites Aghnar to descend and come to her.",
+    "Aghnar rejects the invitation and calls her a witch, insisting her robots be removed first.",
+    "The woman commands the robots to stand down and return to their cells.",
+    "Aghnar reassures his beloved that the witch will not keep them apart and that he will come back soon."
+  ],
+  "image_sha256": "5266e3247d0f6d5fc26ffff1a8c3f121643f51104f5a2eca432959a5b1eb655f",
+  "is_spread": false,
+  "locations": [
+    "Near or inside a bright tractor-like beam drawing in a ship",
+    "A mechanical interior chamber with pipes, hatches, and robotic equipment",
+    "A compartment or cell area where robots are ordered to wait"
+  ],
+  "lore_facts": [
+    "Aghnar is traveling by ship when it is captured or guided by a beam of light.",
+    "Aghnar is explicitly described as having a strong desire for death at this point.",
+    "The setting includes advanced mechanical infrastructure and obedient robot attendants.",
+    "The cloaked woman appears to hold authority over the robots and the chamber.",
+    "Aghnar identifies the cloaked woman as a witch, at least as an accusation or label used in dialogue."
+  ],
+  "page_id": "211_The_Metabarons_8_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "An unseen authority figure is interrupted and forces another speaker to apologize repeatedly before continuing.",
+    "Aghnar's ship is pulled into a beam of light despite his uncertainty about who controls it.",
+    "The scene shifts to an interior mechanical chamber where a cloaked woman beckons Aghnar to come down.",
+    "Aghnar refuses unless the woman's robots are dismissed.",
+    "The woman orders her robotic attendants to withdraw to their cells.",
+    "Aghnar speaks tenderly to a woman he addresses as his love, promising to return soon."
+  ],
+  "source_image": "external/comics/meta-barons/211_The_Metabarons_8_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5266e3247d0f6d5fc26ffff1a8c3f121643f51104f5a2eca432959a5b1eb655f",
+      "page_id": "211_The_Metabarons_8_p06",
+      "source_image": "external/comics/meta-barons/211_The_Metabarons_8_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue in the opening exchange is small and partly difficult to read precisely; the exact number and phrasing of the demanded apologies may be off.",
+    "The identity of the unseen opening speaker is not visually confirmed on this page.",
+    "The exact identity of the woman addressed as 'my love' is not stated on this page.",
+    "The exact nature of the bright beam and whether it is a weapon, tractor beam, or docking mechanism is not explicitly specified here."
+  ],
+  "visual_summary": "A large dark triangular spacecraft or structure approaches a bright beam of light while an unseen speaker angrily demands repeated apologies from someone. A narration box states that Aghnar, uncertain whether he is dealing with enemies or allies and still driven by a desire for death, allows his ship to be drawn in by the light. Inside a rounded, mechanical chamber full of pipes, robot-like attendants, and sealed compartments, a dark-cloaked female figure calls to Aghnar. He refuses to come down unless her robots are sent away. She orders the robots to return to their cells, and a separate panel shows Aghnar leaning over an injured or seated woman, reassuring her that no witch can keep them apart for long.",
+  "volume": 8
+}

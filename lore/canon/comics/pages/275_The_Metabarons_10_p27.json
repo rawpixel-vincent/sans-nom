@@ -1,0 +1,55 @@
+{
+  "character_facts": [
+    "Steelhead is able to deploy and fire a Cerebrak IK-8.",
+    "The supreme Troglosocialik president is depicted as calm and meditative immediately before the attack."
+  ],
+  "characters_present": [
+    "The supreme Troglosocialik president",
+    "Steelhead",
+    "Small birds surrounding the scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an assassination attempt or attack directed at the supreme Troglosocialik president.",
+    "The attack escalates from target identification to an actual shot within the same page."
+  ],
+  "dialogue_meaning": [
+    "The narration says the supreme Troglosocialik president is calmly meditating among tiny birds.",
+    "A second narration box states that Steelhead activates a Cerebrak IK-8 immediately.",
+    "A final caption emphasizes the shot being fired."
+  ],
+  "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+  "is_spread": false,
+  "locations": [
+    "An outdoor aerial or open-sky setting filled with birds and golden particulate debris"
+  ],
+  "lore_facts": [
+    "There is an office or title called the supreme Troglosocialik president.",
+    "The supreme Troglosocialik president practices a morning meditation ritual.",
+    "A weapon called the Cerebrak IK-8 exists in this setting."
+  ],
+  "page_id": "275_The_Metabarons_10_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "The page establishes a sky filled with tiny birds and swirling golden fragments.",
+    "Narration identifies one bird-sized or bird-hidden figure as the supreme Troglosocialik president engaged in morning meditation.",
+    "A gray mechanical or armored assailant activates a weapon identified in narration as a Cerebrak IK-8.",
+    "The attacker fires, and the blast overwhelms the bottom of the page in white light as shells eject from the gun."
+  ],
+  "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+      "page_id": "275_The_Metabarons_10_p27",
+      "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The narration text is partially hard to read; exact wording may be slightly off.",
+    "It is visually unclear whether Steelhead is a fully mechanical being, an armored person, or a drone-like weapon platform.",
+    "The exact physical setting is ambiguous beyond being an open space crowded with birds and golden debris.",
+    "The printed page number visible at the bottom appears to be 29, which does not match the provided page label p27."
+  ],
+  "visual_summary": "A flying mechanical attacker moves above a dense cloud of small birds and golden debris. An inset panel shows a blue circular target or sensor view. Below, a robed or draped figure identified by narration as the supreme Troglosocialik president sits among the birds during morning meditation. A gray armored gunman or drone raises a heavy firearm and fires, producing a blinding white blast that fills the lower strip of the page while birds scatter through the golden background.",
+  "volume": 10
+}

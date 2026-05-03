@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The white-haired woman is quick enough and lethal enough to kill multiple floating enemies in one maneuver.",
+    "She is observant, figuring out the enemies' unusual weight behavior during combat.",
+    "She directly addresses an older woman as her next opponent.",
+    "Aghnar is connected to the prosthetic enemies through the narration about 'Aghnar's prostheses.'"
+  ],
+  "characters_present": [
+    "White-haired female fighter in a black bodysuit/armor",
+    "Several armored prosthetic attackers associated with Aghnar",
+    "Older hooded woman addressed by the heroine",
+    "Hooded skeletal-looking figure holding a weapon"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explains the mechanism behind the airborne attackers introduced in the fight.",
+    "The final panels set up the heroine's confrontation with the older woman as the next beat of the battle."
+  ],
+  "dialogue_meaning": [
+    "The heroine realizes the enemies are suspended in the air because of their altered weight, not normal footing.",
+    "A narration caption identifies the cause: Aghnar's prostheses contain an anti-gravity material called epyphite.",
+    "After cutting through the floating attackers, the heroine challenges an older woman as her next target.",
+    "An opposing figure insults the heroine in anger."
+  ],
+  "image_sha256": "b387110da0fc07a040eeec226f5cbbce28fb4276357c0cf1f752c87e74cde9a0",
+  "is_spread": false,
+  "locations": [
+    "An interior combat space with a pale/white floor or background",
+    "Airborne space above the ground where enemies are floating"
+  ],
+  "lore_facts": [
+    "Aghnar has prostheses.",
+    "Those prostheses were infused with 'epyphite.'",
+    "Epyphite is described on-page as an anti-gravity substance.",
+    "The anti-gravity effect allows the prosthetic attackers to be airborne rather than grounded."
+  ],
+  "page_id": "137_The_Metabarons_5_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "The heroine notices that the attackers' weight behaves abnormally in midair.",
+    "A narration box explains that Aghnar's prostheses were infused with 'epyphite,' an anti-gravity substance.",
+    "Using that weakness or property, the heroine launches herself upward among the floating enemies.",
+    "She kills or maims several airborne attackers, with heads and body parts shown severed.",
+    "After the attack, she faces an older female adversary and declares it is that opponent's turn.",
+    "A nearby hooded or skeletal figure responds angrily."
+  ],
+  "source_image": "external/comics/meta-barons/137_The_Metabarons_5_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b387110da0fc07a040eeec226f5cbbce28fb4276357c0cf1f752c87e74cde9a0",
+      "page_id": "137_The_Metabarons_5_p16",
+      "source_image": "external/comics/meta-barons/137_The_Metabarons_5_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear from this page alone whether all visible attackers are literally Aghnar's prosthetic bodies or part of a larger group equipped with similar prostheses.",
+    "The exact identity of the older hooded woman is not given on this page.",
+    "Some small dialogue and sound effects are partially hard to read, though the main narration and key speech are legible."
+  ],
+  "visual_summary": "A white-haired female fighter realizes that the airborne attackers around her are not supported by the ground because their prosthetic bodies are made light enough to float. She seizes the advantage, flips upward among them, and violently tears through multiple enemies in a burst of blood and severed heads. She lands poised for the next attack, confronting an older hooded woman while another skeletal-looking foe reacts.",
+  "volume": 5
+}

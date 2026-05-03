@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The bald man appears as a luminous bio-electric manifestation rather than an ordinary physical body on this page.",
+    "The bald man is forceful, impatient, and gives orders to the robots.",
+    "Lothar and Tonto are mechanical beings addressed as separate individuals.",
+    "At least one of the robots is willing to answer back defiantly to the bald man."
+  ],
+  "characters_present": [
+    "Lothar, a robot identified in dialogue",
+    "Tonto, a robot identified in dialogue",
+    "A bald male bio-electric projection or holographic figure"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page introduces or continues a situation involving a temporary manifested consciousness or body using a bio-electrogram.",
+    "The bald figure's urgent departure in the metacraft suggests immediate action carrying into the next page."
+  ],
+  "dialogue_meaning": [
+    "One robot explains that the newly activated bio-electric form is temporary and will soon dissolve.",
+    "The manifested man asserts authority over the robots and demands immediate preparation of a vehicle called the metacraft.",
+    "A robot talks back, indicating resentment or a lack of subservience.",
+    "The man verifies the combat readiness of the metacraft before departing.",
+    "The robots acknowledge the order and confirm the craft is armed."
+  ],
+  "image_sha256": "0220c1ac176f513d1670e02c64b1534ad1013641ede41cc014ecd72a7ae209f4",
+  "is_spread": false,
+  "locations": [
+    "A technological interior chamber or workshop filled with machinery, consoles, and cables"
+  ],
+  "lore_facts": [
+    "A 'bio-electrogram' can be activated and can take on a temporary solid state.",
+    "The solid state of this bio-electric form lasts only a few minutes before dissolving.",
+    "There exists a vehicle or craft called a 'metacraft.'",
+    "The metacraft can be armed, implying it is equipped for combat or defense."
+  ],
+  "page_id": "062_The_Metabarons_3_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A robot announces that a bio-electrogram has been activated and will only remain solid for a little over three minutes.",
+    "A glowing humanoid projection materializes from a machine, resolving into the face and torso of a bald man.",
+    "The projected man angrily rejects the robot's tone and orders it to prepare the metacraft.",
+    "The projected man asks whether the metacraft is armed.",
+    "A robot confirms that the metacraft is armed.",
+    "The projected man propels himself out of the chamber in a bright streak."
+  ],
+  "source_image": "external/comics/meta-barons/062_The_Metabarons_3_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0220c1ac176f513d1670e02c64b1534ad1013641ede41cc014ecd72a7ae209f4",
+      "page_id": "062_The_Metabarons_3_p05",
+      "source_image": "external/comics/meta-barons/062_The_Metabarons_3_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the bald male figure is not stated on the page.",
+    "It is not fully clear from the art alone which robot is Lothar and which is Tonto.",
+    "The exact spelling and technical nature of 'bio-electrogram' and 'metacraft' depend on the page lettering but appear readable."
+  ],
+  "visual_summary": "Inside a machinery-filled chamber, a bulky robot works at a console while a small hovering robot observes. A glowing bio-electric hologram begins forming into the stern face and upper body of a bald man. The man argues with the robots, orders preparation of a 'metacraft,' asks whether it is armed, receives confirmation, and then launches himself upward as a bright energy-like figure.",
+  "volume": 3
+}

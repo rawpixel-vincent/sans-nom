@@ -1,0 +1,50 @@
+{
+  "character_facts": [
+    "One figure has an ornate mechanical or cybernetic hand.",
+    "The bald adult appears terrified.",
+    "The infant also appears distressed or alarmed.",
+    "The dark figure is visually associated with heavy black clothing or armor and a menacing mechanical apparatus behind the head/shoulders."
+  ],
+  "characters_present": [
+    "An unidentified bald adult with a fearful expression",
+    "An infant or very young child",
+    "An unidentified dark-clad or armored figure with a mechanical hand"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The title indicates the return of an entity or figure called 'The Shabda-Oud.'"
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "06c1b76db9a52593cd88987b1326b6864868ac604faa2e64eaaf04fdba9b381f",
+  "is_spread": false,
+  "locations": [
+    "Unspecified abstract or atmospheric background"
+  ],
+  "lore_facts": [
+    "This is The Metabarons issue #17.",
+    "The installment or featured story is titled 'The Return of The Shabda-Oud.'",
+    "The cover presents imagery of menace, captivity, or protection involving an adult and a child."
+  ],
+  "page_id": "426_The_Metabarons_17_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover rather than a story panel sequence.",
+    "A threatening figure is shown restraining or shielding a frightened adult and a baby.",
+    "The cover announces the chapter/story title 'The Return of The Shabda-Oud.'"
+  ],
+  "source_image": "external/comics/meta-barons/426_The_Metabarons_17_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "06c1b76db9a52593cd88987b1326b6864868ac604faa2e64eaaf04fdba9b381f",
+      "page_id": "426_The_Metabarons_17_c01",
+      "source_image": "external/comics/meta-barons/426_The_Metabarons_17_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover image, the exact narrative event is unclear and may be symbolic rather than literal.",
+    "The identities and relationships of the depicted figures cannot be confirmed from this page alone.",
+    "The mechanical structure behind the adult may be part of the dark figure’s armor, weaponry, or background design."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue #17. A dark, armored or cloaked figure with a mechanical hand clutches a terrified bald adult and an infant against a red, smoky background. A bladed or horned mechanical structure rises behind the adult’s head, heightening the sense of danger. The title text identifies this installment as 'The Return of The Shabda-Oud.'",
+  "volume": 17
+}

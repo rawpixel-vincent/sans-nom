@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The narrator serves or once served a master.",
+    "The master loaded subjects into the Metabunker and promised them passage to the Diamond Planet.",
+    "The narrator says they were piloting the Metabunker during these events.",
+    "The controller or pilot expects the beast to process the expelled bodies and then restore control.",
+    "The beast behaves according to primal hunger rather than full obedience."
+  ],
+  "characters_present": [
+    "The narrator",
+    "The narrator's master",
+    "Comatose apes",
+    "A pilot or controller inside the Metabunker or linked craft",
+    "A giant organic or biomechanical beast"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues a narrated recollection involving the narrator, their master, and the Metabunker.",
+    "The events connect the promised trip to the Diamond Planet with the later revelation that the apes are discarded and eaten.",
+    "The loss of control over the beast sets up consequences for the narrator's transport operation."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that the master's promise of transport concealed the apes' use as expendable cargo or feed.",
+    "The apes were chemically prepared to withstand heat and kept unconscious before being cast out.",
+    "The controller loses command of the craft and initially treats the feeding behavior as a manageable delay.",
+    "The page reveals that the creature's instinct overrides imposed neurological control."
+  ],
+  "image_sha256": "2c79eaad4b5ef18a5e1f9d4493ccc2934fc31b694b0d5157c2a91c7e9a140380",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "The Metabunker or its interior control area",
+    "Near the beast's body and maw in open space"
+  ],
+  "lore_facts": [
+    "A place called the Diamond Planet exists and is presented as a destination promised to transported subjects.",
+    "A vessel or entity called the Metabunker can carry many subjects.",
+    "The apes were injected with a heat-immunizing agent.",
+    "The apes entered a temporary comatose state after injection.",
+    "The apes were jettisoned into space as organic material.",
+    "The beast is subject to neurological commands, but those commands are not absolute.",
+    "The beast can swallow bodies in space."
+  ],
+  "page_id": "171_The_Metabarons_6_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "The narrator states that their master loaded his subjects into the Metabunker with a promise to take them to the Diamond Planet.",
+    "The apes are said to have been injected with a heat-immunizing agent and left in a temporary coma.",
+    "The comatose apes are expelled into space as drifting organic matter.",
+    "A pilot or controller says the craft is no longer responding.",
+    "The speaker assumes the organism or vessel will return control after swallowing the organic waste.",
+    "The beast ignores neurological commands and begins swallowing the apes."
+  ],
+  "source_image": "external/comics/meta-barons/171_The_Metabarons_6_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2c79eaad4b5ef18a5e1f9d4493ccc2934fc31b694b0d5157c2a91c7e9a140380",
+      "page_id": "171_The_Metabarons_6_p20",
+      "source_image": "external/comics/meta-barons/171_The_Metabarons_6_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the narrator is not stated on this page.",
+    "It is visually ambiguous whether the unresponsive craft is the Metabunker itself or a connected organic subsystem.",
+    "One line of dialogue implies the craft will regain control after the beast finishes swallowing waste, but the precise speaker identity is not explicit beyond being an onboard controller or pilot.",
+    "The printed page footer shows 24, which differs from the provided page label p20."
+  ],
+  "visual_summary": "A narrated space scene shows a vast organic or biomechanical beast engulfing drifting ape bodies around a ship-like structure. Caption boxes explain that the narrator's master had loaded subjects into the Metabunker and promised transport to the Diamond Planet. The apes, rendered comatose by a heat-immunizing injection, are dumped into space as organic matter. In inset panels, a pilot or controller inside the craft says the vessel is no longer responding and expects control to return once it finishes swallowing the waste, but the beast instead follows its primal instinct and consumes the apes.",
+  "volume": 6
+}

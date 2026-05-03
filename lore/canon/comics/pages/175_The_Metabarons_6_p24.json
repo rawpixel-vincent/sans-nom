@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "The armored pilot/commander is possessive toward Oda and willing to risk death for that goal.",
+    "The pilot prefers stealth, choosing a humble vehicle to avoid attention.",
+    "The pilot commands loyal followers who obey immediately.",
+    "Oda is portrayed as selective and unmoved by grand displays from powerful admirers."
+  ],
+  "characters_present": [
+    "An armored, intense-looking pilot or commander",
+    "Oda (mentioned, not clearly shown on the page)",
+    "Subordinate crew or attendants aboard the craft",
+    "A large creature identified as the 'cetacyborg'",
+    "Narrator"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The closing caption announces continuation in the next episode, titled 'The Lair of the Shabda-Oud.'",
+    "This page appears to set up the pilot's arrival on Amadis and a coming confrontation related to Oda."
+  ],
+  "dialogue_meaning": [
+    "The narration frames Oda as the object of extravagant courtship and emphasizes that no suitor has yet brought the exact token she desires.",
+    "The pilot believes a cyborg-creature's completed feeding means it can now answer or act.",
+    "The pilot is aggressively determined to obtain Oda at any cost.",
+    "The pilot wants the approach to Amadis to remain discreet and not trigger alarm.",
+    "The subordinates submit obediently to the pilot's command.",
+    "The pilot views the city traffic as vulgar display associated with romantic rivals."
+  ],
+  "image_sha256": "49efbd3082b46576341acaf9e436097f869d7a3ef23bc218534c0888aa92d43a",
+  "is_spread": false,
+  "locations": [
+    "Outer space near planets or moons",
+    "A craft interior or docking area",
+    "Amadis",
+    "Bagdadthi Pearl",
+    "A crowded futuristic city/skyport"
+  ],
+  "lore_facts": [
+    "Oda is being courted by numerous suitors from many solar systems.",
+    "These suitors present roses carved from precious materials.",
+    "Oda is specifically waiting for a 'true blue rose' and rejects other offerings.",
+    "A being or entity called the 'cetacyborg' exists and can feast before becoming responsive.",
+    "Bagdadthi Pearl is a named destination or course setting in this sequence.",
+    "Amadis is a named place that can be approached by small flying craft.",
+    "The setting includes advanced aerial traffic and many hovering ships over a large city."
+  ],
+  "page_id": "175_The_Metabarons_6_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "Narration explains that many heroic suitors from across solar systems have tried to win a woman with ornate blue-rose gifts, but she has rejected them all.",
+    "A spacefaring character receives or announces that the 'cetacyborg' has finished its feast and is now responsive.",
+    "The same character sets a course for a place called Bagdadthi Pearl.",
+    "The character declares an intention to possess Oda, even if it means dying in the attempt.",
+    "The character orders companions or servants to stay behind and avoid alarming anyone, while the speaker travels to Amadis aboard a modest moto-craft.",
+    "A rounded craft approaches or lands above a dense aerial city filled with numerous flying vehicles.",
+    "The arriving character internally scorns the ostentatious ships as belonging to Oda's suitors."
+  ],
+  "source_image": "external/comics/meta-barons/175_The_Metabarons_6_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "49efbd3082b46576341acaf9e436097f869d7a3ef23bc218534c0888aa92d43a",
+      "page_id": "175_The_Metabarons_6_p24",
+      "source_image": "external/comics/meta-barons/175_The_Metabarons_6_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some lettering is small and partially unclear, so exact spellings of names such as 'Bagdadthi Pearl' may be uncertain.",
+    "It is not fully clear whether the creature shown externally is the cetacyborg or a separate ship/organism.",
+    "The identity of the armored pilot is not stated on this page alone.",
+    "The relation between the narrated suitor story and the on-page pilot action is implied but not explicitly explained here."
+  ],
+  "visual_summary": "A narration about many suitors offering a desired woman lavish rose-gifts is intercut with a space pursuit. An armored pilot learns that a giant creature has finished feeding and now responds, vows to claim Oda, and orders subordinates to remain behind while heading to Amadis in a small craft. A bulbous vehicle descends toward a busy futuristic city crowded with hovering ships, while the pilot contemptuously compares the traffic to the woman’s suitors.",
+  "volume": 6
+}

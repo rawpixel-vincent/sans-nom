@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Othon holds the title of Baron.",
+    "Othon is associated with planet Okar in the Diamond constellation.",
+    "Othon seeks honor by joining the Mother-Coach's escort.",
+    "A secondary speaker has a humorous, exhausted tone after combat, referring to fried diodes and needing coolant."
+  ],
+  "characters_present": [
+    "Baron Othon von Salza",
+    "The Emperor (mentioned, not clearly shown)",
+    "A small talking machine or craft speaking about its overheated diodes",
+    "Pirates (shown as destroyed bodies/ships)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows a larger battle or ambush plan involving pre-hidden explosives.",
+    "Othon's movement into the Mother-Coach's escort suggests a transition from open battle to formal fleet integration or aftermath.",
+    "The false planet and pirate force are part of an ongoing conflict already established before this page."
+  ],
+  "dialogue_meaning": [
+    "A caption explains the cause of the destruction: bombs hidden in rock fissures were triggered.",
+    "Narration says the pirate side was completely annihilated and the false planet capitulated.",
+    "Narration says Othon requested and received permission to join the Mother-Coach's escort.",
+    "A comic-relief speaker complains that its diodes are burnt out and it needs extra coolant after the battle.",
+    "A formal radio exchange confirms Othon's identity and assigns his ship a rear position in the escort."
+  ],
+  "image_sha256": "ec20c421fad965ff82845df5ed63709a8c788164b1926e2f055d2d9e4f60a8cb",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "The area around ancient rocks with hidden fissures",
+    "Near the false planet",
+    "Fleet formation in space"
+  ],
+  "lore_facts": [
+    "The setting includes 'FB3 bombs' that can be hidden in fissures of ancient rocks.",
+    "There is a 'false planet' that can surrender as a political or military entity.",
+    "An Emperor exists as a superior authority who can grant honors and assignments.",
+    "The 'Mother-Coach' has an escort important enough to be treated as an honor post.",
+    "Othon's full title on the page is Baron Othon von Salza of planet Okar in the Diamond constellation."
+  ],
+  "page_id": "079_The_Metabarons_3_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "Hidden FB3 bombs planted in fissures of ancient rocks are detonated.",
+    "The detonation destroys pirate forces; wreckage and bodies are shown exploding through space.",
+    "The 'false planet' is said to be forced into surrender.",
+    "Othon asks the Emperor for the honor of joining the Mother-Coach's escort, and the request is granted.",
+    "A transmission identifies Baron Othon von Salza of planet Okar in the Diamond constellation.",
+    "Othon is instructed to take his place at the rear of the formation."
+  ],
+  "source_image": "external/comics/meta-barons/079_The_Metabarons_3_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ec20c421fad965ff82845df5ed63709a8c788164b1926e2f055d2d9e4f60a8cb",
+      "page_id": "079_The_Metabarons_3_p23",
+      "source_image": "external/comics/meta-barons/079_The_Metabarons_3_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual identity of Othon is unclear; he may be represented by the lower-right ship rather than a visible person.",
+    "The small speaker in the lower-left panel is difficult to identify precisely; it appears to be a machine, robot, or vehicle.",
+    "'FB3' is legible, but if the scan is imperfect the bomb designation could potentially be misread."
+  ],
+  "visual_summary": "A large battle image shows spacecraft and mechanical bodies being torn apart in a massive explosion. A caption explains that hidden bombs in ancient rock fissures were detonated. Below, narration states that no pirate survived and that the false planet was forced to surrender. A small, battered craft or machine speaks humorously about needing rest and coolant. In the lower-right panel, a ship receives a transmission identifying Baron Othon von Salza and is ordered to take position at the rear of a fleet.",
+  "volume": 3
+}

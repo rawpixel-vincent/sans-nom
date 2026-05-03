@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "Aghora is a combatant capable of fighting multiple armored enemies at once.",
+    "Aghora is tactical enough to abandon a straightforward fight when it becomes unwinnable.",
+    "Aghora is willing to sacrifice part of her resources or weapon to survive.",
+    "Aghora can mentally control the metablade strongly enough to trigger and direct its self-destruction."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Multiple armored enemies/opponents",
+    "Metablade (weapon)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a continuing battle involving Aghora and numerous armored enemies.",
+    "The narration frames Aghora’s action as a response to being unable to triumph over all remaining foes."
+  ],
+  "dialogue_meaning": [
+    "The captions explain that Aghora changes tactics after realizing total victory over all opponents is impossible.",
+    "A warrior code is invoked: survival can demand personal sacrifice.",
+    "Aghora mentally turns the metablade’s destructive drive inward, causing it to self-destruct.",
+    "She then exploits the resulting explosion as a means of movement or escape through the melee."
+  ],
+  "image_sha256": "d71de20e53da7cdec3e6d981259e38d3fb081f707a62cb48af73bb4f5ce0ab50",
+  "is_spread": false,
+  "locations": [
+    "A blood-soaked battlefield or combat arena crowded with armored bodies"
+  ],
+  "lore_facts": [
+    "There is a named rule or maxim associated with Bushitaka that frames survival as requiring self-sacrifice.",
+    "The metablade is described as having a violent drive or 'battle-thirst' that can be mentally directed.",
+    "The metablade can disintegrate when its destructive force is turned against itself.",
+    "Aghora can mentally steer or command the metablade’s destructive energy."
+  ],
+  "page_id": "438_The_Metabarons_17_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "Aghora is shown in close combat surrounded by multiple fallen or attacking armored foes.",
+    "The narration states that Aghora realizes she cannot overcome every enemy by ordinary means.",
+    "She invokes a warrior principle that survival may require sacrificing part of oneself.",
+    "Aghora redirects the metablade’s battle-hunger against itself.",
+    "The metablade starts to disintegrate.",
+    "Aghora uses the weapon’s self-destructive force as propulsion, blasting away from the crowd of enemies."
+  ],
+  "source_image": "external/comics/meta-barons/438_The_Metabarons_17_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d71de20e53da7cdec3e6d981259e38d3fb081f707a62cb48af73bb4f5ce0ab50",
+      "page_id": "438_The_Metabarons_17_p12",
+      "source_image": "external/comics/meta-barons/438_The_Metabarons_17_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption text is small and may not be perfectly legible; wording of the warrior law/maxim may be approximate.",
+    "The exact spelling of the lawgiver’s name appears to be 'Bushitaka,' but the lettering is difficult to confirm from the image alone.",
+    "The final blast seems to propel Aghora upward or away, but the precise direction is not fully explicit visually."
+  ],
+  "visual_summary": "Aghora fights amid a heap of armored enemies and blood. The narration explains that she cannot defeat all of them directly, so she applies a warrior’s rule of self-sacrifice. She turns the metablade’s violence back onto itself; the weapon begins breaking apart, erupts with force, and Aghora uses that destructive blast to launch herself upward or forward through the battlefield while enemies are thrown below her.",
+  "volume": 17
+}

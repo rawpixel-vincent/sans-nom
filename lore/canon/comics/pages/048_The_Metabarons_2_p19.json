@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Bargoth is part of the armed group and is being instructed during the horse capture.",
+    "One member of the group handles the horse directly by applying or presenting the scent vial/device to its muzzle.",
+    "The waking character is frightened enough to bolt awake from the dream.",
+    "Iku-Tta is awake or nearby when the dreamer sounds the alarm."
+  ],
+  "characters_present": [
+    "A white horse or horse-like creature being led by the armed group",
+    "Several armored, armed captors including one addressed as Bargoth",
+    "A startled person waking from sleep",
+    "A second person in the room addressed as Iku-Tta"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The captured horse in the night sequence is likely connected to the later warning about pirates stealing Shazam.",
+    "The cut from the quiet abduction to the alarmed awakening links the theft to the victims discovering or sensing it."
+  ],
+  "dialogue_meaning": [
+    "The captors are pleased that the animal has been taken successfully.",
+    "They intend to use synthetic mare essence because the horse should respond to the smell even after many centuries.",
+    "The horse is behaving docilely, as if entranced, and is following without noise.",
+    "The group is retracing its route to a ship while navigation becomes harder because the fog is thickening and a paleo-compass is malfunctioning.",
+    "In the final scene, someone reports a dream that pirates were stealing Shazam and urges Iku-Tta to get to the stables quickly."
+  ],
+  "image_sha256": "5af77aaacee999edaad7c3d7f19232d71520bb50612a91ed5ff6854f29932ce8",
+  "is_spread": false,
+  "locations": [
+    "A foggy outdoor area at night, likely near a forest",
+    "An interior sleeping quarters or bedroom"
+  ],
+  "lore_facts": [
+    "Synthetic mare essence exists and can be stored in a vial for use on an animal.",
+    "The speakers believe technos reproduced the target scent despite centuries having passed.",
+    "The group has a ship nearby and is conducting a covert nighttime extraction.",
+    "A device called a paleo-compass exists and can go out of order.",
+    "Shazam is the name of the horse mentioned in the waking scene.",
+    "Iku-Tta is associated with stables or horse-keeping."
+  ],
+  "page_id": "048_The_Metabarons_2_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A group declares that they have successfully captured a creature, apparently a horse.",
+    "They prepare or use a vial of synthetic mare essence to keep the horse compliant.",
+    "The horse follows the group quietly through thickening fog as they head back toward their ship.",
+    "The speakers believe the people in the nearby forest are asleep and will not interfere.",
+    "The page then cuts to an interior where a sleeping person wakes in alarm after a dream about pirates stealing Shazam."
+  ],
+  "source_image": "external/comics/meta-barons/048_The_Metabarons_2_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5af77aaacee999edaad7c3d7f19232d71520bb50612a91ed5ff6854f29932ce8",
+      "page_id": "048_The_Metabarons_2_p19",
+      "source_image": "external/comics/meta-barons/048_The_Metabarons_2_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of most armored captors are not given on this page beyond the name Bargoth.",
+    "Some proper nouns are stylized and could be misread, especially 'Lirurgos' and 'Aquaeend' in the forest-sleep remark.",
+    "It is not completely explicit whether the awakening is caused by a literal dream, intuition, or an off-panel disturbance."
+  ],
+  "visual_summary": "Armed, armored figures move through a foggy nighttime setting with a white horse they have captured. One uses a vial or breathing device at the horse's muzzle. The group says the animal is subdued and can be led quietly back to their ship. In the final row, the scene cuts to a startled person waking in bed while another person nearby speaks about a dream involving pirates stealing a horse named Shazam.",
+  "volume": 2
+}

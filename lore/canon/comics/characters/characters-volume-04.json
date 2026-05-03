@@ -1,0 +1,492 @@
+[
+  {
+    "aliases": [
+      "Othon von Salza",
+      "the Metabaron",
+      "great ancestor"
+    ],
+    "appearances": [
+      "description: Large, muscular man; white/silver hair; described in some panels as green-skinned; visible cybernetic or mechanical genital/hip components; wears dark cape; source_refs: ['089_The_Metabarons_4_ic1', '091_The_Metabarons_4_p02', '092_The_Metabarons_4_p03', '113_The_Metabarons_4_p24']"
+    ],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "action: Knighted as Metabaron after rescuing Imperial offspring at Golden Planet; source_refs: ['089_The_Metabarons_4_ic1']",
+      "action: Blood-ritual conception of Aghnar via nervous-system link during lunar eclipse; source_refs: ['092_The_Metabarons_4_p03', '093_The_Metabarons_4_p04']",
+      "action: Banned tribe from fortress; replaced all staff with robots after Iko-Itta's suicide; source_refs: ['102_The_Metabarons_4_p13']",
+      "action: Named infant Aghnar; source_refs: ['102_The_Metabarons_4_p13']",
+      "action: Attempted to kill Aghnar as physically unfit to be a warrior; source_refs: ['104_The_Metabarons_4_p15']",
+      "action: Set seven-year concealment plan and warrior trial terms, vowing to die with son if he fails; source_refs: ['106_The_Metabarons_4_p17']",
+      "action: Administered foot-crushing pain ordeal to Aghnar; refused to intervene despite Honorata's protests; source_refs: ['119_The_Metabarons_4_p30']"
+    ],
+    "knowledge_boundaries": [
+      "Did not know the full Oiders' succession purpose behind Honorata's seduction mission until she revealed it [101_The_Metabarons_4_p12]",
+      "Agreed to conceal the child's sex for seven years and planned to train Aghnar as a warrior within that window [101_The_Metabarons_4_p12, 106_The_Metabarons_4_p17]"
+    ],
+    "relationships": [
+      "character: Honorata; type: lover / mother of his child; notes: Union impossible due to his castration; conceived Aghnar via blood-ritual nervous-system link during lunar eclipse",
+      "character: Aghnar; type: son; notes: Fathered through blood ritual; moved to kill him as infant for being unfit; administered brutal initiation trials; vowed to die with him if he failed",
+      "character: Bari; type: faithful servant; notes: Othon lives with Bari's two daughters after remaking Castaka fortress; rides Bari's horse at night",
+      "character: Iko-Itta; type: household threat (now deceased); notes: Othon believed Iko-Itta's suicide removed a threat to Aghnar",
+      "character: The Emperor; type: liege; notes: Knighted Othon as Metabaron after Othon rescued the Imperial offspring at the Golden Planet",
+      "character: The Empress; type: patron; notes: Promised to search the galaxy for a gift for Othon; sent Honorata to him",
+      "character: Othon's daughters; type: daughters / household dependents; notes: Lived with him in Castaka fortress; acted against his interests by seizing Honorata and leaping from the tower"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Cruel, solitary, without regrets after death of his son",
+      "Warrior and inventor of advanced weapon technology; creator of first Metabaronic weapons",
+      "Emotionally controlled; hides pride",
+      "Ruthless dynastic ideal — willing to kill his own child for failing warrior standard",
+      "Ties his own survival to his heir's success in initiation",
+      "Physically imposing and aggressive; rides on horseback, arms himself quickly"
+    ],
+    "voice_notes": [
+      "Speaks in tragic terms about impossible union; terse and authoritative in initiation scenes; hides emotion under stoic exterior; states dynastic ideals in fatalistic, absolute terms"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Accidentally killed his own son and was castrated before the events of this volume",
+      "Created the first Metabaronic weapons after abandoning pure martial arts [089_The_Metabarons_4_ic1]",
+      "Converted the Castaka fortress on Okhar into a maxi-protonic tower [089_The_Metabarons_4_ic1]",
+      "Defeated pirates at the Golden Planet using advanced technology and trickery, restoring the Imperial egg [089_The_Metabarons_4_ic1]",
+      "Knighted as Metabaron by the Emperor [089_The_Metabarons_4_ic1]",
+      "Confessed to Honorata during a lunar eclipse that their union was impossible [091_The_Metabarons_4_p02]",
+      "Linked his nervous system to Honorata's during conception ritual; instructed her to place a drop of his blood into herself [093_The_Metabarons_4_p04]",
+      "Reacted with shock when told his daughters had seized Honorata and leapt from the tower [094_The_Metabarons_4_p05]",
+      "Banned all tribe members from his fortress after Iko-Itta's suicide and replaced household staff with robots [102_The_Metabarons_4_p13]",
+      "Named the infant Aghnar [102_The_Metabarons_4_p13]",
+      "Moved to kill Aghnar as unfit; stood down when Honorata revealed her permanent sterility [104_The_Metabarons_4_p15]",
+      "Imposed a seven-year blackout on news of the child; set warrior trial terms: failure means death for both himself and Aghnar [106_The_Metabarons_4_p17]",
+      "Reunited with Honorata after seven years [113_The_Metabarons_4_p24]",
+      "Administered robo-killer initiation trial and voice-keyed foot-crushing capsule ordeal to Aghnar [114_The_Metabarons_4_p25, 119_The_Metabarons_4_p30]"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata",
+      "Lady Honorata",
+      "The Sorceress"
+    ],
+    "appearances": [
+      "description: White/silver-haired woman; long light hair; described as magnificent and desirable; physically composed even under threat (knife at throat, blindfolded captivity); in p24 depicted as a large winged biomechanical creature with a long beak-like head and visible red eye — nature unresolved (transformation, avatar, or visual inconsistency); source_refs: ['088_The_Metabarons_4_c01', '089_The_Metabarons_4_ic1', '090_The_Metabarons_4_p01', '092_The_Metabarons_4_p03', '113_The_Metabarons_4_p24']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "action: Defied Oiders' orders; bore Othon's son instead of mandated hermaphrodite; source_refs: ['101_The_Metabarons_4_p12']",
+      "action: Proposed and enacted blood-ritual conception, accepting permanent sterility; source_refs: ['092_The_Metabarons_4_p03', '093_The_Metabarons_4_p04']",
+      "action: Survived tower fall and mid-air birth; body carried suspended by epiphyte dart over forest; source_refs: ['099_The_Metabarons_4_p10']",
+      "action: Raised Aghnar in seven-year exile at Anasirma, forging his pain tolerance and Shabda-Oud mastery; source_refs: ['107_The_Metabarons_4_p18', '108_The_Metabarons_4_p19', '109_The_Metabarons_4_p20', '110_The_Metabarons_4_p21', '111_The_Metabarons_4_p22', '112_The_Metabarons_4_p23']",
+      "action: Presented Aghnar to Othon at the Castaka fortress for initiation; source_refs: ['112_The_Metabarons_4_p23', '113_The_Metabarons_4_p24']",
+      "action: Protested Othon's killing attempt on infant Aghnar; revealed permanent sterility making Aghnar their only possible child; source_refs: ['104_The_Metabarons_4_p15']"
+    ],
+    "knowledge_boundaries": [
+      "Knew the Oiders' full succession plan (use perfect androgyne to seize throne, poison Janus-Jana) and deliberately defied it [101_The_Metabarons_4_p12]",
+      "Knew Aghnar was meant to be a hermaphrodite per the Oiders' intent but bore a son instead [101_The_Metabarons_4_p12]",
+      "Knew Aghnar's weightlessness was caused by the epiphyte penetrating the embryonic sac during her fall [103_The_Metabarons_4_p14]",
+      "Knew she cannot transmit the White Castaka birthmark [092_The_Metabarons_4_p03]"
+    ],
+    "relationships": [
+      "character: Othon von Salza; type: lover / father of her child; notes: Originally sent to seduce him by the Oiders; fell in love and defied orders; conceived Aghnar via blood ritual; permanently sterile after; reunited after seven years",
+      "character: Aghnar; type: mother / trainer; notes: Raised him in seven-year exile at Anasirma; administered brutal Shabda-Oud training including corporal punishment and forced emotional cruelty; gave him the only kiss of his childhood after he defeated her in combat",
+      "character: The Empress; type: patron who dispatched her; notes: The Empress sent Honorata to Okhar as a gift to Othon",
+      "character: The Oiders; type: authority she defied; notes: Sent by Oiders to produce a perfect androgyne for succession plot; disobeyed out of love and bore a son instead",
+      "character: Othon's daughters; type: enemies / captors; notes: Daughters seized her in ninth month of pregnancy and threw themselves with her from the tower"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Priestess of the Shabda-Oud order",
+      "Last surviving member of the Von Salzas bloodline",
+      "Perceived by others as possessing hypnotic / mind-control powers; whether these are supernatural or strong persuasion is not independently confirmed [090_The_Metabarons_4_p01, 096_The_Metabarons_4_p07]",
+      "Emits hypnotic waves; Aghnar eventually learns to resist them [111_The_Metabarons_4_p22]",
+      "Emotionally intense and decisive; takes command of rooms under threat",
+      "Capable of maternal feeling but ruthlessly suppresses it in training context",
+      "Severe disciplinarian; enforces emotional detachment and total-distrust doctrine",
+      "Capable of bearing extreme physical hardship (mountain exile, eodactyl attack, birth mid-air)"
+    ],
+    "voice_notes": [
+      "Commands rooms decisively; combines cold doctrine with rare flashes of maternal feeling; frames duty as supreme over love; can be seductive and commanding; uses sharp, final declarations ('duty above love', 'you are a Castaka')"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Arrived on Okhar sent by the Empress and the Oiders [089_The_Metabarons_4_ic1]",
+      "First encounter with Othon interrupted by his jealous servants [089_The_Metabarons_4_ic1]",
+      "During a lunar eclipse told Othon she was the last of the Von Salzas and could not transmit the White Castaka birthmark [092_The_Metabarons_4_p03]",
+      "Proposed blood-ritual conception as alternative to normal union [092_The_Metabarons_4_p03]",
+      "Conceived Aghnar during a nervous-system-linked ritual; this left her permanently sterile [093_The_Metabarons_4_p04, 104_The_Metabarons_4_p15]",
+      "In ninth month of pregnancy, seized by Othon's daughters and thrown from the tower [094_The_Metabarons_4_p05]",
+      "Struck by an epiphyte dart during the fall; suspended in air by wind; gave birth between sky and ground [099_The_Metabarons_4_p10]",
+      "Revealed the Oiders' succession conspiracy and her defiance; agreed to seven-year concealment plan [101_The_Metabarons_4_p12]",
+      "Took Aghnar into exile at Anasirma — a sacred mountain forbidden for centuries [107_The_Metabarons_4_p18]",
+      "Survived eodactyl attack and sheltered in crystal cave with Aghnar [108_The_Metabarons_4_p19]",
+      "Ordered Aghnar at age five to kill his beloved toad companion as a lesson in duty over love [109_The_Metabarons_4_p20]",
+      "Trained Aghnar with escalating weights every six months, daily combat, Shabda-Oud meditation, auto-hypnosis [110_The_Metabarons_4_p21, 111_The_Metabarons_4_p22]",
+      "Administered corporal punishment including lashing Aghnar for shedding a single tear [110_The_Metabarons_4_p21]",
+      "Was defeated by Aghnar in combat when he resisted her hypnotic waves; gave him the only kiss of his childhood [111_The_Metabarons_4_p22]",
+      "Rode a trained eodactyl with Aghnar to the Castaka fortress on the eve of his seventh birthday [112_The_Metabarons_4_p23]",
+      "Reunited with Othon after seven years [113_The_Metabarons_4_p24]",
+      "Objected to the robo-killer trial as excessively lethal [114_The_Metabarons_4_p25]",
+      "Was directly present and protesting during Aghnar's foot-crushing ordeal [119_The_Metabarons_4_p30]"
+    ]
+  },
+  {
+    "aliases": [
+      "Aghnar",
+      "Yippi (name used in the crystal cave childhood scenes)"
+    ],
+    "appearances": [
+      "description: Born weightless; white/silver hair (visible through armor); depicted as infant through childhood to near-adulthood in this volume; receives metal prosthetic feet after initiation ordeal, which increase his weight; source_refs: ['102_The_Metabarons_4_p13', '109_The_Metabarons_4_p20', '112_The_Metabarons_4_p23', '120_The_Metabarons_4_p31']"
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "action: Tamed a ferocious Eodactyl without Honorata's help before initiation; source_refs: ['114_The_Metabarons_4_p25']",
+      "action: Killed his beloved toad companion on Honorata's order as a lesson in duty over love; source_refs: ['109_The_Metabarons_4_p20']",
+      "action: Defeated Honorata in combat and resisted her hypnotic waves; source_refs: ['111_The_Metabarons_4_p22']",
+      "action: Triggered robo-killer self-destruct after over an hour of combat; accepted as future Metabaron; source_refs: ['118_The_Metabarons_4_p29']",
+      "action: Endured foot-crushing capsule to full destruction of his feet without yielding; source_refs: ['119_The_Metabarons_4_p30']",
+      "action: Received metal prosthetic feet, becoming heavier and gaining superhuman power; source_refs: ['120_The_Metabarons_4_p31']"
+    ],
+    "knowledge_boundaries": [
+      "Trained in Shabda-Oud meditation and auto-hypnosis; masters pain suppression [110_The_Metabarons_4_p21]",
+      "Has internalized total-distrust doctrine including distrust of his own mother [110_The_Metabarons_4_p21]",
+      "Born as a son, not the mandated hermaphrodite; his sex was kept secret for seven years [101_The_Metabarons_4_p12]",
+      "Not depicted as aware of the Oiders' succession plot or his intended nature as a hermaphrodite"
+    ],
+    "relationships": [
+      "character: Othon von Salza; type: father; notes: Conceived via blood ritual; seeks father's approval; subjected to brutal trials by Othon; Othon vowed to die if Aghnar fails",
+      "character: Honorata; type: mother / trainer; notes: Raised and trained in seven-year exile at Anasirma; received only one kiss from her in childhood (reward for defeating her in combat)",
+      "character: Woolly toad companion; type: beloved animal (killed on order); notes: Large male woolly toad that learned a few human words from Aghnar; ordered killed by Honorata at Aghnar's age five as a lesson in duty over love [109_The_Metabarons_4_p20]"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Permanently weightless from birth due to epiphyte installed in cells by dart strike on Honorata's embryonic sac [103_The_Metabarons_4_p14]",
+      "Exceptional pain tolerance developed through Shabda-Oud training and auto-hypnosis [110_The_Metabarons_4_p21]",
+      "Emotionally repressed; trained to distrust everyone including his mother [110_The_Metabarons_4_p21]",
+      "Courageous; frames tests as opportunities to earn his father's pride [119_The_Metabarons_4_p30]",
+      "Capable of resisting his mother's hypnotic waves [111_The_Metabarons_4_p22]",
+      "Castaka blood through Othon; White Castaka birthmark lineage",
+      "Matures from infancy to near-adulthood described as unusually rapid [110_The_Metabarons_4_p21]",
+      "After initiation: metal prosthetic feet granting increased weight and superhuman power [120_The_Metabarons_4_p31]"
+    ],
+    "voice_notes": [
+      "Short, determined utterances; says 'I want to make my father proud'; voices the internalized doctrine 'trust no one, not even your mother'; expresses hatred during combat training"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Named Aghnar after Iko-Itta's suicide, in a robot-staffed room [102_The_Metabarons_4_p13]",
+      "Discovered to levitate; cause identified as the epiphyte in his cells from the dart strike on Honorata's embryonic sac [103_The_Metabarons_4_p14]",
+      "Othon moved to kill him as physically unfit; Honorata defended him [104_The_Metabarons_4_p15]",
+      "A physical defect affecting normal leg function or walking was observed and diagnosed [105_The_Metabarons_4_p16]",
+      "An unnamed figure volunteered to train him in Shabda-Oud skills [105_The_Metabarons_4_p16]",
+      "Raised in exile at Anasirma crystal cave for seven years [107_The_Metabarons_4_p18]",
+      "Survived on woolly toads with Honorata in the cave [109_The_Metabarons_4_p20]",
+      "At age five, ordered to kill his toad companion as a lesson in duty over love [109_The_Metabarons_4_p20]",
+      "Trained with escalating weights added every six months, daily combat, Shabda-Oud meditation, auto-hypnosis for pain suppression [110_The_Metabarons_4_p21, 111_The_Metabarons_4_p22]",
+      "Lashed by his mother for shedding a single tear [110_The_Metabarons_4_p21]",
+      "Defeated Honorata in combat by resisting her hypnotic waves; received the only kiss of his childhood [111_The_Metabarons_4_p22]",
+      "Traveled with Honorata to the Castaka fortress on the eve of his seventh birthday [112_The_Metabarons_4_p23]",
+      "Faced the robo-killer: fought for over an hour, then triggered its self-destruct via the red chest button [114_The_Metabarons_4_p25, 118_The_Metabarons_4_p29]",
+      "Judges disputed legitimacy due to his weightlessness but honored their prior oath and accepted him as future Metabaron [118_The_Metabarons_4_p29]",
+      "Endured a voice-keyed foot-crushing capsule without yielding; device destroyed his feet [119_The_Metabarons_4_p30]",
+      "Received metal prosthetic feet; gained increased weight and superhuman power [120_The_Metabarons_4_p31]",
+      "Bodily mutilation established as a component of Metabaronic initiation through his experience [120_The_Metabarons_4_p31]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Empress"
+    ],
+    "appearances": [
+      "description: Not directly depicted in this volume; referenced in recap narration only; source_refs: ['089_The_Metabarons_4_ic1']"
+    ],
+    "character_id": "the-empress",
+    "important_actions": [
+      "action: Sent Honorata to Othon on Okhar as a promised gift; source_refs: ['089_The_Metabarons_4_ic1']"
+    ],
+    "knowledge_boundaries": [
+      "Extent of her knowledge of the Oiders' succession plan involving Honorata is not resolved in this volume"
+    ],
+    "relationships": [
+      "character: Othon von Salza; type: sovereign / patron; notes: Promised to search the galaxy for a gift after Othon rescued the Imperial offspring",
+      "character: Honorata; type: sender; notes: Sent Honorata to Okhar to reward or connect with Othon",
+      "character: The Emperor; type: consort; notes: Co-parent of androgynous Siamese twin embryos created through extraordinary scientific means"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Commands galactic-scale resources and political reach",
+      "Politically active; arranges rewards for exceptional service"
+    ],
+    "voice_notes": [
+      "Not directly quoted in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Promised to search the galaxy for a gift for Othon after the Golden Planet rescue [089_The_Metabarons_4_ic1]",
+      "Sent Honorata (Shabda-Oud priestess) to Othon on Okhar [089_The_Metabarons_4_ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Emperor"
+    ],
+    "appearances": [
+      "description: Not directly depicted; referenced in recap narration only; source_refs: ['089_The_Metabarons_4_ic1']"
+    ],
+    "character_id": "the-emperor",
+    "important_actions": [
+      "action: Knighted Othon as Metabaron; source_refs: ['089_The_Metabarons_4_ic1']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: liege; notes: Appealed to subjects for help against pirates; knighted Othon as Metabaron",
+      "character: The Empress; type: consort"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Sterile at the time of these events",
+      "Commands subjects' loyalty through personal appeal"
+    ],
+    "voice_notes": [
+      "Not directly quoted in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Is sterile; Imperial heirs created through extraordinary scientific means from an ovum of the Empress fertilized by sperm of the now-sterile Emperor [089_The_Metabarons_4_ic1]",
+      "Appealed to subjects when pirates attacked the Imperial offspring [089_The_Metabarons_4_ic1]",
+      "Knighted Othon as Metabaron after Othon rescued the Imperial offspring at the Golden Planet [089_The_Metabarons_4_ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon's daughters",
+      "daughters of Othon's faithful servant (recap description)",
+      "Othon's daughters (p05 dialogue)"
+    ],
+    "appearances": [
+      "description: Two dark-haired women in black; later depicted in revealing ceremonial or martial outfits with white headpieces; physically aggressive and fanatical; source_refs: ['090_The_Metabarons_4_p01', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+    ],
+    "character_id": "othon-s-daughters",
+    "important_actions": [
+      "action: Seized and threw Honorata from the tower in her ninth month, triggering mid-air birth and epiphyte dart strike; source_refs: ['094_The_Metabarons_4_p05', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+    ],
+    "knowledge_boundaries": [
+      "Believed Honorata possessed genuine supernatural hypnotic powers",
+      "Framed the act as a sacrificial ritual connected to a demon — whether their interpretation of events is accurate is not confirmed"
+    ],
+    "relationships": [
+      "character: Othon von Salza; type: daughters / household dependents; notes: Lived with him in the Castaka fortress; acted against his interests",
+      "character: Honorata; type: enemies; notes: Believed she hypnotized their father; blindfolded her to counter her powers; seized her in ninth month and leapt from the tower with her"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Jealous of Honorata's influence over Othon",
+      "Fanatical; willing to die alongside Honorata to eliminate her",
+      "Frame their act as a religious or cult-like sacrifice",
+      "Believe their sacrifice is connected to a demon and to someone having fathered that demon",
+      "Accuse Honorata of both witchcraft and theft"
+    ],
+    "voice_notes": [
+      "Speak in ecstatic, devotional, and accusatory registers; frame their act as sacrifice; call Honorata a thief and witch; dismiss retreating as impossible"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Interrupted Honorata's first encounter with Othon out of jealousy, causing him to nearly kill her [089_The_Metabarons_4_ic1]",
+      "Blindfolded Honorata on the tower platform to prevent hypnosis [096_The_Metabarons_4_p07]",
+      "Seized Honorata in her ninth month of pregnancy and threw themselves with her from the top of Othon's tower [094_The_Metabarons_4_p05]",
+      "Declared their hatred stronger than her magic and willingness to die [097_The_Metabarons_4_p08]",
+      "Addressed an older blindfolded woman (likely a household figure) who pleaded with them to stop [097_The_Metabarons_4_p08]"
+    ]
+  },
+  {
+    "aliases": [
+      "The Oiders"
+    ],
+    "appearances": [
+      "description: Not depicted visually in this volume; referenced in dialogue as the authority who dispatched Honorata; source_refs: ['101_The_Metabarons_4_p12']"
+    ],
+    "character_id": "the-oiders",
+    "important_actions": [
+      "action: Dispatched Honorata to produce a mandated hermaphrodite heir from Othon; source_refs: ['101_The_Metabarons_4_p12']"
+    ],
+    "knowledge_boundaries": [
+      "Whether their succession plot targeting Janus-Jana remains active after Honorata's defection is not resolved in this volume"
+    ],
+    "relationships": [
+      "character: Honorata; type: commanders / authority she defied; notes: Ordered her to produce a hermaphrodite heir from Othon; she bore a son and defied them",
+      "character: Janus-Jana; type: intended assassination target; notes: Oiders planned to poison Janus-Jana as part of the succession plot"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Political faction holding authority over Honorata",
+      "Planned dynastic conspiracy: use a 'perfect androgyne' to gain support from the majority of planets and seize the Imperial throne by poisoning Janus-Jana",
+      "Command assassination as punishment for exposure of forbidden births",
+      "Law requires death of parents, child, and associates if the forbidden birth is discovered"
+    ],
+    "voice_notes": [
+      "Not directly quoted; described entirely through Honorata's revelation to Othon"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Planned to present a 'perfect androgyne' to gain planetary support and take the throne [101_The_Metabarons_4_p12]",
+      "Sent Honorata to seduce Othon and produce a specific kind of offspring [101_The_Metabarons_4_p12]",
+      "Their law mandates assassination of all involved parties if the forbidden birth is exposed [101_The_Metabarons_4_p12]",
+      "Planned to take Aghnar from his parents at the age of seven [101_The_Metabarons_4_p12]"
+    ]
+  },
+  {
+    "aliases": [
+      "Janus-Jana"
+    ],
+    "appearances": [
+      "description: Not depicted; mentioned solely as the intended poisoning victim in the Oiders' succession plot; source_refs: ['101_The_Metabarons_4_p12']"
+    ],
+    "character_id": "janus-jana",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The Oiders; type: intended assassination target; notes: Named as the person the Oiders planned to poison to clear the path for their succession scheme"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Not depicted or quoted in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Named as the Oiders' intended poisoning victim in Honorata's confession to Othon [101_The_Metabarons_4_p12]"
+    ]
+  },
+  {
+    "aliases": [
+      "Iko-Itta"
+    ],
+    "appearances": [
+      "description: Likely the hanged figure displayed before a gathered crowd in the ceremonial scene on p13; not explicitly captioned visually; source_refs: ['102_The_Metabarons_4_p13']"
+    ],
+    "character_id": "iko-itta",
+    "important_actions": [
+      "action: Committed suicide, eliminating herself as a threat to Aghnar; source_refs: ['102_The_Metabarons_4_p13']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: household member / former threat; notes: Othon believed her suicide removed a danger to Aghnar"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Connected to Othon's household or tribe",
+      "Regarded by Othon as a threat to the infant Aghnar"
+    ],
+    "voice_notes": [
+      "No direct speech on these pages"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Committed suicide, according to Othon's internal thought on p13 [102_The_Metabarons_4_p13]",
+      "Her death is displayed publicly in a ceremonial or funerary context [102_The_Metabarons_4_p13]",
+      "Her death removed what Othon considered a threat to the infant [102_The_Metabarons_4_p13]"
+    ]
+  },
+  {
+    "aliases": [
+      "Ik'uta"
+    ],
+    "appearances": [
+      "description: Older figure present near Othon when the messenger arrives; speaks in metaphorical language; source_refs: ['094_The_Metabarons_4_p05']"
+    ],
+    "character_id": "ik-uta",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: household associate"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Speaks in abstract, ominous metaphors rather than direct reports",
+      "Associated with Othon's household or the vicinity of the tower"
+    ],
+    "voice_notes": [
+      "Abstract, metaphorical; frames impending catastrophe as the natural consequence of joy"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Present outdoors with Othon when the messenger urgently summoned him to the tower [094_The_Metabarons_4_p05]",
+      "Spoke ominously about joy naturally turning to despair before the explicit report of Honorata's seizure [094_The_Metabarons_4_p05]"
+    ]
+  },
+  {
+    "aliases": [
+      "Bari"
+    ],
+    "appearances": [
+      "description: Othon's faithful servant; referenced in recap but not clearly depicted in this volume; source_refs: ['089_The_Metabarons_4_ic1']"
+    ],
+    "character_id": "bari",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon von Salza; type: faithful servant; notes: Othon lives with Bari's two daughters after remaking Castaka fortress; Othon is riding Bari's horse at night when Honorata first approaches",
+      "character: Othon's daughters; type: father; notes: The two daughters who seize Honorata are described in the recap as daughters of Othon's faithful servant (Bari)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Faithful servant to Othon"
+    ],
+    "voice_notes": [
+      "Not directly quoted in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Othon rides Bari's horse at night on Okhar when Honorata first approaches [089_The_Metabarons_4_ic1]"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: Listener in the framing narrative; addressed by name but not visually identified with certainty on these pages; source_refs: ['113_The_Metabarons_4_p24']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Unnamed robot narrator; type: listener"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Emotionally responsive to the narration; becomes 'overly poetic' or sentimental at reunion scenes",
+      "Can interrupt the narrator"
+    ],
+    "voice_notes": [
+      "Reacts emotionally to the story; is scolded and backed down from an interruption"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Addressed by name when the narrator teases him for becoming emotionally carried away during the Othon-Honorata reunion scene [113_The_Metabarons_4_p24]"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "description: Addressed by a robot narrator; not visually identified with certainty on these pages; source_refs: ['094_The_Metabarons_4_p05']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Robot narrator; type: listener"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Listener in the robot narrator's framing story"
+    ],
+    "voice_notes": [
+      "Not quoted with legible lines in these pages"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Addressed directly by the robot narrator who rejects a fairy-tale happy ending and insists the birth was traumatic [094_The_Metabarons_4_p05]"
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Melmoth publicly answers yes when asked to take Vicenta Gabriela as his wife.",
+    "Vicenta Gabriela publicly answers yes when asked to take Melmoth as her husband.",
+    "Vicenta Gabriela keeps a thick veil over her face and refuses to lift it for the traditional kiss.",
+    "The officiant presides over the ceremony and pronounces a blessing over the union."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "Vicenta Gabriela",
+    "wedding officiant/priest",
+    "wedding crowd or guests"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the formal wedding of Melmoth and Vicenta Gabriela.",
+    "The final narration implies the transition from public marriage ritual to private consummation at De Rokha castle.",
+    "Vicenta Gabriela's refusal to unveil herself is presented as a notable detail likely relevant beyond this page."
+  ],
+  "dialogue_meaning": [
+    "A speaker frames the marriage as a joyful union witnessed by an enormous gathered multitude.",
+    "The officiant identifies the groom as the distinguished Supreme Metabaron Melmoth and the bride as Vicenta Gabriela, describing the marriage in sacred terms.",
+    "Both bride and groom explicitly consent to the marriage.",
+    "The couple is blessed with love, fertility, and children, and the groom is told to kiss the bride.",
+    "Narration emphasizes that the bride does not reveal her face during the ritual kiss.",
+    "Narration then contrasts the public ceremony with an intense private consummation inside De Rokha castle."
+  ],
+  "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+  "is_spread": false,
+  "locations": [
+    "A large ceremonial wedding venue or cavern-like hall filled with spectators and hovering craft",
+    "Night sky above the celebration grounds",
+    "De Rokha castle"
+  ],
+  "lore_facts": [
+    "The title 'Supreme Metabaron' is attached to Melmoth on this page.",
+    "Vicenta Gabriela is Melmoth's bride.",
+    "The marriage is treated as a sacred paleo-marriage ceremony.",
+    "The ritual blessing explicitly links marriage with fertility and children.",
+    "There is a traditional expectation that the groom kiss the bride after the blessing.",
+    "De Rokha castle is a named location associated with the couple after the ceremony."
+  ],
+  "page_id": "346_The_Metabarons_13_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A massive public marriage ceremony is held for Supreme Metabaron Melmoth and Vicenta Gabriela.",
+    "An officiant formally names the couple and asks the groom if he accepts the bride; he agrees.",
+    "The bride is then asked if she accepts the groom; she agrees.",
+    "A blessing and command to kiss the bride are announced during the celebration.",
+    "Vicenta Gabriela refuses to raise her thick veil for the traditional kiss.",
+    "The narration shifts to a later private scene in De Rokha castle during a storm, where the bride's cries of pleasure are said to overpower the wind."
+  ],
+  "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+      "page_id": "346_The_Metabarons_13_p12",
+      "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The opening narration mentions 'Dyukka-birds,' but the exact spelling could be uncertain due to image resolution.",
+    "The first speaker in the opening narration is not visually identified with certainty on this page alone.",
+    "The exact architecture of the opening venue is unclear; it appears cavernous or carved, but the page does not explicitly label it."
+  ],
+  "visual_summary": "A large ceremonial wedding is shown inside or at the mouth of a cavernous, gold-toned setting packed with a huge crowd and hovering vehicles. An officiant presents the union of Supreme Metabaron Aghnar/Othon-like elder? No: the page names the groom as Melmoth, with Vicenta Gabriela veiled beside him. The ceremony proceeds with both answering yes. A nighttime celebration follows with bright fireworks or luminous explosions over a tree-like structure. In the final panels, the bride still refuses to lift her heavy veil for the traditional kiss, and the scene cuts to the dark De Rokha castle during a storm, where narration says the bride's cries of pleasure are heard inside.",
+  "volume": 13
+}

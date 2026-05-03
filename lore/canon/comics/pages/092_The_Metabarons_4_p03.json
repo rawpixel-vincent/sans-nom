@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The woman is emotionally intense, decisive, and actively directing the encounter.",
+    "The woman believes she cannot naturally produce a legitimate heir for the man under the line's hereditary rules.",
+    "The man appears physically powerful and is holding the woman protectively or intimately.",
+    "The man has a visible White Castaka birthmark on his chest, emphasized by the art."
+  ],
+  "characters_present": [
+    "A pale, silver-haired woman identified only by dialogue as the last of the Von Salzas",
+    "A muscular, green-skinned white-haired man associated by dialogue with the White Castaka line"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page frames succession and bloodline continuity as central concerns.",
+    "The Von Salzas and White Castaka lines are directly linked through the prospect of producing an heir.",
+    "The blood-taking gesture suggests the start of a ritual, scientific procedure, or alternative conception method that likely continues on the next page."
+  ],
+  "dialogue_meaning": [
+    "The woman warns that a time-limited celestial event is ending.",
+    "She says destiny would have made her permanently his, but that she can no longer conceive a son with him.",
+    "She identifies herself as the final surviving member of the Von Salzas.",
+    "She explains a hereditary obstacle: she cannot pass on the White Castaka birthmark.",
+    "She proposes creating a son through his blood instead of ordinary conception."
+  ],
+  "image_sha256": "2344ba9e5431b647627f742388be1ed2fc4f719e04fba3234cc7cb114ee5067f",
+  "is_spread": false,
+  "locations": [
+    "An interior room or chamber with metallic walls or window frames, likely aboard a ship or in a futuristic structure"
+  ],
+  "lore_facts": [
+    "An eclipse has significance to the scene's timing and possibly to the characters' union.",
+    "The Von Salzas are a named bloodline, and this woman is its last member.",
+    "The White Castaka birthmark is hereditary and important enough to determine whether a child properly continues the line.",
+    "A child 'born of your blood' is presented as a distinct reproductive or genetic method within the setting."
+  ],
+  "page_id": "092_The_Metabarons_4_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "The woman notes that the eclipse is ending, creating urgency.",
+    "She tells the man that fate would bind her to him permanently, but says it is already too late for her to bear him a son.",
+    "She explains that she is the last of the Von Salzas lineage.",
+    "She states that she cannot transmit the White Castaka birthmark.",
+    "She offers an alternative: a child born from his blood.",
+    "The page ends with a close-up of their hands as she draws a drop of his blood."
+  ],
+  "source_image": "external/comics/meta-barons/092_The_Metabarons_4_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2344ba9e5431b647627f742388be1ed2fc4f719e04fba3234cc7cb114ee5067f",
+      "page_id": "092_The_Metabarons_4_p03",
+      "source_image": "external/comics/meta-barons/092_The_Metabarons_4_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of the two characters are not given on this page alone.",
+    "The precise nature of the location is unclear beyond being a futuristic metallic interior.",
+    "The mechanism behind creating a child from the man's blood is not explained on this page, so whether it is ritual, technology, or both remains uncertain."
+  ],
+  "visual_summary": "Inside a metallic interior, a pale, long-haired woman speaks urgently as an eclipse ends. A large, muscular green-skinned man holds her in his arms while she explains that he cannot father a son with her because she is the last of the Von Salzas and cannot pass on the White Castaka birthmark. In the final panels, their hands meet and she appears to prick his fingertip, drawing a drop of blood as part of offering another way to give him a son.",
+  "volume": 4
+}

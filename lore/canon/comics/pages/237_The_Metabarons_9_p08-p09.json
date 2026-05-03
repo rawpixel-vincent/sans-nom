@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The central male figure is portrayed as an effective wartime leader in space combat.",
+    "He is also willing to work with pirates for a hijacking operation.",
+    "His actions are being recounted as part of a larger biographical or legendary narrative."
+  ],
+  "characters_present": [
+    "Unnamed male commander/pilot being described by the narration",
+    "Ulritch the Red (mentioned only)",
+    "Ulritch the Red's pirate gang",
+    "Troglosocialik armada crews",
+    "Opposing Cyberg forces"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues a narrated account of the male figure's past exploits.",
+    "It links military conquest and later piracy as sequential episodes in his history."
+  ],
+  "dialogue_meaning": [
+    "The narration says the male figure won a space campaign by leading the Troglosocialik fleet against aristocratic Cyberg opponents.",
+    "It then says he cooperated with the pirate Ulritch the Red to seize a shipment of epiphyte from three large transport ships."
+  ],
+  "image_sha256": "043359ab327041aad0e1d2454016514bea7898ea0a9ae80fe5be1cf23bfd8d8b",
+  "is_spread": true,
+  "locations": [
+    "Outer space battlefield",
+    "A contested trade space",
+    "Area around three 'mother-coach' ships"
+  ],
+  "lore_facts": [
+    "A group called the Troglosocialik armada exists and can wage fleet-scale war.",
+    "A faction or people called the Cybergs are described as aristocratic.",
+    "There is a recognized 'trade space' that can be encroached upon and fought over.",
+    "Ulritch the Red commands or is associated with a pirate gang.",
+    "Epiphyte is a valuable cargo transported in space.",
+    "'Mother-coach' ships are large cargo-carrying vessels or transports."
+  ],
+  "page_id": "237_The_Metabarons_9_p08-p09",
+  "page_label": "p08-p09",
+  "plot_events": [
+    "A male commander leads a Troglosocialik armada in a major space battle.",
+    "That armada defeats forces occupying or encroaching on a trade region of space.",
+    "He later allies himself with Ulritch the Red's pirate gang.",
+    "Together they hijack a cargo of epiphyte being transported by three 'mother-coach' ships."
+  ],
+  "source_image": "external/comics/meta-barons/237_The_Metabarons_9_p08-p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "043359ab327041aad0e1d2454016514bea7898ea0a9ae80fe5be1cf23bfd8d8b",
+      "page_id": "237_The_Metabarons_9_p08-p09",
+      "source_image": "external/comics/meta-barons/237_The_Metabarons_9_p08-p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The narration text is small and partially difficult to read; wording such as 'Troglosocialik,' 'Cybergs,' and 'mother-coach' may be slightly uncertain.",
+    "The exact identity of the armored cockpit figure is not stated on this page.",
+    "It is unclear whether Ulritch the Red is visually depicted or only mentioned in narration."
+  ],
+  "visual_summary": "A double-page space battle spread. In the upper left, a heavily armored, hairy pilot or commander is shown inside a cockpit while fleets exchange intense fire. Across the rest of the spread, large ships, smaller attack craft, explosions, and energy beams fill space. The lower half shows multiple sleek transport-like vessels under attack as swarms of small triangular fighters and heavy weapons fire tear through the scene. The narration presents this as part of the exploits of a male figure whose military and pirate actions are being recounted.",
+  "volume": 9
+}

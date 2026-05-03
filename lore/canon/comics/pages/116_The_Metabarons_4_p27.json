@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Aghnar is a child and is piloting the white combat robot.",
+    "Aghnar appears exhausted and frightened during the fight.",
+    "Honorata is emotionally invested in Aghnar's survival and is directly addressed during the spectators' conversation.",
+    "The adult spectators understand the mechanics of the fight well enough to assess that Aghnar's movement is being restricted."
+  ],
+  "characters_present": [
+    "Aghnar, the boy pilot of the white robot",
+    "Honorata, one of the spectators addressed by name",
+    "An adult male spectator beside Honorata",
+    "A small robot observer/commentator",
+    "The opposing spider-like killer machine"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents an ongoing duel rather than a new scene, with narration summarizing elapsed combat time and the current tactical disadvantage.",
+    "The mention of the 'red button' points to an earlier-established option or rule in the combat setup."
+  ],
+  "dialogue_meaning": [
+    "An observer asks how many arms the attacking robot ultimately developed, underscoring how abnormal and dangerous it is.",
+    "Narration describes the fight as long, brutal, and nearly hopeless for the child pilot.",
+    "A speaker invokes religious or ceremonial language, praying the boy will transcend logic and improvise.",
+    "Another speaker tells Honorata that Aghnar is effectively lost because his feet are hindered and he is trapped by the machine's weight."
+  ],
+  "image_sha256": "4b78bfae44d89348a009edac1fa094c5810db54938a7f2fd842bc10caf86a6a9",
+  "is_spread": false,
+  "locations": [
+    "A mechanical combat arena or industrial chamber filled with machinery, cables, and debris",
+    "A spectator or observation area adjacent to the battlefield"
+  ],
+  "lore_facts": [
+    "The attacker is described as a killer machine with eight powerful arms.",
+    "The attacking machine is compared to or described as a mechanical spider.",
+    "The battle duration is stated to be more than an hour, with one caption giving a more exact elapsed time.",
+    "A setting detail mentions 'ultra-coolant' lubricating the central brain, suggesting advanced biomechanical or machine anatomy in this world.",
+    "There is a 'red button' that the boy is not expected to press in normal combat, implying a significant control or last-resort mechanism."
+  ],
+  "page_id": "116_The_Metabarons_4_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "A spider-like combat machine with multiple arms batters and grapples a white humanoid robot.",
+    "The young pilot inside the white robot is shown frightened and under heavy pressure.",
+    "Narration states the battle has lasted over an hour, emphasizing exhaustion and desperation.",
+    "A small robot commentator or observer appears near the battlefield while the fight continues.",
+    "Two adults watching the match discuss the boy pilot's worsening position and doubt he can recover through normal means.",
+    "The page ends with the boy still trapped in close combat as the enemy machine presses the attack."
+  ],
+  "source_image": "external/comics/meta-barons/116_The_Metabarons_4_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4b78bfae44d89348a009edac1fa094c5810db54938a7f2fd842bc10caf86a6a9",
+      "page_id": "116_The_Metabarons_4_p27",
+      "source_image": "external/comics/meta-barons/116_The_Metabarons_4_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption and dialogue text is small and partially hard to read, so exact wording may be imperfect.",
+    "The identity of the adult male spectator is unclear from this page alone.",
+    "The small robot's exact role and name are not explicit on this page alone.",
+    "The page image shows the printed number 28 while the provided label is p27."
+  ],
+  "visual_summary": "A chaotic robot duel unfolds in a mechanical arena or workshop-like chamber filled with cables, smoke, and shattered machinery. A many-armed spider-like machine attacks a white armored robot piloted by a young boy. Two adult spectators watch anxiously from the side, while caption boxes frame the fight as a desperate, prolonged struggle.",
+  "volume": 4
+}

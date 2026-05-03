@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "Aghora is portrayed by others as temporarily vulnerable because of advanced pregnancy.",
+    "The conspirators aim to seize the throne and are willing to arrange murder to do it.",
+    "The recruited woman values power and mobility tied to her kantylopter.",
+    "The recruited woman believes she is 'nothing' without her kantylopter.",
+    "The conspirators have access to advanced cloning capabilities or to someone who can perform cloning."
+  ],
+  "characters_present": [
+    "Aghora, the current Metabaron (discussed, not shown directly)",
+    "A group of cybernetic conspirators/courtiers",
+    "A dark-haired female warrior or raider being recruited",
+    "A cloned kantylopter specimen"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page sets up an assassination attempt against Aghora.",
+    "The throne succession or control of the empire is tied to Aghora's survival.",
+    "The cloned kantylopter is presented as the inducement meant to secure the woman's cooperation."
+  ],
+  "dialogue_meaning": [
+    "The conspirators identify a narrow window of weakness in Aghora's late pregnancy.",
+    "They argue that pregnancy prevents Aghora from using some usual combat abilities and slows her movement.",
+    "They offer the woman a political and military reward in exchange for assassinating Aghora.",
+    "The promised reward includes legal authority for violent plunder under imperial command.",
+    "The woman explains that losing her kantylopter left her effectively helpless.",
+    "The conspirators counter her objection by unveiling a cloned replacement grown from recovered cells."
+  ],
+  "image_sha256": "fc9d5acc9bdbaed6955cc2b05551f26267db92605456c72c2e3bc166455ff705",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber where conspirators confer",
+    "Outer space beside a large structure or ship",
+    "A room or holding area where the woman is shown the cloned specimen"
+  ],
+  "lore_facts": [
+    "Aghora is the current Metabaron.",
+    "Aghora is female.",
+    "At this moment in the story, Aghora is nine months pregnant.",
+    "Because of the fetus, Aghora cannot use her mini-bombs.",
+    "Aghora is said to be able to defend herself only with her Metablade in her current condition.",
+    "There is an imperial forces hierarchy with a role of supreme commander.",
+    "Minor planets can be legally raided under imperial authority, according to the conspirators' offer.",
+    "A kantylopter is an important source of power or capability for the recruited woman.",
+    "A cell from a destroyed kantylopter can be used to clone an identical specimen."
+  ],
+  "page_id": "432_The_Metabarons_17_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "Conspirators explain that Aghora, the current Metabaron, is female and nine months pregnant.",
+    "They describe Aghora as physically limited: unable to move quickly, unable to use mini-bombs safely, and able to defend herself only with her Metablade.",
+    "The conspirators propose that the woman kill Aghora so they can seize the throne.",
+    "As payment, they offer to make the woman supreme commander of the imperial forces, enabling her to raid minor planets for profit.",
+    "The woman says she was rendered powerless when the Empire destroyed her kantylopter.",
+    "The conspirators reveal that they recovered a cell from the destroyed being and cloned an identical specimen.",
+    "The woman reacts with visible surprise to the cloned creature."
+  ],
+  "source_image": "external/comics/meta-barons/432_The_Metabarons_17_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fc9d5acc9bdbaed6955cc2b05551f26267db92605456c72c2e3bc166455ff705",
+      "page_id": "432_The_Metabarons_17_p05",
+      "source_image": "external/comics/meta-barons/432_The_Metabarons_17_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly hard to read, so wording-level precision may be imperfect.",
+    "The exact identity and names of the conspirators are not given on this page.",
+    "The recruited woman's name is not stated on this page.",
+    "The exact nature of the object shown in the space panel is unclear from this page alone, though it appears connected to the negotiation."
+  ],
+  "visual_summary": "Grotesque cybernetic courtiers or conspirators discuss the vulnerability of the current Metabaron, Aghora. A space panel separates their proposal from a later scene where they negotiate with a dark-haired woman in revealing armor. She says the Empire left her powerless by destroying her kantylopter. The conspirators then present a cloned replacement specimen in a case, shocking her.",
+  "volume": 17
+}

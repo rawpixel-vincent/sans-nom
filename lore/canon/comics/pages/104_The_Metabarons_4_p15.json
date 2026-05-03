@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Aghnar is a newborn or very young infant judged by the man as physically defective or inadequate.",
+    "The large man is ruthless and willing to kill his own child for failing his warrior standard.",
+    "The white-haired woman is fiercely protective of Aghnar and reveals the cost she paid to bear him.",
+    "The relationship between the man and woman is intimate enough that they share a child and a prior conception ordeal."
+  ],
+  "characters_present": [
+    "Aghnar (infant)",
+    "Large muscular man, likely the father",
+    "White-haired woman defending the child, likely the mother",
+    "Dark-haired woman holding the infant in the opening panel (possibly the same woman shown from a different angle, unclear)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers on Aghnar's birth or infancy and a parental conflict over whether he should live.",
+    "The dialogue implies an established lineage or culture where producing a powerful heir is critically important."
+  ],
+  "dialogue_meaning": [
+    "The man rejects the baby as unfit, describing him as unnaturally light and incapable of becoming a warrior.",
+    "He believes the child cannot access full strength because he lacks some connection to the earth.",
+    "He proposes that they can replace this child with another.",
+    "The woman opposes him and insists Aghnar must be spared.",
+    "She explains that having another child is impossible because the extraordinary method used to conceive Aghnar made her permanently sterile."
+  ],
+  "image_sha256": "e0e2b9b20c430572ba525f23aeda0c3fb376b941988820367e3c589fa309db8c",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber or room with a bed or padded surface where the infant is placed"
+  ],
+  "lore_facts": [
+    "The infant's name is Aghnar.",
+    "A warrior ideal exists in which bodily traits and power determine worthiness.",
+    "A supposed link to 'the earth' is presented as necessary for full strength or power.",
+    "Aghnar was conceived through an extraordinary blood-based fertilization method involving a drop of his father's blood.",
+    "That conception method left the mother sterile, making Aghnar their only possible child."
+  ],
+  "page_id": "104_The_Metabarons_4_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "A woman holding an infant cries out in alarm as violence erupts.",
+    "A large man argues that the child is flawed and will never become a true warrior.",
+    "He says the child's weakness is tied to lacking the 'support of the earth' and lacking full power.",
+    "A woman tries to stop him with a blade and insists they must not abandon or kill the child.",
+    "She says the child, Aghnar, is the only child they will ever have.",
+    "She reveals that conceiving the child required fertilizing her ovum with a drop of the man's blood, leaving her sterile forever.",
+    "Despite her plea, the man ends the page poised to stab or kill the infant."
+  ],
+  "source_image": "external/comics/meta-barons/104_The_Metabarons_4_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e0e2b9b20c430572ba525f23aeda0c3fb376b941988820367e3c589fa309db8c",
+      "page_id": "104_The_Metabarons_4_p15",
+      "source_image": "external/comics/meta-barons/104_The_Metabarons_4_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some lettering is small and partially unclear; exact wording may be imperfectly interpreted.",
+    "The opening left panel may show the same mother from a different angle or a second woman; the page alone does not fully resolve this.",
+    "The exact identity names of the adults are not given on this page.",
+    "The source metadata says p15, but the scanned page footer visibly shows 16."
+  ],
+  "visual_summary": "In a chaotic interior scene, a white-haired woman cradling a baby screams while a large, muscular man attacks or reaches toward them. Another white-haired woman lunges with a blade, trying to stop him. The page escalates into a struggle around the infant, with close-ups of faces in shock and rage. The final panels show the man holding a dagger over the baby while the woman protests in horror.",
+  "volume": 4
+}

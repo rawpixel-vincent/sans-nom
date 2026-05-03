@@ -1,0 +1,54 @@
+{
+  "character_facts": [
+    "The woman is alone on this page.",
+    "She is mobile and resourceful enough to evade the immediate attack and find cover.",
+    "She is equipped for a cold environment, wearing heavy outer clothing and boots."
+  ],
+  "characters_present": [
+    "An unnamed woman in cold-weather clothing/armor",
+    "Multiple carnivorous eodactyls"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing survival or chase sequence in which the woman is already being hunted when the page begins.",
+    "The final panels imply the danger continues even after she reaches shelter."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that the woman is fleeing an attack by carnivorous eodactyls and takes shelter."
+  ],
+  "image_sha256": "97ddb9600473fdcdc322807faab0e470626e107a99f7325c5d2a0e03073c58ed",
+  "is_spread": false,
+  "locations": [
+    "A frozen exterior landscape with ice walls, snow, and shattered debris",
+    "An icy cave or overhang used as temporary shelter"
+  ],
+  "lore_facts": [
+    "Eodactyls are carnivorous.",
+    "Eodactyls are capable of flight and attack in groups.",
+    "The setting includes harsh frozen terrain with natural ice formations and sheltering crevices or caves."
+  ],
+  "page_id": "108_The_Metabarons_4_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A woman is attacked or pursued by a flock of carnivorous flying creatures.",
+    "She runs through a frozen, debris-strewn area while the creatures swoop around her.",
+    "She reaches an icy shelter or cave to escape the attack.",
+    "The predators continue pressing close to the shelter entrance."
+  ],
+  "source_image": "external/comics/meta-barons/108_The_Metabarons_4_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "97ddb9600473fdcdc322807faab0e470626e107a99f7325c5d2a0e03073c58ed",
+      "page_id": "108_The_Metabarons_4_p19",
+      "source_image": "external/comics/meta-barons/108_The_Metabarons_4_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The woman's identity is not given on this page.",
+    "The exact spelling of the creature name is somewhat hard to read, but it appears to be 'eodactyls'.",
+    "No dialogue identifies the planet or precise location.",
+    "Because the page is image-only here, some small visual details and the caption text may be partially unclear."
+  ],
+  "visual_summary": "In an icy, broken landscape, several large flying reptile-like predators with long toothed beaks dive and swarm around a bundled human figure. The figure runs downslope through ice and debris while the creatures close in from the air and at ground level. In the lower panels, she reaches a cave-like overhang or icy shelter and turns to face the threat as one of the predators lunges near the entrance. A narration box states that she fled the attack and took shelter.",
+  "volume": 4
+}

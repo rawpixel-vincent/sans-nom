@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The pirate figures shown are armed and appear to be monitoring the developing battle rather than actively attacking on this page.",
+    "No individual character is named or given direct personal action in this spread."
+  ],
+  "characters_present": [
+    "Unspecified crews of technodestroyers",
+    "Unspecified imperial warship crews",
+    "Purple Endoguard escort pilots or crews",
+    "Union forces from the Magnate's rich planetary systems",
+    "Pirate crews observing from their ships"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This spread reads as an escalation from prior news or events that revealed something valuable enough to attract empire, regional forces, and pirates alike.",
+    "The page sets up an imminent large-scale battle whose consequences will likely affect later scenes."
+  ],
+  "dialogue_meaning": [
+    "The narration explains a chain of military encirclements caused by greed and opportunism.",
+    "The page emphasizes escalation: each armed group is surrounded by an even larger or more opportunistic force.",
+    "The pirates are portrayed as scavengers waiting for others to weaken each other before striking."
+  ],
+  "image_sha256": "2e8876c81aec3b2388c003bb8a92cf883ab4ac840051f4e7095f495f6b8be095",
+  "is_spread": true,
+  "locations": [
+    "Outer space",
+    "A dense multi-fleet orbital or deep-space battleground",
+    "Interior of a pirate ship or observation cockpit"
+  ],
+  "lore_facts": [
+    "There are 'technodestroyers' significant enough to attract multiple major military forces.",
+    "The Empire fields immense warships and uses escorts called the Purple Endoguard.",
+    "The Magnate is associated with rich planetary systems capable of forming a union of armed forces.",
+    "Pirate fleets operate as opportunistic raiders, waiting to prey on weakened survivors after large battles.",
+    "The setting contains many distinct military and quasi-military factions coexisting in the same theater."
+  ],
+  "page_id": "374_The_Metabarons_14_p16-p17",
+  "page_label": "p16-p17",
+  "plot_events": [
+    "News of a situation or prize has drawn multiple factions into the same area of space.",
+    "Technodestroyers that were already under siege become surrounded by massive imperial warships.",
+    "Those imperial ships are themselves encircled by a broader union of armed forces from wealthy planetary systems tied to the Magnate.",
+    "Pirate ships gather at the edge of the looming confrontation, waiting to exploit the aftermath rather than engage first."
+  ],
+  "source_image": "external/comics/meta-barons/374_The_Metabarons_14_p16-p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2e8876c81aec3b2388c003bb8a92cf883ab4ac840051f4e7095f495f6b8be095",
+      "page_id": "374_The_Metabarons_14_p16-p17",
+      "source_image": "external/comics/meta-barons/374_The_Metabarons_14_p16-p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of the 'news' that triggered this mass convergence is not stated on this page alone.",
+    "The pirate crew members are visually distinctive, but their species, identities, and ranks are not stated here.",
+    "Some caption wording may be slightly uncertain due to image resolution, though the overall meaning is clear."
+  ],
+  "visual_summary": "A space battle buildup fills the spread. Huge angular and sleek capital ships surround one another in layers, with small escort craft between them. In the lower left, armed, animal-featured or heavily equipped pirate-looking figures sit inside a ship, watching the crowded starfield where many fleets mass for conflict.",
+  "volume": 14
+}

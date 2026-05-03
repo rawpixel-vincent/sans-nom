@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Oda is alive enough to be the subject of rescue efforts but is presented as mentally or physically devastated.",
+    "The armored man is emotionally shattered and deeply attached to Oda.",
+    "The white-haired woman is called a witch by the armored man but presents herself as medically capable.",
+    "The white-haired woman claims knowledge of advanced psycho-surgery.",
+    "Tonto is known to the speakers by reputation or prior relationship, enough to be summoned as an assistant."
+  ],
+  "characters_present": [
+    "Armored male speaker, likely Oda's husband",
+    "Oda, depicted as a damaged or catatonic woman",
+    "White-haired woman addressed as a witch",
+    "Ghostly or secondary female figure visible behind the armored man in one panel",
+    "Dark cloaked figure or reflection seen in the final exterior panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers back to an earlier sacrifice and to the larger ambition of creating or preserving the Metabarons' clan.",
+    "The accusation against the Marges and their descendants implies an ongoing conflict carried across generations.",
+    "The mention of the Metabunker and Tonto points to existing institutions and allies already established in the story."
+  ],
+  "dialogue_meaning": [
+    "One character frames recent events as proof that sacrifice and dynastic ambition were meaningless.",
+    "The armored man is enraged that his wife survives only in a ruined, near-dead state.",
+    "He blames female enemies or a lineage called the Marges for destroying her mind.",
+    "The white-haired woman claims she has the expertise to attempt a surgical or mental restoration.",
+    "She invokes specialized knowledge from the Shabda-Oud and wants help from someone named Tonto in the Metabunker.",
+    "The final line is a direct vow that Oda will be kept alive."
+  ],
+  "image_sha256": "1b38870548a76886e03b3d7ee31bd9f8cc50df172873f2b3112604634ae61061",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or advanced medical/transport chamber",
+    "Outer space near a massive pyramid-like installation or ship",
+    "Hull/exterior of the spacecraft"
+  ],
+  "lore_facts": [
+    "There is a concept of a 'great clan of Metabarons' treated as a major political or family ambition.",
+    "Oda has been altered into a 'living cadaver' state rather than simply being dead.",
+    "The Marges and their descendants are accused of having destroyed Oda's brain.",
+    "The Shabda-Oud is associated with psycho-surgical science.",
+    "A place or facility called the Metabunker exists and can be contacted for assistance.",
+    "A character named Tonto is considered suitable as an assistant for the proposed procedure."
+  ],
+  "page_id": "217_The_Metabarons_8_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A speaker mocks the futility of a past sacrifice and the failed dream of building a great clan of Metabarons.",
+    "An armored man presents his wife, saying she has been transformed into a living cadaver.",
+    "He accuses a 'witch' of saving him while leaving him without a real wife, claiming the Marges and their descendants destroyed his wife's brain.",
+    "The white-haired woman insists that she can help the injured woman.",
+    "She says she knows the psycho-surgical science of the Shabda-Oud and orders that the Metabunker be contacted because Tonto will make the perfect assistant.",
+    "The page concludes with a vow that Oda will live as a spacecraft moves through or away from the surrounding space structure."
+  ],
+  "source_image": "external/comics/meta-barons/217_The_Metabarons_8_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1b38870548a76886e03b3d7ee31bd9f8cc50df172873f2b3112604634ae61061",
+      "page_id": "217_The_Metabarons_8_p12",
+      "source_image": "external/comics/meta-barons/217_The_Metabarons_8_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; terms such as 'Marges' and the exact spelling of 'Shabda-Oud' may be imperfect.",
+    "The identity of the ghostly female figure behind the armored man is unclear from this page alone.",
+    "The final dark figure in the exterior shot may be a person, reflection, or stylized visual effect rather than a clearly separate character.",
+    "The armored male speaker is not explicitly named on this page."
+  ],
+  "visual_summary": "Inside and around a sleek spacecraft near a large pyramid-like structure in space, a man in armor shows a woman whose face and headgear make her appear inert or damaged. A white-haired woman argues with him, then appears in close-up making an urgent proposal. The page ends with exterior shots of a small craft departing or moving past the massive structure as a dark-cloaked figure or reflection appears along the ship’s hull, underscoring a vow that Oda will survive.",
+  "volume": 8
+}

@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Othon/Shazam is mourning his dead son Bari.",
+    "Othon rides alone and then isolates himself inside his hall.",
+    "Othon fears or rejects further disappointment.",
+    "Othon has authority over servants and over access to his hall.",
+    "Lothar is addressed directly by another artificial speaker.",
+    "One artificial being is emotionally distressed and describes an inability to display that distress physically."
+  ],
+  "characters_present": [
+    "Othon/Shazam",
+    "Lothar",
+    "an unnamed speaking artificial intelligence or machine",
+    "a servant or attendant who answers 'Very well, master'",
+    "multiple robotic attendants",
+    "imperial vessel crew or unloading figures",
+    "the limp humanoid figure lying across Othon's lap, identity unclear"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page follows Bari's death and shows Othon still grieving it.",
+    "The 'promised gift' arriving from the Empire is introduced as the next immediate development.",
+    "The closing doors and isolation set up a private reception or confrontation related to the delivered gift."
+  ],
+  "dialogue_meaning": [
+    "One artificial speaker says he suffers internally and envies humans' ability to show grief outwardly.",
+    "The other artificial speaker mocks this sensitivity and argues that what is called dead among artificial brains can be reborn.",
+    "The narration frames Othon as grieving Bari while returning alone through a seasonal natural setting.",
+    "The arrival of the imperial ship is presented as the delivery of a promised gift.",
+    "Othon's spoken order shows withdrawal, grief, and refusal to see anyone."
+  ],
+  "image_sha256": "14d5460902523b31de9e542289e1c7804bfc0c8b8b0c16d91bfaf148ec7a2546",
+  "is_spread": false,
+  "locations": [
+    "a machine-filled interior where two artificial beings converse",
+    "Otho, outdoors in a flowering landscape",
+    "the approach to Othon's fortress or shelter",
+    "the great hall of weapons inside Othon's stronghold"
+  ],
+  "lore_facts": [
+    "On Otho, there is a flower said to sing only once, and winged cats gather to drink its nectar.",
+    "Othon is also identified here as Shazam.",
+    "Bari is dead by this point in the story.",
+    "An imperial vessel brings a 'promised gift' to Othon's stronghold.",
+    "Othon possesses a place called the great hall of weapons.",
+    "Artificial beings in this setting discuss death and possible rebirth of artificial brains as an established concept or saying."
+  ],
+  "page_id": "084_The_Metabarons_3_p28",
+  "page_label": "p28",
+  "plot_events": [
+    "Two artificial beings speak; one envies humans for being able to cry and express distress, while the other tells him to be silent and listen to a story or report.",
+    "Narration describes a spring evening on Otho where swarms of winged cats move among a rare flower.",
+    "Othon, identified in narration as Shazam, rides alone while thinking about his dead son, Bari.",
+    "An imperial vessel arrives carrying a long-promised gift.",
+    "Othon rides quickly toward the shelter of his fortress because he does not want further disappointment.",
+    "Othon shuts himself inside his great hall of weapons.",
+    "He orders that the doors not be opened for anyone and refuses visitors.",
+    "A servant acknowledges the order as the doors close."
+  ],
+  "source_image": "external/comics/meta-barons/084_The_Metabarons_3_p28.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "14d5460902523b31de9e542289e1c7804bfc0c8b8b0c16d91bfaf148ec7a2546",
+      "page_id": "084_The_Metabarons_3_p28",
+      "source_image": "external/comics/meta-barons/084_The_Metabarons_3_p28.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue in the top captions is small and partially hard to read; wording may not be exact.",
+    "The identity and nature of the figure lying across Othon's lap are not explicitly stated on this page alone.",
+    "The exact identities of the two speaking artificial beings are not fully visually confirmed beyond the name Lothar being addressed.",
+    "The small unloading/arrival panel includes several tiny figures whose roles are not fully distinguishable."
+  ],
+  "visual_summary": "A framed narration page shifts between a machine-filled interior and an outdoor approach to a tall fortress-like structure. Othon/Shazam rides a horse through a landscape filled with fluttering winged creatures toward his stronghold while an imperial ship descends nearby. Inside, attendants and machines receive the arrival. In the final large panel, Othon sits in a chair in his weapons hall holding a limp humanoid figure across his lap, while a servant stands by and heavy doors close with a bright seam of light.",
+  "volume": 3
+}

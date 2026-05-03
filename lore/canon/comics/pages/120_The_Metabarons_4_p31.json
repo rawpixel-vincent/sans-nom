@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Aghnar can control or endure suffering to an extraordinary degree.",
+    "Aghnar loses his original feet and receives metal replacements.",
+    "Aghnar is addressed affectionately by someone overseeing or assisting the procedure.",
+    "Aghnar is identified as important to the future beginning of the Metabaron lineage.",
+    "The framing storyteller appears disciplined and focused on duty despite the listener's curiosity.",
+    "The listener is eager for lurid details about prior events and reacts with comic frustration when denied them."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "At least two attendants or companions assisting Aghnar",
+    "An off-panel or framing storyteller/listener pair continuing the larger narration",
+    "The current Metabaron (mentioned, not clearly shown on the page)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page presents Aghnar's mutilation as an origin point in the customs of the Metabaron line.",
+    "The bottom captions and dialogue explicitly set up continuation in the next episode/story segment.",
+    "The interrupted conversation indicates this page belongs to a larger framed retelling of Metabaron family history."
+  ],
+  "dialogue_meaning": [
+    "A speaker tells Aghnar to stop self-mutilating because he has already proven mastery over suffering.",
+    "Aghnar is told that enduring pain is necessary because the machine stops only when there is nothing left for it to crush.",
+    "The narration frames this event as the moment Aghnar earned metal prosthetic feet.",
+    "The caption claims the prostheses make him heavier and stronger, tying bodily mutilation to the Metabaron lineage's ritual tradition.",
+    "A companion says Aghnar will walk again and links his survival to the future of the Metabaron line.",
+    "The framing conversation shifts abruptly from gruesome lore to household or work obligations because their master may return.",
+    "The listener wants more scandalous details about another episode, but the storyteller postpones the rest until tomorrow."
+  ],
+  "image_sha256": "3f692ea3d5a6f320e029efe405e1ebd04c9ff8fd6e7e1c98476f232ef59a1c63",
+  "is_spread": false,
+  "locations": [
+    "A medical or mechanical chamber where Aghnar is operated on",
+    "An industrial or domestic service area connected to the storytellers",
+    "An exterior or windowed view of a futuristic city/structure with a hovering craft"
+  ],
+  "lore_facts": [
+    "Aghnar earns metal prosthetic feet through an ordeal of pain and mutilation.",
+    "These prosthetic feet are said to increase his weight.",
+    "The same augmentation is said to grant Aghnar superhuman powers.",
+    "Mutilation is described as one of the key components of Metabaronic initiation.",
+    "The Metabaron lineage is treated as a formal hereditary line with ritualized suffering.",
+    "There is a current Metabaron whose return causes subordinates to fear interruption or punishment."
+  ],
+  "page_id": "120_The_Metabarons_4_p31",
+  "page_label": "p31",
+  "plot_events": [
+    "Aghnar undergoes a brutal operation or initiation involving severe pain and bodily mutilation.",
+    "The procedure results in Aghnar receiving metal prosthetic feet.",
+    "A narration box states that this suffering also grants him increased weight, superhuman power, and that mutilation becomes part of Metabaronic initiation.",
+    "After the procedure, attendants comfort or carry Aghnar while saying he will walk again.",
+    "The in-story narrators are interrupted because the current Metabaron may return soon.",
+    "One speaker refuses to continue the tale until later, emphasizing their work duties and the need for precision and punctuality.",
+    "A hovering craft approaches or is shown outside as the interruption lands comedically."
+  ],
+  "source_image": "external/comics/meta-barons/120_The_Metabarons_4_p31.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3f692ea3d5a6f320e029efe405e1ebd04c9ff8fd6e7e1c98476f232ef59a1c63",
+      "page_id": "120_The_Metabarons_4_p31",
+      "source_image": "external/comics/meta-barons/120_The_Metabarons_4_p31.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the attendants physically handling Aghnar are not stated clearly on this page.",
+    "Some dialogue in the lower framing conversation is small and could be misread in detail, though the overall meaning is clear.",
+    "The flying object in the final panel may indicate the current Metabaron's return, but the page does not explicitly label it in-panel."
+  ],
+  "visual_summary": "In a surgical or workshop-like interior, an older white-haired man with cybernetic attachments is shown enduring extreme pain during a mechanical procedure. Blood drips from a machine in one panel, while attendants in fitted suits restrain and support him in another. A caption explains that he gains metal prosthetic feet through this ordeal. In the lower half, the patient is cradled by companions after the operation, and a close-up shows detailed metal feet. The page ends with servants or attendants interrupting the storytelling because the current Metabaron may return, followed by a hovering vehicle outside and a comic punchline about the interruption.",
+  "volume": 4
+}

@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The Baron has undergone castration, according to the narration.",
+    "The Baron is portrayed by one narrator as either insane or a master strategist.",
+    "The Baron successfully escaped with the sacred egg on this page.",
+    "A small robot-like character is present as an apparent narrator or witness."
+  ],
+  "characters_present": [
+    "The Baron (mentioned, not clearly shown)",
+    "A small robot narrator/observer with a screen-like face",
+    "The Lancets (mentioned as a group, not shown clearly)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an escape sequence already in progress.",
+    "The narration refers to an earlier act in which the Baron mocked the Mother-Coach.",
+    "The page sets up continued pursuit or consequences involving the Lancets and the Golden Planet."
+  ],
+  "dialogue_meaning": [
+    "One speaker says the Baron's mutilation/castration should have driven him mad, and views his mocking of the Mother-Coach as irrational.",
+    "Another speaker counters that the same event may instead have made him an exceptional strategist.",
+    "The narration says the Baron escaped before the Lancets could respond.",
+    "The Baron is said to have taken the sacred egg and to be racing toward the Golden Planet faster than anyone has matched since."
+  ],
+  "image_sha256": "46105a93a961bf561bb81a16b6fe0235e3cf314d5187d7b9c822b7e29cc3ed88",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "The exterior/interior launch passage of a massive ship or station",
+    "Route toward the Golden Planet"
+  ],
+  "lore_facts": [
+    "A figure called the Baron possesses or has taken an object called the sacred egg.",
+    "There is an entity or vessel called the Mother-Coach.",
+    "There is a destination called the Golden Planet.",
+    "'Hyper-light' travel exists in this setting.",
+    "The Lancets are a force capable of reacting to or pursuing the Baron."
+  ],
+  "page_id": "081_The_Metabarons_3_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "A small craft departs from a much larger structure or vessel.",
+    "The craft passes through a narrow opening or corridor between enormous curved hull sections.",
+    "Observers react in narration, debating whether the Baron's act was madness or brilliant strategy.",
+    "The Baron escapes with the 'sacred egg.'",
+    "The craft accelerates toward the Golden Planet at unprecedented hyper-light speed."
+  ],
+  "source_image": "external/comics/meta-barons/081_The_Metabarons_3_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "46105a93a961bf561bb81a16b6fe0235e3cf314d5187d7b9c822b7e29cc3ed88",
+      "page_id": "081_The_Metabarons_3_p25",
+      "source_image": "external/comics/meta-barons/081_The_Metabarons_3_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the robot narrator/observer is not given on this page.",
+    "The ship or structure the Baron is leaving is not explicitly named here.",
+    "Some narration is small and may be slightly misread, especially terms like 'Mother-Coach' and 'Lancets.'"
+  ],
+  "visual_summary": "A sleek craft launches away from or through a massive ship or station into space. Multiple panels show the vessel as a bright, elongated streak moving between huge curved metallic structures and then accelerating into open space. A small monitor-faced robot appears in an inset while narration boxes describe the escape and its speed.",
+  "volume": 3
+}

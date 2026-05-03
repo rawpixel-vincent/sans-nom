@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The older woman is emotionally attached to the two younger women and tries to save or pardon them.",
+    "The older woman is blindfolded or otherwise deprived of sight during this scene.",
+    "The younger women are resolute, hostile, and willing to die rather than retreat.",
+    "One of the younger women is self-aware enough to feel shame over having been subdued while asleep.",
+    "The trio addresses a 'master' with mixed reverence and farewell, indicating loyalty to an absent or dying superior."
+  ],
+  "characters_present": [
+    "Older blindfolded woman in robes, apparently pleading with the others",
+    "Two younger women being addressed by the older woman, dressed in revealing ceremonial or martial outfits with white headpieces",
+    "A third similarly dressed woman aligned with the younger pair"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing conflict involving the older blindfolded woman and two younger women she knows intimately.",
+    "The mention of an external spell and a prior surprise capture indicates events immediately preceding this page.",
+    "The farewell to a 'master' suggests a larger relationship network and prior allegiance outside the frame of this page."
+  ],
+  "dialogue_meaning": [
+    "The older woman begs the two younger women to stop and says she loves them, insisting they can still be forgiven.",
+    "The trio rejects any reversal, saying the decision is final and tied to returning to their origin or heading into death.",
+    "They imply the older woman is under another woman's spell and claim that spell will end soon.",
+    "One speaker feels humiliated at having been taken by surprise and helplessly captured while asleep.",
+    "The trio speaks contemptuously to the older woman, framing her as morally tainted and promising to restore her sight before she dies.",
+    "A final line asserts that death cannot be mentally dominated or hypnotized."
+  ],
+  "image_sha256": "80fab3dbd843e3574ed2795385fd82da2abe8a7d5839bcb9987551f0bd2c1e30",
+  "is_spread": false,
+  "locations": [
+    "A vast interior or open-walled monumental structure with stepped architecture and a tall vertical surface or pillar",
+    "A dark, abstract background around the trio that visually suggests a ritual, psychic, or dramatic confrontation rather than a clearly defined room"
+  ],
+  "lore_facts": [
+    "The page presents a 'place from whence no one returns,' treated as a known destination associated with death or irreversible departure.",
+    "A spell or hypnotic influence is affecting the older woman, and the trio believes it can be broken.",
+    "Blindness is treated as a condition that can be imposed or removed by other characters.",
+    "The speaking women frame death as something beyond the reach of hypnotic or mental control."
+  ],
+  "page_id": "097_The_Metabarons_4_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "An older woman rushes into a large architectural space and tries to stop two younger women from continuing.",
+    "The younger women, joined by a third similarly dressed figure, declare that there is no turning back and that they are going to a place of no return.",
+    "They say their current bondage or enchantment will soon end and that the older woman will be freed once it is over.",
+    "One of the women internally reflects with shame that she was captured or overtaken in her sleep by 'this pair of savages.'",
+    "The trio states that they will remove the older woman's blindness so she can face death with dignity.",
+    "The older woman cries out in refusal or grief as the confrontation escalates."
+  ],
+  "source_image": "external/comics/meta-barons/097_The_Metabarons_4_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "80fab3dbd843e3574ed2795385fd82da2abe8a7d5839bcb9987551f0bd2c1e30",
+      "page_id": "097_The_Metabarons_4_p08",
+      "source_image": "external/comics/meta-barons/097_The_Metabarons_4_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and exact terms in the speech balloons are difficult to read, including the precise names the older woman cries out.",
+    "The exact identity and role distinction among the three younger women is unclear from this page alone.",
+    "The exact nature of the setting around the trio may be symbolic or literal; the page does not fully define it.",
+    "It is not fully clear whether the planned 'departure' is literal travel, suicide, execution, or another form of irreversible transition."
+  ],
+  "visual_summary": "An older blindfolded woman runs into a large open structure and reaches toward a tall smooth wall or pillar while calling out to two women. In parallel, three women with dramatic dark hair and pale ceremonial headpieces crowd together and speak over her, appearing to reject retreat and prepare for departure or death. Close-ups emphasize the older woman's panic and the trio's fierce, almost ritualized resolve.",
+  "volume": 4
+}

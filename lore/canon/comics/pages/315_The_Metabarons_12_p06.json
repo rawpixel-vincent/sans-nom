@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Nicanor Rosamel de Rokha is capable of commanding a large public audience with a strongly ideological speech.",
+    "He speaks of himself as still being the same person, implying prior doubt or change.",
+    "The woman who runs to him believes he had lost his memory and that it has now returned.",
+    "She addresses him as 'Father,' establishing a father-daughter relationship between them."
+  ],
+  "characters_present": [
+    "Nicanor Rosamel de Rokha",
+    "A woman identified by the chant context as Dona Vicenta",
+    "Assembly members or political supporters",
+    "Guards or armored personnel near the chamber seating"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page directly references Nicanor having previously lost his memory and now apparently recovering it.",
+    "The public celebration links Nicanor's personal recovery to his return as a political leader."
+  ],
+  "dialogue_meaning": [
+    "Nicanor declares that he remains the same man and frames himself as a principled leader.",
+    "He invokes traditional ecology, ritual, nobility, and planetary defense as central values.",
+    "He calls for humanity to model itself on a Troglosocial ideal after the fall of the Empire.",
+    "The crowd celebrates him as president and repeats anti-Empire, anti-techno slogans.",
+    "A woman realizes his recovered memory from his words and emotionally reunites with him as his daughter."
+  ],
+  "image_sha256": "375abf9d6cc09ab0a09e887d66d597dfce0db2374a2d7aede2a86b836b5e558c",
+  "is_spread": false,
+  "locations": [
+    "A large ornate parliamentary, governmental, or palace chamber",
+    "A balcony, stair, or upper gallery overlooking the crowd inside the same building"
+  ],
+  "lore_facts": [
+    "Nicanor Rosamel de Rokha is presented here as a president.",
+    "He is associated with ritual behavior involving meditation beneath a sacred halerce tree branch.",
+    "His politics are described in terms of traditional ecology, ritual nobility, and resisting 'techno' forces.",
+    "There is an ideological program called the Troglosocialik Federation or Troglosocialik model.",
+    "The page references an Empire expected to collapse in time.",
+    "The name Philodendra is given as the world or place where a future social paradise is to be created.",
+    "The crowd identifies two honored figures by title: Don Nicanor and Dona Vicenta."
+  ],
+  "page_id": "315_The_Metabarons_12_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "Nicanor Rosamel de Rokha publicly addresses a legislative or ceremonial assembly.",
+    "He presents himself as unchanged and reaffirms his political values and goals.",
+    "The crowd responds enthusiastically with chants supporting him and denouncing his enemies.",
+    "A woman identifies the speech as proof that her father has recovered his memory.",
+    "She runs to Nicanor and embraces him, saying she missed him."
+  ],
+  "source_image": "external/comics/meta-barons/315_The_Metabarons_12_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "375abf9d6cc09ab0a09e887d66d597dfce0db2374a2d7aede2a86b836b5e558c",
+      "page_id": "315_The_Metabarons_12_p06",
+      "source_image": "external/comics/meta-barons/315_The_Metabarons_12_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some proper nouns and slogans are stylized and may be difficult to read precisely, including 'halerce,' 'Troglosocialik,' and the final anti-techno chant term.",
+    "Dona Vicenta is inferred from the crowd chant rather than explicitly labeled in narration boxes.",
+    "The exact institutional setting is not named on the page, though it appears to be a governmental or ceremonial chamber."
+  ],
+  "visual_summary": "Inside a grand parliamentary or palace chamber with tiered seating, Nicanor Rosamel de Rokha speaks from a podium and later from a balcony-like platform to a large crowd. He delivers a triumphant political speech while supporters cheer below. In the lower sequence, a woman in the audience recognizes that he has recovered his memory and runs toward him, calling him 'Father'; they embrace as the crowd continues chanting in support of Don Nicanor and Dona Vicenta.",
+  "volume": 12
+}

@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "Othon is conducting or continuing a bombardment during this operation.",
+    "One pilot or officer understands and explains the tactical use of the forbidden torpedo as a distraction.",
+    "The cockpit crew appear calm and deliberate while executing the ambush plan."
+  ],
+  "characters_present": [
+    "Othon (named in narration, not clearly identifiable by face on this page)",
+    "At least two helmeted crew or pilots inside a cockpit",
+    "Enemy fleet personnel implied but not individually shown"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing battle rather than its beginning, continuing a larger military operation.",
+    "The concealed endocraft and bombardment are part of a coordinated ambush or diversion plan."
+  ],
+  "dialogue_meaning": [
+    "The narration explains a diversion strategy: attack the enemy base so their fleet abandons its guard position.",
+    "The hidden endocraft are positioned in the asteroid field to exploit the enemy's movement.",
+    "A speaker states that a forbidden tri-H torpedo will occupy and distract the enemy while it detonates."
+  ],
+  "image_sha256": "9f40119a0f909111c3557471dc15ecff69f30e6f32dd48979fd791752b52d781",
+  "is_spread": false,
+  "locations": [
+    "Outer space near an asteroid cluster",
+    "Inside a combat spacecraft cockpit",
+    "Around an artificial planet or artificial base under bombardment"
+  ],
+  "lore_facts": [
+    "There is an object or vessel referred to as the 'mother-coach' that was under enemy guard.",
+    "The enemy has a base associated with an artificial planet or artificial world.",
+    "A force of 50 endocraft can operate hidden within an asteroid cluster.",
+    "A weapon called a 'tri-H torpedo' exists and is described as forbidden.",
+    "The weapon control includes warning text indicating restricted or absolute destruction, suggesting extreme destructive capability."
+  ],
+  "page_id": "077_The_Metabarons_3_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "Enemy forces are lured away from guarding a 'mother-coach' and redirected toward defending their base.",
+    "A group of 50 endocraft remains concealed inside an asteroid field along the enemy fleet's route.",
+    "Othon continues bombarding an artificial planet or artificial base.",
+    "A pilot plans to launch or arm a forbidden tri-H torpedo so the enemy will focus on the blast instead of the concealed asteroids."
+  ],
+  "source_image": "external/comics/meta-barons/077_The_Metabarons_3_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9f40119a0f909111c3557471dc15ecff69f30e6f32dd48979fd791752b52d781",
+      "page_id": "077_The_Metabarons_3_p21",
+      "source_image": "external/comics/meta-barons/077_The_Metabarons_3_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some labels and small control-panel text are difficult to read precisely.",
+    "The exact appearance and identity of Othon are uncertain on this page because the named character is only referenced in narration.",
+    "The exact spelling or technical meaning of 'tri-H' may be uncertain due to stylized lettering.",
+    "It is not fully clear whether the 'mother-coach' is a ship, convoy unit, or another type of strategic target."
+  ],
+  "visual_summary": "A space battle unfolds around an asteroid cluster and a large artificial structure. In a cockpit, helmeted crew watch enemy ships peel away from a guarded target and move to defend their base. Hidden among the asteroids, many small endocraft lie in wait. Another panel shows the artificial planet or base being bombarded and exploding. In the final tier, a pilot calmly explains the tactic while reaching toward a control labeled for restricted destruction, preparing a powerful torpedo to keep the enemy occupied.",
+  "volume": 3
+}

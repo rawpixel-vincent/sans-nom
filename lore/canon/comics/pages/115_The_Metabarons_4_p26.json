@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Aghnar is capable of fighting an armed robot in a low-gravity or weightless environment.",
+    "Aghnar is trusted by at least one observer, who explicitly says they have faith in him.",
+    "The white-haired woman is monitoring the duel closely and is surprised by Aghnar's endurance or survival time."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "A large combat robot or training robot",
+    "A white-haired woman observing the trial",
+    "A second observer on the platform"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing trial or rite centered on Aghnar's worthiness to become a Metabaron.",
+    "The page reinforces an earlier concern about Aghnar's weightlessness while showing that the test is still underway."
+  ],
+  "dialogue_meaning": [
+    "The observers set the condition for Aghnar's acceptance: success depends on activating the robot's self-destruct system.",
+    "Aghnar's lack of weight is explicitly framed as a possible disqualifying trait, but the speaker is willing to overlook it if he passes this test.",
+    "The observers express confidence in Aghnar before unleashing the robot.",
+    "A watching woman is astonished that the duel has lasted ten minutes."
+  ],
+  "image_sha256": "55f50b3a8b2f346a1bca48eb6e56fa00557089f0ff79a2429af175cb82076fcd",
+  "is_spread": false,
+  "locations": [
+    "An industrial or laboratory-like interior chamber",
+    "An elevated observation platform overlooking the chamber"
+  ],
+  "lore_facts": [
+    "There is a formal or semi-formal test for becoming a future Metabaron.",
+    "Aghnar is being judged specifically in relation to becoming a future Metabaron.",
+    "Aghnar's weightlessness is treated as a noteworthy issue in that judgment.",
+    "The trial involves a lethal or dangerous robot with a self-destruct mechanism that can apparently be manually activated by the candidate."
+  ],
+  "page_id": "115_The_Metabarons_4_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "Observers declare that if Aghnar can trigger the robot's self-destruct mechanism, he will be accepted as a future Metabaron despite his weightlessness.",
+    "Someone orders the robot killer to be activated.",
+    "The combat robot powers on and deploys long blade weapons.",
+    "Aghnar engages the robot in close combat inside the chamber.",
+    "The fight continues for ten minutes without Aghnar being defeated, surprising a watching woman."
+  ],
+  "source_image": "external/comics/meta-barons/115_The_Metabarons_4_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "55f50b3a8b2f346a1bca48eb6e56fa00557089f0ff79a2429af175cb82076fcd",
+      "page_id": "115_The_Metabarons_4_p26",
+      "source_image": "external/comics/meta-barons/115_The_Metabarons_4_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; wording may not be exact.",
+    "The identity of the first speaker on the observation platform is unclear from this page alone.",
+    "It is not fully certain whether the white-haired woman in the last panel is one of the two observers shown at the start.",
+    "The page image is labeled p26 in metadata, but the printed page number visible in the image appears to be 27."
+  ],
+  "visual_summary": "Inside a metallic industrial chamber, two onlookers watch from a platform and discuss Aghnar's trial. Close-up panels show a rounded combat robot powering up, extending blade-like weapons, and moving into attack mode. Aghnar, wearing a suit and helmet, confronts the machine in midair or low gravity, dodging and countering as the robot slashes the floor and lunges repeatedly. In the final panel, a white-haired woman reacts in surprise that ten minutes have already passed.",
+  "volume": 4
+}

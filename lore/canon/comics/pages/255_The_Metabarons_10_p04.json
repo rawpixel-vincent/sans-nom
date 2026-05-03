@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "Lothar is described as a warrior who avoids fighting alone and uses the environment strategically.",
+    "Tonto is trusted enough to be asked to inspect circuits for evidence about Steelhead.",
+    "Steelhead's survival is uncertain and is the subject of the current test.",
+    "Aghnar's victory status is disputed by the speakers on the page.",
+    "One robot speaker admits to having shown too little faith in Tonto."
+  ],
+  "characters_present": [
+    "Lothar (mentioned in dialogue, not clearly shown)",
+    "Tonto (addressed in dialogue; likely one of the robots present)",
+    "Steelhead (mentioned in dialogue, not clearly shown)",
+    "Aghnar (mentioned in dialogue, not shown)",
+    "At least two small robots/robotic attendants",
+    "A human or human-like figure lying inside a capsule",
+    "A larger robot head in close-up"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing conflict involving Lothar, Aghnar, Steelhead, and the Phagureans.",
+    "The outcome of a prior battle remains contested, and the present technical examination seems intended to resolve who survived or won.",
+    "The imagery of sealed chambers and circuit testing suggests continuation from an earlier rescue, autopsy, or recovery sequence."
+  ],
+  "dialogue_meaning": [
+    "A speaker uses Lothar's actions as a lesson in warrior strategy: he survives by using the terrain, specifically the acid lake, as an advantage.",
+    "A robot apologizes for doubting Tonto.",
+    "Technical voices report that the bio-electrogram is dissolving the target and that the meca-womb has been sealed.",
+    "A completed test is said to offer a way to determine whether Steelhead survived, if Tonto can find the relevant circuits.",
+    "Another speaker rejects the possibility of the proposed outcome, arguing that an Aghnar victory would have led to total human extinction.",
+    "A final voice angrily insists that Aghnar had already been declared the winner."
+  ],
+  "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+  "is_spread": false,
+  "locations": [
+    "A hazardous lakeside environment described as an acid lake",
+    "An interior or mechanical chamber containing the meca-womb",
+    "A capsule or medical/containment area with enclosed bodies or energy structures"
+  ],
+  "lore_facts": [
+    "The setting includes an 'acid lake' dangerous enough to be used tactically in combat.",
+    "A process called a 'bio-electrogram' can dissolve a living or biomechanical structure.",
+    "A structure called a 'meca-womb' exists and can be sealed during a technical procedure.",
+    "Circuit analysis is treated as a way to determine whether Steelhead survived.",
+    "The Phagureans are described as a force that would eliminate humanity if Aghnar had truly won."
+  ],
+  "page_id": "255_The_Metabarons_10_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A violent reaction or detonation occurs near an acid lake or similar hazardous terrain.",
+    "An organic structure identified as a 'meca-womb' is dissolved by a 'bio-electrogram.'",
+    "The meca-womb is then reported sealed.",
+    "A speaker claims a test is complete and asks Tonto to identify which circuits would indicate whether Steelhead survived.",
+    "Another speaker argues this is impossible because, if Aghnar had won the battle, the Phagureans would have eradicated the human race and history would be different.",
+    "A boastful voice insists Aghnar was the winner.",
+    "The page ends on images of an enclosed human figure, an energy-webbed chamber, and a robot face, emphasizing uncertainty about survival and outcome."
+  ],
+  "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+      "page_id": "255_The_Metabarons_10_p04",
+      "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue balloons are small and partially hard to read; wording may be slightly inaccurate.",
+    "It is unclear which visible robot is Tonto and whether the enclosed human figure is Steelhead or another character.",
+    "The exact nature of the black object or craft in the central panels is ambiguous from this page alone.",
+    "The precise spelling or identity of 'Phagureans' is uncertain due to image resolution.",
+    "Some speech may be off-panel, so exact speaker attribution is uncertain."
+  ],
+  "visual_summary": "A bright explosion or chemical reaction erupts across the top of the page beside a sleek black craft or projectile. Below, a bulbous organic mass dissolves in a foaming blue liquid while the black craft dives past it. Small robots speak from off-panel or lower panels, reporting a successful dissolution and the sealing of a 'meca-womb.' In the bottom row, a pale blue-lit human figure lies enclosed in a capsule while a web-like energy pattern fills a neighboring capsule panel; at the far right, a large robot head appears in close-up.",
+  "volume": 10
+}

@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The white-haired leader is willing to fight despite expecting defeat.",
+    "The defenders define themselves by a warrior code centered on honor.",
+    "A younger male figure is emotionally and politically aligned with his mother.",
+    "The mother is an active participant in the battle rather than a passive figure."
+  ],
+  "characters_present": [
+    "A white-haired armored leader who argues for fighting",
+    "A bearded armored warrior standing beside the leader",
+    "A younger white-haired noble or warrior who says he supports his mother",
+    "The mother addressed by the younger figure, shown fighting in the melee",
+    "Multiple defending warriors with swords and armor",
+    "Multiple invading soldiers in dark protective suits carrying advanced firearms"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page escalates a prior crisis into open combat.",
+    "The page frames the battle as the consequence of imperial collapse and the defenders' code of honor."
+  ],
+  "dialogue_meaning": [
+    "The defenders acknowledge that the wider empire can no longer protect them.",
+    "Their leader says duty and honor forbid betrayal, so they must fight even in a hopeless situation.",
+    "Someone emphasizes the severe numerical and technological disadvantage facing the defenders.",
+    "The attackers offer clemency if the defenders surrender.",
+    "The defenders answer that an honorable death is better than living without honor.",
+    "A command is given for the brave to follow into battle.",
+    "Another voice orders someone identified as a woman or mother to be stopped.",
+    "A younger speaker declares loyalty to his mother and says he could not live with self-hatred if he abandoned her."
+  ],
+  "image_sha256": "abd0fe976740514b18f545399cd77456a5ffc6eb8c5e618ae1dc36b785d7567f",
+  "is_spread": false,
+  "locations": [
+    "A large interior hall or fortress chamber with tall windows and stairs",
+    "The same hall during the melee at its lower level"
+  ],
+  "lore_facts": [
+    "This setting includes an empire, but it is described here as powerless.",
+    "The conflict pits traditional bladed warriors against opponents using post-nuclear weaponry.",
+    "Honor, oath, and refusal to betray oneself are treated as core warrior values by the defenders.",
+    "The attackers are numerous, organized, and equipped with advanced armor and firearms.",
+    "Surrender is presented as a live option by the attackers, but the defenders reject it on moral grounds."
+  ],
+  "page_id": "026_The_Metabarons_1_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "A defender states that imperial power has failed them.",
+    "A senior armored leader argues that honor and oath matter more than survival and calls for resistance.",
+    "The scale of the mismatch is stated: roughly 150 traditional warriors against 1,500 heavily armed killers with advanced weaponry.",
+    "An opposing force enters or stands before them and demands surrender in exchange for mercy.",
+    "The defenders refuse surrender and declare death in honorable combat preferable to dishonorable survival.",
+    "A rallying cry sends the defenders into battle.",
+    "Combat begins immediately in the hall, with sword fighting at close range.",
+    "A younger figure publicly sides with his mother during the outbreak of fighting."
+  ],
+  "source_image": "external/comics/meta-barons/026_The_Metabarons_1_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "abd0fe976740514b18f545399cd77456a5ffc6eb8c5e618ae1dc36b785d7567f",
+      "page_id": "026_The_Metabarons_1_p25",
+      "source_image": "external/comics/meta-barons/026_The_Metabarons_1_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Most characters are not named on this page, so identities are described by appearance or role only.",
+    "The exact family relationships beyond the explicitly mentioned 'mother' are not fully clear from this page alone.",
+    "The precise nature of the location (palace, fortress, or hall) is not explicitly stated on the page."
+  ],
+  "visual_summary": "Inside a large hall or stronghold, armored nobles and warriors debate whether to resist an attacking force. One speaker insists that, although the empire is powerless and their side is outmatched, honor requires them to fight rather than surrender. Enemy troops in dark post-nuclear armor advance and offer to spare their lives if they capitulate. The defenders reject the offer, rally to charge, and the page ends with a chaotic close-quarters melee of blades and armored bodies.",
+  "volume": 1
+}

@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "Cyber-cops are active on or above Terra 2014 and conduct surveillance of the city-shaft.",
+    "The Zacuda Frolex is described as the last of its kind."
+  ],
+  "characters_present": [
+    "Cyber-cops/patrol crew, seen indirectly through their vehicle or equipment"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an establishing opening, setting the state of Terra 2014 before events proceed inside the city-shaft.",
+    "The rare Zacuda Frolex being dropped into the hatch appears to initiate a forthcoming event or intrusion into the abandoned city-shaft."
+  ],
+  "dialogue_meaning": [
+    "The narration introduces Terra 2014 as a harsh, windswept place with a smooth engineered outer shell.",
+    "The city-shaft is under surveillance, but the watch is effectively pointless because it has been uninhabited for centuries.",
+    "A rare being or object called a Zacuda Frolex is carried by the wind.",
+    "That Zacuda Frolex enters the city-shaft through a ventilation opening."
+  ],
+  "image_sha256": "85e2be959e75ce7060336c67be527cd5cffe9a8e27f6b1874e0342206fead7f0",
+  "is_spread": false,
+  "locations": [
+    "The smooth Teflo-concrete shell of Terra 2014",
+    "The city-shaft of Terra 2014",
+    "A ventilation hatch in the shell"
+  ],
+  "lore_facts": [
+    "Terra 2014 has a smooth outer shell made of Teflo-concrete.",
+    "Strong winds sweep across the shell of Terra 2014.",
+    "The city-shaft has been uninhabited by humans for over three centuries.",
+    "Cyber-cops monitor the city-shaft.",
+    "A 'Zacuda Frolex' exists and is identified here as the last of its kind.",
+    "The shell includes ventilation hatches that open into the structure below."
+  ],
+  "page_id": "058_The_Metabarons_3_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "An aerial patrol craft moves over the outer shell of Terra 2014.",
+    "Narration establishes that cyber-cops are watching the city-shaft, but no humans have lived there for more than three centuries.",
+    "A wind gust carries a Zacuda Frolex identified as the last of its kind.",
+    "The object is dropped through one of the shell's ventilation hatches."
+  ],
+  "source_image": "external/comics/meta-barons/058_The_Metabarons_3_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "85e2be959e75ce7060336c67be527cd5cffe9a8e27f6b1874e0342206fead7f0",
+      "page_id": "058_The_Metabarons_3_p01",
+      "source_image": "external/comics/meta-barons/058_The_Metabarons_3_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual form of the Zacuda Frolex is small and indistinct in the panel; it may be a creature, object, or container, but the page does not make this fully clear visually.",
+    "No individual cyber-cop is clearly visible or identifiable by name on this page."
+  ],
+  "visual_summary": "A large aircraft or patrol craft crosses a vast pale surface under a pink sky above the curved shell of Terra 2014. The page then looks down through or across the craft toward a huge circular city-shaft opening. Later panels show debris or a windblown object moving through the air and being dropped through a ventilation hatch on the shell.",
+  "volume": 3
+}

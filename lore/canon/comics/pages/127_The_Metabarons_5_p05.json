@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Tonto is addressed directly as someone expected to help in the crisis.",
+    "A commanding figure speaks in technical terms and gives urgent instructions under time pressure.",
+    "The apprentice or subordinate is associated with reactor control.",
+    "The ant-robots are capable of coordinated repair work and reflective conversation.",
+    "At least one ant-robot can question prior assumptions about its master's power."
+  ],
+  "characters_present": [
+    "Tonto",
+    "An urgent commanding speaker addressing a 'paleo-sorcerer's apprentice'",
+    "A subordinate or apprentice being ordered to activate reactors",
+    "Multiple ant-robots repairing damage"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page depicts aftermath or ongoing consequences of earlier damage, as shown by fires, wreckage, and repair activity.",
+    "The mention of a 'current master' implies an existing hierarchy established before this page.",
+    "The attempt to reunite the two halves suggests a process or separation that began before this page."
+  ],
+  "dialogue_meaning": [
+    "One speaker reacts in alarm and asks Tonto for a solution.",
+    "A commanding voice gives a technical emergency order to start designated reactors immediately.",
+    "The order makes clear there is very little time before the object falls into acid.",
+    "Repair robots are already responding to damage in the area.",
+    "A repair robot admits that what happened has undermined belief in the current master's invulnerability."
+  ],
+  "image_sha256": "bae5f66661a58819cbe97a390bda6c2a11b690521120fcf4f0e511ff46c7591b",
+  "is_spread": false,
+  "locations": [
+    "A large industrial/mechanical chamber with heavy pipes and machinery",
+    "An area above or beside an acid lake",
+    "A damaged, burning repair zone inside the same facility"
+  ],
+  "lore_facts": [
+    "There is an 'acid lake' in or beneath this facility.",
+    "A system called the B-570-4890 circuit reactors can be activated in an emergency.",
+    "A large object or being on the page exists as two separable polyhedral halves that can be re-united.",
+    "This setting uses small ant-like robots for repair work.",
+    "The ant-robots recognize a figure they call their 'current master' and discuss that figure's supposed invincibility."
+  ],
+  "page_id": "127_The_Metabarons_5_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A distressed speaker asks Tonto what can be done.",
+    "Another voice urgently orders a subordinate or apprentice to activate the B-570-4890 circuit reactors.",
+    "The stated goal is to reunite two separated halves before they plunge into an acid lake.",
+    "The two floating polyhedral halves move into alignment and begin rejoining.",
+    "Small ant-robots spread across the damaged industrial area and begin repairs.",
+    "One ant-robot says recent events shook its confidence in their current master's invincibility."
+  ],
+  "source_image": "external/comics/meta-barons/127_The_Metabarons_5_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bae5f66661a58819cbe97a390bda6c2a11b690521120fcf4f0e511ff46c7591b",
+      "page_id": "127_The_Metabarons_5_p05",
+      "source_image": "external/comics/meta-barons/127_The_Metabarons_5_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and nature of the floating polyhedral halves are not explicitly established on this page alone.",
+    "Some dialogue is small and partially hard to read, so speaker attribution and exact wording may be imperfect.",
+    "It is unclear whether the commanding speaker is one of the floating entities, an off-panel character, or a machine voice.",
+    "The page does not fully clarify whether Tonto and the 'paleo-sorcerer's apprentice' are the same being or different addressees."
+  ],
+  "visual_summary": "In a vast industrial chamber full of pipes, fire, smoke, and shallow liquid, two large floating polyhedral halves hover inside bright energy halos. One speaker urgently orders another to activate specific circuit reactors so the halves can rejoin before falling into an acid lake. The lower panels show the halves aligning and descending together amid damage and flames, while many tiny ant-like repair robots swarm over the machinery and discuss what they have witnessed.",
+  "volume": 5
+}

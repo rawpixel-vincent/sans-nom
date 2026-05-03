@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Master Metabaron describes himself as a warrior without a past in the new galaxy.",
+    "Master Metabaron has a scar marking his right eyebrow.",
+    "Master Metabaron considers himself the greatest warrior in all the galaxies.",
+    "Master Metabaron is prepared to kill loyal robots to keep his secret from falling into enemy hands.",
+    "The robots serve the Metabaron and address him as master.",
+    "At least one robot is made of 'plastic metal,' mentioned jokingly while facing the weapon.",
+    "The robots are aware of the secret tied to the Metabaron's scar.",
+    "The robots show mixed reactions: fear, obedience, and legalistic reasoning."
+  ],
+  "characters_present": [
+    "Master Metabaron",
+    "Two small spherical robots",
+    "One larger boxy robot"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers on an earlier 'deplorable episode' in the Metabaron's past, but does not reveal it.",
+    "The threat of enemy espionage against robotic memory-banks links the Metabaron's personal secret to a broader ongoing conflict."
+  ],
+  "dialogue_meaning": [
+    "The Metabaron fears that knowledge of his past trauma or origin, symbolized by the eyebrow scar, would give enemies a strategic weak point.",
+    "He believes the robots are dangerous liabilities because they alone retain knowledge of that secret.",
+    "The robots understand the logic and discuss being destroyed to protect their master.",
+    "One robot frames self-sacrifice as robotic duty.",
+    "Another delays the execution, while a different robot cites Terra Prima's laws to argue they should die alongside the Meta-bunker rather than separately."
+  ],
+  "image_sha256": "e6dc82c384e32fe6741154ff63aa301e6f7abd59b244e2fcb3ddc3cd8c5b7c5d",
+  "is_spread": false,
+  "locations": [
+    "Metallic interior associated by dialogue with the Meta-bunker",
+    "The broader setting is the 'new galaxy' mentioned in narration"
+  ],
+  "lore_facts": [
+    "The story is set in a 'new galaxy.'",
+    "The Metabaron's right-eyebrow scar is known to enemies and is tied to a hidden past episode.",
+    "Interplanetary or interdimensional information networks with 'hyper-brains' are actively trying to uncover the truth behind his scar.",
+    "The robots possess memory-banks that can be targeted by spies.",
+    "Knowledge of the Metabaron's past is treated as a concrete exploitable weakness.",
+    "Terra Prima has laws or traditions referenced by the robots.",
+    "The 'Meta-bunker' exists and is important enough to be treated like a vessel or command stronghold in the robots' analogy.",
+    "The term 'paleo-captain' and 'paleo-ship' reflects an older legal or cultural formula cited by the robots."
+  ],
+  "page_id": "331_The_Metabarons_12_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "The Metabaron explains that in the new galaxy he has no known past, but enemies are searching for a weakness.",
+    "He states that the only clue his enemies have found is the scar over his right eyebrow.",
+    "He says vast intelligence networks are trying to uncover the secret behind that scar.",
+    "He identifies the two robots present as the only ones who know about the hidden past episode connected to the scar.",
+    "He raises or aims a heavy weapon at the robots as a solution to preventing the secret from spreading.",
+    "One robot warns that spies may soon target their memory-banks.",
+    "The robots conclude that if captured, they would expose the Metabaron's weak point to his enemies.",
+    "At least one robot urges immediate destruction, saying robots should perish for their master.",
+    "Another robot asks him not to shoot yet.",
+    "A robot invokes the laws of Terra Prima, arguing they should go down together with the Meta-bunker like a captain with a ship."
+  ],
+  "source_image": "external/comics/meta-barons/331_The_Metabarons_12_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e6dc82c384e32fe6741154ff63aa301e6f7abd59b244e2fcb3ddc3cd8c5b7c5d",
+      "page_id": "331_The_Metabarons_12_p22",
+      "source_image": "external/comics/meta-barons/331_The_Metabarons_12_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities or names of the individual robots are not given on this page.",
+    "The precise nature of the 'deplorable episode' connected to the scar is not disclosed here.",
+    "The page metadata says p22 while the printed page number visible in the image appears to be 25.",
+    "Some terms in the dialogue, such as 'plastic metal' and the exact phrasing around Terra Prima law, could be stylized and may admit minor transcription uncertainty."
+  ],
+  "visual_summary": "A scarred, bald warrior identified by the robots as Master Metabaron stands inside a metallic interior, looming over small spherical and boxy robots while aiming a large, ornate firearm at them. Close-ups emphasize his scarred right eyebrow and intense expression as the robots react with alarm, fatalism, and procedural arguments.",
+  "volume": 12
+}

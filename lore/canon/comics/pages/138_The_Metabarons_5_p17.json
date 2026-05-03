@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Honorata is someone another character calls on for help.",
+    "Honorata can participate in a mental union in the 'mind's shadow.'",
+    "Honorata appears to receive power from an older figure.",
+    "The robed attacker relies on the Shabda-Oud and uses it offensively.",
+    "The older silver-haired figure supports Honorata by offering his energy rather than attacking directly on this page."
+  ],
+  "characters_present": [
+    "Honorata",
+    "A woman being attacked and later shown blasting energy",
+    "A robed/cybernetic attacker wielding or invoking the Shabda-Oud",
+    "An older silver-haired figure standing behind Honorata in the shadowed panels"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The plea to Honorata implies she is already known and important to the endangered character.",
+    "The page continues an ongoing conflict involving the Shabda-Oud and psychic combat.",
+    "The 'mother' form of address suggests a pre-existing familial or hierarchical relationship, but the exact relation is not fully established on this page alone."
+  ],
+  "dialogue_meaning": [
+    "The attacker believes the Shabda-Oud grants overwhelming mental power.",
+    "The threatened woman calls specifically to Honorata for aid.",
+    "An older figure offers his energy to Honorata so they can merge or unite mentally.",
+    "Honorata accepts the union in the mind's shadow.",
+    "The page ends with the attacker crying out after being hit by the counterattack."
+  ],
+  "image_sha256": "f3bfbf0c681df95b65720882752594feabd7fd7ba8f9ee49680ddd25e885dc82",
+  "is_spread": false,
+  "locations": [
+    "A combat setting with open space and scattered organic-looking debris or splatter",
+    "A shadowy mental or psychic space described as the 'mind's shadow'"
+  ],
+  "lore_facts": [
+    "The Shabda-Oud is associated with formidable mental power.",
+    "There is a state or realm called the 'mind's shadow' where characters can become united.",
+    "Energy can be transferred or shared between characters in this mental state.",
+    "Mental or psychic union can immediately increase a character's offensive power."
+  ],
+  "page_id": "138_The_Metabarons_5_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A robed or cybernetic attacker declares confidence in the mental power of the Shabda-Oud while firing or channeling a bright energy attack.",
+    "A woman under attack cries out to Honorata for help.",
+    "In a shadowy psychic space, an older figure tells a helmeted woman to absorb his energy so they can unite mentally.",
+    "The helmeted woman accepts, and her glowing eyes indicate she has been empowered or psychically linked.",
+    "The empowered woman counters with a powerful energy blast aimed at the attacker.",
+    "The attacker is struck in the face or head area and screams in pain."
+  ],
+  "source_image": "external/comics/meta-barons/138_The_Metabarons_5_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f3bfbf0c681df95b65720882752594feabd7fd7ba8f9ee49680ddd25e885dc82",
+      "page_id": "138_The_Metabarons_5_p17",
+      "source_image": "external/comics/meta-barons/138_The_Metabarons_5_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be slightly off.",
+    "It is unclear whether the woman under attack, the empowered woman, and Honorata are all the same person or whether multiple women are involved across the page.",
+    "The exact identity of the older silver-haired figure is not stated on this page.",
+    "The exact physical nature of the attacker (person, cyborg, or armored figure) is visually ambiguous.",
+    "The exact environment is unclear because the page focuses more on psychic effects and close-up combat than on establishing the setting."
+  ],
+  "visual_summary": "A psychic or energy battle escalates across several panels. A blinding beam is projected at close range while a robed, mechanical-looking opponent invokes the power of the Shabda-Oud. A terrified woman calls for Honorata. In darker inset panels, an older figure stands behind a helmeted woman and urges her to absorb his energy so they can unite in the 'mind's shadow'; her eyes then glow, suggesting the transfer takes effect. In the larger action panels, the empowered woman unleashes a strong energy blast back at the robed attacker, who recoils and screams as the blast tears into their face or headgear.",
+  "volume": 5
+}

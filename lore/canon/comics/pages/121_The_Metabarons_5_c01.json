@@ -1,0 +1,48 @@
+{
+  "character_facts": [
+    "The depicted figure wears a dark protective helmet with a transparent face shield.",
+    "The figure is shown holding a large, intricately engraved firearm.",
+    "The figure's identity is not stated on this page."
+  ],
+  "characters_present": [
+    "One unidentified armored figure shown in close-up on the cover"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "As a cover, this page introduces the fifth issue/chapter of The Metabarons and names the upcoming segment 'The Snare of Okhar.'"
+  ],
+  "dialogue_meaning": [
+    "There is no dialogue or narrative caption; the page only provides title and publication identification."
+  ],
+  "image_sha256": "a0fe29dac96eb6d1f310344ae93edc7a2ac9db74207a59c53505a64e3eeac980",
+  "is_spread": false,
+  "locations": [
+    "No specific in-story location is shown or named on the cover"
+  ],
+  "lore_facts": [
+    "The comic is identified as The Metabarons issue #5.",
+    "The installment is titled 'The Snare of Okhar.'",
+    "The credited creators listed on the cover are Jodorowsky, Gimenez, and Moebius."
+  ],
+  "page_id": "121_The_Metabarons_5_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No story action is depicted; this page functions as a cover image introducing the installment.",
+    "The cover presents a heavily armored character and a ceremonial-looking or ornate weapon as the central visual motif.",
+    "The installment title 'The Snare of Okhar' is announced."
+  ],
+  "source_image": "external/comics/meta-barons/121_The_Metabarons_5_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a0fe29dac96eb6d1f310344ae93edc7a2ac9db74207a59c53505a64e3eeac980",
+      "page_id": "121_The_Metabarons_5_c01",
+      "source_image": "external/comics/meta-barons/121_The_Metabarons_5_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover, it does not confirm the armored figure's name, role, or the story location.",
+    "No in-story events or relationships can be established from this page alone."
+  ],
+  "visual_summary": "This is the issue cover for The Metabarons #5. A close-up portrait shows an armored figure in a dark helmet and face shield staring outward while holding an ornate, oversized firearm engraved with decorative patterns. The title branding and the story subtitle identify the installment as 'The Snare of Okhar.'",
+  "volume": 5
+}

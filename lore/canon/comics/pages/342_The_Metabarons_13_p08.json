@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The daughter has been blinded on this page.",
+    "The father believes his own actions caused the blinding.",
+    "The older white-haired man takes charge of medical treatment and the political solution being discussed.",
+    "Melmoth is considered a candidate for marriage and social advancement through this union.",
+    "The father is desperate for absolution from his daughter."
+  ],
+  "characters_present": [
+    "A distraught bearded father",
+    "The blinded daughter",
+    "An older white-haired man treating her wounds",
+    "Melmoth (mentioned, not clearly shown)",
+    "Numerous helmeted guards or officials",
+    "A speaker addressing 'Tonto' from off-panel or another part of the scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier injury to the daughter, now shown as blindness.",
+    "The proposed marriage to Melmoth appears tied to an ongoing political or dynastic objective.",
+    "The crash at the end sets up an immediate interruption or attack in the next page."
+  ],
+  "dialogue_meaning": [
+    "The father says he is responsible for his daughter's condition and begs forgiveness.",
+    "The older man says the wounds must be sealed and that the daughter's marriage has exceptional worth.",
+    "He proposes that accepting Melmoth as husband and voting for him will secure his advancement to noble status.",
+    "The marriage is described as requiring approval or a vote from a federation-like authority.",
+    "A separate voice interrupts, calling attention to a loud cry or disturbance just before the crash."
+  ],
+  "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+  "is_spread": false,
+  "locations": [
+    "A crowded interior chamber or hall with many armed or helmeted personnel",
+    "The same chamber's upper or open structural area where the crash occurs"
+  ],
+  "lore_facts": [
+    "Marriage in this setting can require or involve formal votes and political approval.",
+    "A 'medallion' is associated with achieving high nobility.",
+    "An organization called the Troglo/socialic Federation (exact spelling unclear) appears to have authority over the marriage vote.",
+    "Cauterization is used as emergency treatment for severe eye injuries or blinding wounds.",
+    "The scene includes many uniformed, helmeted personnel, suggesting an official or militarized environment."
+  ],
+  "page_id": "342_The_Metabarons_13_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "A bearded father laments that his actions caused his daughter to become blind.",
+    "An older white-haired man cauterizes or treats the daughter's eye wounds despite the pain.",
+    "The older man frames the daughter's marriage to Melmoth as politically valuable and asks her to accept him as husband.",
+    "He also asks her to give Melmoth her vote so he can obtain a medallion tied to high nobility.",
+    "The father reacts emotionally to this proposed resolution.",
+    "The conversation is abruptly interrupted when a large flying creature or craft crashes through the structure and strikes a helmeted figure."
+  ],
+  "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+      "page_id": "342_The_Metabarons_13_p08",
+      "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; exact wording and names may be slightly off.",
+    "The federation name is hard to decipher from the image and may not be transcribed exactly.",
+    "It is unclear whether the crashing figure is a creature, vehicle, or creature-like craft.",
+    "The off-panel speaker in the final row is not visually identified with certainty.",
+    "Melmoth is only mentioned in dialogue here and is not clearly identifiable in the art."
+  ],
+  "visual_summary": "In a crowded ceremonial or official interior packed with helmeted figures, a distraught bearded man kneels and weeps over his daughter being blinded. An older white-haired man tends to the young woman’s glowing eye wounds while speaking calmly. The older man then proposes a political-marital remedy: the daughter should accept Melmoth as husband and cast a vote so he can receive a high-status medallion and noble rank. The father appears overwhelmed with gratitude or grief. In the final tier, the scene is interrupted by a violent crash as a large flying creature or craft bursts through the structure and splatters a helmeted onlooker.",
+  "volume": 13
+}

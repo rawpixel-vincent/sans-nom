@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Steelhead is presented as one possible victor in the battle.",
+    "Aghnar is presented as Steelhead's opponent and another possible victor.",
+    "The two robots appear capable of debate and interpretation but say they cannot lie.",
+    "The robots perform servant duties, including preparing dinner for their master."
+  ],
+  "characters_present": [
+    "Steelhead (mentioned, not clearly shown)",
+    "Aghnar (mentioned, not clearly shown)",
+    "Two unnamed robot narrators/servants shown at the bottom",
+    "An absent 'master' expected to return soon"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page serves as a cliffhanger ending for the current installment.",
+    "It explicitly points forward to the next installment, 'The Clash of the Meta-Warriors.'",
+    "The robots' discussion links the battle's outcome to later family ancestry and birth."
+  ],
+  "dialogue_meaning": [
+    "The robots are not neutral about the battle and each favors a different winner.",
+    "One robot argues Steelhead must survive because otherwise a later family line could not exist.",
+    "The other robot rejects that reasoning and insists Aghnar will win.",
+    "Their exchange raises a paradox about lineage and causality but does not resolve it.",
+    "They stop narrating for practical household duties, signaling the story is paused rather than concluded."
+  ],
+  "image_sha256": "197c6144c791bc9e2f651f89b141108e5dd717e9b0cf4f3166dda6f17c1b1ef0",
+  "is_spread": false,
+  "locations": [
+    "Outer space battlefield filled with human and Pthagurean fleets",
+    "An unspecified place where the two robots are conversing while narrating"
+  ],
+  "lore_facts": [
+    "There are both human fleets and Pthagurean fleets engaged in this conflict.",
+    "The battle involves millions of ships on each side.",
+    "A black metacraft and a purple metacraft are singled out as central to the confrontation.",
+    "The key duel is between a father and his son.",
+    "The story is being recounted by robots who refer to serving a master."
+  ],
+  "page_id": "249_The_Metabarons_9_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "The page depicts a massive battle between millions of Pthagurean ships and millions of human ships.",
+    "A black metacraft and a purple metacraft are identified as being at the center of the battle.",
+    "The confrontation is framed as a decisive father-versus-son battle of historic scale.",
+    "Two robot narrators argue about whether Steelhead or Aghnar will win.",
+    "One robot halts the storytelling because they must prepare dinner for their master and says the story will continue the next day.",
+    "The page ends with a 'to be continued' notice for the next episode, titled 'The Clash of the Meta-Warriors.'"
+  ],
+  "source_image": "external/comics/meta-barons/249_The_Metabarons_9_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "197c6144c791bc9e2f651f89b141108e5dd717e9b0cf4f3166dda6f17c1b1ef0",
+      "page_id": "249_The_Metabarons_9_p22",
+      "source_image": "external/comics/meta-barons/249_The_Metabarons_9_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and only partially legible, so exact wording may be imperfect.",
+    "The names Steelhead and Aghnar are read from the dialogue and could be affected by image resolution.",
+    "The source metadata says p22, but the printed page number at the bottom appears to read 24.",
+    "The identity of the robots is not stated on this page, so they are left unnamed.",
+    "The precise physical setting of the robots is unclear because they are shown against a mostly blank lower background rather than a defined environment."
+  ],
+  "visual_summary": "A large splash image shows an immense space battle: dense fleets fill a dark nebula-like field while a bright explosion or luminous cloud opens near the center. A caption frames the clash as an enormous confrontation between Pthagurean and human forces, with two special metacraft at the center linked to a father-and-son duel. Along the bottom margin, two small robots interrupt the narration and argue over who will win, then stop for the day and promise to continue later.",
+  "volume": 9
+}

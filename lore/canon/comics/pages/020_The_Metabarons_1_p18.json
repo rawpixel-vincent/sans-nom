@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The Baron uses a short dagger and attacks Othon directly.",
+    "The Baron is old enough to be addressed as 'Grandfather.'",
+    "Othon is the target of the Baron's attack.",
+    "At least one bystander is protective of Othon, while another accepts the fight as legitimate."
+  ],
+  "characters_present": [
+    "The Baron, an older green-faced man with white hair",
+    "Othon",
+    "A younger family member or descendant who addresses the Baron as 'Grandfather'",
+    "Several additional robed witnesses/attendants"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narration frames the attack as part of a broader cultural attitude toward weaponry.",
+    "The family term 'Grandfather' indicates a kinship relationship among the people in the room."
+  ],
+  "dialogue_meaning": [
+    "The narration contrasts modern weaponry with revered ancient weapons from Terra Prima.",
+    "The attack is presented as deliberate rather than accidental.",
+    "At least one witness is frightened and tries to warn Othon.",
+    "Another witness treats the violence as inevitable and forbids intervention, implying a code of noninterference or trial by combat."
+  ],
+  "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+  "is_spread": false,
+  "locations": [
+    "A circular interior chamber or ritual room with seated observers and a geometric floor design"
+  ],
+  "lore_facts": [
+    "Weapons from Terra Prima are treated as treasured objects in this setting.",
+    "Modern weapons are explicitly considered less valued than these old weapons in this scene.",
+    "A short dagger is identified as the Baron's favored weapon."
+  ],
+  "page_id": "020_The_Metabarons_1_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "Narration states that the people here esteem historical weapons from Terra Prima more than modern weapons.",
+    "The Baron arms himself with a short dagger described as his preferred weapon.",
+    "A younger figure cries out to 'Grandfather' as the Baron moves.",
+    "An onlooker warns Othon that the Baron is trying to kill him.",
+    "Another observer tells the others not to interfere and says the outcome should be decided by the stronger man.",
+    "The Baron physically attacks Othon, initiating close combat in the chamber."
+  ],
+  "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+      "page_id": "020_The_Metabarons_1_p18",
+      "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially names and exact phrasing in the speech balloons.",
+    "It is unclear from this page alone which specific witness says the noninterference line.",
+    "The exact identities of the seated observers besides the Baron and Othon are not given on the page."
+  ],
+  "visual_summary": "In a circular chamber, several robed figures sit or kneel around a patterned floor while narration explains that the group values archaic weapons from Terra Prima over modern arms. A large green-faced older man, identified as the Baron, draws a short dagger. Other figures react in alarm as the Baron suddenly lunges at Othon. One onlooker tries to warn Othon, but another orders everyone not to interfere and frames the assault as an expected contest.",
+  "volume": 1
+}

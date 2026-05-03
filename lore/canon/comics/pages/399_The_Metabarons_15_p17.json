@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The blue-headband warrior is aggressive, armed with a sword, and intentionally destroys the pod.",
+    "The larger armored figure is emotionally affected by Dona Vicenta's death.",
+    "Dona Vicenta is the mother of the larger armored figure, according to the page's dialogue/caption."
+  ],
+  "characters_present": [
+    "Armored attacker wearing a blue headband",
+    "Larger armored figure in the foreground",
+    "Woman in the pod identified as Dona Vicenta"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a personal and possibly ritualized violation tied to Metabaron identity and family lineage.",
+    "The death of Dona Vicenta is presented as a major escalation in the conflict between the two armored figures."
+  ],
+  "dialogue_meaning": [
+    "The attacker argues that mere flesh is inadequate and that a Metabaron must surpass normal humanity.",
+    "The destruction of the pod is treated by the other figure as a profanation or taboo act.",
+    "The attacker uses the killing of Dona Vicenta as a direct emotional blow against the larger armored figure.",
+    "Dona Vicenta is explicitly identified as the larger figure's mother."
+  ],
+  "image_sha256": "d551fe07341bb84315632ca5765929e92dc28a73c246deacafa79c94f83c4cf6",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber with metallic walls and machinery",
+    "A life-support or preservation pod area"
+  ],
+  "lore_facts": [
+    "The title 'Metabaron' is associated here with the idea of being more than human.",
+    "Dona Vicenta is kept inside a liquid-filled transparent pod before it is destroyed.",
+    "Killing or destroying the pod is framed on-page as sacrilegious."
+  ],
+  "page_id": "399_The_Metabarons_15_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "An armored warrior declares that a true Metabaron must be more than human and moves to kill someone in a pod.",
+    "The attacker strikes and shatters a transparent pod containing a woman.",
+    "The larger armored figure reacts with shock and calls the act a sacrilege.",
+    "The attacker continues slashing through the broken pod and surrounding fluid.",
+    "The attacker announces that Dona Vicenta is dead.",
+    "Another caption or speech identifies Dona Vicenta as the larger figure's mother and says the act has stained his name."
+  ],
+  "source_image": "external/comics/meta-barons/399_The_Metabarons_15_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d551fe07341bb84315632ca5765929e92dc28a73c246deacafa79c94f83c4cf6",
+      "page_id": "399_The_Metabarons_15_p17",
+      "source_image": "external/comics/meta-barons/399_The_Metabarons_15_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be perfectly transcribed from the image alone.",
+    "The exact identities of the two armored men are not stated on this page image.",
+    "It is unclear whether Dona Vicenta dies instantly from the shattered pod or is being declared dead immediately after the attack."
+  ],
+  "visual_summary": "An armored fighter with a blue headband attacks a glass life-support pod containing a pale woman. He shatters the pod with a sword strike, spilling liquid and debris. A larger armored figure in the foreground reacts in horror as the attacker continues amid the flooding wreckage and declares that the woman, identified as Dona Vicenta, is dead.",
+  "volume": 15
+}

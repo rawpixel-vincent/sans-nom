@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The armored man values formal honor or tradition enough to insist on archaic sword combat.",
+    "The woman in the pod is capable of participating in or judging the terms of the duel despite being enclosed.",
+    "Aghora is identified as a participant in the proposed duel.",
+    "The woman refers to herself as a castaka, or refers to Aghora's target as one, while the armored opponent is referred to as a krleza."
+  ],
+  "characters_present": [
+    "Armored male warrior",
+    "Woman inside a transparent pod or capsule",
+    "Aghora (named in dialogue, presence uncertain if identical to the armored man)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page sets up or formalizes an imminent duel between Aghora and the armored opponent.",
+    "The appeal to Othon's precedent suggests an existing lineage, code, or earlier tradition relevant to the larger story."
+  ],
+  "dialogue_meaning": [
+    "The armored man insists that the conflict must become a formal duel.",
+    "He rejects unspecified modern weaponry in favor of traditional swords.",
+    "He appeals to an ancestral or customary rule linked to Othon.",
+    "The woman distinguishes the social status or significance of the combatants, saying the outcome is unequal depending on who dies.",
+    "They agree that the dispute will be resolved by blade combat."
+  ],
+  "image_sha256": "c27d9a1973cf67e62b046150a937049c225b0577e39ddd0f893bf7608134c902",
+  "is_spread": false,
+  "locations": [
+    "A futuristic interior chamber or corridor",
+    "Area containing a transparent life-support or containment pod"
+  ],
+  "lore_facts": [
+    "There is a code or custom associated with Othon that can govern how combat should be conducted.",
+    "Ancient swords are treated as appropriate ceremonial or honorable weapons in this context.",
+    "The terms 'castaka' and 'krleza' denote distinct categories or statuses of people.",
+    "The setting includes advanced technology such as a transparent pod containing a living person."
+  ],
+  "page_id": "397_The_Metabarons_15_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "An armored man demands a fight and frames the confrontation as kill-or-be-killed.",
+    "He asks what weapons will be used for the duel.",
+    "He declares that Othon's custom should be respected and specifies swords from an earlier era.",
+    "The scene shifts to oversized swords being produced or displayed between the opponents.",
+    "The woman in the pod answers that if Aghora defeats him, she kills a castaka, but if he wins, he only kills a krleza.",
+    "Both sides accept that the matter will be settled by sword combat."
+  ],
+  "source_image": "external/comics/meta-barons/397_The_Metabarons_15_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c27d9a1973cf67e62b046150a937049c225b0577e39ddd0f893bf7608134c902",
+      "page_id": "397_The_Metabarons_15_p15",
+      "source_image": "external/comics/meta-barons/397_The_Metabarons_15_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue terms are difficult to read precisely; 'castaka' and 'krleza' may be imperfect transcriptions.",
+    "It is not fully certain from this page alone whether Aghora is the armored man or another combatant being discussed.",
+    "The identity of the woman in the pod is not given on this page."
+  ],
+  "visual_summary": "Inside a futuristic, metallic chamber with ribbed walls and large biomechanical-looking structures, an armored man speaks with a woman suspended inside a transparent pod. He first demands combat, then questions what weapons should be used. He insists on honoring an older code associated with Othon and proposes fighting with swords from ancient times. Large blades are presented or drawn, and the exchange ends with agreement that the duel will be decided by the blade.",
+  "volume": 15
+}

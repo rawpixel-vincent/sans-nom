@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The woman has prior knowledge of the site and remembers it as a scorched hole the previous day.",
+    "She is emotionally overwhelmed and initially thinks what she sees must be a dream.",
+    "The robot serves or identifies itself with a powerful master.",
+    "The robot is enthusiastic and reverent toward its master, praising his deeds and power.",
+    "The master is said to love the woman enough to offer her the Halerce Tree and dyukka-birds."
+  ],
+  "characters_present": [
+    "A dark-haired woman observing the city from a balcony",
+    "A small robot servant or soldier speaking to her",
+    "Distant or implied defeated soldiers/army members in the final panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page directly references an event from 'yesterday,' when the tree's location was a scorched hole.",
+    "It follows or recounts an off-page battle on Gzayn against macromites.",
+    "The wrecked war machines and sleeping/fallen army visually connect to the robot's account of the master's victory."
+  ],
+  "dialogue_meaning": [
+    "The woman is astonished to see that the ruined site now holds the Halerce Tree.",
+    "The robot insists this is not a dream and attributes the feat to its master.",
+    "The master is said to have defeated a massive force of macromites on Gzayn.",
+    "The tree and its dyukka-birds were taken as a gift for the woman the master loves.",
+    "The robot admires the master's power, especially his ability to put an entire army to sleep, and wants to meet him."
+  ],
+  "image_sha256": "591c47f3e9fb3e38c770e940689ec33f1edea745ad93f129f3847617e9a06cc1",
+  "is_spread": false,
+  "locations": [
+    "A high balcony or terrace in a futuristic city",
+    "The distant site of the Halerce Tree",
+    "Gzayn (mentioned in dialogue)",
+    "A battlefield or devastated area outside the city with wrecked vehicles"
+  ],
+  "lore_facts": [
+    "There is a place or object called the Halerce Tree, visually monumental and highly valued.",
+    "The Halerce Tree is associated with dyukka-birds.",
+    "A force of 72,000 macromites existed on Gzayn and could be defeated in battle.",
+    "A character referred to as the robot's master possesses extraordinary power, including the ability to put a whole army to sleep.",
+    "The setting includes advanced futuristic architecture, robots, aircraft, and heavy military machines."
+  ],
+  "page_id": "298_The_Metabarons_11_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "The woman looks out and sees the Halerce Tree restored or present again in the distance.",
+    "She reacts with disbelief because the same spot had been a scorched hole the day before.",
+    "A robot attendant tells her this is real and credits the deed to its master.",
+    "The robot says its master defeated 72,000 macromites on Gzayn.",
+    "The robot says the Halerce Tree and its dyukka-birds were seized as an offering to the woman the master loves most.",
+    "The robot adds that the master put its whole army to sleep.",
+    "The page ends on a battlefield-like view with damaged war machines and fallen troops, underscoring the scale of the aftermath."
+  ],
+  "source_image": "external/comics/meta-barons/298_The_Metabarons_11_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "591c47f3e9fb3e38c770e940689ec33f1edea745ad93f129f3847617e9a06cc1",
+      "page_id": "298_The_Metabarons_11_p21",
+      "source_image": "external/comics/meta-barons/298_The_Metabarons_11_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly blurred; terms such as 'dyukka-birds' may be imperfectly read.",
+    "The woman's identity and the master's identity are not stated on this page.",
+    "The exact status of the troops in the final panel is unclear visually; the dialogue says the army was put to sleep, but the image alone could also read as defeated or incapacitated forces."
+  ],
+  "visual_summary": "A woman stands on a balcony or terrace overlooking a vast futuristic city at dawn or sunset. In the distance, a gigantic tree-shaped structure rises where there had previously been a scorched crater. A small robot beside her excitedly explains what happened. The lower panels show her shocked face, the robot gesturing toward the skyline, and a final wide shot of wrecked military machines and scattered soldiers in the foreground beneath the bright sky.",
+  "volume": 11
+}

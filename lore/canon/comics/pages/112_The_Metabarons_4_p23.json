@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Honorata is capable of maternal feeling but quickly represses it.",
+    "Honorata is severe and instructive toward the child.",
+    "Aghnar travels with Honorata to the Castaka fortress.",
+    "The white-haired boy is almost seven years old and is being trained or judged by warrior standards.",
+    "The boy belongs to the Castaka line and is connected to the Metabaron clan through his father."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Aghnar",
+    "young white-haired Castaka boy"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers on the upbringing and testing of a young Castaka child.",
+    "The journey to the Castaka fortress sets up an imminent meeting with the child's father."
+  ],
+  "dialogue_meaning": [
+    "A narration box says Honorata momentarily feels maternal weakness and sheds tears.",
+    "Honorata mocks the idea of mechanical simulation of female bodily experience and rejects sentimental reflection.",
+    "She orders the child to shut himself off from emotion and remember his Castaka identity.",
+    "She declares that the child will soon be presented to his father as a worthy warrior of the Metabaron lineage.",
+    "A narration box states that at dawn Honorata and Aghnar reach the Castaka fortress riding a trained eodactyl."
+  ],
+  "image_sha256": "d88b28368a2af407ea636835c41fccba30f6257809e78b74ce2fe5037fa89cac",
+  "is_spread": false,
+  "locations": [
+    "an interior room or chamber",
+    "the approach to the Castaka fortress",
+    "the Castaka fortress"
+  ],
+  "lore_facts": [
+    "Castaka identity is associated with emotional suppression and warrior discipline.",
+    "A child can be formally introduced to his father as a worthy warrior at age seven.",
+    "The Metabarons are described as a clan.",
+    "The Castaka fortress is a named destination.",
+    "An eodactyl is a rideable creature that can be trained for travel."
+  ],
+  "page_id": "112_The_Metabarons_4_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "Honorata has a brief emotional reaction while interacting closely with the child.",
+    "She suppresses that reaction and returns to a severe, disciplinarian attitude.",
+    "Honorata reminds the boy that he is a Castaka.",
+    "She tells him that tomorrow he will be seven years old.",
+    "She says she intends to introduce him to his father as a warrior who is worthy of the clan of the Metabarons.",
+    "At dawn, Honorata and Aghnar travel on a trained eodactyl toward the Castaka fortress."
+  ],
+  "source_image": "external/comics/meta-barons/112_The_Metabarons_4_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d88b28368a2af407ea636835c41fccba30f6257809e78b74ce2fe5037fa89cac",
+      "page_id": "112_The_Metabarons_4_p23",
+      "source_image": "external/comics/meta-barons/112_The_Metabarons_4_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page source metadata says p23, but the printed page number visible in the image is 24.",
+    "The boy is not explicitly named on this page; identification as Aghnar is uncertain because the final narration says 'Honorata and Aghnar' reached the fortress.",
+    "Some narration and speech are stylized and slightly difficult to read precisely, though the main meaning is clear."
+  ],
+  "visual_summary": "A sequence of interior panels shows Honorata briefly overwhelmed with emotion while close to a young white-haired boy in armor, then regaining her harsh composure and addressing him sternly. She tells him that he is a Castaka and announces that on the next day, when he turns seven, she will present him to his father as a worthy warrior of the Metabaron clan. A final wide panel shows Honorata and Aghnar riding a flying eodactyl at dawn toward a tall fortress on the horizon.",
+  "volume": 4
+}

@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Steelhead is the victorious figure associated with driving off the invaders.",
+    "Steelhead is angry about not being congratulated or respected.",
+    "Steelhead has authority over whoever or whatever answers his navigation order.",
+    "The responding speaker addresses Steelhead as 'master.'",
+    "The soldiers are alive and celebratory after the danger has passed."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Metacraft (name given in dialogue, likely a subordinate, ship system, or servant)",
+    "three Phagureans / members of the triumvirate",
+    "soldiers / military survivors"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows a conflict in which Steelhead defeated invading members of a triumvirate.",
+    "The page sets up Steelhead's return journey to the Metabunker after the victory.",
+    "The soldiers' celebration indicates the immediate crisis has ended."
+  ],
+  "dialogue_meaning": [
+    "The narration frames the defeated invaders being cast into space as a warning to future aggressors.",
+    "Steelhead is portrayed as victorious but unrecognized, leaving bitter and resentful despite carrying off reward treasure.",
+    "Steelhead insists he does not care about the disrespect, but his outburst suggests wounded pride.",
+    "He expects the same people to need him again and orders immediate travel to the Metabunker.",
+    "The final narration contrasts his lonely exit with the relieved soldiers' drunken celebration."
+  ],
+  "image_sha256": "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+  "is_spread": false,
+  "locations": [
+    "outer space near a large ship or station",
+    "Steelhead's ship or lair-bound vessel",
+    "the Metabunker (destination named in dialogue)",
+    "a military installation or fleet area where soldiers celebrate"
+  ],
+  "lore_facts": [
+    "A group called the triumvirate includes three Phagureans.",
+    "Defeated invaders can be publicly discarded into space as an act of warning or humiliation.",
+    "Steelhead has a lair and travels back to it after this conflict.",
+    "The Metabunker is an established destination known to Steelhead and his subordinate/system.",
+    "Treasure can be awarded as a prize for victory in this setting."
+  ],
+  "page_id": "268_The_Metabarons_10_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "Three members of the invading triumvirate are expelled into space after the battle.",
+    "Steelhead leaves the area in his ship without receiving public praise.",
+    "Steelhead takes with him treasure described as a reward for his victory.",
+    "During the departure, Steelhead angrily complains about others' lack of respect and orders a course set for the Metabunker at maximum speed.",
+    "A voice answering 'master' confirms the course to the Metabunker.",
+    "Elsewhere, soldiers celebrate their survival with heavy drinking."
+  ],
+  "source_image": "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+      "page_id": "268_The_Metabarons_10_p20",
+      "source_image": "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration and dialogue are difficult to read precisely; terms such as 'Phagureans,' 'another coach,' and the exact wording of Steelhead's rant may be imperfectly parsed.",
+    "The identity of 'Metacraft' is unclear from this page alone; it may be a servant, pilot, AI, or ship system.",
+    "The exact nature of the top-panel creatures is uncertain beyond the narration identifying them as part of the triumvirate.",
+    "The celebration scene does not identify any individual soldiers by name."
+  ],
+  "visual_summary": "The page opens with a violent space-scene: monstrous or armored beings are thrown out into open space near a large structure or ship, with debris and fluids spraying as they drift away. The middle panel shows the underside of a large spacecraft traveling through space while dialogue attributes angry complaints to Steelhead and a reply from a subordinate or ship system. The final panel shows helmeted soldiers in a space installation or fleet environment raising drinks and cheering, visually contrasting Steelhead's departure with a collective celebration.",
+  "volume": 10
+}

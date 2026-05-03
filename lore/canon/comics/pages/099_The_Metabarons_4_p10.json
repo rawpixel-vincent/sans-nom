@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Honorata is female and is unconscious or unresponsive while drifting through the air.",
+    "Honorata has an organic system that can be affected by the epiphyte.",
+    "The white-haired man is armed and reacts with urgency and concern for Honorata.",
+    "The robot-like listener is engaged in hearing this story and impatient with poetic embellishment.",
+    "The helmeted speaker appears to be the one narrating Honorata's fate."
+  ],
+  "characters_present": [
+    "Honorata",
+    "White-haired armed man trying to reach Honorata",
+    "Small robot or mechanical listener",
+    "Helmeted storyteller or speaker shown in profile"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an incident in which Honorata has already been struck by a dart before the page begins.",
+    "The exchange between the helmeted speaker and the robot-like listener implies an ongoing framed narration."
+  ],
+  "dialogue_meaning": [
+    "Someone explains that the dart's epiphyte keeps Honorata afloat, but the wind is carrying her away.",
+    "The white-haired man urgently vows to retrieve Honorata using a metacraft.",
+    "The narration becomes poetic, describing Honorata drifting over the forest and the scent of carnivorous flowers.",
+    "A robotic listener becomes impatient with the poetic style and demands the events that followed.",
+    "The narrator says the epiphyte altered Honorata's body and initiated some kind of delivery or transfer."
+  ],
+  "image_sha256": "b5fe786ee179201784f4d381430eee30da36673f0fe6e91086ffc04b88c4db2f",
+  "is_spread": false,
+  "locations": [
+    "A high exterior platform or tower on a large structure",
+    "Open sky above a forested landscape",
+    "Area around a tall spire-like tower"
+  ],
+  "lore_facts": [
+    "An 'epiphyte' delivered by a dart can keep a body floating in the air.",
+    "Wind can carry a person suspended by such an epiphyte over long distances.",
+    "A vehicle called a 'metacraft' exists and can apparently be used for pursuit or recovery.",
+    "The setting includes towering structures above a forested environment.",
+    "The narration links the epiphyte's effect on Honorata's organic system to a significant 'delivery' between heaven and earth."
+  ],
+  "page_id": "099_The_Metabarons_4_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "An injected dart or epiphyte hits Honorata and keeps her body suspended in the air.",
+    "Strong wind carries Honorata away from the structure instead of letting her fall nearby.",
+    "A white-haired armed man realizes she is being carried off and says he will come get her in a metacraft.",
+    "Narration describes Honorata's body passing over a forested landscape and a tall tower.",
+    "A robotic listener interrupts the poetic narration and asks what happened next.",
+    "The narration states that the epiphyte affected Honorata's organic system and triggered a 'delivery' between heaven and earth."
+  ],
+  "source_image": "external/comics/meta-barons/099_The_Metabarons_4_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b5fe786ee179201784f4d381430eee30da36673f0fe6e91086ffc04b88c4db2f",
+      "page_id": "099_The_Metabarons_4_p10",
+      "source_image": "external/comics/meta-barons/099_The_Metabarons_4_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may be slightly misread; terms like 'epiphyte,' 'metacraft,' and 'delivery' are read from small lettering.",
+    "The exact identities of the white-haired man, the robot-like listener, and the helmeted speaker are not stated on this page.",
+    "The precise nature of the 'delivery between heaven and earth' is not explained on this page alone."
+  ],
+  "visual_summary": "A woman identified as Honorata is struck by a dart or injected object and lifted off a high structure by the wind. A white-haired armed man watches and shouts into a communicator, trying to reach her with a 'metacraft.' Narration describes her body being carried over a forest and a tower-like structure, while a small robotic listener urges the storyteller to continue. The final panel shows Honorata still drifting through the sky, wrapped in flowing white fabric or hair.",
+  "volume": 4
+}

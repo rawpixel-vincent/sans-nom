@@ -1,0 +1,83 @@
+{
+  "character_facts": [
+    "Aghora is portrayed as a formidable warrior who refuses imperial command and fights alone.",
+    "Aghora remains loyal to a code identified as Bushitaka when an enemy attempts surrender.",
+    "Aghora is capable of destroying a universe-scale foe.",
+    "Aghora feels deep sadness after killing Deyanira and resolves to create life.",
+    "Deyanira is both a deadly companion beast and a victim of a fatal brain tumor.",
+    "Tonto is presented as someone able to diagnose Deyanira's condition.",
+    "The Technopope is important enough to be named in the recap and is killed by Deyanira."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Steelhead",
+    "Aghora's siamese twin brother",
+    "Deyanira",
+    "The Metabaron",
+    "Imperial Court",
+    "Imperial army",
+    "Tonto",
+    "Technopope"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page explicitly recaps earlier issues before the current story begins.",
+    "It establishes Aghora's recent status: decorated after a major victory, grieving Deyanira, and hiding on Flos while pregnant.",
+    "The small portraits at the bottom appear to reference recurring cast members connected to the recap and upcoming story."
+  ],
+  "dialogue_meaning": [
+    "The page is expository recap text rather than scene dialogue.",
+    "It recounts Aghora's origin, military conflict, destruction of a universe-scale enemy, the death of Deyanira, and Aghora's decision to conceive a child in hiding."
+  ],
+  "image_sha256": "ab213d412d78528faea322cea0ed0091f18434ecdb75443e63951bc341ad3868",
+  "is_spread": false,
+  "locations": [
+    "Imperial Court",
+    "Golden Planet",
+    "award ceremony",
+    "garden planet Flos"
+  ],
+  "lore_facts": [
+    "Aghora is the daughter of Steelhead.",
+    "Aghora has a female body but carries the brain of a siamese twin brother.",
+    "Aghora's breasts were altered so they would never grow, allowing Aghora to live as a male.",
+    "The Empire can formally recognize or assign status through the Imperial Court.",
+    "The Metabaron can be withheld from imperial military action under disputed circumstances.",
+    "Deyanira is a 'tarantuwolf.'",
+    "Aghora possesses a psycho-mimetic aura and can mount a spirit attack.",
+    "An enemy can exist as the nucleus of an entire universe.",
+    "The Pluri-Galactic Medallion is an imperial award.",
+    "Flos is described as a garden planet."
+  ],
+  "page_id": "427_The_Metabarons_17_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Aghora is identified as Steelhead's daughter and described as having her dead twin brother's brain in a female body altered to live as a male.",
+    "The Imperial Court delays Aghora's recognition for years, then fails to summon Aghora when an alien threat invades the universe.",
+    "Aghora goes to the Golden Planet to learn why the Metabaron was not asked for help, and is mocked at the Imperial Court for being a woman.",
+    "Imperial troops attempt to rape Aghora, but Aghora lets the tarantuwolf Deyanira destroy the attackers.",
+    "Aghora rejects command of the Imperial fleet and confronts the enemy alone.",
+    "The enemy fleet is protected by mirror-like counterattacks that reflect assaults back at Aghora's ships.",
+    "Using a psycho-mimetic aura, Aghora penetrates the enemy defenses and launches a spirit attack after facing a reflection of the self.",
+    "The enemy is revealed as the nucleus of an entire universe; Aghora destroys it, wiping out that universe.",
+    "At an award ceremony, Deyanira is overtaken by savage fury and eats the Technopope alive.",
+    "Tonto determines that Deyanira has a brain tumor that will kill the creature painfully.",
+    "Aghora mercy-kills Deyanira and, through grief, realizes a desire to create life rather than only death.",
+    "Aghora decides to have a child, extracts male cells from the brother's brain tissue in the self, impregnates the self, and hides on the garden planet Flos to give birth in peace."
+  ],
+  "source_image": "external/comics/meta-barons/427_The_Metabarons_17_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ab213d412d78528faea322cea0ed0091f18434ecdb75443e63951bc341ad3868",
+      "page_id": "427_The_Metabarons_17_ic1",
+      "source_image": "external/comics/meta-barons/427_The_Metabarons_17_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The dense recap text is small and partially hard to read, so some wording may be approximate.",
+    "The large portrait is not explicitly labeled on the page; its identity is uncertain from this image alone.",
+    "Some bottom circular portraits are not named on the page and cannot be identified with confidence from this image alone."
+  ],
+  "visual_summary": "A recap/credits page titled 'Previously, in The Metabarons' summarizes prior events involving Aghora. The page shows a large grimacing blue-toned portrait framed beside dense recap text, with an ornate biomechanical border on the left and five small circular character portraits along the bottom above publication credits.",
+  "volume": 17
+}

@@ -1,0 +1,77 @@
+{
+  "character_facts": [
+    "The Metabaron is armed but deliberately chooses not to use his weapons in this scene.",
+    "He is driven by vengeance and is intensely possessive or protective regarding Princess Oda.",
+    "He is capable of entering a guarded elite space without immediately being recognized.",
+    "Princess Oda is regarded as exalted, beautiful, and dynastically valuable by the surrounding men.",
+    "One or more suitors try to win favor through gifts, flattery, martial boasts, and promises of offspring.",
+    "The guards maintain strict order among those seeking access or audience."
+  ],
+  "characters_present": [
+    "The Metabaron, disguised or unrecognized in armor",
+    "Armed palace or ceremonial guards",
+    "A bald, richly adorned noble or official in close-up",
+    "A princess identified in dialogue as Oda, likely represented by a statue and possibly present symbolically",
+    "A formally dressed suitor or court presenter offering a rose",
+    "Additional courtiers, attendants, and assembled petitioners/suitors"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page refers to an earlier war or campaign against amphibian invaders.",
+    "The Metabaron's revenge motive predates this page and is already in progress.",
+    "His concealed identity suggests an ongoing infiltration or mission thread entering this court scene."
+  ],
+  "dialogue_meaning": [
+    "The armored protagonist is disgusted by lustful men pursuing a princess and wants revenge on them.",
+    "He restrains himself from attacking openly because using his weapons would reveal who he is.",
+    "He states that no one must learn he is the Metabaron until his vengeance is fulfilled.",
+    "A guard enforces order by directing him into the queue.",
+    "A suitor offers a rose to the princess as an act of devotion or courtship.",
+    "The princess or her image is praised as a marble work made from the ruins of defeated amphibian invaders.",
+    "Another boast links the speaker's military destruction of that enemy stronghold to a tribute made in the princess's honor.",
+    "A further promise frames a handsome boy as a mate who could give the princess strong sons."
+  ],
+  "image_sha256": "349fd25d33a0903d7d2327836ed9a4b7075969414e1eb0362f60b3b0e2c51c3d",
+  "is_spread": false,
+  "locations": [
+    "A vast ceremonial or palace hall",
+    "An elevated landing or entry area connected to the hall",
+    "A public audience space centered on a statue or monument"
+  ],
+  "lore_facts": [
+    "There is a character or title called the Metabaron, and the protagonist identifies himself as that figure internally.",
+    "The Metabaron is concealing his identity at this point in the story.",
+    "Princess Oda is an important female figure receiving offerings, praise, or suitors in a formal setting.",
+    "A prior conflict involved 'amphibian invaders' and the destruction of their stronghold.",
+    "Material from that destroyed stronghold was used to sculpt a marble representation connected to Oda.",
+    "This society stages formal, guarded public ceremonies or courtly presentations around elite figures."
+  ],
+  "page_id": "178_The_Metabarons_7_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "An armored man descends or arrives by small flying craft at a monumental palace-like complex.",
+    "He enters a crowded ceremonial hall where many figures are gathered around a princess figure or her image/statue.",
+    "He internally rages at the men desiring the princess and considers violent revenge.",
+    "He decides not to use his weapons because he must keep his identity as the Metabaron secret for now.",
+    "A guard with a rifle stops him and orders him to join the line with the other petitioners or suitors.",
+    "A formally dressed man presents a rose as an offering.",
+    "The crowd is shown venerating or addressing a princess represented as a marble statue in the hall.",
+    "A speaker boasts that the statue was sculpted from the last rubble of an amphibian invaders' stronghold that he destroyed, then offers a handsome boy who will give her strong sons."
+  ],
+  "source_image": "external/comics/meta-barons/178_The_Metabarons_7_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "349fd25d33a0903d7d2327836ed9a4b7075969414e1eb0362f60b3b0e2c51c3d",
+      "page_id": "178_The_Metabarons_7_p01",
+      "source_image": "external/comics/meta-barons/178_The_Metabarons_7_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is visually unclear whether Princess Oda herself is physically present or only represented by a statue/monument on this page.",
+    "The exact identity of the bald, ornamented man in close-up is not stated on the page.",
+    "Some dialogue is stylized and partially hard to parse at a glance, though the overall meaning is clear.",
+    "The relationship between the rose-bearing courtier, the speaker praising the statue, and the man promising a strong son may involve multiple suitors rather than one individual."
+  ],
+  "visual_summary": "A heavily armored man arrives in a grand interior hall by small craft and moves through a ceremonial crowd while thinking angrily about suitors around an idealized princess statue. He resolves not to use his weapons so his identity as the Metabaron stays hidden until his revenge is complete. A guard orders him into line, and the page ends with a formal offering scene in which a courtly figure presents a rose while the crowd admires a marble statue made from the ruins of a defeated amphibian stronghold and promises the princess a strong son.",
+  "volume": 7
+}

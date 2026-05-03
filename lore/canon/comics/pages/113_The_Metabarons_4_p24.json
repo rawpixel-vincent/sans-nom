@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Othon is depicted as a white-haired man wearing a dark cloak or cape.",
+    "Othon and Honorata have a close emotional connection.",
+    "Honorata is a large winged being with a long beak-like head and visible red eye.",
+    "The narrator directly addresses Tonto and adjusts the storytelling in response to Tonto's interruption or reaction."
+  ],
+  "characters_present": [
+    "Othon",
+    "Honorata",
+    "An off-panel narrator addressing Tonto"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing narrated story rather than a self-contained scene.",
+    "The reunion is presented as occurring after a known seven-year separation.",
+    "The page depends on an established narrator-listener frame involving Tonto."
+  ],
+  "dialogue_meaning": [
+    "The narration frames Othon and Honorata's relationship as powerful and unchanged despite long separation.",
+    "The narrator teases Tonto for becoming overly poetic or emotionally carried away.",
+    "Othon and Honorata's shouted names signal immediate mutual recognition and affection.",
+    "The interruption establishes tension between the storyteller/narrator and a listener identified as Tonto.",
+    "The repeated apology shows the narrator backing down and returning focus to the reunion."
+  ],
+  "image_sha256": "7cc9591eb566a34d130f944d3181f794894c548102a61fcdf68f04eaecc81984",
+  "is_spread": false,
+  "locations": [
+    "A large interior chamber or hangar-like architectural space with high walls and platforms"
+  ],
+  "lore_facts": [
+    "Othon and Honorata were separated for seven years.",
+    "Their bond or love persisted through that separation.",
+    "Tonto exists in the framing scene as someone listening to or interacting with the narrator.",
+    "Honorata appears to be a flying mechanical or biomechanical being capable of speech or named recognition."
+  ],
+  "page_id": "113_The_Metabarons_4_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "Narration states that seven years of separation did not diminish the love between two extraordinary beings.",
+    "A flying winged creature approaches or lands inside a large interior space while the narrator comments on Tonto's emotional tone.",
+    "The creature and the white-haired man recognize each other and call out each other's names: 'Othon' and 'Honorata'.",
+    "The narrator is angrily interrupted and threatened with being cut off if the interruption continues.",
+    "The narrator apologizes repeatedly and yields, allowing the reunion scene to continue."
+  ],
+  "source_image": "external/comics/meta-barons/113_The_Metabarons_4_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7cc9591eb566a34d130f944d3181f794894c548102a61fcdf68f04eaecc81984",
+      "page_id": "113_The_Metabarons_4_p24",
+      "source_image": "external/comics/meta-barons/113_The_Metabarons_4_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of Honorata is unclear from this page alone: machine, creature, or biomechanical hybrid.",
+    "The narrator is off-panel and not visually identified on this page.",
+    "The printed page number visible in the image appears to be 25, while the provided page label is p24."
+  ],
+  "visual_summary": "A white-haired man in a dark cape reunites with a large winged, bird-headed mechanical or biomechanical being inside a vast angular interior. The page moves from narration about their enduring bond, to the creature swooping in, to the two calling each other by name, and finally to an intimate close-up of them facing one another while the narrator is scolded for interrupting.",
+  "volume": 4
+}

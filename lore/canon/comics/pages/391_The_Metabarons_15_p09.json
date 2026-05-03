@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The father is cold, methodical, and personally administers the test.",
+    "The boy is exceptionally pain-tolerant and determined to earn parental approval.",
+    "The boy addresses the adult as 'Father,' confirming a parent-child relationship.",
+    "The father says the boy's mother is also proud, indicating the mother's importance despite being off-page."
+  ],
+  "characters_present": [
+    "The father, a blue-faced armored adult male operating the machine",
+    "The boy, a young gold-skinned child addressed as the father's son",
+    "A robotic/mechanical assistant apparatus positioned beside the operating setup"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an initiation or qualification event resulting in the boy losing a natural hand and forearm tissue before receiving a bionic replacement.",
+    "The scene establishes a family tradition of proving worth through extreme physical endurance."
+  ],
+  "dialogue_meaning": [
+    "The father frames the ordeal as a formal test of pain tolerance and obedience.",
+    "The boy is motivated by proving himself to his father and mother.",
+    "At each stage of mutilation, the father gives the boy the choice to stop, but the boy repeatedly chooses to continue.",
+    "The father interprets the boy's silence and requests for more pain as proof that he is a true CastaKa.",
+    "The procedure's reward is the installation of a superior artificial hand."
+  ],
+  "image_sha256": "eb4806fc1bd04cf898289c6c31f80fec0a0cac6ebd02d6ee1657161d32f19b32",
+  "is_spread": false,
+  "locations": [
+    "A surgical or testing chamber filled with machinery",
+    "A station with a cutting device and a bionic arm assembly"
+  ],
+  "lore_facts": [
+    "This society or family line uses extreme bodily mutilation tests as rites tied to worthiness.",
+    "A candidate who passes can receive a bionic replacement hand described as a 'super-hand.'",
+    "Parental approval and lineage identity are explicitly tied to enduring pain.",
+    "The term 'CastaKa' is used as a valued identity label or title within this lineage."
+  ],
+  "page_id": "391_The_Metabarons_15_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A father prepares a machine at its highest setting to test the boy's pain threshold.",
+    "The boy vows not to disappoint his father and submits his left hand to the device.",
+    "The machine cuts the boy's fingers into slices.",
+    "The father asks whether to continue, and the boy insists that it should.",
+    "The machine removes the boy's whole hand and then continues up into the forearm.",
+    "The boy endures the mutilation without crying out and keeps asking for more.",
+    "The father stops the procedure by pressing a control.",
+    "The father announces that the boy has earned a bionic super-hand and says both parents are proud."
+  ],
+  "source_image": "external/comics/meta-barons/391_The_Metabarons_15_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eb4806fc1bd04cf898289c6c31f80fec0a0cac6ebd02d6ee1657161d32f19b32",
+      "page_id": "391_The_Metabarons_15_p09",
+      "source_image": "external/comics/meta-barons/391_The_Metabarons_15_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact spelling and cultural meaning of 'CastaKa' are inferred from the lettering and may be slightly uncertain.",
+    "The page footer shows the printed number 11, which does not match the provided page label p09 but is likely an edition/internal indexing difference.",
+    "The precise identity names of the father and boy are not given on this page."
+  ],
+  "visual_summary": "In a clinical, mechanical chamber, a blue-faced armored father subjects a young gold-skinned boy to an escalating pain test using a machine. The boy places his left hand into the device and endures it as the machine slices away his fingers, then his whole hand, then part of his forearm. He remains stoic and repeatedly asks for the test to continue. The father finally stops the machine with a button click and declares that the child has earned a bionic replacement hand, praising his endurance while a robotic apparatus and the opened mechanical limb assembly are visible nearby.",
+  "volume": 15
+}

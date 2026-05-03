@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The green-skinned warrior is shown as fierce and battle-ready at the start of the page, then shocked and anguished after being struck.",
+    "The attacker is depicted more as motion and silhouette than as a clearly identified person.",
+    "At least one character has a strong emotional connection to someone or something named Bari."
+  ],
+  "characters_present": [
+    "A green-skinned, white-haired armored warrior with a painted or unnatural-looking face",
+    "A dark, blurred attacking figure wielding a long weapon",
+    "A horse or mounted silhouette, indistinct in the motion blur"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the continuation of an ongoing fight rather than a self-contained scene.",
+    "The repeated cry of 'Bari' implies a relationship or prior relevance established elsewhere in the story."
+  ],
+  "dialogue_meaning": [
+    "The speaker counts or marks a sequence with 'and four,' suggesting a repeated action, tally, or technique.",
+    "A wounded character laments the loss or injury of a father and a horse, though the exact phrasing is hard to read.",
+    "The name 'Bari' is shouted repeatedly, indicating urgency, grief, or recognition."
+  ],
+  "image_sha256": "9015d1475e47912903d18cafcc69b3008c7aa75fed412d752422be21696ce335",
+  "is_spread": false,
+  "locations": [
+    "A snowy, misty, or dust-filled battlefield setting",
+    "Open outdoor combat space"
+  ],
+  "lore_facts": [
+    "Combat on this page involves a long, spear-like or lance-like weapon shown in detailed close-ups.",
+    "The setting appears harsh and wintry, with snow, spray, or fog obscuring figures.",
+    "The name 'Bari' is important enough to be the focus of the final cry on the page."
+  ],
+  "page_id": "052_The_Metabarons_2_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A weapon thrust is broken into close-up panels, emphasizing its tip, shaft, and mechanism as it strikes a target.",
+    "A fast-moving attacker closes in through a snowy or smoky battlefield.",
+    "The green-skinned warrior appears to be wounded in the chest or torso, with blood visible at the impact site.",
+    "The wounded character cries out in distress, seemingly referring to both a father and a horse before calling the name 'Bari'.",
+    "The page ends on a close-up of the wounded character screaming Bari's name."
+  ],
+  "source_image": "external/comics/meta-barons/052_The_Metabarons_2_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9015d1475e47912903d18cafcc69b3008c7aa75fed412d752422be21696ce335",
+      "page_id": "052_The_Metabarons_2_p23",
+      "source_image": "external/comics/meta-barons/052_The_Metabarons_2_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; the line about 'father' and 'horse' may not be fully accurate.",
+    "The exact identities of the combatants cannot be confirmed from this page alone.",
+    "It is unclear whether Bari is a person, animal, title, or another entity.",
+    "The page footer visibly shows the number 25, which does not match the provided page label p23.",
+    "The environment reads as snowy or mist-filled, but the obscuring white effect could also be dust or stylized motion."
+  ],
+  "visual_summary": "A green-skinned, white-haired warrior in armor is shown in a rapid combat sequence. Narrow inset panels isolate parts of a spear or lance as it drives forward, followed by a bloody impact. Blurred figures and motion-heavy panels suggest a mounted or charging attack through snow or mist. In the lower panels, the wounded green-faced figure reacts in shock and grief, apparently calling out to someone named Bari while clutching at a chest wound.",
+  "volume": 2
+}

@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Othon has white hair and wears heavy armor.",
+    "Othon is armed and carries a bloodied blade on this page.",
+    "Othon is searching personally for Hohenhole rather than directing the search from afar.",
+    "Othon's expression is stern and mournful, matching the devastation around him."
+  ],
+  "characters_present": [
+    "Othon",
+    "Corpses of fallen armored soldiers",
+    "Hohenhole (mentioned, not clearly identified visually)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows a battle whose aftermath leaves the valley covered in bodies.",
+    "The search for Hohenhole sets up a personal or command-level consequence from the battle.",
+    "The final side panels imply a transition or parallel action involving a craft or device at another nearby location."
+  ],
+  "dialogue_meaning": [
+    "The narration emphasizes the battlefield's deathly stillness by comparing it to a black lake.",
+    "The narration states that Othon is specifically searching the northern battlefield for his lieutenant, Hohenhole."
+  ],
+  "image_sha256": "c8fcb7c948a4dfad353afbf78ec6a548e4d1f666fc2e1d69546ec9844706186d",
+  "is_spread": false,
+  "locations": [
+    "A valley described as a battlefield",
+    "The northern battlefield",
+    "A waterside or shoreline location shown in the narrow right-hand panels"
+  ],
+  "lore_facts": [
+    "Othon is active in the aftermath of a major battle in a valley full of dead soldiers.",
+    "There is a named subordinate relationship: Hohenhole is Othon's lieutenant.",
+    "The battlefield contains advanced armor, firearms, and bladed weapons, indicating a technologically advanced war setting.",
+    "A glowing object or device appears significant enough for Othon to pick up and hold carefully."
+  ],
+  "page_id": "035_The_Metabarons_2_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "The page establishes a valley battlefield filled with corpses and wreckage.",
+    "Othon crosses the northern battlefield looking for his lieutenant, Hohenhole.",
+    "He examines the dead while carrying a bloodied blade.",
+    "Othon appears to find or focus on a small item among the bodies.",
+    "He holds a glowing object close to his chest, suggesting recognition or concern.",
+    "Separate narrow panels introduce a craft or device over water and a close-up of a mechanical hand or object near a small bowl-like container."
+  ],
+  "source_image": "external/comics/meta-barons/035_The_Metabarons_2_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c8fcb7c948a4dfad353afbf78ec6a548e4d1f666fc2e1d69546ec9844706186d",
+      "page_id": "035_The_Metabarons_2_p06",
+      "source_image": "external/comics/meta-barons/035_The_Metabarons_2_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and function of the glowing object Othon holds are not stated on this page.",
+    "The rightmost narrow panels are visually clear but narratively ambiguous; it is uncertain whether they depict a ship landing, a probe, or another device.",
+    "Hohenhole is named in narration, but no body is explicitly labeled as his on this page."
+  ],
+  "visual_summary": "A white-haired armored man, identified by narration as Othon, walks alone through a devastated battlefield packed with corpses, broken weapons, and drifting debris. An inset shows him holding a bloodied blade and looking grim. Later panels show him searching among the dead, noticing a small object or signal on a body, then cradling a glowing item near his chest. Two narrow side panels depict a craft or device descending or hovering above water and then a close view of a hand-like mechanical form near a small container.",
+  "volume": 2
+}

@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Othon is the hero under discussion on this page.",
+    "Othon intentionally allowed himself to be swallowed in order to attack from within.",
+    "Othon is piloting or riding a metacraft during the internal assault.",
+    "Othon remains focused on locating and destroying the Cetacyborg's controlling brain despite damage and distress."
+  ],
+  "characters_present": [
+    "Othon",
+    "Unnamed small robot observers/commentators",
+    "Cetacyborg"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows an apparent prior moment where Othon was swallowed by the Cetacyborg.",
+    "The action here advances an internal assault whose next step is likely an attack on the revealed servo-brain."
+  ],
+  "dialogue_meaning": [
+    "The robot commentators mock a simpler thinker and insist Othon's swallowing was deliberate, not a defeat.",
+    "The narration frames Othon's tactic as strategic infiltration: destroy the stronger enemy from the inside.",
+    "Othon is physically struggling, coughing, and states that he must find the command center quickly because his craft has only seconds left.",
+    "A final exclamation marks the discovery of the target location."
+  ],
+  "image_sha256": "ec163c84916e6ee9909647333c7c58df47e011fbb4d5fcdebe485e5efc56cc63",
+  "is_spread": false,
+  "locations": [
+    "Inside the Cetacyborg",
+    "A corrosive internal organic-mechanical passage",
+    "Near the glowing servo-brain/control core"
+  ],
+  "lore_facts": [
+    "The enemy is called a Cetacyborg.",
+    "The Cetacyborg has internal organs or systems described as intestines and a servo-brain that commands it.",
+    "The Cetacyborg can defend itself internally with corrosive acids.",
+    "A 'metacraft' is capable of operating inside the Cetacyborg's body but has limited durability in that environment.",
+    "Othon uses a deliberate inside-out attack strategy against a superior foe."
+  ],
+  "page_id": "143_The_Metabarons_5_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "Observers state that the Cetacyborg did not truly defeat Othon by swallowing him; Othon intentionally let himself be swallowed as a strategy.",
+    "Narration explains that Othon adopts a virus-like tactic, attacking the enemy from within because it is too strong to overcome directly.",
+    "Inside the creature, the monster uses corrosive acids in an attempt to damage the intruder's armor plating.",
+    "Othon pilots a metacraft through the creature's interior while under severe time pressure.",
+    "Othon identifies a target: the servo-brain that commands the Cetacyborg.",
+    "The glowing control organ or node is visually revealed as Othon's apparent objective."
+  ],
+  "source_image": "external/comics/meta-barons/143_The_Metabarons_5_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ec163c84916e6ee9909647333c7c58df47e011fbb4d5fcdebe485e5efc56cc63",
+      "page_id": "143_The_Metabarons_5_p22",
+      "source_image": "external/comics/meta-barons/143_The_Metabarons_5_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities/names of the two small robot commentators are not given on this page.",
+    "Some lettering is stylized and small, but the main narration and dialogue remain readable.",
+    "The exact biological/mechanical nature of the Cetacyborg is not fully explained on this page beyond its internal features and command brain."
+  ],
+  "visual_summary": "A combat scene unfolds inside a vast organic-mechanical interior. In the top tier, two small robot-like observers watch a colossal creature or biomechanical mass and argue about whether the hero has been swallowed. The middle widescreen panel shows a violent internal battle with explosions, debris, and dark organic matter. The lower panels follow a lone armored pilot inside a small craft navigating a fluid-filled, corrosive environment while coughing and racing toward a glowing spherical control center deep inside the monster.",
+  "volume": 5
+}

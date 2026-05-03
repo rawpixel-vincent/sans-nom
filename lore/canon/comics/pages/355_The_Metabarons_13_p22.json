@@ -1,0 +1,55 @@
+{
+  "character_facts": [
+    "The soldiers are armed with large rifles or launchers and are focused on the collapsing or rising structure.",
+    "The bald bearded man is emotionally overwhelmed and appears to be reacting more personally than the soldiers."
+  ],
+  "characters_present": [
+    "Several armed soldiers in helmets",
+    "A bald bearded man in civilian clothing"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page captures an escalation: the appearance and then destabilization or impact of a giant constructed object.",
+    "The final reaction shot suggests the event has immediate stakes for the observers, especially the bearded man."
+  ],
+  "dialogue_meaning": [
+    "The only readable dialogue is a drawn-out cry of despair from the bald bearded man, indicating horror or helplessness as he watches the event."
+  ],
+  "image_sha256": "a09444ca4b00277875be6ef3659f347f62fff9c50ae7d1b0963d2c386560b694",
+  "is_spread": false,
+  "locations": [
+    "A battlefield or wreckage-strewn outdoor area",
+    "At the base of a massive dark geometric structure"
+  ],
+  "lore_facts": [
+    "The page depicts enormous black or dark-gray monolithic structures with repeating triangular relief patterns near their tops.",
+    "The structures are powerful enough to displace large amounts of rubble and generate dense smoke and dust when moving.",
+    "Military personnel are present at the scene, implying the event is occurring in an active conflict or guarded zone."
+  ],
+  "page_id": "355_The_Metabarons_13_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "A huge dark rectangular structure emerges or rises violently amid rubble and smoke.",
+    "Additional connected tower-like sections become visible, suggesting a larger multi-part structure.",
+    "The structure's movement causes heavy debris, dust clouds, and explosive-looking impacts.",
+    "One large section appears to tip, fall, or slam down at an angle.",
+    "Nearby soldiers and a civilian-looking bald bearded man witness the event and react in shock.",
+    "The bearded man cries out 'Nooooo!' in response to the destruction or collapse."
+  ],
+  "source_image": "external/comics/meta-barons/355_The_Metabarons_13_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a09444ca4b00277875be6ef3659f347f62fff9c50ae7d1b0963d2c386560b694",
+      "page_id": "355_The_Metabarons_13_p22",
+      "source_image": "external/comics/meta-barons/355_The_Metabarons_13_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear whether the structure is rising from underground, assembling itself, or collapsing; the page shows violent motion but not its precise cause.",
+    "The exact identity of the bald bearded man and the soldiers cannot be determined from this page alone.",
+    "Most of the page is visual action with minimal text, so narrative context depends on surrounding pages.",
+    "Some panel details are stylized by smoke, motion, and glare, which makes the exact mechanics of the structure's movement hard to read."
+  ],
+  "visual_summary": "A sequence of panels shows massive dark geometric blocks or tower-like structures erupting or shifting violently out of a debris-filled ground, throwing up smoke, dust, and bright streaks of force. The structures multiply into several adjoining forms, then one large section appears to tilt or crash amid the destruction. In the final panels, armed soldiers and a bald bearded man look up in alarm as the man screams in despair.",
+  "volume": 13
+}

@@ -1,0 +1,350 @@
+[
+  {
+    "aliases": [
+      "Honorata"
+    ],
+    "appearances": [],
+    "character_id": "honorata",
+    "important_actions": [
+      "Conceived Aghnar using a drop of Othon's blood despite his inability to father children normally",
+      "Protected Aghnar from Othon who wanted to kill him due to his weightlessness",
+      "Raised and trained Aghnar in exile on Ansirma",
+      "Presented Aghnar with prosthetic feet to the Shabda-Oud delegation as proof the child was still viable",
+      "Psychically merged with an older figure to defeat a Shabda-Oud attacker",
+      "Voluntarily remained behind so Othon and Aghnar could escape; died when her heart-bomb detonated"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Othon von Salza': \"companion/lover; she warns him to stay quiet around her suspicious superiors; calls him 'my love'\", 'Aghnar': 'mother; protects, trains, and sacrifices herself for him', 'Shabda-Oud superiors': 'subordinate; they implanted a lethal device in her chest and enforced her loyalty with the threat of death'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Speaks harshly when threatening Othon with destruction if he compromises her cover",
+      "Emotionally says farewell to Othon and Aghnar, asking them not to forget the scent of Okhar's carnivorous flowers",
+      "Utters strange ritual-like words just before departure at the embarkation platform"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Two jealous servants pushed her from the fortress during pregnancy",
+      "Othon fired an epyphite cartridge so she floated to safety during the fall",
+      "She gave birth to Aghnar during the fall; the epyphite exposure made him lighter than air",
+      "She fitted Aghnar with steel bracelets at waist and ankles to keep him grounded",
+      "She took Aghnar into exile on the sacred mountain of Ansirma and trained his mental powers and pain resistance",
+      "She was interrogated by the Shabda-Oud delegation in a psychically swept, soundproof chamber about the promised hermaphrodite child",
+      "She told the delegation that Aghnar's feet were poisoned by brambles and amputated, replaced with metal prostheses",
+      "She participated in stage-managing a ceremony receiving the lady ambassadors alongside a gray-haired man",
+      "She warned Othon covertly to remain silent and physically distant during the ceremony because her superiors were suspicious",
+      "She received energy from an older silver-haired figure in the 'mind's shadow' and unleashed a decisive counterblast against a Shabda-Oud psychic attacker",
+      "She revealed a micro-bomb inseparable from her artificial heart was implanted by her superiors",
+      "She stayed behind when Othon and Aghnar boarded the Metabunker; her heart-bomb detonated"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon von Salza",
+      "The First Metabaron",
+      "Othon"
+    ],
+    "appearances": [],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "Established the Metabaron initiation rite of ritual mutilation and prosthetic replacement through Aghnar's ordeal",
+      "Destroyed the Cetacyborg from within using a virus-like infiltration tactic",
+      "Declared the Metabaron clan would go underground in the Metabunker and re-emerge in years",
+      "Indoctrinated Aghnar with a blood-vow to destroy the Shabda-Oud using Honorata's death as the founding memory"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Honorata': 'companion/lover; grieves her loss; forces himself to witness her death', 'Aghnar': \"father; applies brutal warrior tests; teaches warrior philosophy; forces Aghnar to watch Honorata's death as a formative memory\", 'Shabda-Oud': \"enemies; vows their annihilation after Honorata's death\"}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Harsh and uncompromising in warrior philosophy; frames everything through martial success and clan survival",
+      "Teaches son: 'adapt like water, relinquish attachment to glory'",
+      "Speaks while coughing in later pages; physically strained but insists his condition is minor"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Cannot father children through conventional means; Honorata used a drop of his blood to conceive Aghnar",
+      "Fired an epyphite cartridge to let Honorata float during her fall from the fortress",
+      "Subjected Aghnar to brutal warrior tests at age seven: defeat a robot, endure a machine that crushes feet",
+      "Possesses ultra-radars that detected the approaching Shabda-Oud vessel near Okhar",
+      "Engaged the Cetacyborg, intentionally let himself be swallowed, piloted his metacraft inside to the servo-brain, and fired all weapons simultaneously, destroying the creature",
+      "Returned to his maxi-protonic tower with acid-corroded lungs after the Cetacyborg battle",
+      "Warned family of the approaching Shabda-Oud clan and organized departure in the Metabunker",
+      "Forced Aghnar to witness Honorata's heart-bomb explosion",
+      "Departed aboard the Metabunker with Aghnar while Honorata remained behind"
+    ]
+  },
+  {
+    "aliases": [
+      "Aghnar"
+    ],
+    "appearances": [],
+    "character_id": "aghnar",
+    "important_actions": [
+      "Passed Othon's initiation ordeal, originating the Metabaron ritual of mutilation and prosthetics",
+      "Defeated multiple floating priestess-assassins by exploiting their epyphite-infused prostheses",
+      "Accepted his father's vow to destroy the Shabda-Oud",
+      "Escaped Okhar aboard the Metabunker with Othon"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Honorata': 'mother; she protects, trains, and ultimately sacrifices herself for him', 'Othon von Salza': 'father; harsh, demanding warrior patriarch who tests him brutally', 'Shabda-Oud': \"they sought him as a promised hermaphrodite child; he is actually fully male, contradicting their expectation; vows to destroy them after Honorata's death\"}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "As a child: curious, obedient; responds to his father's warrior teaching by saying 'renouncing glory is also heroic'",
+      "Objects 'it's not fair' when Honorata's death is forced on him as a formative memory"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Born during Honorata's fall from the fortress; epyphite exposure made him permanently lighter than air",
+      "Fitted with steel bracelets to stay grounded",
+      "Raised in exile on the sacred mountain of Ansirma; trained in mental powers and pain resistance",
+      "At age seven: passed Othon's warrior test — defeated a robot, endured a foot-crushing machine",
+      "Received metal prosthetic feet after the ordeal; this event canonized ritual mutilation and prosthesis as Metabaron initiation rite",
+      "Examined in the Hall of Arms: found in alpha-mode with no killer programming; permitted to proceed",
+      "In a circular chamber: coerced into a humiliating inspection of his claimed dual sex organs; deployed blade prosthetics and attacked",
+      "Exploited epyphite-infused prostheses of floating assassins to kill multiple airborne enemies",
+      "Was left exhausted after achieving a major combat victory",
+      "Forced by Othon to watch Honorata's heart-bomb detonate; sworn to avenge her",
+      "Departed aboard the Metabunker when seven Cetycoborgs were detected approaching"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [],
+    "character_id": "tonto",
+    "important_actions": [
+      "Serves as the in-universe narrator of the Metabarons saga to Lothar",
+      "Disciplined another robot for interrupting by making it repeat an apology multiple times",
+      "Was forcibly disabled (speech and emotions removed) by another robot after becoming too grief-stricken over Honorata's death"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Lothar': 'serves as narrator and servant to Lothar; recounts the Metabarons saga to him', 'Dominant robot (unnamed)': 'subordinate; the other robot forcibly removes his verbal-memory plate and emotion plug when he becomes disruptively emotional'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Talkative, sarcastic, and intensely curious about unresolved story details",
+      "Interrupts the saga narrator repeatedly; deflects by asking to defer unsettling revelations",
+      "Speaks in an internally dramatic and melodramatic tone; describes grief in machine terms ('overloading my diodes')"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Prepared breakfast awaiting Lothar; noted Lothar is overdue and does not sleep like humans",
+      "Was addressed urgently when the two halves of the Metabunker threatened to fall into an acid lake",
+      "Participated in the robots' forensic debate about the Metabaron's invincibility and eyebrow scar",
+      "Recounted to Lothar: Othon and Aghnar left aboard the Metabunker; seven Cetycoborgs detected approaching; Honorata returned to the fortress",
+      "Mourned Honorata's destruction melodramatically until forcibly disabled"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Tonto': 'Tonto is his servant; Tonto narrates the Metabarons saga to him', 'The Metabaron': \"referred to as 'the master' by Tonto; the exact relationship is unclear\"}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Shown reacting to Tonto's narration with impatient curiosity; presses to hear what happened next despite Tonto's emotional breakdowns"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Is anticipated by Tonto but absent at the start of the volume",
+      "Listens to Tonto's retelling of the Metabarons saga including Honorata's sacrifice and death",
+      "Robot servant connects the concept of 'god' with what paleo-humans called such a figure, implying Lothar may be associated with or compared to such a concept"
+    ]
+  },
+  {
+    "aliases": [
+      "Mother Superior"
+    ],
+    "appearances": [],
+    "character_id": "mother-superior",
+    "important_actions": [
+      "Commanded the Shabda-Oud vessel's cautious approach to Okhar with secret weapons ready",
+      "Led the delegation that interrogated Honorata under psychic security protocols"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Shabda-Oud': 'high-ranking leader or enforcer within the organization', 'Honorata': 'interrogates her; holds her accountable for the undelivered hermaphrodite child', 'Othon von Salza': \"directly addresses him during the delegation's investigation\"}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Harsh, authoritative, and concerned; dismisses sentiment",
+      "Treats the promised hermaphrodite child as a political instrument with institutional weight"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Ordered extreme caution and preparation of hidden weapons on approach to Okhar, sensing an anomaly",
+      "Led the psychically swept interrogation of Honorata in a soundproof chamber",
+      "Demanded to know why the promised hermaphrodite child, now seven years old, was never delivered",
+      "Threatened that both Honorata's life and the planet's fate depend on her answers"
+    ]
+  },
+  {
+    "aliases": [
+      "The Current Metabaron",
+      "the Master",
+      "our master"
+    ],
+    "appearances": [],
+    "character_id": "the-current-metabaron",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Tonto': \"Tonto is his servant and narrator of his lineage's saga\", 'Lothar': 'connection unclear; possibly the same individual or a separate figure', 'Robot debaters (Tonto, the Professor, Big One)': 'they forensically analyze his invincibility using his facial image'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Not directly shown speaking in these pages; known only through analysis and narration"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Robots debate his invincibility and use a chronomatrix to date a scar on his right eyebrow as physical evidence of a wound",
+      "A beam attributed to him is shown cutting the Metabunker in half",
+      "At age thirty he had already defeated his father and thousands of enemies"
+    ]
+  },
+  {
+    "aliases": [
+      "The Three Whore-Priestesses",
+      "Lady Ambassadors",
+      "reverend mothers"
+    ],
+    "appearances": [],
+    "character_id": "the-three-whore-priestesses",
+    "important_actions": [
+      "Examined Aghnar in the Hall of Arms",
+      "Attacked Aghnar and Honorata; multiple killed",
+      "Invoked the Shabda-Oud's psychic power offensively against Honorata"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Shabda-Oud': 'religious-political arm of the organization', 'Aghnar': 'they examine him; he ambushes and kills multiple of them using their own airborne quality against them', 'Honorata': 'one attacks Honorata with Shabda-Oud psychic power; Honorata counterattacks'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "The older priestess is calculating and uses deliberate speech as a strategic weapon (issuing threats over monitored channels)",
+      "Invoke 'Jejoh the Pure' in prayer or blessing"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Boarded a Harana-class robo-transporter to reach Okhar; its catayborg controller was sedated with pentalina for two hours",
+      "Deliberately spoke the vessel's destructive capabilities aloud to warn any eavesdroppers not to betray them to the Metabaron",
+      "Were received ceremonially at the Castaka fortress as prophets of Jejoh",
+      "Conducted the Hall of Arms examination: detected alpha-mode brain state; found no killer programming in Aghnar; permitted him to approach",
+      "Coerced Aghnar into a humiliating inspection of his sex organs",
+      "Were attacked by Aghnar using blade prosthetics after he was provoked",
+      "Multiple were killed by Aghnar who exploited their epyphite-infused prostheses' airborne quality",
+      "One launched a psychic attack against Honorata invoking the Shabda-Oud's mental power"
+    ]
+  },
+  {
+    "aliases": [
+      "The Professor"
+    ],
+    "appearances": [],
+    "character_id": "the-professor",
+    "important_actions": [
+      "Initiated the forensic debate about the Metabaron's invincibility",
+      "Threatened Tonto with reprogramming when challenged"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Tonto': 'fellow robot in debate; treats Tonto as a subordinate and threatens reprogramming', 'Big One': \"calls on Big One to display the Metabaron's face for analysis\", 'Current Metabaron': 'loyal defender of his reputation for invincibility; uses forensic analysis to investigate the scar'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Forceful, hostile; threatens punishment if discrepancies are not explained",
+      "Addresses others as 'metal, brainless beings'"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Challenged the claim of Metabaron invincibility by pointing to a discrepancy — the eyebrow scar",
+      "Demanded Big One display the master's face for inspection",
+      "Directed the group to zoom in on the Metabaron's right eyebrow",
+      "Identified the cut scar as evidence of a wound",
+      "Stated a chronomatrix can date the scarring to a precise age"
+    ]
+  },
+  {
+    "aliases": [
+      "Big One"
+    ],
+    "appearances": [],
+    "character_id": "big-one",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'The Professor': \"called on by the Professor to display the Metabaron's image\", 'Current Metabaron': 'holds or can project an image of the master'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Cetacyborg",
+      "CetaCyborg",
+      "Cetacyborg"
+    ],
+    "appearances": [],
+    "character_id": "the-cetacyborg",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Othon von Salza': 'Othon intentionally allowed himself to be swallowed; attacked it from within; destroyed it', 'Shabda-Oud': 'associated with the Shabda-Oud forces that threaten Okhar'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Othon was swallowed but this was deliberate; Othon piloted a metacraft inside to its servo-brain",
+      "Its internal acids corroded Othon's lungs severely",
+      "Its servo-brain was destroyed when Othon fired all weapons simultaneously; explosion compared to a supernova",
+      "Seven additional Cetycoborgs were detected by ultra-radar approaching Okhar at end of the volume"
+    ]
+  },
+  {
+    "aliases": [
+      "Older Silver-Haired Figure"
+    ],
+    "appearances": [],
+    "character_id": "older-silver-haired-figure",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "{'Honorata': 'offers her his energy; appears supportive or protective'}"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Told Honorata to absorb his energy so they could unite in the 'mind's shadow'",
+      "Honorata's eyes glowed after accepting the transfer, suggesting successful psychic union"
+    ]
+  }
+]

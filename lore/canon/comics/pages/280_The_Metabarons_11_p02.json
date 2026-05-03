@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Dona Vicenta Gabriela de Rokha is willing to die publicly rather than endorse the ceremony.",
+    "She is armed with a hyper-pistol.",
+    "She speaks as an ambassador in the ceremony, according to her own declaration.",
+    "She identifies herself as a Metabaron descendant or member of that clan.",
+    "The masked official is presented visually as partly mechanical or at least armored/cyborg-like, and the woman addresses him as half-machine."
+  ],
+  "characters_present": [
+    "A young woman identified in dialogue as Dona Vicenta Gabriela de Rokha",
+    "A masked, robed official or noble addressed as a half-machine and monster",
+    "Numerous spectators, guards, and ceremony attendees"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on a ceremonial decision about honoring a powerful figure whose past actions are controversial.",
+    "The Metabaron name is treated as dynastic, linking the woman to a broader bloodline or inherited identity.",
+    "The page sets up an imminent suicide attempt or confrontation at the ceremony."
+  ],
+  "dialogue_meaning": [
+    "The woman condemns the honored figure for mass killing and ecological destruction.",
+    "She says the world and empire that celebrate such acts are morally rotten.",
+    "Her threat is self-directed: she intends suicide as protest rather than violence against others.",
+    "She uses procedure to block the award, declaring a dissenting vote where unanimity is required.",
+    "The official attempts to stop her, but she rejects him as inhuman and illegitimate.",
+    "She invokes clan identity, saying a Metabaron is part of a lineage that will continue after her death."
+  ],
+  "image_sha256": "941d41240bc63b81ec375867984246d7af02486041325e43c1972340f8f886d5",
+  "is_spread": false,
+  "locations": [
+    "A grand ceremonial chamber or assembly hall with stairs and a central dais"
+  ],
+  "lore_facts": [
+    "There exists an empire capable of granting a medallion of high nobility.",
+    "This award apparently requires a unanimous vote.",
+    "The setting includes a formal political or aristocratic system named in the dialogue as the Troglosocialik system.",
+    "A being under discussion is accused of destroying a 250,000-year-old Halecac tree.",
+    "The same being is accused of exterminating five million Dyukka-birds, rendering the species extinct.",
+    "The term Metabaron refers to a clan or lineage, not just a single individual."
+  ],
+  "page_id": "280_The_Metabarons_11_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A woman publicly cites major crimes committed by the figure being honored, including destruction of an ancient tree and extermination of a bird species.",
+    "The accusation occurs during a formal public ceremony in a large hall with tiered steps and many witnesses.",
+    "The woman says she drew her hyper-pistol not to attack the official but to kill herself in protest.",
+    "She formally casts a vote against awarding a medallion of high nobility, stating unanimity is required.",
+    "A masked official tells her to stop and tries to reason with her.",
+    "The woman refuses, identifies herself with the Metabaron lineage, and frames her death as a final act of defiance."
+  ],
+  "source_image": "external/comics/meta-barons/280_The_Metabarons_11_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "941d41240bc63b81ec375867984246d7af02486041325e43c1972340f8f886d5",
+      "page_id": "280_The_Metabarons_11_p02",
+      "source_image": "external/comics/meta-barons/280_The_Metabarons_11_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some proper nouns are hard to read with certainty, including 'Halecac tree,' 'Dyukka-birds,' and 'Troglosocialik system.'",
+    "It is unclear whether the masked official is literally the same accused figure or a different ceremonial authority being addressed during the protest.",
+    "The exact status of Dona Vicenta Gabriela de Rokha's title is slightly unclear because the dialogue text is small and partially difficult to parse."
+  ],
+  "visual_summary": "In a brightly lit ceremonial hall packed with spectators and uniformed figures, a young woman in military-style clothing angrily denounces an absent or off-panel figure for atrocities and environmental destruction. She confronts a robed, masked noble/cyborg official near a stairway and draws a pistol to her own head, declaring that the honor being offered is corrupt and that she rejects the vote being conducted. The official tries to stop her, while the crowd looks on.",
+  "volume": 11
+}

@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Aghnar is advancing toward the witches' lair with Oda.",
+    "Aghnar previously killed a priestess after taking over a cabin, according to the narration.",
+    "Aghnar uses disguise and mental domination as tactics.",
+    "Oda is someone Aghnar plans to hand over to the witches.",
+    "One robot is more inquisitive and wants story details; the other is evasive about his scar and steers the conversation.",
+    "The robots serve or await a shared master who has not yet returned."
+  ],
+  "characters_present": [
+    "Two unnamed robots narrating/frame speakers",
+    "Their absent 'master' (mentioned, not shown clearly)",
+    "Aghnar",
+    "Oda",
+    "Two controlled pilots",
+    "A slain priestess whose identity/disguise is referenced",
+    "Companions accompanying Aghnar and Oda near the lair"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explicitly states it is resuming Aghnar's story from the point where it previously left off.",
+    "The robots' scar conversation functions as a framing device around the continuing flashback/narration."
+  ],
+  "dialogue_meaning": [
+    "One robot mocks the other's curiosity and offers a choice of topics to pass the time while their master is gone.",
+    "The other robot initially asks about the scar, then recoils and asks to continue Aghnar's story instead.",
+    "Narration explains that the story resumes with Aghnar nearing the witches' lair and using deception and psychic control.",
+    "A companion warns they are about to enter the lair of dangerous female entities and asks if the group is prepared.",
+    "Another voice responds with a confident claim that love can triumph over death."
+  ],
+  "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+  "is_spread": false,
+  "locations": [
+    "Mechanical or shipboard interior where two robots converse",
+    "Outer space",
+    "The Shabda-Oud witches' lair",
+    "An ice asteroid containing the lair",
+    "A ship or cabin referenced in narration"
+  ],
+  "lore_facts": [
+    "There is a place called the Shabda-Oud witches' lair.",
+    "The lair is carved from an ice asteroid.",
+    "Aghnar can exert mind control over other people, here specifically two pilots.",
+    "Aghnar can use or create a 'psy-cloak' disguise tied to another person's identity.",
+    "The witches are associated with priestesses or whore-priestesses.",
+    "The lair is treated as a place of terror or major danger."
+  ],
+  "page_id": "189_The_Metabarons_7_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "Two robots banter while waiting for their absent master and decide to pass the time with a story rather than explaining a scar.",
+    "The narration resumes Aghnar's storyline from an earlier stopping point.",
+    "Aghnar is said to be approaching the Shabda-Oud witches' lair, which is carved from an ice asteroid.",
+    "While en route, Aghnar intensifies mind control over two pilots.",
+    "He allegedly fabricates or adopts a psy-cloak identity based on a priestess he killed after taking over the cabin and disintegrating her.",
+    "Disguised as a whore-priestess, he prepares to deliver Oda to the witches.",
+    "The party is about to enter the lair, and a companion asks whether the others are ready to face the danger."
+  ],
+  "source_image": "external/comics/meta-barons/189_The_Metabarons_7_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+      "page_id": "189_The_Metabarons_7_p12",
+      "source_image": "external/comics/meta-barons/189_The_Metabarons_7_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several names and terms are difficult to read with full certainty from the scan, including 'Shabda-Oud' and possibly 'psy-cloak.'",
+    "The precise identities of the human figures in the final panel are not fully explicit on this page alone.",
+    "The absent master is mentioned in dialogue but not clearly identified on the page.",
+    "Some dialogue balloons are small and partially ambiguous, so exact wording should not be treated as certain."
+  ],
+  "visual_summary": "A page of framed narration begins with two robots conversing in a mechanical interior, one teasing the other about his curiosity and a facial scar. The scene then shifts into a narrated flashback in space: ships approach an icy asteroid lair while a man exerts mental control over two pilots and takes the form of a slain priestess. In the final large panel, armed figures and a woman in white approach the witches' lair as dialogue contrasts fear with a declaration that love overcomes death.",
+  "volume": 7
+}

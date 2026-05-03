@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "At least one unseen speaker is pragmatic and believes negotiation may precede an attack because of the secret being protected.",
+    "At least one unseen Castakan speaker is uncompromising, rejects negotiation, and defines loyalty to the Empire as a sworn duty."
+  ],
+  "characters_present": [
+    "Unseen speakers at the fortress, including at least one Castakan loyalist",
+    "Imperial House forces (shown as battleships and attack craft)",
+    "Black Endoguard (identified by narration, not individually shown)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page continues a narrated historical account of a military defeat and shifts into the next stage: a siege of a fortress after the fleet destruction and betrayal.",
+    "The mention of the Black Endoguard and Imperial House ties the planetary siege to the larger political and military conflict shown in space."
+  ],
+  "dialogue_meaning": [
+    "The defenders expect a siege and believe their hidden secret gives them bargaining value.",
+    "One side argues negotiation may happen before open assault.",
+    "A Castakan voice rejects any deal with traitors on principle and affirms loyalty to the Empire."
+  ],
+  "image_sha256": "a2c0429c2089f7e9c97ebea382033d63a48d32c3f756ec31b5b29a44eed3b44b",
+  "is_spread": false,
+  "locations": [
+    "Outer space battle zone",
+    "A fortress/city on a planet or moon, associated with the Castakans"
+  ],
+  "lore_facts": [
+    "The Imperial House possesses gigantic battleships capable of crushing other fleets.",
+    "The Black Endoguard betrays the side being discussed, and this betrayal is presented as decisive and unexpected.",
+    "There is a fortress defended by Castakans.",
+    "The defenders possess a secret that they believe their enemies want to preserve or obtain.",
+    "Castakans are portrayed as bound by an oath of loyalty to the Empire and as contemptuous of treachery."
+  ],
+  "page_id": "025_The_Metabarons_1_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "A narration box states that opposing forces were eventually crushed by gigantic battleships of the Imperial House.",
+    "A second narration box says the losing side was unexpectedly betrayed by the Black Endoguard.",
+    "The scene shifts from space warfare to an impending siege of a fortress on a planet.",
+    "One speaker warns that if they are killed, the secret they hold will be lost, and predicts the attackers will offer negotiations before attacking.",
+    "Another speaker rejects negotiation, saying the Castakans despise treachery and are sworn to the Empire."
+  ],
+  "source_image": "external/comics/meta-barons/025_The_Metabarons_1_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a2c0429c2089f7e9c97ebea382033d63a48d32c3f756ec31b5b29a44eed3b44b",
+      "page_id": "025_The_Metabarons_1_p24",
+      "source_image": "external/comics/meta-barons/025_The_Metabarons_1_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No individual speakers are shown clearly, so their identities cannot be confirmed from this page alone.",
+    "The exact name and location of the fortress are not stated on this page.",
+    "The precise nature of the 'secret' is not revealed here."
+  ],
+  "visual_summary": "The page shows three scenes. At the top, a huge imperial battleship formation overwhelms smaller ships in a fiery space battle. In the middle, another fleet action is shown in colder blue tones as ships explode, tied to a betrayal by the Black Endoguard. At the bottom, many angular aircraft approach or circle a fortified city with a tall central tower in a broad, sculpted landscape, while off-panel dialogue debates whether to negotiate or resist a siege.",
+  "volume": 1
+}

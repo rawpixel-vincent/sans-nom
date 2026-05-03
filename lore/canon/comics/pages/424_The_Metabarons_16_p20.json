@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The woman refused to let a man impregnate or penetrate her.",
+    "She specifically wanted male cells from her own clan.",
+    "The larger robot is portrayed as impulsive and error-prone in its reasoning.",
+    "The smaller robot is portrayed as the more informed narrator, recounting events and correcting the other robot."
+  ],
+  "characters_present": [
+    "Small robot storyteller/explainer",
+    "Larger robot listener/speculator",
+    "A woman shown in medical machinery/flashback"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an explanation of an unusual conception or reproduction process.",
+    "The woman in the surgical flashback is the subject of the robots' discussion about the source of male cells.",
+    "The stasis chamber and the decomposed body are directly tied to rejecting the twin-corpse explanation."
+  ],
+  "dialogue_meaning": [
+    "The conversation centers on how a woman obtained male reproductive material without intercourse.",
+    "The larger robot wrongly concludes the source was a preserved male twin's corpse.",
+    "The smaller robot corrects him and explains the corpse was unusable because it decomposed immediately once removed from stasis.",
+    "The final explanation is that the woman sourced the male cells from tissue in her own brain, presented as 'male brain tissue.'"
+  ],
+  "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+  "is_spread": false,
+  "locations": [
+    "A futuristic metallic corridor or chamber",
+    "An area containing a stasis chamber/pod",
+    "A surgical or laboratory apparatus surrounding the woman"
+  ],
+  "lore_facts": [
+    "Artificial insertion of male cells is presented as a means of reproduction in this setting.",
+    "A stasis chamber can preserve a body only so long as it remains inside; removal causes immediate decomposition in this case.",
+    "The page states that a woman can possess 'male brain tissue' from which cells may be extracted.",
+    "Advanced robotic surgical systems are capable of probing the skull and extracting tissue."
+  ],
+  "page_id": "424_The_Metabarons_16_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A speaker explains that she refused sexual penetration by a man and instead sought male cells from her own clan for artificial insertion.",
+    "The larger robot assumes the needed male cells came from a twin brother's corpse kept in a stasis chamber.",
+    "The smaller robot rejects that conclusion and says the larger robot's logic is flawed.",
+    "The smaller robot explains that when the small body was removed from the stasis chamber, it immediately decomposed.",
+    "The larger robot reacts in shock, realizing no human male was involved after all.",
+    "The smaller robot reveals that the woman obtained the needed male cells by probing her own skull and extracting tissue from her own male brain matter."
+  ],
+  "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+      "page_id": "424_The_Metabarons_16_p20",
+      "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are small and partially difficult to read, so some phrasing may be approximate.",
+    "The exact identities and names of the robots and the woman are not established on this page alone.",
+    "The page footer shows '27' while the provided page label is 'p20,' suggesting different numbering systems."
+  ],
+  "visual_summary": "A small robot and a larger robot move through a metallic, futuristic complex and talk beside a chamber. The larger robot excitedly proposes that a preserved female body could supply the male cells needed for reproduction, but the small robot corrects it. The page then shows a stasis pod with decayed remains and, in the final panel, a woman strapped into a machine while robotic instruments probe her exposed skull and extract tissue from her brain.",
+  "volume": 16
+}

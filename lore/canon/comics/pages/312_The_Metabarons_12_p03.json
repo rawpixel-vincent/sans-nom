@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Tonto is directly involved in the mission or operation, since another character speaks to Tonto about finding a living cell.",
+    "An unidentified operator appears knowledgeable about cellular viability and cloning procedures.",
+    "The operator is emotionally invested, framing the success as enabled by love and patience."
+  ],
+  "characters_present": [
+    "Tonto (addressed in dialogue, not clearly visible)",
+    "An unidentified scientist or technician operating the cloning machinery",
+    "A developing cloned humanoid body"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the start of a cloning operation that likely follows an earlier search for viable biological material.",
+    "The final fully formed body implies subsequent pages may reveal the identity or purpose of the clone."
+  ],
+  "dialogue_meaning": [
+    "The immediate goal is to obtain even a single living cell.",
+    "The discovery of a reactive living cell is treated as a breakthrough.",
+    "The speaker credits 'the patience of love' for reaching this point.",
+    "The lab team proceeds to activate cloning technology."
+  ],
+  "image_sha256": "e4c08444b051c5507ecfb8e4c1177e451abd3720aa2a11b7c566e4b8ee620bec",
+  "is_spread": false,
+  "locations": [
+    "Outer space above a planet",
+    "A high-tech cloning or laboratory facility",
+    "Inside a large incubation or cloning chamber"
+  ],
+  "lore_facts": [
+    "Advanced cloning technology exists and can build a human body progressively from a living cell.",
+    "A single living cell is presented as sufficient to initiate the cloning process.",
+    "The cloning process is highly mechanized, using a large enclosed chamber and complex instrumentation.",
+    "The page links space travel or off-world search activity with biological recovery and cloning."
+  ],
+  "page_id": "312_The_Metabarons_12_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "Someone says they only need to find one living cell and addresses Tonto.",
+    "A cell is detected or reacts, confirming it is alive.",
+    "The speaker declares that the cloning process can now begin.",
+    "A large technological chamber is activated.",
+    "A humanoid body is shown forming step by step inside the apparatus."
+  ],
+  "source_image": "external/comics/meta-barons/312_The_Metabarons_12_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e4c08444b051c5507ecfb8e4c1177e451abd3720aa2a11b7c566e4b8ee620bec",
+      "page_id": "312_The_Metabarons_12_p03",
+      "source_image": "external/comics/meta-barons/312_The_Metabarons_12_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The speaking character's identity is not stated on the page.",
+    "Tonto is named in dialogue but is not clearly identifiable in the visible panels.",
+    "The exact identity of the cloned person is not given on this page alone.",
+    "One dialogue phrase is stylized and could be slightly misread, though the overall meaning is clear."
+  ],
+  "visual_summary": "In orbit above a planet, a figure addresses Tonto about finding a single living cell. Inside a dense, futuristic laboratory, a masked or goggled technician operates machinery as a detected cell is used to begin a cloning process. A large vertical chamber glows with white light while a humanoid body develops in stages below, progressing from cellular matter to skeleton, musculature, and finally a fully formed pale adult human.",
+  "volume": 12
+}

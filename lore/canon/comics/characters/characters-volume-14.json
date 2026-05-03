@@ -1,0 +1,458 @@
+[
+  {
+    "aliases": [
+      "Melmoth",
+      "Steelhead",
+      "Zaran"
+    ],
+    "appearances": [
+      "Heavily damaged form under a patterned veil, partly cybernetic, described as 'only what is left' of himself (vol.14 p01)",
+      "As Steelhead: bald metallic/cybernetic head, red-black clothing, armored pilot in black aircraft (vol.14 p02, p21)",
+      "Described in recap as having a split psyche visible since Dona Vicenta received cybernetic eyes (vol.14 ic1)"
+    ],
+    "character_id": "melmoth",
+    "important_actions": [
+      "Killed Zaran persona to become pure warrior Steelhead (vol.14 ic1, p01)",
+      "Destroyed the family castle and seven fossil-like targets in a black aircraft (vol.14 p02)",
+      "Led multi-step political and military plan: abducted Amalek XII, persuaded Dona Vicenta to negotiate, announced Bikramen galaxy-wide (vol.14 p14, p15)",
+      "Triggered Technoguild succession crisis and siege of Philodendra through Amalek XII's abduction (vol.14 p14)",
+      "Brought dying Dona Vicenta to the Metabunker for emergency treatment (vol.14 p22)",
+      "Faced forced twin selection: Castaka male heir versus girl linked to Dona Vicenta's poet-lover (vol.14 p23, unresolved)"
+    ],
+    "knowledge_boundaries": [
+      "How the Castaka male line survives if his only child is a daughter is unresolved and deferred to the next episode (vol.14 p24)",
+      "Whether Steelhead is the same individual as the 'Supreme Metabaron' commanding Metacraft is stated as uncertain in the volume (open uncertainty)"
+    ],
+    "relationships": [
+      "Married to Dona Vicenta Gabriela de Rokha (vol.14 p21, p22)",
+      "Father of twins in Dona Vicenta's womb: one boy (Castaka heir) attributed to him, one girl attributed to Dona Vicenta's poet-lover/Krleza (vol.14 p23)",
+      "Tonto and Lothar confirm his only actual child is a daughter, not a son (vol.14 p24)",
+      "Father-in-law Don Nicanor Rosamel de Rokha — deceased by vol.14 p01",
+      "Connected to the Castaka dynastic lineage (vol.14 p21, p23)",
+      "Reference to Keleza as a prior emotional teacher (vol.14 p21)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Dual psyche: Steelhead is the warrior persona — pragmatic, hard, contemptuous of sentiment, battle-focused; Zaran is the poet persona — idealistic, despairing, prone to revulsion (vol.14 ic1, p01)",
+      "Declares himself 'only what is left' after transformation; frames war as reality and love as illusion (vol.14 p01)",
+      "Beneath the warrior exterior, emotionally invested in Dona Vicenta; begs her for affection; claims to possess a human heart despite metallic body (vol.14 p21)",
+      "Credits Keleza as the one who taught him how to love (vol.14 p21)"
+    ],
+    "voice_notes": [
+      "On love versus war: 'there is no love, only the reality of war' (vol.14 p01)",
+      "Dismisses young passenger's grief over the destroyed castle, listing cumulative losses and insisting battle matters more (vol.14 p02)",
+      "To Dona Vicenta: pleads for affection while conceding his body is metallic; invokes Keleza as his emotional teacher (vol.14 p21)",
+      "Steelhead associated with 'blood-written poems' and vengeance in dialogue (vol.14 p02)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Don Nicanor Rosamel de Rokha killed during the castle assault (vol.14 p01)",
+      "Dona Vicenta's cybernetic eyes horrified his Zaran persona and fractured his psyche (vol.14 ic1)",
+      "Dona Vicenta contracted paleo-tuberculosis in the artificial environment (vol.14 p22)",
+      "Twin pregnancy discovered; mother too weak to deliver both children (vol.14 p23)",
+      "Steelhead abducted Amalek XII as part of a multi-step plan (vol.14 p14)"
+    ]
+  },
+  {
+    "aliases": [
+      "Dona Vicenta Gabriela de Rokha",
+      "Milady (probable identity; see uncertainties)",
+      "Acting President of the Troglosocialik Federation"
+    ],
+    "appearances": [
+      "Young woman with cybernetic/mechanical eyes — eyes acquired before vol.14 ic1 recap; visible in p02",
+      "Curly-haired woman in armor or headgear during the temple assault (vol.14 p09, p11)",
+      "Emotionally raw, in ruined devastated landscape (vol.14 p15)",
+      "Gravely ill, repeatedly coughing, in an artificial urban environment with plastic vegetation and holographic birds (vol.14 p21)",
+      "Near death in medical life-support apparatus with respirator mask, surrounded by machinery (vol.14 p23)"
+    ],
+    "character_id": "dona-vicenta-gabriela-de-rokha",
+    "important_actions": [
+      "Sacrificed her fingernails to Don Nicanor to secure permission for her marriage to Melmoth (vol.14 ic1 recap)",
+      "Accepted cybernetic replacement eyes (vol.14 ic1 recap)",
+      "Pleaded with Steelhead to fight for her people; Steelhead killed Zaran in response (vol.14 ic1 recap)",
+      "Inherited the acting presidency of the Troglosocialik Federation (vol.14 p15)",
+      "Overcame grief to negotiate a joint Bikramen contract with the Empire, Magnate, and Techno Guild (vol.14 p15, p18-p19)",
+      "Authorized galaxy-wide announcement of Bikramen in the Troglosocialik system (plan Item 4, vol.14 p15)",
+      "Revealed pregnancy to Steelhead, disputing his full emotional paternity (vol.14 p21)",
+      "Argued for saving the girl twin, saying it would give her strength to live (vol.14 p23)"
+    ],
+    "knowledge_boundaries": [
+      "Does not know which twin will be chosen to survive at the volume's end (vol.14 p23)",
+      "Her survival or death in childbirth is unresolved in this volume",
+      "Her identity as 'Milady' in p08-p13 is probable but not confirmed on those pages"
+    ],
+    "relationships": [
+      "Daughter of Don Nicanor Rosamel de Rokha — deceased (vol.14 ic1, p01, p15)",
+      "Married to Melmoth/Steelhead (vol.14 p21, p22)",
+      "In love with a poet figure distinct from Steelhead, linked to Krleza (vol.14 p21, p23)",
+      "Carries twins: boy attributed to Castaka/Steelhead bloodline, girl attributed to poet-lover (vol.14 p23)",
+      "Protected by the heavy cyborg warrior/The Metabaron during temple assault (vol.14 p09) — possibly Steelhead",
+      "Observed and narrated by Tonto and Lothar as frame narrators (vol.14 p21)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Emotionally volatile; devastated by loss of father and homeland; refuses to negotiate with those she holds responsible (vol.14 p15)",
+      "Self-identifies as a warrior; resists being treated as fragile by the heavy cyborg protector (vol.14 p09)",
+      "Pragmatic when pressed: willing to sacrifice personal pride for collective survival (vol.14 p15)",
+      "Capable of extreme bodily sacrifice: gave Don Nicanor her fingernails; accepted cybernetic eyes (vol.14 ic1 recap)",
+      "Deeply spiritually attached to Philodendra; watches evacuation from her father's tomb (vol.14 p18-p19)",
+      "Physically fragile by volume's end: lung infection labelled 'bio-despair,' then paleo-tuberculosis (vol.14 p21, p22)"
+    ],
+    "voice_notes": [
+      "On negotiation: 'They killed my father, my people, my planet — I will not negotiate with them' (vol.14 p15)",
+      "On paternity: body was Steelhead's, but love and spirit belonged to her poet (vol.14 p21)",
+      "On the twins: boy is Steelhead's Castaka heir and will be raised as a pitiless warrior; girl is her poet's daughter and would give her the will to survive (vol.14 p23)",
+      "On Philodendra: vows not to forget it even as people depart (vol.14 p18-p19)",
+      "On her illness and losses: speaks as if death may be all she has left (vol.14 p22)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Don Nicanor failed to recognize her as his daughter during their encounter (vol.14 ic1 recap)",
+      "Melmoth's horror at her cybernetic eyes fractured his psyche into Steelhead and Zaran (vol.14 ic1 recap)",
+      "Techno-Technos bombarded Philodendra after Don Nicanor refused the TechnoCardinal's ultimatum (vol.14 ic1 recap)",
+      "Signed joint Bikramen governance contract with the Empire, Magnate, and Techno Guild (vol.14 p18-p19)",
+      "Watched Philodendra's evacuation from the ruins of her castle, now also her father's tomb (vol.14 p18-p19)",
+      "Medical examination revealed she carries twins; her body is too weak to deliver both (vol.14 p23)"
+    ]
+  },
+  {
+    "aliases": [
+      "Don Nicanor Rosamel de Rokha"
+    ],
+    "appearances": [
+      "Commands Philodendran forces; breaks into the barricade sheltering Melmoth and Dona Vicenta (vol.14 ic1 recap)",
+      "Confirmed killed during the Metabaron/Petro castle assault — reported as already 'reduced to soup' (vol.14 p01)",
+      "His tomb is at or near the ruins of his castle on Philodendra (vol.14 p18-p19)"
+    ],
+    "character_id": "don-nicanor-rosamel-de-rokha",
+    "important_actions": [
+      "Led Philodendran forces to breach the barricade sheltering Melmoth and Dona Vicenta (vol.14 ic1 recap)",
+      "Tried to claim Dona Vicenta without recognizing her as his daughter (vol.14 ic1 recap)",
+      "Granted permission for Dona Vicenta's marriage to Melmoth after she sacrificed her fingernails (vol.14 ic1 recap)",
+      "Refused TechnoCardinal's planetary evacuation ultimatum; bombardment followed (vol.14 ic1 recap)",
+      "Killed during the Metabaron assault on the castle (vol.14 p01)"
+    ],
+    "knowledge_boundaries": [
+      "Did not know Dona Vicenta was his daughter during their encounter (vol.14 ic1 recap)",
+      "Deceased by p01; no further agency in the volume"
+    ],
+    "relationships": [
+      "Father of Dona Vicenta Gabriela de Rokha (vol.14 ic1, p01, p15)",
+      "Commands Philodendran forces (vol.14 ic1 recap)",
+      "Opposed by the Techno-Technos over Bikramen mining rights (vol.14 ic1 recap)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Authoritarian military commander; willing to use force to break a barricade (vol.14 ic1 recap)",
+      "Failed to recognize his own daughter during their confrontation (vol.14 ic1 recap)",
+      "Could be moved by extreme sacrifice: granted Dona Vicenta's marriage after she gave him her fingernails (vol.14 ic1 recap)",
+      "Defiant against external powers: refused the TechnoCardinal's ultimatum to vacate Philodendra (vol.14 ic1 recap)"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "His refusal of the TechnoCardinal's ultimatum caused Techno-Techno bombardment of Philodendra (vol.14 ic1 recap)",
+      "Dona Vicenta's sacrifice of her fingernails tormented him enough to grant her marriage to Melmoth (vol.14 ic1 recap)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Metabaron",
+      "Supreme Metabaron",
+      "Petro (possible; see uncertainties)"
+    ],
+    "appearances": [
+      "Heavily armored figure commanding Metacraft in space combat (vol.14 p04-p05)",
+      "Addressed formally as 'Supreme Metabaron' during technomonk confrontation (vol.14 p13)",
+      "Heavy armored cyborg warrior on foot, physically very heavy — weight noted as a mobility limitation (vol.14 p09)",
+      "Generates or activates a lethal spherical energy field capable of killing guards en masse (vol.14 p09)",
+      "Uses energy weapon fire and fights through golden organic bio-mechanical structures (vol.14 p10)"
+    ],
+    "character_id": "the-metabaron",
+    "important_actions": [
+      "Ordered Metacraft to execute an immediate about-turn against the merged petro-morph ship, exploiting size and speed advantage (vol.14 p04-p05)",
+      "Breached Amalek XII's sealed techno-temple and fought through technopapal guardians (vol.14 p08-p13)",
+      "Expelled a small figure through a vertical shaft inside the organic structure (vol.14 p10)",
+      "Destroyed the technoscarab and threatened Amalek XII with total destruction unless he appeared (vol.14 p12)",
+      "Activated pan-atomic anti-shield and repelled technomonk kidnapping attempt; leader immediately capitulated (vol.14 p13)"
+    ],
+    "knowledge_boundaries": [
+      "Whether this is the same person as Melmoth/Steelhead or a distinct figure is an open uncertainty in this volume",
+      "The mechanism of the spherical defensive energy field is not named or explained in any page"
+    ],
+    "relationships": [
+      "Commands Metacraft (vol.14 p04-p05)",
+      "Tonto serves as observer/adviser aboard Metacraft (vol.14 p04-p05)",
+      "Acts as protector-superior to Milady (vol.14 p09, p10)",
+      "Possibly the same individual as Melmoth/Steelhead — explicitly unresolved in this volume (open uncertainty)",
+      "The 'current Metabaron' referenced by Tonto and Lothar is a separate later figure whose identity is distinct from the historical Steelhead (vol.14 p24)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Relies on speed and maneuverability rather than brute force in ship combat (vol.14 p04-p05)",
+      "Tactically precise: exploits opponent's turning radius as a decisive time advantage (vol.14 p04-p05)",
+      "Disciplined and protective toward Milady; insists she stay within his exact path (vol.14 p09)",
+      "Forceful and confrontational: prefers demand over polite request when approaching authority figures (vol.14 p11)",
+      "Does not retreat when threatened; presses forward despite obstacles (vol.14 p11, p13)",
+      "Confident when direct assault routes seem impossible; reframes the problem tactically (vol.14 p09)"
+    ],
+    "voice_notes": [
+      "On tactics: orders Metacraft to flee because the enemy is too powerful to engage head-on without losing too much time (vol.14 p04-p05)",
+      "On access to the temple: 'If we cannot go up, our enemies will come down to us' (vol.14 p09)",
+      "Invokes 'mega-mortis' as an escalated offensive mode while protected by the pan-atomic anti-shield (vol.14 p13)",
+      "Addresses Milady in a guiding/commanding tone: 'follow your braggart' (approximate, vol.14 p10)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Observed petro-morphs merging into a gigantic combined vessel via Tonto's report (vol.14 p04-p05)",
+      "Landed at Amalek XII's sealed techno-temple; temple defense systems deployed weapons and paralysis gas against Metacraft (vol.14 p08)",
+      "Killed technopapal guardians en masse with a spherical energy field (vol.14 p09)",
+      "Destroyed a large biomechanical technoscarab deployed as a defensive creature (vol.14 p12)",
+      "Technomonk faction attempted to kidnap him; leader capitulated after a blast dispersed them (vol.14 p13)"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "Robot or mechanical figure (nature implied from context and 'laws of robotics' reference)",
+      "Present inside Metacraft during the petro-morph space battle (vol.14 p04-p05)",
+      "Stranded with Lothar on a muddy primitive world after Metabunker's destruction; rebuilding it (vol.14 ic1 recap)",
+      "Off-panel narrator commenting on Dona Vicenta's situation (vol.14 p21)"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Survived Metabunker's destruction; began rebuilding it with Lothar (vol.14 ic1 recap)",
+      "Co-recounts Metabaron dynastic history throughout the volume as frame narrator",
+      "Reports petro-morph merging to the Metabaron in real time during space combat (vol.14 p04-p05)"
+    ],
+    "knowledge_boundaries": [
+      "Defers the explanation of how the Castaka line survived despite Steelhead having only a daughter — to the next episode (vol.14 p24)",
+      "Does not know the current Metabaron's location during the frame narrative present (vol.14 p24)"
+    ],
+    "relationships": [
+      "Partner/counterpart to Lothar in the frame narrative (vol.14 ic1 recap, p24)",
+      "Serves the current Metabaron as master (vol.14 p24)",
+      "Observer of the relationship between Dona Vicenta and Steelhead (vol.14 p21)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Acts as observer, adviser, and co-narrator of Metabaron dynastic history (vol.14 throughout)",
+      "Bound by laws of robotics compelling service to the master regardless of circumstance (vol.14 p24)",
+      "More knowledgeable of the two narrators: withholds the Castaka succession explanation until later (vol.14 p24)",
+      "Interprets Steelhead's motive for saving a girl as love, not error (vol.14 p24)"
+    ],
+    "voice_notes": [
+      "Attributes Steelhead's saving of a daughter to love, not tactical oversight (vol.14 p24)",
+      "Confirms Steelhead had only one child — a little girl — contradicting expected male succession (vol.14 p24)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Survived the destruction of the Metabunker (vol.14 ic1 recap)",
+      "Observed petro-morphs merging into a larger combined form during the space battle (vol.14 p04-p05)",
+      "Witnessed the Metabaron execute the about-turn maneuver (vol.14 p04-p05)",
+      "Protected inside Metacraft during hostile landing at Amalek XII's temple (vol.14 p08)"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "Robot or mechanical figure (nature implied from context and 'laws of robotics' reference)",
+      "Stranded with Tonto on a muddy primitive world; rebuilding the Metabunker (vol.14 ic1 recap)"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Survived Metabunker's destruction; began rebuilding it with Tonto (vol.14 ic1 recap)",
+      "Co-recounts Metabaron dynastic history throughout the volume as frame narrator"
+    ],
+    "knowledge_boundaries": [
+      "Does not know the current Metabaron's location during the frame narrative present (vol.14 p24)"
+    ],
+    "relationships": [
+      "Partner/counterpart to Tonto in the frame narrative (vol.14 ic1 recap, p24)",
+      "Serves the current Metabaron as master (vol.14 p24)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Bound by laws of robotics compelling service to the master regardless of circumstance (vol.14 p24)",
+      "Highly impatient; threatens violence over unanswered questions (vol.14 p24)",
+      "Co-narrator of Metabaron history with Tonto, though apparently less knowledgeable or more impulsive"
+    ],
+    "voice_notes": [
+      "Addressed by Tonto when the claim is made that Steelhead had only a little girl as his sole child (vol.14 p24)",
+      "Responds to narrative delays with impatience and threats (vol.14 p24)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Survived the destruction of the Metabunker (vol.14 ic1 recap)"
+    ]
+  },
+  {
+    "aliases": [
+      "Amalek XII",
+      "Supreme Technopope",
+      "Aghlex XII (possible transcription variant on p11; may be same person — unresolved)"
+    ],
+    "appearances": [
+      "Not clearly depicted in person on any confirmed page in this volume",
+      "His sealed, doorless techno-temple on the Techno Central Planet is the primary location associated with him (vol.14 p08)",
+      "Referenced as a prisoner secured in the ruins of the presidential palace on Philodendra (vol.14 p14)"
+    ],
+    "character_id": "amalek-xii",
+    "important_actions": [
+      "Abducted by Steelhead, triggering Technoguild succession crisis and siege of Philodendra by thousands of technodestroyers (vol.14 p14)",
+      "Secured as a physical hostage in the ruins of the Philodendra presidential palace as part of Steelhead's plan (vol.14 p14)"
+    ],
+    "knowledge_boundaries": [
+      "Does not appear in person on any confirmed page; only referenced or addressed off-panel (vol.14 open uncertainty)",
+      "Whether 'Aghlex XII' on p11 and 'Amalek XII' elsewhere refer to the same person or represent a transcription error is unresolved"
+    ],
+    "relationships": [
+      "Head of the Technoguild and techno-papal authority (vol.14 p08, p14)",
+      "Abducted by Steelhead/The Metabaron as part of a multi-step plan (vol.14 p14)",
+      "Temple defended by technopapal guardians and a giant technoscarab (vol.14 p09, p11)",
+      "Has numbered successors: Amalek XIII, XIV, XV (vol.14 p14)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Holds the title Supreme Technopope; described as 'one of the galaxy's most powerful and influential people' (vol.14 p14)",
+      "Treated by one speaker as replaceable within a numbered succession system: Amalek XIII, XIV, XV already prepared (vol.14 p14)",
+      "His abduction is sufficient to trigger a galaxy-wide succession crisis and planetary siege (vol.14 p14)"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "His sealed techno-temple was breached by Metacraft and stormed by the armored cyborg and Milady (vol.14 p08-p13)",
+      "He was abducted by Steelhead and secured in the ruins of the presidential palace on Philodendra (vol.14 p14)"
+    ]
+  },
+  {
+    "aliases": [
+      "TechnoCardinal",
+      "TechnoCardinal (role/title, not a personal name)"
+    ],
+    "appearances": [
+      "Appears as a representative or authority figure of the Techno-Technos; delivers a planetary ultimatum to Don Nicanor (vol.14 ic1 recap only)"
+    ],
+    "character_id": "technocardinal",
+    "important_actions": [
+      "Delivered the ultimatum to Don Nicanor that his people must vacate Philodendra for Bikramen mining (vol.14 ic1 recap)"
+    ],
+    "knowledge_boundaries": [
+      "Appears only in the recap on ic1; no confirmed further presence in this volume"
+    ],
+    "relationships": [
+      "Represents the Techno-Technos faction (vol.14 ic1 recap)",
+      "Issued ultimatum to Don Nicanor Rosamel de Rokha (vol.14 ic1 recap)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Functions as the official Techno-Technos envoy when issuing planetary ultimatums (vol.14 ic1 recap)",
+      "Carries authority to order planetary evacuation on behalf of the Techno-Technos"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Don Nicanor refused the evacuation ultimatum, leading to Techno-Techno bombardment of Philodendra (vol.14 ic1 recap)"
+    ]
+  },
+  {
+    "aliases": [
+      "General Zoththo"
+    ],
+    "appearances": [
+      "Addresses a large crowd from a ceremonial platform (vol.14 p22)",
+      "Depicted in a public governmental presentation, assuming presidential authority"
+    ],
+    "character_id": "general-zoththo",
+    "important_actions": [
+      "Took over the presidency when Dona Vicenta was incapacitated by paleo-tuberculosis (vol.14 p22)",
+      "Publicly declared leadership and stability to the federation during the crisis (vol.14 p22)"
+    ],
+    "knowledge_boundaries": [
+      "Circumstances of his assumption of the presidency beyond Dona Vicenta's illness are not explained in this volume"
+    ],
+    "relationships": [
+      "Succeeds Dona Vicenta as acting president of the Troglosocialik Federation (vol.14 p22)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Self-presents as a courageous leader during external attacks and instability (vol.14 p22)",
+      "Assumes executive authority during Dona Vicenta's medical incapacitation"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Publicly addressed the federation's population during petro-morph attacks while Dona Vicenta was hospitalized (vol.14 p22)"
+    ]
+  },
+  {
+    "aliases": [
+      "Metacraft"
+    ],
+    "appearances": [
+      "Small black angular spacecraft visible in space combat (vol.14 p04-p05)",
+      "Breaches Amalek XII's sealed techno-temple and lands under defensive fire (vol.14 p08)",
+      "Carries protective multi-layer shield strong enough to withstand techno-temple defenses: lasers, paralysis gas, electro-spies (vol.14 p08)"
+    ],
+    "character_id": "metacraft",
+    "important_actions": [
+      "Executed about-turn maneuver exploiting speed and size advantage against the gigantic petro-morph vessel (vol.14 p04-p05)",
+      "Jumped thousands of light years through inter-space and breached Amalek XII's techno-temple defenses (vol.14 p08)",
+      "Protected Tonto and crew inside with multi-shield under hostile landing fire (vol.14 p08)"
+    ],
+    "knowledge_boundaries": [
+      "Whether Metacraft is fully sentient or a sophisticated automated system is not stated in this volume"
+    ],
+    "relationships": [
+      "Primary craft of the Metabaron/Steelhead (vol.14 p04-p05)",
+      "Tonto rides aboard Metacraft during the space battle and temple landing (vol.14 p04-p05, p08)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Voice-interfaced: receives spoken commands and verbally confirms them (vol.14 p04-p05, p08)",
+      "Sentient or sophisticated automated system (exact nature unresolved)",
+      "Highly maneuverable relative to capital-scale vessels; exploits size advantage tactically (vol.14 p04-p05)",
+      "Capable of anti-matter inter-space jumps spanning thousands of light years in seconds (vol.14 p08)"
+    ],
+    "voice_notes": [
+      "Verbally acknowledges flight orders: confirms retreat, about-turn, jump destination, and multi-shield status (vol.14 p04-p05, p08)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Executed an immediate about-turn against the merged petro-morph ship and confirmed the maneuver (vol.14 p04-p05)",
+      "Leaped from the Troglosocialik system to the Techno Central Planet and successfully landed inside the temple's defensive perimeter (vol.14 p08)",
+      "Sustained attack by lasers and paralysis gas; multi-shield protected crew throughout (vol.14 p08)"
+    ]
+  },
+  {
+    "aliases": [
+      "Krleza"
+    ],
+    "appearances": [
+      "Not physically depicted; mentioned only in dialogue (vol.14 p21, p23)"
+    ],
+    "character_id": "krleza",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Whether Krleza is a person, a place, or a clan is explicitly unresolved in this volume (open uncertainty)",
+      "Not physically present in any scene; known only through references in dialogue"
+    ],
+    "relationships": [
+      "Emotional teacher of Melmoth/Steelhead (vol.14 p21)",
+      "Connected to Dona Vicenta's poet-lover and the girl twin (vol.14 p23)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Taught Melmoth/Steelhead how to love, according to Dona Vicenta (vol.14 p21)",
+      "Associated with the girl twin and with the man Dona Vicenta loves (vol.14 p23)"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

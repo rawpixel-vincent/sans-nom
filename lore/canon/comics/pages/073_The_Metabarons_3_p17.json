@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Othon von Salza is capable of piloting through sophisticated planetary defenses.",
+    "Othon von Salza is confident to the point of contempt, judging elite imperial warriors inferior to himself.",
+    "Othon von Salza relies on instinct while guiding his ship.",
+    "The imperial speaker acts as a public voice for the empire's wartime messaging and reward offer."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "A helmeted imperial speaker shown in close-up, likely addressing the empire",
+    "A second partially seen figure behind the speaker"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues a larger conflict involving an imperial standoff.",
+    "It connects the conflict to protection of a sacred egg and a prophesied child.",
+    "It introduces or continues Othon von Salza's infiltration of the golden planet despite its defenses."
+  ],
+  "dialogue_meaning": [
+    "The empire publicly solicits strategies from the population to break a deadlock, promising major rewards.",
+    "The empire considers protection of a sacred egg a realm-wide priority.",
+    "The expected child is presented as a unifying, messianic figure for all factions.",
+    "Ship systems are being fully readied for approach or conflict.",
+    "Othon privately sees the empire as weakened by traitors and humiliated by needing civilian help.",
+    "Othon trusts his own instincts and considers himself stronger than the empire's great warriors."
+  ],
+  "image_sha256": "94aa5e054f1460cc5c047eb73e38720de6551251a6bc59c2649b790f4fb502a3",
+  "is_spread": false,
+  "locations": [
+    "Interior of Othon von Salza's ship or cockpit",
+    "Space above a golden planet",
+    "The golden planet's pure-oxygen atmosphere"
+  ],
+  "lore_facts": [
+    "There is an ongoing battle or standoff that the empire wants to end.",
+    "The empire spans a vast realm and can call upon civilians for assistance.",
+    "A 'sacred egg' is important enough to justify empire-wide mobilization.",
+    "An unborn or not-yet-born child is believed to be the link that will unite all factions and is described in messianic terms.",
+    "The golden planet has a pure-oxygen atmosphere.",
+    "The golden planet is protected by poly-radars, quantum sensors, and photonic barriers."
+  ],
+  "page_id": "073_The_Metabarons_3_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "An imperial appeal is made for ideas to win a battle and end a standoff.",
+    "The appeal says the empire needs the people of its vast realm to protect a sacred egg.",
+    "The message links an expected child to the unification of all factions and presents the child in messianic terms.",
+    "A shipboard readiness sequence is shown with circuits, defenses, scanners, and weapons being activated.",
+    "Othon von Salza pilots a ship toward the golden planet.",
+    "Othon internally mocks the empire's celebrated warriors as weaker than himself.",
+    "Narration states that Othon evades poly-radars, quantum sensors, and photonic barriers.",
+    "Othon enters the pure-oxygen atmosphere of the golden planet."
+  ],
+  "source_image": "external/comics/meta-barons/073_The_Metabarons_3_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "94aa5e054f1460cc5c047eb73e38720de6551251a6bc59c2649b790f4fb502a3",
+      "page_id": "073_The_Metabarons_3_p17",
+      "source_image": "external/comics/meta-barons/073_The_Metabarons_3_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and rank of the helmeted imperial speaker are not stated on this page.",
+    "The exact identity of the partially visible figure behind the speaker is unclear.",
+    "Some wording may be slightly paraphrased to avoid over-relying on small dialogue text, but the page meaning is clear."
+  ],
+  "visual_summary": "A heavily armored man with long white hair pilots a sleek ship while propaganda-style and internal monologue captions frame the scene. A helmeted imperial figure calls for strategic ideas to end a standoff and says the empire needs its people to protect a sacred egg tied to a prophesied child. The pilot, identified in narration as Othon von Salza, silently resents this reliance on civilians, guides his ship through advanced defenses, and descends toward a vast golden planet shown from orbit.",
+  "volume": 3
+}

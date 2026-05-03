@@ -26,6 +26,17 @@ go.work.sum
 
 # env file
 .env
+.venv/
+bridge/.venv/
+.pytest_cache/
+bridge/.pytest_cache/
+__pycache__/
+*.py[cod]
+qdrant_storage/
+
+# generated / local runtime state
+*.log
+tmp/
 
 # Editor/IDE
 # .idea/

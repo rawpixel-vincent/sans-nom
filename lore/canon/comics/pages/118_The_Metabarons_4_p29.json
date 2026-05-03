@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The armored contestant is resourceful enough to trigger the robot's self-destruct instead of defeating it in a more straightforward way.",
+    "One older observer is stricter about the rules and considers the victory questionable.",
+    "The other observer insists on keeping their sworn word.",
+    "The judges remain unconvinced about the contestant's full merit and subject him to further testing."
+  ],
+  "characters_present": [
+    "An armored contestant or initiate",
+    "A large robot or combat machine",
+    "Two older human observers or judges",
+    "Additional small distant figures caught in the explosion, possibly attendants or other combatants"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page resolves a specific condition stated earlier in the trial: if the contestant activated the robot's self-destruct, he would be accepted as a future Metabaron.",
+    "The trial does not end with the explosion; it continues into a new test centered on pain resistance."
+  ],
+  "dialogue_meaning": [
+    "The blast is interpreted by one judge as proof that the contestant met the victory condition.",
+    "The other judge argues the result was achieved by exploiting weightlessness rather than by a legitimate hit.",
+    "A prior promise is cited: activating the robot's self-destruct would qualify him as a future Metabaron.",
+    "The judges agree to honor the oath but insist on another ordeal focused on pain tolerance to reveal his true worth."
+  ],
+  "image_sha256": "76d8ba4b9b9cc9d464afbaee66a2bfc4274f027845fa9d99ba1dcd9c221bf265",
+  "is_spread": false,
+  "locations": [
+    "A futuristic interior arena or testing chamber",
+    "An observation platform or control area overlooking the chamber"
+  ],
+  "lore_facts": [
+    "A robot used in this setting has a self-destruction mechanism that can be triggered during the trial.",
+    "Weightlessness is treated as a relevant condition that can affect how a test is judged.",
+    "There is a formal or semi-formal path to becoming a future Metabaron.",
+    "Oaths are binding enough that the judges feel compelled to honor one even during a dispute.",
+    "Resistance to pain is an explicit criterion in evaluating a candidate's worth."
+  ],
+  "page_id": "118_The_Metabarons_4_p29",
+  "page_label": "p29",
+  "plot_events": [
+    "An armored contestant makes contact with a robot or its control/core area.",
+    "The robot's self-destruction mechanism is activated.",
+    "A massive explosion tears through the chamber and scatters debris.",
+    "One observer declares that the contestant fulfilled the condition and won.",
+    "Another objects that the feat was illegitimate because the contestant was effectively weightless and did not strike with proper force.",
+    "The observers invoke an earlier oath: if the contestant triggered the robot's self-destruct, he would be accepted as a future Metabaron regardless of weightlessness.",
+    "They decide to continue testing him, specifically by measuring his resistance to pain.",
+    "An observer addresses the contestant across the damaged arena after the blast."
+  ],
+  "source_image": "external/comics/meta-barons/118_The_Metabarons_4_p29.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "76d8ba4b9b9cc9d464afbaee66a2bfc4274f027845fa9d99ba1dcd9c221bf265",
+      "page_id": "118_The_Metabarons_4_p29",
+      "source_image": "external/comics/meta-barons/118_The_Metabarons_4_p29.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The dialogue is mostly legible, but some wording is small and may not be perfectly transcribed from the image alone.",
+    "The exact identities and names of the two older observers are not given on this page.",
+    "The exact identity of the armored contestant is not explicitly named on this page.",
+    "Some small figures in the explosion panel are indistinct, so their identities and survival are unclear."
+  ],
+  "visual_summary": "An armored fighter reaches or strikes at a robot mechanism inside a futuristic chamber. The machine erupts in a blinding explosion, throwing debris and bodies through the air. In side panels, two older onlookers argue over whether the contestant truly won the trial, then agree to continue testing him. In the final panel, one observer addresses the surviving armored figure amid the wreckage.",
+  "volume": 4
+}

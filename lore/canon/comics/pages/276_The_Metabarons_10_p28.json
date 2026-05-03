@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Othon von Salza is important enough to receive a unanimous honor from planetary ambassadors.",
+    "Othon von Salza has a reputation, at least in this scene, as a savior of humanity.",
+    "The presiding officials and attendants appear to belong to a formal political or diplomatic institution."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "planetary ambassadors",
+    "a central robed or cloaked dignitary presiding over the ceremony",
+    "multiple armored and robed attendants or witnesses",
+    "a figure shown inside a floating holographic or energy bubble (identity unclear)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page functions as an ending beat, moving from large-scale destruction imagery to political recognition.",
+    "The final caption explicitly points forward to the next episode, 'Steelhead's Quest.'"
+  ],
+  "dialogue_meaning": [
+    "A formal proclamation states that all planetary ambassadors unanimously confer a high noble distinction.",
+    "The recipient is identified as Othon von Salza.",
+    "The stated reason is that he twice saved humanity from total destruction."
+  ],
+  "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+  "is_spread": false,
+  "locations": [
+    "outer space or orbital environment",
+    "a grand ceremonial hall or council chamber"
+  ],
+  "lore_facts": [
+    "There exists a body of 'planetary ambassadors' capable of making unanimous interplanetary decisions.",
+    "A rank or honor described as 'high nobility' is formally awarded through ceremony.",
+    "Othon von Salza is publicly credited with saving humanity on two separate occasions.",
+    "The setting includes advanced space technology, orbital craft, and holographic or energy-projection displays."
+  ],
+  "page_id": "276_The_Metabarons_10_p28",
+  "page_label": "p28",
+  "plot_events": [
+    "A space object or orbital craft is shown against a blue sky or space backdrop.",
+    "A massive explosion or destructive energy event occurs, filling several panels with white light, fire, and smoke.",
+    "The narrative transitions to a formal ceremony attended by multiple figures in an ornate chamber.",
+    "A medallion is presented or displayed as part of the ceremony.",
+    "The assembled planetary ambassadors award high nobility to Othon von Salza.",
+    "The honor is said to recognize that he saved humanity twice from complete annihilation.",
+    "The page ends with a teaser announcing the next episode, 'Steelhead's Quest.'"
+  ],
+  "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+      "page_id": "276_The_Metabarons_10_p28",
+      "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The small caption text is readable in substance but not perfectly sharp; exact wording may vary slightly.",
+    "It is unclear whether the opening space figure is a satellite, spacecraft, or armored character.",
+    "The identity of the figure inside the floating holographic or energy bubble is not clear from this page alone.",
+    "The exact title of the medal or medallion is difficult to confirm beyond it being an honor of high nobility."
+  ],
+  "visual_summary": "The page opens in space with a satellite-like craft or armored figure with large wing-shaped panels. A sequence of narrow panels shows a blinding explosion or energy burst followed by smoke and fiery debris. The scene then cuts to a bright ceremonial chamber where robed and armored figures gather before a central dignitary. A medal or medallion is displayed, and a floating holographic or energy-encased image of a figure appears beside the assembly. A caption at the bottom announces the next episode, 'Steelhead's Quest.'",
+  "volume": 10
+}

@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The Tarantu-wolf is capable of sudden extreme violence and killing humans.",
+    "The attacked technopope is physically overwhelmed and apparently eaten alive.",
+    "The bald man in black remains active near the Tarantu-wolf during the massacre rather than fleeing.",
+    "Guards and civilians react with fear and disarray rather than coordinated control at first."
+  ],
+  "characters_present": [
+    "The Tarantu-wolf",
+    "A technopope or high religious figure who is attacked",
+    "A bald man in black addressed as 'Deyanira' by another speaker, though the identification is uncertain",
+    "Crowd members and attendants",
+    "Armored guards or soldiers",
+    "The empresses are mentioned but not clearly identifiable in the art on this page"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narration frames the event as a sudden change in the Tarantu-wolf's behavior, implying it interrupts an ongoing public or courtly gathering.",
+    "The page depicts a single escalating incident: animal frenzy, death of the technopope, then wider panic and armed response."
+  ],
+  "dialogue_meaning": [
+    "Sound effects and shouts establish that the creature is growling and attacking.",
+    "A speaker tries to stop or warn someone by calling out 'Deyanira,' though the exact addressee is unclear.",
+    "The technopope cries out while being attacked.",
+    "Bystanders panic, shouting for help and warning that the beast will kill them.",
+    "Guards order protection for the empresses and preparation of advanced weapons.",
+    "Someone challenges the bald man in black, asking what he is doing as the attack continues."
+  ],
+  "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+  "is_spread": false,
+  "locations": [
+    "A large interior ceremonial or imperial hall crowded with clergy, attendants, and guards"
+  ],
+  "lore_facts": [
+    "A creature called the Tarantu-wolf exists and is dangerous enough to cause a deadly rampage.",
+    "A technopope is present in this setting, indicating a religious hierarchy tied to the scene.",
+    "The setting includes armed forces equipped with weapons called 'disintegrator 48s.'",
+    "There are empresses important enough to be specifically protected during the emergency."
+  ],
+  "page_id": "420_The_Metabarons_16_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "The Tarantu-wolf is shown snarling and then abruptly turning savage.",
+    "The creature lunges at a robed religious figure and devours him alive.",
+    "The attack triggers panic in the crowd, with multiple casualties visible on the floor.",
+    "People shout for help and to run while others try to protect the empresses.",
+    "Soldier-like figures prepare 'disintegrator 48s' in response to the rampage.",
+    "A bald man dressed in black is shown close to the beast during the chaos, with someone asking him what he is doing."
+  ],
+  "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+      "page_id": "420_The_Metabarons_16_p16",
+      "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is partially hard to read, so exact wording may be imperfect.",
+    "The identity of 'Deyanira' is uncertain; it may refer to the bald figure in black or another off-panel/additional figure.",
+    "The exact nature of the hall is inferred from the crowd, guards, and mention of empresses, but the page does not name the location explicitly.",
+    "The final panel's precise action by the bald man in black is ambiguous from the image alone."
+  ],
+  "visual_summary": "A large spider-like creature identified by narration as the Tarantu-wolf suddenly becomes violently enraged in a crowded imperial setting. It attacks and appears to eat a technopope alive, causing bloodshed and mass panic. Guards and bystanders flee or prepare heavy weapons while a bald man in black remains near the beast amid the carnage.",
+  "volume": 16
+}

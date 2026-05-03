@@ -1,0 +1,79 @@
+{
+  "character_facts": [
+    "Aghnar is alive after decapitation by relying on machine attachment.",
+    "Honorata is the mysterious savior who helps Aghnar return to the Metabunker.",
+    "Honorata claims agency over Oda's restored body by reincarnating herself within it.",
+    "Oda is restored to life and becomes pregnant after the Shabda-Oud procedure.",
+    "Aghnar and Oda had previously agreed their child should not become a Metabaron.",
+    "The unborn child is male and becomes the focus of a future father-son conflict.",
+    "Honorata intends to raise her son to be capable of killing Aghnar."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Honorata",
+    "Oda",
+    "Othon",
+    "the unborn son of Aghnar and Oda",
+    "Magon tribe",
+    "expert robots",
+    "Shabda-Oud"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly recaps events from earlier chapters before the main story continues.",
+    "It establishes the immediate backstory for a new stage of the Metabaron lineage centered on Aghnar, Oda, Honorata, and their son."
+  ],
+  "dialogue_meaning": [
+    "The page is a prose recap summarizing prior events rather than scene dialogue.",
+    "Honorata explains how she survived and manipulated time on Okhar using Shabda-Oud powers.",
+    "Aghnar states his prior pact with Oda that their child should not become a Metabaron.",
+    "The recap frames the conflict as Honorata vowing to raise the son as a champion while Aghnar vows to return and kill him, reaffirming the clan's violent tradition."
+  ],
+  "image_sha256": "08e5ae3cc989fb6e516e10a6fa6128ce74bcb9de19e555afc63faebd80bb41ad",
+  "is_spread": false,
+  "locations": [
+    "the Metabunker",
+    "Okhar",
+    "space"
+  ],
+  "lore_facts": [
+    "The Shabda-Oud possess powers that can accelerate time and a psycho-surgical science capable of restoring someone to life.",
+    "Honorata had a 'heart-bomb' that could be replaced by expert robots after time acceleration on Okhar.",
+    "A specially built vessel can withstand the nuclear disintegration of a planet.",
+    "Time can pass at radically different rates for different parties in this setting.",
+    "Reincarnation or spirit transfer into another body is presented as possible.",
+    "A decapitated body can be kept alive by attaching it to a machine.",
+    "Metabaron tradition includes father-son lethal challenge as a recognized warrior custom."
+  ],
+  "page_id": "229_The_Metabarons_9_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Aghnar leaves the Magon tribe and returns to the Metabunker through the intervention of a mysterious savior.",
+    "The savior is identified as Honorata, who explains that she used Shabda-Oud powers on Okhar to accelerate time so expert robots could replace her heart-bomb and build a vessel able to survive a planetary nuclear destruction.",
+    "Because of the altered time flow, about twenty years pass for Honorata on Okhar while only minutes pass for Othon and Aghnar in space.",
+    "Honorata offers to restore Oda to life using the psycho-surgical science of the Shabda-Oud, and Aghnar agrees.",
+    "Aghnar warns that he and Oda had agreed their child must not become a Metabaron.",
+    "The operation succeeds, Oda becomes pregnant, and the unborn child is identified as a boy.",
+    "During the pregnancy, Oda's attitude changes and she urges Aghnar not to miss the chance to make their son the greatest warrior in the universe.",
+    "It is revealed that Honorata has reincarnated herself inside Oda's body.",
+    "Aghnar realizes the truth and a mental struggle erupts between him and Honorata/Oda, with the baby taking the mother's side.",
+    "A laser shot suddenly blows off Aghnar's head.",
+    "Aghnar instructs Honorata to attach his decapitated body to a machine so he can continue living, because he wanted only to destroy her spirit.",
+    "Aghnar leaves after warning that he will return to challenge his son in a duel and destroy him.",
+    "Honorata accepts this as a renewal of Metabaron traditions and vows to raise her son into a warrior capable of killing his father."
+  ],
+  "source_image": "external/comics/meta-barons/229_The_Metabarons_9_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "08e5ae3cc989fb6e516e10a6fa6128ce74bcb9de19e555afc63faebd80bb41ad",
+      "page_id": "229_The_Metabarons_9_ic1",
+      "source_image": "external/comics/meta-barons/229_The_Metabarons_9_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The left-side painted figure and the five portrait medallions are not labeled on this page, so their exact identities are uncertain from this image alone.",
+    "Some small-print credit and publication text is present but not relevant to lore extraction."
+  ],
+  "visual_summary": "A recap/credits page for The Metabarons. The page is dominated by the series title and a prose recap under the heading 'Previously, in The Metabarons.' On the left is a painted image of a screaming figure aiming a large double-barreled weapon toward the viewer, with mechanical/organic decorative imagery below and five circular character portraits along the bottom. Credits and publication information fill a black band at the bottom.",
+  "volume": 9
+}

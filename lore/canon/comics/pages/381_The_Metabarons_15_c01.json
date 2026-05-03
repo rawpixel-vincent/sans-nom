@@ -1,0 +1,45 @@
+{
+  "character_facts": [
+    "The depicted central figure is bald and wears dark, biomechanical-looking gear around the neck and shoulder.",
+    "The figure is shown holding or positioned beside a large futuristic firearm.",
+    "The subtitle links Aghora with the epithet 'The Father-Mother.'"
+  ],
+  "characters_present": [
+    "Aghora (identified by the cover subtitle, exact identity as the depicted figure is strongly implied but not absolutely confirmed on-page)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "As a cover, this page appears to introduce the focus of issue #15 rather than depict a sequential story event."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "68e4cf819bf966a66036ae96c67048d2ce40569b94db9fd35ee4ca5b15df74c1",
+  "is_spread": false,
+  "locations": [],
+  "lore_facts": [
+    "The series title is The Metabarons.",
+    "This is issue #15.",
+    "The issue/story is labeled 'Aghora, The Father-Mother.'",
+    "The credited creators shown on the cover are Jodorowsky and Gimenez.",
+    "The cover imagery presents a setting or aesthetic involving advanced weaponry and cybernetic or biomechanical augmentation."
+  ],
+  "page_id": "381_The_Metabarons_15_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "This page functions as a cover introducing issue #15 of The Metabarons.",
+    "The cover spotlights a single armed cybernetic figure associated with the subtitle 'Aghora, The Father-Mother.'"
+  ],
+  "source_image": "external/comics/meta-barons/381_The_Metabarons_15_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "68e4cf819bf966a66036ae96c67048d2ce40569b94db9fd35ee4ca5b15df74c1",
+      "page_id": "381_The_Metabarons_15_c01",
+      "source_image": "external/comics/meta-barons/381_The_Metabarons_15_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "This is a cover image, so no explicit narrative event is shown beyond issue identification and thematic framing.",
+    "The page does not explicitly confirm in body text that the pictured figure is Aghora, though the subtitle strongly suggests it."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue #15. A close-up portrait shows a stern bald figure with heavy dark eye shadow, cybernetic tubing or armor around the neck and shoulder, and a large futuristic weapon held beside the face. The title branding and issue information frame the image, and the subtitle identifies the featured subject/story as 'Aghora, The Father-Mother.'",
+  "volume": 15
+}

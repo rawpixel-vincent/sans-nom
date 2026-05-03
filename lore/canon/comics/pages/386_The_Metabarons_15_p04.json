@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Steelhead is said on this page to have been scarred by his grandfather.",
+    "One present-time speaker is emotionally agitated and physically reactive during the argument.",
+    "The mother is described as physically too weak to deliver both twins.",
+    "The robotic or armored attendant speaks with authority during the birth scene and denies the possibility of saving the girl.",
+    "The boy is treated as the infant to be preserved for dynastic reasons."
+  ],
+  "characters_present": [
+    "Two off-panel or partially unseen speakers in the present-time discussion",
+    "A blue-faced robotic or armored attendant",
+    "A weakened mother identified as a milady",
+    "Two newborn twins, one male and one female"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page directly addresses the origin of Steelhead's scars.",
+    "It connects that origin to Metabaron inheritance law and an earlier family history.",
+    "The childbirth flashback appears to be the beginning of the explanatory backstory promised in the opening argument."
+  ],
+  "dialogue_meaning": [
+    "The speakers argue over a contradiction in Metabaron genealogy and law.",
+    "One side claims the official memory or accepted lineage is false.",
+    "The explanation offered is that an earlier generation involved an unusual birth and inheritance crisis.",
+    "The mother is forced into a choice where only one twin can be saved.",
+    "The exchange ties the decision to clan loyalty, inheritance, and legitimacy."
+  ],
+  "image_sha256": "fd61831bf4d2509e492ab652a6394655a791163548ab834492a04523a986ed8e",
+  "is_spread": false,
+  "locations": [
+    "An industrial or metallic structure in the present-time scene",
+    "A medical or birthing chamber with machinery",
+    "An outer-space view with a large structure or vessel"
+  ],
+  "lore_facts": [
+    "A Metabaron norm or law is stated: each son must kill his father.",
+    "Dishonoring the whole clan is treated as a serious consequence of violating Metabaronic law.",
+    "The page presents a claim that Steelhead's scars came from his grandfather rather than his father.",
+    "A twin birth created a succession or lineage problem involving a boy and a girl from different paternal claims or affiliations.",
+    "Clan duty is presented as overriding the life of one of the infants."
+  ],
+  "page_id": "386_The_Metabarons_15_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "One speaker reveals that the man who scarred Steelhead was said to be Steelhead's own grandfather.",
+    "Another speaker rejects this as impossible because Metabaron tradition requires each son to kill his father.",
+    "The first speaker insists the law still remained intact and begins explaining the historical exception.",
+    "The narrative shifts to a childbirth scene involving twins.",
+    "A weakened mother is told she can only deliver one infant safely and that the other must be sacrificed.",
+    "The boy is designated for one lineage or father, while the girl is associated with another man and a love relationship.",
+    "The mother begs for the boy to be saved and asks about saving the girl as well, but the attendant says there is no chance and frames saving the girl as betrayal of her clan."
+  ],
+  "source_image": "external/comics/meta-barons/386_The_Metabarons_15_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fd61831bf4d2509e492ab652a6394655a791163548ab834492a04523a986ed8e",
+      "page_id": "386_The_Metabarons_15_p04",
+      "source_image": "external/comics/meta-barons/386_The_Metabarons_15_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so specific names and wording may be imperfect.",
+    "The exact identities of the present-time speakers are not visually confirmed on this page.",
+    "The precise spelling of one or more names in the childbirth scene is unclear from the image alone.",
+    "It is unclear whether the birth scene is a literal flashback, a narrated reconstruction, or another form of visualized story."
+  ],
+  "visual_summary": "A conversation continues across wide panels showing angular metal structures and a bright sky, with speakers mostly off-panel. The page then shifts into a flashback or narrated memory: two infants are shown together, a sick or weakened noblewoman is attended by machinery and a masked figure, and a blue-faced robotic or armored attendant appears in close-up as the discussion turns to which twin can be saved.",
+  "volume": 15
+}

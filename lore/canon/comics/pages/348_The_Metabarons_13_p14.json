@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Doña Vicenta Gabriela is emotionally distressed and wanders the castle alone.",
+    "Doña Vicenta Gabriela has mechanical eyes or eye-related cybernetic alterations mentioned in dialogue.",
+    "The bearded male figure is described in dialogue as a cyborg.",
+    "The bearded male figure is associated with poetry and a handsome face, which are said to be what the woman loves.",
+    "The bearded male figure reacts with revulsion to the woman's altered appearance."
+  ],
+  "characters_present": [
+    "Doña Vicenta Gabriela",
+    "A long-haired, white-bearded man with cybernetic elements or attachments",
+    "Unseen or disembodied speaking voices/personified aspects involved in the argument"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The woman's disfigurement and cybernetic grafting happened before this page.",
+    "The argument refers back to an earlier seduction and sexual encounter.",
+    "The page continues an ongoing relationship conflict between Doña Vicenta Gabriela and her beloved."
+  ],
+  "dialogue_meaning": [
+    "The page presents a dispute over whether physical beauty, poetry, sexuality, or bodily modification define love and obligation.",
+    "One side argues that the man who seduced the woman should accept her despite her disfigurement.",
+    "Another side shifts responsibility to the man's body and sexual act rather than his romantic persona.",
+    "The speakers contrast emotional love with bodily/mechanical reality, ridiculing both the man's sentimentality and his cyborg nature.",
+    "The man ultimately recoils from the woman's mechanical transformation and refuses to see her."
+  ],
+  "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+  "is_spread": false,
+  "locations": [
+    "Exterior of a storm-battered castle",
+    "Interior chamber with chair and mechanical debris",
+    "Dark castle corridor or hall"
+  ],
+  "lore_facts": [
+    "A woman identified as Doña Vicenta Gabriela has been disfigured or altered before this page.",
+    "A mechanical device has been grafted onto Doña Vicenta Gabriela.",
+    "The setting includes a castle with dark corridors and dramatic stormy surroundings.",
+    "The page treats the male figure as at least partly cyborg.",
+    "Doña Vicenta Gabriela longs for compassion from her beloved."
+  ],
+  "page_id": "348_The_Metabarons_13_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "Voices argue over which part of a man is responsible for seducing and sexually initiating a woman.",
+    "The argument centers on whether he must accept responsibility for her after she has become disfigured and mechanically altered.",
+    "A speaker mocks the man as no longer capable of real love, while another calls him a disgusting cyborg and says the woman has become like him.",
+    "Another voice insists the woman loves the man's face and poetry rather than his mechanical nature.",
+    "The bearded man rejects the altered woman and says he does not want to see her again.",
+    "Narration states that Doña Vicenta Gabriela wanders the castle corridors in emotional torment, hoping for compassion from her beloved."
+  ],
+  "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+      "page_id": "348_The_Metabarons_13_p14",
+      "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be perfectly transcribed, especially in the upper and middle panels.",
+    "The exact identity of the seated bearded man is not stated on this page.",
+    "The speaking voices may be distinct characters, internalized aspects, or personified body parts; the page does not make this fully explicit visually."
+  ],
+  "visual_summary": "A storm lashes the exterior of a towering castle while narration/dialogue continues over the scene. Inside, a gaunt long-haired, bearded man with cybernetic elements sits slumped in a chair amid a stark room and scattered mechanical equipment. Word balloons argue over who is responsible for a woman’s disfigurement and who she truly loves. In the final large panel, Doña Vicenta Gabriela, cloaked in white, moves alone through a vast dark corridor lined with seats and birdlike figures, presented as a tormented soul waiting for compassion from her beloved.",
+  "volume": 13
+}

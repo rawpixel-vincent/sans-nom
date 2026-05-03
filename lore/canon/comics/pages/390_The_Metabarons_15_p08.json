@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Aghora survives repeated near-attacks from the tarantuwolf as a baby.",
+    "Aghora is portrayed as exceptionally strong-willed.",
+    "By age five, Aghora has turned the tarantuwolf into an obedient mount.",
+    "Aghora undergoes years of intense warrior training before age seven.",
+    "Steelhead is directly connected to arranging Aghora's upbringing with the tarantuwolf.",
+    "The adult in the last panel acts as an authority figure introducing the next stage of Aghora's ordeal."
+  ],
+  "characters_present": [
+    "Aghora as an infant",
+    "Aghora as a young child",
+    "Steelhead",
+    "The tarantuwolf",
+    "A large adult instructor or elder speaking to the child"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues Aghora's childhood backstory through narrated developmental milestones.",
+    "The page links Aghora's animal-taming and combat play to a broader Metabaron warrior tradition centered on pain endurance and ritual machinery."
+  ],
+  "dialogue_meaning": [
+    "The narration frames the tarantuwolf as both Aghora's assigned nursemaid and a lethal experimental creature.",
+    "The narration states that Aghora's willpower let her domesticate the beast by age five and incorporate it into her games.",
+    "A command during the space scene tells a rider to keep circling the metabunker until all meteorites are destroyed, implying a live training exercise.",
+    "In the final scene, the adult explains that the machine is the Metabarons' slicer and invokes ancestral tradition tied to pain and ritual."
+  ],
+  "image_sha256": "aa3e223800217805970438f1634d3da3397220dca3637407784c368b71b33877",
+  "is_spread": false,
+  "locations": [
+    "An interior nursery or containment area filled with organic-looking masses",
+    "A transparent or enclosed chamber containing the tarantuwolf",
+    "Outer space near a metabunker and incoming meteorites",
+    "A sterile armory or training room lined with weapons and machinery"
+  ],
+  "lore_facts": [
+    "A tarantuwolf exists in this setting as a genetically engineered animal.",
+    "Steelhead selected or obtained a tarantuwolf to act as Aghora's nursemaid.",
+    "The tarantuwolf is considered among the most dangerous animals in the galaxy.",
+    "Aghora lives in or near a metabunker that can be defended by circling attacks against meteorites.",
+    "Metabaron lineage includes a machine called the slicer, associated with an ancestral custom or object called ham.",
+    "Warrior training in this culture includes a formal test of resistance to pain at around age seven, at least for Aghora."
+  ],
+  "page_id": "390_The_Metabarons_15_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "Narration explains that Steelhead found a tarantuwolf to serve as Aghora's nursemaid.",
+    "The tarantuwolf is described as the result of a mindless genetic experiment and as an extremely dangerous beast that nearly devoured Aghora multiple times.",
+    "By age five, Aghora has tamed the tarantuwolf into an obedient mount.",
+    "Aghora is shown riding the creature during imaginative combat or training exercises around a metabunker while meteorites are being destroyed.",
+    "After years of intense warrior training, Aghora reaches age seven and must undergo a test related to enduring pain.",
+    "An older figure tells the child that the machine before them is the Metabaron's 'slicer,' identified with an ancestral food-preparation tool called ham."
+  ],
+  "source_image": "external/comics/meta-barons/390_The_Metabarons_15_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "aa3e223800217805970438f1634d3da3397220dca3637407784c368b71b33877",
+      "page_id": "390_The_Metabarons_15_p08",
+      "source_image": "external/comics/meta-barons/390_The_Metabarons_15_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration and dialogue are small and slightly blurry; exact wording may be imperfectly read.",
+    "The identification of the speaking adult in the final panel is uncertain from this page alone.",
+    "The exact spelling of specialized terms such as 'tarantuwolf' and 'ham' is based on partially legible text and may need verification from surrounding pages."
+  ],
+  "visual_summary": "A narrated montage shows young Aghora with a gigantic spider-like beast called a tarantuwolf. First, the creature is presented as a dangerous genetically altered animal that nearly devoured her as an infant. Later panels show Aghora as a small child riding and controlling it during play or training, including in outer space amid exploding meteorites. The final panel shifts indoors to a severe training chamber or armory where a bald child sits across from a large adult who introduces a machine called the slicer and links it to the Metabarons' ancestral ordeal.",
+  "volume": 15
+}

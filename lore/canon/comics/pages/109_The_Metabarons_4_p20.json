@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Honorata is the authority figure giving orders and enforcing a severe code.",
+    "Yippi is still a child on this page and is said to be five years old when ordered to kill the toad.",
+    "Yippi has formed an emotional bond with one large male woolly toad.",
+    "Aghnar is identified as having taken a liking to the large male toad.",
+    "The large male toad is tame enough to approach humans and imitate speech."
+  ],
+  "characters_present": [
+    "Yippi",
+    "Honorata",
+    "Aghnar",
+    "a large male woolly toad",
+    "many other woolly toads"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page functions as narrated backstory about Yippi's childhood and upbringing.",
+    "The relationship between Aghnar, Honorata, and Yippi is presented as part of the boy's early formation under harsh discipline."
+  ],
+  "dialogue_meaning": [
+    "The toad repeats broken phrases asking for warmth and thanking its master, showing it has mimicked human speech.",
+    "Yippi questions the order to kill the creature, revealing attachment and confusion.",
+    "Honorata answers with a doctrine that duty must come before personal affection."
+  ],
+  "image_sha256": "05c3ee72925b7e63c56e86b3a2bc7a931efcf20e349302335caa109d7a85a264",
+  "is_spread": false,
+  "locations": [
+    "a cave of soft crystals",
+    "the family camp inside the crystal cave"
+  ],
+  "lore_facts": [
+    "There exists a cave of soft crystals that constantly emit a whisper like running water and are always changing shape.",
+    "Woolly toads enter the cave during extremely cold nights seeking human warmth.",
+    "Humans in the cave can survive by eating these woolly toads.",
+    "At least one woolly toad is capable of learning and repeating a small number of human words.",
+    "Honorata uses deliberate emotional cruelty as part of a child's training, including forced killing of a beloved creature.",
+    "The training ideal stated on the page is that duty is placed above love."
+  ],
+  "page_id": "109_The_Metabarons_4_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "The narration introduces a cave of soft crystals with constant whispering water-like sounds and shifting forms.",
+    "It states that a woman and her son survived by eating woolly toads that entered the cave during bitter cold nights.",
+    "A large male toad becomes attached to Aghnar and learns a few words from him.",
+    "Yippi is shown feeding or warming the toad, indicating affection between them.",
+    "When the boy turns five, Honorata orders him to cut his animal friend in two.",
+    "The command is framed as a lesson that he must master grief and place duty above love."
+  ],
+  "source_image": "external/comics/meta-barons/109_The_Metabarons_4_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "05c3ee72925b7e63c56e86b3a2bc7a931efcf20e349302335caa109d7a85a264",
+      "page_id": "109_The_Metabarons_4_p20",
+      "source_image": "external/comics/meta-barons/109_The_Metabarons_4_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page source identifier says p20, while the printed page number at the bottom appears to read 21.",
+    "The lettering is mostly legible, but some names and narration may be slightly uncertain due to image resolution.",
+    "The exact family relationship wording in the narration is partially ambiguous from the page alone; the page clearly states Honorata is a mother and references her son, but the relation between Aghnar and the others should not be extended beyond what is shown here."
+  ],
+  "visual_summary": "The page depicts a crystalline cave filled with angular translucent formations and clusters of small blue woolly toads. A woman and her son live there in a rough camp among the crystals. The boy, Yippi, is shown interacting gently with one especially large toad that has learned a little speech from him. In the final sequence, the boy is made to stand among the creatures with a blade while an older woman orders him to kill his friend, establishing a harsh lesson in emotional control.",
+  "volume": 4
+}

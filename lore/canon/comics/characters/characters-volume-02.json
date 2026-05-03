@@ -1,0 +1,632 @@
+[
+  {
+    "aliases": [
+      "Othon Von Salza",
+      "Baron of Castaka",
+      "Master Othon",
+      "the Baron"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['ic1', 'p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p21', 'p25', 'p26']"
+    ],
+    "character_id": "othon-von-salza",
+    "important_actions": [
+      "action: Solo infiltration through enemy center; detail: Advanced armed only with a short dagger; killed approximately 1,500 endoguards by striking tiny gaps in their armor; source_pages: ['p04', 'p05']",
+      "action: Broke Bari's legs; detail: Deliberately crippled Bari to prevent him joining the battle; source_pages: ['ic1', 'p02']",
+      "action: Retrieved Konrath's body and honored Edna's death site; detail: Carried Konrath south through ruins; knelt at the column where Edna was disintegrated; source_pages: ['p07']",
+      "action: Negotiated with the imperial couple; detail: Used exclusive Epyphite knowledge as leverage to secure revenue share, the planet Okhar, and Shazam for Bari; source_pages: ['p10', 'p11']",
+      "action: Ambushed the Shazam raiders in fog; detail: Used bow and terrain knowledge; defeated them but suffered catastrophic groin/hip injuries; source_pages: ['p21', 'p24', 'p25']",
+      "action: Founded metabaronic traditions; detail: Invested fortune in first metabaronic weapons and initiated cybernetic implant practice; received a multi-protonic pelvis; source_pages: ['p26']",
+      "action: Fathered Bari Didi; detail: Despite castration, fathered a biological son, preserving direct blood succession; source_pages: ['p26']"
+    ],
+    "knowledge_boundaries": [
+      "Sole shared knowledge (with Bari) of the precise location / access method of the Epyphite — used as negotiating leverage",
+      "Personally knows the terrain of the marble fortress on Okhar",
+      "Knows the vulnerabilities of endoguard armor (tiny gaps exploitable with precise dagger strikes)"
+    ],
+    "relationships": [
+      "character: Edna; relation: Wife (deceased); notes: Married into the Castaka clan; mourned her at the column where she was disintegrated",
+      "character: Baron Berard of Castaka; relation: Father-in-law (deceased); notes: Berard initially opposed Othon, then judged him worthy and transferred the family legacy to him",
+      "character: Bari; relation: Son; notes: Broke Bari's legs to prevent him from fighting; reconciled after battle; later suppressed public alarm to protect Bari's honor",
+      "character: Bari Didi; relation: Biological heir; notes: Fathered despite castration; confirmed as direct blood successor",
+      "character: Konrath; relation: Subordinate / loyal companion (deceased); notes: Retrieved Konrath's body from the southern ruins after battle",
+      "character: Hohenhole; relation: Lieutenant (fate unconfirmed); notes: Searched the northern battlefield for Hohenhole after the fighting ended",
+      "character: Iku-Tta / Iku-Itta; relation: Trusted attendant / confidant; notes: Confided loneliness to Iku-Tta; Iku-Tta and daughters nursed him during recovery",
+      "character: Tonto; relation: Descendant / addressee of lineage narrative; notes: Othon's exploits are recounted to Tonto as ancestral legend"
+    ],
+    "source_refs": [],
+    "traits": [
+      "White-haired, heavily armored warrior",
+      "Former pirate who married into the Castaka clan",
+      "Tactically precise; exploits environmental and anatomical vulnerabilities",
+      "Emotionally stoic even during personal loss",
+      "Physically bold — leads from the front",
+      "Pragmatic negotiator; uses leverage coldly",
+      "Deeply loyal to the fallen; personally retrieves bodies and honors death sites",
+      "Initiator of cybernetic augmentation tradition in the lineage"
+    ],
+    "voice_notes": [
+      "Speaks in terms of warrior doctrine and ruthless tactical logic",
+      "Emotionally restrained in dialogue even during grief or reconciliation",
+      "In negotiations: calm, leveraged, never emotional"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Watched the clan expose the Epyphite secret to save him from the marble block",
+      "Saw Baron Berard transfer the family legacy before dying",
+      "Observed Edna walk out alone to confront the invaders",
+      "Led the three-pronged counterattack against the endoguards",
+      "Walked the valley battlefield covered in corpses in the aftermath",
+      "Attended Oda's funerary bier and reconciled with Bari",
+      "Negotiated directly with the imperial couple over Epyphite access",
+      "Witnessed Bari bond with Shazam on Okhar",
+      "Ambushed the green-skinned raiders in fog using a bow and terrain knowledge"
+    ]
+  },
+  {
+    "aliases": [
+      "Edna",
+      "Edna of Castaka"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['ic1', 'p02', 'p07']"
+    ],
+    "character_id": "edna",
+    "important_actions": [
+      "action: Walked alone to confront the invading force; detail: Went out to defend clan honor against the invaders; was disintegrated at the base of a great column; source_pages: ['ic1', 'p02', 'p07']"
+    ],
+    "knowledge_boundaries": [
+      "Knew the Epyphite secret (implied by clan membership)"
+    ],
+    "relationships": [
+      "character: Baron Berard of Castaka; relation: Father (deceased)",
+      "character: Othon Von Salza; relation: Husband",
+      "character: Bari; relation: Son; notes: Bari declared he wanted to die like his mother"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Daughter of Baron Berard of Castaka",
+      "Deeply committed to clan honor",
+      "Willing to sacrifice herself to defend the clan's reputation",
+      "Armed and combative"
+    ],
+    "voice_notes": [
+      "Not directly quoted in surviving pages; described as acting from honor rather than orders",
+      "Her death is framed by others as 'needless' but Bari views it as heroic"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Saw her father transfer the family legacy to Othon before dying",
+      "Was present during the battle over Marmola"
+    ]
+  },
+  {
+    "aliases": [
+      "Baron Berard of Castaka",
+      "Berard",
+      "the Baron"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['ic1']"
+    ],
+    "character_id": "baron-berard-of-castaka",
+    "important_actions": [
+      "action: Opposed revealing Epyphite to save Othon; detail: Prioritized secrecy over Othon's life until the clan overruled him; source_pages: ['ic1']",
+      "action: Transferred the family legacy to Othon; detail: Formally passed clan leadership and knowledge to Othon before dying; source_pages: ['ic1']"
+    ],
+    "knowledge_boundaries": [
+      "Sole guardian of the Epyphite secret before passing the legacy to Othon"
+    ],
+    "relationships": [
+      "character: Edna; relation: Daughter",
+      "character: Othon Von Salza; relation: Son-in-law and successor",
+      "character: Castaka clan; relation: Patriarch"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Ruler of Marmola",
+      "Initially suspicious of Othon; placed clan secrecy above Othon's life",
+      "Eventually recognized Othon as a worthy successor",
+      "Source of martial doctrine; his sayings are quoted by later commanders as authoritative"
+    ],
+    "voice_notes": [
+      "Quoted posthumously in battle: his sayings about total commitment to destroying the enemy are cited as authoritative military doctrine",
+      "Direct speech not shown in surviving pages of this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Saw the clan vote to expose the Epyphite secret to save Othon",
+      "Judged Othon's reaction and found him worthy"
+    ]
+  },
+  {
+    "aliases": [
+      "Bari"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['ic1', 'p02', 'p08', 'p10', 'p11', 'p15', 'p16', 'p17', 'p19', 'p20', 'p23', 'p24', 'p25']"
+    ],
+    "character_id": "bari",
+    "important_actions": [
+      "action: Attempted to pursue the invaders despite broken legs; detail: Was physically stopped by his father; source_pages: ['ic1', 'p02']",
+      "action: Broke down and reconciled with his father; detail: Embraced Othon, retracted his judgment of cowardice, called him the noblest of the clan; source_pages: ['p08']",
+      "action: Bonded with Shazam; detail: Named the resurrected horse, fed it sugar, began riding it on Okhar; horse described as restoring his appetite for life; source_pages: ['p16']",
+      "action: Pursued Shazam's thieves despite crippled legs; detail: Left before his father was informed; fought the green-skinned raiders; source_pages: ['p20', 'p23', 'p24']"
+    ],
+    "knowledge_boundaries": [
+      "Shares exclusive knowledge of Epyphite's location with Othon — cited as negotiating leverage",
+      "Aware of the secret tunnels used in the battle"
+    ],
+    "relationships": [
+      "character: Othon Von Salza; relation: Father; notes: Condemned Othon as a coward for breaking his legs; reconciled and called him the noblest of the clan",
+      "character: Edna; relation: Mother (deceased); notes: Viewed her death as heroic and wanted to emulate it",
+      "character: Shazam; relation: Bonded companion / gifted horse; notes: Shazam became a source of renewed joy and life purpose for Bari",
+      "character: Iku-Tta; relation: Attendant / stable-keeper",
+      "character: Bari Didi; relation: Implied future identity or descendant (name appears as Othon's heir in p26 dialogue)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Young; emotionally volatile and impulsive",
+      "Physically disabled: legs broken by his father, then later crippled in combat",
+      "Equates death in battle with honor; initially suicidal in his idealism",
+      "Capable of genuine remorse and reconciliation",
+      "Deeply bonded to Shazam the horse",
+      "Determined to fight despite physical limitations"
+    ],
+    "voice_notes": [
+      "Speaks in passionate, accusatory terms when in emotional distress",
+      "Explicitly equates glorious death with honor; argues against pragmatic survival",
+      "Voice softens to remorse and gratitude when reconciling with his father"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Was present at the battle on Marmola (prevented from fighting by broken legs)",
+      "Witnessed his mother Edna's death or its immediate aftermath",
+      "Attended Oda's funerary bier and reconciled with his father",
+      "Was present at the Epyphite reservoir during negotiations",
+      "Was publicly honored by the imperial couple on Marmola"
+    ]
+  },
+  {
+    "aliases": [
+      "Konrath"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p03', 'p04', 'p07']"
+    ],
+    "character_id": "konrath",
+    "important_actions": [
+      "action: Led the southern assault; detail: Tasked with using secret tunnels to keep endoguards compressed together; source_pages: ['p03']",
+      "action: Died in battle; detail: Body recovered by Othon from the southern ruins; source_pages: ['p07']"
+    ],
+    "knowledge_boundaries": [
+      "Knew the layout of the secret tunnels used in the southern assault"
+    ],
+    "relationships": [
+      "character: Hohenhole; relation: Twin brother",
+      "character: Othon Von Salza; relation: Commander / loyal companion; notes: Othon retrieved his body from the southern ruins as a mark of honor"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Twin of Hohenhole",
+      "Loyal companion to Othon",
+      "Assigned the southern attack vector in the three-pronged battle plan",
+      "Falls in battle"
+    ],
+    "voice_notes": [
+      "Not directly quoted in surviving pages of this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Participated in the southern attack via secret tunnels against the endoguards"
+    ]
+  },
+  {
+    "aliases": [
+      "Hohenhole"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p03', 'p04', 'p06']"
+    ],
+    "character_id": "hohenhole",
+    "important_actions": [
+      "action: Led the northern assault; detail: Assigned half the men; ordered to engage endoguards at close range; source_pages: ['p03']",
+      "action: Fate unknown; detail: Othon searches for him in the northern battlefield aftermath; no resolution shown in this volume; source_pages: ['p06']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Konrath; relation: Twin brother",
+      "character: Othon Von Salza; relation: Lieutenant / subordinate; notes: Othon personally searched the northern battlefield for him"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Twin of Konrath",
+      "Assigned the northern attack vector",
+      "Fate unconfirmed: Othon searches for him in the northern battlefield but no resolution is shown"
+    ],
+    "voice_notes": [
+      "Not directly quoted in surviving pages of this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Led the northern assault; tasked with locking the enemy into hand-to-hand combat"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p08']"
+    ],
+    "character_id": "oda",
+    "important_actions": [
+      "action: Fell in battle; detail: Described as having fought ferociously until the end; body laid on a raised funerary slab; source_pages: ['p08']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Bari; relation: Associated with Bari's funerary mourning scene",
+      "character: Othon Von Salza; relation: Member of the same fighting group or clan"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Warrior who fulfilled their destiny by fighting fiercely to the end",
+      "Spoken of in eulogistic terms; death described as entering 'silence, the soul of all things'"
+    ],
+    "voice_notes": [
+      "Not directly quoted; only referenced in memorial narration"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p05', 'p15', 'p26']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Knowledge of the Metabaron lineage is mediated through the narrator's accounts, not direct experience"
+    ],
+    "relationships": [
+      "character: Lothar; relation: Co-participant in the framing narrative / questioner",
+      "character: Othon Von Salza; relation: Ancestor whose exploits are recounted to Tonto"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Listens to accounts of the Metabaron lineage from a small floating narrator",
+      "Treated familiarly by the narrator",
+      "Addressed as a recipient of ancestral stories; implied to be a descendant or close associate of the Metabaron",
+      "Present in the framing narrative throughout the volume"
+    ],
+    "voice_notes": [
+      "Not directly quoted at length in surviving pages; functions as an audience figure",
+      "Offered 'ultra-coolant' as a drink by the narrator (p05)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Hears the recounting of Othon's solo endoguard kill feat",
+      "Participates in the discussion of how Othon's castrated lineage produced an heir"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p15', 'p26']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Questions suggest limited prior knowledge of the lineage's history"
+    ],
+    "relationships": [
+      "character: Tonto; relation: Co-participant in framing narrative",
+      "character: Othon Von Salza; relation: Learns of Othon's lineage through the narration"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Skeptical and inquisitive; repeatedly asks whether promises were genuinely fulfilled",
+      "Co-participant in the framing narrative with Tonto",
+      "Asks naive questions about reproduction (corrected by another speaker on p26)"
+    ],
+    "voice_notes": [
+      "Persistently skeptical: frames questions as 'but were they truly given what was promised?'",
+      "Corrected when he implies Othon may have adopted rather than fathered an heir"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Hears confirmation that the family received a revenue share from Epyphite and inherited Okhar",
+      "Hears the discussion of how the castrated Othon fathered an heir"
+    ]
+  },
+  {
+    "aliases": [
+      "Iku-Tta",
+      "Iku-Itta"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p17', 'p19', 'p20', 'p25']"
+    ],
+    "character_id": "iku-tta",
+    "important_actions": [
+      "action: Nursed Othon with his two daughters; detail: Provided months of care while Othon recovered from catastrophic groin and hip injuries; source_pages: ['p25']"
+    ],
+    "knowledge_boundaries": [
+      "Has direct knowledge of household events on Okhar",
+      "Knows the state of the stables and Shazam's routine"
+    ],
+    "relationships": [
+      "character: Othon Von Salza; relation: Trusted attendant / confidant",
+      "character: Bari; relation: Aware of Bari's condition and welfare",
+      "character: Iku-Tta's two daughters; relation: Father"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Loyal attendant and confidant to Master Othon",
+      "Associated with the stables / horse-keeping on Okhar",
+      "Has two daughters who assist in nursing",
+      "Trusted enough to hear Othon's private admissions of loneliness"
+    ],
+    "voice_notes": [
+      "Addressed respectfully by Othon",
+      "Speaks matter-of-factly when delivering reports"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Reported to Othon that Bari was too exhausted to be questioned after riding Shazam (p17)",
+      "Was present when the alarm about Shazam's theft was raised (p19)",
+      "Nursed Othon through months of recovery after his castration injuries (p25)"
+    ]
+  },
+  {
+    "aliases": [
+      "Magaella"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p14']"
+    ],
+    "character_id": "magaella",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Gains knowledge of the Epyphite's location and scale during p14"
+    ],
+    "relationships": [
+      "character: Unnamed father figure at the overlook; relation: Part of the same escorted party"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Helmeted female-presenting attendant or companion",
+      "Present at the Epyphite reservoir overlook",
+      "Reacts with amazement to the sight of the Epyphite"
+    ],
+    "voice_notes": [
+      "Not extensively quoted; notable mainly as a named witness at a key lore reveal"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "First view of the vast Epyphite reservoir beneath the marble planet"
+    ]
+  },
+  {
+    "aliases": [
+      "Shazam"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p16', 'p17', 'p19', 'p20', 'p23', 'p24', 'p25']"
+    ],
+    "character_id": "shazam",
+    "important_actions": [
+      "action: Stolen by raiders; detail: Armed expedition (Ulkran, Wulthor, Tokkar, Bargoth) stole Shazam using synthetic mare essence; source_pages: ['p18', 'p19']",
+      "action: Carried Othon home; detail: Enabled Othon's survival and return to the palace after catastrophic injuries in the fog battle; source_pages: ['p25']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Bari; relation: Bonded master / named companion",
+      "character: Othon Von Salza; relation: Rescued Othon after his injuries; gifted to Bari by Othon"
+    ],
+    "source_refs": [],
+    "traits": [
+      "White horse; specimen of a breed extinct for 20,000 years since the Sixth World War",
+      "Recreated by imperial techno-scientists from the Imperial Palace genetic museum at a cost of 100 tons of gold",
+      "Responsive to synthetic mare essence",
+      "Becomes docile and bonded after being named and fed sugar by Bari",
+      "Described as a 'godsend' during a gloomy season on Okhar",
+      "Carries the severely wounded Othon back to his palace after the fog ambush"
+    ],
+    "voice_notes": [
+      "Non-speaking; presence is narratively significant as a symbol of restored life and extreme dynastic investment"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Bari Didi"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p26']"
+    ],
+    "character_id": "bari-didi",
+    "important_actions": [
+      "action: Exists as biological heir; detail: Confirmed through dialogue as proof of direct blood succession despite Othon's castration; source_pages: ['p26']"
+    ],
+    "knowledge_boundaries": [
+      "Background unknown within this volume"
+    ],
+    "relationships": [
+      "character: Othon Von Salza; relation: Biological father",
+      "character: Bari; relation: Likely same individual or this is a generational name — ambiguous in this volume"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Biological son of Othon Von Salza; heir to the Metabaron lineage",
+      "Fathered despite Othon's castration — method raised but not explained in this volume",
+      "Only mentioned in dialogue; not visually identified in this volume"
+    ],
+    "voice_notes": [
+      "Not directly quoted; name surfaces in dialogue as the answer to succession question"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Ulkran"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p18', 'p22']"
+    ],
+    "character_id": "ulkran",
+    "important_actions": [
+      "action: Part of the Shazam theft expedition; detail: Group used paleo-compass and marble disintegrator to breach the fortress; source_pages: ['p18']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Wulthor; relation: Fellow raider",
+      "character: Tokkar; relation: Fellow raider",
+      "character: Bargoth; relation: Fellow raider"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Member of the armed raiding party that stole Shazam",
+      "Called out by name during the battle; either missing or fallen by p22"
+    ],
+    "voice_notes": [
+      "Directly addressed during the fog approach; expresses anxiety about visibility"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Participated in the fog approach to the marble fortress on Okhar"
+    ]
+  },
+  {
+    "aliases": [
+      "Wulthor"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p18', 'p22']"
+    ],
+    "character_id": "wulthor",
+    "important_actions": [
+      "action: Advocated use of the paleo-compass; detail: Credited with the correct call to rely on it to find the fortress; source_pages: ['p18']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Ulkran; relation: Fellow raider",
+      "character: Tokkar; relation: Fellow raider",
+      "character: Bargoth; relation: Fellow raider"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Member of the raiding party",
+      "Associated with the correct judgment that the paleo-compass would locate the marble fortress",
+      "Called out by name as missing during combat on p22"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Tokkar"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p18', 'p22']"
+    ],
+    "character_id": "tokkar",
+    "important_actions": [
+      "action: Breached the marble fortress; detail: Used a marble disintegrator to cut through the fortress entrance; source_pages: ['p18']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Ulkran; relation: Fellow raider",
+      "character: Wulthor; relation: Fellow raider",
+      "character: Bargoth; relation: Fellow raider"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Operator of the marble disintegrator",
+      "Responsible for breaching the fortress entrance",
+      "Called out as missing during combat on p22"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Bargoth"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p19', 'p22']"
+    ],
+    "character_id": "bargoth",
+    "important_actions": [
+      "action: Participated in capturing Shazam; detail: Instructed during the horse extraction; synthetic mare essence used on Shazam in his presence; source_pages: ['p19']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Ulkran; relation: Fellow raider",
+      "character: Wulthor; relation: Fellow raider",
+      "character: Tokkar; relation: Fellow raider"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Member of the raiding party",
+      "Directly instructed during the horse capture sequence",
+      "Called out as missing during combat on p22"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Directly handled the captured horse with synthetic mare essence"
+    ]
+  },
+  {
+    "aliases": [
+      "The Imperial Couple",
+      "The Emperor (implied)",
+      "Imperial Majesties"
+    ],
+    "appearances": [
+      "volume: 2; pages: ['p09', 'p10', 'p11', 'p13', 'p14']"
+    ],
+    "character_id": "the-imperial-couple",
+    "important_actions": [
+      "action: Traveled to Marmola one week after the battle; detail: Arrived in golden vessel with purple Endoguard; publicly honored Othon and Bari before private negotiations; source_pages: ['p10']",
+      "action: Agreed to Othon's terms; detail: Granted revenue share from Epyphite, the planet Okhar, and the gift of Shazam for Bari; source_pages: ['p11', 'p15']"
+    ],
+    "knowledge_boundaries": [
+      "Dependent on Othon and Bari for the precise location of the Epyphite at the time of negotiation",
+      "Aware of the Epyphite's strategic importance before visiting Marmola"
+    ],
+    "relationships": [
+      "character: Othon Von Salza; relation: Negotiating counterpart; granted him Okhar and Epyphite revenue share",
+      "character: Bari; relation: Provided Shazam as a gift at Othon's request"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Rulers of the Empire; travel in a distinctive golden vessel",
+      "Escorted by a purple Endoguard",
+      "Hold authority to grant planetary territory and revenue shares",
+      "Press for quick agreement over access to the Epyphite",
+      "The younger member advocates aggressive exploitation of the Epyphite as imperial power",
+      "The elder member is more cautious about unleashing the Epyphite in the name of progress"
+    ],
+    "voice_notes": [
+      "The younger figure speaks ambitiously about empire and progress",
+      "The elder figure is more restrained and cautious",
+      "Neither is named in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "First direct view of the Epyphite reservoir during the visit to Marmola (p13, p14)",
+      "Heard Othon's terms for Epyphite access"
+    ]
+  }
+]

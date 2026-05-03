@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "The four surviving whore-priestesses of Shabda-Oud are acting together in a conspiracy or raid.",
+    "At least one priestess is treated as a commanding maternal authority, called 'Mother.'",
+    "They are cybernetically integrated or shown within a highly biomechanical apparatus.",
+    "They are cautious and prepare specifically against psychic or mental interrogation."
+  ],
+  "characters_present": [
+    "The four surviving whore-priestesses of Shabda-Oud",
+    "Servitor or attendant figures addressing one of them as 'Mother'"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page opens with a transition during transport to Kgen-Kgen and sets up a prison-related infiltration or raid.",
+    "The page establishes the priestesses' covert action as a parallel plot underway before arrival."
+  ],
+  "dialogue_meaning": [
+    "The priestesses issue covert operational commands for an imminent raid.",
+    "They expect hostile mental scanning and take measures to prevent their minds or spirits from being read.",
+    "Their attendants or systems acknowledge each command as completed and address their leader as 'Mother.'"
+  ],
+  "image_sha256": "ac7dc32b10daed177972ea18dd5dd0e78048e331a964c0da5d11206b30139354",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "A spacecraft heading toward the prison satellite Kgen-Kgen",
+    "Inside an octocyborg",
+    "The Empire's prison satellite Kgen-Kgen (mentioned, not directly shown in detail)"
+  ],
+  "lore_facts": [
+    "Kgen-Kgen is an abominable titanium satellite and is described as the Empire's most dreaded prison.",
+    "An octocyborg can contain occupants and serve as a command environment.",
+    "The whore-priestesses of Shabda-Oud have only four survivors at this point.",
+    "A device, vessel, or system called the Kantylopter can be awakened or activated.",
+    "An invisibility shield exists in this setting.",
+    "Mental probes are a known threat in this universe.",
+    "'Emptying' one's spirits is presented as a defense against mental probing."
+  ],
+  "page_id": "428_The_Metabarons_17_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "A vessel is en route to the Empire's dreaded prison satellite, Kgen-Kgen.",
+    "An act of treachery or a covert plan begins during the journey.",
+    "Inside an octocyborg, the four surviving whore-priestesses of Shabda-Oud plan a raid.",
+    "They order the Kantylopter to be awakened.",
+    "They order an invisibility shield to be activated.",
+    "They order their spirits to be emptied because mental probes are expected.",
+    "Subordinate beings confirm that the Kantylopter is awake, the shield is active, and the spirits are emptied."
+  ],
+  "source_image": "external/comics/meta-barons/428_The_Metabarons_17_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ac7dc32b10daed177972ea18dd5dd0e78048e331a964c0da5d11206b30139354",
+      "page_id": "428_The_Metabarons_17_p01",
+      "source_image": "external/comics/meta-barons/428_The_Metabarons_17_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some labels and names are stylized and may be slightly misread; 'Kantylopter' and 'Kgen-Kgen' are read from small text.",
+    "The exact nature of the small angular object near the larger ship is unclear from this page alone.",
+    "It is unclear whether the speaker called 'Mother' is one of the four priestesses or a separate central entity within the octocyborg."
+  ],
+  "visual_summary": "A large organic-looking spacecraft travels through space toward a prison satellite while a smaller angular craft or object floats nearby. Captions explain that treachery is underway during the journey to the Empire's feared prison, Kgen-Kgen. Inside a biomechanical chamber, four cybernetic women identified as the surviving whore-priestesses of Shabda-Oud command the awakening of the Kantylopter, the activation of an invisibility shield, and the emptying of their spirits to avoid mental probing. Servitor-like figures report each command completed to 'Mother.'",
+  "volume": 17
+}

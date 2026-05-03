@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The man appears to possess the ability or knowledge to link his nervous system with another person’s.",
+    "He initiates and instructs the act shown on the page.",
+    "The woman is the one whose body carries the droplet to the ovum.",
+    "Both participants are depicted as experiencing an intense shared sensation."
+  ],
+  "characters_present": [
+    "Unnamed woman",
+    "Unnamed pale, muscular man"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the moment of conception for a pregnancy central enough to be narrated as a major event.",
+    "The ritualistic and biological framing suggests this conception is significant within the larger lineage or story."
+  ],
+  "dialogue_meaning": [
+    "The man claims he has connected his nervous system to the woman’s, making sensation mutual.",
+    "He directs a ritualized or biological act involving a drop of blood.",
+    "The narration equates orgasmic pleasure with the movement of the fertilizing droplet and the instant of conception.",
+    "The narrator frames the human experience of pleasure as extraordinary and enviable."
+  ],
+  "image_sha256": "9d599b2aff532980ff59d6301c036849ae628997c6ccd73000f496935f8e65b2",
+  "is_spread": false,
+  "locations": [
+    "Bed or private chamber",
+    "The woman’s internal reproductive tract, shown symbolically"
+  ],
+  "lore_facts": [
+    "A nervous-system link between two people is presented as possible on-page.",
+    "A drop of blood appears to function as the agent that initiates conception.",
+    "The conception is described in terms that combine biology with mystical or energetic language such as 'prana'.",
+    "The page treats fertilization as both a physical and transcendent event."
+  ],
+  "page_id": "093_The_Metabarons_4_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A man and woman are shown in an intimate embrace.",
+    "The man says their nervous systems are linked so that pleasure is shared.",
+    "He asks the woman to place a drop of blood into him.",
+    "Narration describes a purple droplet moving through the woman’s body toward an ovum.",
+    "A blinding flash accompanies the fertilization of the ovum.",
+    "The man is shown reacting intensely at the moment of conception."
+  ],
+  "source_image": "external/comics/meta-barons/093_The_Metabarons_4_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9d599b2aff532980ff59d6301c036849ae628997c6ccd73000f496935f8e65b2",
+      "page_id": "093_The_Metabarons_4_p04",
+      "source_image": "external/comics/meta-barons/093_The_Metabarons_4_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of both characters is not given on this page alone.",
+    "One narrated term in the transformation sequence is hard to read precisely and may be a specialized in-universe word.",
+    "The page implies a narrator distinct from the participants, but that narrator is not visually identified here."
+  ],
+  "visual_summary": "A pale, muscular man and a woman embrace in bed. He tells her he has linked his nervous system to hers and instructs her to place a drop of blood into him. The page then shifts to internal, symbolic imagery: a glowing droplet travels through the woman’s reproductive system toward an ovum, followed by a bright flash suggesting conception. In the final inset, the man appears overwhelmed in ecstatic pain or pleasure.",
+  "volume": 4
+}

@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Doña Vicenta Gabriela de Rokha is emotionally devastated and hostile toward negotiation at first.",
+    "Doña Vicenta associates the opposing side with the killing of her father and the destruction of her world.",
+    "Doña Vicenta ultimately agrees to the armored figure's proposal.",
+    "The armored figure is forceful, contemptuous of sentiment, and argues for survival through political opportunism."
+  ],
+  "characters_present": [
+    "Doña Vicenta Gabriela de Rokha",
+    "An armored, helmeted mercenary or military figure speaking with her"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents Items 3 and 4 of a broader plan, implying earlier items were established on prior pages.",
+    "The planned public announcement about Bikramen sets up subsequent political or military consequences."
+  ],
+  "dialogue_meaning": [
+    "The armored figure is pressuring Doña Vicenta to abandon grief and pragmatically capitalize on defeat.",
+    "Doña Vicenta initially views cooperation as betrayal because her father, people, and planet were destroyed.",
+    "The armored figure frames survival and political advantage as more important than pride or suicidal resistance.",
+    "Doña Vicenta agrees to follow the proposed strategy.",
+    "The next propaganda or political step is to spread word of Bikramen's presence in the system."
+  ],
+  "image_sha256": "44477e38730da40135c88b3c815c7484c02e2251fb85f2699a5b1e1d04f86777",
+  "is_spread": false,
+  "locations": [
+    "A devastated battlefield or ruin-strewn area",
+    "The Troglosocialik system",
+    "The domain of the Troglosocialik Federation"
+  ],
+  "lore_facts": [
+    "Doña Vicenta Gabriela de Rokha has inherited the acting presidency of the Troglosocialik Federation.",
+    "The Troglosocialik Federation has recently suffered catastrophic violence, including the death of Doña Vicenta's father and the destruction of her people and planet, according to her account.",
+    "There is an organized multi-step plan, with this page covering Items 3 and 4.",
+    "Bikramen's presence in the Troglosocialik system is important enough to be announced galaxy-wide as part of that plan."
+  ],
+  "page_id": "373_The_Metabarons_14_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "A narration box labels this as Item 3 of a plan: a private conversation with Doña Vicenta Gabriela de Rokha, identified as the acting president of the Troglosocialik Federation.",
+    "The armored figure urges Doña Vicenta to stop clinging to the past and exploit the new political situation.",
+    "Doña Vicenta angrily rejects negotiation with those she says killed her father, her people, and her planet.",
+    "The armored figure rebukes her emotional response and argues that survival requires turning defeat into advantage.",
+    "Doña Vicenta accepts the plan and asks what to do next.",
+    "A narration box labels Item 4 of the plan: publicly announce across the galaxy that Bikramen was present in the Troglosocialik system."
+  ],
+  "source_image": "external/comics/meta-barons/373_The_Metabarons_14_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "44477e38730da40135c88b3c815c7484c02e2251fb85f2699a5b1e1d04f86777",
+      "page_id": "373_The_Metabarons_14_p15",
+      "source_image": "external/comics/meta-barons/373_The_Metabarons_14_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may not be perfectly transcribed; wording could vary slightly.",
+    "The armored speaker is not named on this page, so their precise identity cannot be confirmed from this image alone.",
+    "The exact planetary location is not explicitly named in-panel beyond references to the Troglosocialik system and federation."
+  ],
+  "visual_summary": "A ruined metallic landscape fills the page, with shattered structures and debris under a smoky sky. In the lower panels, an armored, helmeted figure walks and speaks privately with Doña Vicenta Gabriela de Rokha, who appears distraught and angry. The conversation shifts from her refusal to negotiate with her enemies to her acceptance of the figure's proposed plan.",
+  "volume": 14
+}

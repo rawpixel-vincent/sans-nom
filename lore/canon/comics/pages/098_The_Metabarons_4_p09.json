@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The dark-haired woman clings tightly to Othon while they move through danger.",
+    "The speaker addressing Othon appears emotionally intense and physically protective or desperate.",
+    "The white-haired gunman appears aggressive and actively firing at the pair.",
+    "Multiple other figures are also descending nearby, suggesting pursuit or a larger confrontation."
+  ],
+  "characters_present": [
+    "Othon (named in dialogue, exact visual identification uncertain)",
+    "Dark-haired woman in black cape/clothing embracing Othon",
+    "White-haired armed figure",
+    "Additional dark-clad descending figures/pursuers"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an active chase or combat sequence already in progress.",
+    "The declaration of love happens in the middle of immediate physical danger and pursuit."
+  ],
+  "dialogue_meaning": [
+    "A woman openly confesses love to Othon during a dangerous midair escape or fall."
+  ],
+  "image_sha256": "b5fa707617af0b3532efd249fc0572b5646e22dfbc3bb3447e61db8ebd536ce0",
+  "is_spread": false,
+  "locations": [
+    "A vast curved metallic wall or shaft",
+    "Large futuristic interior or exterior industrial structure"
+  ],
+  "lore_facts": [
+    "A character named Othon is present or being addressed on this page.",
+    "The setting includes a gigantic curved metallic structure large enough for multiple people to move or fall along its surface.",
+    "At least one combatant uses a large futuristic firearm that produces a bright energy-like impact."
+  ],
+  "page_id": "098_The_Metabarons_4_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A dark-haired woman embraces a white-haired figure in motion and declares her love to 'Othon.'",
+    "A white-haired armed figure takes aim with a large firearm.",
+    "A shot is fired toward the embracing pair.",
+    "A bright impact or energy burst appears near the pair.",
+    "The embracing pair continue falling or drifting together across the curved metallic structure while other dark-clad figures descend beneath them."
+  ],
+  "source_image": "external/comics/meta-barons/098_The_Metabarons_4_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b5fa707617af0b3532efd249fc0572b5646e22dfbc3bb3447e61db8ebd536ce0",
+      "page_id": "098_The_Metabarons_4_p09",
+      "source_image": "external/comics/meta-barons/098_The_Metabarons_4_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear which visible figure is Othon; the name comes from the speech balloon only.",
+    "The exact identity and allegiance of the white-haired gunman are not stated on this page.",
+    "The precise environment is ambiguous: it could be the inside of a giant shaft or the exterior curve of a metallic structure.",
+    "Some sound effect lettering is partially unreadable.",
+    "Because only one page is provided, the relationship history between the woman and Othon cannot be confirmed."
+  ],
+  "visual_summary": "A white-haired figure is carried or clung to by a dark-haired woman as they move along the curved exterior/interior wall of a vast metallic structure. The woman declares love to 'Othon.' In parallel narrow panels, a person with wild white hair aims a large gun downward while another figure braces against the wall. In the lower sequence, the armed figure fires upward at the pair; an energy-like burst flashes near them, and the two remain locked together while falling or drifting across the huge curved surface as dark-clad pursuers descend below.",
+  "volume": 4
+}

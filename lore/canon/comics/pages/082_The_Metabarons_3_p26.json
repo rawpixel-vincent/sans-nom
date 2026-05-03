@@ -1,0 +1,55 @@
+{
+  "character_facts": [
+    "Othon is presented as a central political or military figure receiving mass adulation.",
+    "Othon is emotionally hostile toward the people honoring him.",
+    "Othon appears physically augmented or heavily armored, including a mechanical or armored hand/arm."
+  ],
+  "characters_present": [
+    "Othon",
+    "Large assembled crowd or spectators",
+    "Small attendants or guards near the dais and across the arena"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows some prior conflict or contest that resulted in Othon being celebrated as victor or conqueror.",
+    "The mention of betrayal and 'the egg' links this ceremony to an earlier struggle over that object."
+  ],
+  "dialogue_meaning": [
+    "The assembled public is celebrating Othon with repeated chants and honorific praise.",
+    "Othon's internal monologue reveals he does not trust the crowd and sees them as hypocrites motivated by betrayal and greed for 'the egg.'"
+  ],
+  "image_sha256": "292cfc057cd6f6937a46cdc4b6eaa9cdf5c2136105a8e305f7b91e80eec08500",
+  "is_spread": false,
+  "locations": [
+    "A gigantic golden ceremonial hall or arena with tiered seating",
+    "A raised central dais or throne platform inside the hall"
+  ],
+  "lore_facts": [
+    "Othon is publicly recognized as a victorious or dominant figure by this society.",
+    "There exists an important object referred to as 'the egg.'",
+    "The setting uses advanced technology alongside monumental imperial architecture, including hovering vehicles or drones and directed light beams."
+  ],
+  "page_id": "082_The_Metabarons_3_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "A public ceremony or triumphal reception is underway in a huge monumental hall.",
+    "Crowds loudly acclaim Othon as a hero, conqueror, and ruler.",
+    "Othon enters or advances through the hall under a spotlight, visually singled out before the audience.",
+    "Despite the praise, Othon internally reacts with contempt and believes those celebrating him had wanted betrayal and theft of the egg."
+  ],
+  "source_image": "external/comics/meta-barons/082_The_Metabarons_3_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "292cfc057cd6f6937a46cdc4b6eaa9cdf5c2136105a8e305f7b91e80eec08500",
+      "page_id": "082_The_Metabarons_3_p26",
+      "source_image": "external/comics/meta-barons/082_The_Metabarons_3_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the floating machines is unclear; they may be drones, small craft, or ceremonial devices.",
+    "The final panel includes a large foreground object that looks like a weapon or mechanical apparatus, but its exact nature is unclear.",
+    "Some crowd chants are stylized and may be partially hard to parse, though the praise of Othon is clear."
+  ],
+  "visual_summary": "A vast golden ceremonial hall or arena is packed with tiered crowds cheering toward a raised throne-like dais. Several hovering craft or drones float in the chamber, some projecting beams of light. In the lower panels, a heavily built armored man descends alone inside a spotlight while the crowd celebrates him; a close-up shows him scowling and clenching a cybernetic or armored hand, thinking bitterly about the people praising him. A final narrow panel shows him approaching through the monumental interior while a large foreground weapon or mechanical object frames the shot.",
+  "volume": 3
+}

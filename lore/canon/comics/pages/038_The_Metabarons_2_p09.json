@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The older speaker addresses the younger man as his son.",
+    "The older speaker occupies a position to make or announce political decisions on behalf of their house or family.",
+    "The younger man is emotionally affected by the situation, though his exact words are not shown on this page.",
+    "Othon is credited with 'great deeds' and holds the title of Baron of Castaka."
+  ],
+  "characters_present": [
+    "An older white-haired figure, likely male, speaking to a younger man",
+    "A younger dark-haired bearded man, addressed as 'my son'",
+    "Othon, mentioned in narration but not clearly identified visually on this page"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows earlier events in which Othon performed notable deeds.",
+    "The page indicates those deeds have changed the political situation enough to force negotiations with the Empire.",
+    "The narration suggests Othon's elevation to Baron is a recent development now becoming known galaxy-wide."
+  ],
+  "dialogue_meaning": [
+    "The older speaker acknowledges the son's emotions but insists political reality requires dealing with the Empire.",
+    "The speaker believes that even necessary diplomacy will tarnish their standing or family honor.",
+    "The narration emphasizes that Othon's actions have become widely known through galactic intelligence networks.",
+    "Othon's new status as Baron of Castaka is presented as established public knowledge."
+  ],
+  "image_sha256": "77153655f75effe9efcb2390dbf6c64915724bf14f3392da5474bc71142bd3ae",
+  "is_spread": false,
+  "locations": [
+    "An interior setting in the top panel",
+    "Outer space",
+    "Near a large spacecraft or fleet vessel"
+  ],
+  "lore_facts": [
+    "There is an Empire significant enough that major houses or families must negotiate with it.",
+    "The setting includes interstellar spies who circulate information across the galaxy.",
+    "Castaka has a baronial title, and Othon is identified as its new Baron.",
+    "Personal or dynastic honor appears to be important enough that negotiation with the Empire is considered a stain on it."
+  ],
+  "page_id": "038_The_Metabarons_2_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "An older figure tells a younger man that, despite his feelings, they must negotiate with the Empire.",
+    "The speaker says this negotiation will stain or damage their family's honor/reputation.",
+    "Narration states that reports from interstellar spies spread news of Othon's great deeds across the galaxy.",
+    "Narration identifies Othon as the new Baron of Castaka.",
+    "A large spacecraft is shown traveling in space, visually transitioning the story from intimate discussion to galactic-scale consequences."
+  ],
+  "source_image": "external/comics/meta-barons/038_The_Metabarons_2_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "77153655f75effe9efcb2390dbf6c64915724bf14f3392da5474bc71142bd3ae",
+      "page_id": "038_The_Metabarons_2_p09",
+      "source_image": "external/comics/meta-barons/038_The_Metabarons_2_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of the two figures in the top panel are not stated on this page alone.",
+    "The term describing what will be tarnished is stylized and may be read imprecisely; it appears to refer to honor or reputation.",
+    "It is not certain whether the large spacecraft is directly Othon's vessel or simply a transition image tied to the narration."
+  ],
+  "visual_summary": "The top panel shows an older white-haired figure facing and holding a younger dark-haired man during a serious conversation. The lower, much larger panel shows a massive, ornate spacecraft in space, rendered with dense mechanical detail, while narration boxes explain the political consequences of recent events.",
+  "volume": 2
+}

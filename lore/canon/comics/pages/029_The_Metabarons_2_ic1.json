@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Othon Von Salza is identified here as a pirate who marries into the Castaka family.",
+    "Edna is Baron Berard's daughter and Bari's mother.",
+    "Baron Berard rules over Marmola and initially opposes revealing the secret of epyphite to save Othon.",
+    "Berard ultimately judges Othon a worthy successor and passes on the family legacy to him.",
+    "Bari is the only son of Othon and Edna.",
+    "Othon does not want Bari to confront the enemy directly and cripples him to stop him from fighting.",
+    "Edna is willing to do anything to preserve her clan's honor."
+  ],
+  "characters_present": [
+    "Othon Von Salza",
+    "Edna",
+    "Baron Berard of Castaka",
+    "Bari",
+    "the Castaka clan",
+    "Imperial Merchants Guild dignitaries",
+    "black endoguards"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly summarizes the setup and major events leading into the current chapter of volume 2.",
+    "The closing line positions Edna's confrontation with the invading army as the immediate lead-in to the next story scene."
+  ],
+  "dialogue_meaning": [
+    "The page provides a prose recap of prior events rather than scene dialogue.",
+    "It explains the family's recent succession crisis, the revelation of epyphite, and the war that has reached their doorstep."
+  ],
+  "image_sha256": "f771bc35a8432e86c7c8836ff3e3699bce802fe327a828c80d07856f364366a7",
+  "is_spread": false,
+  "locations": [
+    "Marmola",
+    "Castaka",
+    "space above Marmola"
+  ],
+  "lore_facts": [
+    "Marmola is a planet ruled by Baron Berard of Castaka and is described as being made almost entirely of marble.",
+    "The Castaka clan derives its trade and wealth from precious marble.",
+    "Epyphite is a sacred oil with anti-gravity powers said to be unknown to the rest of the universe.",
+    "The clan uses laser tools to cut marble and epyphite to levitate the blocks onto transport ships.",
+    "The Imperial Merchants Guild is important enough to send dignitaries to observe events on Marmola.",
+    "The black endoguards are a military force that turned against the Empire during the battle over epyphite."
+  ],
+  "page_id": "029_The_Metabarons_2_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Othon Von Salza marries Edna, daughter of Baron Berard of Castaka on the marble world Marmola.",
+    "Othon and Edna have a son, Bari.",
+    "The Castaka clan's wealth comes from quarrying precious marble and using epyphite, a sacred anti-gravity oil, to move it.",
+    "Othon is trapped under a huge block of marble in front of Imperial Merchants Guild dignitaries.",
+    "Despite Berard's objections, the clan votes to save Othon, exposing the secret of epyphite.",
+    "Berard recognizes Othon as a worthy successor after seeing his reaction to the clan's sacrifice.",
+    "Berard transfers the family's legacy to Othon before dying.",
+    "A massive fleet battle erupts over Marmola for control of the epyphite.",
+    "The black endoguards turn against the Empire and win the battle.",
+    "Othon prevents Bari from fighting by breaking Bari's legs.",
+    "Edna goes out to confront the invading force to defend the clan's honor."
+  ],
+  "source_image": "external/comics/meta-barons/029_The_Metabarons_2_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f771bc35a8432e86c7c8836ff3e3699bce802fe327a828c80d07856f364366a7",
+      "page_id": "029_The_Metabarons_2_ic1",
+      "source_image": "external/comics/meta-barons/029_The_Metabarons_2_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The five small portraits at the bottom are not labeled individually, so specific identifications beyond likely main characters are uncertain.",
+    "The left-side action illustration appears symbolic or excerpted from an earlier event; the exact depicted moment is not named on the page."
+  ],
+  "visual_summary": "A recap and credits page for The Metabarons. The page is dominated by the series logo and an 'Our story so far' text block on a pale patterned background. At left, an illustration shows an armored man crashing or leaping through shattered stone or glass in an industrial setting. Along the bottom are five small circular character portraits, followed by publication credits.",
+  "volume": 2
+}

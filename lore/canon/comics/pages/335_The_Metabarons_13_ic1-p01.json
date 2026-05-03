@@ -1,0 +1,80 @@
+{
+  "character_facts": [
+    "Dona Vicenta attempts suicide after learning her lover killed her father.",
+    "Melmoth can slow time and deflect a bullet with his inherited powers.",
+    "Melmoth creates a clone of Don Nicanor while Dona Vicenta is unconscious.",
+    "Don Nicanor's clone suffers partial memory loss and does not remember his daughter.",
+    "Tonto serves as storyteller or keeper of clan history for Lothar in the Metabunker.",
+    "Lothar is emotionally dependent on stories about the clan and becomes suicidal during the Metabaron's long absence.",
+    "The current Metabaron has been away for a long time and returns in a harsh, destructive mode."
+  ],
+  "characters_present": [
+    "Dona Vicenta",
+    "Melmoth",
+    "Don Nicanor's clone",
+    "the young Metabaron heir",
+    "the President",
+    "Tonto",
+    "Lothar",
+    "the current Metabaron",
+    "robots of the Metabunker"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is an explicit recap spread connecting prior events to the current chapter.",
+    "It bridges the Dona Vicenta/Melmoth/Don Nicanor conflict with the Metabunker's crisis involving Tonto, Lothar, and the returning Metabaron.",
+    "The visuals of the ship, fortress, and scattered robots reinforce the recap's account of the Metabaron's return and the destruction of the Metabunker."
+  ],
+  "dialogue_meaning": [
+    "The page functions as a 'previously in The Metabarons' summary rather than scene-by-scene dialogue.",
+    "It explains that Tonto has stopped narrating clan history to Lothar because their master has been gone too long.",
+    "It states that the Metabaron returns only to erase his own robots and base so the secret of his scar cannot fall into enemy hands.",
+    "It conveys Tonto's request that the robots die honorably in the Metabunker's nuclear destruction."
+  ],
+  "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+  "is_spread": true,
+  "locations": [
+    "The Metabunker",
+    "the Golden Planet"
+  ],
+  "lore_facts": [
+    "Melmoth possesses Shabda-Oud powers inherited through his mother.",
+    "The Metabaron line has a designated heir tied to high nobility and recognition on the Golden Planet.",
+    "The current Metabaron has a scar whose secret is a critical weakness.",
+    "The Metabunker's robots can activate their master's bio-electrogram as a defensive measure.",
+    "The Metabaron can use a Metacraft as a disguise when arriving.",
+    "The Metabunker is destroyed in a nuclear explosion at the Metabaron's command."
+  ],
+  "page_id": "335_The_Metabarons_13_ic1-p01",
+  "page_label": "ic1-p01",
+  "plot_events": [
+    "The page recaps earlier events involving Dona Vicenta, Melmoth, Don Nicanor's clone, and the succession of the Metabaron line.",
+    "Dona Vicenta learns that the man she loves murdered her father and attempts suicide, but Melmoth stops the bullet using inherited powers.",
+    "While Dona Vicenta is unconscious, Melmoth creates a clone of Don Nicanor in hopes of erasing his crime and regaining her forgiveness.",
+    "Father and daughter are reunited, and Melmoth and Dona Vicenta are said to be free to love each other.",
+    "The young woman intends to recognize the young warrior-poet Metabaron as rightful heir and vote for his noble status on the Golden Planet.",
+    "Don Nicanor's clone lacks part of his memory, remembers everyone except his daughter, and declares a desire to take her as his wife before Melmoth intervenes.",
+    "A President rallies support, while Dona Vicenta refuses to let Melmoth kill her father again or attack her people.",
+    "In the Metabunker, Tonto refuses to tell Lothar more stories about the clan because their master, the current Metabaron, has been absent so long.",
+    "Lothar falls into despair and begins hurling himself against the walls in an apparent suicide attempt.",
+    "Security alarms announce an attack; the robots activate their master's bio-electrogram, but the attacker defeats it quickly.",
+    "The intruder is revealed to be the Metabaron himself, arriving in disguise inside a Metacraft.",
+    "The returned Metabaron says he has come back to disintegrate the robots and destroy the Metabunker so enemies cannot learn the secret weakness of his scar.",
+    "Tonto asks that the robots be allowed an honorable death in the nuclear explosion destroying the Metabunker, and the Metabaron departs as the fortress explodes."
+  ],
+  "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+      "page_id": "335_The_Metabarons_13_ic1-p01",
+      "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page is a recap page, so several events described in text are not directly shown as full scenes here.",
+    "Some small-print credits and fine visual details at the bottom edge are difficult to read at this resolution.",
+    "The lone walking figure and the robots on the right page are not explicitly labeled in the image, so their exact identities are uncertain from visuals alone."
+  ],
+  "visual_summary": "An illustrated title-and-recap spread for The Metabarons. The left page carries the series logo, recap text, circular character portraits, and publication credits beside a biomechanical border. The right page shows a large spacecraft or missile-like vessel crossing the upper page, a towering dark structure, scattered robots or machine parts on the ground, and a lone figure walking away below.",
+  "volume": 13
+}

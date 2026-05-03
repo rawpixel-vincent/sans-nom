@@ -1,0 +1,497 @@
+[
+  {
+    "aliases": [
+      "Aghnar",
+      "the Metabaron"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p01', 'p04', 'p05', 'p06', 'p07', 'p08', 'p11', 'p12', 'p13', 'p14', 'p19', 'p20', 'p21', 'p23', 'p24', 'p25', 'p26', 'p27']"
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "Killed father Othon in single combat to become a worthy avenger (vol 7 ic1)",
+      "Defeated the Magon leader and fulfilled the Diamond Planet prophecy with Kiowata (vol 7 ic1)",
+      "Traveled unarmed to Amadis, concealed Metabaron identity, competed in courtship trial, won Oda's blue-rose test (vol 7 p01–p05)",
+      "Rejected the offered kingdom and took only Oda, precipitating the king's armed response (vol 7 p05)",
+      "Escaped Amadis with Oda after her suicide-threat standoff with her father (vol 7 p06)",
+      "Murdered a Shabda-Oud priestess and built a psy-cloak disguise from her identity (vol 7 p11)",
+      "Used psychic mind-control to dominate two pilots en route to the ice asteroid (vol 7 p11/p12)",
+      "Delivered Oda to the witches as a deliberate trap while disguised as a priestess (vol 7 p14/p15)",
+      "Sacrificed his own arm — loaded with mini-bombs — by provoking Jejoh to consume it; destroyed Jejoh from within (vol 7 p21)",
+      "Merged psychic energy with Oda in a mind's-shadow union to survive the Elders' final assault (vol 7 p25)",
+      "Declared vengeance for Othon and Honorata achieved; expressed intent to cease being a Metabaron (vol 7 p26)",
+      "Carrying Oda one-armed through a cetacyborg blockade toward the Metabunker at volume's end (vol 7 p27)"
+    ],
+    "knowledge_boundaries": [
+      "Does not know the Shabda-Oud cetacyborgs' secret weakness — Tonto warns this knowledge may die with the last surviving witch (vol 7 p27)",
+      "Does not know how to bypass the cetacyborg blockade at the volume's end, though he reasons they must have a weak point (vol 7 p27)"
+    ],
+    "relationships": [
+      "character: Othon; type: son; notes: Killed Othon in sanctioned single combat at Othon's explicit demand; motivated ever after to avenge him",
+      "character: Honorata; type: figure to avenge; notes: Honorata's fate is the original driving wound of his revenge arc; exact relationship not specified in vol 7 pages",
+      "character: Oda; type: beloved / ally / mind's-shadow partner; notes: Fell in love via holovid; recruited her as willing co-conspirator; their mind's-shadow union during the Elders' assault is described as making them 'united forever'",
+      "character: Kiowata; type: companion; notes: Saved and befriended the speaking Magon; Kiowata aided his cetacyborg mission",
+      "character: Tonto; type: robot retainer; notes: Tonto serves the household and can perform surgery at the Metabunker; Aghnar's last hope for Oda's recovery",
+      "character: Jejoh; type: enemy / destroyed by Aghnar; notes: Baited Jejoh into biting off his arm; the arm's concealed mini-bombs destroyed Jejoh from within"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Driven by vengeance for Othon and Honorata above all else",
+      "Tactically brilliant — employs deception, psychic disguise, mind-control, and concealed weapons simultaneously",
+      "Stoic about physical suffering; frames spiritual integrity as inviolable even while losing a limb",
+      "Romantically devoted to Oda from first sight (holovid); imagines escaping the Metabaron lineage to live as an ordinary family",
+      "Willing to weaponize his own body — sacrifices arm as an internal bomb",
+      "Holds himself to a Metabaron code that demands certain trials be faced alone, though he ultimately accepts Oda's help",
+      "Cybernetic enhancements including mechanical limbs and the ability to project eye-beams; can hover"
+    ],
+    "voice_notes": [
+      "Internally: 'No one must learn I am the Metabaron until my vengeance is fulfilled' — restrains himself from attacking suitors openly at Amadis (vol 7 p01)",
+      "To Oda: 'I no longer want you to remain a princess, and I no longer want to remain an assassin — I don't want our son to become a Metabaron' (vol 7 p08)",
+      "After losing his arm: 'Only the stump hurts — my spirit cannot be wounded' (vol 7 p24)",
+      "After Jejoh's destruction: declares Othon and Honorata avenged and that this moment should end his life as a Metabaron (vol 7 p26)",
+      "To Oda during approach to the lair: plans to stage her as a bound captive and imagines they will flee to a distant planet afterward to live as an ordinary family (vol 7 p07)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Watched Othon die from cetacyborg-released poison gas before killing him in combat (vol 7 ic1)",
+      "Captured three Shabda-Oud pilots and learned their mission to abduct Oda for her genetics (vol 7 ic1)",
+      "Saw a holovid of Oda and fell in love immediately (vol 7 ic1)",
+      "Killed a Shabda-Oud priestess and constructed a psy-cloak from her identity to infiltrate the lair (vol 7 p11/p12)",
+      "Passed the multi-layer biological, brainwave, and infra-conscious identity scan using psycho-mimetic training (vol 7 p13/p14)",
+      "Saw Oda subjected to the witches' forced reproductive ritual (vol 7 p17)",
+      "Provoked Jejoh to bite off his arm knowing the limb was loaded with mini-bombs (vol 7 p21)",
+      "Witnessed the Shabda-Oud witches collapse after Jejoh's destruction (vol 7 p23)",
+      "Survived the Elders' psychic assault through mind's-shadow union with Oda (vol 7 p25)",
+      "Saw Oda left mentally devastated after the battle; carried her toward the Metabunker (vol 7 p27)"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda",
+      "Princess Oda",
+      "Oda the Capricious"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p02', 'p04', 'p05', 'p06', 'p07', 'p08', 'p14', 'p15', 'p16', 'p17', 'p19', 'p23', 'p24', 'p25', 'p26', 'p27']"
+    ],
+    "character_id": "oda",
+    "important_actions": [
+      "Refused all suitors who did not bring the true blue rose (vol 7 p02–p04)",
+      "Accepted Aghnar's offer and verbally agreed to leave with him (vol 7 p05)",
+      "Held a blade to her chest or throat and forced her father to stand down under armed standoff (vol 7 p06)",
+      "Agreed to serve as Aghnar's feigned captive to infiltrate the Shabda-Oud lair (vol 7 p07)",
+      "Tended Aghnar's severe blood loss from his severed arm on the battlefield (vol 7 p24)",
+      "Merged psychic energy with Aghnar in a mind's-shadow union — described as making them 'united forever' — to help him survive the Elders' assault (vol 7 p25)"
+    ],
+    "knowledge_boundaries": [
+      "Left mentally devastated after the battle; condition regarding retained memories or cognition unknown at volume's close (vol 7 p27)",
+      "Her knowledge of the Shabda-Oud's plans (from having been inside their lair) is not explored before the mental injury occurs"
+    ],
+    "relationships": [
+      "character: Aghnar; type: beloved / partner / mind's-shadow union; notes: Agreed to join his plan; tended his wounds in battle; merged energy with him permanently in the mind's-shadow union (vol 7 p25)",
+      "character: Oda's Father (unnamed king); type: daughter — coerced relationship; notes: Father treated her as both kin and a claimed prospective wife; Oda explicitly rejects the marriage claim (vol 7 p06); forced him to release them by threatening suicide",
+      "character: Sama-Wajd; type: intended genetic progenitor; notes: Shabda-Oud believe her womb will produce the prophesied hermaphrodite Sama-Wajd",
+      "character: Honorata; type: uncertain — a woman who loved Oda more than anything; notes: Narration in vol 7 p11 mentions a woman who loved Oda more than anything; identity not fully resolved on that page alone"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Unwavering in her public demands — dismisses even the wealthiest and most powerful suitors who fail the blue-rose condition",
+      "Courageous under lethal threat; held a blade to herself to coerce her father",
+      "Submissive or compliant in her responses to Aghnar during their journey together",
+      "Described as beautiful and genetically unique — the Shabda-Oud consider her womb the key to their twelve-generation breeding plan",
+      "Deeply emotionally attached to Aghnar; merges her psychic energy with his in a permanent mind's-shadow union"
+    ],
+    "voice_notes": [
+      "Repeatedly: 'That is not the blue rose I want' — dismisses every substitute offering (vol 7 p02, p03)",
+      "Begs 'Aghnar' to save her during the forced Shabda-Oud ritual (vol 7 p17)",
+      "Responds affirmatively each time Aghnar describes their shared future (vol 7 p07, p08)",
+      "Alarmed rather than triumphant when the glowing cocoon appears after the final blast; asks what is happening (vol 7 p26)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Repeatedly witnessed suitors fail her blue-rose demand, including General Amagho's grotesque offering from a defeated emperor's remains (vol 7 p02)",
+      "Experienced Aghnar manifesting the true blue rose via psychic eye-beam (vol 7 p04)",
+      "Heard Aghnar's full tragic history and his plan to use her as a feigned captive (vol 7 p07)",
+      "Was subjected to the Shabda-Oud's forced reproductive ritual invoking Jejoh and Sama-Wajd (vol 7 p16, p17)",
+      "Was present and in danger during the main battle at the ice asteroid lair (vol 7 p19)",
+      "Witnessed Aghnar's arm severed and his stoic response (vol 7 p24)",
+      "Co-survived the Elders' psychic assault through the mind's-shadow union (vol 7 p25)"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p14 (named only)', 'p26 (named only)']"
+    ],
+    "character_id": "othon",
+    "important_actions": [
+      "Dispatched spy-needles into space to gather information about the Shabda-Oud witches (vol 7 ic1)",
+      "Demanded Aghnar kill him in single combat to harden the son for vengeance (vol 7 ic1)"
+    ],
+    "knowledge_boundaries": [
+      "Dispatched spy-needles expecting intelligence on the Shabda-Oud's location; whether information arrived before his death is not specified (vol 7 ic1)"
+    ],
+    "relationships": [
+      "character: Aghnar; type: father; notes: Demanded Aghnar kill him in single combat so the son would be hardened enough to avenge Honorata (vol 7 ic1)",
+      "character: Honorata; type: linked in vengeance narrative; notes: Othon wanted Aghnar hardened specifically to avenge Honorata; both are named together as the pair whose deaths drive Aghnar"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Strategically minded — dispatched spy-needles into space to locate the Shabda-Oud witches",
+      "Self-sacrificing in design: chose the manner of his own death to forge Aghnar into a capable avenger",
+      "Died from cetacyborg-related poison gas before Aghnar killed him in combat"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Fatally poisoned by gas released when a Cetacyborg was destroyed (vol 7 ic1)"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p14 (named only)', 'p26 (named only)']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: figure to be avenged; notes: Aghnar dedicates his infiltration attack to avenging Othon and Honorata (vol 7 p14); declares vengeance achieved at vol 7 p26",
+      "character: Othon; type: linked in vengeance narrative; notes: Othon's death demand to Aghnar was framed around Honorata's fate"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Death provides the foundational wound for Aghnar's vengeance arc — described as the reason Othon wanted Aghnar hardened",
+      "Exact relationship to Aghnar or Othon is not established in vol 7"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Kiowata"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p26 (likely — small white ape-like creature present, identity uncertain)']"
+    ],
+    "character_id": "kiowata",
+    "important_actions": [
+      "Fulfilled (or embodied) the prophecy about a little white ape leading the Magon people to the Diamond Planet (vol 7 ic1)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: companion / ally; notes: Saved by Aghnar from being seized after a fall; aided the Magon ascent and Aghnar's mission (vol 7 ic1)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Floating ape; identified as a Magon",
+      "Can speak",
+      "Described as possessing a soul",
+      "Associated with a prophecy: a little white ape will lead the Magon to the Diamond Planet",
+      "Loyal to Aghnar"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Present when Aghnar defeated the Magon leader atop the giant mushrooms (vol 7 ic1)",
+      "Part of the group that used a Cetacyborg with Aghnar's help (vol 7 ic1)"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p08', 'p09 (implied)', 'p10', 'p11', 'p12', 'p13', 'p23 (credited)', 'p27']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Narrated the history of the Metabarons to Lothar across multiple framing sessions (vol 7 p10–p13)",
+      "Interrupted Aghnar and Oda's intimate moment to redirect servants to household duties (vol 7 p08)",
+      "Physically destroyed another robot during an argument about the Invincible Warrior's eyebrow scar (vol 7 p10)",
+      "Warned Aghnar about the last surviving witch and the risk of losing cetacyborg vulnerability intelligence (vol 7 p27)"
+    ],
+    "knowledge_boundaries": [
+      "Possesses the surgical knowledge needed to operate on Oda at the Metabunker (vol 7 p27)",
+      "Has a visible scar whose origin is proposed as a story topic but explicitly deferred; its cause is an open mystery in the frame narrative (vol 7 p10, p11)"
+    ],
+    "relationships": [
+      "character: Lothar; type: co-servant / narrative audience; notes: Recounts Metabaron history to Lothar; bickers and threatens to use the current Metabaron's bio-electrogram to disintegrate Lothar if interrupted",
+      "character: Aghnar; type: robot retainer; notes: Serves Aghnar; interrupts intimate moments on duty grounds; provides critical tactical intelligence about the surviving witch (vol 7 p27)",
+      "character: The current Metabaron (unnamed); type: servant; notes: Awaits and prepares for the current Metabaron's return; will perform surgery on Oda at the Metabunker (vol 7 p27)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Small robot; household retainer serving Aghnar / the current Metabaron",
+      "Capable of performing or assisting surgical operations at the Metabunker",
+      "Quick-tempered — physically destroys another robot mid-argument",
+      "Serves as narrator of Metabaron family history in the frame device addressed to Lothar",
+      "Mocks human sexuality and biology; derisive toward Lothar in this regard",
+      "Evasive about his own visible scar when directly questioned",
+      "Has a visible scar that is treated as a significant unresolved story mystery"
+    ],
+    "voice_notes": [
+      "Threatened to use the current Metabaron's bio-electrogram to disintegrate Lothar for repeated interruptions (vol 7 p13)",
+      "Offered Lothar a choice: the origin of the scar, or Aghnar's story — Lothar steered away from the scar (vol 7 p11)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Credited by another character with defeating all the Shabda-Oud witches single-handedly (vol 7 p13) — context is banter; veracity uncertain",
+      "Confirmed to Aghnar that only one witch remains alive and that knowledge of the cetacyborgs' weakness may die with her (vol 7 p27)"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p07', 'p09', 'p10', 'p13']"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Destroyed a hovering robot (likely) for continuing to ask unwanted questions (vol 7 p09)"
+    ],
+    "knowledge_boundaries": [
+      "Did not hear the origin of the Invincible Warrior's eyebrow scar — the narrative accuses him of 'cheating' by choosing to hear Aghnar's story instead (vol 7 p10, p11)"
+    ],
+    "relationships": [
+      "character: Tonto; type: co-servant / narrative audience; notes: Receives Tonto's historical narration; repeatedly clashes with Tonto; steered the story toward Aghnar's arc rather than the scar origin (vol 7 p11)",
+      "character: The current Metabaron; type: servant; notes: Responsible for preparing breakfast and attending to the current Metabaron's return (vol 7 p09)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Listener and designated audience for Tonto's recounting of Metabaron family history",
+      "Interrupts the narration and requires threatening before he falls silent",
+      "Mocked by a mechanical speaker for human biology and sexuality",
+      "Associated with household service — responsible for preparing the Metabaron's breakfast before expected return",
+      "Likely the bald armed man who destroys a robot in p09, though not fully confirmed on that page alone"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Heard portions of Aghnar's family history as recounted by Tonto (vol 7 p07–p13)",
+      "Was present when a bio-electrogram dissolved in real time before reaching its solid-state time limit (vol 7 p10)"
+    ]
+  },
+  {
+    "aliases": [
+      "Jejoh",
+      "Jejoh the Pure"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p16', 'p17 (invoked)', 'p20', 'p21', 'p23', 'p24']"
+    ],
+    "character_id": "jejoh",
+    "important_actions": [
+      "Bit off Aghnar's arm, triggering the concealed mini-bomb trap (vol 7 p21)",
+      "Was destroyed when internal mini-bombs detonated in his stomach (vol 7 p21)",
+      "His destruction caused the Shabda-Oud witches to collapse catastrophically as a fighting force (vol 7 p23)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Shabda-Oud witches; type: power source / deity; notes: The witches' psychic power is entirely fueled by Jejoh's brainwaves; without him they collapse catastrophically (vol 7 p23)",
+      "character: Sama-Wajd; type: intended genetic progenitor in Shabda-Oud plan; notes: Named as the intended sperm donor in the ritual to produce Sama-Wajd via Oda (vol 7 p16)",
+      "character: Aghnar; type: enemy / destroyed by; notes: Aghnar baited Jejoh into biting off his arm; the concealed mini-bombs then detonated inside Jejoh's stomach, destroying him (vol 7 p21)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Treated by other characters as godlike, immortal, or a deity figure",
+      "Giant golden humanoid being",
+      "Externally impenetrable — believed to have no skin-level weakness; vulnerable only from within",
+      "The central power source for all Shabda-Oud psychic abilities",
+      "Invoked as a religious and ritual authority by the Shabda-Oud"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "General Amagho"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p02']"
+    ],
+    "character_id": "general-amagho",
+    "important_actions": [
+      "Presented a rose made from an enemy emperor's intestines as a courtship offering (vol 7 p02)",
+      "Was struck and knocked away by a violent upward burst mid-presentation (vol 7 p02)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Oda; type: rejected suitor; notes: Offered a grotesque rose fashioned from a defeated emperor's intestines; publicly and flatly rejected by Oda (vol 7 p02)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Flamboyantly dressed with an elaborate green headdress/helmet and staff-like object",
+      "Extremely wealthy — owner of the Tazzum mines; described as possessing a fabulous fortune",
+      "Theatrical and extravagant in courtship; frames military conquest as a mark of devotion",
+      "Claimed to have defeated an emperor of Androkla-5"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Sama-Wajd",
+      "the chosen hermaphrodite"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p16']"
+    ],
+    "character_id": "sama-wajd",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Janus-Jana; type: prophesied usurper of; notes: Sama-Wajd is destined to overthrow Janus-Jana's galactic rule (vol 7 p16)",
+      "character: Oda; type: intended genetic mother; notes: Shabda-Oud believe Oda's womb is the required vessel to produce Sama-Wajd (vol 7 ic1, p15)",
+      "character: Jejoh; type: intended genetic father in Shabda-Oud plan; notes: Jejoh the Pure named as the sperm donor in the reproductive ritual (vol 7 p16)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Prophesied chosen hermaphrodite",
+      "Expected to dethrone galactic empress Janus-Jana and grant absolute power to the Shabda-Oud faction",
+      "Not yet born within this volume; exists only as the goal of a twelve-generation breeding plan"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Janus-Jana",
+      "empress of the galaxy"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p16']"
+    ],
+    "character_id": "janus-jana",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Sama-Wajd; type: prophesied target of dethronement; notes: Sama-Wajd is prophesied to dethrone Janus-Jana (vol 7 p16)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Current empress of the galaxy",
+      "Target of the Shabda-Oud's twelve-generation succession and dethronement plot"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Shabda-Oud",
+      "the witches",
+      "reverend mothers",
+      "whore-priestesses",
+      "the Elders"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['ic1 (recap)', 'p03', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18', 'p19', 'p23', 'p24', 'p25', 'p26', 'p27']"
+    ],
+    "character_id": "the-shabda-oud",
+    "important_actions": [
+      "Sent three pilots to abduct Princess Oda for her genetics (vol 7 ic1)",
+      "Subjected Oda to a forced reproductive ritual at their lair, invoking Jejoh and targeting the birth of Sama-Wajd (vol 7 p16, p17)",
+      "Ordered cetacyborg forces deployed upon discovering the spy (vol 7 p18)",
+      "The Elders launched a collective psychic assault on Aghnar using their remaining independent power (vol 7 p24, p25)",
+      "Were catastrophically weakened and largely destroyed after Jejoh was eliminated (vol 7 p23)"
+    ],
+    "knowledge_boundaries": [
+      "Only one witch survives at the volume's end; knowledge of cetacyborg weaknesses is held by that survivor alone (vol 7 p27)"
+    ],
+    "relationships": [
+      "character: Oda; type: target / captive; notes: Abducted Oda specifically for her genetics; subjected her to a forced reproductive ritual (vol 7 p15–p17)",
+      "character: Jejoh; type: deity / power source; notes: Jejoh's brainwaves fuel all Shabda-Oud psychic power; loss of Jejoh destroys them as a fighting force (vol 7 p23)",
+      "character: Sama-Wajd; type: prophesied goal — to be produced; notes: Their entire mission across twelve generations is to create the genetic conditions for Sama-Wajd's birth",
+      "character: Aghnar; type: enemy / infiltrator / destroyer; notes: Aghnar infiltrated the lair disguised as a priestess, destroyed Jejoh, and broke their power"
+    ],
+    "source_refs": [],
+    "traits": [
+      "All-female religious and political faction pursuing a twelve-generation breeding plan to produce Sama-Wajd",
+      "Hierarchical structure: common soldiers, reverend mothers, eldest of elders",
+      "Psychic powers entirely dependent on Jejoh's brainwaves; catastrophically weakened without him",
+      "The Elders retain independent psychic power not reliant on Jejoh, though described as limited reserves",
+      "Maintain a lair carved from an ice asteroid in deep space, entry controlled by a delta-psychic force-switch",
+      "Use multi-layer biological, brainwave, and infra-conscious identity verification at their lair's entry",
+      "Create and deploy cetacyborg creatures as military assets",
+      "Capable of detecting infiltrators via probe systems that flag anomalous brainwave or genetic signatures"
+    ],
+    "voice_notes": [
+      "Eldest elder to Oda: 'Your womb will generate the one we have awaited for twelve generations' (vol 7 p15)",
+      "Opening ritual invocation: 'Sama-Wajd — chosen hermaphrodite — will dethrone Janus-Jana and grant absolute power' (vol 7 p16)",
+      "Elders to Aghnar: 'We have power independent of Jejoh — we will spend our last energy to exterminate the traitor' (vol 7 p24)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Discovered a spy was among them mid-ritual and immediately escalated their response (vol 7 p18)"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda's Father",
+      "the King of Amadis (name not given in source)"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p05', 'p06']"
+    ],
+    "character_id": "oda-s-father",
+    "important_actions": [
+      "Offered his daughter and kingdom as reward to the winning suitor (vol 7 p05)",
+      "Ordered Aghnar and Oda arrested and threatened Aghnar with mutilation when Aghnar refused the kingdom (vol 7 p05)",
+      "Relented and ordered soldiers to release the pair when Oda threatened to kill herself (vol 7 p06)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Oda; type: father — also claimed prospective husband; notes: Oda explicitly rejects the marriage/possession claim while acknowledging him as father (vol 7 p06)",
+      "character: Aghnar; type: briefly acknowledged winner, then adversary; notes: Named Aghnar the winner and offered the entire kingdom; reversed to ordering his arrest when Aghnar refused all wealth (vol 7 p05)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Emotionally volatile — swings from joy to generosity to violent rage within moments on the same page",
+      "Treats his daughter as both kin and a political or transactional asset",
+      "Commands a substantial armed force; can order arrest and threatened mutilation",
+      "Ultimately yields rather than escalate when Oda threatens suicide — compliance over force"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Saw Aghnar carry Oda away in the open air above a crowd of guards (vol 7 p05)",
+      "Saw Oda press a blade to herself and demand he order his troops to stand down (vol 7 p06)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Invincible Warrior"
+    ],
+    "appearances": [
+      "volume: 7; pages: ['p10', 'p11 (referenced)']"
+    ],
+    "character_id": "the-invincible-warrior",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Tonto; type: subject of historical narration; notes: Tonto proposed explaining the scar as a story topic but it was deferred (vol 7 p10, p11)",
+      "character: Lothar; type: audience — chose not to hear the scar's origin; notes: Lothar redirected toward Aghnar's story; accused by Tonto of 'cheating' by avoiding the scar question (vol 7 p10)"
+    ],
+    "source_refs": [],
+    "traits": [
+      "A historical figure within the Metabaron lineage",
+      "Bears a scar across the right eyebrow",
+      "The cause of that scar is an explicitly unresolved mystery in the frame narrative — Tonto deferred it and Lothar steered away from it"
+    ],
+    "voice_notes": [
+      "Scar across right eyebrow documented as present by age 30 years, 2 months, 3 hours, 20:40:00 — cause unresolved (vol 7 p10)"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

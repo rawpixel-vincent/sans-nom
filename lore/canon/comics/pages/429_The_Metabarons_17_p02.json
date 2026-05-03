@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The octocyborg is an infiltration-capable being associated with stealth and penetration of defended spaces.",
+    "The priestess figures act collectively rather than individually, pooling their mental essence for attack.",
+    "The guards are conventional armed defenders and are vulnerable to the attackers' mental assault."
+  ],
+  "characters_present": [
+    "The octocyborg",
+    "Priestess-like women described as prostitutes/priestesses in the narration",
+    "Black-armored guards of the stronghold",
+    "At least one bulky white-glowing infiltrator or armored figure traveling in the beam"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the next stage of an infiltration: after evading external defenses, the attackers are now inside the fortress and neutralizing resistance."
+  ],
+  "dialogue_meaning": [
+    "The narration says the infiltrator evades the fortress's guardian surveillance and penetrates the base.",
+    "The narration says the priestess group merges its mental force to eliminate the guards.",
+    "A guard cries out in pain or alarm during the attack.",
+    "A large sound effect marks an explosive, gory impact."
+  ],
+  "image_sha256": "e50937f72b1bb546162137e212f269e4a81f69e7a4d804d21193c202dd42fdb7",
+  "is_spread": false,
+  "locations": [
+    "Outer space above a pyramid-like stronghold",
+    "Interior corridors or chambers of the stronghold"
+  ],
+  "lore_facts": [
+    "The stronghold is protected by guardian satellites or similar detection systems.",
+    "The octocyborg is capable of bypassing those defenses and entering the stronghold.",
+    "The infiltrating group includes priestess figures with collective mental or psychic attack capability.",
+    "Their combined psychic force is lethal enough to exterminate armed guards quickly."
+  ],
+  "page_id": "429_The_Metabarons_17_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "An octopus-like cyborg infiltrates a fortified stronghold without being detected by its orbital or external defenses.",
+    "A beam from outside reaches into the fortress interior, delivering or guiding the infiltrators inside.",
+    "The intruders encounter armed guards in a metallic corridor.",
+    "A group of priestess-like women combine their mental power to kill the guards.",
+    "The defending guards are overwhelmed almost immediately, with at least one violently dismembered."
+  ],
+  "source_image": "external/comics/meta-barons/429_The_Metabarons_17_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e50937f72b1bb546162137e212f269e4a81f69e7a4d804d21193c202dd42fdb7",
+      "page_id": "429_The_Metabarons_17_p02",
+      "source_image": "external/comics/meta-barons/429_The_Metabarons_17_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption text is small and slightly blurred; wording is readable only approximately.",
+    "The exact identity of the glowing white infiltrator figures besides the priestess group is unclear from this page alone.",
+    "It is not fully clear whether the beam is transporting the intruders, projecting them, or serving as an entry path."
+  ],
+  "visual_summary": "A reddish octopus-like cyborg organism hovers in space above a sharp, pyramid-like fortress and sends a narrow beam down into the structure. Inside the metallic corridors, glowing white figures arrive or advance through the beam while black-armored guards react. In the final panel, several pale, luminous priestess-like women stand behind the intruders as one guard is blown apart in a burst of blood and debris and another falls, showing a sudden psychic or energy assault.",
+  "volume": 17
+}

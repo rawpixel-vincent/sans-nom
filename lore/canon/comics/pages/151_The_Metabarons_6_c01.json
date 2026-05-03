@@ -1,0 +1,48 @@
+{
+  "character_facts": [
+    "The humanoid figure has white hair and appears to wear a black suit.",
+    "The humanoid figure has mechanical or prosthetic claw-like appendages attached to both arms and legs.",
+    "The creature is depicted as enormous relative to the humanoid figure and is characterized by a large mouth full of teeth."
+  ],
+  "characters_present": [
+    "A white-haired humanoid fighter, likely Aghnar or a central figure associated with the issue's story",
+    "A gigantic monstrous creature with a huge maw and teeth"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This cover introduces or foregrounds the subject of Aghnar's trials for this issue."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "011c99bea62ed5b75a7b303a28760f79d09329a54867b000e5a3c026cf1c1a9f",
+  "is_spread": false,
+  "locations": [
+    "An unspecified dark, possibly surreal or alien environment used as the backdrop for the cover scene"
+  ],
+  "lore_facts": [
+    "This page is a cover rather than a story page.",
+    "The issue title/frame identifies this installment as 'The Trials of Aghnar.'",
+    "The series is The Metabarons.",
+    "The credited creators shown on the cover are Jodorowsky, Gimenez, and Moebius."
+  ],
+  "page_id": "151_The_Metabarons_6_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The cover presents a confrontation between a cybernetically modified humanoid figure and a massive monstrous creature.",
+    "The issue is identified as part 6 of The Metabarons and carries the subtitle 'The Trials of Aghnar.'"
+  ],
+  "source_image": "external/comics/meta-barons/151_The_Metabarons_6_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "011c99bea62ed5b75a7b303a28760f79d09329a54867b000e5a3c026cf1c1a9f",
+      "page_id": "151_The_Metabarons_6_c01",
+      "source_image": "external/comics/meta-barons/151_The_Metabarons_6_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover image, the exact narrative event depicted may be symbolic rather than a literal scene from the story.",
+    "The identity of the white-haired figure is not explicitly stated on the image itself.",
+    "The exact setting is unclear; the background is abstract and does not identify a specific place."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue #6. A white-haired humanoid figure in a black bodysuit with metallic claw-like prosthetics on both arms and legs is shown mid-struggle against a gigantic toothy creature dominating the upper right of the image. The composition presents a violent, high-stakes confrontation in a dark, surreal space.",
+  "volume": 6
+}

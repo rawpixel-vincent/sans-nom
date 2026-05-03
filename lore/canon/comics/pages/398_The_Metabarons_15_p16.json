@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "Aghora is a warrior who fights with a sword and uses a two-handed thrust or cut.",
+    "Aghora is Steelhead's daughter.",
+    "Steelhead is heavily armored and remains unaffected by a seemingly lethal strike.",
+    "Steelhead is capable of speaking calmly during the fight, explaining the tactical disadvantage to Aghora."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Steelhead",
+    "Aghora's father"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing father-daughter duel between Aghora and Steelhead rather than the start of the confrontation.",
+    "The narration marks a passage of time from two days of stalemate to dawn on the third day."
+  ],
+  "dialogue_meaning": [
+    "The narration states that the duel remained evenly matched for two days.",
+    "The narration identifies Aghora as the attacker on the third day and says the target is her father.",
+    "An exclamation signals shock that the supposedly decisive blow had no effect.",
+    "The armored speaker says Aghora has entered an unwinnable contest because her metal body cannot be pierced by a sword."
+  ],
+  "image_sha256": "896955c35f532d10efbc19a617e7b8b4dbfe329b8b17d2392008eaf26fa4e8b9",
+  "is_spread": false,
+  "locations": [
+    "An unspecified combat arena or interior space filled with bright energy effects"
+  ],
+  "lore_facts": [
+    "Aghora and her father are engaged in a prolonged duel.",
+    "Aghora's father is identified on-page as Steelhead.",
+    "Steelhead can withstand a sword blow to the waist that should have bisected him.",
+    "Aghora has given herself a metal body.",
+    "Aghora's metal body is described on-page as invulnerable to sword strokes."
+  ],
+  "page_id": "398_The_Metabarons_15_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "Two armored combatants fight continuously for two days without either landing a decisive blow.",
+    "On the third day, Aghora penetrates her father's defenses with a two-handed strike aimed at his waist.",
+    "The strike that should have cut him in half does not disable him.",
+    "Steelhead continues fighting without even staggering from the impact.",
+    "The surviving fighter verbally explains that Aghora's metal body is invulnerable to sword strokes, framing the contest as unwinnable for her."
+  ],
+  "source_image": "external/comics/meta-barons/398_The_Metabarons_15_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "896955c35f532d10efbc19a617e7b8b4dbfe329b8b17d2392008eaf26fa4e8b9",
+      "page_id": "398_The_Metabarons_15_p16",
+      "source_image": "external/comics/meta-barons/398_The_Metabarons_15_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page image is legible overall, but some text is small, so wording may not be exact.",
+    "The final speech balloon is attributed visually to the seated armored fighter, likely Steelhead, but the exact speaker tag is not explicitly labeled in the panel.",
+    "The specific setting is not identified on this page beyond a bright, enclosed-looking combat space."
+  ],
+  "visual_summary": "A brightly lit duel between two armored warriors continues across multiple panels. They clash in midair and at close range with glowing energy and sword strikes. A narration box explains that they fought evenly for two days. On the third day, Aghora appears to break through her father's guard with a two-handed cut to his waist, but the larger armored opponent remains standing. In the final panel, the seated armored fighter declares that Aghora made a losing choice by giving herself a metal body that no sword can pierce.",
+  "volume": 15
+}

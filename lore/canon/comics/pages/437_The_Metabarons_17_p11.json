@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Lothar is physically stronger and in control during this page.",
+    "Lothar is forceful, punitive, and concerned with status and obedience.",
+    "Tonto is talkative and sarcastic at first but quickly becomes submissive under threat.",
+    "Tonto can apparently continue functioning and speaking even after losing most of his body.",
+    "Tonto wants his body restored and is willing to comply to achieve that."
+  ],
+  "characters_present": [
+    "Lothar",
+    "Tonto"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page clearly continues an ongoing exchange in which Tonto has been narrating or interrupting a larger story.",
+    "The ending sets up the next page as a resumed, more orderly retelling under Lothar's control."
+  ],
+  "dialogue_meaning": [
+    "Tonto initially mocks Lothar and tries to deflate his menace.",
+    "Lothar insists the destruction is real, not a dream, and uses force to make Tonto obey.",
+    "The step-by-step dismemberment is used as coercion and humiliation.",
+    "Tonto's repeated apology signals total surrender.",
+    "Tonto agrees to continue narrating or explaining events under Lothar's terms.",
+    "Lothar asserts dominance by demanding respect and uninterrupted storytelling."
+  ],
+  "image_sha256": "1ece6e8a2a0c38200a595fc8eba7162b2aaf8dd0cb8c357e0a22a05573838ae5",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior space, possibly a ship or industrial chamber"
+  ],
+  "lore_facts": [
+    "Tonto and Lothar are both robotic or cybernetic beings with detachable mechanical body parts.",
+    "Their conflict includes a storytelling frame: one character is being forced to tell a larger story.",
+    "The term 'paleo-wolf' and similar joking language exists in their vocabulary on this page.",
+    "Lothar expects formal deference, including being addressed as 'sir' or 'Sir Master Lothar'."
+  ],
+  "page_id": "437_The_Metabarons_17_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "Tonto taunts Lothar during a chase, comparing him to a 'big bad paleo-wolf.'",
+    "Lothar begins tearing Tonto apart mechanically, starting with the legs.",
+    "Lothar continues by ripping off Tonto's arms.",
+    "Lothar removes or separates the remaining torso/body, leaving Tonto reduced to a head-like unit.",
+    "Tonto submits, apologizes repeatedly, and stops resisting.",
+    "Tonto agrees to tell the full story in exchange for getting his body back.",
+    "Lothar orders Tonto to recount the whole story without arrogant interruptions and to call him 'sir'."
+  ],
+  "source_image": "external/comics/meta-barons/437_The_Metabarons_17_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1ece6e8a2a0c38200a595fc8eba7162b2aaf8dd0cb8c357e0a22a05573838ae5",
+      "page_id": "437_The_Metabarons_17_p11",
+      "source_image": "external/comics/meta-barons/437_The_Metabarons_17_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, so exact wording may be slightly off.",
+    "The precise nature of the setting is unclear beyond being a metallic interior.",
+    "It is not fully certain which exact body component is being removed in each middle panel, though the sequence clearly depicts progressive dismemberment."
+  ],
+  "visual_summary": "A larger robot corners and physically dismantles a smaller round-headed robot piece by piece inside a metallic interior. The smaller robot first taunts its pursuer, then panics as its legs, arms, and torso are ripped away, leaving essentially its head. Humbled, it apologizes repeatedly and finally agrees to tell the story properly while addressing the other as 'Sir Master Lothar.'",
+  "volume": 17
+}

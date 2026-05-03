@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Aghnar is treated as someone expected to be able to kill the creature.",
+    "The long-haired fighter is aggressive and capable of projecting a concentrated energy attack.",
+    "One armored character is accused of being a traitor by the speaker in the page's dialogue.",
+    "The monster attacks by biting and using tentacle-like mouthparts."
+  ],
+  "characters_present": [
+    "Aghnar (named, not clearly isolated visually)",
+    "A long-haired attacker using an energy blast",
+    "An armored victim being eaten/attacked",
+    "Additional armored soldiers",
+    "The monster/creature",
+    "Shadowed spectators or faces at the left edge"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing battle involving named characters, a monstrous being, and accusations of treachery."
+  ],
+  "dialogue_meaning": [
+    "Several characters panic and shout in response to the creature's attack.",
+    "Someone orders Aghnar to kill the monster immediately.",
+    "The long-haired fighter vows to destroy the creature.",
+    "A speaker mocks a 'traitor,' claims the creature's outer layer is impenetrable, and threatens massacre and consumption of the victim."
+  ],
+  "image_sha256": "6fe11ce7748d292d867e879d4fb80790ee2bf042320ac3b735568d1849efa404",
+  "is_spread": false,
+  "locations": [
+    "An interior combat space or chamber with metallic/mechanical surroundings"
+  ],
+  "lore_facts": [
+    "A character named Aghnar is present or being addressed during the fight.",
+    "A character or entity named Jejoh is invoked in the taunting dialogue.",
+    "The creature is described in dialogue as having an impenetrable outer covering or 'epidermis.'",
+    "The scene involves a violent conflict between human-like armored figures and a monstrous being."
+  ],
+  "page_id": "197_The_Metabarons_7_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A monstrous creature attacks a group of armored humans in close quarters.",
+    "One person is grabbed and overwhelmed by the creature's mouth and tentacles.",
+    "A soldier calls for Aghnar to kill the creature quickly.",
+    "Another fighter charges in and fires an energy blast while shouting a threat at the monster.",
+    "A taunting speech bubble identifies the victim as a traitor and boasts that the creature's hide cannot be penetrated and that it will devour the victim while others are slaughtered."
+  ],
+  "source_image": "external/comics/meta-barons/197_The_Metabarons_7_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "6fe11ce7748d292d867e879d4fb80790ee2bf042320ac3b735568d1849efa404",
+      "page_id": "197_The_Metabarons_7_p20",
+      "source_image": "external/comics/meta-barons/197_The_Metabarons_7_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; names such as 'Jejoh' and parts of the taunt may be slightly misread.",
+    "It is unclear which visible figure is Aghnar.",
+    "The exact identity of the speaker delivering the taunt is not visually certain.",
+    "The provided page label is p20, while the scanned image appears to show the printed number 21 at the bottom."
+  ],
+  "visual_summary": "A chaotic combat page shows a bulky, patterned, black-mouthed creature lunging among armored figures. One victim is seized head-first, with tentacle-like appendages forced into their mouth while saliva sprays. Nearby, a long-haired fighter dives forward and projects a bright energy blast at the monster. Other soldiers panic and shout orders as shadowy onlookers fill the left margin.",
+  "volume": 7
+}

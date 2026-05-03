@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Othon von Salza abandoned pure martial pursuits in favor of weapons development.",
+    "Othon became stronger and more energized after mutilation, according to the narrator.",
+    "Othon is characterized as cruel and solitary.",
+    "Othon exercised domination over Iku-Itta's daughters and demanded silence from them.",
+    "Iku-Itta is a loyal slave in Othon's household, as described by the narration."
+  ],
+  "characters_present": [
+    "Narrator represented by a small monitor/speaker device",
+    "Othon von Salza",
+    "Daughters of Iku-Itta",
+    "Iku-Itta"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page links Othon von Salza directly to the lineage of the current Metabaron.",
+    "It presents the origins of Metabaronic weapon development as part of the family history.",
+    "It ties Othon's personal transformation to the later built environment of Castaka on Okkar."
+  ],
+  "dialogue_meaning": [
+    "The speaker frames this page as foundational backstory needed to understand later events.",
+    "The narration explains that Othon redirected his life from martial discipline into weapons development.",
+    "It states that mutilation psychologically and physically hardened Othon, making him more violent and isolated.",
+    "It describes his household arrangement with Iku-Itta's daughters as one of enforced silence and obedience.",
+    "It concludes that Othon used machine power to remake both the land and the family fortress on Okkar."
+  ],
+  "image_sha256": "42b40e658d55d79768c3650b25bfdd8cbf5cb38c52111325bb4d069a923bc496",
+  "is_spread": false,
+  "locations": [
+    "Planet Okkar",
+    "Castaka fortress",
+    "Interior chamber with Othon, the women, and a servant",
+    "Battlefield or industrial combat setting",
+    "Maxi-protonic tower built from Castaka"
+  ],
+  "lore_facts": [
+    "Othon von Salza is the great ancestor of the current Metabaron.",
+    "Early Metabaronic weapons were developed and constructed with Othon's wealth.",
+    "Othon's mutilation is presented as a major turning point in his life.",
+    "Iku-Itta is explicitly called Othon's slave.",
+    "Iku-Itta had daughters who were involved in Othon's household and sexual life.",
+    "Castaka is a fortress located on the planet Okkar.",
+    "Castaka was transformed from a rural fortress into a maxi-protonic tower.",
+    "Othon commanded an army of machines."
+  ],
+  "page_id": "067_The_Metabarons_3_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A narrator says the story must be told from the beginning because later events have many causes.",
+    "Othon von Salza, identified as an ancestor of the current Metabaron, turns away from martial arts and invests his fortune in creating early Metabaronic weapons.",
+    "After suffering mutilation, Othon's rage and suffering intensify his strength and energy, changing him into a cruel, solitary warrior.",
+    "Othon is shown fighting and destroying machines in violent combat.",
+    "Othon continues taking the daughters of his slave Iku-Itta as sexual partners under a condition of total silence.",
+    "Using an army of machines, Othon transforms the rural Castaka fortress on the planet Okkar into a massive tower-city."
+  ],
+  "source_image": "external/comics/meta-barons/067_The_Metabarons_3_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "42b40e658d55d79768c3650b25bfdd8cbf5cb38c52111325bb4d069a923bc496",
+      "page_id": "067_The_Metabarons_3_p10",
+      "source_image": "external/comics/meta-barons/067_The_Metabarons_3_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The narrator's exact identity is unclear; only a small monitor-like speaking device is shown.",
+    "Some proper nouns may be difficult to verify from the image alone, but they appear to read as Othon von Salza, Iku-Itta, Okkar, and Castaka."
+  ],
+  "visual_summary": "A narration-heavy page presents the backstory of Othon von Salza. A small monitor-headed speaker introduces the account. Large panels show Othon battling machines, a close-up of his enraged face, a scene of him reclining with two silent women and a servant, and a towering fortress-city rising from a devastated landscape.",
+  "volume": 3
+}

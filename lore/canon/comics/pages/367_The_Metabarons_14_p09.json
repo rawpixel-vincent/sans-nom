@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The cyborg is disciplined, tactical, and protective toward the woman.",
+    "The cyborg is physically very heavy, enough that both he and the woman regard it as a mobility limitation.",
+    "The woman sees herself as a warrior and objects to being treated as fragile.",
+    "The cyborg remains confident even when direct vertical access seems impossible."
+  ],
+  "characters_present": [
+    "A heavy armored cyborg warrior/bodyguard",
+    "A woman addressed as 'milady'",
+    "Multiple technopapal guardians/guards"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an ongoing assault on the Technopapal temple.",
+    "The relationship between the cyborg and the woman is established as protector-and-charge, though the charge resists that framing."
+  ],
+  "dialogue_meaning": [
+    "The cyborg is acting as protector and insists the woman remain exactly within his safe path.",
+    "The woman resents being patronized and asserts her own combat capability.",
+    "A narration box emphasizes how easily the technopapal guardians are being killed.",
+    "The cyborg's immediate objective is to enter or breach the Technopapal temple.",
+    "The woman identifies a practical obstacle: the cyborg's mass makes an upward assault difficult.",
+    "The cyborg implies he has a way to force defenders out rather than climbing to them."
+  ],
+  "image_sha256": "941fb4d276c876a4772ad9d17192ce0d5da08b4726477fb70f1ca7b3a51e1372",
+  "is_spread": false,
+  "locations": [
+    "At the exit or threshold of a craft/vehicle or building entrance",
+    "A battlefield or courtyard crowded with technopapal guards",
+    "Outside the Technopapal temple",
+    "At the base of a tall temple wall with high windows"
+  ],
+  "lore_facts": [
+    "There is a group called the technopapal guardians, associated with the Technopapal temple.",
+    "The Technopapal temple is a fortified structure with elevated windows.",
+    "The cyborg possesses or is protected by a powerful spherical energy effect that is lethal or devastating to nearby guards.",
+    "The woman holds a status high enough for the cyborg to address her as 'milady'."
+  ],
+  "page_id": "367_The_Metabarons_14_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A cyborg warrior escorts a woman and orders her to stay close and not make unnecessary movements.",
+    "The woman protests that she is also a warrior and says she will not misstep.",
+    "Technopapal guards surround or confront them in large numbers.",
+    "A brilliant defensive/offensive energy sphere around the pair causes the technopapal guardians to fall rapidly.",
+    "The pair continue forward through the aftermath of the slaughter.",
+    "The cyborg declares they will penetrate the Technopapal temple.",
+    "The woman points out that the cyborg's weight prevents climbing or leaping to the windows.",
+    "The cyborg replies that if they cannot go up, their enemies will come down to them."
+  ],
+  "source_image": "external/comics/meta-barons/367_The_Metabarons_14_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "941fb4d276c876a4772ad9d17192ce0d5da08b4726477fb70f1ca7b3a51e1372",
+      "page_id": "367_The_Metabarons_14_p09",
+      "source_image": "external/comics/meta-barons/367_The_Metabarons_14_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the woman and the cyborg are not stated on this page.",
+    "The exact mechanism of the bright sphere is not explicitly explained here; it appears defensive or destructive but the page does not name it.",
+    "The opening background object may be a vehicle, doorway, or architectural threshold; the image alone does not make this fully certain."
+  ],
+  "visual_summary": "A warrior cyborg escorts a woman from a craft or doorway while warning her not to move. Around them, numerous armored technopapal guards attack, but a bright spherical defensive field or energy burst centered on the pair kills or repels the guards en masse. The page then shows the pair advancing through piles of fallen guards toward a towering temple facade, while the woman questions how the heavy cyborg will reach upper windows and he answers that their enemies will come down to them.",
+  "volume": 14
+}

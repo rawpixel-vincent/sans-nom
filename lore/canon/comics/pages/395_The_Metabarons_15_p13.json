@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Oq Fresthulz is associated with betrayal against Odaen.",
+    "The armored humanoid is willing to risk death in the attack.",
+    "The small robot is curious, verbose, and conscious of its own tendency to talk.",
+    "The speaking robot claims direct personal experience of Steelhead's operations."
+  ],
+  "characters_present": [
+    "Oq Fresthulz (named in narration, exact visual identification uncertain)",
+    "An armored humanoid attacker/swimmer",
+    "Small round robot speaking on the right, likely Tonto's companion",
+    "Tonto (addressed in dialogue, not clearly identified visually on this page)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing battle involving Oq Fresthulz.",
+    "The robot's exposition references prior events involving Aghora and Steelhead."
+  ],
+  "dialogue_meaning": [
+    "The page frames the target as contemptible and deserving death.",
+    "The attacker is committed to an all-or-nothing assault.",
+    "The robot says it is curious but will refrain from interrupting with questions.",
+    "The robot is talkative and responds to being called a blabbermouth by continuing anyway.",
+    "The robot provides exposition about Aghora's history as an executioner and about its own surgical transformation by Steelhead."
+  ],
+  "image_sha256": "c74fee2c6f3bb1510ba9536c3853e30cd6d8fb3ea178599a916e432e878f9ada",
+  "is_spread": false,
+  "locations": [
+    "A watery or fluid-filled combat chamber",
+    "A transparent dome, tank, or containment enclosure",
+    "An organic-mechanical interior filled with tentacles, bubbles, and debris"
+  ],
+  "lore_facts": [
+    "Aghora is said to have executed more than 200,000 prisoners.",
+    "Steelhead performed multiple painful operations on the speaking robot, apparently altering it extensively.",
+    "The narrative labels Oq Fresthulz as Odaen's traitor and describes him as poisonous."
+  ],
+  "page_id": "395_The_Metabarons_15_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "The narration identifies a figure as Odaen's poisonous traitor, Oq Fresthulz.",
+    "Hovering vehicles and machinery surround a giant enclosed creature or organism.",
+    "An armored humanoid attacks or penetrates into the creature through a burst of water or energy.",
+    "The attacker declares a resolve framed as victory or death.",
+    "A small robot continues speaking to someone addressed as Tonto while the action unfolds.",
+    "The robot recounts that Aghora carried out more than 200,000 prison executions and that the speaker was personally modified by Steelhead through repeated painful operations."
+  ],
+  "source_image": "external/comics/meta-barons/395_The_Metabarons_15_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c74fee2c6f3bb1510ba9536c3853e30cd6d8fb3ea178599a916e432e878f9ada",
+      "page_id": "395_The_Metabarons_15_p13",
+      "source_image": "external/comics/meta-barons/395_The_Metabarons_15_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue boxes are difficult to read precisely; wording may be approximate.",
+    "It is unclear whether the giant creature inside the dome is Oq Fresthulz or a separate organism associated with him.",
+    "Tonto is named in dialogue but is not clearly identifiable in the art on this page alone.",
+    "The exact setting—underwater, inside a tank, or within some other fluid environment—is visually ambiguous."
+  ],
+  "visual_summary": "A large aquatic or bio-mechanical creature is contained inside a transparent dome or tank while hovering craft and mechanical arms surround it. A sleek armored humanoid dives or charges through bright water or energy toward the creature’s mouth or inner body. In the lower panels, the humanoid is suspended amid organic tentacles and glowing debris, while a small round robot on the right delivers a long speech.",
+  "volume": 15
+}

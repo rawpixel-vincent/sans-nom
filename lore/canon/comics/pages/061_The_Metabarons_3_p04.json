@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Lothar is directly addressed by name and is expected to carry out technical commands.",
+    "Lothar is involved in a mission connected to reactivating the Metabaron's bio-electrogram.",
+    "The unnamed companion is focused on the countdown and mission urgency.",
+    "The armored/mechanical commander has authority to order the destruction of the Metabunker."
+  ],
+  "characters_present": [
+    "An armored or mechanized commanding figure associated with the attack",
+    "Lothar",
+    "A second small companion/technician traveling with Lothar"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an active assault on the Metabunker.",
+    "The mission to reactivate the Metabaron's bio-electrogram is already underway before this page.",
+    "The order to activate the solidification program sets up an immediate next action after the explosion."
+  ],
+  "dialogue_meaning": [
+    "A superior issues an immediate order to attack the Metabunker and annihilate it.",
+    "Lothar or his companion complains that their craft or recording device was almost hit.",
+    "The pair are operating under a strict time limit to reactivate the Metabaron's bio-electrogram.",
+    "A final command instructs Lothar to start a solidification procedure, likely as an emergency or mission-critical step."
+  ],
+  "image_sha256": "72137cd57fd8cc09cc36d15209412b18b51dd0114a60b1edfcfa4b3cddf05ad0",
+  "is_spread": false,
+  "locations": [
+    "The Metabunker",
+    "A dense futuristic industrial/city environment under aerial attack",
+    "The interior or cockpit of an attacking command machine or station",
+    "A small craft or platform moving through the attacked area"
+  ],
+  "lore_facts": [
+    "The location called the Metabunker is a target of organized military attack.",
+    "The attackers use ships and energy weapons against the Metabunker.",
+    "A device or process called the Metabaron's bio-electrogram can be reactivated and is time-sensitive.",
+    "There exists a 'solidification program' that Lothar can activate.",
+    "A glowing faceted crystal or energy object is prominently associated with the attacking command figure's control station."
+  ],
+  "page_id": "061_The_Metabarons_3_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A commanding figure orders an immediate attack on the Metabunker.",
+    "The attackers are told to destroy the target completely.",
+    "Ships and beam fire strike the Metabunker's city-like structures.",
+    "A smaller craft or device carrying two characters is nearly destroyed during the assault.",
+    "One character says there is limited time left to reactivate the Metabaron's bio-electrogram.",
+    "A large explosion or energy discharge fills the lower panels.",
+    "A character orders Lothar to activate a solidification program."
+  ],
+  "source_image": "external/comics/meta-barons/061_The_Metabarons_3_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "72137cd57fd8cc09cc36d15209412b18b51dd0114a60b1edfcfa4b3cddf05ad0",
+      "page_id": "061_The_Metabarons_3_p04",
+      "source_image": "external/comics/meta-barons/061_The_Metabarons_3_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; the exact countdown value may not be perfectly transcribed.",
+    "It is unclear from this page alone whether the glowing faceted object is a crystal, power source, or holographic interface.",
+    "The exact identity of the commanding armored figure is not stated on this page.",
+    "The exact nature of the nearly hit object, described as a 'videograph' or similar term, is somewhat unclear from the image text alone."
+  ],
+  "visual_summary": "A command figure inside a large armored or mechanical station orders an immediate strike while holding or projecting a glowing faceted crystal. Outside, ships and energy beams attack a dense futuristic cityscape identified as the Metabunker. One small craft carrying two figures is nearly hit; they complain and focus on a countdown tied to reactivating the Metabaron's bio-electrogram. A large blast follows, and one figure orders Lothar to activate a 'solidification' program.",
+  "volume": 3
+}

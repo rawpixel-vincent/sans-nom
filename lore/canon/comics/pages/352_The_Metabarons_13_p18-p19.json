@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "The president is openly defiant and rejects sacrificing local planets for Technoclergy mining.",
+    "The Technoclergy representative is aggressive, contemptuous, and explicitly threatens forced surrender.",
+    "The Technoclergy acts immediately on its threat once talks fail."
+  ],
+  "characters_present": [
+    "President of Philoendra or another local planetary leader",
+    "Technoclergy representatives/envoys",
+    "Technoclergy personnel aboard or associated with the battleship",
+    "Civilians and/or defenders on Philoendra"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows a prior diplomatic confrontation or negotiation over mining rights and planetary sterilization.",
+    "The bombardment is presented as the direct consequence of the Technoclergy delegation returning to its battleship after being expelled."
+  ],
+  "dialogue_meaning": [
+    "The local leadership refuses to let the Technoclergy exploit and sterilize their planets for mineral extraction.",
+    "The Technoclergy claims the sought mineral exists nowhere else except this system, making the planet strategically important.",
+    "Negotiation collapses into open hostility, with the president expelling the visitors.",
+    "The page frames the ensuing attack as retaliatory coercion after failed diplomacy."
+  ],
+  "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+  "is_spread": true,
+  "locations": [
+    "Philoendra",
+    "A governmental or diplomatic interior on Philoendra",
+    "Sky/urban zone above Philoendra during the bombardment",
+    "The presidential palace",
+    "A local spacefleet staging area or nearby urban infrastructure"
+  ],
+  "lore_facts": [
+    "Philoendra contains or controls access to a mineral resource the Technoclergy considers unique to this planetary system.",
+    "The Technoclergy is willing to destroy civilian and state infrastructure to obtain compliance.",
+    "Philoendra has a presidential government and a presidential palace.",
+    "Philoendra possesses a space fleet, though a large portion of it is destroyed in this attack.",
+    "The Technoclergy operates a battleship capable of delivering overwhelming planetary bombardment."
+  ],
+  "page_id": "352_The_Metabarons_13_p18-p19",
+  "page_label": "p18-p19",
+  "plot_events": [
+    "A local president denounces the Technoclergy's plan to strip and sterilize planets for mining.",
+    "A Technoclergy representative insists the mineral exists only in this planetary system and says surrender will come by persuasion or force.",
+    "The president orders the Technoclergy delegation away.",
+    "The Technoclergy quickly regains its battleship and launches a devastating bombardment on Philoendra.",
+    "The attack demolishes homes, hits the presidential palace, and destroys a large part of the local space fleet."
+  ],
+  "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+      "page_id": "352_The_Metabarons_13_p18-p19",
+      "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read at this resolution; wording may be slightly off even though the meaning is clear.",
+    "The exact spelling or nature of the mineral name is unclear from this page alone.",
+    "Individual speakers are not named on the page, so their identities are described by role only.",
+    "It is not fully certain whether all foreground figures during the destruction are civilians, soldiers, or officials."
+  ],
+  "visual_summary": "A planetary leader angrily rejects a Technoclergy demand to excavate and sterilize local worlds for a valuable mineral resource. After the Technoclergy representatives return to their battleship, enormous black geometric projectiles and a storm of debris crash down onto Philoendra, smashing buildings, wrecking spacecraft, and destroying the presidential palace while civilians panic below.",
+  "volume": 13
+}

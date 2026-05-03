@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The armored human fighter is injured, with visible damage and blood, yet still present in the fight.",
+    "An opposing humanoid combatant is close enough to address the wounded fighter directly and issue tactical orders.",
+    "The beast-like combatants are overtly hostile and bloodthirsty, calling for the enemy’s destruction."
+  ],
+  "characters_present": [
+    "A wounded armored human fighter, likely the addressee of the taunt",
+    "A taunting opposing humanoid figure near the trapped fighter",
+    "Multiple ape-like or beast-like combatants",
+    "A large monstrous or bio-mechanical creature/war-beast occupying much of the page",
+    "Crowds of smaller robed or dark-clad figures in the battle scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing battle already in progress rather than its beginning.",
+    "The wounded fighter and the large creature both appear to be in the final phase of a confrontation resolved by the mini-bomb strike."
+  ],
+  "dialogue_meaning": [
+    "One side urges total extermination of the opposing group.",
+    "Combatants frame the battle as tied to larger causes or homelands, invoking 'Diamond Planet' and rejecting 'Fog World.'",
+    "The wounded fighter is told they are trapped and defeated.",
+    "An attacker commands the immediate use of mini-bombs, leading directly to the explosion."
+  ],
+  "image_sha256": "451cdc3378a36e8789d3bcab3b6d578a97f357156a99a42dc515d97b8ce65521",
+  "is_spread": false,
+  "locations": [
+    "A battlefield in an alien or nonhuman environment associated in dialogue with 'Diamond Planet' and 'Fog World'"
+  ],
+  "lore_facts": [
+    "The setting includes places or factions referred to as 'Diamond Planet' and 'Fog World.'",
+    "At least some combatants use small explosive weapons described as mini-bombs.",
+    "The conflict involves nonhuman monstrous beings as well as armored humanoid fighters.",
+    "The page depicts large biological or creature-like war assets being used in battle."
+  ],
+  "page_id": "199_The_Metabarons_7_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "Hostile creatures call for killing the enemy.",
+    "A large beast or war-creature is engaged amid a chaotic fight involving many smaller figures and explosions.",
+    "An armored human fighter appears wounded and trapped.",
+    "An opposing figure taunts the trapped fighter and declares the fight effectively over.",
+    "Someone orders 'mini-bombs' to be deployed immediately.",
+    "The large creature is struck by an explosive blast and its body is violently ruptured.",
+    "The page ends on the aftermath of the blast, emphasizing the damaged creature’s massive body."
+  ],
+  "source_image": "external/comics/meta-barons/199_The_Metabarons_7_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "451cdc3378a36e8789d3bcab3b6d578a97f357156a99a42dc515d97b8ce65521",
+      "page_id": "199_The_Metabarons_7_p22",
+      "source_image": "external/comics/meta-barons/199_The_Metabarons_7_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; wording may be slightly off.",
+    "Character identities are not explicitly confirmed on this page alone.",
+    "It is unclear whether the large creature is killed outright or only critically wounded.",
+    "The printed page number visible in the image appears to be '23,' which may not match the provided page label 'p22.'"
+  ],
+  "visual_summary": "A battle page in an alien environment. At the top, monstrous, ape-like or beast-like figures roar for slaughter while guns and flames rise below them. In the large middle panel, a huge armored or shelled creature with a gaping maw is surrounded by swarming figures and glowing bursts, while opposing groups appear to clash. In the lower sequence, a wounded armored human is cornered and taunted, an attacker orders mini-bombs to be used, and an explosive impact tears into the large creature’s body. The final image shows the creature collapsed or ruptured open.",
+  "volume": 7
+}

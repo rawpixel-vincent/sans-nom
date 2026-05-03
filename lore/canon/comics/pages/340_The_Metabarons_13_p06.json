@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The white-haired man remains outwardly passive while under armed threat.",
+    "Nicanor Rosamel de Rokha is emotionally intense, possessive, and speaks of loving the woman's soul.",
+    "The dark-haired woman is composed under pressure and verbally challenges Nicanor's romantic claim."
+  ],
+  "characters_present": [
+    "A tall white-haired, white-bearded man in dark clothing",
+    "A dark-haired woman",
+    "A balding, dark-bearded man identified as Nicanor Rosamel de Rokha",
+    "Multiple armed soldiers in helmets"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a tense confrontation with armed forces while also advancing an intimate exchange between the woman and Nicanor.",
+    "The white-haired man's narration suggests an ongoing larger mission or vow connected to his wife and a future transformative event."
+  ],
+  "dialogue_meaning": [
+    "The soldiers are threatening immediate violence unless the stranger complies.",
+    "The white-haired man frames passivity as a duty to his wife and links it to a larger destiny involving darkness and future creation.",
+    "Nicanor speaks in exaggerated, possessive, devotional language, treating the woman as an idealized beloved.",
+    "The woman tests his claim by asking what exactly he loves about her.",
+    "Her final response implies skepticism that his desire is truly spiritual rather than focused on her appearance."
+  ],
+  "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+  "is_spread": false,
+  "locations": [
+    "A confined interior or corridor-like space with metallic or stone walls, occupied by soldiers"
+  ],
+  "lore_facts": [
+    "There is a concept of obedience owed to a 'wife' that can override immediate action, at least for the white-haired man.",
+    "The narration invokes 'darkness' as a force or condition associated with future world-creation.",
+    "Nicanor Rosamel de Rokha is the full name used for the bearded suitor on this page."
+  ],
+  "page_id": "340_The_Metabarons_13_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "Soldiers corner the group at gunpoint and order the stranger to submit.",
+    "The white-haired bearded figure internally or narratively declares obedience to a 'wife' and resolves to remain passive while waiting for a future darkness to create a world.",
+    "A bearded man passionately professes possessive love to a dark-haired woman, claiming he desires her completely.",
+    "When asked what attracts him to her, he answers that it is above all her soul.",
+    "The woman presses him on where that soul is, then names him as Nicanor Rosamel de Rokha and questions whether it is truly her soul that he worships."
+  ],
+  "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+      "page_id": "340_The_Metabarons_13_p06",
+      "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration text in the central caption is small and may not be fully transcribed accurately from the image alone.",
+    "It is unclear from this page alone whether the white-haired man's words are spoken aloud, internal monologue, or external narration.",
+    "The exact identity of the white-haired man and the dark-haired woman is not stated on this page."
+  ],
+  "visual_summary": "Armed soldiers surround a tall white-haired bearded man and a couple near a wall, aiming rifles and bladed weapons at them. In the following panels, the focus shifts to a dark-haired woman and a balding bearded man in intimate close-up while the white-haired man reflects in narration. The woman questions the man's idealized praise of her, ending by naming him and challenging his claim to value her 'soul.'",
+  "volume": 13
+}

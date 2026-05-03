@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Krleza is associated with brain-circuits in the inner ear.",
+    "Steelhead is associated with concealed electro-cerebral chips.",
+    "Castaka bears a crest that contains circuitry.",
+    "Melmoth is characterized here as a composite or split being and as sexually or romantically impatient.",
+    "The bulky armored speaker is derisive and appears composed during the disturbance."
+  ],
+  "characters_present": [
+    "Krleza (mentioned/shown in explanatory image)",
+    "Steelhead (mentioned/shown in explanatory image)",
+    "Castaka (mentioned via implanted crest)",
+    "Melmoth",
+    "A grotesque or masked figure being splashed/struck",
+    "A bulky armored figure speaking in the final panel(s)",
+    "An addressed figure called 'Tonto' in dialogue, not clearly identifiable visually"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to continue an ongoing explanation about the cybernetic lineage or bodily construction of named figures.",
+    "The ceremony and impending wedding night imply continuation of a larger marriage or ritual sequence.",
+    "The final interruption likely leads directly into a conflict or slapstick attack on the following page."
+  ],
+  "dialogue_meaning": [
+    "The speakers are describing hidden cybernetic modifications in specific individuals.",
+    "Castaka's crest is important because it contains implanted circuitry.",
+    "Melmoth's identity or body is divided in a paradoxical way: two-in-one and one-split-in-two.",
+    "Melmoth is impatient for the formal ceremony to end so consummation can begin.",
+    "The scene is interrupted by an attack or accident from above.",
+    "One character mocks another's bad luck and recommends defensive action against the falling threat."
+  ],
+  "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+  "is_spread": false,
+  "locations": [
+    "An interior ceremonial space or chamber",
+    "A close-up biological/cybernetic setting focused on bodies and implanted components"
+  ],
+  "lore_facts": [
+    "Brain-circuit engineering can be woven into a person's inner ear.",
+    "Electro-cerebral chips can be hidden inside the body.",
+    "Castaka has a crest that contains implanted circuits.",
+    "Melmoth's nature is described as simultaneously dual and divided.",
+    "A ceremonial context is underway, tied to a wedding night.",
+    "The setting includes advanced or strange technology such as a 'disintegrator umbrella.'"
+  ],
+  "page_id": "345_The_Metabarons_13_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "An explanation is given that Krleza had a maze of brain-circuits woven into his inner ear.",
+    "It is stated that Steelhead concealed a large portion of electro-cerebral chips.",
+    "The circuit network implanted within the crest of Castaka is shown.",
+    "The narration explains that Melmoth was simultaneously two individuals in one and one individual split in two.",
+    "Melmoth is said to be waiting impatiently for a ceremony to end so a wedding night can begin.",
+    "A sudden disturbance occurs as objects fall from above.",
+    "A figure is drenched or struck amid splashing debris while another armored figure taunts an opponent and suggests deploying a 'disintegrator umbrella.'"
+  ],
+  "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+      "page_id": "345_The_Metabarons_13_p11",
+      "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, so exact wording may be imperfect.",
+    "It is unclear whether the floating triangular forms are ships, creatures, or symbolic visual inserts.",
+    "The identities of the drenched figure and the armored taunting speaker are not fully certain from this page alone.",
+    "The precise relationship among Krleza, Steelhead, Castaka, and Melmoth is not fully explained on this page alone."
+  ],
+  "visual_summary": "A ceremonial or explanatory sequence presents close-up images of cybernetic and biological details: a head filled with intricate circuits, a heavily armed torso, a circuit-like crest embedded in flesh, twin sharp-toothed heads, and a triangular fishlike craft or being. The page ends with a sudden interruption as round objects fall, a grotesque figure is splashed with fluid, and a bulky armored figure mocks someone while advising use of a 'disintegrator umbrella.'",
+  "volume": 13
+}

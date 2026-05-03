@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "Don Nicanor Rosamel de Rokha is seated in the Halerce tree during the ritual.",
+    "Don Nicanor Rosamel de Rokha participates in a formal ecological meditation at dawn.",
+    "The citizens act collectively, repeating the president's mantra."
+  ],
+  "characters_present": [
+    "Don Nicanor Rosamel de Rokha",
+    "Citizens of the Troglosocialik Federation"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page introduces or continues a ceremonial civic routine before a military intrusion or arrival.",
+    "The appearance of the battleship creates a direct contrast between the federation's ecological ritual and an external show of force."
+  ],
+  "dialogue_meaning": [
+    "The narration states that the federation's president is performing a traditional dawn meditation associated with previous presidents.",
+    "The repeated chant is presented as an ecological or devotional mantra shared collectively by the populace.",
+    "The narration identifies the city as Philodendra and emphasizes the ominous arrival of a huge battleship."
+  ],
+  "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+  "is_spread": false,
+  "locations": [
+    "The Halerce tree",
+    "Philodendra",
+    "Terraces and elevated platforms overlooking the city"
+  ],
+  "lore_facts": [
+    "The Troglosocialik Federation has presidents and a precedent of earlier presidents performing the same dawn meditation.",
+    "Don Nicanor Rosamel de Rokha is a president of the Troglosocialik Federation.",
+    "There is a place called the Halerce tree with ceremonial or political significance.",
+    "The society uses or values an 'ecological mantra' recited publicly.",
+    "Philodendra is a named location within this setting.",
+    "A gigantic battleship is present over Philodendra."
+  ],
+  "page_id": "349_The_Metabarons_13_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "Don Nicanor Rosamel de Rokha meditates at dawn in the Halerce tree.",
+    "An ecological mantra is recited by the president and echoed by fellow citizens.",
+    "Citizens gather across terraces and elevated structures overlooking Philodendra.",
+    "The shadow of a gigantic battleship falls over the city.",
+    "A massive warship appears above the city, interrupting or overshadowing the peaceful ritual."
+  ],
+  "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+      "page_id": "349_The_Metabarons_13_p15",
+      "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The president is named in the narration as Don Nicanor Rosamel de Rokha, but exact spelling should be verified against a clearer text source.",
+    "The chant text is legible only in part; its exact wording is not fully preserved here by design.",
+    "It is visually clear that the ship overshadows the city, but the page alone does not specify whether it is arriving, landing, or merely passing overhead."
+  ],
+  "visual_summary": "At dawn on a bright, washed-out landscape, a large bulbous ceremonial tree stands near a distant city or complex. The narration shows Don Nicanor Rosamel de Rokha meditating there as part of a public ecological ritual. In the next panels, citizens in leaf-like or hooded attire repeat a mantra from terraces and among foliage overlooking the same distant site. The final large panel reveals a gigantic battleship descending or looming over the city, its vast illuminated underside casting a shadow across the skyline while crowds watch from rooftops and platforms.",
+  "volume": 13
+}

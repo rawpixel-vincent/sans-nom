@@ -1,0 +1,52 @@
+{
+  "character_facts": [
+    "Othon is actively fighting the cetacyborg on this page.",
+    "Othon is capable of overwhelming force, using all his weapons in a single attack.",
+    "The cetacyborg is vulnerable to catastrophic destruction when its servo-brain is hit."
+  ],
+  "characters_present": [
+    "Othon (named in narration, not clearly visible)",
+    "The cetacyborg (shown through its destruction)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the immediate aftermath of Othon's attack on the cetacyborg.",
+    "The final panel suggests movement away from the explosion site toward a structure in the landscape."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that Othon concentrated his full attack on the cetacyborg's servo-brain, causing a supernova-like explosion."
+  ],
+  "image_sha256": "fc4007bd77b279e59c6f079d07753b8044d4c24c5397f9a6098323cd65b963b4",
+  "is_spread": false,
+  "locations": [
+    "Sky above a barren or desert-like landscape",
+    "A wasteland or planetary surface with a tall spire/tower in the distance"
+  ],
+  "lore_facts": [
+    "A cetacyborg has a 'servo-brain' that can be targeted as a critical weak point.",
+    "Othon possesses multiple weapons and can unleash them all at once.",
+    "The destruction of the cetacyborg is compared to a supernova in scale or brightness."
+  ],
+  "page_id": "144_The_Metabarons_5_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A narration box states that Othon fires all of his weapons at the cetacyborg's servo-brain.",
+    "The cetacyborg is shown exploding in an intense, star-like blast.",
+    "Fragments of the destroyed being scatter as debris.",
+    "A craft or body moves rapidly across a desert-like surface toward a distant tower or spire."
+  ],
+  "source_image": "external/comics/meta-barons/144_The_Metabarons_5_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fc4007bd77b279e59c6f079d07753b8044d4c24c5397f9a6098323cd65b963b4",
+      "page_id": "144_The_Metabarons_5_p23",
+      "source_image": "external/comics/meta-barons/144_The_Metabarons_5_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the object in the final wide panel is unclear; it may be a craft, wreckage, or a fast-moving figure.",
+    "No characters are visually shown in a clearly identifiable close-up; Othon is present by narration only."
+  ],
+  "visual_summary": "A red-dominated page shows a blinding explosion in the sky, then a smaller inset of torn mechanical-organic debris, and finally a long panel of a damaged craft streaking low across a barren landscape toward a tall spire-like structure.",
+  "volume": 5
+}

@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "The ruler is emotionally unstable on this page, shifting from joy to generosity to fury within moments.",
+    "The ruler views the daughter as something he can offer in a political or transactional exchange.",
+    "The armored man is physically capable of carrying the daughter while moving through open air or at great height.",
+    "The armored man is uninterested in the ruler's kingdom and riches.",
+    "The daughter does not resist; she verbally agrees to go with the armored man."
+  ],
+  "characters_present": [
+    "A king or ruler in blue-and-red ceremonial uniform",
+    "A dark-haired armored man or warrior suitor",
+    "The ruler's daughter",
+    "Guards or soldiers around the building",
+    "Onlookers at windows or balconies"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the apparent culmination of an earlier courtship, contest, or challenge in which the suitor has 'won' the daughter.",
+    "The immediate conflict now shifts from winning the daughter to escaping the ruler's retaliation."
+  ],
+  "dialogue_meaning": [
+    "The ruler initially treats the suitor as victorious and worthy of marrying his daughter.",
+    "He escalates the offer by promising not just the daughter but the kingdom as inheritance.",
+    "The suitor rejects political power and wealth, making clear that the daughter alone is his goal.",
+    "The daughter openly chooses to leave with the suitor.",
+    "The ruler's approval collapses once his offer of power is refused, revealing possessiveness and volatility."
+  ],
+  "image_sha256": "e675558a760f77363e4088c05d240de98fe9c5c0881a04eb43d087707bfb071a",
+  "is_spread": false,
+  "locations": [
+    "Exterior of a tall palace-like or governmental building with balconies and windows",
+    "Open air beside the structure, above a crowd of guards"
+  ],
+  "lore_facts": [
+    "A daughter's hand can be framed as something to be won publicly by a suitor.",
+    "This ruler claims authority to grant both his daughter and his kingdom.",
+    "Refusing royal wealth and succession is presented as a shocking insult in this courtly setting.",
+    "The ruler commands armed men and can order immediate arrest and punishment."
+  ],
+  "page_id": "182_The_Metabarons_7_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "The king publicly declares that the unknown suitor has won his daughter.",
+    "The armored man, holding the daughter, appears outside a high structure in view of guards and spectators.",
+    "The king offers his kingdom to the man as a reward, effectively calling him his son.",
+    "The man refuses the kingdom and states he wants only the daughter.",
+    "The daughter accepts and says she will go with him.",
+    "The king immediately reverses himself, orders them arrested, and threatens mutilation of the suitor."
+  ],
+  "source_image": "external/comics/meta-barons/182_The_Metabarons_7_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e675558a760f77363e4088c05d240de98fe9c5c0881a04eb43d087707bfb071a",
+      "page_id": "182_The_Metabarons_7_p05",
+      "source_image": "external/comics/meta-barons/182_The_Metabarons_7_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the king, daughter, and armored man are not given on this page alone.",
+    "The precise mechanism by which the couple are hovering or descending is visually unclear; it may be equipment, stylized motion, or another device not explained here.",
+    "Some small background details and minor text nuances may be hard to read at this resolution, though the main dialogue is legible."
+  ],
+  "visual_summary": "A uniformed ruler or king addresses a dark-haired armored man who is carrying the king's lightly clothed daughter in his arms while descending or hovering beside a tall building with onlookers and armed guards. The king first appears delighted, then offers his kingdom, becomes more calculating when the man rejects wealth and asks only for the daughter, and finally erupts in rage and orders their arrest.",
+  "volume": 7
+}

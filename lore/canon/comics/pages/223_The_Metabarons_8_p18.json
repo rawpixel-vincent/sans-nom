@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "The small floating robot is talkative, fearful, and directly involved in exposing a family secret.",
+    "The wild-haired man is volatile, armed, and deeply affected by revelations about his mother.",
+    "Honorata is implicated in maintaining a deception involving the mother's body.",
+    "The mother is central to the deception and appears dead on this page.",
+    "The woman behind the door is treated by the armed man as someone with authority over access to the room."
+  ],
+  "characters_present": [
+    "Small floating robot with orange visor face",
+    "Large round-bodied robot in the opening panel",
+    "Wild-haired armed man",
+    "Honorata or a figure identified by that name",
+    "Corpse-like woman identified as the armed man's mother",
+    "Woman addressed as a priestess behind the door",
+    "Distant background figures in the doorway scene"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers on the exposure of a long-running deception about the armed man's mother.",
+    "The revelation about Honorata motivates the armed man's immediate move toward the nursery or an adjoining room.",
+    "The robot acts as the messenger or truth-teller whose disclosure triggers the confrontation."
+  ],
+  "dialogue_meaning": [
+    "The small robot explains that it accidentally moved forward because it was excited by what it had learned.",
+    "The robot reacts in alarm during a sudden violent confrontation.",
+    "The name Honorata is shouted, tying her to the unfolding revelation.",
+    "The robot recognizes the dead-looking woman as the armed man's mother and begs forgiveness.",
+    "The armed man accuses the robot of treachery and threatens to destroy its memory circuits unless it explains itself.",
+    "The robot says it revealed that Honorata had been moving the mother's body around to maintain the illusion that she was alive.",
+    "The armed man charges off and orders a priestess-like woman to open the door."
+  ],
+  "image_sha256": "3fccdf3461d7d9e16dcdf2b0479a52f07ca8b0cad99b9f726812a12229fb3637",
+  "is_spread": false,
+  "locations": [
+    "An interior mechanical or aristocratic chamber",
+    "An area containing the mother's body",
+    "A doorway or nursery entrance within the same interior"
+  ],
+  "lore_facts": [
+    "A character named Honorata is accused of staging the appearance that a dead or corpse-like mother was still alive.",
+    "The small robot possesses memory circuits and can be threatened with disintegration, indicating machine consciousness or stored memory.",
+    "The armed man's mother is presented on-page as a decayed or corpse-like body rather than a living person.",
+    "A woman is addressed specifically as a priestess, implying a religious or ceremonial role in this setting."
+  ],
+  "page_id": "223_The_Metabarons_8_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A small robot admits it became overexcited and advanced too far after hearing important news.",
+    "The robot is chased or struck amid chaos while a nearby human figure reacts.",
+    "The robot sees a decayed female body and identifies it as the furious man's mother.",
+    "The furious man threatens the robot and demands to know what it is hiding.",
+    "The robot confesses it exposed a deception involving Honorata and the man's mother.",
+    "The furious man rushes to another room and violently demands that a woman open the door."
+  ],
+  "source_image": "external/comics/meta-barons/223_The_Metabarons_8_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3fccdf3461d7d9e16dcdf2b0479a52f07ca8b0cad99b9f726812a12229fb3637",
+      "page_id": "223_The_Metabarons_8_p18",
+      "source_image": "external/comics/meta-barons/223_The_Metabarons_8_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read precisely; the summary preserves meaning rather than exact wording.",
+    "The identity of the second human figure near the robot is unclear from this page alone.",
+    "The final room may be the nursery, but the location label depends on small text and is not fully certain.",
+    "The exact relationship and proper titles of the priestess-like woman are not established beyond the insult and command directed at her."
+  ],
+  "visual_summary": "A small floating robot confesses to a larger machine that it lost control after hearing exciting news and moved too far. In the main sequence, a furious, wild-haired man lunges after the robot while another figure reacts. The robot identifies a corpse-like woman as the man's mother and begs forgiveness. The enraged man threatens the robot with a gun, and the robot explains that it revealed the truth: Honorata had been carrying the dead mother to a balcony to make him believe she was still alive. The page ends with the man kicking open a doorway and demanding entry from a priestess-like woman inside.",
+  "volume": 8
+}

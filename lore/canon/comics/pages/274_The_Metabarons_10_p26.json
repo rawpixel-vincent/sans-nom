@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "The arriving observer approaches closely enough to discover the true nature of the tree's canopy.",
+    "The Djykka-birds gather in immense numbers and collectively resemble golden foliage."
+  ],
+  "characters_present": [
+    "An unnamed arriving figure, referred to only indirectly by narration",
+    "Djykka-birds"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents a discovery sequence: distant mythic appearance first, close inspection second, true explanation last.",
+    "The Halerce Tree is framed as a known legendary destination within the broader setting."
+  ],
+  "dialogue_meaning": [
+    "The narration introduces the Halerce Tree as an exceptionally old and renowned tree in the galaxy.",
+    "It explains that the tree's beautiful golden appearance and music are central to its legend.",
+    "It then overturns the initial impression by revealing that the 'leaves' are actually legendary birds singing together."
+  ],
+  "image_sha256": "2e73168c50b84119e169cde367c6024ea85791186642bcc388b601e8d72d47e7",
+  "is_spread": false,
+  "locations": [
+    "The Halerce Tree",
+    "An extraterrestrial landscape with three rising suns"
+  ],
+  "lore_facts": [
+    "The Halerce Tree is famous for being described as the oldest tree in the galaxy.",
+    "The tree is associated with golden singing leaves, at least in outward appearance or reputation.",
+    "The setting features three rising suns.",
+    "The tree's song is actually produced by millions of Djykka-birds gathered on it.",
+    "Djykka-birds are tiny and legendary.",
+    "Their voices are described as exceptionally pure."
+  ],
+  "page_id": "274_The_Metabarons_10_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "A traveler or narrator arrives at the Halerce Tree, presented as an ancient and famous cosmic landmark.",
+    "The tree is described as producing a resonant song beneath three rising suns.",
+    "As the figure draws closer, the apparent golden leaves are revealed to be countless tiny birds.",
+    "The birds are identified as legendary Djykka-birds whose singing creates the tree's famed sound."
+  ],
+  "source_image": "external/comics/meta-barons/274_The_Metabarons_10_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2e73168c50b84119e169cde367c6024ea85791186642bcc388b601e8d72d47e7",
+      "page_id": "274_The_Metabarons_10_p26",
+      "source_image": "external/comics/meta-barons/274_The_Metabarons_10_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The narration text is small and partially difficult to read precisely, so some names and phrasing may be slightly uncertain.",
+    "No clearly visible human or humanoid figure appears in the art; the arriving character is only referenced by narration.",
+    "The exact spelling of 'Halerce' and 'Djykka-birds' may be uncertain due to image resolution."
+  ],
+  "visual_summary": "A narrated page depicts a monumental tree in an alien landscape under a bright sky with three suns. The first panels present the tree from afar and then in close-up, emphasizing its glowing golden canopy. The final panel reveals that the supposed golden leaves are actually a dense mass of small golden birds clustered around the branches.",
+  "volume": 10
+}

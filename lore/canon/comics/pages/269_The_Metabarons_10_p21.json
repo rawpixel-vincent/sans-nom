@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The imperial couple are important enough to be publicly honored for a victory.",
+    "Steelhead is important enough to be singled out in narration, but is said to be overlooked during the festivities.",
+    "The guests include nobles and other invitees rather than a military-only crowd.",
+    "The armed defenders are unable to stop the creatures effectively, based on the shouted reaction."
+  ],
+  "characters_present": [
+    "Imperial couple, seen at a distance during the celebration",
+    "Noblewomen and invited guests at the ball",
+    "Armed guards or soldiers defending the hall",
+    "Translucent 'vampire' attackers",
+    "Steelhead, referenced in narration but not clearly identifiable in the art"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page follows a prior victory involving the imperial couple.",
+    "The attack interrupts or overturns a celebratory political event.",
+    "Steelhead's mention suggests an ongoing storyline thread connected to the current disaster."
+  ],
+  "dialogue_meaning": [
+    "Narration explains that the imperial victory is being celebrated with an urgent gathering of noblewomen and a great ball aboard the vessel.",
+    "Narration says nobody was thinking about Steelhead before the attack began.",
+    "Narration identifies the invaders as strange vampires that pass through the ship's white netranekkon armor.",
+    "Narration says the attackers devour the brains of the invited guests.",
+    "Shouted dialogue conveys panic and desperation, including a plea for help and the claim that the creatures are 'indestructible'."
+  ],
+  "image_sha256": "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07",
+  "is_spread": false,
+  "locations": [
+    "A diplomatic vessel or ship",
+    "A vast ceremonial ballroom or reception hall inside the ship",
+    "The ship's outer hull/armor, shown being breached"
+  ],
+  "lore_facts": [
+    "The setting includes a diplomatic vessel large enough to host a massive formal celebration.",
+    "The ship is protected by a white armor identified as netranekkon armor.",
+    "The invading beings are described as strange vampires.",
+    "These vampire-like beings can penetrate the vessel's armor.",
+    "Their attack method is described as consuming victims' brains."
+  ],
+  "page_id": "269_The_Metabarons_10_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "A grand ball is being held aboard a diplomatic vessel to honor an imperial couple after a victory.",
+    "Steelhead is said to be ignored or forgotten during the celebration.",
+    "Alien or vampiric creatures penetrate the ship's white armor from outside.",
+    "The creatures invade the crowded interior spaces of the ship.",
+    "Narration states that the attackers consume the brains of the invited guests.",
+    "Guests panic and flee as the attackers spread through the hall.",
+    "Armed defenders fire on the creatures, but on-page dialogue indicates the attackers cannot be destroyed easily."
+  ],
+  "source_image": "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07",
+      "page_id": "269_The_Metabarons_10_p21",
+      "source_image": "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration is small and partially difficult to read, so wording and the exact spelling of 'netranekkon' may be uncertain.",
+    "Steelhead is referenced in text but no specific figure can be confidently identified as Steelhead on this page alone.",
+    "The exact identity or species of the translucent attackers is unclear beyond the narration calling them vampires."
+  ],
+  "visual_summary": "A large ceremonial gathering is underway inside a vast white, futuristic diplomatic vessel, with nobles and crowds assembled around the imperial couple's victory celebration. The narration then shifts abruptly to an attack: translucent, tentacle-like alien beings breach the ship's armor and descend into the crowded hall. Subsequent narrow panels show the creatures spreading among panicked guests while armed figures fire at them, apparently without success.",
+  "volume": 10
+}

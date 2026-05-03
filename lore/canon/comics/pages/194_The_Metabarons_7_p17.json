@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The pregnant woman is conscious, terrified, and physically restrained during the procedure.",
+    "She is far enough along in pregnancy for her enlarged abdomen to be prominently visible.",
+    "The hooded attendants appear delighted or fanatical rather than compassionate.",
+    "The attendants address the woman as 'my pretty' and dismiss her protests.",
+    "The woman appeals to Aghnar for help, implying she knows or trusts that person."
+  ],
+  "characters_present": [
+    "A pregnant woman restrained in a mechanical chair/bed",
+    "Multiple hooded elderly female attendants or priestesses",
+    "A grotesque creature or fleshy organic entity emerging from the machine/portal"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing ritualized pregnancy or birth procedure rather than its beginning.",
+    "The appeal to Aghnar suggests a prior or off-page relationship relevant to the woman's plight.",
+    "The emphasis on a 'chosen one' implies a larger prophecy, bloodline, or succession plot beyond this page."
+  ],
+  "dialogue_meaning": [
+    "The attendants frame the event as sacred, praising Jejoh and the seed being carried.",
+    "They urge the woman to stay calm because the ordeal is supposedly almost over.",
+    "They want a 'chosen one' to result from the procedure.",
+    "The woman experiences the event as assault and monstrosity, not blessing.",
+    "The attendants taunt her and indicate the process cannot be stopped.",
+    "The woman finally begs someone named 'Aghnar' to save her."
+  ],
+  "image_sha256": "f612f78046919cfd6e681caa46216b10558ccb965dea39221075b8a16be47817",
+  "is_spread": false,
+  "locations": [
+    "A ritual chamber or medical chamber filled with machinery",
+    "A mechanical birthing or operating platform",
+    "A circular portal-like or incubator-like apparatus at the rear of the room"
+  ],
+  "lore_facts": [
+    "Jejoh is invoked as a religious or ritual authority during this reproductive procedure.",
+    "The attendants believe the pregnancy or its outcome has special significance and may produce a 'chosen one.'",
+    "Religion, reproduction, and invasive machinery are intertwined in this setting.",
+    "The scene treats conception, gestation, or birth as a ceremonial act overseen by attendants rather than a private event."
+  ],
+  "page_id": "194_The_Metabarons_7_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A ritual or medical procedure is underway around a restrained pregnant woman.",
+    "Hooded attendants pray to or invoke 'Jejoh' and call for a chosen child to be conceived or delivered.",
+    "A grotesque organic being or mass appears through a circular apparatus in the chamber.",
+    "The woman recoils, insults the attendants, and begs for the horror to be taken away.",
+    "The attendants ignore her distress and continue the procedure.",
+    "Dark tendrils or appendages approach her body as she cries out for rescue."
+  ],
+  "source_image": "external/comics/meta-barons/194_The_Metabarons_7_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f612f78046919cfd6e681caa46216b10558ccb965dea39221075b8a16be47817",
+      "page_id": "194_The_Metabarons_7_p17",
+      "source_image": "external/comics/meta-barons/194_The_Metabarons_7_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is stylized and partially hard to read; exact wording may be imperfectly interpreted.",
+    "It is unclear whether the creature in the circular apparatus is an independent being, a fetus-like entity, or a biomechanical instrument.",
+    "The exact number and identities of the hooded attendants are not fully clear from the page alone.",
+    "The printed page number at the bottom appears to be 18, while the provided label is p17."
+  ],
+  "visual_summary": "A pregnant woman strapped into a mechanical birthing chair or restraint rig panics in a ritualized chamber while several hooded, elderly attendants invoke a deity and celebrate an imminent conception or birth. A grotesque fleshy creature or organic mass emerges from a circular machine or portal at the far end of the room. The attendants loom around her, grinning and praying, while the woman screams in terror as dark tendrils or organic appendages close in near her exposed abdomen.",
+  "volume": 7
+}

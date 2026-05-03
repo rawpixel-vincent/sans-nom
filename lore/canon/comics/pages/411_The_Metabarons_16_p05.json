@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Lothar is the large robot, since that name is used while addressing the repaired larger figure.",
+    "Tonto is a smaller robot and speaks in a literal, logical, technical manner.",
+    "The large robot is volatile, insults the smaller robot, then later apologizes.",
+    "The large robot claims to experience intense lust and says it can disrupt his synthetic systems.",
+    "Aghora is the object of the large robot's desire, but the page does not clearly identify Aghora visually."
+  ],
+  "characters_present": [
+    "A large humanoid robot identified in dialogue as Lothar.",
+    "A small robot identified in dialogue as Tonto.",
+    "Another small figure addressed in dialogue as Aghora, likely the same small robot or a nearby companion; identity on-page is somewhat unclear."
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page depicts an immediate aftermath structure: combustion and destruction first, then a repaired state afterward.",
+    "The dialogue implies prior interaction between the robots, including an earlier insult from the large robot to the smaller one."
+  ],
+  "dialogue_meaning": [
+    "The small robot argues that the larger robot's combustion makes no logical sense because his cybernetic systems are supposed to last for many years.",
+    "The burning robot responds emotionally, emphasizing immediate suffering over technical logic.",
+    "Once repaired, the small robot objects to being demeaned and demands an explanation.",
+    "The large robot admits fault and says his synthetic systems failed because of an intense sexual fantasy involving a bio-male and Aghora."
+  ],
+  "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or industrial platform filled with machinery, wreckage, and robot parts."
+  ],
+  "lore_facts": [
+    "Robots on this page are described as having cyber-systems and techno-synapses.",
+    "Those robotic systems are said to be guaranteed to last ten thousand years.",
+    "Robot 'logic' is treated as a known concept within the setting.",
+    "Robots in this setting can experience pain or at least describe their condition in terms equivalent to pain.",
+    "A robot can be repaired after severe damage such as burning and partial destruction.",
+    "The setting's vocabulary includes distinctions like bio-nerves, bio-feet, bio-male, synthetic voice, and techno-synapses."
+  ],
+  "page_id": "411_The_Metabarons_16_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A large robot is shown burning and breaking apart in a violent explosion.",
+    "A smaller robot tells the larger one that spontaneous combustion should not happen to a robot and cites the supposed durability of his systems.",
+    "The larger robot angrily insists he is in pain and rejects the smaller robot's rational explanation.",
+    "After the incident, the larger robot appears repaired enough to stand and continue the conversation.",
+    "The small robot challenges the larger robot for previously insulting him as a 'maniacal dwarf.'",
+    "The larger robot apologizes to another robot and explains that a sexual thought caused his systems to short-circuit and behave wildly."
+  ],
+  "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+      "page_id": "411_The_Metabarons_16_p05",
+      "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual identification of Aghora is unclear; the name appears only in dialogue on this page.",
+    "Some dialogue is small and stylized, so minor wording may be imperfect even though the overall meaning is clear.",
+    "The page does not independently confirm whether the pain and lust described by the large robot are literal, metaphorical, or comedic exaggeration."
+  ],
+  "visual_summary": "In an industrial metallic setting, a large robot is engulfed in flames and partially wrecked while a much smaller robot argues with him. The burning machine is shown amid explosions, smoke, and scattered robot debris. In the lower panels, the fire is over and the large robot stands repaired or reassembled while the small robot confronts him; the big robot then gives a crude, sexualized explanation for why his systems malfunctioned.",
+  "volume": 16
+}

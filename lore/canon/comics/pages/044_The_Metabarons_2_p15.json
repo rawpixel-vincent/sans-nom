@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Lothar is skeptical and repeatedly asks whether promises were truly fulfilled.",
+    "Tonto is the one recounting events and answering Lothar's questions.",
+    "Bari is described in the dialogue as a young warrior who has been handicapped for life.",
+    "Bari was important enough that a special request or gift was made on his behalf."
+  ],
+  "characters_present": [
+    "Tonto (speaker, not clearly shown)",
+    "Lothar (speaker, not clearly shown)",
+    "A seated young man, likely Bari based on the dialogue context",
+    "An attendant or companion kneeling beside the seated young man",
+    "Small distant human figures near the landing craft"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "Continues the ongoing narration about what the family obtained after the epyphite sale.",
+    "Sets up a next-page reveal concerning the extraordinary gift for Bari on Okhar."
+  ],
+  "dialogue_meaning": [
+    "The conversation clarifies that the family was compensated from epyphite sales rather than wholly swindled.",
+    "Their fortune is tied to that compensation, presented as the basis of the Metabarons' immense wealth.",
+    "The family also gained a new homeworld suitable for moving the Castaka stronghold.",
+    "That world is named Okhar and is located in the Diamond Constellation.",
+    "A separate request concerned a life-changing gift for Bari, whose nature is intentionally withheld as a cliffhanger."
+  ],
+  "image_sha256": "2eb4af0670caa02816a6d8660b791bf1c4565e9e1e4f954c8d793cf06e06a71b",
+  "is_spread": false,
+  "locations": [
+    "An interior setting where the framing conversation is taking place",
+    "Okhar",
+    "The Diamond Constellation",
+    "A riverside or lakeside settlement on Okhar with a towering central structure"
+  ],
+  "lore_facts": [
+    "A percentage of the epyphite sale proceeds was granted by imperial authority.",
+    "Those proceeds became the foundation of the Metabarons' vast fortune.",
+    "The family inherited a planet called Okhar.",
+    "Okhar lies in the Diamond Constellation.",
+    "The Castaka fortress could be transferred stone by stone to the new world.",
+    "After settling on Okhar, the family received an extraordinary gift connected to Bari."
+  ],
+  "page_id": "044_The_Metabarons_2_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "Lothar questions whether the people in the story truly received what they bargained for rather than being cheated.",
+    "Tonto answers that the imperial authorities granted a reasonable percentage of the epyphite sale proceeds, establishing the Metabarons' great wealth.",
+    "Lothar presses for whether the family also obtained a fertile planet where they could relocate the Castaka fortress piece by piece.",
+    "Tonto confirms that they inherited the world of Okhar in the Diamond Constellation.",
+    "Lothar asks about a special gift requested for Bari.",
+    "Tonto says that after settling on Okhar, they received an extraordinary gift, but the page ends before it is identified."
+  ],
+  "source_image": "external/comics/meta-barons/044_The_Metabarons_2_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2eb4af0670caa02816a6d8660b791bf1c4565e9e1e4f954c8d793cf06e06a71b",
+      "page_id": "044_The_Metabarons_2_p15",
+      "source_image": "external/comics/meta-barons/044_The_Metabarons_2_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page image is readable overall, but some small caption text may be imperfectly legible, so exact wording could vary slightly.",
+    "Tonto and Lothar are identified from the dialogue, but their visual forms are not clearly established on this page alone.",
+    "The seated young man is likely Bari from the dialogue context, but the page does not label him directly in-panel."
+  ],
+  "visual_summary": "Framed by captioned dialogue between Tonto and Lothar, the page shifts from an interior conversation scene to sunlit views of a lush world with water, vegetation, and a monumental central tower. In the lower panels, a seated young man is attended by another figure while a large craft descends nearby, visually introducing the settlers' new life on Okhar and setting up the reveal of a remarkable gift for Bari.",
+  "volume": 2
+}

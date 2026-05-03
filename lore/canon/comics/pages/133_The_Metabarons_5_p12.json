@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Othon von Salza is a person important enough to be addressed directly by the delegation.",
+    "The lead envoy is harsh, authoritative, and visibly inhuman or severely disfigured in appearance.",
+    "The Mother Superior is under direct suspicion regarding the missing child.",
+    "A subordinate within the order obeys the Mother Superior immediately.",
+    "The questioned child is referred to as male in the present ('he'), despite earlier being described as intended to become empress."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "A skull-faced or heavily scarred robed envoy/interrogator",
+    "At least two additional robed attendants or investigators",
+    "Mother Superior",
+    "A kneeling subordinate who replies, \"I understand, Mother!\"",
+    "A seated or kneeling figure in the secured room, possibly the woman being examined or questioned"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page introduces or continues a secret-child plot involving a promised imperial successor.",
+    "The visitors claim responsibility for or oversight of a female protegee connected to Othon von Salza's household.",
+    "The interrogation implies a prior agreement or command between the religious order and a larger power structure."
+  ],
+  "dialogue_meaning": [
+    "The visitors are not making a ceremonial call; they are enforcing a serious institutional matter.",
+    "They distrust the setting and insist on privacy plus psychic and physical security checks.",
+    "The Mother Superior is being pressured into revealing information under threat.",
+    "A hidden child is the focus of the interrogation.",
+    "The child was expected to fulfill a designed dynastic or imperial role tied to an androgynous or hermaphroditic ideal."
+  ],
+  "image_sha256": "79f134dc2b211a0873478d4136d0c67843a109ff752ce5abeff0f0d7aa546123",
+  "is_spread": false,
+  "locations": [
+    "A convent or religious stronghold interior",
+    "A secluded secured chamber prepared for private questioning"
+  ],
+  "lore_facts": [
+    "There are formal 'convent regulations' that govern or justify this intervention.",
+    "Psychic scanning ('psycho-touch') exists and can be used to detect hidden surveillance.",
+    "The order or investigators also check for hidden weapons and demand a sealed, soundproof room.",
+    "A 'Mother Superior' holds authority within this religious institution.",
+    "Someone was ordered to conceive a child described as a hermaphrodite and a 'perfect androgynous one.'",
+    "That child was meant to be proclaimed future empress of the galaxy.",
+    "The child is said to be seven years old at this point.",
+    "The child's custodians were expected to send him to the interrogators or their institution."
+  ],
+  "page_id": "133_The_Metabarons_5_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A stern envoy addresses Othon von Salza and says the visit is urgent and concerns the faith of their protegee.",
+    "The delegation requests a secluded place to examine or question Othon von Salza's wife.",
+    "The room is checked psychically for hidden microphones and physically for concealed weapons.",
+    "The chamber is declared soundproof and locked from the outside, allowing the Mother Superior to speak freely.",
+    "The investigators threaten that both the woman's life and the planet's fate depend on her answers.",
+    "The interrogation turns to a prior order: she was told to conceive a hermaphrodite/androgynous child intended for future imperial status.",
+    "The envoy states that the child is now seven years old and demands to know why he was not delivered to them."
+  ],
+  "source_image": "external/comics/meta-barons/133_The_Metabarons_5_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "79f134dc2b211a0873478d4136d0c67843a109ff752ce5abeff0f0d7aa546123",
+      "page_id": "133_The_Metabarons_5_p12",
+      "source_image": "external/comics/meta-barons/133_The_Metabarons_5_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; wording around the protegee and the exact title/destiny of the child may be slightly off.",
+    "The seated central figure in the secured room is not definitively identified on this page alone.",
+    "It is unclear from the page alone whether the skull-like face is natural, masked, or the result of injury/augmentation.",
+    "The exact relationship between Othon von Salza, his wife, and the Mother Superior is not fully explicit on this page."
+  ],
+  "visual_summary": "A delegation of robed, imposing figures interviews members of a religious order inside a stark chamber. The page moves from close-ups of a skull-like envoy giving orders, to a secured room where psychic and physical sweeps are performed, and finally to a tense interrogation of a kneeling superior about a child she was supposed to surrender.",
+  "volume": 5
+}

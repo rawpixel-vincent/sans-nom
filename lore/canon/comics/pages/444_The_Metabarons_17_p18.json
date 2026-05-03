@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghora is shown on her knees in this scene.",
+    "The baby crawls on all fours and is compared in narration to a small animal.",
+    "The baby is presented as unusually unaffected by hostile mental force.",
+    "The child's parent is referred to as 'father-mother,' indicating a dual parental identity or title.",
+    "The narrator is observant and surprised by how unprecedented the scene is."
+  ],
+  "characters_present": [
+    "The narrator, unseen or only implied by narration",
+    "Aghora",
+    "A glowing baby/infant",
+    "A kneeling cloaked figure identified as the baby's father-mother",
+    "An androgynous monkey-like being",
+    "Damaged or fallen robots/mechanical beings",
+    "Possible simian-headed attackers projecting mental beams in the top panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing battle already in progress.",
+    "The scene follows a breach created by witches and focuses on what the narrator found beyond it.",
+    "The page centers on the significance of the infant in relation to Aghora and the father-mother figure."
+  ],
+  "dialogue_meaning": [
+    "The narration frames this as a memory or testimony from someone who entered after witches opened a breach.",
+    "The narrator emphasizes that seeing Aghora kneel was shocking and unprecedented relative to earlier generations of their masters.",
+    "A brief exclamation marks surprise as the baby is released and begins moving.",
+    "The narration stresses that the infant remains calm and unaffected while approaching the parent figure between opposing forces."
+  ],
+  "image_sha256": "5e8fd231bef2ee18e9f09d5ed438896772d5f3679ca53d4147994045ea875960",
+  "is_spread": false,
+  "locations": [
+    "A breached interior chamber during or immediately after battle",
+    "A metallic room with stairs or stepped flooring, damaged machinery, and scattered bodies"
+  ],
+  "lore_facts": [
+    "There are 'witches' capable of creating or leaving breaches during battle.",
+    "The speaker belongs to or serves a lineage with multiple generations of 'masters.'",
+    "Aghora is important enough that her kneeling is treated as extraordinary.",
+    "A figure can be identified as both father and mother of the child.",
+    "Mental beams are a known form of attack or influence in this setting.",
+    "An androgynous monkey-like being is present in the confrontation."
+  ],
+  "page_id": "444_The_Metabarons_17_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A narrator says they entered through a breach left by witches during a battle.",
+    "Inside, the narrator sees Aghora kneeling.",
+    "The narrator is startled to see Aghora on her knees and to witness a being unlike prior generations of their masters.",
+    "The baby is let go or released.",
+    "The infant drops to all fours and crawls calmly toward his father-mother.",
+    "The child moves between his father-mother and an androgynous monkey-like figure.",
+    "The infant appears unaffected by two mental beams crossing the room."
+  ],
+  "source_image": "external/comics/meta-barons/444_The_Metabarons_17_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5e8fd231bef2ee18e9f09d5ed438896772d5f3679ca53d4147994045ea875960",
+      "page_id": "444_The_Metabarons_17_p18",
+      "source_image": "external/comics/meta-barons/444_The_Metabarons_17_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration is small and may not be perfectly transcribed; wording about prior generations of masters is partially hard to read.",
+    "The exact identity of the narrator is not visually confirmed on this page.",
+    "The top-panel simian-headed figures may be the source or visual representation of the two mental beams, but the page does not state this explicitly.",
+    "The precise identity of the androgynous monkey-like figure is not given on this page alone."
+  ],
+  "visual_summary": "A battle scene gives way to an interior breach in a metallic chamber. Two monstrous, monkey-like or simian-headed figures project bright beams across the top panel. Below, narration explains that the speaker entered through a breach and saw Aghora on her knees. A glowing infant in a container or aura is dropped or released, then crawls on all fours across a room strewn with damaged robots and bodies toward a kneeling cloaked figure described as his father-mother. The child passes between that figure and an androgynous monkey-like being while apparently unaffected by the mental beams.",
+  "volume": 17
+}

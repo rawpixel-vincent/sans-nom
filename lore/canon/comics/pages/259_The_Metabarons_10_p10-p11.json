@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The duelists are willing to take reckless risks to win.",
+    "Both duelists survive being engulfed by the Omphall and re-emerge still facing each other.",
+    "The crowd includes both human and Ptaguan observers, implying mixed interested factions or audiences."
+  ],
+  "characters_present": [
+    "The two unnamed duelists inside their metacraft",
+    "Human spectators",
+    "Ptaguan spectators"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing metacraft duel already in progress.",
+    "The outcome remains unresolved at the end of the spread, setting up the next beat after the three-second pause."
+  ],
+  "dialogue_meaning": [
+    "The narration says the duelists become reckless in their determination to win.",
+    "The Omphall is presented as a primordial, dangerous cosmic center tied to creation and consumption.",
+    "The duelists are swallowed by this force but thrown back out rather than destroyed.",
+    "The spectators cannot tell which side now has the advantage.",
+    "The moment ends in tense, near-eternal silence."
+  ],
+  "image_sha256": "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+  "is_spread": true,
+  "locations": [
+    "The Omphall, described as the mystical center of beginning and end",
+    "Space around the Omphall",
+    "A spectator area or viewing platform holding humans and Ptaguans"
+  ],
+  "lore_facts": [
+    "The Omphall is a mystical cosmic center associated with both origin and annihilation.",
+    "Metacraft can physically approach the Omphall, though doing so is extremely dangerous.",
+    "Humans and Ptaguans are both invested enough in the duel to form a mass audience.",
+    "The duel is significant enough that millions of spectators are said to be watching."
+  ],
+  "page_id": "259_The_Metabarons_10_p10-p11",
+  "page_label": "p10-p11",
+  "plot_events": [
+    "The two dueling metacraft take extreme risks and drift toward the Omphall during their contest.",
+    "The Omphall engulfs the duelists.",
+    "The two metacraft are immediately expelled back toward where they began.",
+    "After reappearing, the metacraft hang motionless facing one another.",
+    "A silent pause follows as the spectators wait to see the outcome."
+  ],
+  "source_image": "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+      "page_id": "259_The_Metabarons_10_p10-p11",
+      "source_image": "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Much of the narration is small and partially hard to read at this resolution; wording may be slightly approximate.",
+    "The exact spelling of the alien group name appears to be 'Ptaguans,' but the text is not perfectly clear.",
+    "The identities of the individual duelists are not shown on this page."
+  ],
+  "visual_summary": "A double-page cosmic spread shows two dueling metacraft pushing dangerously close to the Omphall, depicted as a vast circular cosmic center with dark structures, glowing ruptures, and smaller spheres around a red-blue core. One craft streaks in from the left amid explosions and debris. A sweeping blue-white current or tunnel cuts diagonally across the spread, suggesting the fighters are swallowed and expelled by the Omphall’s force. At the bottom right, a packed audience of armored, nonhuman and human spectators watches tensely from stands or viewing platforms.",
+  "volume": 10
+}

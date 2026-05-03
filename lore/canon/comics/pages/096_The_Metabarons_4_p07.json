@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The woman in white is physically overpowered on this page and appears to be a prisoner.",
+    "The two women restraining her act with shared purpose and open hostility.",
+    "The white-haired man is mobile, determined, and capable of arming himself quickly from a weapons cache."
+  ],
+  "characters_present": [
+    "A woman in white identified by others as a sorceress or witch",
+    "Two women in black restraining her",
+    "A white-haired armed man"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page intercuts between the captive woman on the exterior structure and the white-haired man's movement through the interior, implying simultaneous action within the same larger location.",
+    "The man's arming himself suggests an imminent attempt to intervene in or escalate the standoff above."
+  ],
+  "dialogue_meaning": [
+    "The restrained woman is considered dangerous because her captors believe she can hypnotize people.",
+    "The captors are motivated by hatred and are willing to die if necessary to kill her.",
+    "The woman in white is accused of theft as well as witchcraft or sorcery.",
+    "The white-haired man is in a hurry and improvisationally jokes or complains about the elevator being too slow."
+  ],
+  "image_sha256": "9b0ca07b81878436ed4a2ed204f3dc4f6deaaf534084b36591c15a0b7fcaa7ba",
+  "is_spread": false,
+  "locations": [
+    "Exterior platform or upper surface of a huge industrial/mechanical structure",
+    "Interior transparent elevator shaft or lift tube",
+    "Weapons room or armory inside the structure"
+  ],
+  "lore_facts": [
+    "In this setting, at least some characters believe hypnosis or mind-control magic is real.",
+    "A blindfold or covered eyes is treated as a defense against the woman's powers.",
+    "The environment includes advanced technology such as transparent elevators and a stocked armory of futuristic firearms.",
+    "The captors frame the conflict in terms of magic versus hatred, indicating superstition, belief, or actual supernatural power in the world."
+  ],
+  "page_id": "096_The_Metabarons_4_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "Two women physically restrain a woman in white atop a large machine or tower-like structure.",
+    "The captors say they have blindfolded or covered the woman's eyes to stop her from hypnotizing them.",
+    "They declare their hatred is stronger than her magic and threaten to die with her, framing her as a thief or witch.",
+    "Elsewhere in the same complex, a white-haired man ascends in a glass-like elevator and complains about its slowness.",
+    "The man reaches an armory or weapons bay, selects a heavy gun, and rushes off armed."
+  ],
+  "source_image": "external/comics/meta-barons/096_The_Metabarons_4_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9b0ca07b81878436ed4a2ed204f3dc4f6deaaf534084b36591c15a0b7fcaa7ba",
+      "page_id": "096_The_Metabarons_4_p07",
+      "source_image": "external/comics/meta-barons/096_The_Metabarons_4_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No character names are given on the page, so identities cannot be stated with certainty.",
+    "The exact nature of the woman's power is unclear: the dialogue claims hypnosis and magic, but the page does not independently confirm how her abilities work.",
+    "Some dialogue is small and partially hard to read, so minor wording nuances may be imprecise.",
+    "It is not fully certain whether the two women are guards, attendants, or personal enemies; only their hostile actions are explicit."
+  ],
+  "visual_summary": "At the top of a massive industrial structure, two dark-haired women in black restrain a woman in a flowing white dress while accusing her of sorcery and theft. Below, a white-haired man rides upward in a transparent elevator tube, complains that it is too slow, rushes into a weapons room, grabs a large firearm, and sprints back out with a fierce expression.",
+  "volume": 4
+}

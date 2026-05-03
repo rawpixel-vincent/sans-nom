@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Doña Vicenta Gabriela de Rokha is gravely ill and physically unable to tolerate the treatments discussed.",
+    "She believes she has lost many defining parts of her life: beauty, lover, castle, planet, people, and father.",
+    "She has a child.",
+    "Tonto is impatient and more interested in dramatic revelations than in hearing the full story.",
+    "The storyteller robot presents itself as more cautious and suggests that some family secrets are dangerous to know."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Lothar/Tin-Tin (the other robot storyteller; exact robot identity not fully certain from page alone)",
+    "Doña Vicenta Gabriela de Rokha",
+    "A helmeted medical attendant or surgeon"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page continues an ongoing oral history of the Metabarons told by two robot characters.",
+    "The final question sets up a forthcoming explanation for the origin of the Metabaron's eyebrow scar beginning in infancy."
+  ],
+  "dialogue_meaning": [
+    "The framing dialogue establishes that one robot is bored but highly curious about the Metabarons' lineage and injuries.",
+    "The narration transitions into a medical crisis involving Doña Vicenta Gabriela de Rokha.",
+    "The surgeon's warning means conventional advanced treatment is failing: her body rejects implants/antibiotics and her lungs are too damaged to operate on safely.",
+    "Doña Vicenta is emotionally devastated by cumulative personal and political losses and is speaking from despair.",
+    "The mention of her child introduces a reason for her to keep living or a new narrative stake.",
+    "The storyteller treats the origin of the Metabarons' scar as a dangerous secret and uses it as the hook for the next part of the tale."
+  ],
+  "image_sha256": "ddc4d32ec8063313fba3f9ac6676ba6caffb3bef914cb95423ceee995cc43371",
+  "is_spread": false,
+  "locations": [
+    "A fiery exterior or industrial wasteland in the framing sequence",
+    "The metasurgery operating room"
+  ],
+  "lore_facts": [
+    "Doña Vicenta Gabriela de Rokha is identified as the master's grandmother.",
+    "There exists a place or procedure called the metasurgery.",
+    "In this setting, mega-antibiotics and artificial body openings or implants are established medical technologies.",
+    "A disease referred to as paleo-blue bacilli causes paleo-tuberculosis.",
+    "The Metabaron, described here as the galaxy's greatest warrior, had a wound to his right eyebrow at an age measured in seconds after birth.",
+    "The framing story is being recounted by robots, one of whom calls the other Tonto."
+  ],
+  "page_id": "385_The_Metabarons_15_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A robot listener complains and asks the storyteller to keep recounting the Metabarons' history.",
+    "The narration identifies Doña Vicenta Gabriela de Rokha, the master's grandmother, lying on an operating table in the metasurgery.",
+    "A medical attendant explains that her body rejects all mega-antibiotics and that opening her lungs would be suicidal because of severe tuberculosis damage.",
+    "Doña Vicenta says she has lost her beauty, lover, castle, planet, people, and father, and sees little left besides death.",
+    "The medical figure replies that she still has her child.",
+    "Back in the framing conversation, the listener wants to skip ahead to hear the story of the scar.",
+    "The storyteller refuses, saying the Metabaron's secret is deadly knowledge, and asks who could have wounded the great warrior's right eyebrow when he was only seconds old."
+  ],
+  "source_image": "external/comics/meta-barons/385_The_Metabarons_15_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ddc4d32ec8063313fba3f9ac6676ba6caffb3bef914cb95423ceee995cc43371",
+      "page_id": "385_The_Metabarons_15_p03",
+      "source_image": "external/comics/meta-barons/385_The_Metabarons_15_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity/name of the storyteller robot opposite Tonto is not fully legible or confirmed by this page alone.",
+    "Some specialized terms are stylized and slightly hard to read, though the overall meaning is clear.",
+    "The fiery framing location is visually ambiguous and may be exterior machinery or a hostile landscape rather than a precisely named place."
+  ],
+  "visual_summary": "A framing scene shows two small robots traveling through a fiery, mechanical-looking environment while one continues telling a story. The main flashback depicts a cold blue metasurgery chamber packed with tubes and instruments. An elderly noblewoman, Doña Vicenta Gabriela de Rokha, lies on an operating table while a helmeted medical figure warns that opening her lungs will be fatal because her body rejects implants and disease has damaged her. In a closer view, she responds despairingly that she has lost everything and welcomes death, until the medic reveals she still has her child. The page then returns to the two robot narrators, with the listener impatiently asking about the scar and the storyteller warning that knowledge about the Metabaron is dangerous before posing a question about how the great warrior received a wound to his right eyebrow as an infant.",
+  "volume": 15
+}

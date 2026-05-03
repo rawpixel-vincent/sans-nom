@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Lothar is capable of firing a destructive energy blast and is in communication with Tonto.",
+    "Tonto is present in the scene but not clearly visible enough to describe in detail.",
+    "The battlefield commander is aggressive, proud, and unwilling to seek help despite the danger.",
+    "The subordinate soldier is fearful and argues for outside assistance.",
+    "Don Nicanor is important enough to be proposed as a source of military aid.",
+    "Melmoth is treated as a devastating combat asset whose intervention could change the battle."
+  ],
+  "characters_present": [
+    "A machine or robot addressed as Lothar",
+    "Tonto",
+    "A reptilian intruder/creature",
+    "A bearded battlefield commander/general",
+    "A frightened subordinate soldier",
+    "Multiple armed soldiers",
+    "Don Nicanor (mentioned only)",
+    "Melmoth (mentioned only)",
+    "A Supreme Metabaron (mentioned only)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page connects an interior conversation involving Lothar and Tonto with a larger external war against rectangular machines.",
+    "References to Don Nicanor, Melmoth, and the Supreme Metabaron tie the battlefield crisis to the Metabarons family network and hierarchy."
+  ],
+  "dialogue_meaning": [
+    "The machine-character prioritizes eliminating an immediate threat before continuing a conversation with Tonto.",
+    "The resumed speech describes the capital as dominated by ominous rectangular structures and saturated with fear.",
+    "The battlefield commander frames the enemy as capitalist technologists and calls for war rather than negotiation.",
+    "A subordinate believes aid could be obtained through family ties to Don Nicanor and an immensely powerful Metabaron.",
+    "The commander refuses to involve Melmoth during his honeymoon and insists their own army should handle the threat.",
+    "The page culminates in a direct order to fire."
+  ],
+  "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+  "is_spread": false,
+  "locations": [
+    "Interior of a damaged or industrial structure",
+    "A terror-stricken capital city mentioned in narration",
+    "An outdoor battlefield or siege line filled with rubble, artillery, and armored machines"
+  ],
+  "lore_facts": [
+    "There is a capital city currently overshadowed by large rectangular masses likened to sinister skyscrapers.",
+    "The opposing force is associated with advanced technology and 'rectangles,' which the commander treats as the main threat.",
+    "Don Nicanor has a son-in-law named Melmoth.",
+    "Melmoth is connected to the title or status of Supreme Metabaron.",
+    "Melmoth is currently on his honeymoon at this point in the story.",
+    "The military force shown has access to artillery, soldiers, and tracked combat machines."
+  ],
+  "page_id": "353_The_Metabarons_13_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A machine-character tells Tonto to wait while it destroys a reptilian intruder.",
+    "The intruding creature is blasted apart off-panel/right-panel with a burst of energy.",
+    "The speaker resumes a monologue describing conditions in a terror-filled city where rectangular masses tower over the capital.",
+    "On a battlefield full of debris, a commander denounces 'pretentious capitalists' and their technological devices.",
+    "Someone proposes requesting aid from Don Nicanor through his son-in-law, describing a Supreme Metabaron as overwhelmingly powerful.",
+    "The commander rejects outside help, says their army is strong enough, and orders an immediate assault.",
+    "A frightened soldier reacts, and nearby troops open fire with artillery and vehicles."
+  ],
+  "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+      "page_id": "353_The_Metabarons_13_p20",
+      "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially the descriptive speech about the capital and the exact phrasing of the request for help.",
+    "Tonto is named but not clearly identifiable in the art on this page.",
+    "The reptilian intruder's exact species or whether it is flying versus merely lunging into the room is unclear from this single page.",
+    "It is unclear whether the interior and battlefield scenes are simultaneous or cross-cut between separate moments."
+  ],
+  "visual_summary": "A robot or armored machine inside a damaged structure fights off a reptilian flying/intruding creature with an energy blast, then resumes a conversation. Outside, amid rubble, soldiers, artillery, and wreckage, a bearded commander in a long coat rallies troops against an approaching force of rectangular machines. A frightened subordinate suggests asking Don Nicanor for help from his son-in-law, but the commander refuses, orders an attack, and the page ends with troops firing.",
+  "volume": 13
+}

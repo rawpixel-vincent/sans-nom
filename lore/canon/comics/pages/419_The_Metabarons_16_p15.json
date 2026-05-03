@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Agohra is presented as a decorated heroic figure associated with saving humanity.",
+    "The speaker is distraught and ashamed of belonging to a clan linked to mass death and destruction.",
+    "The Metabaron is publicly hailed as humanity's champion and an invincible warrior.",
+    "The Technopope is shown as a central authority in the award ceremony."
+  ],
+  "characters_present": [
+    "Agohra (described, not clearly shown in close view)",
+    "floating robot narrator/speaker",
+    "the Metabaron",
+    "the Technopope",
+    "a bald ceremonial dignitary",
+    "crowd of senators, courtiers, guards, colonists, and other attendees",
+    "spider-like growling creature",
+    "various alien onlookers"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page is recounting a past event rather than showing only present-time action.",
+    "It sets up an interruption or catastrophe during Agohra's award ceremony by emphasizing the exact moment the medal is being placed and by showing the growling creature."
+  ],
+  "dialogue_meaning": [
+    "The speaker says Agohra saved humanity from destruction despite accusations against her.",
+    "Another voice prompts the speaker to continue the story, showing interest in the details.",
+    "Narration explains that Agohra was being awarded the empire's top medal during a formal ceremony.",
+    "The ceremony is framed as an immense public event attended by major imperial institutions and many witnesses.",
+    "Voices in the chamber celebrate the Metabaron as humanity's savior and as worthy of the medal."
+  ],
+  "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+  "is_spread": false,
+  "locations": [
+    "a futuristic imperial/galactic city",
+    "ceremonial hall or platform",
+    "the galactic senate on the golden planet"
+  ],
+  "lore_facts": [
+    "Agohra is credited on this page with saving the human race from an enemy universe populated by monsters.",
+    "The empire's highest honor is called the pluri-galactic medallion.",
+    "The Technopope is the figure who performs or oversees the medal investiture.",
+    "The event takes place before the galactic senate on a place called the golden planet.",
+    "Imperial bodies named on the page include the Empress, the Imperial Court, the Endoguard, the Techno-Techno Guild, the Ekonomat, troglosocialik colonists, and the army.",
+    "The page mentions paleo-mystics as a group whose view of karma is invoked in conversation."
+  ],
+  "page_id": "419_The_Metabarons_16_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "A speaker emotionally recounts Agohra's role in saving humanity from a hostile universe and rejects blame placed on her.",
+    "The narration states that Agohra received the empire's highest distinction, a pluri-galactic medallion.",
+    "The page identifies the key moment as the Technopope placing the medal around her neck.",
+    "The ceremony is shown as taking place before the galactic senate and a large assembly of imperial factions and spectators.",
+    "Public figures acclaim the Metabaron as humanity's champion while a growling creature appears in the ceremonial space."
+  ],
+  "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+      "page_id": "419_The_Metabarons_16_p15",
+      "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and several proper nouns are small and difficult to read, so names such as certain institutions or groups may be imperfectly transcribed.",
+    "Agohra is mostly discussed in narration; the exact identification of every figure in the ceremony is not visually explicit on this page alone.",
+    "It is unclear from this page alone whether the praised Metabaron and Agohra are the same person or two closely linked figures."
+  ],
+  "visual_summary": "A small floating robot recounts Agohra's deeds and public honors over views of a futuristic city. The scene shifts to a ceremonial medal and a bald dignitary, then to a vast golden senate chamber packed with aliens, officials, guards, and spectators as the Metabaron is praised before the crowd. A growling spider-like creature appears during the ceremony, foreshadowing disruption.",
+  "volume": 16
+}

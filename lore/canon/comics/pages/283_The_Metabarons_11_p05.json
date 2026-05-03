@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The future Supreme Metabaron is persistent enough to conduct a vast interplanetary search for knowledge about love.",
+    "Steelhead has metal or steel fingers and appears physically destructive when frustrated.",
+    "The Central Brain functions as an advising intelligence, directing the seeker to Terra Prima.",
+    "Lothar is associated with a hard, anti-romantic philosophy in the exchange on this page."
+  ],
+  "characters_present": [
+    "The future Supreme Metabaron",
+    "Steelhead",
+    "The Central Brain",
+    "A machine interlocutor identified in dialogue as Lothar"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing quest by the future Supreme Metabaron to understand or acquire the capacity for love.",
+    "The visit to Terra Prima follows a failed wider search across many worlds and satellites.",
+    "The destruction of the library material marks another failure in that search."
+  ],
+  "dialogue_meaning": [
+    "One machine voice insists that love is a foolish, volatile human concept and says machines have no teacher for it.",
+    "Another speaker rebukes that cynical view and urges Lothar to listen, claiming reality contains more than his limited philosophy allows.",
+    "Narration explains the Metabaron's desperate search for written knowledge that might explain how to experience love.",
+    "Steelhead's outburst shows frustration when the library yields no usable answer."
+  ],
+  "image_sha256": "1cac6f24a7d63da9951cd8c994853a363c2b6c7e69191748342f12d69cc2c8f9",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "Terra Prima",
+    "The remains of Terra Prima",
+    "The omni-library",
+    "Immense storehouses or library vaults"
+  ],
+  "lore_facts": [
+    "The future Supreme Metabaron is actively seeking a way to learn or feel love.",
+    "His search has already covered more than 3,500 planets and artificial satellites.",
+    "Terra Prima is identified as the cradle of humanity.",
+    "An 'omni-library' on Terra Prima still exists in immense storage facilities.",
+    "Ancient paper on Terra Prima is so fragile that it disintegrates on contact with Steelhead's fingers.",
+    "Steelhead can physically destroy enormous quantities of books almost instantly."
+  ],
+  "page_id": "283_The_Metabarons_11_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A machine character dismisses love as something machines cannot understand or learn.",
+    "Another voice argues back, saying the machine is being misled by romantic ideas but should listen.",
+    "Narration states that the future Supreme Metabaron searches thousands of planets and artificial satellites for a document that could teach him how to feel love.",
+    "He is directed by the Central Brain to visit the remains of Terra Prima, described as humanity's cradle, where the omni-library still survives in vast repositories.",
+    "Inside the preserved storehouses, ancient paper crumbles at the slightest touch from Steelhead's metal fingers.",
+    "Frustrated by finding no useful knowledge, he instantly reduces millions of books to dust."
+  ],
+  "source_image": "external/comics/meta-barons/283_The_Metabarons_11_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1cac6f24a7d63da9951cd8c994853a363c2b6c7e69191748342f12d69cc2c8f9",
+      "page_id": "283_The_Metabarons_11_p05",
+      "source_image": "external/comics/meta-barons/283_The_Metabarons_11_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue and narration boxes are small and partially difficult to read, so some names and phrasing may be slightly uncertain.",
+    "It is not fully clear from the page alone whether Steelhead and the future Supreme Metabaron are separate characters or the same figure being referred to under different names/titles."
+  ],
+  "visual_summary": "A giant robot-like figure argues with a smaller machine intelligence against a pink mechanical background. The page then shifts to narration over outer space and a distant world, followed by a view of ancient domed ruins on Terra Prima. In enormous library-like storehouses, the mechanical seeker handles fragile old paper that disintegrates, then violently pulverizes the remaining books into a white storm of dust.",
+  "volume": 11
+}

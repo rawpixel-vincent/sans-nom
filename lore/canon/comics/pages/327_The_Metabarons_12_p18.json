@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "One character has authority to activate or command the 'Porcupine' system.",
+    "Another character is addressed as Lothar.",
+    "Another addressed character is called Tonto.",
+    "A separate speaker appears knowledgeable enough to countermand the attack and criticize those firing.",
+    "The two visible small figures are close to the path of the glowing object and fear for their lives."
+  ],
+  "characters_present": [
+    "Unseen speaker commanding the 'Porcupine' battery",
+    "Unseen subordinate addressed as 'Tonto'",
+    "Unseen speaker addressed as Lothar",
+    "Two small armored or suited figures in the corridor"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing action sequence involving pursuit, interception, or attempted destruction of a glowing object inside a fortified interior.",
+    "The named figures and weapon system imply prior setup earlier in the story."
+  ],
+  "dialogue_meaning": [
+    "A weapons battery named 'Porcupine' is declared operational and ready for use.",
+    "An immediate order is given to begin firing.",
+    "A different voice intervenes and commands the shooters to stop, implying the attack is foolish or counterproductive.",
+    "The figures in the corridor think they are about to die, then react with shock as the glowing object passes."
+  ],
+  "image_sha256": "72c0ddd9bbe1f5fcb510db557caee3930cbffa499ec2c4502f08f281d757b536",
+  "is_spread": false,
+  "locations": [
+    "Inside a metallic tunnel or chamber",
+    "A corridor lined with mounted heavy guns"
+  ],
+  "lore_facts": [
+    "There is a named weapon system or gun array called 'Porcupine'.",
+    "The setting includes an industrial or spacecraft-like interior with heavy automated or mounted armaments.",
+    "A bright faceted object can survive or push through concentrated gunfire inside this structure."
+  ],
+  "page_id": "327_The_Metabarons_12_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A speaker reports that a weapon system called 'Porcupine' is ready.",
+    "Another speaker orders the guns to fire.",
+    "Multiple mounted cannons discharge into a corridor at a glowing faceted object.",
+    "The target or projectile continues moving forward despite the barrage, filling the space with explosions and debris.",
+    "A third speaker angrily orders the firing to stop, calling the gunners idiots.",
+    "Two nearby figures realize the situation is dangerous and react in alarm as the object rushes past."
+  ],
+  "source_image": "external/comics/meta-barons/327_The_Metabarons_12_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "72c0ddd9bbe1f5fcb510db557caee3930cbffa499ec2c4502f08f281d757b536",
+      "page_id": "327_The_Metabarons_12_p18",
+      "source_image": "external/comics/meta-barons/327_The_Metabarons_12_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so speaker identification is uncertain.",
+    "It is unclear whether the bright faceted object is a vehicle, projectile, pod, or shielded entity.",
+    "The exact identities of the two visible figures in the lower-right panels cannot be confirmed from this page alone.",
+    "The provided page label says p18, but the printed number visible at the bottom of the image appears to be 21."
+  ],
+  "visual_summary": "A battery of long guns mounted along a metallic tunnel or chamber opens fire on a bright, faceted, projectile-like object. The object blasts forward through the corridor amid huge flashes, shattered debris, and ricocheting fragments. Two small armored figures near the right side of the tunnel react as the glowing object barrels past them.",
+  "volume": 12
+}

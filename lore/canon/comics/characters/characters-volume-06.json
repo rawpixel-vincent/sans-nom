@@ -1,0 +1,367 @@
+[
+  {
+    "aliases": [
+      "Aghnar",
+      "Kiowotai (possibly, as perceived by the Magon — unresolved)",
+      "Kioka (possibly, as invoked by Magon creatures — unresolved)"
+    ],
+    "appearances": [
+      "source: vol6_ic1; page: ic1; description: Recap: attacked Shabda-Oud assassins with epyphite-tipped prosthetics; linked power with Honorata in a telepathic duel against the Mother Superior; departed Okhar with Othon and vowed revenge.",
+      "source: vol6_c01; page: c01; description: Cover figure: white-haired humanoid in black bodysuit with mechanical claw prosthetics on arms and legs, fighting a giant creature. May be symbolic rather than a literal scene.",
+      "source: vol6_p03; page: p03; description: Younger silver-haired character inside the Metabunker; emotionally challenges Othon's announcement of imminent death; identified as his son.",
+      "source: vol6_p04; page: p04; description: Refuses Othon's demand to kill him; visibly horrified and armed during the confrontation.",
+      "source: vol6_p05; page: p05; description: Young figure hesitating with a blade; Othon fires at him to force combat engagement.",
+      "source: vol6_p06; page: p06; description: Projects destructive energy from his eyes (mental/psychic powers); identified as 'son' by the standing speaker; described as paralyzed.",
+      "source: vol6_p07; page: p07; description: Confronts the scarred armored Othon with a blade; intelligent enough to challenge the bomb-threat logic (notes no bomb in the brain).",
+      "source: vol6_p08; page: p08; description: Shoots Othon in the head, completing the Castaka patricide initiation rite; remains beside the corpse in grief or exhaustion.",
+      "source: vol6_p09; page: p09; description: Subject of the robot narrator's account: isolated ~10 years on Perdita, rejected all offered entertainment, preserved Othon's body in deep-freeze, surgically extracted and grafted Oko mini-bombs into himself.",
+      "source: vol6_p10; page: p10; description: Man with metal feet who ventures outside on Perdita for recreation; shoots an ape-like creature with an epyphite dart and brings it home.",
+      "source: vol6_p11; page: p11; description: Attributed by volume chronology as the one who names the ape creature; the silver-haired man with a metal foot who heals and names it in the visual narrative may be the robot narrator acting on his behalf — identity uncertain on this page.",
+      "source: vol6_p15; page: p15; description: Silver-haired humanoid with extended metal claws fights through alien tribal creatures; invoked in Magon legend as 'little no-hair white ape.' (Identification with Kiowotai/Kioka is uncertain.)",
+      "source: vol6_p16; page: p16; description: Captured by a giant creature; tears or blasts through the creature's head area in reversal.",
+      "source: vol6_p17; page: p17; description: Airborne figure after defeating the giant creature; Magon creatures below invoke 'Kioka' and speak of departure to the Diamond Planet.",
+      "source: vol6_p18; page: p18; description: Mentioned only: eighteenth birthday serves as the time marker for the spy-needle signal's arrival.",
+      "source: vol6_p19; page: p19; description: Inside spacecraft; learns Shabda-Oud have 7 cetacyborgs (6 guarding the comet, 1 away on a covert mission); devises Trojan-horse plan using the Magon; explicitly ties all strategy to avenging his mother; plans to become patriarch of the Magon proto-civilization.",
+      "source: vol6_p20; page: p20; description: Loads Magon apes into the Metabunker with a false promise of passage to the Diamond Planet; apes are rendered comatose by heat-immunizing injection and jettisoned as feed to lure the seventh cetacyborg.",
+      "source: vol6_p21; page: p21; description: Infiltrates the exterior and interior of the seventh cetacyborg alone in an armored space suit.",
+      "source: vol6_p22; page: p22; description: Pale-haired armored attacker: shoots a Shabda-Oud sister and uses mental coercion to force the others to reveal their secret destination; described by an off-panel speaker as having turned the cetacyborg into a Trojan horse.",
+      "source: vol6_p23; page: p23; description: Learns of Oda Capricious and the Shabda-Oud bloodline prophecy via intelligence gathered from the coerced sisters; reacts intensely to her holovid; concludes seduction is necessary.",
+      "source: vol6_p24; page: p24; description: Vows to possess Oda even at the cost of his life; orders crew to stay behind and avoid raising alarm; takes a small moto-craft toward Amadis on Baggadathi."
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "Defeated Shabda-Oud assassins with epyphite-tipped prosthetics; linked power with Honorata in telepathic duel against the Mother Superior (vol6_ic1)",
+      "Killed Othon by shooting him in the head, completing the Castaka patricide initiation (vol6_p08)",
+      "Performed prolonged surgery to extract Oko mini-bombs from Othon's corpse and implant them in himself (vol6_p09)",
+      "Captured and rescued a rational ape-like creature on Perdita; named it (vol6_p10, vol6_p11 — attribution partially uncertain)",
+      "Fought through Magon tribal creatures and defeated the Patriarch, fulfilling the Magon prophecy (vol6_p15–vol6_p17)",
+      "Loaded Magon apes into the Metabunker under false pretenses; expelled them as feed to lure the seventh cetacyborg (vol6_p20)",
+      "Infiltrated the seventh cetacyborg alone in vacuum, ambushed and mentally coerced the Shabda-Oud sisters inside (vol6_p21, vol6_p22)",
+      "Set course for Baggadathi/Amadis alone in a small moto-craft to pursue Oda Capricious (vol6_p24)"
+    ],
+    "knowledge_boundaries": [
+      "Knows the Shabda-Oud comet is guarded by 6 cetacyborgs with a 7th currently absent on a covert mission (vol6_p19)",
+      "Knows his bloodline is tied to a Shabda-Oud prophecy involving Oda and a supreme being capable of dethroning Janus-Jana (vol6_p23)",
+      "Knows Oda's marriage condition is an extinct blue rose — said to have been gone for 30,000 years (vol6_p23)",
+      "Does not yet know how to fulfill the blue-rose condition (unresolved at volume end)",
+      "Does not yet know Oda personally — only has seen her via holovid (vol6_p23)"
+    ],
+    "relationships": [
+      "character: Othon; type: Father (deceased — killed by Aghnar); notes: Forced into patricide duel; killed him to complete the Castaka initiation. Sources: vol6_p04–vol6_p08.",
+      "character: Honorata; type: Mother (deceased — annihilated with Okhar); notes: All revenge actions explicitly dedicated to avenging her. Sources: vol6_ic1, vol6_p04, vol6_p19.",
+      "character: Robot Narrator; type: Guardian/caretaker during Perdita isolation; notes: Assigned by Othon to keep Aghnar occupied during the ten-year wait. Source: vol6_p09.",
+      "character: Lothar; type: Robot companion/servant; notes: Present during isolation and medical scenes. Sources: vol6_p09, vol6_p18.",
+      "character: Tonto; type: Robot surgical assistant; notes: Assists with medical procedures. Sources: vol6_p09, vol6_p18.",
+      "character: The Ape Companion; type: Companion; rescued and named by Aghnar or his robot; notes: Foundation of his relationship with the Magon proto-civilization. Sources: vol6_p10, vol6_p11.",
+      "character: Oda Capricious; type: Target of pursuit and desire; notes: Becomes intensely captivated by her holovid; resolved to win her. Sources: vol6_p23, vol6_p24.",
+      "character: Shabda-Oud; type: Primary enemies; notes: Fought them in recap; now plots revenge and a Trojan-horse infiltration of their forces. Sources: vol6_ic1, vol6_p19, vol6_p22."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Speaks with intense emotional investment when discussing revenge or family — 'what game are you playing?' (vol6_p03)",
+      "Commands followers with authority and brevity; allows no dissent (vol6_p22, vol6_p24)",
+      "Inwardly scorns rival suitors' ostentation (vol6_p24)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Watched Okhar and Honorata destroyed from orbit (vol6_ic1)",
+      "Present when Othon revealed the spy-needle plan and his own imminent death (vol6_p03)",
+      "Killed Othon with a shot to the head (vol6_p08)",
+      "Spent approximately ten years in isolation on Planet Perdita tended only by robots (vol6_p09)",
+      "Extracted Oko mini-bombs from Othon's corpse and grafted them into his own body (vol6_p09)",
+      "Received the long-awaited spy-needle signal on his eighteenth birthday (vol6_p18)",
+      "Learned the Shabda-Oud have 7 cetacyborgs total — 6 guarding the comet, 1 on a covert mission to the blue solar system of Beta-Kuntri (vol6_p19)",
+      "Learned of the Shabda-Oud prophecy: his bloodline united with Oda Capricious would produce a supreme being capable of dethroning Janus-Jana (vol6_p23)",
+      "Saw Oda Capricious via holovid (vol6_p23)"
+    ]
+  },
+  {
+    "aliases": [
+      "Othon"
+    ],
+    "appearances": [
+      "source: vol6_ic1; page: ic1; description: Recap: piloted the Metacraft to infiltrate and destroy the Cetacyborg from inside using viral-infiltration tactics; fatally contaminated in the process; departed Okhar with Aghnar in the Metabunker after Honorata's death.",
+      "source: vol6_p02; page: p02; description: Older father figure arriving at Perdita with his son; coughing repeatedly; names and describes the planet in a bleak inventory.",
+      "source: vol6_p03; page: p03; description: Reveals spy-needle plan and the ten-year concealment order; reveals he is dying from Cetacyborg gas contamination with only days left.",
+      "source: vol6_p04; page: p04; description: Demands Aghnar kill him; frames it as the Castaka rite and preparation for the future campaign against the Shabda-Oud; armed with a long polearm or bladed weapon.",
+      "source: vol6_p05; page: p05; description: Forces combat by opening fire on Aghnar with an ornate energy firearm; has long light-colored hair and segmented armor.",
+      "source: vol6_p06; page: p06; description: Standing figure who praises Aghnar's use of mental powers but immediately warns the fight is not over because Aghnar is paralyzed.",
+      "source: vol6_p07; page: p07; description: Scarred, restrained armored man; threatens Oko mini-bomb detonation to prevent ordinary attack; demands to be killed to pass into 'true life'; praises Aghnar's intelligence when Aghnar identifies the brain-bomb exception.",
+      "source: vol6_p08; page: p08; description: Shot in the head by Aghnar; body preserved in deep-freeze afterward.",
+      "source: vol6_p09; page: p09; description: Mentioned only: his prior orders assigned the robot to keep Aghnar occupied during the wait; his corpse is on the operating table from which the Oko mini-bombs are extracted."
+    ],
+    "character_id": "othon",
+    "important_actions": [
+      "Infiltrated and destroyed the Cetacyborg from within using viral tactics, fatally contaminating himself in the process (vol6_ic1)",
+      "Dispatched spy-needles across the universe before arriving on Perdita (vol6_p03)",
+      "Ordered a ten-year concealment on Perdita and assigned the robot to maintain Aghnar (vol6_p03, vol6_p09)",
+      "Forced Aghnar into a duel at gunpoint; demanded patricide as Castaka initiation (vol6_p04, vol6_p05)",
+      "Revealed Oko mini-bomb implants as a tactical deterrent against ordinary attack (vol6_p07)",
+      "Died when Aghnar shot him in the head (vol6_p08)"
+    ],
+    "knowledge_boundaries": [
+      "Knew the spy-needles would take ten years to return signals (vol6_p03)",
+      "Knew Planet Perdita and its ecology well enough to summarize it (vol6_p02)",
+      "Knew the Castaka tradition requiring patricide as Metabaron initiation (vol6_p04, vol6_p08)"
+    ],
+    "relationships": [
+      "character: Aghnar; type: Son (killed Othon); notes: Forced the patricide duel; accepted death at his son's hand. Sources: vol6_p04–vol6_p08.",
+      "character: Honorata; type: Partner/wife (deceased); notes: Departed Okhar after her death; vowed revenge with his son. Source: vol6_ic1.",
+      "character: Robot Narrator; type: Robot under his command; notes: Gave standing orders to keep Aghnar occupied during the ten-year wait. Source: vol6_p09."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [
+      "Commands with controlled aggression; willing to fire on his own son to force development (vol6_p05)",
+      "Speaks philosophically about death as 'true life' — not resignation but desire (vol6_p07)",
+      "Terse inventory style when describing the external world (vol6_p02)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Destroyed the Cetacyborg by infiltrating it from within — a viral-infiltration tactic — fatally contaminating himself (vol6_ic1)",
+      "Witnessed Honorata and Okhar destroyed from orbit (vol6_ic1)",
+      "Knew his blood was contaminated by Cetacyborg gases with only days to live (vol6_p03)"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata"
+    ],
+    "appearances": [
+      "source: vol6_ic1; page: ic1; description: Recap only: interrogated by the Shabda-Oud; lied about the child being a hermaphrodite; linked her power to Aghnar's in the telepathic duel against the Mother Superior; revealed the implanted micro-H bomb wired to her artificial heart; chose to remain behind to protect her family; destroyed with Okhar."
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "Lied to the Mother Superior that her child was a hermaphrodite (vol6_ic1)",
+      "Linked her power to Aghnar's during the telepathic duel with the Mother Superior (vol6_ic1)",
+      "Revealed the micro-H bomb implant to explain why she could not leave safely (vol6_ic1)",
+      "Remained on Okhar; died when the bomb detonated and the planet was annihilated (vol6_ic1)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: Son; notes: Linked her power to his during the telepathic duel. Source: vol6_ic1.",
+      "character: Othon; type: Partner/husband; notes: He and Aghnar departed without her; she stayed behind to protect them. Source: vol6_ic1.",
+      "character: Mother Superior of the Shabda-Oud; type: Interrogator/antagonist; notes: Lied to her during interrogation. Source: vol6_ic1."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Mother Superior of the Shabda-Oud"
+    ],
+    "appearances": [
+      "source: vol6_ic1; page: ic1; description: Recap: arrived on Okhar in a Cetacyborg with two assassins; interrogated Honorata; engaged in telepathic combat with Aghnar (with Honorata's power linked to his)."
+    ],
+    "character_id": "mother-superior-of-the-shabda-oud",
+    "important_actions": [
+      "Arrived on Okhar in a Cetacyborg with two assassins to interrogate Honorata (vol6_ic1)",
+      "Engaged Aghnar in a telepathic duel (vol6_ic1)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Honorata; type: Interrogator/antagonist; notes: Interrogated her about the child's nature. Source: vol6_ic1.",
+      "character: Aghnar; type: Opponent in telepathic duel; notes: Fought him with Honorata's power linked to his. Source: vol6_ic1.",
+      "character: Shabda-Oud sisters/witches; type: Superior — commands them; notes: Leads the Shabda-Oud organization. Source: vol6_ic1."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "source: vol6_p09; page: p09; description: Addressed directly by the robot narrator, who tells him to stay quiet; in a physically compromised state related to his circuits.",
+      "source: vol6_p18; page: p18; description: Argues with another robot; cannot stop thinking about Diaghana's motives; warned not to split his casing open out of curiosity; threatened with circuit repair to force silence; told to stay quiet and listen."
+    ],
+    "character_id": "lothar",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Robot Narrator; type: Story recipient / companion; notes: The robot narrator addresses the recounted story directly to Lothar. Source: vol6_p09.",
+      "character: Diaghana; type: Subject of obsessive curiosity; notes: Lothar cannot reconcile why Diaghana wanted kingship over the apes. Source: vol6_p18."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Being told the narrated history of Aghnar's isolation by the robot narrator (vol6_p09)",
+      "Knows Diaghana sought to become king of the apes and disrupted their ecological balance (vol6_p18)"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "source: vol6_p09; page: p09; description: Named as a robot assistant during the Oko mini-bomb extraction surgery; its movement or vibration is flagged as dangerous during the procedure.",
+      "source: vol6_p18; page: p18; description: Ordered to finish cauterizing the wounded ape patient's injuries when the spy-needle signal arrives."
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Assisted in the Oko mini-bomb extraction surgery on Othon's corpse (vol6_p09)",
+      "Ordered to cauterize the wounded ape patient's wounds when the spy-needle signal arrives (vol6_p18)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: Servant/assistant; notes: Serves within Aghnar's household; performs surgical procedures. Sources: vol6_p09, vol6_p18."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Robot Narrator",
+      "Spherical-headed robot"
+    ],
+    "appearances": [
+      "source: vol6_p09; page: p09; description: Spherical-headed robot narrating events to Lothar; assigned by Othon to entertain Aghnar during the ten-year wait; present during and assists with the Oko mini-bomb extraction surgery.",
+      "source: vol6_p10; page: p10; description: Narrator voice describing the metal-footed man's outdoor recreation and the ape capture; expresses disgust at organic waste.",
+      "source: vol6_p11; page: p11; description: Narrator frames the ape-healing episode as helping 'a young lord.' The silver-haired healer with a metal foot who names the ape on this page may be the robot narrator in humanoid form, or may be Aghnar himself — uncertain."
+    ],
+    "character_id": "robot-narrator",
+    "important_actions": [
+      "Maintained Aghnar's isolation on Perdita per Othon's orders; offered music and games from a vast stored repertoire — all rejected by Aghnar (vol6_p09)",
+      "Assisted in the Oko mini-bomb extraction surgery (vol6_p09)",
+      "Possibly healed the ape creature with synthesized green blood and named it Aghnar on behalf of his young lord (vol6_p11 — attribution uncertain)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Othon; type: Under his command; notes: Othon's prior orders assigned it to keep Aghnar occupied during the ten-year wait. Source: vol6_p09.",
+      "character: Aghnar; type: Caretaker and narrator about; notes: Assigned to entertain Aghnar; narrates events about him. Source: vol6_p09.",
+      "character: Lothar; type: Story audience; notes: Addresses the narrated history directly to Lothar. Source: vol6_p09."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Oda Capricious"
+    ],
+    "appearances": [
+      "source: vol6_p23; page: p23; description: Shown via holovid or projected image; described as extraordinarily beautiful; her marriage condition (a blue rose) and the prophecy surrounding her are explained by male travelers in a spacecraft cockpit.",
+      "source: vol6_p24; page: p24; description: Mentioned as the goal of the pilot's journey; rejection of all suitors and the blue-rose condition reiterated."
+    ],
+    "character_id": "oda-capricious",
+    "important_actions": [
+      "Has rejected all suitors from many solar systems through humiliation (vol6_p23, vol6_p24)",
+      "Stated a marriage condition: a blue rose (vol6_p23)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: Target of pursuit; subject of intense captivation; notes: Aghnar becomes fixated after seeing her holovid; resolves to win her. Sources: vol6_p23, vol6_p24.",
+      "character: Shabda-Oud (religious superiors); type: Subject of prophecy; notes: The Shabda-Oud believe her union with Aghnar's bloodline will produce a supreme hermaphroditic being capable of dethroning Janus-Jana. Source: vol6_p23."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "The Ape Companion",
+      "Named 'Aghnar' by the silver-haired healer (vol6_p11)",
+      "Called 'Aghnar' on vol6_p12-p13"
+    ],
+    "appearances": [
+      "source: vol6_p10; page: p10; description: Shot with an epyphite dart by the metal-footed man while falling from the mushroom heights; brought home wounded.",
+      "source: vol6_p11; page: p11; description: Healed with synthesized green blood in a laboratory setting; reveals itself as rational and capable of speech; asks why it was given life; named 'Aghnar' by the healer; leaps away immediately after being named.",
+      "source: vol6_p12-p13; page: p12-p13; description: Alien creature living in the heights above the mushroom domes; hungry; calls Kiowotai 'brother'; warns that ascending above the domes is dangerous but agrees to lead the way when pressed."
+    ],
+    "character_id": "the-ape-companion",
+    "important_actions": [
+      "Proved rational by speaking when healed, surprising the narrator (vol6_p11)",
+      "Named 'Aghnar' by the silver-haired healer (vol6_p11)",
+      "Led Kiowotai above the mushroom-dome settlement into the upper territory despite the danger (vol6_p12-p13)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar / the healer (silver-haired man); type: Rescued by; named by; notes: Healed and named; volume chronology frames this as the foundation of Aghnar's bond with the Magon. Sources: vol6_p10, vol6_p11.",
+      "character: Kiowotai; type: Self-described brother / companion; notes: Sworn brotherhood; leads him into dangerous upper territory. Source: vol6_p12-p13."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Kiowotai",
+      "Kioka (possibly, as invoked by the Magon on vol6_p17)",
+      "Possibly another name for Aghnar the main character (explicitly unresolved)"
+    ],
+    "appearances": [
+      "source: vol6_p12-p13; page: p12-p13; description: Silver-haired youth who can float (possibly via specialized footwear); asserts sworn brotherhood with the ape Aghnar; insists on ascending above the mushroom domes despite warnings.",
+      "source: vol6_p15; page: p15; description: Silver-haired humanoid with extended metal claws fighting through alien tribal creatures; a smaller creature recites the Magon legend of the 'little no-hair white ape' who will take the Magon people to the fog world and diamond planet.",
+      "source: vol6_p16; page: p16; description: Captured by a giant creature; tears or blasts through the creature's head area in reversal.",
+      "source: vol6_p17; page: p17; description: Airborne figure after defeating the giant creature; Magon creatures below invoke 'Kioka' as their master and speak of departure to the Diamond Planet."
+    ],
+    "character_id": "kiowotai",
+    "important_actions": [
+      "Rose into the air above the mushroom-dome settlement following the ape Aghnar (vol6_p12-p13)",
+      "Fought through alien tribal creatures and confronted the Magon Patriarch (vol6_p15–vol6_p17)",
+      "Tore or blasted through a giant creature's head area after being seized (vol6_p16–vol6_p17)"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The Ape Companion ('Aghnar'); type: Self-described brother / companion; notes: Sworn brotherhood; follows the ape into dangerous upper territory. Source: vol6_p12-p13.",
+      "character: Magon people; type: Prophesied leader ('little white ape'); notes: Magon legend says he will one day take them away to the fog world and diamond planet. Sources: vol6_p15, vol6_p17."
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Diaghana"
+    ],
+    "appearances": [
+      "source: vol6_p18; page: p18; description: Mentioned only by Lothar, who is preoccupied with why Diaghana wanted to be king of the apes and why he disrupted their ecological balance."
+    ],
+    "character_id": "diaghana",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Magon Patriarch"
+    ],
+    "appearances": [
+      "source: vol6_p14; page: p14; description: Described and partially depicted: a large armored alien figure that defeats all rival chiefs in a ritual combat on the 'day of red light'; expected to always win; said to live approximately 30,000 years."
+    ],
+    "character_id": "magon-patriarch",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

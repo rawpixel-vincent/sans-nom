@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The armored protagonist is protected by or capable of generating an advanced spherical shield.",
+    "The protagonist is accompanied by a smaller person who stays inside the shield with them.",
+    "The technomonk leader is physically represented as a floating robed figure associated with a purple orb-like craft or apparatus.",
+    "The technomonk group includes guards carrying firearms.",
+    "The technomonk leader is aggressive at first but capitulates quickly once overwhelmed."
+  ],
+  "characters_present": [
+    "Supreme Metabaron or Metabaron addressed as 'Supreme Metabaron'",
+    "Smaller companion sheltered inside the shield",
+    "Floating technomonk leader in a purple orb-like device",
+    "Multiple armed technomonk attendants or guards",
+    "Additional small hovering drone-like devices"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing confrontation between the Metabaron figure and technomonks rather than a first meeting.",
+    "The kidnapping threat implies the technomonk faction wants the protagonist alive, at least initially."
+  ],
+  "dialogue_meaning": [
+    "The armored protagonist counts down while activating a powerful defensive shield.",
+    "The protagonist identifies themself to a leader called the 'Supreme Metabaron' and demands something from the technomonk side.",
+    "The technomonk faction responds with ritualistic praise of technology and tries to coerce or abduct the protagonist.",
+    "One guard rejects the demand and escalates the confrontation.",
+    "A blast or counterattack shocks the technomonk group into fear.",
+    "Their leader quickly reverses course and offers obedience.",
+    "The protagonist taunts the technomonks as weak or mistaken while protected by the shield."
+  ],
+  "image_sha256": "7ac229687fbb0d0ae84d5c2df54e59e39ae626d8642fac14e6bad981fcddc82c",
+  "is_spread": false,
+  "locations": [
+    "Interior chamber or hall occupied by technomonk forces"
+  ],
+  "lore_facts": [
+    "A 'pan-atomic anti-shield' exists as a defensive technology or power on this page.",
+    "The speaker can invoke a stronger mode referred to as 'mega-mortis.'",
+    "There is a figure formally addressed as the 'Supreme Metabaron.'",
+    "A faction or group on this page venerates 'technoholiness.'",
+    "The technomonk side uses floating orb-like devices and armed attendants during confrontations."
+  ],
+  "page_id": "371_The_Metabarons_14_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "An armored figure activates or maintains a defensive anti-shield around themself and a smaller companion.",
+    "A speaker addressed as the 'Supreme Metabaron' arrives or announces their presence to a group associated with technomonks.",
+    "The surrounding technomonk faction declares allegiance to 'technoholiness' and threatens to kidnap the armored figure.",
+    "One armed attacker refuses the figure's demand and aims a weapon.",
+    "A sudden bright blast detonates among the technomonk side, disrupting their attack.",
+    "After the blast, a floating technomonk-like figure panics and agrees to comply.",
+    "The shielded armored figure advances or retaliates, and several opponents are struck by towering energy eruptions."
+  ],
+  "source_image": "external/comics/meta-barons/371_The_Metabarons_14_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7ac229687fbb0d0ae84d5c2df54e59e39ae626d8642fac14e6bad981fcddc82c",
+      "page_id": "371_The_Metabarons_14_p13",
+      "source_image": "external/comics/meta-barons/371_The_Metabarons_14_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be imprecise.",
+    "The smaller companion inside the shield is not clearly identifiable from this page alone.",
+    "The exact nature of the final energy eruptions is unclear; they may be weapons fire, a power effect, or consequences of the shielded figure's counterattack.",
+    "The precise names or ranks of the technomonk leader and attendants are not legible beyond references to 'technoholiness' and 'Supreme Metabaron'."
+  ],
+  "visual_summary": "A heavily armored figure protects a smaller companion inside a glowing spherical shield while surrounded by floating orb-like technomonk devices and armed attendants. The intruders demand submission and attempt intimidation with guns and hovering machines. A bright explosive electrical or energy blast erupts among the attackers, after which the floating leader immediately surrenders. The page ends with the shielded figure apparently counterattacking, as multiple enemies are engulfed in tall columns of energy.",
+  "volume": 14
+}

@@ -1,0 +1,721 @@
+[
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Dark-haired woman with serious, unsmiling expression', 'Wears dark attire and a choker; posed beside advanced weaponry on cover', 'Later shown with damaged mechanical-looking eyes after blinding', 'Wears a thick veil throughout public wedding ceremony']}"
+    ],
+    "character_id": "dona_vicenta_gabriela_de_rokha",
+    "important_actions": [
+      "Attempted suicide after Melmoth's confession (recap)",
+      "Removed her own eye and gave it to Don Nicanor to restore his paternal memory (p07)",
+      "Cast formal vote granting Melmoth noble rank / Supreme Metabaron title (implied p08–p09)",
+      "Married Melmoth publicly while keeping veil throughout ceremony (p12)"
+    ],
+    "knowledge_boundaries": [
+      "Did not know Melmoth's true disfigured appearance until wedding-night lightning strike",
+      "No confirmed knowledge of Melmoth's dual-personality internal split"
+    ],
+    "relationships": [
+      "character: Don Nicanor Rosamel de Rokha; type: daughter",
+      "character: Melmoth; type: wife; married in vol 13",
+      "character: white-haired elder (unidentified); type: protected and treated medically by him"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+        "page_id": "334_The_Metabarons_13_c01",
+        "source_image": "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg"
+      },
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      },
+      {
+        "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+        "page_id": "339_The_Metabarons_13_p05",
+        "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+      },
+      {
+        "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "page_id": "340_The_Metabarons_13_p06",
+        "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+      },
+      {
+        "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+        "page_id": "341_The_Metabarons_13_p07",
+        "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+      },
+      {
+        "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "page_id": "342_The_Metabarons_13_p08",
+        "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+      },
+      {
+        "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "page_id": "343_The_Metabarons_13_p09",
+        "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+      },
+      {
+        "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+        "page_id": "346_The_Metabarons_13_p12",
+        "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg"
+      },
+      {
+        "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "page_id": "347_The_Metabarons_13_p13",
+        "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+      },
+      {
+        "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+        "page_id": "348_The_Metabarons_13_p14",
+        "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+      }
+    ],
+    "traits": [
+      "Fiercely loyal to father and people even under assault",
+      "Willing to self-mutilate to restore familial bond",
+      "Sustains idealized illusions through concealment — darkness, veil",
+      "Verbally composed under pressure; challenges those who claim to love her",
+      "Emotionally tormented by rejection after cybernetic alteration"
+    ],
+    "voice_notes": [
+      "Names Don Nicanor directly and challenges whether it is truly her soul he worships: 'Nicanor Rosamel de Rokha…' (p06)",
+      "States the darkness and veil existed so she could preserve her idealized memory of him (p13)",
+      "Declares the eye belongs to Don Nicanor because he fathered it (p07)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Attempted suicide after learning Melmoth killed her father; Melmoth stopped bullet using Shabda-Oud powers (recap)",
+      "Don Nicanor clone lacks memory of her, confuses her for a desired woman (recap)",
+      "Refused to let Melmoth kill her father again or harm her people (recap)",
+      "Argued to spare attacking soldiers including her father during siege (p05)",
+      "Challenged Don Nicanor's claim to love her soul by naming him and questioning his desire (p06)",
+      "Self-removed one eye and gave it to Don Nicanor, restoring his paternal recognition (p07)",
+      "Suffered extreme bleeding and pain during eye removal (p07)",
+      "Blinded; eye wounds cauterized by white-haired elder (p08)",
+      "Received advanced vento-robotic eyes via microsurgery (p09)",
+      "Voted for Melmoth's noble rank before the Galactic Union (implied p08–p09)",
+      "Married Melmoth at public ceremony; refused to lift veil for traditional kiss (p12)",
+      "Lightning on wedding night exposed Melmoth's disfigured face; recoiled in horror (p13)",
+      "Revealed she had used darkness and veil to preserve idealized memory of Melmoth (p13, p14)",
+      "Cybernetically altered post-blinding; mechanical eyes referenced in dialogue (p14)",
+      "Rejected by Melmoth after his revulsion at her altered appearance (p14)",
+      "Wandered De Rokha castle corridors in torment hoping for compassion from Melmoth (p14)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Physically disfigured face — extent not fully depicted; severe enough to provoke horror when revealed (p13)', 'Wears black armor in final scenes (p26)', 'Composite body bearing cybernetic elements from both Krleza and Steelhead']}"
+    ],
+    "character_id": "melmoth",
+    "important_actions": [
+      "Deflected Vicenta's suicide bullet with Shabda-Oud powers (recap)",
+      "Cloned Don Nicanor while Vicenta was unconscious (recap)",
+      "Received Supreme Metabaron title at Golden Planet (p09)",
+      "Married Vicenta Gabriela at Philodendra (p12)",
+      "Isolated in tower for days after wedding-night disaster (p13)",
+      "Rejected cybernetically altered Vicenta (p14)",
+      "Internal personas fired a weapon destroying the armored body in an explosive blast (p26)"
+    ],
+    "knowledge_boundaries": [
+      "Knows his own disfigurement; deliberately concealed it from Vicenta through darkness and her veil",
+      "Knows his two internal selves cannot fully reconcile (p13)"
+    ],
+    "relationships": [
+      "character: Dona Vicenta Gabriela de Rokha; type: husband; married in vol 13",
+      "character: Don Nicanor Rosamel de Rokha; type: father-in-law",
+      "character: Krleza; type: internal personality / poet component self",
+      "character: Steelhead; type: internal personality / warrior component self"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      },
+      {
+        "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "page_id": "343_The_Metabarons_13_p09",
+        "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+      },
+      {
+        "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "page_id": "344_The_Metabarons_13_p10",
+        "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+      },
+      {
+        "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "page_id": "345_The_Metabarons_13_p11",
+        "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+      },
+      {
+        "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+        "page_id": "346_The_Metabarons_13_p12",
+        "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg"
+      },
+      {
+        "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "page_id": "347_The_Metabarons_13_p13",
+        "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+      },
+      {
+        "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+        "page_id": "348_The_Metabarons_13_p14",
+        "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+      },
+      {
+        "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+        "page_id": "353_The_Metabarons_13_p20",
+        "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+      },
+      {
+        "image_sha256": "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+        "page_id": "357_The_Metabarons_13_p24-p25",
+        "source_image": "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg"
+      },
+      {
+        "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "page_id": "358_The_Metabarons_13_p26",
+        "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      }
+    ],
+    "traits": [
+      "Composite being: simultaneously two-in-one (Krleza/poet and Steelhead/warrior) and one split in two",
+      "Privately distrusts and resents public honors",
+      "Prone to despair and self-isolation when dual personalities become irreconcilable",
+      "Sexually and romantically impatient by his own account (p11)",
+      "Possesses Shabda-Oud powers inherited through mother"
+    ],
+    "voice_notes": [
+      "Internally: distrusts those honoring him at the ceremony (p09)",
+      "In wedding ceremony consents formally when asked to take Vicenta Gabriela as wife (p12)",
+      "Impatient for ceremony to end so wedding night can begin (p11)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Stopped Vicenta's suicide bullet using inherited Shabda-Oud powers (recap, p ic1-p01)",
+      "Created a clone of Don Nicanor while Vicenta was unconscious (recap, p ic1-p01)",
+      "Awarded title Supreme Metabaron by unanimous Galactic Union vote at Golden Planet; privately distrusted honor (p09)",
+      "Escorted to Philodendra by approximately 1000 white-painted warships arranged in heart formation (p10)",
+      "Krleza aspect was moved by romantic fleet spectacle; Steelhead aspect was contemptuous of it (p10)",
+      "Married Vicenta Gabriela at public ceremony; she refused to lift veil (p12)",
+      "Wedding night: lightning exposed his disfigured face; Vicenta recoiled in horror (p13)",
+      "Collapsed into despair; isolated in tower for days without sleep, food, or water (p13)",
+      "Internal personalities engaged in open war for control; rejected altered Vicenta and refused to see her (p14)",
+      "Internal personalities destroyed the armored body in an explosive blast; story ends on cliffhanger (p26)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Heavyset, bearded man; leads attacking force in chamber siege (p05)', 'Balding with dark beard in intimate close-up during eye-sacrifice (p07)', 'Appears physically weak and coughing during Technoclergy audience (p17)']}"
+    ],
+    "character_id": "don_nicanor_rosamel_de_rokha",
+    "important_actions": [
+      "Battered down door to Vicenta's chamber with armed comrades (p04-p05)",
+      "Received Vicenta's eye, triggering restoration of paternal memory (p07)",
+      "Refused Technoclergy ultimatum for bikramen extraction; expelled delegates (p17-p18)",
+      "Performed public dawn ecological meditation as federation president (p15)"
+    ],
+    "knowledge_boundaries": [
+      "Clone initially lacks memory of daughter; restored by eye-sacrifice",
+      "Aware of his role as federation president and of Melmoth as son-in-law",
+      "Likely unaware of Melmoth's internal dual-personality nature"
+    ],
+    "relationships": [
+      "character: Dona Vicenta Gabriela de Rokha; type: father (as clone)",
+      "character: Melmoth; type: son-in-law"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      },
+      {
+        "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "page_id": "338_The_Metabarons_13_p04",
+        "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+      },
+      {
+        "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+        "page_id": "339_The_Metabarons_13_p05",
+        "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+      },
+      {
+        "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "page_id": "340_The_Metabarons_13_p06",
+        "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+      },
+      {
+        "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+        "page_id": "341_The_Metabarons_13_p07",
+        "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+      },
+      {
+        "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "page_id": "342_The_Metabarons_13_p08",
+        "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+      },
+      {
+        "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+        "page_id": "349_The_Metabarons_13_p15",
+        "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg"
+      },
+      {
+        "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+        "page_id": "351_The_Metabarons_13_p17",
+        "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+      },
+      {
+        "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+        "page_id": "352_The_Metabarons_13_p18-p19",
+        "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+      }
+    ],
+    "traits": [
+      "Clone: initially lacks memory of daughter; confuses her for a romantic/sexual target",
+      "Paternal recognition restored by eye-sacrifice — overwhelmed with horror and remorse",
+      "Aggressive and commanding when leading assault on chamber",
+      "Participates in public ecological meditation as federation president",
+      "Defiant toward imperial coercion; refuses Technoclergy ultimatum"
+    ],
+    "voice_notes": [
+      "Professes possessive love: claims to desire Vicenta's soul; she names him and challenges this (p06)",
+      "Shouts orders during assault on chamber (p04)",
+      "Curses himself and asks what he has done after receiving the eye (p07)",
+      "Weeps and begs forgiveness over Vicenta's blindness (p08)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Original Don Nicanor was murdered by Melmoth prior to vol 13 (recap, p ic1-p01)",
+      "Melmoth created a clone of him while Vicenta was unconscious (recap, p ic1-p01)",
+      "Clone lacks part of memory; does not remember his daughter; declares desire to take her as wife; Melmoth intervenes (recap, p ic1-p01)",
+      "Led armed assault on Vicenta's private chamber (p04, p05)",
+      "Confronted Vicenta; professed possessive love claiming to desire her soul; she challenged this (p06)",
+      "Received Vicenta's self-removed eye; spectral visions of her at multiple ages call to him as father; paternal recognition restored (p07)",
+      "Reacted with horror and remorse immediately after receiving the eye (p07)",
+      "Wept and begged forgiveness over causing Vicenta's blindness (p08)",
+      "Served as president of Troglosocialik Federation; performed dawn ecological meditation at Halerce tree on Philodendra (p15)",
+      "Received Technoclergy ultimatum demanding population relocation for bikramen extraction (p17)",
+      "Appeared physically weak and coughing during Technoclergy audience (p17)",
+      "Refused Technoclergy demands; expelled delegation; Philodendra bombarded as consequence (p18-p19)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Small armored robot', 'Moves through jungle terrain alongside Lothar and other small robot companions']}"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "Secretly taught himself illegal hyperspace jumping in violation of robotic law (p03)",
+      "Failed hyperspace jump stranded him and Lothar in Barbaric Galaxy prehistoric jungle (p03)",
+      "Continues narrating clan history from jungle (p03 onward)",
+      "Requested honorable death for Metabunker robots before nuclear explosion (recap)",
+      "Destroyed reptilian intruder with energy blast (p20)"
+    ],
+    "knowledge_boundaries": [
+      "Knows the full clan history of the Metabarons — serves as authoritative oral narrator",
+      "Knows the Metabunker was destroyed to prevent the secret of the Metabaron's scar from falling to enemies (recap)",
+      "Knows Melmoth's internal state — tower isolation, dual-personality war (p13)"
+    ],
+    "relationships": [
+      "character: Lothar; type: companion robot; narrates clan history to Lothar",
+      "character: the current Metabaron; type: his robot; narrator of master's clan history"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      },
+      {
+        "image_sha256": "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+        "page_id": "336_The_Metabarons_13_p02",
+        "source_image": "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg"
+      },
+      {
+        "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+        "page_id": "337_The_Metabarons_13_p03",
+        "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg"
+      },
+      {
+        "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "page_id": "338_The_Metabarons_13_p04",
+        "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+      },
+      {
+        "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "page_id": "343_The_Metabarons_13_p09",
+        "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+      },
+      {
+        "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "page_id": "347_The_Metabarons_13_p13",
+        "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+      },
+      {
+        "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+        "page_id": "353_The_Metabarons_13_p20",
+        "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+      }
+    ],
+    "traits": [
+      "Primary keeper and narrator of Metabarons clan history",
+      "Rebellious: willing to violate robotic law to solve urgent problems",
+      "Believes robots are more than machines; values robotic existence and dignity explicitly",
+      "Compassionate: requested honorable death for Metabunker robots (recap)",
+      "Resourceful and forward-thinking"
+    ],
+    "voice_notes": [
+      "States: 'Every problem has a solution' — justification for illegal hyperspace training (p03)",
+      "Explicitly argues that robots are not mere machines and values robotic life as meaningful (p03)",
+      "Explains that Melmoth was experiencing internal war because two previously separate personalities could not be reunited (p13)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Stopped narrating clan history to Lothar when Metabaron was absent too long (recap, p ic1-p01)",
+      "Requested that Metabunker robots be allowed an honorable death in nuclear explosion before the Metabaron departed (recap, p ic1-p01)",
+      "Secretly trained himself in hyperspace jumps despite robotic prohibition (p03)",
+      "Hyperspace jump went wrong; stranded himself and Lothar in prehistoric jungle on Barbaric Galaxy sub-planet (p03)",
+      "Continues narrating Metabarons clan history from jungle while fleeing giant reptilian predators (p03, p04 onward)",
+      "Explains Melmoth's tower isolation and dual-personality breakdown to a questioner (p13)",
+      "Cleaned by ant-robots and resumes narration after interruption (p09)",
+      "Destroys reptilian intruder with energy blast (p20)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Small robot, comparable scale to Tonto', 'Moves through jungle terrain alongside Tonto']}"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "Began self-destructive behavior during Metabaron's absence (recap)",
+      "Survived failed illegal hyperspace jump alongside Tonto (p03)"
+    ],
+    "knowledge_boundaries": [
+      "Dependent on Tonto for knowledge of clan history",
+      "Receives clan story incrementally — does not know full Metabarons narrative in advance"
+    ],
+    "relationships": [
+      "character: Tonto; type: companion robot; receives clan history narration from Tonto",
+      "character: the current Metabaron; type: robot of the Metabunker; emotionally dependent on master"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      },
+      {
+        "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+        "page_id": "337_The_Metabarons_13_p03",
+        "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg"
+      },
+      {
+        "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "page_id": "338_The_Metabarons_13_p04",
+        "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+      },
+      {
+        "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "page_id": "343_The_Metabarons_13_p09",
+        "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+      },
+      {
+        "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "page_id": "344_The_Metabarons_13_p10",
+        "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+      }
+    ],
+    "traits": [
+      "Emotionally dependent on stories about the Metabarons clan",
+      "Naively optimistic — expects happy endings in the clan story (p10)",
+      "Less rebellious than Tonto; more concerned with robotic law and consequences (p03)",
+      "Became suicidal during the Metabaron's prolonged absence (recap)",
+      "Questions Tonto's choices; considers illegal actions disgraceful"
+    ],
+    "voice_notes": [
+      "Asks why they are in the situation after the failed jump (p03)",
+      "Considers illegal hyperspace training a grave robotic transgression (p03)",
+      "Pushes story listeners to continue the clan tale (p04)",
+      "Naively assumes wedding = happy ending (p10)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Became suicidal; hurled himself against Metabunker walls during Metabaron's prolonged absence (recap, p ic1-p01)",
+      "Stranded with Tonto in prehistoric jungle on Barbaric Galaxy sub-planet after failed hyperspace jump (p03)",
+      "Questioned Tonto's decision to perform illegal hyperspace jump; called it a grave robotic transgression (p03)",
+      "Pushed for continuation of Metabarons clan story in frame narrative (p04)",
+      "Named by armored speaker in scene involving disintegrator umbrella (p11)",
+      "Asked about fate of 'the poor little blind girl' — leading to Vicenta's robotic eye story (p09)",
+      "Assumed the wedding procession meant a happy marriage ending; corrected by elderly speaker (p10)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': [\"No separate physical form — exists as internal personality within Melmoth's composite body\", 'Associated with brain-circuits woven into the inner ear (p11)']}"
+    ],
+    "character_id": "krleza",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Melmoth; type: component identity; poet aspect of composite being",
+      "character: Steelhead; type: co-inhabiting opposite personality within Melmoth; in open conflict with (p26)"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "page_id": "344_The_Metabarons_13_p10",
+        "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+      },
+      {
+        "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "page_id": "345_The_Metabarons_13_p11",
+        "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+      },
+      {
+        "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "page_id": "358_The_Metabarons_13_p26",
+        "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      }
+    ],
+    "traits": [
+      "Romantic, poetic, appreciates grand gestures and symbolism",
+      "Moved by the heart-shaped wedding fleet at Philodendra (p10)",
+      "Rejects killing; frames self as lover/poet rather than warrior (p26)",
+      "Retained individual selfhood within the composite being even after merging into Melmoth (p10)"
+    ],
+    "voice_notes": [
+      "In internal argument: identifies as lover/poet; explicitly rejects killing and slaughter (p26)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Appreciates the romantic spectacle of the heart-shaped fleet at Philodendra (p10)",
+      "Described as having brain-circuits woven into inner ear (p11)",
+      "Part of merged being that created Melmoth but never fully dissolved into him (p10)",
+      "Engaged in internal war with Steelhead for control of Melmoth's body at end of issue (p26)",
+      "One of the speaking voices disputing over Melmoth's actions and bodily responsibility (p26)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': [\"No separate physical form — exists as internal personality within Melmoth's composite body\", 'Associated with concealed electro-cerebral chips (p11)', 'If identified with elderly white-bearded commentator: older male figure, white beard, cockpit-like setting (p10 — uncertain)']}"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Melmoth; type: component identity; warrior aspect of composite being",
+      "character: Krleza; type: co-inhabiting opposite personality within Melmoth; in open conflict with (p26)",
+      "character: Lothar; type: addresses condescendingly as 'paleo-fool'"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "page_id": "344_The_Metabarons_13_p10",
+        "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+      },
+      {
+        "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "page_id": "345_The_Metabarons_13_p11",
+        "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+      },
+      {
+        "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "page_id": "358_The_Metabarons_13_p26",
+        "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      }
+    ],
+    "traits": [
+      "Warrior; contemptuous of ostentation and romantic display",
+      "Interprets the heart-shaped fleet as a sign of impotence (p10)",
+      "Cynical; lectures Lothar condescendingly as 'paleo-fool' (p10)",
+      "Asserts Metabarons are defined by suffering, not happiness (p10)",
+      "Aggressively demands bodily control for combat (p26)",
+      "Retained individual selfhood within the composite being even after merging into Melmoth (p10)"
+    ],
+    "voice_notes": [
+      "States Metabarons are characterized by suffering, not happiness (p10)",
+      "Calls Lothar 'paleo-fool' (p10)",
+      "In internal argument: identifies as warrior; demands body be used for combat (p26)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Contemptuous of the heart-shaped fleet at Philodendra; calls it impotence (p10)",
+      "Described as having concealed electro-cerebral chips within body (p11)",
+      "Part of merged being that created Melmoth but never fully dissolved into him (p10)",
+      "Argues that the Metabarons are defined by suffering rather than happiness (p10)",
+      "Engaged in internal war with Krleza for control of Melmoth's body at end of issue (p26)",
+      "Warrior voice in internal argument demands bodily control for battle (p26)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Arrives in disguise inside a Metacraft (recap, p ic1-p01)', 'Has a scar whose secret constitutes a critical weakness']}"
+    ],
+    "character_id": "the_current_metabaron",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Knows the secret of his own scar constitutes a critical weakness requiring the Metabunker's destruction"
+    ],
+    "relationships": [
+      "character: Tonto; type: Tonto is his robot and narrator of clan history",
+      "character: Lothar; type: Lothar is emotionally dependent on him; his absence caused Lothar's suicidal crisis"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+        "page_id": "335_The_Metabarons_13_ic1-p01",
+        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+      }
+    ],
+    "traits": [
+      "Harsh and decisive in destruction when strategic objectives require it",
+      "Strategic about concealing weakness — destroys the Metabunker specifically to protect the scar secret",
+      "Long absence caused severe psychological crisis in Lothar"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "Was absent from the Metabunker for a long time; absence drove Lothar to suicidal behavior (recap, p ic1-p01)",
+      "Returned to the Metabunker in disguise inside a Metacraft (recap, p ic1-p01)",
+      "Defeated the Metabunker's bio-electrogram defensive measure quickly (recap, p ic1-p01)",
+      "Ordered the Metabunker's nuclear self-destruction to prevent enemies learning the secret of his scar (recap, p ic1-p01)",
+      "Departed before the Metabunker exploded (recap, p ic1-p01)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['Tall, white-haired, white-bearded older man in dark clothing (p06)', 'Remains outwardly passive under armed threat (p06)']}"
+    ],
+    "character_id": "white_haired_elder",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Knows the political mechanics of the Galactic Union's noble-rank vote",
+      "Knows the mental state of Vicenta's father",
+      "Has a larger mission or vow — its nature not explained on these pages"
+    ],
+    "relationships": [
+      "character: Dona Vicenta Gabriela de Rokha; type: protector and medical caretaker",
+      "character: Melmoth; type: engineers Melmoth's marriage and noble rank advancement",
+      "character: unnamed wife (referenced internally); type: owes duty and obedience to"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+        "page_id": "339_The_Metabarons_13_p05",
+        "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+      },
+      {
+        "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "page_id": "340_The_Metabarons_13_p06",
+        "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+      },
+      {
+        "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "page_id": "342_The_Metabarons_13_p08",
+        "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+      }
+    ],
+    "traits": [
+      "Protective of Vicenta; argues for defensive violence to protect her (p05)",
+      "Medically capable: cauterizes Vicenta's eye wounds (p08)",
+      "Politically astute: engineers the marriage proposal as the political solution (p08)",
+      "Frames passivity under armed threat as obedience to a wife and linked to a larger destined mission involving 'darkness' and future world-creation (p06)"
+    ],
+    "voice_notes": [
+      "States he is bound by duty to his wife and awaits future darkness to create a world (p06)",
+      "Argues the attacking crowd perceives Vicenta only through their leader's warped viewpoint (p05)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Urged Vicenta to use violence against attackers about to breach her chamber (p05)",
+      "Warned that Vicenta's father had lost his memory and was dangerously confusing familial feeling with sexual desire (p05)",
+      "Remained passive when soldiers cornered him at gunpoint; declared obedience to his wife; invoked future darkness and world-creation (p06)",
+      "Cauterized Vicenta's eye wounds after she was blinded (p08)",
+      "Proposed Vicenta marry Melmoth and cast a federation vote granting him a medallion of high nobility (p08)",
+      "Framed the marriage as requiring federation approval and as having exceptional political worth (p08)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [
+      "{'physical': ['High-ranking figure in richly dressed technocratic delegation', \"Addressed as 'eminence' by subordinates\"]}"
+    ],
+    "character_id": "immaculate_techno_cardinal",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "Knows bikramen is found only in this planetary system",
+      "Knows artificial epiphyte — foundation of anti-gravity technology — depends entirely on bikramen",
+      "Knows natural epiphyte reserves are dwindling, making this extraction strategically critical"
+    ],
+    "relationships": [
+      "character: Technobishops; type: leads them; they act as spokesmen and attendants",
+      "character: Don Nicanor Rosamel de Rokha; type: presents coercive ultimatum to him"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+        "page_id": "350_The_Metabarons_13_p16",
+        "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg"
+      },
+      {
+        "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+        "page_id": "351_The_Metabarons_13_p17",
+        "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+      },
+      {
+        "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+        "page_id": "352_The_Metabarons_13_p18-p19",
+        "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+      }
+    ],
+    "traits": [
+      "Uses ritualistic, ideological language; frames colonial extraction as sacred pilgrimage and sacrifice",
+      "Contemptuous of the planet and its leadership",
+      "Aggressive — moves immediately from failed diplomacy to planetary bombardment",
+      "Appears physically unwell during audience; delegates key speech to Technobishops (p17)"
+    ],
+    "voice_notes": [
+      "Declares visiting the planet a sacred act in the name of the Holy Technocru… (p16)",
+      "Frames bikramen extraction as imperial necessity — technoscience and survival of the empire depend on it (p17)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "Arrived at Philodendra aboard a Technoclergy battleship; protective shield activated around procession (p16)",
+      "Traveled to presidential palace with Technobishops and armed entourage (p17)",
+      "Framed the journey as a sacred pilgrimage and sacrifice in the name of the Holy Technocru… (partially legible) (p16)",
+      "Presented ultimatum: extract bikramen from the planetary system or the population must relocate (p17)",
+      "Appeared ill or coughing during audience; delegated speech to Technobishops (p17)",
+      "Returned to battleship after being expelled by President Nicanor; Philodendra bombarded immediately after (p18-p19)"
+    ]
+  },
+  {
+    "aliases": [],
+    "appearances": [],
+    "character_id": "castaka",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [
+      {
+        "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "page_id": "345_The_Metabarons_13_p11",
+        "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

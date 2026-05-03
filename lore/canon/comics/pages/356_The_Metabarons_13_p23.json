@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "The soldiers wear helmets and combat armor and are operating in extremely hazardous conditions.",
+    "One soldier is visibly terrified in close-up.",
+    "A large bearded figure is physically present alongside the soldiers during the blast, but his role is not identified on this page."
+  ],
+  "characters_present": [
+    "Several armored soldiers in combat gear",
+    "A large bearded man in dark civilian-style clothing among the running figures",
+    "Vehicle crews or soldiers accompanying the military vehicles"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts escalating destruction and military movement, implying continuation of an ongoing battle sequence from surrounding pages."
+  ],
+  "dialogue_meaning": [
+    "A shouted cry signals panic, aggression, or exertion during the explosion and retreat/advance."
+  ],
+  "image_sha256": "6d56c7813f585cca26ff91e81ca3bfba55e7d638449c46adf0d060f3af0b4dcb",
+  "is_spread": false,
+  "locations": [
+    "A battlefield or war-torn industrial ruin",
+    "A rubble-filled demolition or impact zone with collapsed large structures",
+    "A vehicle staging or advance path through debris"
+  ],
+  "lore_facts": [
+    "The setting is an active combat zone with repeated large-scale explosions.",
+    "The forces present use armored ground vehicles and heavy machinery.",
+    "Massive rectangular structures or containers are being destroyed or dropped into the area during the conflict."
+  ],
+  "page_id": "356_The_Metabarons_13_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A group of armored soldiers and a large civilian or non-uniformed man flee or charge through an active explosion.",
+    "A major blast erupts across the battlefield, throwing debris and at least one helmet into the air.",
+    "Large box-like structures collapse or slam down into a rubble-filled area.",
+    "Additional explosions detonate around the fallen structures.",
+    "A soldier is shown isolated among broken concrete and wreckage.",
+    "A close-up emphasizes a soldier's shock or fear during the destruction.",
+    "Armed vehicles and heavy equipment move into the devastated zone."
+  ],
+  "source_image": "external/comics/meta-barons/356_The_Metabarons_13_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "6d56c7813f585cca26ff91e81ca3bfba55e7d638449c46adf0d060f3af0b4dcb",
+      "page_id": "356_The_Metabarons_13_p23",
+      "source_image": "external/comics/meta-barons/356_The_Metabarons_13_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The shouted text is only partially legible and its exact wording may be uncertain.",
+    "The identity and allegiance of the large bearded man are not established on this page alone.",
+    "The exact nature of the falling rectangular structures is unclear; they could be containers, buildings, or large industrial units.",
+    "It is unclear whether the soldiers are retreating from the blast or advancing through it."
+  ],
+  "visual_summary": "A chaotic battle scene unfolds amid wreckage and explosions. In the top panel, multiple soldiers and a large bearded figure run through a blast zone while one shouts. A huge explosion tears across the next panel. Large rectangular structures or containers crash down into rubble in the middle panels, with more detonations at their bases. In the bottom row, one soldier is seen amid debris, another close-up shows a terrified expression, and a final panel shows military vehicles and heavy machinery advancing through the shattered area.",
+  "volume": 13
+}

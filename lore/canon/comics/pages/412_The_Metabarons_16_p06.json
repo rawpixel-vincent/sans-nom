@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Deyanira is present during or being told about the battle and is directly addressed by another character.",
+    "The gold-faced figure appears armored and heavily equipped, suggesting a combat role.",
+    "The speaking figures are emotionally charged; one is alarmed and vulgar, while another is more controlling and explanatory.",
+    "Aghora is central to the backstory on this page because her pregnancy and her defense against invaders are both discussed."
+  ],
+  "characters_present": [
+    "A narrator or speaker addressing another person about Aghora and a birth",
+    "Deyanira, addressed by name in dialogue",
+    "A gold-faced armored/cybernetic figure in the battle scene",
+    "A dark armored companion or subordinate in the foreground",
+    "A large metallic head or helmet-like machine/object shown in the upper panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing explanation about Aghora, the origin of the current master, and a past war against cosmic invaders.",
+    "The battle scene is framed as part of a retrospective account explaining present lineage or leadership questions."
+  ],
+  "dialogue_meaning": [
+    "One speaker speculates crudely and angrily about how Aghora could have become pregnant and whether that explains the birth of the current master.",
+    "Another speaker tells the listener to stay calm and promises the explanation will make sense after recounting how Aghora fought off cosmic invaders.",
+    "Narration says the imperial fleet was nearly destroyed and the enemy was close to conquering all galaxies in their universe.",
+    "A combatant tells Deyanira that the enemy can only fight with brute force and loses when its own destructive power is turned back on it."
+  ],
+  "image_sha256": "a3547ce523e62cbfe9bf70b81d1b841ead1095e0549b8c550ae6782563c6cc4f",
+  "is_spread": false,
+  "locations": [
+    "A rain-exposed exterior or platform with a large metallic head/object in the upper panel",
+    "A space battle zone around futuristic towers, ships, or station-like structures",
+    "An observation point, cockpit, or open structural vantage overlooking the battle"
+  ],
+  "lore_facts": [
+    "Aghora is said to have fought off cosmic invaders.",
+    "There is a 'current master' whose birth is being discussed as a matter of lineage or succession.",
+    "An imperial fleet faced near-total destruction in a major interstellar conflict.",
+    "The enemy is described as mysterious and as threatening all galaxies in the universe.",
+    "The enemy’s weakness is that its force can be reflected back against it."
+  ],
+  "page_id": "412_The_Metabarons_16_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "A speaker continues a heated argument or explanation about Aghora, pregnancy, and the current master’s birth.",
+    "The narration shifts to a wartime crisis, stating that the imperial fleet was close to destruction and that a mysterious enemy threatened galactic domination.",
+    "During the battle, one character points out that the enemy is vulnerable to having its own attack reflected back at it.",
+    "Explosions and beam impacts suggest the tactic is being used successfully or is at least being explained in real time during combat."
+  ],
+  "source_image": "external/comics/meta-barons/412_The_Metabarons_16_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a3547ce523e62cbfe9bf70b81d1b841ead1095e0549b8c550ae6782563c6cc4f",
+      "page_id": "412_The_Metabarons_16_p06",
+      "source_image": "external/comics/meta-barons/412_The_Metabarons_16_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially the upper-left speech box; wording may be imperfectly interpreted.",
+    "The exact identity of the gold-faced armored figure and the dark armored companion is not stated on this page.",
+    "The large metallic head/object in the top panel is visually ambiguous and may be a machine, helmet, or statue rather than a character."
+  ],
+  "visual_summary": "A rain-soaked framed head or helmeted machine appears in the upper panel while narration continues in caption boxes. The large lower panel shows a space battle seen through a window or open structure: bright energy beams and explosions strike a cluster of futuristic towers or ships. In the foreground, a gold-faced armored figure with cybernetic equipment confronts or instructs a darker armored companion while watching the battle.",
+  "volume": 16
+}

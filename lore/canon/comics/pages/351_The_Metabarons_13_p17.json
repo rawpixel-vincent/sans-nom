@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "President Nicanor appears physically weak, repeatedly coughing, and seems dependent on ceremony and attendants during the audience.",
+    "The technocardinal is presented as an eminent authority figure leading the negotiation or ultimatum.",
+    "The technobishops act as spokesmen or executors for the technocardinal.",
+    "The delegation's entourage includes heavily armed personnel, implying the threat behind their diplomacy."
+  ],
+  "characters_present": [
+    "President Nicanor, an ailing local ruler",
+    "An eminent technocardinal or similar high-ranking technocratic cleric",
+    "Several technobishops accompanying the technocardinal",
+    "Armed guards or soldiers accompanying the delegation",
+    "Palace attendants or local officials"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page introduces or develops a conflict centered on imperial demand for bikramen and the forced removal of a planet's inhabitants.",
+    "The scene ties anti-gravity technology directly to scarce imperial resources, linking political domination with technological dependency."
+  ],
+  "dialogue_meaning": [
+    "The visiting technocratic faction treats the planet and its leadership with disdain and barely concealed violence.",
+    "The local president welcomes the visitors respectfully despite his poor health.",
+    "The technocardinal uses illness and coughing to hand off part of the speech to subordinate technobishops.",
+    "The delegation's true purpose is resource extraction, framed as an unavoidable imperial necessity.",
+    "Their 'offer' is effectively forced displacement of the planet's inhabitants under commercial terms favorable to the empire."
+  ],
+  "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+  "is_spread": false,
+  "locations": [
+    "The presidential palace on a distant planet",
+    "An exterior palace courtyard with monumental futuristic architecture",
+    "An interior audience hall or throne room"
+  ],
+  "lore_facts": [
+    "There is an empire supported by a technocratic religious-industrial hierarchy including ranks such as technocardinal and technobishop.",
+    "Bikramen is a valuable mineral found in this planetary system.",
+    "Bikramen enables large-scale manufacture of artificial epiphyte.",
+    "Artificial epiphyte is described as the foundation of anti-gravity or anti-G energy.",
+    "Natural epiphyte supplies are dwindling, creating pressure on the empire's technological base.",
+    "The empire responds to strategic resource shortages by attempting to relocate populations and appropriate inhabited worlds."
+  ],
+  "page_id": "351_The_Metabarons_13_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A high-ranking technocratic delegation arrives at the presidential palace of a distant world.",
+    "Members of the delegation mock the planet's old-fashioned architecture and speak contemptuously about its ruler.",
+    "The local president formally receives the visitors inside the palace but is visibly ill and coughing.",
+    "The delegation states that scouts have detected major deposits of bikramen in the planetary system.",
+    "They explain that bikramen is needed to manufacture artificial epiphyte, which underpins anti-gravity technology.",
+    "The visitors claim the empire's natural epiphyte reserves are running out and that bikramen is therefore essential to their technoscience and imperial survival.",
+    "They present a coercive proposal: the planet's population must relocate to another prepared planetary system, which the delegation will sell to them."
+  ],
+  "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+      "page_id": "351_The_Metabarons_13_p17",
+      "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read; wording may not be exact.",
+    "The precise names and titles of all delegates other than President Nicanor and the technocardinal/technobishops are not fully legible.",
+    "The exact spelling of certain technical terms is inferred from the page lettering and may be slightly uncertain."
+  ],
+  "visual_summary": "An imposing delegation arrives at a presidential palace on a distant planet. A floating craft approaches monumental futuristic architecture while armored attendants and robed locals stand outside. Inside a grand chamber, a sickly president sits before a huge sculptural backdrop as a richly dressed technocratic delegation addresses him. The visitors explain that their empire needs a mineral found in this planetary system and conclude by saying the inhabitants will have to relocate, offering resettlement elsewhere for a price. Close-up panels emphasize the delegation's cold, predatory attitude and the president's frailty.",
+  "volume": 13
+}

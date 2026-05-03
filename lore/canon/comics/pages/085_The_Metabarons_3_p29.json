@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The silver-haired man keeps multiple firearms close at hand and reacts quickly to danger.",
+    "The silver-haired man is hostile toward Honorata.",
+    "Honorata appears concealed under layered black veils when she enters.",
+    "The background women appear frightened by the confrontation."
+  ],
+  "characters_present": [
+    "Silver-haired armed man",
+    "Veiled woman identified as Honorata",
+    "Green-skinned attendant or subordinate near the doors",
+    "Several frightened women in the background"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page introduces or reintroduces Honorata as a figure known to the armed man.",
+    "The dialogue implies an existing lore connection between Honorata, a mysterious kingdom, and the term 'Shabda-Oud.'"
+  ],
+  "dialogue_meaning": [
+    "The armed man is alarmed that someone other than himself can operate the doors.",
+    "He treats the unknown entrant as a threat and immediately arms himself.",
+    "The veiled figure presents herself as Honorata and frames her arrival as an offering or gift.",
+    "The man's response suggests he recognizes her symbolic or religious affiliation and despises it."
+  ],
+  "image_sha256": "1d0613df0a213099b1053946acbcf1bc32f7809b3c612387a6da5317e349cd14",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber or room",
+    "A doorway with controlled doors",
+    "A table or surface covered with firearms"
+  ],
+  "lore_facts": [
+    "Control over the room's doors can be taken by someone other than the armed man.",
+    "Honorata is associated with a 'kingdom of mysteries' according to the man's reaction.",
+    "Honorata is called a priestess associated with 'Shabda-Oud' on this page, though the exact spelling is uncertain."
+  ],
+  "page_id": "085_The_Metabarons_3_p29",
+  "page_label": "p29",
+  "plot_events": [
+    "A man realizes someone else has taken control of the room's doors.",
+    "He moves toward a cache of weapons as the doors open.",
+    "A tall veiled figure enters the room.",
+    "The man aims a pistol at the newcomer and threatens to shoot.",
+    "The veiled figure identifies herself as Honorata and says she is a gift.",
+    "The man recognizes or categorizes her as connected to a mysterious kingdom, then insults her as a priestess linked to 'Shabda-Oud.'",
+    "A final sound effect emphasizes the gun's action or a sudden movement involving the weapon."
+  ],
+  "source_image": "external/comics/meta-barons/085_The_Metabarons_3_p29.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1d0613df0a213099b1053946acbcf1bc32f7809b3c612387a6da5317e349cd14",
+      "page_id": "085_The_Metabarons_3_p29",
+      "source_image": "external/comics/meta-barons/085_The_Metabarons_3_p29.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; the exact spelling of 'Shabda-Oud' is uncertain.",
+    "The final sound effect is unclear and may indicate cocking, movement, or firing rather than a clearly shown shot.",
+    "The identities of the silver-haired man, the green-skinned figure, and the background women are not stated on this page alone."
+  ],
+  "visual_summary": "In a stark interior room, a silver-haired armed man reacts as doors open unexpectedly. He reaches across a table of firearms and points a pistol toward a tall, black-veiled figure entering through the doorway. The veiled newcomer identifies herself as Honorata and calls herself a gift, while the armed man reacts with recognition and contempt. Several frightened women are visible behind him in one panel, and a large sound effect accompanies the gun at the end.",
+  "volume": 3
+}

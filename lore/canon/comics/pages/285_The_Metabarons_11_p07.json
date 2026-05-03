@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Zaran Krleza is identified as a poet.",
+    "Zaran Krleza is referred to as 'the last poet.'",
+    "A speaker believes only a poet can teach them how to love.",
+    "The main speaking figure is capable of highly ornate, lyrical speech and seems emotionally invested in reaching the named poet."
+  ],
+  "characters_present": [
+    "Unseen poetic speaker aboard the spacecraft",
+    "Unseen impatient/questioning speaker aboard the spacecraft",
+    "Zaran Krleza (named but not visually shown clearly on this page)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a search or pursuit driven by a received signal.",
+    "The identification of Zaran Krleza appears to redirect the journey toward a specific person rather than only a place.",
+    "The voyage toward the tiny planet is already underway or immediately begins after the identification."
+  ],
+  "dialogue_meaning": [
+    "One speaker expresses longing and fascination through elaborate poetic language.",
+    "Another speaker pushes for plain information instead of extended recitation.",
+    "The plain answer is that the sought figure is Zaran Krleza, located at the galaxy’s edge.",
+    "The excited response implies Zaran Krleza is a poet of major importance and is expected to teach the speaker about love.",
+    "Narration describes the destination as an extremely hostile world with acid winds and crushing atmospheric pressure, where people require very heavy exoskeletons.",
+    "Additional poetic narration addresses an absent 'you' in devotional or romantic terms during the voyage.",
+    "The voyage to the signal’s source has taken six months, and the place has a fearsome reputation among scholars."
+  ],
+  "image_sha256": "1fb83061c96f7d0a3cb2bc98946937a9f1bfdf597d56175a7679f13187884edd",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or cockpit filled with machinery",
+    "Outer space",
+    "A tiny planet at the galaxy’s edge, source of the signal"
+  ],
+  "lore_facts": [
+    "There is a place referred to as the galaxy’s edge.",
+    "A signal was traced to a tiny planet at the galaxy’s edge.",
+    "Finding that planet took six months.",
+    "The planet is described as having acid winds blowing at dizzying speeds.",
+    "The planet’s atmospheric pressure is said to force people to live in exoskeletons weighing several tons.",
+    "Scholars compare that place to the hell of ancient myth."
+  ],
+  "page_id": "285_The_Metabarons_11_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A poetic monologue describes a journey through darkness toward a desired person or destination.",
+    "A second speaker interrupts and asks who is being described and where he is.",
+    "The target is identified as Zaran Krleza.",
+    "A speaker reacts with excitement, saying the last poet Zaran Krleza is still alive and calling him the perfect teacher.",
+    "The ship is ordered or set on a course for the galaxy’s edge.",
+    "The scene cuts to the spacecraft traveling through space toward a tiny planet.",
+    "Narration states it took six months to identify the small planet from which the signal was coming."
+  ],
+  "source_image": "external/comics/meta-barons/285_The_Metabarons_11_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1fb83061c96f7d0a3cb2bc98946937a9f1bfdf597d56175a7679f13187884edd",
+      "page_id": "285_The_Metabarons_11_p07",
+      "source_image": "external/comics/meta-barons/285_The_Metabarons_11_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, especially the poetic narration, so exact phrasing may be imperfect.",
+    "The speaking characters are not clearly identifiable by name from this page alone.",
+    "It is unclear whether the visible machinery includes the speakers themselves or only ship systems/robots.",
+    "The exact visual nature of the blue trail in space is ambiguous; it could be an engine wake, beam, or stylized travel effect."
+  ],
+  "visual_summary": "Inside a dense, machinery-filled spacecraft cockpit, a speaker recites ornate, romantic-sounding lines while another impatient voice asks for a direct identification. The answer names Zaran Krleza. The ship then appears in space, projecting a long blue beam or wake as it travels toward a distant tiny planet at the galaxy’s edge, while narration explains the harsh destination and the long search required to find the source of a signal.",
+  "volume": 11
+}

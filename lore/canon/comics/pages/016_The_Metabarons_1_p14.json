@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Edna argues in favor of saving the injured man, based on how others endorse her stance.",
+    "The older long-haired father opposes the rescue decision or supports the competing position, since he is overruled and associated with the warning.",
+    "The younger silver-haired man has enough authority to overturn his father's decision publicly.",
+    "The red-bearded man supports keeping the secret.",
+    "The rescue crew are shown physically handling the injured man and preparing an invasive-looking tool."
+  ],
+  "characters_present": [
+    "Edna",
+    "An older long-haired man addressed as 'Father'",
+    "A younger silver-haired man who overrules his father",
+    "A bearded armored man with goggles/helmet",
+    "A bearded red-haired man supporting secrecy",
+    "A purple-robed observer",
+    "Several rescue or work crew members in heavy gear",
+    "An injured man on the ground"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing crisis involving an injured man whose survival is uncertain.",
+    "The argument over secrecy implies prior knowledge or hidden information carried over from earlier pages.",
+    "The rescue effort begins immediately after the decision in the upper panels."
+  ],
+  "dialogue_meaning": [
+    "One speaker praises Edna's position but insists there is no time and votes to preserve the injured man's life.",
+    "Another speaker explicitly backs keeping a secret instead of prioritizing the rescue.",
+    "At least one more voice sides with saving the man.",
+    "An opposing figure warns that this decision will be regretted.",
+    "The younger man asserts authority over his father by saying he has been overruled.",
+    "Observers below speculate about what the rescuers can still do because the injured man may already be close to death.",
+    "One remark jokes or comments about wanting information badly, mentioning 'lupium'."
+  ],
+  "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+  "is_spread": false,
+  "locations": [
+    "An interior gathering or council space",
+    "A nearby rescue or treatment area on the floor, viewed by onlookers"
+  ],
+  "lore_facts": [
+    "Edna is influential enough in this scene that others openly respond to her position.",
+    "There is an active conflict between saving a man's life and protecting some secret.",
+    "A familial hierarchy exists between the older man and the younger man who calls him father.",
+    "The setting includes personnel equipped with heavy suits and specialized tools for emergency intervention.",
+    "The substance or item called 'lupium' exists in this story world and is described as desirable or delicious by a speaker."
+  ],
+  "page_id": "016_The_Metabarons_1_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A group debate splits between preserving life and preserving a secret.",
+    "Multiple speakers support saving the injured man despite objections.",
+    "A younger authority figure tells his father that he has been overruled.",
+    "Attention shifts to the rescue area where workers attend to a man lying on the ground.",
+    "A worker readies a drill-like instrument, suggesting an urgent intervention on the injured man."
+  ],
+  "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+      "page_id": "016_The_Metabarons_1_p14",
+      "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially the lower-left joke about 'lupium' and the exact wording of the bystander comments.",
+    "The exact identities and names of most characters other than Edna are not stated on this page.",
+    "It is unclear whether the drill-like tool is medical, mechanical, or both.",
+    "The precise nature of the secret being protected is not revealed on this page alone."
+  ],
+  "visual_summary": "A council or family argument turns into action. In the upper panels, several armored and formally dressed figures debate whether to save a gravely injured man or protect a secret. A stern younger man faces an older long-haired elder and declares that the elder has been overruled. In the lower half, onlookers watch rescue workers handling a collapsed or nearly dead man on the ground. Close-up panels show a worker preparing or using a drill-like medical or mechanical tool.",
+  "volume": 1
+}

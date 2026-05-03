@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Aghnar is carrying or protecting Oda while badly wounded himself.",
+    "Aghnar is analytical under pressure, arguing that no enemy is truly invincible.",
+    "Aghnar is determined to continue despite despair and physical danger.",
+    "Oda is alive but unconscious or incapacitated, with severe mental or neurological harm described in dialogue.",
+    "Tonto is a small robot who speaks at length and appears medically relevant to Oda's survival.",
+    "The cetacyborgs are active antagonists physically blocking Aghnar's path."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda",
+    "Tonto",
+    "Cetacyborgs",
+    "An unidentified surviving witch mentioned in dialogue but not clearly shown"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows a battle that left Oda gravely injured.",
+    "It sets up an immediate attempt to reach the Metabunker for treatment.",
+    "It foreshadows the next chapter or episode, \"The Possession of Oda,\" as the continuation of this crisis."
+  ],
+  "dialogue_meaning": [
+    "The injured woman has a beating heart, but her mind or brain has been catastrophically affected by the battle.",
+    "The male lead believes immediate surgery in the Metabunker by Tonto could save her.",
+    "The cetacyborg enemies present themselves as an inescapable blockade.",
+    "The man rejects the idea that the monsters are unbeatable and insists they must have some vulnerability.",
+    "He is emotionally strained but remains determined to continue.",
+    "Tonto shifts from comic interruption to strategic information, saying the key knowledge about the cetacyborgs' weakness may be lost with the last surviving witch.",
+    "The dialogue also states that Aghnar will get past the cetacyborgs and that Oda will recover, framing that outcome as expected by the speaker."
+  ],
+  "image_sha256": "d0541e089c92174aaa269adbcaec44055d55eaf60296038e2eedaa849946aa6b",
+  "is_spread": false,
+  "locations": [
+    "A combat-damaged interior passage or chamber",
+    "The Metabunker, mentioned as the intended destination"
+  ],
+  "lore_facts": [
+    "The Metabunker is a place with medical or surgical capability.",
+    "Tonto is capable of performing or assisting in an operation.",
+    "Cetacyborgs are creatures created by the witches of Shabda-Oud.",
+    "Within this page's dialogue, the cetacyborgs are said to have a weak spot.",
+    "Only one of the witches is said to remain alive at this moment.",
+    "Knowledge of the cetacyborgs' weakness is tied to that surviving witch.",
+    "The next episode is titled \"The Possession of Oda.\""
+  ],
+  "page_id": "204_The_Metabarons_7_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "The man confirms the woman is still alive physically but mentally devastated by battle.",
+    "He decides to rush her to the Metabunker so Tonto may be able to operate on her.",
+    "Hostile cetacyborgs block the route and taunt him, saying escape is impossible.",
+    "The man reasons that the attackers must have a weak point because their creators would not make truly invincible monsters.",
+    "Despite the situation, he resolves to attempt the impossible and push forward.",
+    "A small robot named Tonto interrupts and begins giving information.",
+    "Tonto states that only one witch is still alive and that the secret of the cetacyborgs' weakness may die with her.",
+    "The page ends with a next-episode teaser: \"The Possession of Oda.\""
+  ],
+  "source_image": "external/comics/meta-barons/204_The_Metabarons_7_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d0541e089c92174aaa269adbcaec44055d55eaf60296038e2eedaa849946aa6b",
+      "page_id": "204_The_Metabarons_7_p27",
+      "source_image": "external/comics/meta-barons/204_The_Metabarons_7_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and stylized, so exact wording is hard to read; summary is based on legible portions.",
+    "The page source says p27, but the printed page number visible in the image is 28.",
+    "One speech balloon contains a convoluted line about ancestry and the current Metabaron; its precise wording is difficult to parse from the image alone.",
+    "The surviving witch is mentioned in dialogue, but her identity is not established on this page."
+  ],
+  "visual_summary": "A wounded dark-haired man in armor carries or kneels over an unconscious woman whose body shows heavy injury. He moves through a corridor crowded by hostile, insectlike or cyborg figures while speaking urgently about saving her and overcoming seemingly invincible enemies. Large close-ups emphasize his desperation. In the lower section, a small round robot addresses him and explains that only one witch remains alive and that the secret weakness of the attacking cetacyborgs may die with her. A caption at the bottom announces the next episode, \"The Possession of Oda.\"",
+  "volume": 7
+}

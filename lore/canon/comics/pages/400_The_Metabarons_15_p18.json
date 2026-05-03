@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The smaller armored swordsman carries a sword and wears a mask or respirator.",
+    "The smaller fighter is strongly attached to someone called 'Milady'.",
+    "The larger armored figure is physically dominant in this encounter and uses a freezing weapon or ability.",
+    "The larger figure explicitly claims the status of 'new Metabaron'."
+  ],
+  "characters_present": [
+    "Large armored victor claiming to be the new Metabaron",
+    "Smaller masked armored swordsman",
+    "A damaged or fallen figure/body addressed as 'Milady'"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the outcome of an ongoing duel or confrontation.",
+    "The final space panel suggests the frozen target is being removed or expelled after the interior fight.",
+    "The succession claim implies prior importance of the Metabaron title in the surrounding story."
+  ],
+  "dialogue_meaning": [
+    "The smaller swordsman is emotionally attached to 'Milady' and wants to reconstruct or keep her.",
+    "The larger armored figure chooses immobilization by freezing rather than direct killing.",
+    "The page frames love or attachment as a fatal weakness for a warrior.",
+    "The victor interprets this win as a succession event tied to the title of Metabaron."
+  ],
+  "image_sha256": "d6f6f58c00c03d74f2e9c7b0e1ecf79534e1b523768491ced6036e41e0691e60",
+  "is_spread": false,
+  "locations": [
+    "A metallic industrial or ship-like interior chamber",
+    "Outer space beside a spacecraft"
+  ],
+  "lore_facts": [
+    "The title 'Metabaron' can be claimed or announced in direct connection with defeating another warrior.",
+    "Freezing or suspension technology exists that can immobilize someone inside a glowing bubble-like mass or capsule.",
+    "Combat and succession are linked to a warrior code in which love is treated as a weakness."
+  ],
+  "page_id": "400_The_Metabarons_15_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A large armored character uses a freezing or encapsulating attack on a defeated or damaged target on the floor.",
+    "A smaller armored swordsman vows to restore 'Milady' and keep her from leaving his world.",
+    "The larger armored character says they cannot kill the smaller fighter but can freeze him instead.",
+    "The smaller fighter is overpowered and lifted or trapped by the freezing blast.",
+    "The victor declares that love caused the smaller fighter's defeat and that this victory makes them the new Metabaron.",
+    "A final exterior shot shows a frozen or encapsulated figure/object launched away from a ship into space."
+  ],
+  "source_image": "external/comics/meta-barons/400_The_Metabarons_15_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d6f6f58c00c03d74f2e9c7b0e1ecf79534e1b523768491ced6036e41e0691e60",
+      "page_id": "400_The_Metabarons_15_p18",
+      "source_image": "external/comics/meta-barons/400_The_Metabarons_15_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly hard to read; exact wording may be imperfect.",
+    "The identity of 'Milady' is unclear from this page alone.",
+    "It is unclear whether the frozen figure sent into space is the smaller swordsman, 'Milady,' or another body/object.",
+    "The exact mechanism of the freezing effect, whether weapon, environmental system, or innate technology, is not explicit on this page."
+  ],
+  "visual_summary": "In a metallic interior, a large armored figure unleashes a bright, foaming or bubbling freezing blast from a nozzle or arm-mounted device over a damaged or fallen body. A smaller armored swordsman stands nearby beside wreckage and smoke. The larger figure then lifts or pins the smaller fighter in the freezing stream while declaring victory, and a close-up shows the smaller fighter shouting through a breathing mask. The final panel cuts to space, where a body or object is enclosed in a glowing spherical capsule being projected away from a spacecraft.",
+  "volume": 15
+}

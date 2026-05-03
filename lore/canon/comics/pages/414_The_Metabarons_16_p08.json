@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "Aghora is female, as indicated by the narration.",
+    "Aghora is capable of infiltrating enemy defenses.",
+    "Aghora has access to invisibility technology or equipment.",
+    "Aghora is strategic and prefers attacking a controlling source over wasting weapons on lesser foes."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Jellyfish-like enemy creatures referred to as 'paleo-jellyfish'"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing conflict involving an enemy defensive screen and hostile creatures.",
+    "The space explosions at the page's edge suggest this infiltration occurs in the context of a larger battle."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that Aghora used a mirror-based loophole or principle to slip through the enemy's defensive screen.",
+    "The narration says she stayed concealed by a cloak that rendered her invisible while traveling at extreme speed.",
+    "Aghora judges the jellyfish-like enemies unworthy of direct attack and chooses to destroy the source that controls them instead."
+  ],
+  "image_sha256": "dea1fe3998ceda1b7813fc32a7f0f6f9e774d95d3f24f8908d2eafd6213f8c6f",
+  "is_spread": false,
+  "locations": [
+    "Outer space during a battle or pursuit",
+    "An organic-mechanical interior or corridor beyond the enemy screen",
+    "A distant region described as the farthest ends of the universe"
+  ],
+  "lore_facts": [
+    "This setting includes an 'enemy screen' that can be penetrated through a mirror-related principle.",
+    "Aghora possesses or uses a cloak that makes her invisible.",
+    "Hyper light-speed travel is possible in this universe.",
+    "The page refers to the 'farthest ends of our universe' as a reachable destination.",
+    "The jellyfish-like beings are controlled by an external force rather than acting fully independently."
+  ],
+  "page_id": "414_The_Metabarons_16_p08",
+  "page_label": "p08",
+  "plot_events": [
+    "Aghora bypasses or penetrates an 'enemy screen' by exploiting a mirror-related principle.",
+    "She remains hidden by an invisibility cloak while traveling at hyper light-speed.",
+    "She reaches a distant region at the far ends of the universe.",
+    "She passes through a hostile, organic-looking environment populated by jellyfish-like entities.",
+    "Aghora decides not to attack the creatures directly and instead targets the force controlling them."
+  ],
+  "source_image": "external/comics/meta-barons/414_The_Metabarons_16_p08.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "dea1fe3998ceda1b7813fc32a7f0f6f9e774d95d3f24f8908d2eafd6213f8c6f",
+      "page_id": "414_The_Metabarons_16_p08",
+      "source_image": "external/comics/meta-barons/414_The_Metabarons_16_p08.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption text is small and may be slightly misread, especially the exact phrasing around the mirror principle and speed descriptor.",
+    "The exact nature of the organic-mechanical setting is unclear from this page alone; it may be a corridor, interior structure, or living defensive environment.",
+    "The small figure is identified as Aghora by the narration, but facial and costume details are limited at this scale."
+  ],
+  "visual_summary": "A page of slanted panels shows a transition from open space combat to an interior, organic-mechanical environment. On the left, ships and debris explode in space. In the central and right panels, a small human figure identified by the narration as Aghora moves at extreme speed through a dense maze of tube-like, fleshy-metal structures while rounded, jellyfish-like beings drift nearby. The captions explain that she bypassed the enemy's defenses by using invisibility and mirror-like logic, then traveled to the far reaches of the universe to strike at the controlling force instead of fighting the creatures directly.",
+  "volume": 16
+}

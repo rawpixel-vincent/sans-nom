@@ -1,0 +1,50 @@
+{
+  "character_facts": [
+    "One featured figure is shown carrying a large futuristic firearm.",
+    "The montage emphasizes several serious-looking human or humanoid figures as important to the comic's identity.",
+    "A woman in the montage wears a distinct jewel or emblem centered on her forehead."
+  ],
+  "characters_present": [
+    "A small central bald or closely shaven armed man in dark clothing",
+    "A large stern bald or closely shaven older man at upper left",
+    "A dark-haired woman with a forehead ornament at lower left",
+    "A silver-haired woman in profile near center",
+    "A dark-haired man partially obscured at upper right",
+    "A bearded older man with long white hair at lower right"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page serves as a title/credit page that introduces the series and its cast imagery before narrative pages begin."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "a3a581115d9662bef132b6db4217db92ecb7845a7cdcae98fffbac732236f321",
+  "is_spread": false,
+  "locations": [],
+  "lore_facts": [
+    "The work is identified as \"The Metabarons.\"",
+    "The page credits Alejandro Jodorowsky for the story and Juan Gimenez for art, color, and cover.",
+    "The page states that the original Metabaron character was created by Moebius and Jodorowsky.",
+    "The publisher branding shown is Humanoids/Humanoids Publishing."
+  ],
+  "page_id": "002_The_Metabarons_1_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page introduces the comic as \"The Metabarons.\"",
+    "Multiple prominent figures are displayed in a collage around a central armed character, suggesting key cast members or lineage figures.",
+    "Creator and publication credits are presented on the page."
+  ],
+  "source_image": "external/comics/meta-barons/002_The_Metabarons_1_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a3a581115d9662bef132b6db4217db92ecb7845a7cdcae98fffbac732236f321",
+      "page_id": "002_The_Metabarons_1_ic1",
+      "source_image": "external/comics/meta-barons/002_The_Metabarons_1_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "This is not a narrative story page, so exact identities and relationships of the pictured figures are not given here.",
+    "Small publication and credit text is present but difficult to read in full at this resolution."
+  ],
+  "visual_summary": "An interior cover/title page presents a dark painted montage of several figures around a smaller central warrior holding a large gun. The series title, \"The Metabarons,\" dominates the lower half, with creator and publication credits beneath it. The composition functions as an introductory image rather than a story scene.",
+  "volume": 1
+}

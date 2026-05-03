@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Tonto is credited by another character with defeating all the witches single-handedly.",
+    "Lothar is an interrupter or listener being warned into silence.",
+    "The fearful speaker is excitable and intimidated.",
+    "The reflective speaker learned psycho-mimetics from their mother.",
+    "The reflective speaker also learned from their father that illusions do not endure."
+  ],
+  "characters_present": [
+    "Lothar (named in dialogue, off-panel)",
+    "Tonto (named in dialogue, off-panel)",
+    "Current Metabaron (referenced in dialogue, not clearly shown)",
+    "Helmeted woman in inset",
+    "Helmeted man in inset"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing story being recounted aloud.",
+    "The reference to the 'current Metabaron' links the scene to the larger Metabaron lineage.",
+    "The mention of mother and father connects the present mental struggle to earlier family teachings or memories."
+  ],
+  "dialogue_meaning": [
+    "One speaker is astonished that Tonto could defeat all the witches alone and babbles fearfully.",
+    "Another speaker orders Lothar to stop interrupting and threatens total disintegration using the current Metabaron's device.",
+    "A brief fearful response indicates the threat works.",
+    "A reflective inner monologue states that maternal training in psycho-mimetics helps bypass mental probes, while paternal teaching helps recognize that illusions are temporary."
+  ],
+  "image_sha256": "9578956da32a919169ce3e5f429fca5c83f1522576543475d881c884652c5ba4",
+  "is_spread": false,
+  "locations": [
+    "An interior or enclosed setting implied by the top dialogue balloons",
+    "Outer space around a large tower-like bio-mechanical structure",
+    "A radiant prism-like or triangular light space/phenomenon"
+  ],
+  "lore_facts": [
+    "The setting includes a 'current Metabaron' who possesses or is associated with a bio-electrogram capable of disintegrating someone.",
+    "'Psycho-mimetics' is a taught discipline or technique that can help someone get past mental probes.",
+    "Mental probes exist in this world as a form of psychic or psychological intrusion.",
+    "Illusion and the ability to see through it are treated as practical knowledge passed down within a family line.",
+    "The page depicts advanced or hybrid biotechnology, combining mechanical structures with organic-looking components."
+  ],
+  "page_id": "190_The_Metabarons_7_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "An off-panel storyteller is pressured to continue speaking while another voice threatens to use the current Metabaron's bio-electrogram to destroy the interrupter.",
+    "A towering structure or craft in space powers up and fires or emits a strong beam of light.",
+    "A close-up reveals a grotesque organic-mechanical component with a face visible inside it.",
+    "A brilliant triangular or prism-like light phenomenon fills the scene.",
+    "A character reflects that teachings from 'mother' enabled passage through mental probes, and teachings from 'father' taught that illusions do not last."
+  ],
+  "source_image": "external/comics/meta-barons/190_The_Metabarons_7_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9578956da32a919169ce3e5f429fca5c83f1522576543475d881c884652c5ba4",
+      "page_id": "190_The_Metabarons_7_p13",
+      "source_image": "external/comics/meta-barons/190_The_Metabarons_7_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some lettering is small and slightly hard to read, so exact phrasing may be imperfect.",
+    "The identities of the helmeted woman and man are not explicitly labeled on the page.",
+    "It is unclear whether the inset figures are physically present, remembered, or imagined.",
+    "The exact nature of the tower-like object and the triangular light phenomenon is not explicitly explained on this page alone."
+  ],
+  "visual_summary": "Two off-panel speakers argue in caption balloons at the top, with one threatening the other into silence. Below, a tall bio-mechanical tower or vessel in space activates and emits a powerful white beam. A close view shows an organic-looking head or pod with a face embedded inside. The lower half becomes a huge radiant triangular/prismatic light. In a small inset, a helmeted woman and a helmeted man are shown as a thought or recollection while text reflects on lessons from 'mother' and 'father' and on seeing through illusions.",
+  "volume": 7
+}

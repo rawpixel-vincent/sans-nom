@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The Zacuda Frolex is depicted as an insect-like lifeform.",
+    "The original Zacuda Frolex dies after laying one egg.",
+    "The offspring is a mutant Zacuda Frolex created after the egg absorbs shocks from the machine."
+  ],
+  "characters_present": [
+    "Zacuda Frolex",
+    "mutant Zacuda Frolex"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page appears to narrate the origin of the mutant Zacuda Frolex introduced as a later threat or significant creature.",
+    "The transformation is directly linked to the interaction between the egg and the computer machinery at Police Central."
+  ],
+  "dialogue_meaning": [
+    "The narration frames Police Central as an ugly metallic urban structure.",
+    "A Zacuda Frolex dies in a computer keyboard or key mechanism.",
+    "Its egg remains inside the machine long enough to be affected by the environment there.",
+    "Artificial rain and elapsed time set up the transformation.",
+    "Electrical or mechanical shocks from the machine cause the egg to hatch into a much larger mutant version of the species."
+  ],
+  "image_sha256": "a1745d0af70fc684798143c143b7ad8550072fc06623a49d3afde2e6a2492d2a",
+  "is_spread": false,
+  "locations": [
+    "Police Central",
+    "a minor computer identified by the number sequence BT-45891020354662",
+    "an interior machine/computer space",
+    "a cityscape around Police Central"
+  ],
+  "lore_facts": [
+    "Police Central exists as a major metallic structure in this setting.",
+    "Artificial rain occurs in this environment.",
+    "There are 'minor' computers with individually identified machine designations.",
+    "A Zacuda Frolex can lay an egg at the moment of death.",
+    "Machine shocks can alter the development of a Zacuda Frolex egg, resulting in mutation.",
+    "The mutant offspring is described as enormous relative to the original insect."
+  ],
+  "page_id": "059_The_Metabarons_3_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "Police Central is introduced visually as a massive metallic structure.",
+    "A dying Zacuda Frolex falls between the keys of a minor computer inside or associated with Police Central.",
+    "Before dying, the creature lays a single egg.",
+    "Time passes during a period of artificial rain.",
+    "The city is shown under a red evening sky after the rain.",
+    "The egg, altered by shocks from the machine, hatches.",
+    "An enormous mutant Zacuda Frolex is born from the machine."
+  ],
+  "source_image": "external/comics/meta-barons/059_The_Metabarons_3_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a1745d0af70fc684798143c143b7ad8550072fc06623a49d3afde2e6a2492d2a",
+      "page_id": "059_The_Metabarons_3_p02",
+      "source_image": "external/comics/meta-barons/059_The_Metabarons_3_p02.jpg"
+    }
+  ],
+  "uncertainties": [],
+  "visual_summary": "A sequence of narrated panels shows the metallic bulk of Police Central, then explains that a Zacuda Frolex dies there and drops between the keys of a numbered minor computer. The insect lays a single egg before dying. After a period of artificial rain and a red sunset over the city, the egg hatches inside the machine, producing a large mutant Zacuda Frolex amid machinery and fluid.",
+  "volume": 3
+}

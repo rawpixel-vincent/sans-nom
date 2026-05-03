@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The central warrior is highly skilled in melee combat and can overpower several armored opponents at once.",
+    "He self-identifies, or is identified, specifically as a warrior of Castaka.",
+    "The guards fight as a coordinated defensive group positioned on stairs and around a doorway."
+  ],
+  "characters_present": [
+    "A central armored warrior identified as being from Castaka",
+    "Multiple armored guards or soldiers defending the stairwell/doorway"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is a cliffhanger ending, with the warrior escaping or falling through a window and a next-episode teaser indicating the conflict continues."
+  ],
+  "dialogue_meaning": [
+    "The guards are under orders not to let anyone pass through the door.",
+    "Some guards address the intruder with formal language, suggesting he may be high-status or dangerous.",
+    "The intruder declares that a warrior of Castaka cannot be stopped, asserting identity and martial superiority.",
+    "A wounded guard screams during the melee.",
+    "After the window impact, someone warns the others to stay back and says this is not a way to die, emphasizing the danger of pursuing him immediately."
+  ],
+  "image_sha256": "4ed86dfd1a94ebb487e266fc320803bb2ecab6e19ec55e7ae10e8d0620feb6ab",
+  "is_spread": false,
+  "locations": [
+    "An interior stairwell or entry hall",
+    "A room with tall windows",
+    "The area immediately beyond a shattered window"
+  ],
+  "lore_facts": [
+    "Castaka is named as a warrior lineage, people, or place associated with the central fighter.",
+    "The setting includes organized armored guards using swords and shields.",
+    "The page ends with a teaser for the next episode titled \"The Last Stand\"."
+  ],
+  "page_id": "027_The_Metabarons_1_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "Guards block a doorway or stair access and try to stop a single armored intruder.",
+    "The intruder, identified in dialogue as a warrior of Castaka, cuts through multiple guards in rapid succession.",
+    "One guard is struck in close combat and cries out.",
+    "The warrior forces his way past the defenders toward a large window.",
+    "He smashes through the glass and exits the room.",
+    "The remaining guards shout for others to keep back, implying the fall or escape is dangerous but not necessarily fatal."
+  ],
+  "source_image": "external/comics/meta-barons/027_The_Metabarons_1_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4ed86dfd1a94ebb487e266fc320803bb2ecab6e19ec55e7ae10e8d0620feb6ab",
+      "page_id": "027_The_Metabarons_1_p26",
+      "source_image": "external/comics/meta-barons/027_The_Metabarons_1_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The personal names of all characters on the page are not given.",
+    "It is unclear from this page alone whether the warrior intentionally leaps through the window or is driven through it by the momentum of combat.",
+    "Some small dialogue and sound effects are partially hard to read at this resolution, though the main narrative action is clear."
+  ],
+  "visual_summary": "An armored warrior fights his way through a stairwell crowded with sword-bearing guards inside a large interior with tall windows. He wounds or disarms several opponents in close combat, then crashes through a window in a burst of shattered glass. In the final panels he lands outside or on the far side of the broken window while the guards react behind him. A footer announces the next episode title.",
+  "volume": 1
+}

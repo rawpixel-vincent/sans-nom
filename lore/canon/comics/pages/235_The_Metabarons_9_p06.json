@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The black-armored speaker is openly defiant in front of the emperor's court.",
+    "He identifies himself as a mercenary rather than a loyal hereditary servant.",
+    "He expresses a harsh, transactional philosophy centered on payment.",
+    "The imperial couple appear to expect continued loyalty before being contradicted."
+  ],
+  "characters_present": [
+    "A black-armored Metabaron or Metabaron representative",
+    "The imperial couple",
+    "Imperial attendants/guards",
+    "Court audience and observers",
+    "Representatives or voices of rival factions including the Imperial House, the Techno-Pontificate, the Ekonomat, and the Confederacy of Colonial Planets"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page marks a sharp break between the Metabarons and the Imperial House.",
+    "The immediate bidding war suggests the speaker's military value and reputation are already widely recognized across the political order."
+  ],
+  "dialogue_meaning": [
+    "The imperial side initially praises the arrival of a long-serving, sacrificial guardian of the Imperial House.",
+    "The central speaker abruptly states that the Metabarons have ended their service to the empire.",
+    "He embraces a cynical worldview, claiming loyalty, morality, justice, and honor are meaningless compared with money.",
+    "He announces he will serve whichever bidder offers the most.",
+    "Major political powers immediately try to hire him by offering enormous payments."
+  ],
+  "image_sha256": "b9cd568f065a2d5bc714e3c272633d76dd9cf8e9a0b0007fe2d7dab50f048392",
+  "is_spread": false,
+  "locations": [
+    "A grand audience chamber or throne hall of the Imperial House"
+  ],
+  "lore_facts": [
+    "The Metabarons have historically served the Imperial House.",
+    "That service is treated as ancient and marked by sacrifice.",
+    "A single Metabaron's allegiance is valuable enough that multiple major powers compete for it instantly.",
+    "The setting includes several powerful institutions: the Imperial House, the Techno-Pontificate, the Ekonomat, and the Confederacy of Colonial Planets.",
+    "Currency on this page is denominated in 'kub(l)ars,' though the exact spelling is hard to verify from the image."
+  ],
+  "page_id": "235_The_Metabarons_9_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "A formal imperial reception is underway for an honored servant of the Imperial House.",
+    "The black-armored speaker publicly rejects imperial service on behalf of the Metabarons.",
+    "He declares himself a mercenary available to whoever pays the most.",
+    "The audience reacts with disbelief and outrage.",
+    "Several factions begin bidding for his services with increasingly large sums."
+  ],
+  "source_image": "external/comics/meta-barons/235_The_Metabarons_9_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b9cd568f065a2d5bc714e3c272633d76dd9cf8e9a0b0007fe2d7dab50f048392",
+      "page_id": "235_The_Metabarons_9_p06",
+      "source_image": "external/comics/meta-barons/235_The_Metabarons_9_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly blurry; exact wording and one or two institution names may be imperfectly transcribed.",
+    "The precise identity of the black-armored speaker is not stated clearly on this page alone.",
+    "The exact spelling of the currency term and some bid amounts may be difficult to confirm from the image text alone."
+  ],
+  "visual_summary": "In a vast gold-lit ceremonial hall, the imperial couple sit high above a crowd while attendants and onlookers watch. A black-armored figure interrupts a formal welcome, stepping into the foreground with a weapon visible at his side. Close-ups of his eyes and face emphasize defiance as he announces that the Metabarons no longer serve the Imperial House and instead offers himself as a mercenary to the highest bidder. The crowd reacts in shock, and competing institutions immediately begin shouting escalating monetary offers.",
+  "volume": 9
+}

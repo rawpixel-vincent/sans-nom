@@ -1,0 +1,48 @@
+{
+  "character_facts": [
+    "The central creature is depicted as enormous relative to nearby humans.",
+    "The nearby humans are tiny in scale and appear positioned as possible opponents, observers, or victims."
+  ],
+  "characters_present": [
+    "A gigantic monstrous or biomechanical creature",
+    "At least two small human figures, likely armed or armored, seen near the bottom"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page is an issue cover and introduces the theme or antagonist for this installment rather than depicting a clear interior plot beat."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "1838595cf6adf5f0bf9b9e9bf1b200e825c13ceaf2206ed1eebfb8622371f0e9",
+  "is_spread": false,
+  "locations": [
+    "An unspecified dark industrial or alien environment suggested by cables/tubes surrounding the creature"
+  ],
+  "lore_facts": [
+    "This is The Metabarons issue 14.",
+    "The issue is labeled with the subtitle 'Galactic Threat.'",
+    "The cover presents a threat on a galactic scale through its title and imagery.",
+    "The setting imagery combines organic monster anatomy with mechanical tubing or biomechanical design."
+  ],
+  "page_id": "359_The_Metabarons_14_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover rather than a story panel sequence.",
+    "A massive monstrous entity is presented as the main threat.",
+    "Small armed or armored human figures appear to confront or witness the creature below it."
+  ],
+  "source_image": "external/comics/meta-barons/359_The_Metabarons_14_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1838595cf6adf5f0bf9b9e9bf1b200e825c13ceaf2206ed1eebfb8622371f0e9",
+      "page_id": "359_The_Metabarons_14_c01",
+      "source_image": "external/comics/meta-barons/359_The_Metabarons_14_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover, no concrete in-story action, names, or dialogue are shown.",
+    "The exact identity of the monster and the human figures is not stated on the page.",
+    "The environment is impressionistic and may not represent a literal story location."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue 14. A gigantic biomechanical or alien-looking creature with glossy metal-like fangs, tusks, and tubes dominates the page, looming over tiny human figures below. The cover branding identifies the issue and presents the subtitle 'Galactic Threat,' framing the creature as the central menace.",
+  "volume": 14
+}

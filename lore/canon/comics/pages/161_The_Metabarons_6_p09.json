@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "Aghnar is depicted as obsessive and technically capable enough to perform or direct a complex body-modification procedure.",
+    "Aghnar shows no interest in the robot's cultural or recreational offerings.",
+    "Lothar is being addressed directly by the narrator and is in a physically compromised state related to his circuits.",
+    "Othon exerts authority over the robots and over Aghnar's circumstances through prior orders.",
+    "The robot narrator is highly knowledgeable, obedient to Othon's orders, and directly involved in recounting or assisting these events.",
+    "Tonto is a robot assistant whose movement or vibration is dangerous during the procedure."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Lothar",
+    "Othon (mentioned, not clearly shown)",
+    "Robot narrator/assistant",
+    "Tonto",
+    "Additional surgical robot assistants",
+    "Aghnar's father (body on operating table)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page presents backstory about Aghnar's isolation and self-modification.",
+    "The narration links Aghnar, Othon, Lothar, and the implanted 'Oko mini-bombs' into the same ongoing storyline."
+  ],
+  "dialogue_meaning": [
+    "The robot narrator frames the scene as a story being told to Lothar, who is apparently unable to speak because of failing or overactive circuits.",
+    "The narrator says Othon assigned it to keep Aghnar occupied during a long isolation period.",
+    "The robot emphasizes that Aghnar rejected ordinary entertainment like music and games.",
+    "The narration describes Aghnar's treatment of his father's corpse as methodical and seemingly endless.",
+    "Robotic assistants coordinate a dangerous surgical transfer, warning about an H-circuit and requesting more blood and oxygen to keep 'my lord' alive."
+  ],
+  "image_sha256": "b3674f4bc8bf1ead94783f6e034ac59b68d61d78cf8bf4e5ae64df90e0e75404",
+  "is_spread": false,
+  "locations": [
+    "A mechanical operating room or laboratory",
+    "A surgical/autopsy table area filled with robotic apparatus"
+  ],
+  "lore_facts": [
+    "Aghnar spent about ten years isolated without human family.",
+    "Othon gave an order that Aghnar be entertained during that waiting period.",
+    "There is a signal source or system referred to as 'spy-needles'.",
+    "The robots possess extensive stores of music and games in their data or encyclopedia.",
+    "Aghnar's father's body was kept in deep-freeze.",
+    "Objects called 'Oko mini-bombs' can be surgically extracted from one body and grafted into another.",
+    "The operation required active blood and oxygen support and involved risk to an 'H-circuit'."
+  ],
+  "page_id": "161_The_Metabarons_6_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A robot narrator tells Lothar to stay quiet and keep listening.",
+    "The narrator explains that Aghnar was left alone for years without human family, under Othon's orders that the robot entertain him while awaiting a signal from 'spy-needles'.",
+    "The narration states that Aghnar ignored the robot's music and game offerings.",
+    "Aghnar preserves his father's body in deep-freeze.",
+    "Aghnar spends a very long time performing an autopsy-like operation on his father's body.",
+    "The procedure focuses on extracting 'Oko mini-bombs' from the father's body.",
+    "The extracted mini-bombs are grafted into Aghnar's own body.",
+    "Robotic assistants monitor the operation and increase blood and oxygen support while warning about unstable circuitry."
+  ],
+  "source_image": "external/comics/meta-barons/161_The_Metabarons_6_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b3674f4bc8bf1ead94783f6e034ac59b68d61d78cf8bf4e5ae64df90e0e75404",
+      "page_id": "161_The_Metabarons_6_p09",
+      "source_image": "external/comics/meta-barons/161_The_Metabarons_6_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is not fully clear from the page alone whether the robot narrator is the same robot shown in every panel or one of several assistants.",
+    "The exact nature and function of the 'spy-needles', 'Oko mini-bombs', and 'H-circuit' are not explained on this page.",
+    "The father's identity is not named on this page beyond being Aghnar's father.",
+    "One captioned number about the robot's stored operas is stylized and could be misread, though the general meaning is clear."
+  ],
+  "visual_summary": "A spherical-headed robot narrates while working in a dense mechanical surgical bay. The page shows a flashback or narrated account of a boy called Aghnar left alone with robots, uninterested in music or games, preserving his father’s body in deep-freeze, then performing a prolonged autopsy-like operation to remove mini-bombs from the corpse and graft them into his own body. Multiple panels depict exposed organs, robotic tools, sparks, and assistants managing blood and oxygen during the procedure.",
+  "volume": 6
+}

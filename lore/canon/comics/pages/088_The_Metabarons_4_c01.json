@@ -1,0 +1,49 @@
+{
+  "character_facts": [
+    "The winged creature is depicted as large, predatory, and physically dominant over the human figure.",
+    "The human figure is equipped with a sealed helmet or breathing apparatus, suggesting a hostile environment."
+  ],
+  "characters_present": [
+    "Unidentified winged creature",
+    "Unidentified human figure in a helmeted protective suit",
+    "Honorata is referenced by title only, not clearly identifiable as a visible character"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The cover title implies this issue centers on or is associated with a figure named Honorata, identified as 'The Sorceress.'"
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "044fa4401ca9a819d33b97a9399358c11ab7f31f2be670f4148d5e1e8bdd349d",
+  "is_spread": false,
+  "locations": [
+    "Unspecified outdoor setting with snow, ice, or blowing frost"
+  ],
+  "lore_facts": [
+    "This is issue #4 of The Metabarons.",
+    "The cover labels the story or feature as 'Honorata, The Sorceress.'",
+    "The page credits Jodorowsky, Gimenez, and Moebius on the cover.",
+    "The page carries Humanoids Publishing branding and a May 2000 cover date."
+  ],
+  "page_id": "088_The_Metabarons_4_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover introducing issue #4 of The Metabarons.",
+    "A winged creature is shown physically overpowering or transporting a human in protective gear.",
+    "The cover announces the featured story/chapter as 'Honorata, The Sorceress.'"
+  ],
+  "source_image": "external/comics/meta-barons/088_The_Metabarons_4_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "044fa4401ca9a819d33b97a9399358c11ab7f31f2be670f4148d5e1e8bdd349d",
+      "page_id": "088_The_Metabarons_4_c01",
+      "source_image": "external/comics/meta-barons/088_The_Metabarons_4_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "This page is cover art rather than an interior story page, so narrative specifics are limited.",
+    "It is unclear whether the visible human figure is Honorata or another character.",
+    "The exact location and circumstances shown on the cover are not identified on the page."
+  ],
+  "visual_summary": "Front cover image for issue #4 of The Metabarons. A large winged, beaked creature dominates the scene while clutching or carrying a suited human figure in a harsh, icy or snowy environment. The title banner identifies the story as 'Honorata, The Sorceress.' Publisher branding, issue number, date, and creator credits are shown on the cover.",
+  "volume": 4
+}

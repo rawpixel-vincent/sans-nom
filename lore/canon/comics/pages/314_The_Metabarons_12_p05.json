@@ -1,0 +1,74 @@
+{
+  "character_facts": [
+    "The woman is the daughter of the revived man and is deeply emotionally bound to him.",
+    "The father is alive or active enough after reanimation to be spoken to, but his recovery remains incomplete.",
+    "Melmoth is emotionally intimate with the woman; they exchange forgiveness and declarations of love.",
+    "Melmoth is involved in managing or explaining the father's recovery and public reintroduction.",
+    "The woman speaks about giving Melmoth descendants, indicating she imagines a future family with him."
+  ],
+  "characters_present": [
+    "A dark-haired woman addressing the revived man as her father",
+    "The revived father, a bearded man attached to tubes and machinery",
+    "An older white-haired, bearded man identified in dialogue as Melmoth",
+    "Medical/robotic attendants or apparatus surrounding the revived body"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The father's revival follows an earlier death, suspension, or incapacitation not shown on this page.",
+    "The spread of news and planned reception imply prior political importance attached to the father.",
+    "The forgiveness exchange implies earlier conflict or estrangement between the woman and Melmoth.",
+    "References to the Golden Planet and the medallion of high nobility point to existing institutions or prior status established elsewhere."
+  ],
+  "dialogue_meaning": [
+    "The woman feels emotionally dead without her father and asks for a little more time before his full awakening.",
+    "The older man supports her and gives emotional reassurance.",
+    "The revived father's return is politically significant enough to attract delegates from multiple planets.",
+    "The father is not fully restored in social or mental terms yet; his memory and ability to reintegrate must be tested.",
+    "The woman asks Melmoth for forgiveness and declares love.",
+    "She promises herself, descendants, and political devotion, framing their future as a renewed beginning.",
+    "Melmoth responds in religious or exalted terms, calling her a unique goddess and insisting that if everything can begin again, then life must continue."
+  ],
+  "image_sha256": "f9c3e39bd33cc7c0ade8d85ead9af45e6d641c260280f1f4980ea14ab4a4d863",
+  "is_spread": false,
+  "locations": [
+    "A medical or reanimation chamber filled with machinery and tubes",
+    "Outer space/planetary view shown in an inset panel",
+    "The presidential palace is mentioned as a near-future destination but not shown directly"
+  ],
+  "lore_facts": [
+    "Advanced technology on this page can reanimate a dead or inert body.",
+    "Reanimation of the body does not guarantee intact memory or immediate social functioning.",
+    "There is a multi-planet political society with representatives traveling between planets.",
+    "A presidential palace exists as a seat of authority.",
+    "Public recognition of the revived father appears important enough for a ceremonial reception.",
+    "The setting includes a concept called a 'trial of socialization,' apparently used to test reintegration after reanimation or recovery.",
+    "A place called the Golden Planet exists.",
+    "A distinction or honor called the 'medallion of high nobility' exists."
+  ],
+  "page_id": "314_The_Metabarons_12_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A woman's father has been physically reanimated in a biomechanical support system.",
+    "The woman begs the revived father not to wake fully yet, saying she needs time to return to life herself.",
+    "An older man reassures her that she has as much time as she needs.",
+    "The older man states that news of the father's return has spread across the planets and that representatives are traveling to receive him at the presidential palace.",
+    "He warns that the father's memory must be tested and that he still faces a 'trial of socialization' before public presentation.",
+    "The woman and the older man then shift to a personal exchange about forgiveness, love, shared future, descendants, and renewed purpose."
+  ],
+  "source_image": "external/comics/meta-barons/314_The_Metabarons_12_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f9c3e39bd33cc7c0ade8d85ead9af45e6d641c260280f1f4980ea14ab4a4d863",
+      "page_id": "314_The_Metabarons_12_p05",
+      "source_image": "external/comics/meta-barons/314_The_Metabarons_12_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The woman's name is not given on this page.",
+    "The revived father's exact name or title is not given on this page.",
+    "The exact identity or role of the older man is only partially grounded; dialogue names him Melmoth, but his office/status is not explicit here.",
+    "Some dialogue is small and may be imperfectly read, especially the lines about public honors and socialization."
+  ],
+  "visual_summary": "A woman stands beside a heavily mechanized, recently revived bearded man whose body is wired into a medical or life-support apparatus. An older white-haired, bearded man stands close behind her, guiding and reassuring her. She cradles the revived man's face and leans against him intimately while the older man explains that the body has been reanimated but its memory still needs testing before a public reunion. A space view with planets and a bright celestial body interrupts the intimate scene, suggesting a wider political setting. In the final row, the woman and the older man face each other closely, exchanging emotional declarations about forgiveness, love, descendants, public honor, and continuing life.",
+  "volume": 12
+}

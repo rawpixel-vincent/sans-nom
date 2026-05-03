@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "Namar commands or orders the launch of the attacking swarm.",
+    "The mini-fighter pilots wear heavy armor or enclosed combat gear while flying.",
+    "The attacking pilots are portrayed as numerous, aggressive pursuers."
+  ],
+  "characters_present": [
+    "Namar (named in narration, not clearly shown in a distinct close-up)",
+    "Armored mini-fighter pilots",
+    "Crew or pilots aboard larger combat craft"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts a major escalation into open fleet combat.",
+    "The mother-coach and Purple Lancets are already in flight and become the focus of Namar's launched swarm."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that Namar initiates the engagement by deploying a huge swarm of small armored fighters.",
+    "The pursuing force is overwhelmingly numerous and aggressively targets a vessel called the mother-coach.",
+    "The battle is framed as visually overpowering, with explosions outshining the stars.",
+    "The Purple Lancets are under pressure from dense swarms of small attackers, likened to bloodthirsty mosquitoes."
+  ],
+  "image_sha256": "8ac4b2cbabea586b69d6af542b445ec719810736054b3d7fade9c8f14e1679c6",
+  "is_spread": true,
+  "locations": [
+    "Namar's counterfeit planet",
+    "Outer space in the Harp constellation",
+    "The vicinity of the mother-coach and Purple Lancet ships during the battle"
+  ],
+  "lore_facts": [
+    "Namar possesses or operates a 'counterfeit planet.'",
+    "There exists a craft type called the Ostrov-class armored mini-fighter.",
+    "The setting includes a region called the Harp constellation.",
+    "There is a vessel or target referred to as the mother-coach.",
+    "There are ships or units called Purple Lancets.",
+    "The attacking force numbers 100,000 killers, according to the narration."
+  ],
+  "page_id": "071_The_Metabarons_3_p14-p15",
+  "page_label": "p14-p15",
+  "plot_events": [
+    "Namar launches a massive attack from his counterfeit planet.",
+    "The attack consists of Ostrov-class armored mini-fighters.",
+    "A force described as 100,000 killers pursues the 'mother-coach.'",
+    "The battle intensifies in the Harp constellation, with repeated explosions lighting space.",
+    "Each Purple Lancet is shown being swarmed by numerous small hostile craft."
+  ],
+  "source_image": "external/comics/meta-barons/071_The_Metabarons_3_p14-p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8ac4b2cbabea586b69d6af542b445ec719810736054b3d7fade9c8f14e1679c6",
+      "page_id": "071_The_Metabarons_3_p14-p15",
+      "source_image": "external/comics/meta-barons/071_The_Metabarons_3_p14-p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Namar is named in the narration, but no single figure on the page can be identified with certainty as Namar.",
+    "The exact visual identification of which ship is the 'mother-coach' is not fully explicit on the page.",
+    "'Purple Lancet' may refer to a class of ship or a group of vessels; the page does not define it further."
+  ],
+  "visual_summary": "A two-page space-battle spread. Small top panels show a launch point on a planetary surface or installation, streams of tiny craft being deployed, and armored pilots inside cramped cockpits. Larger panels show masses of articulated mini-fighters and a huge carrier-like vessel in open space, with orange enemy craft, gunfire, explosions, and dense swarms of attackers converging around the larger ships.",
+  "volume": 3
+}

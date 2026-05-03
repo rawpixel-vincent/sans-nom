@@ -1,0 +1,49 @@
+{
+  "character_facts": [
+    "The white armored figure is depicted as much larger and more dominant in the scene.",
+    "The white armored figure has heavy mechanical armor and visible mounted guns/cannons.",
+    "The darker armored figure is shown in a losing position and appears damaged, with green fluid spilling out."
+  ],
+  "characters_present": [
+    "Large white armored humanoid figure with mounted weapons (identity not stated on page)",
+    "Dark bronze-black armored humanoid figure being overpowered (identity not stated on page)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "Introduces or identifies the issue/story entry point: 'Steelhead's Quest'."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "b671ec2e354595c48241f7e538f3280efa13c3b5b894104ce4654ed0bf8b886b",
+  "is_spread": false,
+  "locations": [
+    "Unspecified dark background/void-like setting on the cover"
+  ],
+  "lore_facts": [
+    "This is the cover of The Metabarons issue #11.",
+    "The cover labels the story as 'Steelhead's Quest'.",
+    "The credited creators shown on the cover are Jodorowsky, Gimenez, and Moebius.",
+    "The publisher mark shown is Humanoids Publishing/Comics."
+  ],
+  "page_id": "277_The_Metabarons_11_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The cover depicts a violent confrontation between a large white armored combatant and a darker armored opponent.",
+    "The darker figure appears to be dismembered or crushed, with green fluid spraying around the impact.",
+    "The page identifies the story/issue as 'Steelhead's Quest' in The Metabarons #11."
+  ],
+  "source_image": "external/comics/meta-barons/277_The_Metabarons_11_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b671ec2e354595c48241f7e538f3280efa13c3b5b894104ce4654ed0bf8b886b",
+      "page_id": "277_The_Metabarons_11_c01",
+      "source_image": "external/comics/meta-barons/277_The_Metabarons_11_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "This is a cover image rather than an interior story page, so the scene may be symbolic rather than a literal plot event.",
+    "The exact identities of the two armored figures are not stated on the page.",
+    "The green fluid may represent blood, coolant, or another substance; the page does not specify."
+  ],
+  "visual_summary": "Cover page for The Metabarons issue #11. A large white armored humanoid figure with heavy mechanical weaponry looms over and crushes or tears apart a darker bronze-black armored figure amid splashing green fluid. The masthead, issue number, date, price, and the story title 'Steelhead's Quest' are displayed prominently.",
+  "volume": 11
+}

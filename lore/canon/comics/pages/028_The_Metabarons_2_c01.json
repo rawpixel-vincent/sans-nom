@@ -1,0 +1,49 @@
+{
+  "character_facts": [
+    "The central figure is depicted as a heavily armored, armed combatant with a full helmet and visor.",
+    "The surrounding figures appear to be members of the same or similar armed force, wearing matching protective gear."
+  ],
+  "characters_present": [
+    "Unnamed central armored trooper",
+    "Additional unnamed armored soldiers in the background"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page functions as the cover/front image for volume 2 issue material rather than a narrative story page."
+  ],
+  "dialogue_meaning": [
+    "No dialogue or speech is present on the page.",
+    "Cover text identifies the series, issue number, date, price, and the subtitle The Last Stand."
+  ],
+  "image_sha256": "f65f9c04cef0fe6d8ede2c1c6d1b009b29cf07b922e4574e656e6d70b0ea9b6b",
+  "is_spread": false,
+  "locations": [
+    "Unspecified dark battlefield or industrial combat setting"
+  ],
+  "lore_facts": [
+    "The series title shown on the page is The Metabarons.",
+    "This is issue #2.",
+    "The cover labels the story or chapter theme as The Last Stand.",
+    "The credited creators visible on the cover are Jodorowsky, Gimenez, and Moebius."
+  ],
+  "page_id": "028_The_Metabarons_2_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No interior story event is shown; this is a cover illustration presenting a military confrontation or last-stand scenario.",
+    "A squad of armored soldiers is depicted advancing with weapons ready, centered on one prominent trooper."
+  ],
+  "source_image": "external/comics/meta-barons/028_The_Metabarons_2_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f65f9c04cef0fe6d8ede2c1c6d1b009b29cf07b922e4574e656e6d70b0ea9b6b",
+      "page_id": "028_The_Metabarons_2_c01",
+      "source_image": "external/comics/meta-barons/028_The_Metabarons_2_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover, the armored figures are not explicitly identified by name or faction on the page.",
+    "The exact location, conflict, and narrative context are not stated in the image alone."
+  ],
+  "visual_summary": "Cover image for The Metabarons issue #2. A central armored trooper in bulky white combat gear advances toward the viewer while aiming a large rifle. Several similarly armored figures crowd the dark background. The masthead reads The Metabarons, and the cover subtitle identifies this installment as The Last Stand.",
+  "volume": 2
+}

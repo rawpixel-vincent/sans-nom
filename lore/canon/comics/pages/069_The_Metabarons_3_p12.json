@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Janus-Jana exists at this point as an embryo or fetus under scientific supervision.",
+    "Janus-Jana is biologically male and female, as conjoined twins.",
+    "Janus-Jana is presented as an imperial figure with a future role as empress.",
+    "Unnamed scientists/technicians are directly involved in monitoring or creating the embryo."
+  ],
+  "characters_present": [
+    "Janus-Jana (as an unborn imperial embryo)",
+    "Scientific or medical personnel",
+    "Narrator"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page continues a narrated backstory about imperial or dynastic creation through advanced science.",
+    "It introduces or develops Janus-Jana's origin as a constructed or carefully engineered imperial being."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that conventional treatment for the sick has ceased; they are instead preserved in suspended or frozen form until science can save them.",
+    "It presents the embryo's creation as the product of an extraordinary coincidence plus the labor of an entire planet.",
+    "The narrator wonders whether the imperial embryo might be an exceptional or superior mutant.",
+    "The unborn child is identified as male and female conjoined twins.",
+    "The twins are framed as Janus-Jana, destined for imperial power and galactic rule."
+  ],
+  "image_sha256": "e235be1ff0926356bb96633f4cec99fd64a909416403f92fc675f312ff3b1b32",
+  "is_spread": false,
+  "locations": [
+    "Orbit around a planet crowded with ships",
+    "A large industrial or laboratory gestation chamber",
+    "A medical observation room or biotechnological nursery"
+  ],
+  "lore_facts": [
+    "This society has abandoned direct treatment of the sick in favor of freezing them aboard ships until a cure or scientific breakthrough exists.",
+    "A planet-scale scientific or industrial effort can be mobilized to create an imperial heir or embryo.",
+    "The 'imperial embryo' is explicitly described as a mutant or potential mutant.",
+    "Janus-Jana consists of male and female conjoined twins joined at the neck and shoulders.",
+    "Janus-Jana is associated with the title of empress and with future galactic domination."
+  ],
+  "page_id": "069_The_Metabarons_3_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "The narration states that the planet stopped treating the sick and kept them frozen in ships awaiting a scientific miracle.",
+    "A vast collective effort across the planet is said to have produced an imperial embryo.",
+    "Scientists or technicians work inside a large chamber tied to the embryo's creation or gestation.",
+    "The embryo is revealed to be conjoined male-female twins joined at the neck and shoulders.",
+    "The narration identifies the unborn figure as Janus-Jana, described as an empress and future master of the galaxy."
+  ],
+  "source_image": "external/comics/meta-barons/069_The_Metabarons_3_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e235be1ff0926356bb96633f4cec99fd64a909416403f92fc675f312ff3b1b32",
+      "page_id": "069_The_Metabarons_3_p12",
+      "source_image": "external/comics/meta-barons/069_The_Metabarons_3_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact name of the planet is not given on this page.",
+    "The narration's phrasing about 'an inexplicable coincidence' is visible but its broader context is not explained here.",
+    "It is unclear whether the frozen people in ships are directly related to the embryo project or are background worldbuilding.",
+    "Some small text and fine visual details of the machinery are difficult to read precisely at this resolution."
+  ],
+  "visual_summary": "A narrated montage shows a spacefaring planet no longer treating its sick and leaving them frozen aboard ships. The scene shifts to a large industrial/biotechnological chamber where many workers oversee the creation of an imperial embryo. Later panels show medical or scientific personnel observing a suspended twin fetus inside a mesh-like womb or incubator, while narration identifies the being as Janus-Jana, a future empress.",
+  "volume": 3
+}

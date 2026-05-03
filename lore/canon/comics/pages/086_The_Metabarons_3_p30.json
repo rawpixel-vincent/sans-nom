@@ -1,0 +1,50 @@
+{
+  "character_facts": [
+    "The man appears alarmed or frightened, shown by his wide-eyed facial close-up and aggressive ready stance.",
+    "The woman is presented as enigmatic and visually concealed; her eyes remain hidden while only parts of her face are shown.",
+    "The woman stands barefoot after dark garments or coverings fall around her feet."
+  ],
+  "characters_present": [
+    "A silver-haired armed man",
+    "A mysterious woman or female-presenting figure with long white hair and a face obscured by a black veil/shadow"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to continue a prior encounter, focusing on the reveal of the mysterious figure and the man's reaction rather than introducing a new setting."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "19cc2cce2f6ddfb590931b634ed48d42d38d1daba0e493fdec66f2d909ef70dd",
+  "is_spread": false,
+  "locations": [
+    "An undefined white or abstract interior/background with no clear environmental details"
+  ],
+  "lore_facts": [
+    "The page depicts a dramatic unveiling or manifestation centered on a mysterious veiled woman.",
+    "The woman is associated with voluminous white hair and dark draped coverings.",
+    "The man is equipped with both a pistol and a sword, indicating a setting where melee and firearms coexist."
+  ],
+  "page_id": "086_The_Metabarons_3_p30",
+  "page_label": "p30",
+  "plot_events": [
+    "An armed silver-haired man confronts or witnesses a dark shrouded figure.",
+    "The shrouded mass opens or drops away, revealing a woman with vast white hair.",
+    "The woman becomes fully visible standing barefoot amid fallen dark garments.",
+    "The man raises or keeps his firearm trained while also holding a blade.",
+    "A close-up emphasizes the woman's partially hidden face and lips, preserving her mystery."
+  ],
+  "source_image": "external/comics/meta-barons/086_The_Metabarons_3_p30.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "19cc2cce2f6ddfb590931b634ed48d42d38d1daba0e493fdec66f2d909ef70dd",
+      "page_id": "086_The_Metabarons_3_p30",
+      "source_image": "external/comics/meta-barons/086_The_Metabarons_3_p30.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No dialogue or captions are legible on this page image, so narrative intent is derived only from visuals.",
+    "It is unclear whether the woman is physically emerging from clothing, being unveiled, or transforming; the page presents this ambiguously.",
+    "Character identities and exact location cannot be confirmed from this page alone."
+  ],
+  "visual_summary": "A silver-haired armed man stands over a dark, collapsed mass of clothing or fabric while a veiled female figure is revealed panel by panel. Her enormous white hair unfurls first, then her body appears mostly covered by a black vertical veil or shadow, with discarded dark garments at her feet. The man keeps a pistol and sword ready, looking shocked and tense. The page presents the unveiling as eerie and ceremonial rather than action-driven.",
+  "volume": 3
+}

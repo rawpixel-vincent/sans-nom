@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "The small figure appears to be deliberately navigating the giant target at close range rather than attacking from afar.",
+    "The small figure uses or directs a precise luminous shot, suggesting a targeted tactic rather than brute force.",
+    "The colossal being is depicted as vast, heavily armored or thick-skinned, and physically threatening."
+  ],
+  "characters_present": [
+    "A small armored/suited humanoid figure attached to or moving along the giant being's exterior",
+    "A colossal organic or biomechanical being/creature with glowing eyes and a massive tooth-lined mouth"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page reads as the continuation of an ongoing attack or infiltration sequence against a seemingly indestructible giant being or vessel.",
+    "The final projectile setup implies the next page may show whether the precise strike succeeds."
+  ],
+  "dialogue_meaning": [
+    "The page explains that the giant target is effectively impervious to direct heavy attack.",
+    "The follow-up phrase '...unless...' signals that the attacker knows of a specific vulnerability and is acting on it."
+  ],
+  "image_sha256": "01bb9e50c2b5d5d71ecf3da54d4fd73d39613a743f06c8d1858a4425097e83b2",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "Surface/exterior of a gigantic organic or biomechanical body or vessel",
+    "Near a narrow gap, seam, or opening between massive structures on that body/vessel"
+  ],
+  "lore_facts": [
+    "This setting includes 'tri-h torpedoes' or similarly named heavy weapons, used as a benchmark for destructive force.",
+    "The giant being or structure has skin or an exterior covering described as able to resist those weapons.",
+    "Despite that durability, there exists at least one exception or weak point that can be exploited."
+  ],
+  "page_id": "142_The_Metabarons_5_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "A narrator or speaker states that the giant being's skin can withstand heavy weaponry.",
+    "The statement is qualified with an 'unless,' indicating a hidden weakness or exception.",
+    "A small figure positions themself on or near the giant being's exterior.",
+    "The being's maw or tooth-lined opening is shown in close-up, emphasizing danger and scale.",
+    "A bright shot or energy bolt is fired toward a narrow opening or seam, implying a precise strike at a weak spot."
+  ],
+  "source_image": "external/comics/meta-barons/142_The_Metabarons_5_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "01bb9e50c2b5d5d71ecf3da54d4fd73d39613a743f06c8d1858a4425097e83b2",
+      "page_id": "142_The_Metabarons_5_p21",
+      "source_image": "external/comics/meta-barons/142_The_Metabarons_5_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the small figure cannot be confirmed from this page alone.",
+    "It is unclear whether the giant form is a creature, a biomechanical organism, or a living vessel.",
+    "Some lettering is small and partially hard to read; the weapon name appears to be 'tri-h torpedoes' or similar.",
+    "The exact target of the final bright shot is ambiguous; it appears to be a seam, gap, or internal opening."
+  ],
+  "visual_summary": "A small armored or suited figure moves along the reflective exterior of an enormous organic-looking being or structure in space. Captions emphasize the target's extreme durability, then pivot to an exception. The page reveals a huge head-like mass with glowing eyes and a mouth lined with many long teeth or spines. In the final panel, a bright projectile or energy shot streaks toward a narrow gap between large vertical surfaces, suggesting an aimed attack at a vulnerable point.",
+  "volume": 5
+}

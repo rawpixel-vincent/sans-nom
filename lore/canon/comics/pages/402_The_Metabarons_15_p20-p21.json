@@ -1,0 +1,55 @@
+{
+  "character_facts": [
+    "The woman on the left is aware of the invasion through some kind of display or observation method.",
+    "She expects to be called upon for aid and is surprised that no such call was made."
+  ],
+  "characters_present": [
+    "A female observer/narrator shown in profile at the left, apparently monitoring events"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a larger ongoing invasion involving mirror or reflected forces.",
+    "The destruction is presented as something being watched remotely rather than experienced directly by the speaker."
+  ],
+  "dialogue_meaning": [
+    "The speaker is confused and frustrated that an invasion of their universe is happening without anyone summoning her help.",
+    "Narration explains that the imperial fleet encountered a reflected duplicate of itself and was destroyed by it.",
+    "Narration states that the mirror-ships went on to destroy the system's only planet."
+  ],
+  "image_sha256": "a4437ecb72ca9e9b813feb0d67b3323a5005fd1920fbb664550a05d59f561563",
+  "is_spread": true,
+  "locations": [
+    "Outer space",
+    "The Vurfni-Be system",
+    "Orbit or near-space around the system's only planet"
+  ],
+  "lore_facts": [
+    "There is an 'imperial fleet' active in this setting.",
+    "A phenomenon described as a reflection or mirror version of ships can physically confront and destroy the originals.",
+    "The Vurfni-Be system has only one planet.",
+    "The invading force is framed as entering or affecting 'our universe.'"
+  ],
+  "page_id": "402_The_Metabarons_15_p20-p21",
+  "page_label": "p20-p21",
+  "plot_events": [
+    "A female observer comments that something is invading their universe and that no call for her aid has come.",
+    "An imperial fleet confronts a reflected or mirror version of itself.",
+    "The mirrored ships annihilate the opposing fleet in a massive space battle.",
+    "The only planet in the Vurfni-Be system is destroyed."
+  ],
+  "source_image": "external/comics/meta-barons/402_The_Metabarons_15_p20-p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a4437ecb72ca9e9b813feb0d67b3323a5005fd1920fbb664550a05d59f561563",
+      "page_id": "402_The_Metabarons_15_p20-p21",
+      "source_image": "external/comics/meta-barons/402_The_Metabarons_15_p20-p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption and speech text is small and partially hard to read, so wording may be approximate.",
+    "The identity and name of the female observer are not given on this page.",
+    "The exact nature of the 'reflection' or 'mirror-ships' is not explained beyond the narration's wording."
+  ],
+  "visual_summary": "A two-page space-battle spread shows a woman in profile at the left watching destruction in space. Large silver, disc-like ships exchange or emit massive beams of light while red ships and other craft are torn apart around them. In the lower half, explosions engulf a planet or large spherical body as narration states the mirrored ships destroy the only planet in the system.",
+  "volume": 15
+}

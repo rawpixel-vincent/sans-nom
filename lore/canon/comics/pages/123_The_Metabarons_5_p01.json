@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The robot servant is punctual, fussy, and speaks in an internally dramatic tone.",
+    "The robot is responsible for serving food or drink.",
+    "Lothar is important enough to be awaited ceremonially by the servant.",
+    "Lothar is absent during this page but expected imminently."
+  ],
+  "characters_present": [
+    "A small floating robot servant",
+    "Lothar (not visibly present on the page)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an opening scene that establishes waiting for Lothar's arrival or reappearance."
+  ],
+  "dialogue_meaning": [
+    "The robot announces that breakfast is ready and expects its master's return that day.",
+    "The robot is impatient because Lothar is late.",
+    "The robot contrasts Lothar with humans by noting that he never sleeps.",
+    "The robot begins actively searching for Lothar by calling his name."
+  ],
+  "image_sha256": "8fd493c52037f7d3446f8b50c6aecd0070c47dcf9cbb5bc338a3f744086e3e46",
+  "is_spread": false,
+  "locations": [
+    "A vast futuristic/industrial city or complex",
+    "An interior chamber or apartment-like room within the structure"
+  ],
+  "lore_facts": [
+    "The setting includes highly advanced futuristic architecture with enormous industrial-scale structures.",
+    "A character named Lothar is treated by the robot as its master.",
+    "The robot connects the idea of 'god' to what paleo-humans called such a figure, implying a cultural distinction from ancient humans.",
+    "Lothar apparently does not sleep, unlike ordinary humans."
+  ],
+  "page_id": "123_The_Metabarons_5_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "An establishing shot shows a massive futuristic built environment and a suspended angular structure.",
+    "A small robot servant prepares or presents breakfast inside an interior chamber.",
+    "The robot thinks that its master, associated with the paleo-humans' word 'god,' should return home today.",
+    "The robot notes that Lothar is overdue by a precisely measured amount of time.",
+    "The robot reflects approvingly that Lothar does not sleep like humans do.",
+    "The robot calls out for Lothar and moves to look for him."
+  ],
+  "source_image": "external/comics/meta-barons/123_The_Metabarons_5_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8fd493c52037f7d3446f8b50c6aecd0070c47dcf9cbb5bc338a3f744086e3e46",
+      "page_id": "123_The_Metabarons_5_p01",
+      "source_image": "external/comics/meta-barons/123_The_Metabarons_5_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The robot's exact name is not given on this page.",
+    "It is unclear whether the opening exterior structure is Lothar's residence or another part of the same complex.",
+    "Some small lettering may be slightly hard to parse, but the main dialogue and the name 'Lothar' are legible."
+  ],
+  "visual_summary": "A large angular structure hangs within a vast futuristic interior of pipes and towers. Inside, a small floating robot servant has prepared a meal or tea service on a table beneath bright spherical lights. It waits for someone named Lothar, complains internally that he is late, praises him for not sleeping like humans do, and then calls out for him while moving through the room.",
+  "volume": 5
+}

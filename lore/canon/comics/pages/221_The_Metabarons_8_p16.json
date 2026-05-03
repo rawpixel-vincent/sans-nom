@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Aghnar has recently recovered his intellect.",
+    "Aghnar feels affection and gratitude toward his mother.",
+    "Aghnar does not want to father a cruel or merciless warrior.",
+    "Oda is pregnant and focused on producing a male heir.",
+    "Oda is forceful and ideological about the destiny of the child.",
+    "A small robot attendant serves as messenger or caretaker in the scene.",
+    "Tonto is identified as the sole companion of Aghnar's secluded mother."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda",
+    "small robot attendant",
+    "Aghnar's mother (discussed, not clearly shown in the present scene)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows Aghnar's impregnation of Oda and his mental recovery.",
+    "It links Aghnar's current condition to an earlier sacrifice or intervention by his mother.",
+    "It sets up a conflict over the unborn child's role as future Metabaron heir."
+  ],
+  "dialogue_meaning": [
+    "Aghnar's first concern after recovering mentally is gratitude toward his mother.",
+    "Aghnar's mother is alive but exhausted and isolated after reviving him.",
+    "The couple's pregnancy period is outwardly peaceful, but disagreement over the child's destiny disrupts it.",
+    "Oda strongly promotes the birth of a male heir to preserve the Metabaron lineage.",
+    "Aghnar resists the idea of creating another ruthless warrior.",
+    "Oda reframes the issue as fulfilling destiny and using Aghnar's qualities to create an unparalleled son."
+  ],
+  "image_sha256": "7adf3224ae6f112bf7284c112ce55648a1b32cc8e0e7fd61051e51fa308612e4",
+  "is_spread": false,
+  "locations": [
+    "A blue organic chamber or nest-like interior",
+    "a hydroponic garden",
+    "a palace or monumental interior connected to the garden",
+    "the south gallery (mentioned)"
+  ],
+  "lore_facts": [
+    "Aghnar was revived by his mother, and the effort left her severely weakened.",
+    "Aghnar's mother has shut herself away in the south gallery with only Tonto for company.",
+    "The recovery of Aghnar's mother is expected to take several years.",
+    "Oda is pregnant with Aghnar's child for nine months during the events described here.",
+    "The setting includes a hydroponic garden.",
+    "Continuation of the Metabaron clan depends, in Oda's view, on producing a son.",
+    "Within this society, becoming a great warrior is treated as an ideal tied to lineage and fulfillment."
+  ],
+  "page_id": "221_The_Metabarons_8_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "A narrator states that Aghnar regains his intellect after impregnating Oda.",
+    "Aghnar wants to see and thank his mother for reviving him.",
+    "A small attendant or robot explains that Aghnar's mother has secluded herself in a southern gallery and will need years to recover.",
+    "The narration says Aghnar and Oda spend nine months of pregnancy in near happiness, but a looming problem remains.",
+    "In the garden/palace setting, Oda urges Aghnar to eat well and support the pregnancy so she can bear a healthy child.",
+    "Oda insists that the child should be a son so the Metabaron line will continue.",
+    "Aghnar objects, saying he does not want to father a merciless warrior.",
+    "Oda argues that a good soul should not waste the chance to make his son the greatest warrior in the universe."
+  ],
+  "source_image": "external/comics/meta-barons/221_The_Metabarons_8_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7adf3224ae6f112bf7284c112ce55648a1b32cc8e0e7fd61051e51fa308612e4",
+      "page_id": "221_The_Metabarons_8_p16",
+      "source_image": "external/comics/meta-barons/221_The_Metabarons_8_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption and speech text is small and partially hard to read, so wording may be approximate.",
+    "The exact identity/designation of the small robot attendant is unclear from this page alone.",
+    "The narration references Aghnar's mother being in the south gallery, but her present visual appearance on this page is uncertain.",
+    "The source page label is p16, while the printed page number visible at the bottom appears to be 18."
+  ],
+  "visual_summary": "The page opens with Aghnar and the pregnant Oda lying together inside a blue, organic-looking chamber while a small robot attends them. The scene then shifts to a bright garden or palace interior where Oda, visibly pregnant, speaks with Aghnar face to face. Their discussion centers on her pregnancy, the expected child, and pressure to produce a male heir for the Metabarons.",
+  "volume": 8
+}

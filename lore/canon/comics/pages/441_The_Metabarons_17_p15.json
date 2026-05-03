@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Crow is active in the pursuit or approach to the golden planet.",
+    "Crow has a companion who addresses someone as 'Master' and warns against moving too fast.",
+    "The alien assembly includes self-interested figures willing to beg, bribe, or claim superiority to survive.",
+    "The attacking faction is confident in its mental abilities and openly contemptuous of its opponents."
+  ],
+  "characters_present": [
+    "Crow",
+    "Crow's speaking companion or servant/master-addressing subordinate",
+    "The Endoguard",
+    "Alien delegates or aristocrats in a chamber",
+    "Floating enforcer-like figures attacking the assembly",
+    "A speaker boasting about mental powers over 'Mentrek' brains"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an approach toward a destination called the golden planet.",
+    "The discovery of the Endoguard adrift suggests a prior battle, disaster, or failed defense before the assembly massacre scene.",
+    "The interior violence appears related to the urgency expressed during Crow's approach."
+  ],
+  "dialogue_meaning": [
+    "The narration states that the group has reached a golden planet and found the Endoguard adrift.",
+    "One speaker urges Crow to exceed his limits because they may already be too late.",
+    "Another speaker warns that reckless speed can lead to self-destruction or death.",
+    "Several members of the assembly plead for survival, offer wealth, or argue that they deserve to rule.",
+    "An attacker orders silence and suppresses the crowd.",
+    "The attackers mock the victims' weak minds and claim their own mental powers are decisive."
+  ],
+  "image_sha256": "f5ba77f8cc0056c5bf4164d959eb0be9be15d7059e3ea3f1bcac56b8c6dc0d2f",
+  "is_spread": false,
+  "locations": [
+    "Outer space near a golden planet",
+    "Debris field containing the drifting Endoguard",
+    "A large interior assembly or throne chamber on the planet"
+  ],
+  "lore_facts": [
+    "There is a place identified visually and verbally as a golden planet.",
+    "The Endoguard exists and is found drifting in space near that planet.",
+    "Crow is traveling toward the planet and is being pushed to move faster.",
+    "A proverb or warning on the page links excessive speed with death.",
+    "The planetary society shown includes many alien figures engaged in political pleading or power struggle.",
+    "Some combatants use or claim powerful mental attacks against 'Mentrek' brains or 'super-brains'."
+  ],
+  "page_id": "441_The_Metabarons_17_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "Approaching a golden planet, the travelers encounter the Endoguard drifting through space.",
+    "Crow is urged to go faster because events may already be too late to stop.",
+    "A subordinate or companion warns Crow that excessive speed is dangerous and could be fatal.",
+    "The scene shifts to an alien assembly where participants beg for mercy and offer bribes or political claims.",
+    "Armed or floating enforcers silence the crowd through violent force.",
+    "Attackers claim mental superiority and overwhelm victims in the chamber."
+  ],
+  "source_image": "external/comics/meta-barons/441_The_Metabarons_17_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f5ba77f8cc0056c5bf4164d959eb0be9be15d7059e3ea3f1bcac56b8c6dc0d2f",
+      "page_id": "441_The_Metabarons_17_p15",
+      "source_image": "external/comics/meta-barons/441_The_Metabarons_17_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be imperfect.",
+    "It is unclear from this page alone whether the interior chamber is on the golden planet, though the sequence strongly suggests it.",
+    "The exact identity and relationship of Crow's companion are not specified on this page alone.",
+    "The term referring to the victims' brains appears to read 'Mentrek,' but the lettering is small.",
+    "The footer shows page number 23 while the supplied label is p15; the reason for the mismatch is not explained by the image."
+  ],
+  "visual_summary": "The page opens in space above a golden planet, with wreckage and armored figures drifting amid debris. Caption and speech indicate the Endoguard has been found too late and that Crow is pushing forward at dangerous speed despite warnings. The page then cuts to a crowded alien political or ceremonial chamber where multiple delegates beg for mercy or privilege while floating enforcer-like figures attack them with mental or energy force. The final panels show chaos spreading through the chamber as victims clutch their heads or collapse while the attackers boast about superior mental power over 'Mentrek' brains.",
+  "volume": 17
+}

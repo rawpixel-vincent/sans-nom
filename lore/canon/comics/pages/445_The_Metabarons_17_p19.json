@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The baby's eyes glow with an unusual intensity likened to diamonds.",
+    "The baby is important enough to be honored directly by the imperial court.",
+    "The baby is associated in the proclamation with the Metabaron line ('Metabaron's heroic baby')."
+  ],
+  "characters_present": [
+    "A baby identified by the ceremony as the 'Metabaron's heroic baby'",
+    "Imperial court officials or nobles",
+    "An officiant/speaker delivering the award proclamation",
+    "Armed guards or soldiers",
+    "A screaming figure present during the destruction sequence (identity unclear)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier event severe enough that the court is now rewarding the baby.",
+    "The destructive eye-focused sequence appears connected to the baby's unusual nature or powers, though the exact mechanism is not explicitly stated on this page."
+  ],
+  "dialogue_meaning": [
+    "Narration emphasizes the baby's extraordinary eyes and later states that the imperial court showed exceptional gratitude.",
+    "A frightened voice reacts to the destructive event with a cry of horror.",
+    "A court speaker proclaims honors for the baby, including a high-nobility medallion, an enormous sum of money, and the title 'Trino-Viscount'."
+  ],
+  "image_sha256": "fa222591661b951a94c55901cea2a8ab1639107dc7a3c26718c5fd2a2a8747ad",
+  "is_spread": false,
+  "locations": [
+    "An unclear blue-white interior setting during the eye/destruction sequence",
+    "The imperial court ceremonial chamber"
+  ],
+  "lore_facts": [
+    "The baby is publicly recognized by the imperial court as heroic.",
+    "The imperial court can bestow both noble decorations and hereditary or formal titles.",
+    "The baby receives the title 'Trino-Viscount.'",
+    "The reward mentioned is 'three billion kiblars,' establishing 'kiblars' as a currency or unit of wealth in this setting.",
+    "The court setting is highly militarized, with armed guards present during the ceremony."
+  ],
+  "page_id": "445_The_Metabarons_17_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "Narration highlights the baby's eyes as unnaturally brilliant.",
+    "The baby's glowing eyes are shown in extreme close-up.",
+    "A nearby red-brown organic mass bursts apart or is blasted/disintegrated as someone cries out in panic.",
+    "An abstract fragment or residue of that mass is shown suspended alone.",
+    "The story transitions to a formal imperial ceremony.",
+    "Court officials publicly honor the baby with a medallion, a vast reward, and a title."
+  ],
+  "source_image": "external/comics/meta-barons/445_The_Metabarons_17_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fa222591661b951a94c55901cea2a8ab1639107dc7a3c26718c5fd2a2a8747ad",
+      "page_id": "445_The_Metabarons_17_p19",
+      "source_image": "external/comics/meta-barons/445_The_Metabarons_17_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration and proclamation text are small and only partly legible; the broad meaning is clear but exact wording may be imperfect.",
+    "The identity of the screaming figure and the destroyed red-brown mass is unclear from this page alone.",
+    "It is uncertain whether the red-and-white abstract form is debris, flesh, energy, or a symbolic image.",
+    "The source metadata says 'p19,' but the printed page number visible at the bottom appears to be '29.'"
+  ],
+  "visual_summary": "A blue-white sequence focuses on a baby's face and especially his glowing eyes, described by narration as diamond-like. The scene then shows a violent, organic-looking red-brown mass erupting or disintegrating while someone screams in alarm. A later panel isolates a drifting, abstract red-and-white biological or energetic form. The page then cuts to a gold ceremonial chamber where officials and armed guards honor a baby; a speaker formally grants him decorations, an immense monetary reward, and a noble title.",
+  "volume": 17
+}

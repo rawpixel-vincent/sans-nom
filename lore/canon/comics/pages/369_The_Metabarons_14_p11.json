@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The armored champion is determined and does not retreat when threatened.",
+    "The curly-haired woman is more cautious and questions whether they should turn back.",
+    "The defending official or guard has authority to command the release of the technoscarab."
+  ],
+  "characters_present": [
+    "Armored leader/champion demanding audience with Aghlex XII",
+    "Curly-haired woman accompanying the champion",
+    "Helmeted guard or official who orders the technoscarab",
+    "Additional small guards/soldiers in the chamber",
+    "A giant techno-scarab creature or construct"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an approach or intrusion toward the seat or chamber of Aghlex XII.",
+    "The confrontation escalates from verbal demand to deployment of a defensive creature, pushing the scene into immediate danger."
+  ],
+  "dialogue_meaning": [
+    "The intruding party wants direct access to Aghlex XII.",
+    "The armored leader is forceful and confrontational, preferring demand over polite request.",
+    "Observers view the act as a violation or sacrilege.",
+    "Defenders respond by deploying a technoscarab as a countermeasure.",
+    "The woman considers turning back, but the champion refuses and presses onward."
+  ],
+  "image_sha256": "c54cfa459adb3404b1935bc716ae0bfaab79744d9704ee7c31aa8c2211c9b2ea",
+  "is_spread": false,
+  "locations": [
+    "A bright metallic interior chamber or corridor",
+    "A circular portal or doorway",
+    "A hall containing a giant wall-mounted scarab construct"
+  ],
+  "lore_facts": [
+    "A figure named Aghlex XII exists and is important enough to require a formal audience.",
+    "The setting includes guards or officials who can deploy a 'technoscarab.'",
+    "The technoscarab appears to be a large scarab-shaped defensive creature or machine kept mounted until activated.",
+    "The culture or place shown treats this intrusion as profane or forbidden, indicated by the cry of sacrilege."
+  ],
+  "page_id": "369_The_Metabarons_14_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "An armored intruder or envoy reaches a circular entrance and calls for an audience with 'Aghlex XII.'",
+    "A woman protests the method, contrasting request with demand, while the armored figure rejects backing down.",
+    "Someone nearby cries out in outrage at the intrusion.",
+    "A guard or authority figure orders the release or activation of a 'technoscarab.'",
+    "A huge scarab-like construct mounted on a wall unfolds and comes to life.",
+    "The protagonists are confronted at close range by the creature, but the armored figure says they will keep going rather than retreat."
+  ],
+  "source_image": "external/comics/meta-barons/369_The_Metabarons_14_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c54cfa459adb3404b1935bc716ae0bfaab79744d9704ee7c31aa8c2211c9b2ea",
+      "page_id": "369_The_Metabarons_14_p11",
+      "source_image": "external/comics/meta-barons/369_The_Metabarons_14_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be slightly off, especially the proper name 'Aghlex XII' and the term 'technoscarab.'",
+    "The identities and names of the woman, the armored champion, and the guard are not stated on this page.",
+    "It is unclear whether the technoscarab is fully mechanical, biological, or a hybrid."
+  ],
+  "visual_summary": "A group breaches or approaches a circular doorway in a bright metallic chamber and demands an audience with 'Aghlex XII.' A woman objects while an armored leader refuses to back down. Guards are ordered to unleash a giant mounted techno-organic scarab, which animates and attacks. In the final panel, the woman asks whether they should retreat, but the armored figure insists they continue forward as the monster's jaws loom nearby.",
+  "volume": 14
+}

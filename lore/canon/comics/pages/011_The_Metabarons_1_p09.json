@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Baron is associated with the team being praised for the work.",
+    "Edna is expected to perform with customary precision.",
+    "Bari is entrusted with making clean cuts without damaging the material.",
+    "Hohenhole is mentally distracted by songs and must be reminded to concentrate.",
+    "Sire Barako asks for an evaluation of his work during the operation."
+  ],
+  "characters_present": [
+    "Baron",
+    "Edna",
+    "Bari",
+    "Hohenhole",
+    "Sire Barako",
+    "a white-haired male cutter",
+    "a red-bearded male worker",
+    "multiple armored cutting-team members",
+    "several observing nobles or attendants"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page establishes Baron's group as a disciplined, technically capable team under observation by higher-status figures.",
+    "The closing remark frames the team's coordination as potentially significant beyond ordinary labor skill."
+  ],
+  "dialogue_meaning": [
+    "A leader directs specific workers to use precise, careful cuts.",
+    "The team must synchronize their work to complete the task at the same moment.",
+    "One team member seeks feedback on his performance.",
+    "Hohenhole is distracted by songs in his head and is told to refocus on the job.",
+    "Observers are impressed by the speed and coordination of Baron's team.",
+    "The final comment suggests the team's collective performance appears unusually advanced or beyond simple intelligence."
+  ],
+  "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+  "is_spread": false,
+  "locations": [
+    "A worksite or quarry-like cutting area",
+    "An observation vehicle or platform at the worksite"
+  ],
+  "lore_facts": [
+    "Baron commands or represents a highly coordinated work team.",
+    "Edna, Bari, Hohenhole, and Sire Barako are members of the operation and are addressed by name.",
+    "The team is cutting a large marble block, described as roughly fifteen by thirty feet.",
+    "The stone cutting is performed with advanced mechanical tools and protective gear.",
+    "Outside observers treat the feat as exceptional because of both speed and precision."
+  ],
+  "page_id": "011_The_Metabarons_1_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A cutting team is instructed to work with precision and avoid damaging the stone.",
+    "The workers coordinate so they can finish their cuts simultaneously.",
+    "One worker asks how he is doing during the operation.",
+    "An observer praises Baron and his team for cutting a very large block of marble in under an hour.",
+    "Another speaker remarks that the team's coordination seems to exceed ordinary intelligence."
+  ],
+  "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+      "page_id": "011_The_Metabarons_1_p09",
+      "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact role and identity of each observer in the final panel are not fully clear from this page alone.",
+    "Some names may be slightly uncertain due to lettering clarity, especially 'Hohenhole' and possibly 'Sire Barako'.",
+    "The exact setting is unclear beyond being a stone-cutting worksite or quarry-like environment."
+  ],
+  "visual_summary": "A team of armored workers uses precision cutting tools to carve a massive stone block in coordinated fashion. Several close-up panels show individual team members at work, including women in visors, a white-haired cutter, a red-bearded man, and a long white-haired overseer or spokesperson using a handheld device. In the final wide panel, onlookers in ornate clothing and technical gear observe the operation and praise the workers' coordination.",
+  "volume": 1
+}

@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Aghnar is alive on this page and is directly named.",
+    "Aghnar is confused but recognizes that the rescuer knows him.",
+    "Oda is present or nearby during the attack, since another character calls out that name.",
+    "The unknown rescuer is powerful, decisive, and apparently familiar with Aghnar.",
+    "One survivor appears physically strained or injured during the sequence."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda (named in dialogue)",
+    "Unknown rescuer or pilot",
+    "Distressed survivor or companion",
+    "Multiple hostile tentacled biomechanical entities"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This spread introduces or reinforces a mysterious prior connection between Aghnar and the rescuer.",
+    "The mention of a discovered secret implies payoff from earlier hidden knowledge or plot setup.",
+    "The rescue arrives at a moment when the main characters appear close to defeat or death."
+  ],
+  "dialogue_meaning": [
+    "Someone urgently tells Oda to hold on during the crisis.",
+    "The narration questions how the rescuer uncovered a hidden secret and why he chose to intervene.",
+    "The rescuer demonstrates overwhelming power by eliminating several enemies rapidly.",
+    "A voice addresses Aghnar by name and calls for surrender to a mental or inner union.",
+    "The viewpoint character is shocked that the rescuer both saved him and seems to know him intimately."
+  ],
+  "image_sha256": "4fd3296f64d7fdb0e13cb6026853c629a3b556d3e3a3d41fc9570c16cd1441b1",
+  "is_spread": true,
+  "locations": [
+    "Outer space",
+    "A battle zone filled with burning organic/mechanical creatures or structures",
+    "Interior or edge view of a damaged spacecraft/cockpit"
+  ],
+  "lore_facts": [
+    "A 'secret' or hidden truth exists and has apparently been discovered by the rescuer.",
+    "Aghnar can be identified by name by the unknown rescuer without introduction.",
+    "The rescuer's intervention is extraordinary enough to surprise the survivors.",
+    "The page suggests some form of mind-based or psychic connection described as a union in the 'mind's shadow.'",
+    "The enemies are numerous and formidable, yet the rescuer can destroy several one after another."
+  ],
+  "page_id": "210_The_Metabarons_8_p04-p05",
+  "page_label": "p04-p05",
+  "plot_events": [
+    "A chaotic battle or disaster unfolds amid large glowing, tentacled forms in space.",
+    "A distressed character calls out to Oda while the destruction continues around them.",
+    "An unidentified ship or pilot attacks the hostile entities with precision, destroying several in succession.",
+    "The surviving observer wonders who discovered a hidden secret and why this person came to save them.",
+    "The rescuer appears to address Aghnar directly and urges mental or psychic union.",
+    "By the end of the spread, the observer concludes the unknown figure saved his life and is someone who knows him personally."
+  ],
+  "source_image": "external/comics/meta-barons/210_The_Metabarons_8_p04-p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4fd3296f64d7fdb0e13cb6026853c629a3b556d3e3a3d41fc9570c16cd1441b1",
+      "page_id": "210_The_Metabarons_8_p04-p05",
+      "source_image": "external/comics/meta-barons/210_The_Metabarons_8_p04-p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely at this resolution, especially the term describing the destroyed enemies and parts of the psychic-union speech.",
+    "It is unclear whether the distressed inset figure is Aghnar, Oda, or another companion.",
+    "The exact nature of the tentacled foes or structures is not explicitly identified on the page alone.",
+    "The rescuer is not visually identified by name on this spread."
+  ],
+  "visual_summary": "A burning, tentacle-filled space battle dominates the spread. Organic-looking enemies or structures erupt in bright orange-white explosions while a sleek craft streaks through the chaos, firing and destroying multiple targets. A figure in distress appears in inset panels, then a larger damaged ship drifts in space as the surviving viewpoint character realizes an unknown rescuer has intervened.",
+  "volume": 8
+}

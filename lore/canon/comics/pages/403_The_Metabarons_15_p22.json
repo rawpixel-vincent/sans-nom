@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Aghora acts independently and chooses to intervene in the approaching crisis.",
+    "Aghora is capable of stealth infiltration and successfully enters the Golden Planet's atmosphere undetected.",
+    "Deyanira is a named companion, mount, or vehicle being addressed directly by Aghora.",
+    "Aghora is shown riding with or mounted on Deyanira while approaching the target area."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Deyanira",
+    "Unseen hostile forces mentioned in dialogue"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page leads directly into the next episode, titled 'The Mirror Effect.'",
+    "The threat to the Golden Planet and the move toward the glass dome are unresolved by the end of the page."
+  ],
+  "dialogue_meaning": [
+    "The page establishes an urgent threat: enemies are advancing toward the Golden Planet and could arrive within two weeks if unopposed.",
+    "The speaker decides to intervene proactively.",
+    "The narration explains that Aghora is infiltrating the Golden Planet by stealth, avoiding its detection systems.",
+    "Aghora orders movement toward the glass dome, setting up the next objective."
+  ],
+  "image_sha256": "7c80f557607ad005b8b17815b0b8d06c9808d444ed77d3c8db144e956ff02500",
+  "is_spread": false,
+  "locations": [
+    "Space near or above the Golden Planet",
+    "The atmosphere of the Golden Planet",
+    "Exterior golden structures on the Golden Planet",
+    "The glass dome (destination mentioned, not shown clearly)"
+  ],
+  "lore_facts": [
+    "The Golden Planet is the dwelling place of the imperial couple.",
+    "Aghora possesses or travels in a craft or concealment system called a Metashadow.",
+    "The Metashadow can slip past detection systems.",
+    "There is a location on the Golden Planet called the glass dome.",
+    "The hostile group is said to be trying to take over 'our universe' and is expected to reach the Golden Planet in about two weeks if unimpeded."
+  ],
+  "page_id": "403_The_Metabarons_15_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "A character warns Deyanira that hostile forces are trying to take over their universe and are heading for the Golden Planet.",
+    "The speaker resolves to act rather than wait for events to come to them.",
+    "Aghora uses her Metashadow to bypass detection systems and enter the atmosphere of the Golden Planet.",
+    "Aghora and Deyanira approach or scale the exterior of a golden structure on the planet.",
+    "Aghora directs Deyanira toward a destination identified as the glass dome."
+  ],
+  "source_image": "external/comics/meta-barons/403_The_Metabarons_15_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7c80f557607ad005b8b17815b0b8d06c9808d444ed77d3c8db144e956ff02500",
+      "page_id": "403_The_Metabarons_15_p22",
+      "source_image": "external/comics/meta-barons/403_The_Metabarons_15_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and captions are small; wording is mostly legible but may not be exact in every phrase.",
+    "Deyanira's exact nature is unclear from this page alone: she appears to be a living or biomechanical mount/companion, but the page does not define her.",
+    "The identity and appearance of the hostile forces are not shown clearly on this page; they are only referenced in dialogue."
+  ],
+  "visual_summary": "A bald figure pilots or rides beside a beaked, biomechanical-looking mount or craft in space while speaking urgently to Deyanira about enemies heading for the Golden Planet. A caption shows Aghora, concealed in her Metashadow, slipping through defenses and descending toward the planet. The lower panels show the golden exterior architecture of the planet and Aghora clinging to or riding Deyanira along a towering structure, directing her toward a glass dome. The page ends with a next-episode teaser.",
+  "volume": 15
+}

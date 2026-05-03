@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Oda Agnar works as a mercenary and sells his service to the highest bidder.",
+    "Oda Agnar participated in campaigns of extermination and repression.",
+    "The robot narrators are morally judgmental about the events they describe."
+  ],
+  "characters_present": [
+    "Two robot narrators/commentators",
+    "Oda Agnar (described in narration, not clearly identifiable as a distinct figure)",
+    "Gords (mentioned in narration)",
+    "Hireas (aquatic beings shown in battle)",
+    "Zerkots (mentioned in narration)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing narrated account of Oda Agnar's violent mercenary history.",
+    "The robot narrators remain the framing device, commenting on Agnar's past while battle scenes illustrate specific episodes."
+  ],
+  "dialogue_meaning": [
+    "One narrator angrily condemns the shameless hypocrisy of the people being discussed.",
+    "The other explains that Agnar was treated as a hired weapon, with rivals bidding for his services.",
+    "The narration frames Agnar as someone who routinely worked for whoever paid most, building a fearsome reputation.",
+    "Captions identify two example campaigns: the extermination of the Hireas on Sec-Hum and the repression of a machine revolt on Nibal."
+  ],
+  "image_sha256": "15a1167da7cfd3942f37d6d03a861fc94bf6c899d78dc699d10b4792eeb47c05",
+  "is_spread": false,
+  "locations": [
+    "Planet Sec-Hum",
+    "Nibal, a planetary mega-city"
+  ],
+  "lore_facts": [
+    "Oda Agnar's military services could be auctioned among competing employers.",
+    "Agnar became widely known for cruelty and bitterness through repeated mercenary campaigns.",
+    "Planet Sec-Hum is inhabited by the Gords, described as desert people covered with stinking scales.",
+    "The Hireas are described as fragrant aquatic beings.",
+    "Nibal is characterized as a planetary mega-city.",
+    "The Zerkots are described as telepathic saurians.",
+    "A revolt of giant machines took place on Nibal."
+  ],
+  "page_id": "236_The_Metabarons_9_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "Robot narrators denounce cynical behavior and continue recounting Oda Agnar's past.",
+    "The narration says Agnar's services were auctioned for hours, with competing groups offering large sums to employ him.",
+    "Over the years, Agnar repeatedly sold himself to the highest bidder and became notorious for bitterness and cruelty.",
+    "On Planet Sec-Hum, Agnar assisted the Gords in eliminating the Hireas, described as fragrant aquatic beings.",
+    "On Nibal, a planetary mega-city, Agnar worked for the Zerkots to suppress a revolt involving giant machines."
+  ],
+  "source_image": "external/comics/meta-barons/236_The_Metabarons_9_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "15a1167da7cfd3942f37d6d03a861fc94bf6c899d78dc699d10b4792eeb47c05",
+      "page_id": "236_The_Metabarons_9_p07",
+      "source_image": "external/comics/meta-barons/236_The_Metabarons_9_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption text is small and slightly blurred; wording may be imperfect even where the main meaning is clear.",
+    "Oda Agnar is discussed extensively in narration, but no single figure can be identified with confidence in the battle scenes.",
+    "The exact spelling of group names depends on the page text and may be hard to verify from the image alone."
+  ],
+  "visual_summary": "Two robot narrators continue describing Oda Agnar's career as a mercenary. The page is structured around narration boxes above two large battle tableaux: first, a watery battlefield on Planet Sec-Hum where shark- or fish-like aquatic beings are attacked amid hovering craft and weapons fire; second, a bright, chaotic urban war scene in Nibal, where heavy machines and armed forces exchange devastating fire across a vast cityscape.",
+  "volume": 9
+}

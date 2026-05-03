@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "Tonto is one of the Metabaron's robot companions.",
+    "Lothar is one of the Metabaron's robot companions.",
+    "The Metabaron is associated with the Metabunker as its inhabitant or master.",
+    "The Castakas are associated with hidden or preserved secrets kept in the Metabunker."
+  ],
+  "characters_present": [
+    "Tonto (named in the header and description, shown in the inset robot portrait)",
+    "Lothar (named in the description, not clearly depicted)",
+    "The Metabaron (named in the description, not depicted)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page links the Metabaron to the Castakas through the fortress's stored secrets.",
+    "The page links Tonto and Lothar to the Metabaron through shared residence in the Metabunker."
+  ],
+  "dialogue_meaning": [
+    "The page explains that the Metabunker is the sacred sanctuary of the Metabaron.",
+    "It states that the fortress contains the secrets of the Castakas.",
+    "It says the robots Tonto and Lothar live there as the Metabaron's companions.",
+    "It frames the fortress not only as physically indestructible but also as a symbol of the Metabaron's tragic solitude."
+  ],
+  "image_sha256": "b0fb22a2e88c2140189f14bd755b29624956218cc954a0367392b95bcd6037f6",
+  "is_spread": false,
+  "locations": [
+    "The Metabunker",
+    "Space"
+  ],
+  "lore_facts": [
+    "The Metabunker is described as an invincible or indestructible fortress.",
+    "It is the sacred sanctuary of the Metabaron.",
+    "It is home to the secrets of the Castakas.",
+    "Tonto and Lothar live there.",
+    "The fortress symbolically reflects the Metabaron's isolation."
+  ],
+  "page_id": "404_The_Metabarons_15_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "The page pauses the narrative to introduce and describe the Metabunker as a key location.",
+    "The fortress is visually displayed in cross-section, emphasizing both its exterior armor and intricate internal structure.",
+    "An inset image identifies one of the robots associated with the site."
+  ],
+  "source_image": "external/comics/meta-barons/404_The_Metabarons_15_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b0fb22a2e88c2140189f14bd755b29624956218cc954a0367392b95bcd6037f6",
+      "page_id": "404_The_Metabarons_15_p23",
+      "source_image": "external/comics/meta-barons/404_The_Metabarons_15_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The small top caption includes an archive-style label, but the exact wording and numbering are difficult to read with full certainty.",
+    "The inset image appears to depict Tonto, but fine visual details of the robot are limited by image resolution.",
+    "Lothar is mentioned in text but may not be separately visible in the artwork."
+  ],
+  "visual_summary": "A glossary-style lore page presents 'The Metabunker' with a large illustration of a massive angular fortress floating in space against a red starfield. Part of the structure is shown cut away to reveal a dense internal maze-like mechanical architecture. A small robot portrait appears near the title, and a text block explains the fortress's significance.",
+  "volume": 15
+}

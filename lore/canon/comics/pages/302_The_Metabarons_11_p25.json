@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "Albino is described in the text as pursuing the goal of becoming the 'Supreme Technopriest.'",
+    "Albino is said to be continuing onward after events involving his mother and siblings."
+  ],
+  "characters_present": [
+    "Albino is mentioned in the promotional text but is not clearly depicted.",
+    "A ring-shaped spacecraft or station is prominently depicted; no identifiable person is visible."
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page does not read like a normal narrative page of The Metabarons; it appears to be an inserted preview for The Technopriests.",
+    "The closing caption and combat imagery suggest a travel sequence under attack, but with limited direct continuity context on this page alone."
+  ],
+  "dialogue_meaning": [
+    "The promotional copy says Albino is continuing a journey toward becoming the 'Supreme Technopriest' and facing a corrupt, dangerous world.",
+    "The closing caption indicates the travelers encountered hostile forces from outside during their long path or voyage."
+  ],
+  "image_sha256": "1589637c62e17f732e8fb09c1fe2f710415b2638269c6fdd82d25fcfc7db814b",
+  "is_spread": false,
+  "locations": [
+    "Outer space.",
+    "A space route or battlefield near rocky bodies/asteroids.",
+    "Promotional setting for 'The Technopriests' book 3, 'Planeta Games.'"
+  ],
+  "lore_facts": [
+    "This page explicitly references 'The Technopriests' book 3, titled 'Planeta Games.'",
+    "The promotional text names the creators Jodorowsky, Janjetov, and Beltran.",
+    "Albino is described as a young figure on a journey toward becoming the 'Supreme Technopriest.'",
+    "The promotional text says Albino moves forward despite a reversal involving his mother and siblings.",
+    "The setting shown includes advanced spacefaring technology capable of projecting energy against hostile objects."
+  ],
+  "page_id": "302_The_Metabarons_11_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "A promotional text block introduces 'The Technopriests' book 3 and frames it as the next stage in Albino's journey.",
+    "A ring-shaped spacecraft or station attacks multiple incoming objects with bright energy discharges in space.",
+    "The targeted objects explode or break apart.",
+    "After the clash, debris floats in space while the ring-shaped craft continues onward.",
+    "A caption states that adversaries were encountered during a long journey."
+  ],
+  "source_image": "external/comics/meta-barons/302_The_Metabarons_11_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1589637c62e17f732e8fb09c1fe2f710415b2638269c6fdd82d25fcfc7db814b",
+      "page_id": "302_The_Metabarons_11_p25",
+      "source_image": "external/comics/meta-barons/302_The_Metabarons_11_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a promotional preview page, its relationship to the surrounding volume's main narrative is unclear.",
+    "Some small text is difficult to read precisely due to image resolution and stylized layout.",
+    "It is unclear whether the ring-shaped object is a ship, station, or another device.",
+    "No human figures are clearly visible, so character presence is inferred only from the promotional text."
+  ],
+  "visual_summary": "This page appears to be a publisher preview/advertisement for another comic, 'The Technopriests' book 3, 'Planeta Games,' rather than a standard story page from The Metabarons. The top half contains promotional copy about the series and its creators over a faint space-themed background. The lower half shows a ring-shaped spacecraft or station in space firing bright energy arcs into several incoming rocky projectiles or explosive masses, followed by a panel of drifting wreckage and the ring craft continuing onward near an asteroid or rocky surface.",
+  "volume": 11
+}

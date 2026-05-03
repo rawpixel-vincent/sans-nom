@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The male warrior is gravely wounded, bleeding heavily, and still tries to continue fighting alone.",
+    "The male warrior's body visibly breaks down under the psychic strain, especially in his eyes.",
+    "Oda is willing and apparently able to merge her strength or energy with his to keep him alive or help him resist.",
+    "Oda physically supports the warrior at the end of the page, suggesting both emotional attachment and active intervention."
+  ],
+  "characters_present": [
+    "A wounded armored male warrior, likely a Metabaron",
+    "A woman addressed or identified as Oda",
+    "Several hostile figures referred to as 'the Elders,' shown as a row of distorted purple faces or projections"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing confrontation involving a Metabaron, Oda, and the psychic threat of the Elders.",
+    "The warrior's injuries and the woman's urgent plea indicate damage and conflict already underway before this page."
+  ],
+  "dialogue_meaning": [
+    "The male warrior insists that a Metabaron must face this crisis alone.",
+    "An unseen or distant speaker aligned with the Elders boasts that their mental power is irresistible.",
+    "The woman argues that the warrior is too weakened by blood loss to resist alone.",
+    "The warrior relents and asks Oda to help him.",
+    "Oda describes a psychic or energetic joining, presenting their union as permanent or absolute."
+  ],
+  "image_sha256": "7389dcf7a45dc1967ac0d337efcc3daf90b2844ccc7f7fead171ce5e8a89da87",
+  "is_spread": false,
+  "locations": [
+    "A damaged interior chamber or corridor filled with rubble, corpses or debris, and strong beams of light"
+  ],
+  "lore_facts": [
+    "A Metabaron is expected, at least by personal or cultural code, to accomplish certain trials alone.",
+    "The 'Elders' possess formidable mental powers capable of directly attacking a target's mind or body.",
+    "Psychic or energy-based assistance can be shared between two people through a mental union described as the 'mind's shadow'.",
+    "This mental union is framed as creating a lasting joined state, expressed as 'united forever'."
+  ],
+  "page_id": "202_The_Metabarons_7_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "A badly injured male warrior attempts to act alone despite severe blood loss.",
+    "A bright mental or energy attack is unleashed in the chamber, apparently by hostile 'Elders'.",
+    "The woman warns that the man cannot withstand the attack by himself and urges him to accept her help.",
+    "The man calls to Oda for help.",
+    "The woman says she is absorbing or sharing his energy through a union 'in the mind's shadow'.",
+    "The page ends with the woman physically supporting and embracing the wounded man as they unite against the psychic assault."
+  ],
+  "source_image": "external/comics/meta-barons/202_The_Metabarons_7_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7389dcf7a45dc1967ac0d337efcc3daf90b2844ccc7f7fead171ce5e8a89da87",
+      "page_id": "202_The_Metabarons_7_p25",
+      "source_image": "external/comics/meta-barons/202_The_Metabarons_7_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; exact wording may be imperfectly captured.",
+    "The wounded man's personal identity is not explicitly readable on the page beyond being called a Metabaron.",
+    "The row of purple faces may represent the Elders directly or a visual projection of their collective mental attack.",
+    "The printed page number at the bottom appears to read 26, which may not match the provided page_label p25."
+  ],
+  "visual_summary": "A wounded male fighter in dark armor braces himself beside a stone-like structure amid bodies and rubble while a woman in a helmeted outfit faces him from the right. A blinding psychic or energy burst fills the chamber. Close-ups show the man straining, then his eyes rupturing and bleeding under intense mental pressure. In the final panel, the woman kneels and embraces him as beams of light continue across the scene.",
+  "volume": 7
+}

@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Othon is portrayed as bold or stealth-oriented, advancing alone into a narrow passage with minimal weaponry.",
+    "Konrath and Hohenhole are associated with the defensive stand against the endoguards.",
+    "The bearded armored figure acts as a battlefield motivator or leader in this scene.",
+    "The small robot has a talkative, anxious personality and reacts to danger with humor."
+  ],
+  "characters_present": [
+    "Othon",
+    "Konrath",
+    "Hohenhole",
+    "bearded armored fighter or commander",
+    "small robot observer/commentator",
+    "multiple armored soldiers or endoguards",
+    "robotic or mechanized enemy combatants"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing battle rather than introducing a new conflict.",
+    "The narration links the twins' defensive action with Othon's simultaneous infiltration maneuver."
+  ],
+  "dialogue_meaning": [
+    "A frontline leader encourages a fierce assault and frames the enemy machines as vulnerable.",
+    "The battle cry suggests a ruthless, victory-at-all-costs mentality.",
+    "The small robot complains humorously about overheating, contrasting with the violence around it.",
+    "The narration explains that the main battle is a diversion or holding action while Othon infiltrates deeper into enemy territory."
+  ],
+  "image_sha256": "5d31a8db3df37228d9f9dae261fb1e45f19a00c0217c7f3a677aff559c2677ee",
+  "is_spread": false,
+  "locations": [
+    "A combat area filled with levitating block-like structures",
+    "A narrow underground passageway",
+    "A dim industrial corridor or interior passage"
+  ],
+  "lore_facts": [
+    "Konrath and Hohenhole are twins.",
+    "There is a force called the endoguards.",
+    "The setting includes levitating structural blocks used as cover or terrain in battle.",
+    "Othon is depicted as entering combat or infiltration armed only with a short dagger.",
+    "The page presents a militarized conflict involving armored humans and mechanized opponents."
+  ],
+  "page_id": "033_The_Metabarons_2_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A bearded armored commander urges his allies forward against robotic or heavily mechanized opponents.",
+    "Large numbers of combatants exchange gunfire across suspended block-like platforms.",
+    "Narration states that the twins, Konrath and Hohenhole, are holding the endoguards at bay with great difficulty.",
+    "A small robot provides anxious comic relief during the fighting.",
+    "Narration states that Othon, carrying only a short dagger, moves toward the center of the enemy force through a narrow underground passage.",
+    "The last panels show Othon stealthily advancing with his blade while armored soldiers move through a corridor."
+  ],
+  "source_image": "external/comics/meta-barons/033_The_Metabarons_2_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5d31a8db3df37228d9f9dae261fb1e45f19a00c0217c7f3a677aff559c2677ee",
+      "page_id": "033_The_Metabarons_2_p04",
+      "source_image": "external/comics/meta-barons/033_The_Metabarons_2_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and terms are difficult to read with full certainty; 'Konrath,' 'Hohenhole,' and 'endoguards' may be approximate spellings.",
+    "It is unclear whether the bearded speaker is one of the named characters or a different fighter.",
+    "The exact nature of the enemy units is uncertain; they appear mechanized or robotic, but the page alone does not fully define them.",
+    "The small robot's exact identity is not given on this page alone."
+  ],
+  "visual_summary": "A battle rages across stacked, levitating stone or metal blocks in a bright underground or interior combat zone. A bearded armored man rallies fighters against robotic enemies while gunfire and explosions fill the scene. A small robot comments nervously from near a giant mechanical leg. In narration, the twins hold back enemy forces while Othon slips alone through a narrow passage with a dagger; the final panels show him moving through a dark corridor, knife ready, as armed troops advance elsewhere.",
+  "volume": 2
+}

@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Oda is described by another speaker as brave.",
+    "The captive is unwilling and verbally resists the rite.",
+    "The grotesque speaker appears aligned with the ritual faction.",
+    "The opposing speaker views the ritual faction as parasitic and criminal.",
+    "The officiants treat the event as both sacred and politically consequential."
+  ],
+  "characters_present": [
+    "A grotesque elderly speaker or priest making the opening proclamation",
+    "A pale captive or ceremonial participant being taken to the altar",
+    "Oda, addressed directly in dialogue",
+    "An unseen or partially seen opponent denouncing the ceremony",
+    "Multiple robed priests or attendants conducting the ritual",
+    "A surrounding crowd of witnesses",
+    "An armed figure in the final panel aiming a long weapon or staff toward the tabernacle"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page centers on a succession or overthrow struggle involving Janus-Jana.",
+    "The ritual appears tied to dynastic reproduction and legitimacy.",
+    "The named figures Sama-Wajd, Oda, and Jejoh the Pure are all directly relevant to the ceremony."
+  ],
+  "dialogue_meaning": [
+    "The ceremony is framed as a power-granting sacred event tied to succession against Janus-Jana.",
+    "The officiants want the central figure brought to the altar immediately.",
+    "One participant condemns the ritual leaders as corrupt scavengers of the empire.",
+    "Oda is praised for courage and urged to embrace a harsh warrior ethos.",
+    "The ritual's goal includes conception and the use of the captive's sperm for a figure named Jejoh the Pure.",
+    "The captive resists verbally and rejects the rite.",
+    "The sequence culminates in an order to open the tabernacle, implying the next stage of the ritual."
+  ],
+  "image_sha256": "24c565fd37d0fda939792615b7adea37e828125ac85ebee8c110a485d5e6e406",
+  "is_spread": false,
+  "locations": [
+    "A ceremonial hall or temple",
+    "A mechanical altar or ritual platform",
+    "An area identified as the tabernacle"
+  ],
+  "lore_facts": [
+    "Sama-Wajd is called the 'chosen hermaphrodite.'",
+    "Janus-Jana is identified as an empress of the galaxy and as the target of dethronement.",
+    "The setting's participants speak of a 'sacred union' performed at an altar.",
+    "The ritual explicitly links political power with reproductive or dynastic aims.",
+    "Jejoh the Pure is named as the intended recipient or beneficiary of the captive's sperm.",
+    "A 'tabernacle' exists in this setting as a distinct ceremonial object or chamber opened by command."
+  ],
+  "page_id": "193_The_Metabarons_7_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "A religious or political invocation names Sama-Wajd as a chosen hermaphrodite who will dethrone Janus-Jana and grant absolute power.",
+    "Robed figures move a pale central figure toward an altar for a proclaimed 'sacred union.'",
+    "An opposing voice curses the participants and calls them predatory exploiters of the empire.",
+    "A woman identified as Oda is addressed and urged toward the altar, with her bravery compared to a castaka ideal of conquest or death.",
+    "Priests or attendants place the central figure onto a mechanical altar while the crowd chants for the ritual.",
+    "The captive protests, calling the participants lunatics, assassins, and prostitutes, and is told to calm down.",
+    "Someone orders the tabernacle to be opened, revealing or pointing toward a bright star-shaped object or portal."
+  ],
+  "source_image": "external/comics/meta-barons/193_The_Metabarons_7_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "24c565fd37d0fda939792615b7adea37e828125ac85ebee8c110a485d5e6e406",
+      "page_id": "193_The_Metabarons_7_p16",
+      "source_image": "external/comics/meta-barons/193_The_Metabarons_7_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially names and exact phrasing.",
+    "It is unclear from the page alone whether the captive on the altar is Oda or a different person being addressed alongside Oda.",
+    "The identity of the speaker denouncing the ceremony is not visually confirmed.",
+    "The exact nature of the glowing object inside the tabernacle is not stated on this page alone."
+  ],
+  "visual_summary": "A chaotic ceremonial scene unfolds inside a large ritual chamber or temple filled with robed attendants, machinery, and a crowd. An elderly, grotesque-faced speaker invokes Sama-Wajd and Janus-Jana while a pale, nearly nude figure is dragged or carried toward an altar-like mechanical apparatus. Another armed figure denounces the ceremony. In the central panel the captive is strapped or laid onto the altar amid shouting priests and onlookers, and the page ends with a command to open a glowing tabernacle while a long weapon points toward it.",
+  "volume": 7
+}

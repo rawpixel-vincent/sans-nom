@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Bari is a boy or youth with long light-colored hair.",
+    "Bari's father is wealthy or powerful enough to obtain an extraordinarily expensive resurrected animal.",
+    "Bari is emotionally affected by the gift and longs for renewed enjoyment of life.",
+    "Shazam is a resurrected white horse that becomes obedient to Bari after being named and fed sugar."
+  ],
+  "characters_present": [
+    "Bari",
+    "Bari's father",
+    "Shazam the horse",
+    "Techno-scientists or technicians",
+    "Robots/servitor machines"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page centers on Bari's relationship with his father through the gift of the horse.",
+    "The narration frames this as a turning point leading to Bari's renewed engagement with life on the new planet."
+  ],
+  "dialogue_meaning": [
+    "A narrator stresses the rarity of the horse: it is a revived specimen of a breed extinct for twenty millennia.",
+    "The narrator emphasizes the immense expense and technical effort required to bring the horse back to life.",
+    "The father presents the horse as a personal gift for Bari and gives practical advice for bonding with it.",
+    "Bari tells his father that the gift is beyond words and that riding it would bring back his appetite for life.",
+    "The narration says Bari names the horse Shazam, becomes its accepted master, and finds renewed happiness riding it."
+  ],
+  "image_sha256": "1823b6b73d503f3f9872cd5de10158a29e74be0cc44d931a678e59be9298fa58",
+  "is_spread": false,
+  "locations": [
+    "A spacecraft landing or unloading area",
+    "A technologically advanced reception or hangar-like setting",
+    "The garden paradise of the family's new planet"
+  ],
+  "lore_facts": [
+    "Horses have been extinct for 20,000 years since the Sixth World War.",
+    "The Imperial Palace maintains a genetic museum preserving the genes of extinct species.",
+    "A horse can be recreated through advanced scientific labor by techno-scientists.",
+    "Reviving this horse cost 100 tons of gold.",
+    "Bari's family is living on a new planet described as a garden paradise.",
+    "Large flying creatures inhabit or pass over that planetary landscape."
+  ],
+  "page_id": "045_The_Metabarons_2_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "Narration explains that the animal is a living horse, an extinct breed preserved through imperial genetic conservation.",
+    "The horse is presented as an extremely costly scientific reconstruction created by techno-scientists.",
+    "An older man gives the horse to a boy named Bari as a gift meant specifically for him.",
+    "The boy is overwhelmed with gratitude and says riding the animal would restore his joy in life.",
+    "The horse accepts Bari after he names it 'Shazam' and feeds it sugar.",
+    "Bari begins a new, happier phase of life by riding Shazam through the paradise-like environment of their new planet."
+  ],
+  "source_image": "external/comics/meta-barons/045_The_Metabarons_2_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1823b6b73d503f3f9872cd5de10158a29e74be0cc44d931a678e59be9298fa58",
+      "page_id": "045_The_Metabarons_2_p16",
+      "source_image": "external/comics/meta-barons/045_The_Metabarons_2_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The father's personal name is not clearly legible on the page image; he is identified only as Bari's father.",
+    "Some minor background figures and robots are not individually identifiable.",
+    "The exact species of the large flying animals in the final riding scene is not stated."
+  ],
+  "visual_summary": "A narrated flashback page shows a white horse being unloaded from a spacecraft and handled by technicians in a futuristic setting. A young long-haired boy and an older silver-haired man receive the animal, with small robots and attendants nearby. The boy later rides the horse named Shazam across a lush landscape with large winged creatures overhead.",
+  "volume": 2
+}

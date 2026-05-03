@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "The small robot is excitable, talkative, and strongly impressed by the preserved poet.",
+    "The preserved poet-like being presents himself as a soul-bearing survivor who gave up his body.",
+    "The preserved speaker associates identity with poetry, seduction, and the loss of embodiment.",
+    "The armored humanoid openly admits he does not know how to feel and seeks instruction.",
+    "The ancient cable-bound being speaks with authority about emotion and long-term expectation."
+  ],
+  "characters_present": [
+    "A small spherical robot observer/commentator",
+    "A preserved disembodied poet or poet-head suspended in machinery",
+    "A large armored humanoid visitor/seeker",
+    "An ancient cable-bound machine being addressing the visitor"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page advances a thread about a warrior or seeker trying to understand emotion rather than merely power or knowledge.",
+    "The mention of the 'last of the poets' connects the scene to a broader setting where poets or similar figures have nearly vanished.",
+    "The five-thousand-year wait implies a prophecy, plan, or long-anticipated meeting already in motion before this page."
+  ],
+  "dialogue_meaning": [
+    "The small robot is romantically or aesthetically overwhelmed by the preserved poet’s appearance and movements.",
+    "The page establishes that the poets are nearly extinct, with only a head surviving here.",
+    "The preserved speaker equates bodily sacrifice with preserving the soul and preserving poetry.",
+    "The speaker contrasts spiritual/verbal love with physical or carnal love, regretting the lack of a body.",
+    "The armored visitor believes love is tied to true feeling and seeks instruction in emotion.",
+    "The final response reframes emotion as something that must be opened or broken into, not academically taught."
+  ],
+  "image_sha256": "a3967b225dbcc58c731bd565227e9411743105f90fe2995c765f7085b3f57657",
+  "is_spread": false,
+  "locations": [
+    "A cavernous metallic chamber filled with mechanical debris or bodies",
+    "A suspended machinery niche or shrine holding the preserved poet/head",
+    "A cable-lined interior space dominated by ancient biomechanical apparatus"
+  ],
+  "lore_facts": [
+    "At least one figure is described as one of the last poets, and only a head remains of that survivor.",
+    "A surviving speaker preserved his soul by sacrificing the rest of his body.",
+    "Poetry is said to still live within the preserved speaker’s mind.",
+    "The page explicitly contrasts verbal/spiritual love with carnal/physical manifestation.",
+    "An ancient being claims to have waited five thousand years for the armored seeker.",
+    "The page states that emotions cannot be directly taught."
+  ],
+  "page_id": "290_The_Metabarons_11_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A small robot gushes over the preserved poet’s beauty and grace.",
+    "The narration/dialogue reveals that of the last poets, only a head remains.",
+    "The preserved speaker explains that he sacrificed the rest of his body to keep his soul from dying.",
+    "The speaker says poetry still survives in his mind, but without a body he cannot pursue physical love.",
+    "Another machine-bound figure says it chose verbal love over bodily fulfillment.",
+    "An armored humanoid declares that the other being knows love and asks to be taught how to feel.",
+    "The ancient being replies that emotions cannot simply be taught and says it has awaited the seeker for five thousand years."
+  ],
+  "source_image": "external/comics/meta-barons/290_The_Metabarons_11_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a3967b225dbcc58c731bd565227e9411743105f90fe2995c765f7085b3f57657",
+      "page_id": "290_The_Metabarons_11_p13",
+      "source_image": "external/comics/meta-barons/290_The_Metabarons_11_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be slightly off.",
+    "It is unclear whether the preserved poet-head and the cable-bound speaker are the same entity shown in different views or separate beings.",
+    "The exact names of the present figures are not fully established on this page alone; 'Zaran Kreza' is mentioned only as a comparison and may not be present.",
+    "The exact nature of the piled forms in the large chamber is visually ambiguous; they appear mechanical or robotic remains."
+  ],
+  "visual_summary": "A small round robot excitedly admires a translucent, machine-bound head identified as the last surviving poet. The page then reveals a vast metallic chamber filled with piled robotic/mechanical remains and hanging cables, with the poet’s preserved head/body remnant suspended within it. At the bottom, a large armored humanoid confronts an ancient cable-entangled being, asking to be taught how to feel, while the being answers that emotion cannot be taught directly and says it has waited five thousand years for this moment.",
+  "volume": 11
+}

@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The older armored man is the younger character's father.",
+    "The father is severely ill, coughing repeatedly and appearing near death.",
+    "The father claims responsibility for defeating the Cetacyborg.",
+    "The father says he has only a few days left to live.",
+    "The younger silver-haired character is emotionally attached to the father and challenges his claim of helplessness."
+  ],
+  "characters_present": [
+    "An older white-haired armored man, apparently the younger character's father",
+    "A younger silver-haired person dressed in dark clothing",
+    "A small robot or machine with a screen-like face"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows an earlier conflict with the Cetacyborg, whose aftermath is explained here.",
+    "The father's ten-year hiding plan sets up a prolonged period of concealment on the current planet.",
+    "The mention of the Shabda-Oud witches connects this scene to prior or future lore about that world or group."
+  ],
+  "dialogue_meaning": [
+    "The older man describes a delayed surveillance or communication plan already set in motion across the universe.",
+    "He orders the younger person into long-term concealment on the current planet.",
+    "He frames the planet as similar to one linked to the Shabda-Oud witches.",
+    "The younger person resists the instruction emotionally and asks about the father's fate.",
+    "The older man reveals that his victory over the Cetacyborg required self-sacrificial infection tactics.",
+    "He announces that he is dying from contamination caused by the defeated monster.",
+    "The younger person refuses to accept the explanation at face value and suspects some hidden motive or test."
+  ],
+  "image_sha256": "501577fc1c7084637caec172b94311b67f63db2e87419d0c24955a8802c506bf",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft or metallic base",
+    "A machinery or armory/storage compartment within that interior"
+  ],
+  "lore_facts": [
+    "Signals from the older man's dispatched 'spy-needles' will not return for ten years.",
+    "The planet they are on is said to be like the Shabda-Oud witches' planet.",
+    "A being or enemy called the Cetacyborg exists and was defeated from within.",
+    "The Cetacyborg used toxic gases capable of contaminating blood and corroding lungs."
+  ],
+  "page_id": "155_The_Metabarons_6_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "The older man says he has sent devices or agents across the universe and expects a ten-year delay before any signals return.",
+    "He instructs the younger person to remain hidden on this planet for those ten years and says the world resembles a place associated with the Shabda-Oud witches.",
+    "The younger person asks why they must stay alone and what will happen to him.",
+    "The older man leads or speaks from within a compartment filled with equipment and explains that he defeated the Cetacyborg from within by using virus-like tactics.",
+    "He reveals that the same method is now killing him.",
+    "He states that his blood is contaminated by the monster's gases and that he has only a few days left to live.",
+    "The younger person protests, calling him the most powerful of warriors and asking what game he is playing."
+  ],
+  "source_image": "external/comics/meta-barons/155_The_Metabarons_6_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "501577fc1c7084637caec172b94311b67f63db2e87419d0c24955a8802c506bf",
+      "page_id": "155_The_Metabarons_6_p03",
+      "source_image": "external/comics/meta-barons/155_The_Metabarons_6_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact appearance and function of the 'spy-needles' are not shown clearly on this page.",
+    "The younger silver-haired character's identity is not named on the page.",
+    "Some dialogue terms, especially proper nouns, may be slightly uncertain due to small lettering and scan quality."
+  ],
+  "visual_summary": "An older, visibly ill armored man speaks privately with a younger silver-haired person inside a metallic spacecraft or chamber crowded with machinery and weapons. In close-ups he coughs and grimaces while explaining a long-term plan and his imminent death. The younger figure first listens in silence, then follows him into a storage-like area and reacts in shock and protest.",
+  "volume": 6
+}

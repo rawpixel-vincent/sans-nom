@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Othon von Salza is identified by name on the page.",
+    "Othon is described as the best student the elder has ever had.",
+    "According to the elder, Othon exceeds him in every respect except willingness to sacrifice.",
+    "Othon is the elder's son and his daughter's mate.",
+    "The elder possesses a birthmark tied to his lineage and expects Othon to inherit it.",
+    "The elder intends for Othon to absorb his spirit and knowledge."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "Othon's father/master",
+    "Two silent kneeling attendants or witnesses"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page refers back to an earlier fight in which the elder was stabbed in the shoulder.",
+    "It also refers to an earlier incident where Othon emerged from beneath a block after others risked everything to save him.",
+    "The succession and spirit-transfer ritual appears to be the culmination of Othon's training and acceptance into the family line."
+  ],
+  "dialogue_meaning": [
+    "The page frames combat mastery as requiring sacrifice and even strategic loss, not just skill.",
+    "Othon's father/master formally acknowledges Othon's worthiness as heir.",
+    "The relationship is both familial and initiatory: Othon answers as son while receiving a final teaching.",
+    "Inheritance in this lineage involves receiving the father's knowledge and spirit, marked by a physical sign."
+  ],
+  "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+  "is_spread": false,
+  "locations": [
+    "An interior chamber with weapons mounted on the wall",
+    "An exterior view of a large fortress or tower complex"
+  ],
+  "lore_facts": [
+    "A member of this lineage can deliberately take a wound as part of a strategy to achieve ultimate victory.",
+    "The father's teaching emphasizes sacrifice and learning how to lose in order to truly win.",
+    "Othon had previously been rescued from beneath a heavy block or collapsed object.",
+    "The father says his daughter chose Othon as her mate.",
+    "The father considers Othon a worthy successor.",
+    "The ruling or noble line he names bears a distinctive birthmark.",
+    "The birthmark is connected to the transfer that occurs when the son absorbs the father's spirit."
+  ],
+  "page_id": "022_The_Metabarons_1_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "The elder explains that he intentionally accepted a shoulder wound in order to secure final victory.",
+    "He tells Othon that Othon surpassed him as a student in nearly every respect but had not yet learned sacrifice.",
+    "Othon says he finally understands his master's lesson.",
+    "The elder says that after seeing Othon survive and react angrily to being saved, he accepted Othon as a worthy successor and as a proper mate for his daughter.",
+    "The elder asks whether Othon is ready to sacrifice himself and surrender to the elder's knowledge.",
+    "Othon agrees, addressing him as 'father.'",
+    "The elder reveals a special birthmark on his chest and says it will pass to Othon when Othon absorbs his spirit."
+  ],
+  "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+      "page_id": "022_The_Metabarons_1_p20",
+      "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact lineage name in the final speech bubble is hard to read; the page clearly states that 'lords' of that line bear the birthmark, but the family word is not fully legible.",
+    "The identities of the two background figures are not stated on this page.",
+    "The exterior building is shown without a caption, so its specific name is uncertain."
+  ],
+  "visual_summary": "An older, long-haired man speaks to a younger long-haired man identified as Othon in a blue-toned chamber. In one panel the elder touches a wounded shoulder while explaining a past duel. In a wider panel, the two kneel facing each other with two other figures behind them and weapons displayed on the wall. Later panels show Othon bowing his head, an exterior view of a large fortress-like structure, and the elder opening his garment to reveal a glowing mark on his chest as he speaks about inheritance.",
+  "volume": 1
+}

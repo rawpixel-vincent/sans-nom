@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "The Master has a mechanical head described visually and narratively as mask-like and emotionally unreadable.",
+    "The Master's mechanical body is shown convulsing with rage, suggesting extreme emotional instability despite his mechanical form.",
+    "The Master reacts violently even toward loyal subordinates and nearby robots.",
+    "Tonto is capable of tracing or identifying a signal source.",
+    "At least one companion robot is knowledgeable enough to distinguish modern poetry from ancient poetry.",
+    "The projected stranger is associated with love poetry and appears human or humanoid."
+  ],
+  "characters_present": [
+    "The Master",
+    "A subordinate service robot",
+    "Multiple ant-robots",
+    "Tonto",
+    "Another talking robot identified as a chatterbot or companion robot",
+    "A projected image of a strange man reciting poetry"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The Master is searching for something, and the subordinate claims to have found it, implying an ongoing prior objective.",
+    "The accidental signal detection introduces a new lead tied to the projected poet-like stranger.",
+    "Tonto's successful trace sets up a likely pursuit of the signal source on the following pages."
+  ],
+  "dialogue_meaning": [
+    "A subordinate tries to report that it found the object or information the Master wanted, but is brusquely dismissed.",
+    "The Master's speech and body language show uncontrolled fury and frustration.",
+    "The activated machine seems to identify the event as an accident through broken electronic sounds.",
+    "The projected man is understood by the robots as speaking a love poem rather than an ancient text.",
+    "The robots consider the appearance of a living or transmitted poet impossible because poetry is believed long extinct.",
+    "One robot mocks another's disbelief by invoking miracles or chance.",
+    "Tonto is tasked with tracing the signal and claims to have found it."
+  ],
+  "image_sha256": "0c654e24fd626476ab0c77c9563cb54b897d068d4fffce5af20d25ee10d7e144",
+  "is_spread": false,
+  "locations": [
+    "The Metabunker",
+    "A machinery-filled chamber containing a signal or projection device"
+  ],
+  "lore_facts": [
+    "The Master resides in or returns to a place called the Metabunker.",
+    "The setting contains many small ant-robots used as disposable labor or servants.",
+    "A machine in the bunker can emit signals, lights, and a visual projection of a distant or recorded person.",
+    "Poetry is regarded by these robots as extinct.",
+    "A figure named Zaran Krleza is said to have been the last poet and to have disappeared 5,000 years earlier.",
+    "The page frames the event as an unlikely accident that overcomes robotic logic."
+  ],
+  "page_id": "284_The_Metabarons_11_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "The Master returns to the Metabunker in an obvious state of rage.",
+    "A subordinate robot says it has found what the Master was seeking, but the Master rejects it and pushes past.",
+    "The Master vents his anger by crushing or scattering many ant-robots.",
+    "During the destruction, one robot strikes a signal-detection machine, accidentally activating it.",
+    "The machine begins emitting chaotic lights and sounds, then forms the image of an unknown man.",
+    "The projected figure appears to be reciting love poetry.",
+    "The robots react with disbelief, noting that poetry should be extinct.",
+    "One robot orders Tonto to locate the source of the transmission, and Tonto reports success."
+  ],
+  "source_image": "external/comics/meta-barons/284_The_Metabarons_11_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0c654e24fd626476ab0c77c9563cb54b897d068d4fffce5af20d25ee10d7e144",
+      "page_id": "284_The_Metabarons_11_p06",
+      "source_image": "external/comics/meta-barons/284_The_Metabarons_11_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and device labels are difficult to read precisely; the exact machine name may be inaccurate.",
+    "The exact identity of the Master is not stated on this page beyond the title 'the Master.'",
+    "The names and identities of the smaller talking robots are only partially clear; only Tonto is distinctly readable.",
+    "It is unclear whether the strange man is a live transmission, a recording, or another form of projection."
+  ],
+  "visual_summary": "Inside the Metabunker, the Master storms in wearing a large armored mechanical body with a rigid mechanical head. In a violent rage, he knocks aside a subordinate robot and stomps through crowds of tiny ant-like robots. One robot crashes into a bulky machine, which erupts in blinding light and abstract signals. The device then projects the glowing image of a strange man apparently reciting love poetry, while several robots gather around the console in shock and try to trace the signal.",
+  "volume": 11
+}

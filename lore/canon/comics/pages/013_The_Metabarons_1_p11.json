@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The injured man is performing or caught within hazardous manual work while wearing heavy armor or prosthetic-looking gear.",
+    "The older man wears bulky technological equipment and reacts actively by moving toward the accident.",
+    "At least one younger observer is present and identifies the older man as their father."
+  ],
+  "characters_present": [
+    "An injured armored man or laborer caught in the collapse",
+    "A child or young onlooker addressing 'Father'",
+    "An older man in heavy cybernetic or protective gear, likely the father being addressed",
+    "Several background spectators or workers near the accident"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts a dangerous industrial environment and a pivotal accident involving an armored man.",
+    "The older man's intervention or relation to the victim may matter in the immediate surrounding pages, but that is not confirmed here."
+  ],
+  "dialogue_meaning": [
+    "A witness warns that a falling block will crush someone and calls to their father.",
+    "The crowd recognizes the accident as gruesome and likely fatal.",
+    "Someone uses the incident to praise robotic conversion of labor, implying dangerous manual work is being mechanized."
+  ],
+  "image_sha256": "e13ba1593360cc9a82f25f355c173a43efd2659371bc1227c97f51600c47233e",
+  "is_spread": false,
+  "locations": [
+    "A large industrial or construction site with massive stone or metal blocks",
+    "A rubble-strewn work area observed by a crowd"
+  ],
+  "lore_facts": [
+    "Manual labor in this setting is being replaced by 'robotic reconversion' or similar mechanized labor systems.",
+    "Public attitudes on the page link technological automation with safety and progress.",
+    "The setting includes advanced armored or cybernetic equipment used by workers or bystanders."
+  ],
+  "page_id": "013_The_Metabarons_1_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A large block threatens to crush a worker or combat-armored man.",
+    "A bystander cries out to their father about the danger.",
+    "Spectators comment on the brutality of the accident and on machinery replacing human labor.",
+    "An older, heavily equipped man runs toward the scene.",
+    "The endangered man is thrown or falls through the air amid debris.",
+    "The man ends the page trapped beneath rubble, apparently badly injured."
+  ],
+  "source_image": "external/comics/meta-barons/013_The_Metabarons_1_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e13ba1593360cc9a82f25f355c173a43efd2659371bc1227c97f51600c47233e",
+      "page_id": "013_The_Metabarons_1_p11",
+      "source_image": "external/comics/meta-barons/013_The_Metabarons_1_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of all characters on this page are not given.",
+    "It is unclear whether the running older man is the same person being addressed as 'Father' or whether he is related to the victim.",
+    "The precise nature of the falling object and the workplace task is not fully specified from this page alone.",
+    "The victim's survival is not confirmed on this page, only severe injury or entrapment is shown."
+  ],
+  "visual_summary": "An armored human figure is caught in a catastrophic industrial accident as an enormous block or slab falls nearby. In successive panels, onlookers react, a bulky older man in heavy gear runs forward, the victim is flung through debris, and the page ends with the victim pinned and half-buried under shattered stone.",
+  "volume": 1
+}

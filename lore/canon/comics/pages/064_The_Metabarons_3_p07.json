@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The central combatant is portrayed as exceptionally effective in battle and already has a reputation for invincibility.",
+    "The watching crew are impressed and excited by his speed and destructive power.",
+    "At least one person in the attacked environment is disoriented by the structure's slanted design while under attack."
+  ],
+  "characters_present": [
+    "An unseen pilot or combatant referred to as male by the observers",
+    "At least two helmeted observers or crew members in a control/viewing area",
+    "A figure inside the attacked structure or ship who comments on the ramps"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page continues an ongoing combat sequence rather than introducing a new scene.",
+    "The countdown-style timestamps imply this battle is being measured across multiple moments or pages."
+  ],
+  "dialogue_meaning": [
+    "The observers say one enemy or target was destroyed in about two minutes and fifty seconds, framing it as a record.",
+    "They insist the male combatant had already been considered unbeatable.",
+    "A more cautious voice says the fight is not over yet, so they should not celebrate prematurely.",
+    "Another speaker inside the structure complains that the angled ramps are physically disorienting."
+  ],
+  "image_sha256": "337d197f2efb13804a4dfa8ef9868962ef71c237ea448b8753f6bf2e90668504",
+  "is_spread": false,
+  "locations": [
+    "Outer space near multiple ships or station-like structures",
+    "An interior control or observation room",
+    "The interior of a large ship, station, or industrial structure with inclined ramps"
+  ],
+  "lore_facts": [
+    "This setting includes space combat with armed ships and visible timed performance tracking.",
+    "Characters are evaluating a fighter's effectiveness partly by how fast targets are destroyed.",
+    "The environment being attacked has unusual inclined internal architecture rather than normal flat corridors.",
+    "Observers are familiar enough with the combatant to describe him as effectively invincible."
+  ],
+  "page_id": "064_The_Metabarons_3_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A hostile or target spacecraft is destroyed in space very quickly, apparently setting a record time.",
+    "Observers in a control or viewing area praise the combatant's performance and call him effectively unbeatable.",
+    "One observer warns against celebrating too early because the combat is still ongoing.",
+    "A heavily armed small craft continues its attack run through a space structure or installation.",
+    "A person inside the installation complains that the sloped interior architecture is making him nauseous.",
+    "A major explosion rips through the interior of the structure, scattering debris and wreckage."
+  ],
+  "source_image": "external/comics/meta-barons/064_The_Metabarons_3_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "337d197f2efb13804a4dfa8ef9868962ef71c237ea448b8753f6bf2e90668504",
+      "page_id": "064_The_Metabarons_3_p07",
+      "source_image": "external/comics/meta-barons/064_The_Metabarons_3_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the pilot/combatant is not shown on this page.",
+    "The exact identity of the observers and of the nauseated speaker is not given visually here.",
+    "The precise nature of the target structure or ship is unclear from this single page alone.",
+    "Small dialogue text and timer decimals are readable overall, but some fine detail may be approximate."
+  ],
+  "visual_summary": "A spacecraft battle is shown in progress while helmeted onlookers watch from an interior control area. In the top panel, a ship explodes in space as a timer overlay reads around 2:50. Mid-page, observers react to the pilot's performance, while another panel shows a compact armed craft flying among explosions and projectiles near angular structures. A figure inside the station or ship braces on a sloped interior surface and complains about the inclined ramps. The bottom panel shows a violent interior explosion tearing through machinery and debris, with another timer reading around 0:50.",
+  "volume": 3
+}

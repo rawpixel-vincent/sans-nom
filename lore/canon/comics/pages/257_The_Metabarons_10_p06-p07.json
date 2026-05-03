@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The observers include both militarized and ceremonial-looking figures, implying a mixed political or diplomatic audience.",
+    "The two main adversaries are treated as warriors and direct participants in the match.",
+    "The adversaries are depicted as acting in synchronized or mutually understood fashion at the moment they create the black hole."
+  ],
+  "characters_present": [
+    "Unidentified armored observers aboard the diplomatic vessel",
+    "The 'Supreme Pthagurean Triumvirate' or their representatives",
+    "The 'Imperial couple' or their representatives",
+    "Two unnamed adversaries/warriors shown as fast-moving luminous forms"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This spread appears to depict the formal opening of a major duel or battle under political observation.",
+    "The page transitions from diplomatic observation to battlefield action, linking governing authorities to the combat spectacle.",
+    "The final image suggests an abrupt escalation or disappearance of the two combatants through a black hole."
+  ],
+  "dialogue_meaning": [
+    "Narration establishes that the viewpoint is now aboard a neutral diplomatic craft.",
+    "Narration says the start of the contest is jointly authorized by the Pthagurean leadership and the imperial couple.",
+    "The ceremonial fireworks are framed as irrelevant to the tense combatants.",
+    "Narration states that the two opponents behave as if by silent mutual agreement and generate a black hole that consumes them."
+  ],
+  "image_sha256": "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+  "is_spread": true,
+  "locations": [
+    "A neutral diplomatic vessel in space",
+    "An interior observation/command room with a tactical display",
+    "Open space near a large bright celestial body",
+    "A battle zone with large gun platforms or warships"
+  ],
+  "lore_facts": [
+    "A 'neutral diplomatic vessel' exists as an observation point during this event.",
+    "There is a political entity or office called the 'Supreme Pthagurean Triumvirate'.",
+    "There is also an 'imperial couple' with authority significant enough to jointly signal the beginning of the match.",
+    "The confrontation is described as a 'match', suggesting a formalized or publicly observed combat.",
+    "Advanced space weaponry and fleet-scale combat assets are present.",
+    "A black hole can be created during this confrontation and can immediately absorb the involved adversaries."
+  ],
+  "page_id": "257_The_Metabarons_10_p06-p07",
+  "page_label": "p06-p07",
+  "plot_events": [
+    "The scene shifts to a neutral diplomatic vessel observing events from space.",
+    "A joint signal is given by two ruling authorities to begin a 'match' or confrontation.",
+    "Observers do not appreciate the ceremonial fireworks because the warriors are tense.",
+    "Heavy space weaponry fires, producing a large explosion in the battle zone.",
+    "The two adversaries act in apparent unspoken coordination and create a black hole.",
+    "The black hole immediately absorbs the two combatants."
+  ],
+  "source_image": "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+      "page_id": "257_The_Metabarons_10_p06-p07",
+      "source_image": "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration is small and slightly hard to read; exact wording may be imperfect.",
+    "The identities of the individual observers are not readable from the art alone.",
+    "It is unclear whether the large gun structure is part of a ship, station, or fixed platform.",
+    "The exact appearance and identity of the two adversaries are abstracted into motion streaks in the bottom panels."
+  ],
+  "visual_summary": "A double-page space battle spread. At top left, a large sleek white vessel is identified as a neutral diplomatic ship. At top right, armored and ceremonial-looking figures observe a tactical display from an interior command space while narration says the match is being signaled to begin. Below, fleets and weapons fire fill space: small craft move near a bright planetary or stellar edge, a huge white explosion blossoms, and a massive gun battery dominates the right page. At the bottom, two fast-moving luminous forms streak together into a dark circular void, visually representing a black hole that swallows them.",
+  "volume": 10
+}

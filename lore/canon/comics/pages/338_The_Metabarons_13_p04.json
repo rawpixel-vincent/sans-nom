@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Tonto and Lothar are names used in the frame-story conversation, though the exact speaker-to-name mapping is not fully clear from the page alone.",
+    "One robot is talkative, forward-looking, and focused on resources and rebuilding.",
+    "Another participant is bored and pushes the others to continue the Metabarons tale.",
+    "Don Nicanor Rosamel de Rokha is portrayed as aggressive and commanding during the assault on the chamber.",
+    "The comrades assisting Don Nicanor are armed and act collectively under shouted instructions."
+  ],
+  "characters_present": [
+    "Two small robotic or mechanical companions in the frame narrative, apparently addressed as Tonto and Lothar",
+    "Don Nicanor Rosamel de Rokha",
+    "Several armed comrades assisting in the assault on the door",
+    "Don Nicanor's daughter, mentioned as hiding behind the door but not clearly shown"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues a frame narrative in which characters recount the history of the Metabarons.",
+    "The embedded historical scene resumes mid-action rather than starting fresh, implying continuation from the previous page.",
+    "The mention of 'the scar' signals another known narrative thread that may connect to nearby pages."
+  ],
+  "dialogue_meaning": [
+    "One speaker believes the site has enough metal resources to rebuild a more civilized way of life over a long timespan.",
+    "Another speaker is impatient and wants the Metabarons story continued for entertainment.",
+    "The exchange about 'the clan' versus 'the scar' shows indecision or unstable attention from one of the listeners.",
+    "A robot argues that intelligence requires making choices and decides the story should continue with the clan.",
+    "The narration clarifies the immediate action in the embedded story: Don Nicanor is violently forcing his way toward his daughter."
+  ],
+  "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+  "is_spread": false,
+  "locations": [
+    "A devastated industrial wasteland or ruin with towers, smokestacks, and exposed strata",
+    "An interior or enclosed structure where the robots are moving through ruins with hanging lamps",
+    "The private chamber where Don Nicanor's daughter has taken refuge"
+  ],
+  "lore_facts": [
+    "The setting contains 'primitive geological sub-strata' rich enough in metal to be worth exploiting.",
+    "Rebuilding toward a former standard of life is imagined as taking less than two centuries.",
+    "There is an oral or recited history referred to as the story of the clan of the Metabarons.",
+    "'The scar' is a recognized topic or episode within this broader narrative, distinct from the clan history.",
+    "Don Nicanor Rosamel de Rokha has a daughter who retreats into a private chamber while he attempts to reach her by force."
+  ],
+  "page_id": "338_The_Metabarons_13_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A robot comments that the area contains usable metal in the geological substrata and imagines rebuilding a more advanced life there.",
+    "A bored listener asks for the next part of the story of the Metabarons' clan.",
+    "The storytellers briefly argue over whether to continue with the clan's history or switch to a part involving 'the scar.'",
+    "The narration resumes the family story at the point where Don Nicanor Rosamel de Rokha is breaking into his daughter's private chamber.",
+    "Armed men strike the door again with a heavy object, and one of them says the door is close to giving way."
+  ],
+  "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+      "page_id": "338_The_Metabarons_13_p04",
+      "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are difficult to read precisely; the exact phrasing about rebuilding and some insults or repeated words may be imperfectly captured.",
+    "The exact visual identity of each frame-story speaker is uncertain from this page alone, including which robot is Tonto and which is Lothar.",
+    "The heavy object used against the door is described visually as a statue or ram-like object, but its exact identity is not fully clear.",
+    "Don Nicanor's daughter is referenced in narration but is not clearly visible on the page."
+  ],
+  "visual_summary": "A barren industrial landscape with towers and smokestacks frames a conversation between small robotic figures moving through ruins with lamps. One robot talks optimistically about mining metal and rebuilding life. Another complains of boredom and asks for more of the Metabarons' story, leading to a brief argument over whether to hear about 'the clan' or 'the scar.' The page then shifts into the embedded tale: armed men batter a heavy door with a large statue or ram while a bearded man shouts orders, as the narration identifies Don Nicanor Rosamel de Rokha forcing entry to the chamber where his daughter is hiding.",
+  "volume": 13
+}

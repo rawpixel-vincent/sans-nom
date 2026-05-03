@@ -1,0 +1,80 @@
+{
+  "character_facts": [
+    "Steelhead prioritizes preserving the Metabaron line but also acts to save the female child.",
+    "Steelhead performs radical medical and bodily interventions on family members and on himself.",
+    "Dona Vicenta suffers from tuberculosis and later a pulmonary hemorrhage.",
+    "Aghora is born from the saved twin arrangement and raised as the effective male heir.",
+    "Aghora tames a Tarantuwolf named Deyanira at a very young age.",
+    "Aghora loses her left hand and receives a bionic replacement during her rite of passage.",
+    "Aghora works as an executioner before seeking answers from the Golden Planet.",
+    "Steelhead replaces his flesh with Storlon after being overcome by grief."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Steelhead",
+    "Dona Vicenta",
+    "the male twin/brother whose brain is transplanted",
+    "Deyanira the Tarantuwolf"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page explicitly recaps the events leading into volume 16's story.",
+    "It establishes Aghora's origin and transformation as essential background.",
+    "It links Steelhead's fate in stasis to Aghora's current independence.",
+    "It sets up the immediate next plot move: Aghora traveling to the Golden Planet because the Empire has not called upon the Metabaron."
+  ],
+  "dialogue_meaning": [
+    "There is no scene dialogue; the page provides a 'Previously' recap explaining Aghora's origin, body modification, service, conflict with Steelhead, and the setup for the current story."
+  ],
+  "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+  "is_spread": false,
+  "locations": [
+    "stasis chamber",
+    "prison planet Khaliyuga",
+    "deep space",
+    "Imperial Court",
+    "Golden Planet"
+  ],
+  "lore_facts": [
+    "Metabaron succession is described as traditionally passing from father to son.",
+    "Advanced surgery in this setting can transplant a brain from one twin into the other's body.",
+    "A body can be held in stasis, including long-term preservation in a chamber or cocoon.",
+    "Near-death preservation appears medically possible in this universe.",
+    "Metabaron initiation includes severe bodily modification.",
+    "Bionic prosthetics are used as part of Metabaron transformation.",
+    "Storlon is identified as an indestructible metal.",
+    "Khaliyuga is a prison planet populated by deadly alien criminals.",
+    "The Empire has an Imperial Court that assigns missions.",
+    "Mirror Ships are associated with an alien race that invades the universe and destroys the Imperial Fleet."
+  ],
+  "page_id": "406_The_Metabarons_16_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "Dona Vicenta, close to death from tuberculosis, is told only one of her twins can be born.",
+    "Steelhead chooses to save the female child despite the Metabaron lineage traditionally passing from father to son.",
+    "Steelhead preserves both twins by transplanting the boy's brain into the girl's body and placing the boy's body in stasis.",
+    "After Dona Vicenta sees her daughter Aghora, she suffers a pulmonary hemorrhage and Steelhead keeps her in a near-death preserved state.",
+    "Steelhead finds a Tarantuwolf to nurse Aghora, and by age five Aghora has tamed it and named it Deyanira.",
+    "During Aghora's first Metabaron rite of passage, her left hand is replaced with a bionic hand and her body is altered so she can live as a male heir.",
+    "Aghora serves as executioner on the prison planet Khaliyuga, killing dangerous alien criminals.",
+    "Grieving for Dona Vicenta, Steelhead replaces his flesh with the metal Storlon.",
+    "Aghora cannot kill Steelhead in combat for the Metabaron title, so she destroys Dona Vicenta's body and seals Steelhead in a stasis cocoon, sending him into deep space.",
+    "Aghora waits three years for an Imperial Court assignment, but none comes.",
+    "When Mirror Ships of an alien race devastate the Imperial Fleet, the Empire still does not summon Aghora.",
+    "Aghora heads to the Golden Planet to learn why no one has called for the Metabaron's aid."
+  ],
+  "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+      "page_id": "406_The_Metabarons_16_ic1",
+      "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The inset image is symbolic/illustrative rather than a clearly labeled single event, so its exact moment in the timeline is not certain from this page alone.",
+    "The small circular portraits at the bottom are not individually labeled on the page, so specific identifications beyond the recap text are uncertain."
+  ],
+  "visual_summary": "Recap/credits page for The Metabarons. The page is dominated by the series logo and a prose summary of prior events. A large inset illustration shows a biomechanical or armored figure inside a glowing, fluid-like chamber, reinforcing the themes of surgery, preservation, and altered bodies. Small circular character portraits line the bottom above publication credits and publisher URLs.",
+  "volume": 16
+}

@@ -1,0 +1,44 @@
+{
+  "character_facts": [
+    "The featured figure is portrayed as female-presenting, stern, and heavily equipped with ornate armored and mechanical components.",
+    "A forehead emblem or implant is visibly centered above the figure's brows."
+  ],
+  "characters_present": [
+    "An unidentified woman in biomechanical armor, likely Oda based on the cover subtitle, though the page does not explicitly label the figure"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The subtitle indicates Oda is an important subject of this installment."
+  ],
+  "dialogue_meaning": [
+    "There is no dialogue or narration. The cover text signals the issue title, creators, and that the featured storyline concerns Oda's possession."
+  ],
+  "image_sha256": "b3ad1577371b6f1206ae0c0fce98cc03d1d8fe55c117b57f8f8892a5d61114a4",
+  "is_spread": false,
+  "locations": [],
+  "lore_facts": [
+    "This is issue #8 of The Metabarons.",
+    "The cover presents a story/chapter title: \"The Possession of Oda.\"",
+    "The visual design associates the featured figure with advanced biomechanical or cybernetic equipment/armor."
+  ],
+  "page_id": "205_The_Metabarons_8_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "No story action is depicted; this page functions as a cover introducing issue #8 and the story subtitle \"The Possession of Oda\"."
+  ],
+  "source_image": "external/comics/meta-barons/205_The_Metabarons_8_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b3ad1577371b6f1206ae0c0fce98cc03d1d8fe55c117b57f8f8892a5d61114a4",
+      "page_id": "205_The_Metabarons_8_c01",
+      "source_image": "external/comics/meta-barons/205_The_Metabarons_8_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Because this is a cover, no in-story events, setting, or dialogue are shown.",
+    "The figure is likely Oda from the subtitle, but the page itself does not explicitly name her.",
+    "Some small publication text is present but not fully legible at this resolution beyond the major cover identifiers."
+  ],
+  "visual_summary": "Cover image for issue #8 of The Metabarons. A solemn dark-haired woman is shown in close-up, wearing ornate biomechanical armor with tubes and metal fittings. The title branding and the subtitle identifying the story as \"The Possession of Oda\" dominate the page.",
+  "volume": 8
+}

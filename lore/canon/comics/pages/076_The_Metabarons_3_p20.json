@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Othon von Salza is persuasive enough to win over the imperial rulers.",
+    "He receives command authority over the remaining Endoguard ships.",
+    "He is portrayed as bold, theatrical, and immediately offensive in strategy.",
+    "He chooses to attack the pirate mega-carrier instead of remaining at the fortress ship."
+  ],
+  "characters_present": [
+    "Othon von Salza",
+    "the imperial couple",
+    "imperial courtiers and guards",
+    "members of Othon's fleet"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page continues an ongoing conflict between an empire and a large pirate force.",
+    "The Perfect Androgyne remains an important protected captive or asset tied to the fortress ship.",
+    "Othon's newly granted command directly leads into a major space assault."
+  ],
+  "dialogue_meaning": [
+    "Othon presents himself as the answer the rulers have been waiting for.",
+    "He argues that his strategy can eliminate the pirate threat with no imperial ship losses.",
+    "A captioned inner monologue or narration frames the odds as absurdly favorable for the empire, emphasizing confidence and aggression.",
+    "The narration shifts from court politics to immediate military action, showing that Othon acts without delay."
+  ],
+  "image_sha256": "cb29f3f18c30bcda04543ca36ea8a73cdfb557e0c635a6bc9dca66ce9d28296a",
+  "is_spread": false,
+  "locations": [
+    "imperial audience hall on the Golden Planet",
+    "space near the Golden Planet",
+    "the pirate mega-carrier"
+  ],
+  "lore_facts": [
+    "There is an imperial court ruling from the Golden Planet.",
+    "A pirate fleet of about 100,000 'pirate predators' is identified as a major threat.",
+    "The empire still has fifty Endoguard ships remaining on the Golden Planet.",
+    "The Perfect Androgyne is being held on a fortress ship.",
+    "The pirate mega-carrier serves as a mobile home base for the pirates.",
+    "Othon's fleet is described as small and strangely camouflaged."
+  ],
+  "page_id": "076_The_Metabarons_3_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "Othon introduces himself to the imperial rulers as the long-awaited solution.",
+    "He claims to have devised a simple plan to destroy the pirate fleet without losing any imperial ships.",
+    "Narration states that the imperial couple are impressed by Othon's entrance and by the apparent cleverness of his proposal.",
+    "Othon is entrusted with command of the fifty Endoguard ships still remaining on the Golden Planet.",
+    "Rather than stationing his small fleet on the fortress ship holding the Perfect Androgyne, Othon immediately leads an attack elsewhere.",
+    "His fleet attacks the mega-carrier described as the roving pirate home base."
+  ],
+  "source_image": "external/comics/meta-barons/076_The_Metabarons_3_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "cb29f3f18c30bcda04543ca36ea8a73cdfb557e0c635a6bc9dca66ce9d28296a",
+      "page_id": "076_The_Metabarons_3_p20",
+      "source_image": "external/comics/meta-barons/076_The_Metabarons_3_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration appears stylized and may include minor wording that is difficult to read precisely, especially the comic aside about the speaker's excitement.",
+    "The exact identities or names of the two imperial rulers are not given on this page."
+  ],
+  "visual_summary": "A silver-haired commander presents himself before an imperial court in a vast golden hall. The rulers and many attendants watch from the top of a long staircase while narration explains that his bold entrance and plan impressed the imperial couple. In space, his small camouflaged fleet launches an attack on a giant pirate mega-carrier near the Golden Planet.",
+  "volume": 3
+}

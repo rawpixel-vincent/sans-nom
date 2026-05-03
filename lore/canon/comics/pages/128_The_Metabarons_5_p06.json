@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Tonto is a robot or programmed being addressed directly in the argument.",
+    "The Professor is forceful and hostile, threatening punishment if the discrepancy is not explained.",
+    "Big One appears to be a machine or robot used to display or magnify the Metabaron's image.",
+    "The current Metabaron is not physically present in the room; he appears as an image during the inspection."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Professor",
+    "Big One",
+    "the current Metabaron (shown on a screen/image)",
+    "multiple small robots or robot assistants"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers on a forensic or analytical challenge to the current Metabaron's reputation for invincibility.",
+    "The exact dating of the wound suggests the argument may lead into a specific past event in the Metabaron's life."
+  ],
+  "dialogue_meaning": [
+    "The robots are debating whether the current Metabaron can truly be called invincible.",
+    "One participant insists there is physical evidence contradicting that claim.",
+    "The group uses an enlarged image of the Metabaron's face to inspect his eyebrow.",
+    "The identified eyebrow scar is treated as proof that he was wounded at some point.",
+    "A chronomatrix is presented as a tool capable of determining exactly when the scar tissue formed."
+  ],
+  "image_sha256": "094c41b860a3f5f09611435e5f490d7f72160d0654a11e666e245eeac8943031",
+  "is_spread": false,
+  "locations": [
+    "an industrial or mechanical chamber",
+    "a monitoring or analysis area with a large image/screen of the Metabaron"
+  ],
+  "lore_facts": [
+    "The current Metabaron is regarded by some characters as the greatest warrior in the galaxy.",
+    "At least some characters believe the current Metabaron is supposed to be invincible.",
+    "The Metabaron has a visible scar or cut on his right eyebrow.",
+    "The scar is interpreted on-page as the result of a wound.",
+    "A device called a chronomatrix can determine the exact age at which tissue was scarred.",
+    "Tonto has 'time-honored programming,' implying an old or established robotic function.",
+    "There is a device or entity called 'Big One' that can show the master's face for analysis."
+  ],
+  "page_id": "128_The_Metabarons_5_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "A robot challenges the idea that the current Metabaron is completely invincible by claiming there is a discrepancy.",
+    "Another speaker angrily defends the Metabaron's invincibility and demands an explanation.",
+    "A character asks for 'Big One' to display the master's face for inspection.",
+    "The image is enlarged to the Metabaron's right eyebrow.",
+    "The group identifies a cut scar on the eyebrow as evidence of a wound.",
+    "A robot states that a chronomatrix can date the scarring to a precise age of the Metabaron."
+  ],
+  "source_image": "external/comics/meta-barons/128_The_Metabarons_5_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "094c41b860a3f5f09611435e5f490d7f72160d0654a11e666e245eeac8943031",
+      "page_id": "128_The_Metabarons_5_p06",
+      "source_image": "external/comics/meta-barons/128_The_Metabarons_5_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and roles of several small robot speakers are not fully distinguishable from the page alone.",
+    "Some dialogue wording is stylized and may be slightly hard to parse, but the main meaning is clear.",
+    "The blue spherical image element in the last panel is not explicitly identified on the page."
+  ],
+  "visual_summary": "In a metallic interior, a crowd of squat, armed-looking robots argues while facing one another across a lit corridor. The scene then shifts to a large screen or projection showing the stern face of the Metabaron. Small figures and machinery cluster around the display as they zoom in on his right eyebrow. The final panels isolate the eyebrow scar and a blue spherical device or image element while a robot gives an exact timestamp for when the scar tissue formed.",
+  "volume": 5
+}

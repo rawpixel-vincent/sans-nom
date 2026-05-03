@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Aghnar is furious, accusatory, and prepared to use force to take the child.",
+    "The woman is protective of the baby and defends both her actions and the child's legitimacy as heir.",
+    "The infant is central to the conflict and is described by the adults as a son tied to the Metabaron lineage."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Honorata in Oda's body, or a woman accused of being Honorata rather than Oda",
+    "An infant son"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page references earlier claims about an operation on Oda.",
+    "The page ties the infant's existence to the broader succession of the Metabaron clan.",
+    "The dialogue invokes prior figures and events involving Oda, Honorata, Lota, and Othon."
+  ],
+  "dialogue_meaning": [
+    "Aghnar announces that Oda is dead and that the woman before him is actually Honorata using Oda's body.",
+    "He accuses her of cloning herself within Oda instead of operating on Oda as previously claimed.",
+    "She says her actions were for his sake, arguing that Oda's brain death would have killed him and that he desired a son.",
+    "Aghnar condemns the child as unnatural and incestuous.",
+    "She denies that the body is truly hers in identity or essence.",
+    "Aghnar says Oda has been completely overwritten at the cellular level by a virus associated with Lota, producing a monster.",
+    "She defends the baby as the continuation of a dynastic dream tied to Othon and the Metabaron line.",
+    "Aghnar demands that she hand over the infant."
+  ],
+  "image_sha256": "97a5e17c406f4443653176d61f42d16f1bbc4eda0517b39025604ad01305ae7a",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior room or chamber containing machinery and a bed/platform"
+  ],
+  "lore_facts": [
+    "Honorata is accused of having taken over Oda's body.",
+    "Oda is stated to be dead on this page.",
+    "Aghnar says Honorata chose cloning within Oda rather than the operation she had described.",
+    "Aghnar says the infant son is a product of incest.",
+    "Aghnar claims every cell of Oda's body was altered by a virus from Lota.",
+    "The continuation of the Metabaron clan is presented as an important dynastic objective.",
+    "Othon is named as someone whose dream involved the clan's continuation."
+  ],
+  "page_id": "224_The_Metabarons_8_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "A white-haired man reveals to the woman that he believes she is not Oda but Honorata inhabiting Oda's body.",
+    "He states that his wife Oda is dead and accuses Honorata of stealing her body.",
+    "He further claims that Honorata had planned surgery on Oda but instead chose to clone herself inside her.",
+    "The woman, holding a baby, says she acted for him because Oda's brain death would otherwise have killed him and says he wanted a son.",
+    "The man denounces the baby as an abomination and says the child is the result of incest.",
+    "The woman rejects his accusation about the body, insisting the flesh is not truly hers.",
+    "The man argues that nothing of Oda remains and that every cell has been altered by a virus linked to Lota, turning her into a monster.",
+    "The woman insists their son fulfills the father's and Othon's dream and that the Metabaron clan must continue.",
+    "The man moves to seize the child and tells her she will bear responsibility for what follows if she resists."
+  ],
+  "source_image": "external/comics/meta-barons/224_The_Metabarons_8_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "97a5e17c406f4443653176d61f42d16f1bbc4eda0517b39025604ad01305ae7a",
+      "page_id": "224_The_Metabarons_8_p19",
+      "source_image": "external/comics/meta-barons/224_The_Metabarons_8_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and technical details are hard to read with full certainty; the virus reference appears to mention Lota, but the exact phrasing may be imperfect.",
+    "The exact nature of Aghnar's statement that Oda's brain was dead and how that would have affected him is unclear from this page alone.",
+    "The room's precise location or larger setting is not identified on this page."
+  ],
+  "visual_summary": "In a cluttered, metallic interior chamber, a white-haired man in a dark bodysuit confronts a woman holding a baby beside a bed or platform. The page is composed of heated close-ups: he accuses her of being Honorata rather than Oda, while she clutches the infant and argues back. The confrontation escalates into claims about body theft, cloning within Oda, incest, and the child being monstrous. By the final panel, the man lunges toward the woman and child, demanding the baby.",
+  "volume": 8
+}

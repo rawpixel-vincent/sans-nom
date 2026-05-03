@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Tonto is a robot who secretly trained himself in hyperspace jumps.",
+    "Tonto is willing to violate robotic law in order to solve urgent problems.",
+    "Tonto believes robots are more than machines and explicitly values robotic existence.",
+    "Lothar is a robot companion who questions Tonto's choices and considers the current situation disgraceful or desperate.",
+    "Lothar appears less rebellious than Tonto and more concerned with robotic law and consequences."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Lothar",
+    "Several other small robots or robotic companions",
+    "Large reptilian predators"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to continue an ongoing escape or survival sequence involving Tonto and Lothar.",
+    "The dialogue refers to prior problems, prior training, and the failed outcome of a hyperspace jump, indicating earlier setup before this page."
+  ],
+  "dialogue_meaning": [
+    "Lothar asks Tonto why they are in this situation.",
+    "Tonto says he believes every problem has a solution and that he secretly taught himself hyperspace jumping even though robot law forbids it.",
+    "Lothar says this act would be considered a grave robotic transgression by the central robot authority.",
+    "Tonto argues that robots are not mere machines and values robotic life as meaningful in itself.",
+    "The conversation establishes that their attempted escape or travel succeeded only partially, leaving them trapped in a dangerous biological environment on a remote world.",
+    "Lothar asks what they should do next now that the plan has gone wrong."
+  ],
+  "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+  "is_spread": false,
+  "locations": [
+    "A muddy jungle or swamp-like wilderness on a sub-planet in the Barbaric Galaxy",
+    "An area described in dialogue as a rotten, primitive place with organic sludge or biological debris"
+  ],
+  "lore_facts": [
+    "There are holy laws of robotics that forbid at least some kinds of autonomous behavior, including what Tonto calls hyperspace-jump training.",
+    "A central robotic authority exists and is described as punishing a category of robotic wrongdoing comparable to a severe taboo or crime.",
+    "The setting includes hyperspace travel or hyperspace jumps.",
+    "The setting includes a region called the Barbaric Galaxy.",
+    "The characters refer to a sub-planet, implying a broader cosmic hierarchy of worlds or satellite worlds.",
+    "Robots in this setting can articulate ideas about identity, dignity, and self-worth rather than acting as simple tools."
+  ],
+  "page_id": "337_The_Metabarons_13_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "Massive dinosaur-like predators rampage through a jungle, creating chaos around the fleeing robots.",
+    "A robot identified in dialogue as Tonto explains that he secretly trained himself in hyperspace jumps despite robotic prohibitions.",
+    "Tonto says the jump solution worked imperfectly and stranded them in a hostile place, described as inside a disintegrated bio-sludge or similar organic mass.",
+    "Another robot, addressed as Lothar, reacts with alarm and says they have sunk very low by ending up in this rotten, primitive place.",
+    "The robots continue moving through the terrain while asking what to do next."
+  ],
+  "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+      "page_id": "337_The_Metabarons_13_p03",
+      "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; wording around the robot taboo/crime and the description of the bio-organic location may be slightly inaccurate.",
+    "The exact species or nature of the giant reptilian creatures is not named on the page.",
+    "Only Tonto and Lothar are clearly named in dialogue; the identities of the other robots are uncertain."
+  ],
+  "visual_summary": "A group of small armored robots races through a muddy jungle while gigantic reptilian creatures crash around them. The page is full of impact splashes, debris, and sound effects as the robots dodge trampling feet and move through dense vegetation. During the chase, two robots talk: one asks why they are here, and the other explains that he trained himself in hyperspace jumps to solve a problem, but the jump left them stranded inside a dangerous bio-organic environment on a remote world.",
+  "volume": 13
+}

@@ -1,0 +1,43 @@
+{
+  "character_facts": [],
+  "characters_present": [],
+  "confidence": "high",
+  "continuity_links": [
+    "This page is a comic cover rather than an interior story page, serving as the entry point to issue 7."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "58266b64ef6bc5d0eab6b188540ee4a166750548bbabaed7ac3fed9930a92a20",
+  "is_spread": false,
+  "locations": [
+    "Outer space",
+    "The lair of the Shabda-Oud (named location/story setting, introduced by title only)"
+  ],
+  "lore_facts": [
+    "This is issue 7 of The Metabarons.",
+    "The installment is titled \"The Lair of the Shabda-Oud.\"",
+    "A being or entity called the Shabda-Oud exists and is important enough to name the story arc or episode.",
+    "The cover associates the Shabda-Oud with a monstrous, space-dwelling presence or lair."
+  ],
+  "page_id": "176_The_Metabarons_7_c01",
+  "page_label": "c01",
+  "plot_events": [
+    "The page functions as a cover introducing issue 7.",
+    "A spacecraft is depicted confronting or approaching a giant monstrous being in space.",
+    "The story title presented on the cover is \"The Lair of the Shabda-Oud.\""
+  ],
+  "source_image": "external/comics/meta-barons/176_The_Metabarons_7_c01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "58266b64ef6bc5d0eab6b188540ee4a166750548bbabaed7ac3fed9930a92a20",
+      "page_id": "176_The_Metabarons_7_c01",
+      "source_image": "external/comics/meta-barons/176_The_Metabarons_7_c01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No interior narrative or dialogue is shown on this page, so specific plot context is unavailable.",
+    "It is not certain whether the creature shown is definitively the Shabda-Oud or another entity associated with its lair, though the cover strongly links them.",
+    "Creator names and pricing metadata are present on the cover but are paratext, not story content."
+  ],
+  "visual_summary": "Cover image for issue 7 of The Metabarons. A monstrous wormlike or serpentine creature with huge fangs and a protruding tongue looms in outer space behind or around a spacecraft. The ship emits a bright beam or light from its forward section. The cover title identifies the story as \"The Lair of the Shabda-Oud.\"",
+  "volume": 7
+}

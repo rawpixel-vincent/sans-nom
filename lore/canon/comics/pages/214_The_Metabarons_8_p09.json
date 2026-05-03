@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Honorata is directly involved in preparing for or conducting the complex surgery.",
+    "Honorata has assistants working with her.",
+    "The affected subject experiences an internal breakdown severe enough to lose desire, emotion, and words.",
+    "The subject becomes immobilized or medically suspended amid dense machinery by the end of the page."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Honorata's assistants",
+    "Unnamed female subject/patient associated with the accelerated time passage",
+    "Mega-robots"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing surgical plot involving removal of a heart-bomb.",
+    "The unnamed 'she' appears to be the same patient later shown undergoing accelerated subjective time and mental collapse.",
+    "Chrono-G and the Pradex point are presented as previously established destinations or concepts within the story world."
+  ],
+  "dialogue_meaning": [
+    "The narration establishes arrival at Chrono-G and entry into a laboratory setting under robotic escort.",
+    "The temporal fissure causes the subject's own time to race forward far faster than outside observers realize.",
+    "Honorata's team remains focused on a complex surgery, unaware of the subjective temporal catastrophe affecting the patient.",
+    "The surgeons spend years learning how to remove a heart-bomb safely, while to them time feels normal.",
+    "The patient's inner voice describes progressive mental collapse: desire, emotion, and language disappear into emptiness as catalepsy sets in."
+  ],
+  "image_sha256": "54db59d03b56603029328395f5a763f5a4f279b1936eb569526f7e7dc1bff407",
+  "is_spread": false,
+  "locations": [
+    "Chrono-G",
+    "Pradex punctual point",
+    "Laboratory",
+    "Temporal fissure",
+    "Operating/surgical chamber"
+  ],
+  "lore_facts": [
+    "Chrono-G is identified here as the punctual Pradex point.",
+    "Mega-robots can accompany and escort characters to a laboratory.",
+    "A temporal fissure can accelerate a person's own time at an extreme rate relative to others.",
+    "A 'heart-bomb' exists and can apparently explode if removed incorrectly.",
+    "Honorata and her assistants are capable of years-long study to devise a safe removal method.",
+    "'Psycho-cellular catalepsy' is a named condition reached after extreme deterioration."
+  ],
+  "page_id": "214_The_Metabarons_8_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "A character identified by narration as 'she' reaches Chrono-G, the punctual Pradex point, accompanied by mega-robots en route to a laboratory.",
+    "Inside a temporal fissure, her personal time begins accelerating dramatically.",
+    "Honorata and her assistants continue their surgical preparations without realizing the extreme time differential affecting the patient.",
+    "For the surgical team, time passes normally while they spend years studying a heart-bomb and discover how to remove it without detonating it.",
+    "By the time they are ready, Honorata has entered a state called psycho-cellular catalepsy."
+  ],
+  "source_image": "external/comics/meta-barons/214_The_Metabarons_8_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "54db59d03b56603029328395f5a763f5a4f279b1936eb569526f7e7dc1bff407",
+      "page_id": "214_The_Metabarons_8_p09",
+      "source_image": "external/comics/meta-barons/214_The_Metabarons_8_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The patient's identity is not explicitly named on this page; only Honorata is named clearly.",
+    "One narration caption says Honorata and her assistants were unaware while occupied with preparations, but the exact referent of 'she' in the opening caption is not fully explicit from this page alone.",
+    "Some fine caption text could be slightly misread due to glare/brightness from the scanned page, though the main narration is legible."
+  ],
+  "visual_summary": "A narration-heavy page shows a small craft arriving at Chrono-G, described as the punctual Pradex point, with accompanying mega-robots. A blinding temporal fissure or energy surge dominates the lab imagery. Subsequent panels depict a long medical/technical operation around a woman connected to machinery, while text explains that far more time passes for her than for the surgeons. The final images show Honorata in an immobilized, machine-bound state while an internal monologue describes her mind dissolving into near-nothingness.",
+  "volume": 8
+}

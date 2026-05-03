@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The Metabaron is commanding the tactical decisions in this encounter.",
+    "Tonto serves as an observer or adviser who reports battlefield developments to the Metabaron.",
+    "Metacraft functions as the Metabaron’s craft or onboard system and confirms flight commands.",
+    "The Metabaron favors evasive, timing-based tactics when facing a stronger opponent."
+  ],
+  "characters_present": [
+    "The Metabaron",
+    "Tonto",
+    "Metacraft",
+    "Petro-morphs or a gigantic petro-morph ship"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing pursuit or battle between the Metabaron’s smaller craft and a much larger petro-morph enemy.",
+    "The narration indicates the maneuver creates a time advantage, implying the immediate objective is escape, delay, or repositioning rather than destruction of the enemy."
+  ],
+  "dialogue_meaning": [
+    "Someone asks Tonto what is happening during the battle.",
+    "Tonto reports that the petro-morphs are merging into a larger formation or structure.",
+    "The Metabaron decides the enemy is too powerful to engage head-on because it would cost too much time.",
+    "He orders Metacraft to flee, and the craft acknowledges the command.",
+    "The Metabaron explains that his smaller craft can maneuver faster than the giant enemy vessel.",
+    "He orders an immediate about-turn to exploit that advantage, and the command is acknowledged."
+  ],
+  "image_sha256": "9969bccb5caed987696f17db62c2d7d5278732d8410a9ce4a7fb91c3a9a33143",
+  "is_spread": true,
+  "locations": [
+    "Outer space",
+    "A space battle zone around multiple large ships and missile trails"
+  ],
+  "lore_facts": [
+    "Petro-morphs can join together into a larger combined form.",
+    "There exists a very large enemy vessel described as a gigantic petro-morph ship.",
+    "Metacraft can receive spoken commands and verbally confirm them, suggesting it is sentient, automated, or voice-interfaced.",
+    "The Metabaron relies on speed and maneuverability rather than brute force in ship combat."
+  ],
+  "page_id": "364_The_Metabarons_14_p04-p05",
+  "page_label": "p04-p05",
+  "plot_events": [
+    "A major explosion and missile barrage erupt around large ships in space.",
+    "A character identifies that the petro-morphs are combining or joining together.",
+    "The Metabaron judges the opposing force or ship too powerful to fight directly without losing too much time and orders a retreat.",
+    "A craft identified as Metacraft confirms the retreat order.",
+    "The Metabaron then uses the smaller size and maneuverability of his ship as a tactical advantage.",
+    "He orders an immediate about-turn, which Metacraft confirms.",
+    "The enemy’s gigantic petro-morph ship turns in a wide circle, and the narration states this wastes precious seconds.",
+    "The narration frames the maneuver as a successful Metabaron strategy."
+  ],
+  "source_image": "external/comics/meta-barons/364_The_Metabarons_14_p04-p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "9969bccb5caed987696f17db62c2d7d5278732d8410a9ce4a7fb91c3a9a33143",
+      "page_id": "364_The_Metabarons_14_p04-p05",
+      "source_image": "external/comics/meta-barons/364_The_Metabarons_14_p04-p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is hard to read at this resolution, especially the exact phrasing of the retreat line and the ship names.",
+    "The enemy vessel may be referred to as a 'gigantic buzzard' in dialogue and as a gigantic petro-morph ship in narration; the relationship between those labels is unclear from this page alone.",
+    "It is unclear whether the visible small black craft is Metacraft itself or a missile-like vehicle associated with it."
+  ],
+  "visual_summary": "A large space-combat spread shows a chaotic exchange of missiles and explosions around massive ships. Smaller angular craft streak past a huge vessel as debris and fire fill the scene. The Metabaron’s small black craft executes a sharp turnaround while a gigantic enemy petro-morph ship swings wide, losing time.",
+  "volume": 14
+}

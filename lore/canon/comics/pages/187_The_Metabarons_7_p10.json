@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Tonto is a robot and is directly named in dialogue.",
+    "One robot is timid or anxious about abandonment and dependent on its master.",
+    "Another robot is quick-tempered and physically destroys the other during the argument.",
+    "Lothar is positioned as the listener or recipient of the historical account.",
+    "The disappearing humanoid figure appears panicked and armed."
+  ],
+  "characters_present": [
+    "A gaunt humanoid figure identified in dialogue as connected to Lothar and 'Master'",
+    "Lothar (present by dialogue reference, likely the dissolving figure or off-panel subject)",
+    "A small robot named Tonto",
+    "Another small robot speaker who is smashed apart",
+    "Multiple background robots or robot remains"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page continues an ongoing recounting of the Metabarons' history.",
+    "The eyebrow scar on the Invincible Warrior is a previously raised mystery carried into this scene.",
+    "Lothar's departure or interruption prevents the history lesson from continuing."
+  ],
+  "dialogue_meaning": [
+    "The disappearing figure is in immediate danger or distress and tries to address Lothar and a master figure before vanishing.",
+    "A robot states that bio-electrograms have a strict limit for remaining physically solid, framing the disappearance as a technical constraint rather than a death on-panel.",
+    "The robots bicker aggressively, with one belittling the other as repairable machine junk.",
+    "One robot reveals fear of being left functioning without its master for an immense span of time.",
+    "A question about the Invincible Warrior's eyebrow scar is presented as a key unresolved point in the story.",
+    "The attack happens because one robot is enraged that the other touched a sensitive topic.",
+    "The closing remark says Lothar avoided learning the reason for the scar and the rest of the Metabarons' history."
+  ],
+  "image_sha256": "98114d063a0f43e34d0cae419e0e975ed33bd6c7c15cded5ae524f2af139b998",
+  "is_spread": false,
+  "locations": [
+    "A metallic robot-filled interior or industrial chamber",
+    "An area strewn with robot debris and parts, with a long row of small machines leading toward a structure"
+  ],
+  "lore_facts": [
+    "Bio-electrograms can exist in a solid state only for a limited duration.",
+    "Anti-robots are able to rebuild damaged robots.",
+    "The Invincible Warrior had a scar across the right eyebrow by the age of 30 years, 2 months, 3 hours, and 20:40:00.",
+    "The cause of that scar is treated as an important unanswered part of the Metabarons' history.",
+    "Lothar is being told or shown the history of the Metabarons on this page."
+  ],
+  "page_id": "187_The_Metabarons_7_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A distressed humanoid addresses Lothar and 'Master' moments before disappearing.",
+    "A robot explains that the figure vanished just before exceeding a limited time that bio-electrograms can remain in solid form.",
+    "The same robot insults another robot, saying anti-robots can rebuild it anyway.",
+    "One robot complains that it nearly faced an extremely long period of remaining alive without its master and asks what Lothar did to the Metabaron.",
+    "Another robot says it had only asked how the Invincible Warrior could have been wounded at age 30 years, 2 months, 3 hours, and 20:40:00, as supposedly shown by a scar across the right eyebrow.",
+    "The insulted robot calls the other a 'mechanical moron' and attacks, shattering it into pieces.",
+    "The broken robot protests that it had asked the same question the day before and got no answer.",
+    "The exchange ends with the accusation that Lothar cheated by choosing not to hear the rest of the Metabarons' history."
+  ],
+  "source_image": "external/comics/meta-barons/187_The_Metabarons_7_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "98114d063a0f43e34d0cae419e0e975ed33bd6c7c15cded5ae524f2af139b998",
+      "page_id": "187_The_Metabarons_7_p10",
+      "source_image": "external/comics/meta-barons/187_The_Metabarons_7_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "It is unclear from the page alone whether the dissolving figure is Lothar, the 'Master,' or another projected presence.",
+    "The exact identities of the two arguing robots are only partly certain; only Tonto is explicitly named in readable dialogue.",
+    "The precise setting is not named on the page, only shown as a robot-filled metallic environment.",
+    "Some small text, especially the long numerical duration and timing details, may be difficult to read with complete precision."
+  ],
+  "visual_summary": "A gaunt humanoid figure with a weapon begins to dissolve or phase out in a sequence of narrow panels while small robots watch. After he vanishes, two robots argue in a cluttered metallic setting filled with robot parts and a line of small machines stretching into the distance. One robot is violently smashed apart during the quarrel, and the page ends with a remark that Lothar avoided hearing more about the Metabarons' history.",
+  "volume": 7
+}

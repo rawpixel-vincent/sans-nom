@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Steelhead is associated with exile, survival, and future revenge.",
+    "The reptilian/cybernetic narrator is dramatic, argumentative, and continues the tale after being pressed.",
+    "Tonto is reprimanded and made to apologize repeatedly, implying a subordinate or comic-servant role.",
+    "The new Metabaron is female according to the narration box.",
+    "The small robot acts as a cautious attendant who monitors the master's drinking.",
+    "The master in the final panel is dismissive of warnings and confident in Deyanira's protection."
+  ],
+  "characters_present": [
+    "Steelhead (mentioned and depicted as a tiny drifting figure/object in space)",
+    "A reptilian/cybernetic storyteller, possibly named Tonto",
+    "Another speaker addressing the storyteller, likely a robotic or mechanical companion",
+    "The new Metabaron",
+    "A small hovering robot addressed as a 'robo-midget'",
+    "Deyanira (mentioned by name, exact on-panel identification uncertain)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing narrated backstory about Steelhead and a master's eyebrow wound.",
+    "The narration transitions from Steelhead's fate to the later period when the new Metabaron awaited an Imperial Court assignment.",
+    "The argumentative storytellers appear to be framing or recounting earlier events rather than acting in the main timeline."
+  ],
+  "dialogue_meaning": [
+    "The speakers interpret Steelhead's exile as temporary and believe he will one day return for revenge.",
+    "That expected revenge is tied to an already significant or foretold eyebrow wound on their master.",
+    "The page uses comic bickering between attendants or companions to frame the exposition.",
+    "The new Metabaron's rise is slowed by a long wait for official approval from the Imperial Court.",
+    "The bottom conversation suggests concern about the master's self-control and reliance on Deyanira for protection."
+  ],
+  "image_sha256": "934a406821184843a7f6160539d7eb343886d8b74add0cfd9bfed4b8aaf5d2f1",
+  "is_spread": false,
+  "locations": [
+    "Outer space / cosmos",
+    "A large metallic interior chamber or hangar",
+    "A ship or station observation/control room overlooking space"
+  ],
+  "lore_facts": [
+    "Steelhead was launched into space rather than simply killed.",
+    "Steelhead's future return is treated as possible or expected within the story being told.",
+    "A wound to the master's eyebrow is an important enough detail to be singled out in prophecy or explanation.",
+    "There is an Imperial Court that controls or grants assignments.",
+    "The title 'Metabaron' passes to a new holder, and this new Metabaron is referred to as 'her.'",
+    "Ganya is a drink or intoxicant that can cause loss of control.",
+    "Deyanira is someone considered capable of defending the master."
+  ],
+  "page_id": "401_The_Metabarons_15_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "Steelhead is shown being launched into space and left drifting in the cosmos.",
+    "A storyteller explains that Steelhead is expected to eventually return and take revenge, specifically by causing a wound to their master's eyebrow.",
+    "The narration is interrupted by bickering between the speakers, including insults and a forced apology before the story resumes.",
+    "A caption states that the new Metabaron waited three years for the Imperial Court to assign her a mission.",
+    "In the final scene, a small robot warns its master about drinking too much ganya, and the master dismisses the concern by saying Deyanira can still protect them."
+  ],
+  "source_image": "external/comics/meta-barons/401_The_Metabarons_15_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "934a406821184843a7f6160539d7eb343886d8b74add0cfd9bfed4b8aaf5d2f1",
+      "page_id": "401_The_Metabarons_15_p19",
+      "source_image": "external/comics/meta-barons/401_The_Metabarons_15_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are difficult to read precisely; wording may be slightly off.",
+    "The exact identity of the reptilian/cybernetic storyteller is uncertain, though 'Tonto' appears in the dialogue.",
+    "The exact identity of the seated master in the final panel is not fully explicit from the image alone.",
+    "Deyanira is named but not clearly identifiable in the artwork on this page alone.",
+    "It is unclear whether the flying reptilian figure in the side panel is the same character as the central storyteller or a separate figure."
+  ],
+  "visual_summary": "The page opens with a wide space panel showing a small object or figure drifting away into deep space. The middle tier shows a reptilian, clawed, mechanical-looking storyteller inside a large metallic interior, with speech balloons carrying an argumentative exchange between it and another off-panel or partially seen speaker. A narrow side panel shows a flying reptilian figure crossing a chamber with an orange-lit background. The bottom tier shifts to a control room or observation deck overlooking space and several ships, where a seated bald figure is attended by a small hovering robot and another reclining figure or machine nearby.",
+  "volume": 15
+}

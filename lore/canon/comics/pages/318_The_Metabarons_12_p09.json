@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The older man is protective, armed, and ready to use lethal force.",
+    "The president is emotionally tied to her father and unwilling to abandon him.",
+    "The president rejects the killing of her own people even under threat.",
+    "The attackers describe the older man as a mercenary."
+  ],
+  "characters_present": [
+    "Elderly bearded man armed with a handgun or weapon",
+    "Young woman identified as 'Madam President'",
+    "Multiple small armored attackers or guards outside the chamber"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The assault is already underway before this page begins.",
+    "The president's father is central to her decision-making and is apparently in danger elsewhere or implicated in the pursuit.",
+    "The older man and the president are already together in hiding when the page opens."
+  ],
+  "dialogue_meaning": [
+    "The chamber is under immediate siege and the president is in danger.",
+    "The older man wants a quick escape, but the president prioritizes loyalty to her father over self-preservation.",
+    "The attackers believe a mercenary has taken the president and treat the situation as a rescue or assault operation.",
+    "The older man frames the choice as impossible: flee, allow capture, or kill the attackers to stop them.",
+    "The president morally refuses mass killing and also forbids killing her father, even to end the crisis."
+  ],
+  "image_sha256": "2d53221bfd3d4cf13f1f410312fbf5774368b02b33e15a03d8505b2ca04ac66a",
+  "is_spread": false,
+  "locations": [
+    "Interior chamber or suite behind a reinforced door",
+    "Large ceremonial hall with columns and a statue outside the chamber door"
+  ],
+  "lore_facts": [
+    "A political figure addressed as 'Madam President' exists in this setting.",
+    "The setting includes monumental interior architecture, advanced metal doors, and organized armed forces.",
+    "A figure called Paleo-Marx is represented by a heavy statue important enough to be named by the attackers.",
+    "The attackers are willing to use a ceremonial statue as an improvised battering ram during the assault."
+  ],
+  "page_id": "318_The_Metabarons_12_p09",
+  "page_label": "p09",
+  "plot_events": [
+    "An alarm or warning is raised that the woman identified as the president is under attack.",
+    "The older man proposes escaping through an opening in the ceiling.",
+    "The woman refuses to flee because she does not want to abandon her father.",
+    "Outside the chamber, attackers announce that the president has been seized by a mercenary and organize a forced entry.",
+    "A group of armored figures uses a statue as a battering ram against the door.",
+    "The older man argues that the attackers will soon break in and says he may have to kill them to stop the violence.",
+    "The woman rejects that solution and says she would rather die than have him kill her father."
+  ],
+  "source_image": "external/comics/meta-barons/318_The_Metabarons_12_p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2d53221bfd3d4cf13f1f410312fbf5774368b02b33e15a03d8505b2ca04ac66a",
+      "page_id": "318_The_Metabarons_12_p09",
+      "source_image": "external/comics/meta-barons/318_The_Metabarons_12_p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; wording about the father's fate and one violent threat may not be fully exact.",
+    "It is unclear from this page alone whether the attackers' claim that the president was seized by a mercenary is accurate or propaganda.",
+    "The exact identity of the older bearded man is not given on this page."
+  ],
+  "visual_summary": "Inside a grand metallic hall with columns and a massive door, an elderly bearded man and a younger woman are trapped while guards outside try to force entry. The man first appears near a wall mechanism, then holds and argues with the woman as pounding and crashing continue at the door. In another panel, a crowd of small armored figures hauls a large statue and uses it as a battering ram against the entrance.",
+  "volume": 12
+}

@@ -1,0 +1,79 @@
+{
+  "character_facts": [
+    "The father presents himself as both teacher and patriarch, instructing his son on warrior ethics and clan survival.",
+    "The son has recently overcome three witches and is treated as having proven himself.",
+    "The son responds respectfully to his father and accepts the idea that renouncing glory can be heroic.",
+    "The robot speaker is boastful and claims responsibility for designing the Metabunker and another perfect robot.",
+    "Honorata performs a brief spoken act that is singled out as strange and important."
+  ],
+  "characters_present": [
+    "The father, an older armored man addressing his son",
+    "The son, a silver-haired younger warrior",
+    "A robotic narrator or robot speaker associated with the Metabunker",
+    "Honorata",
+    "Crowd of natives or attendants at the embarkation platform"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explicitly refers to the son's earlier defeat of three witches.",
+    "The secrecy plan for the Metabaron clan implies this page follows a crisis or transition in the clan's history.",
+    "The loading of the Metabunker and metacraft sets up an imminent departure or escape.",
+    "The warning about priestesses suggests a conflict already underway and about to escalate."
+  ],
+  "dialogue_meaning": [
+    "The father frames the son's victory over three witches as proof of warrior worth.",
+    "He teaches that true power is adaptive and that a hero must let go rather than cling to possession or glory.",
+    "He says the Metabaron clan will survive by going underground and returning later.",
+    "The son shows obedience and internalizes the lesson about renouncing glory.",
+    "The robot-like speaker narrates the departure preparations with vanity about its own creations.",
+    "The speaker anticipates an imminent assault by priestesses before boarding.",
+    "The farewell speech below the platform sounds dreamlike and unsettling, suggesting ritual or altered reality.",
+    "Honorata's strange words are presented as the immediate precursor to something terrible."
+  ],
+  "image_sha256": "eca63db3be87f9423571f0ffa1fc5cacd51740919decab23f2340f3c6af0b252",
+  "is_spread": false,
+  "locations": [
+    "An interior setting for the father-son exchange",
+    "The embarkation platform",
+    "The Metabunker loading area or entry shaft",
+    "A large doorway or platform overlooking a gathered crowd"
+  ],
+  "lore_facts": [
+    "There are or were 'three witches' significant enough that defeating them marks major warrior prowess.",
+    "The clan of the Metabarons intends to remain hidden and later re-emerge.",
+    "A machine called the Metabunker exists and is described on-page as a war machine.",
+    "A metacraft and multiple trunks are being loaded into the Metabunker before departure.",
+    "There are priestesses who are expected to attack at the embarkation stage.",
+    "Natives are present and chant farewell songs during the departure.",
+    "Honorata is capable of uttering unusual or ritual-like words that the narration highlights."
+  ],
+  "page_id": "146_The_Metabarons_5_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "A father tells his son that defeating three witches proved he is a great warrior.",
+    "The father instructs the son in a warrior's philosophy centered on adapting, relinquishing, and self-assertion without attachment to glory.",
+    "The father declares that the clan of the Metabarons will continue in secrecy and re-emerge in a few years.",
+    "The son accepts the lesson and answers that renouncing glory is also heroic.",
+    "The scene moves to the embarkation platform where the Metabunker awaits.",
+    "A speaker identified through narration as a robot claims to have designed the Metabunker and the perfect robot before departure.",
+    "Cargo trunks and a metacraft are already being loaded into the Metabunker while natives chant farewell songs.",
+    "The robotic speaker warns that the priestesses will attack before boarding and expects retaliation.",
+    "A figure named Honorata speaks a few strange words at the end of the page, signaling an ominous turn just before takeoff."
+  ],
+  "source_image": "external/comics/meta-barons/146_The_Metabarons_5_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "eca63db3be87f9423571f0ffa1fc5cacd51740919decab23f2340f3c6af0b252",
+      "page_id": "146_The_Metabarons_5_p25",
+      "source_image": "external/comics/meta-barons/146_The_Metabarons_5_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several proper names and terms are small or stylized; 'Honorata,' 'Othon,' and some speaker attributions may be hard to read.",
+    "The exact identity of the robotic speaker is unclear from this single page.",
+    "The farewell speech in the lower-right panel is legible in gist but some wording may be imprecise due to image quality.",
+    "The father's and son's specific names are not given on this page excerpt."
+  ],
+  "visual_summary": "The page alternates between close-ups of a stern armored father and his silver-haired son and wider views of a vast embarkation platform. The father praises the son for defeating three witches and gives philosophical advice about a warrior adapting like water and letting go of glory. The narration then shifts to the embarkation area, where a large machine called the Metabunker is waiting while cargo and a metacraft are loaded. A robotic narrator boasts about the design of the war machine and says the priestesses are about to attack. In the final large panel, two figures stand in a bright doorway above a gathered crowd as a character named Honorata speaks strange words just before departure.",
+  "volume": 5
+}

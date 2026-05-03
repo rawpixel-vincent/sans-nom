@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Aghnar is actively pursuing a covert plan involving disguise, psychic domination, and delivery of Oda to the witches.",
+    "Aghnar killed a priestess after taking control of a cabin, according to the narration.",
+    "Oda is valued by a woman mentioned in the narration, though the exact identity of that woman is not fully clear from the page alone.",
+    "One present-time speaker has a visible scar that is significant enough to be proposed as a story topic.",
+    "The present-time speakers appear familiar with each other and with the larger family history being recounted."
+  ],
+  "characters_present": [
+    "Two unnamed present-time speakers, shown as battered mechanical or armored figures",
+    "Aghnar",
+    "Oda",
+    "Two pilots under Aghnar's mind-control",
+    "A priestess killed by Aghnar (described in narration)",
+    "Shabda-Oud witches / whore-priestesses"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explicitly resumes from an earlier point in Aghnar's storyline: after the previous scene, he is now approaching the witches' lair.",
+    "The present-time framing device suggests an ongoing oral recounting of family history, with the scar story deferred for later."
+  ],
+  "dialogue_meaning": [
+    "The present-time exchange is mocking and conversational, with one speaker controlling the storytelling and the other impatiently steering it away from a scar anecdote toward the family saga.",
+    "The flashback narration frames Aghnar as advancing toward the witches' base while using deception, murder, and psychic control.",
+    "The closing lines present the coming confrontation as a test against horror, answered with a declaration that love can defeat death."
+  ],
+  "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+  "is_spread": false,
+  "locations": [
+    "A present-time setting with the two speaking figures, exact location unclear",
+    "Outer space",
+    "The Shabda-Oud witches' lair",
+    "An ice asteroid containing the lair",
+    "A ship or cabin referenced in the narration"
+  ],
+  "lore_facts": [
+    "There is a place called the Shabda-Oud witches' lair.",
+    "The witches' lair is carved from an ice asteroid.",
+    "Aghnar can exert mind-control over other people, here specifically two pilots.",
+    "Aghnar used or created a 'psy-cloak' taken from a priestess after killing her.",
+    "The witches are also referred to as whore-priestesses on this page.",
+    "Oda is someone Aghnar intends to deliver to the witches."
+  ],
+  "page_id": "188_The_Metabarons_7_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "Two figures converse in the present, with one offering to tell either the origin of a scar or the family history.",
+    "The listener chooses to hear Aghnar's story instead of the scar story.",
+    "The narration resumes from the point where Aghnar was nearing the Shabda-Oud witches' lair.",
+    "The lair is described visually as being carved from an ice asteroid.",
+    "Aghnar is said to be intensifying mind-control over two pilots.",
+    "A flashback states that he fabricated a psy-cloak from a priestess whom he had killed after taking over the cabin and disintegrating her.",
+    "Disguised as one of the priestesses, he prepares to hand Oda over to the witches.",
+    "The approaching party is shown entering or nearing the witches' lair while speaking of confronting terror."
+  ],
+  "source_image": "external/comics/meta-barons/188_The_Metabarons_7_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+      "page_id": "188_The_Metabarons_7_p11",
+      "source_image": "external/comics/meta-barons/188_The_Metabarons_7_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely, especially names and smaller text in the top conversation boxes.",
+    "The identities of the two present-time speakers are not stated on the page with full clarity.",
+    "The narration mentions a woman who loved Oda more than anything, but her exact identity is uncertain from this single page alone.",
+    "The exact visual nature of the present-time speakers is ambiguous; they appear mechanical or heavily armored, but the page alone does not fully define them."
+  ],
+  "visual_summary": "The page opens with a conversation between two damaged, mechanical or armored figures in close-up. One teases the other about choosing between hearing about a scar or a family history, and the other rejects the scar story in favor of Aghnar's story. The page then shifts into narrated flashback images of space travel: ships or creatures moving through space toward an icy asteroid lair, a woman in distress as a beam or force is applied, and armored or cloaked figures approaching a sinister opening while exchanging dramatic dialogue about facing terror and love overcoming death.",
+  "volume": 7
+}

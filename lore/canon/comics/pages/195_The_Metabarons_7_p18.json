@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The female leader is commanding and secretive, and she expected to remain concealed longer.",
+    "She has enough authority that armed followers and attendants respond immediately to her orders.",
+    "The guards or soldiers are organized, armed, and alarmed by the discovery of a spy.",
+    "The glowing attendants address the leader as 'master,' indicating subservience."
+  ],
+  "characters_present": [
+    "A female authority figure or leader, shown partly in close-up and later as a dark silhouette",
+    "Multiple helmeted guards or soldiers",
+    "Glowing pale attendants or servant figures who receive and answer the order",
+    "A massive external cyborg/biomechanical entity identified as the 'Cetacyborg'"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page escalates an existing covert plan by revealing that secrecy has failed.",
+    "The mention of a spy suggests an ongoing infiltration subplot.",
+    "The final exterior image links the internal command scene to a larger technological or military asset in space."
+  ],
+  "dialogue_meaning": [
+    "The leader is frustrated that her presence was revealed too early.",
+    "She warns that there is an infiltrator among her followers.",
+    "She orders immediate acceleration of their plans.",
+    "She commands that instructions be sent to the Cetacyborg.",
+    "Subordinates confirm that they will obey."
+  ],
+  "image_sha256": "929ec187cbee1efe1641737bc1943de79d42619339758a1f64211e3163feabb1",
+  "is_spread": false,
+  "locations": [
+    "A bright interior space with towering crystalline or luminous architectural forms",
+    "An exterior space view showing a large domed structure and a gigantic biomechanical object"
+  ],
+  "lore_facts": [
+    "A figure called the 'Cetacyborg' exists and can receive operational orders.",
+    "The faction on this page believes a spy has infiltrated them.",
+    "The leader's appearance or intervention was meant to remain hidden longer.",
+    "This group includes obedient pale attendants who relay or execute commands.",
+    "The setting includes advanced technology and a giant biomechanical presence in space."
+  ],
+  "page_id": "195_The_Metabarons_7_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A hidden or premature appearance by a female authority figure is exposed.",
+    "She states that events must now proceed quickly because a spy is present.",
+    "Nearby soldiers or attendants react and move into action.",
+    "An urgent order is given to transmit commands to the 'Cetacyborg.'",
+    "Glowing attendants respond obediently to the command.",
+    "The page ends by showing a massive external biomechanical entity near a large dome or planetary structure, implying the order is being carried out."
+  ],
+  "source_image": "external/comics/meta-barons/195_The_Metabarons_7_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "929ec187cbee1efe1641737bc1943de79d42619339758a1f64211e3163feabb1",
+      "page_id": "195_The_Metabarons_7_p18",
+      "source_image": "external/comics/meta-barons/195_The_Metabarons_7_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The leader's exact identity is not stated on this page.",
+    "The precise spelling and nature of 'Cetacyborg' are inferred from the lettering and may be slightly uncertain.",
+    "The page image footer shows printed number 19 while the provided source label is p18.",
+    "The exact location and function of the domed structure and giant biomechanical entity are not explicitly explained on this page alone."
+  ],
+  "visual_summary": "A group of uniformed figures in pale helmets react in alarm inside a bright, crystalline-looking interior. A dark, cloaked authority figure realizes her presence has been revealed and declares that a spy is among them. Guards rush, weapons are raised, and an order is issued to send commands to the 'Cetacyborg.' In the final panels, glowing pale attendants acknowledge the command while a huge biomechanical or cyborg-like structure appears outside above a domed surface in space.",
+  "volume": 7
+}

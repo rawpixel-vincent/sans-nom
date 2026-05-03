@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The intruders appear young according to the narration.",
+    "They wear dark bodysuits or skin-tight coverings with glowing visor slits.",
+    "They act stealthily enough to notice that their target is sleeping.",
+    "At least one intruder gives commands and another executes the breach.",
+    "The old man is present nearby but not shown directly on this page."
+  ],
+  "characters_present": [
+    "A group of young humanoid intruders with glowing visor-like eye slits",
+    "One apparent leader or speaker giving orders",
+    "An unseen old man inside the room"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page sets up a confrontation between the young intruders and the unseen old man.",
+    "The narration suggests an internal threat emerging from the ship rather than arriving from outside."
+  ],
+  "dialogue_meaning": [
+    "The narration presents these figures as originating from the ship's interior.",
+    "The narration frames their motive in moral terms, linking them to ambition and envy.",
+    "The intruders detect that an old man is inside and asleep.",
+    "They decide to force entry by melting the door.",
+    "The narration adds that some of them see old age as weakness."
+  ],
+  "image_sha256": "b749f8f7c2d1e48c30a54e4fbb083c2bcf958fec82e58d923156502d6acf48eb",
+  "is_spread": false,
+  "locations": [
+    "Interior of a ship",
+    "A dark corridor or chamber within the ship",
+    "Outside the old man's room or door"
+  ],
+  "lore_facts": [
+    "The ship has an inner space from which hostile or ominous figures can emerge.",
+    "The page links the intruders symbolically or morally with ambition and envy.",
+    "At least some characters in this setting treat old age as a weakness.",
+    "The ship interior is depicted as biomechanical or organic rather than purely metallic.",
+    "The intruders use a tool or weapon capable of melting doors."
+  ],
+  "page_id": "303_The_Metabarons_11_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "Narration states that some beings rose from within the ship itself.",
+    "A young group is described as coming to corrupt souls through ambition and envy.",
+    "The intruders travel through a dark interior using a small hovering craft or device.",
+    "They reach a closed door and identify an old man inside, apparently sleeping.",
+    "One of them orders the door melted open.",
+    "A figure uses a beam-emitting organic/mechanical tool to open the way.",
+    "The group proceeds toward the old man's location as narration comments on their contempt for old age."
+  ],
+  "source_image": "external/comics/meta-barons/303_The_Metabarons_11_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b749f8f7c2d1e48c30a54e4fbb083c2bcf958fec82e58d923156502d6acf48eb",
+      "page_id": "303_The_Metabarons_11_p26",
+      "source_image": "external/comics/meta-barons/303_The_Metabarons_11_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several narration and dialogue boxes are difficult to read precisely because of glare and image quality.",
+    "The exact nature of the floating craft and the shell-like organic object is unclear from this page alone.",
+    "It is uncertain whether all silhouetted figures in the final panel are the same intruders shown earlier or include the old man.",
+    "The printed page number visible in the image appears to be 28, which does not match the provided page label p26."
+  ],
+  "visual_summary": "A group of humanoid figures with glowing horizontal visors move through a dark, organic-looking ship interior. A hovering craft and a fleshy, shell-like device appear in the central panel. In the lower panels, the group approaches a door, comments that an old man is inside asleep, uses a beam or melting tool to open the door, and advances while narration frames them as young intruders who despise old age.",
+  "volume": 11
+}

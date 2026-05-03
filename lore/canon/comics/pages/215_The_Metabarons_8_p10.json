@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Honorata Lao is important enough that others undertake an extremely dangerous procedure to save her.",
+    "Honorata Lao is referred to as the mother whom the children must avenge.",
+    "The father is a commanding figure who mixes grief with strategic resolve.",
+    "The two children are shown enraged and obedient to their father's call for revenge."
+  ],
+  "characters_present": [
+    "Honorata Lao",
+    "A surgeon or medical operator involved in the transplant",
+    "Two children addressed as the speaker's loves",
+    "A parent/father speaking to the children"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to continue a revenge storyline centered on Honorata Lao's injury or loss.",
+    "The new heart and the specially built vessel are presented as connected steps in a larger campaign against the Shabda-Oud.",
+    "The children are being prepared for a future return from presumed death, implying an ongoing concealment or survival plan."
+  ],
+  "dialogue_meaning": [
+    "The narration emphasizes that the surgery is exceptionally risky because Honorata's chest is open and circulation is stopped for many hours.",
+    "The narration says the transplant succeeds and the replacement heart begins beating.",
+    "The narration says years are spent building a vessel specifically capable of surviving extreme retaliation and planetary destruction.",
+    "The children answer their father's call for revenge and explicitly agree to avenge their mother.",
+    "The father expresses grief, says the children must bear the pain of being treated as dead, and directs them toward the eventual destruction of Shabda-Oud forces for the clan's glory."
+  ],
+  "image_sha256": "310454d3949fe1ff6e390730e8b1253ab7329a3cbfa3ac2a66328c2bc559285d",
+  "is_spread": false,
+  "locations": [
+    "A surgical or medical chamber filled with advanced machinery",
+    "A large-scale industrial construction site on a barren or alien landscape",
+    "Outer space or a cosmic setting dominated by a blinding radiant event",
+    "An interior or vessel setting where the children and parent appear in separate close panels"
+  ],
+  "lore_facts": [
+    "Honorata Lao undergoes a high-risk heart operation.",
+    "The replacement heart is identified as an Arcturian Katria agent's organ.",
+    "The page links the heart operation to a long-term revenge project lasting five years.",
+    "A vessel is engineered to withstand nuclear detonation.",
+    "The target of vengeance is named as the Shabda-Oud, and the narration escalates that vengeance to planetary annihilation.",
+    "The clan values sacrificial endurance in service of revenge and collective glory."
+  ],
+  "page_id": "215_The_Metabarons_8_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A perilous operation is performed on Honorata Lao while her chest is open and blood flow is interrupted.",
+    "Honorata survives after receiving a new heart identified as a major organ from an Arcturian Katria agent.",
+    "Five years pass during the construction of a vessel built to endure extreme destructive force.",
+    "The stated purpose of the vessel is to avenge the damaged heart and annihilate the entire planet associated with the offenders.",
+    "After a vast cosmic flash or detonation, two children vow to avenge their mother.",
+    "A parent tells the children to endure the pain of presumed death until they can destroy the Shabda-Oud forces, framing it as sacrifice for the clan."
+  ],
+  "source_image": "external/comics/meta-barons/215_The_Metabarons_8_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "310454d3949fe1ff6e390730e8b1253ab7329a3cbfa3ac2a66328c2bc559285d",
+      "page_id": "215_The_Metabarons_8_p10",
+      "source_image": "external/comics/meta-barons/215_The_Metabarons_8_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration is small and partially difficult to read; specific timing and wording may be slightly off.",
+    "The exact identity of the surgeon/medical operator is not given on this page.",
+    "The precise nature of the bright cosmic event is unclear from this page alone; it may be an explosion, stellar body, or other large-scale phenomenon.",
+    "The spelling of 'Arcturian Katria agent' is based on small text and may need verification against a clearer source."
+  ],
+  "visual_summary": "A narrated montage shows a dangerous surgery on Honorata Lao: her heart is removed while machinery surrounds the operating space, and a surgeon or technician works over her body. The narration states the operation succeeds and that a new heart from an Arcturian Katria agent begins beating. Another wide panel shows a massive vessel being constructed in a harsh orange landscape. A huge radiant explosion or stellar blaze fills space, followed by two angry children swearing vengeance and a sorrowful parent addressing them from a separate panel.",
+  "volume": 8
+}

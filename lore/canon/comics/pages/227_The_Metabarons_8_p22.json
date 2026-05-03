@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Tonto becomes the life-support host for the infant by carrying him grafted onto his back.",
+    "The mother is shown acting in panic but also making the decisive choice that preserves the child.",
+    "Aghnar speaks as someone who sees himself as the continuing embodiment of the Metabarons and embraces mercilessness.",
+    "Oda-Honorata is addressed directly during the farewell and appears to oppose or answer Aghnar.",
+    "The infant is physically altered in infancy and is expected to grow into Steelhead, a future champion."
+  ],
+  "characters_present": [
+    "Tonto",
+    "the panic-stricken mother",
+    "the bio-infant / future Steelhead",
+    "Aghnar",
+    "Oda-Honorata"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page sets up the future figure called Steelhead.",
+    "It frames a coming confrontation between Aghnar and the grown child as fulfillment of clan tradition.",
+    "The final caption explicitly leads into the next episode, 'The Mentrek's solution'."
+  ],
+  "dialogue_meaning": [
+    "The mother urgently seeks Tonto’s help to save the infant.",
+    "The narration explains the infant survives by being physically grafted onto Tonto’s back and sustained by Tonto’s circuits.",
+    "The child is being prepared for a later transformation involving a steel head.",
+    "Aghnar renounces peace, says the clan must live on, and commits himself to ruthless continuation of the Metabaron line.",
+    "Aghnar promises to return in the future to battle the grown child and destroy the steel head added to him.",
+    "Another character answers with a counter-vow that tradition will be fulfilled and that Steelhead will one day defeat Aghnar honorably."
+  ],
+  "image_sha256": "3e25c3b9560e178850979bcc946c966c814c6159e5a4dffeb61c04e12cf8d523",
+  "is_spread": false,
+  "locations": [
+    "a surgical or biotech chamber filled with machinery and grafting equipment",
+    "a metallic hangar or launch bay",
+    "a departing spacecraft or long transport vessel"
+  ],
+  "lore_facts": [
+    "Advanced grafting technology can attach one living body to another in order to preserve life.",
+    "Tonto possesses 'zephyr circuits' or similarly named internal systems capable of keeping the infant alive.",
+    "A future rite or plan involves grafting a steel head onto the child once he reaches adult size.",
+    "The clan’s tradition appears to require a future duel between generations.",
+    "The title or name 'Steelhead' is tied to the child’s future identity and bodily transformation.",
+    "Honor, succession, and ritual combat are central values of the clan."
+  ],
+  "page_id": "227_The_Metabarons_8_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "A mother urgently carries a bio-infant to Tonto for help.",
+    "The infant’s body is grafted onto Tonto’s back so Tonto’s internal systems can keep the child alive.",
+    "The page states that when the child reaches adult size, a steel head will be grafted onto him.",
+    "A farewell is spoken to Oda-Honorata, along with a vow that the clan will continue.",
+    "Aghnar declares he will become the most merciless of the Metabarons and later return to fight the future warrior.",
+    "Another speaker invokes clan tradition and says Steelhead will become a champion and eventually triumph over Aghnar.",
+    "A ship or craft departs from the hangar, ending the scene on a departure cliffhanger."
+  ],
+  "source_image": "external/comics/meta-barons/227_The_Metabarons_8_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3e25c3b9560e178850979bcc946c966c814c6159e5a4dffeb61c04e12cf8d523",
+      "page_id": "227_The_Metabarons_8_p22",
+      "source_image": "external/comics/meta-barons/227_The_Metabarons_8_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names are difficult to read with certainty; 'Oda-Honorata,' 'Aghnar,' and 'Steelhead' may need verification against adjacent pages.",
+    "It is not fully clear from the page alone which visible figure is speaking each narration box in the hangar scene.",
+    "The exact appearance and function of the block-like mechanical object in the upper-right panel are not explicitly explained on this page alone.",
+    "Because the text is small and partially blurred, fine wording such as the exact term for Tonto’s circuits may be imprecise."
+  ],
+  "visual_summary": "A frantic woman runs through a machinery-filled medical space carrying a baby. In the next panel, the infant is shown being surgically grafted onto the back of a larger cyborg-like body amid cables and blood. A separate panel shows a blocky mechanical head or device associated with the infant’s future transformation. Below, two figures stand in a vast metallic hangar near a long dark vessel or platform; one figure appears mounted or fused to machinery. The scene ends with the craft departing through a large opening, and a caption announces the next episode.",
+  "volume": 8
+}

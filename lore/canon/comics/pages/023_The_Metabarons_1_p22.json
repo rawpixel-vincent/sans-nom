@@ -1,0 +1,75 @@
+{
+  "character_facts": [
+    "Othon has undergone a transfer in which the elder says he is now part of him.",
+    "The elder is the father of the younger man who cries out to him.",
+    "The elder is dying and speaks with acceptance about his death.",
+    "The elder addresses Edna directly and admonishes her for giving in to emotion.",
+    "The elder rejects the coming era of conquest, decadence, and exploitation.",
+    "The younger blue-haired man is emotionally distressed by the elder's death."
+  ],
+  "characters_present": [
+    "Othon",
+    "Edna",
+    "Unnamed elder/father figure",
+    "Unnamed younger blue-haired man"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The completed transfer appears to continue an inherited tradition through Othon.",
+    "The warning about sacred oil sets up future conflict over the planet's resources.",
+    "The elder's death scene marks a generational handoff from father to successor."
+  ],
+  "dialogue_meaning": [
+    "The elder confirms a successful transfer of something essential from himself into Othon.",
+    "He frames the transfer as preserving a tradition through Othon even as his own life ends.",
+    "The younger man protests his father's impending death.",
+    "The elder condemns open emotion as beneath their warrior caste.",
+    "He warns that the planet's prized 'sacred oil' will draw violent outside interest.",
+    "He refuses to be complicit in the future decline and bloodshed that will follow.",
+    "He gives funerary instructions for disposal of his body in the Great Azure Ocean."
+  ],
+  "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+  "is_spread": false,
+  "locations": [
+    "Interior chamber where the transfer and farewell occur",
+    "View of the planet",
+    "A monumental city or tower complex on the planet",
+    "The Great Azure Ocean (mentioned)"
+  ],
+  "lore_facts": [
+    "There is a tradition that can be passed from one person to another through a completed transfer.",
+    "Othon is the recipient of that transfer.",
+    "The society shown has a warrior caste with strict expectations around emotional restraint.",
+    "The planet possesses a precious substance called sacred oil.",
+    "This sacred oil is expected to trigger wars of conquest and attract predators from across the galaxy.",
+    "The Great Azure Ocean is a named place used for funerary disposal of bodies."
+  ],
+  "page_id": "023_The_Metabarons_1_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "An elder states that a transfer has been completed.",
+    "The elder tells Othon that he is now part of him and says farewell.",
+    "A younger man reacts emotionally, calling out to his father.",
+    "The elder rebukes Edna for emotional weakness and insists on warrior discipline.",
+    "The elder predicts that predators from across the galaxy will come to exploit the planet's precious resource.",
+    "He rejects becoming part of the future corruption and decadence tied to wars over that resource.",
+    "He instructs that his body be cast into the Great Azure Ocean after his heart stops.",
+    "The page ends with the elder kneeling alone, apparently near death."
+  ],
+  "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+      "page_id": "023_The_Metabarons_1_p22",
+      "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact nature of the transfer is not explained on this page.",
+    "The identity of the younger blue-haired man is not explicitly named in the visible dialogue.",
+    "It is unclear whether Othon and the younger blue-haired man are the same person or separate people based on this page alone.",
+    "The exact relationship of Edna to the others is not defined on this page."
+  ],
+  "visual_summary": "A pale, white-haired elder announces that a transfer is complete while a younger blue-haired man looks down at a glowing mark or light in his chest. In close-up, the elder says he is now part of Othon and is ready to die. In a larger scene, the younger man cries out to his father while the elder restrains emotion and addresses Edna. The bottom panels show the planet, a monumental city or tower complex, and the elder kneeling alone on a red circular spot as he gives final instructions for his body and warns that outsiders will come for the planet's valuable substance.",
+  "volume": 1
+}

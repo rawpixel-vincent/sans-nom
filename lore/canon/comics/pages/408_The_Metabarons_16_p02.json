@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "The bald male figure is aggressive, confrontational, and eager for continued fighting.",
+    "He believes he could accomplish what the failed fleet could not.",
+    "The assembled defenders or court do not trust him and consider him deceitful.",
+    "They deny that he truly qualifies as a Metabaron.",
+    "The bald figure is associated with a large spider-like mount or machine and with ant-robots."
+  ],
+  "characters_present": [
+    "A bald male figure in dark clothing or armor, apparently controlling or riding a giant spider-like machine/creature",
+    "Multiple armed soldiers or guards gathered in the hall",
+    "Several robed or cloaked court figures near the stairs",
+    "A giant spider-like machine or creature",
+    "Mentioned but not visibly distinct: an ant-robot said to belong to the bald figure"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to an earlier fleet failure.",
+    "The accusation about a spy ant-robot and a revealed secret points to prior off-page betrayal or disclosure.",
+    "The argument over whether the bald figure is a true Metabaron suggests an ongoing legitimacy conflict."
+  ],
+  "dialogue_meaning": [
+    "Observers identify damage or residue on the stairs as melted glass.",
+    "The descending spider-like threat is spotted and announced.",
+    "The bald newcomer condemns the others for speaking of surrender before blood has been spilled.",
+    "He implies he could have succeeded where a failed fleet did not.",
+    "The assembled group rejects him as an authentic Metabaron.",
+    "They say one of his own ant-robots has been spying on him and revealed a hidden secret.",
+    "They explicitly cast him out as deceitful."
+  ],
+  "image_sha256": "5e4e60effcec6619717e676f45767bc390a6ce60615541beb31863a44364490d",
+  "is_spread": false,
+  "locations": [
+    "A grand interior hall or throne room with broad stairs",
+    "Twin thrones or ceremonial seats at the top of the stairs",
+    "A glass dome or ceiling above the chamber"
+  ],
+  "lore_facts": [
+    "This setting includes a recognized title or identity called 'Metabaron,' and authenticity of that status matters politically.",
+    "A fleet has recently failed at some objective before this scene.",
+    "Spider-like war machines or creatures can descend into the chamber from the dome area.",
+    "The bald figure possesses or is associated with ant-robots.",
+    "Espionage is occurring through one of those ant-robots.",
+    "The hall contains twin elevated seats, suggesting formal rule or ceremony."
+  ],
+  "page_id": "408_The_Metabarons_16_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "Guards or soldiers in a throne room notice an unusual substance on the stairs, identified as melted glass.",
+    "A giant spider-like entity descends from the dome overhead, prompting a warning shout.",
+    "A bald man linked to the spider-like mount confronts the assembled group and accuses them of cowardice for considering surrender.",
+    "The bald intruder asks why he was not called after the fleet's failure.",
+    "The group answers that they deliberately excluded him because he is 'not a Metabaron.'",
+    "They claim one of his ant-robots is their spy and exposed his secret.",
+    "The intruder is dismissed and told to leave."
+  ],
+  "source_image": "external/comics/meta-barons/408_The_Metabarons_16_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5e4e60effcec6619717e676f45767bc390a6ce60615541beb31863a44364490d",
+      "page_id": "408_The_Metabarons_16_p02",
+      "source_image": "external/comics/meta-barons/408_The_Metabarons_16_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly hard to read; wording may be imperfect in places.",
+    "It is unclear from the page alone whether the giant spider is a machine, robot, bio-mechanical mount, or creature.",
+    "The exact identities and names of the assembled figures are not given on this page.",
+    "The oval image above the thrones is present but too indistinct here to identify confidently."
+  ],
+  "visual_summary": "In a large ceremonial hall with stairs leading to twin thrones beneath a dome, armed figures notice a puddle of melted glass on the steps. A giant spider-like machine or creature drops from the dome into the chamber while a bald man riding or associated with it denounces the crowd as cowards. In the lower panels, the bald figure angrily demands why he was not summoned, and the armed group replies that he is not a true Metabaron because one of his ant-robots betrayed him and revealed his secret, then orders him to leave.",
+  "volume": 16
+}

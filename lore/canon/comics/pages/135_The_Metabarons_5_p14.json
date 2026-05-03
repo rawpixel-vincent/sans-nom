@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghnar is a child undergoing a serious ritualized or martial examination.",
+    "Aghnar recently had an operation and is still learning to use new feet.",
+    "Honorata is emotionally distressed and fearful for Aghnar's safety.",
+    "Aghnar's father is harsh, disciplined, and committed to an uncompromising warrior philosophy.",
+    "The priestesses act as armed or cybernetic authorities who evaluate candidates for weapons and programming."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Honorata",
+    "a stern armored male warrior identified through dialogue as Aghnar's father",
+    "three priestesses/examiners"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page directly follows Aghnar's arrival for an important test.",
+    "Aghnar's recent operation and new feet connect this examination to an earlier bodily transformation or surgery.",
+    "The examination appears to be a gatekeeping step before whatever trial or training comes next."
+  ],
+  "dialogue_meaning": [
+    "The page establishes that only a short time has passed before Aghnar's formal examination begins.",
+    "Honorata is frightened for Aghnar and feels maternal concern, especially because he is young and recently operated on.",
+    "The male warrior rejects her fear and insists that detachment from death is the proper warrior code.",
+    "Aghnar is described as a Castaka, and his father expects him to emerge victorious from the ordeal.",
+    "The priestesses' test includes checking for hidden weapons and forbidden violent conditioning.",
+    "Their findings indicate that Aghnar is mentally in a controlled state and is not carrying killer programming, so he is allowed forward."
+  ],
+  "image_sha256": "d5408dea93dca8d6a55c986b6d267a220cd35312d7923d22ac9bc8d97fbc8aad",
+  "is_spread": false,
+  "locations": [
+    "Hall of Arms",
+    "examination chamber with a circular doorway and a surgical or diagnostic machine"
+  ],
+  "lore_facts": [
+    "The Hall of Arms is a place where examinations are conducted by three priestesses.",
+    "The examining priestesses are feared as lethal figures by Honorata.",
+    "Within this setting, warrior ideals emphasize emptiness of doubt, anger, worry, and fear, along with acceptance of death.",
+    "Being a Castaka is associated with an expectation of martial success and toughness.",
+    "Characters can be altered by operations that replace or modify body parts such as feet.",
+    "A person may conceal weapons either externally or within the body, and examiners explicitly check for both.",
+    "'Killer programming' exists as a detectable mental condition or implanted behavioral system.",
+    "'Alpha-mode' is a recognized brain state used in the priestesses' assessment."
+  ],
+  "page_id": "135_The_Metabarons_5_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "Aghnar enters the Hall of Arms for an examination by three priestesses.",
+    "Honorata is shown trembling and worrying about the test.",
+    "A male warrior figure insists the child will succeed and frames the ordeal as proper for a warrior lineage.",
+    "Honorata recalls that the child is still recovering from an operation and learning to use new feet.",
+    "The priestesses assess whether the child carries weapons or internal killer programming.",
+    "The exam concludes that his brain is in an 'alpha-mode' state and lacks killer programming.",
+    "The priestesses permit the child to approach."
+  ],
+  "source_image": "external/comics/meta-barons/135_The_Metabarons_5_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d5408dea93dca8d6a55c986b6d267a220cd35312d7923d22ac9bc8d97fbc8aad",
+      "page_id": "135_The_Metabarons_5_p14",
+      "source_image": "external/comics/meta-barons/135_The_Metabarons_5_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the stern male warrior is not stated in narration on this page, though dialogue identifies him as Aghnar's father.",
+    "The precise function of the spiked machine in the chamber is unclear; it appears medical, surgical, or diagnostic.",
+    "Some terms such as 'alpha-mode' and the exact wording of the warrior teaching may have minor transcription uncertainty due to image resolution."
+  ],
+  "visual_summary": "In a chamber identified as the Hall of Arms, a young silver-haired figure approaches an examination overseen by three hooded priestesses. An anxious woman clings to a stern armored man while a spiked mechanical device sits nearby, suggesting recent surgery or ritual preparation. Close-ups show the adults arguing over the child's readiness, while the priestesses scan or assess the child before admitting him forward through a circular doorway.",
+  "volume": 5
+}

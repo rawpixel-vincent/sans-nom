@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The small flying creature is capable of navigating the facility independently.",
+    "It acts with apparent desperation and intentionally collides with the controls.",
+    "Its action is sufficient to trigger a larger system response."
+  ],
+  "characters_present": [
+    "A small insect-like mechanical or biomechanical creature/drone",
+    "The central brain, presented as a system or location rather than a person"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narration implies the creature was already inside this complex and had been searching for an exit before this page.",
+    "The activation of the proto-nuclear units sets up an imminent escalation following this page."
+  ],
+  "dialogue_meaning": [
+    "Narration explains that the small creature is desperately seeking an exit.",
+    "Narration states that it reaches the central brain.",
+    "Narration indicates that the creature's self-destructive collision with the controls reactivates an attack program.",
+    "Narration says the system is calling or activating three proto-nuclear units."
+  ],
+  "image_sha256": "77ac30bce136e4eb1ba74977a8c998393301a4650887670eef370c5e0fc4d745",
+  "is_spread": false,
+  "locations": [
+    "A vast internal technological complex",
+    "The chamber before the central brain",
+    "A control area packed with countless controls",
+    "A large industrial bay or pit housing the proto-nuclear units"
+  ],
+  "lore_facts": [
+    "This setting contains a central brain that can be physically accessed within a large internal complex.",
+    "The central brain is connected to an immense number of controls.",
+    "An attack program exists in this system and can be reactivated.",
+    "There are three entities or machines called proto-nuclear units stored within the complex."
+  ],
+  "page_id": "060_The_Metabarons_3_p03",
+  "page_label": "p03",
+  "plot_events": [
+    "A small flying biomechanical or robotic creature searches for a way out through a large interior space.",
+    "The creature reaches the area referred to as the central brain.",
+    "It deliberately smashes itself into a bank of numerous controls.",
+    "Its impact reactivates an attack program, shown with explosive sound effects and flashing machinery.",
+    "A system call brings the three proto-nuclear units online or summons them, revealed in the final large panel."
+  ],
+  "source_image": "external/comics/meta-barons/060_The_Metabarons_3_p03.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "77ac30bce136e4eb1ba74977a8c998393301a4650887670eef370c5e0fc4d745",
+      "page_id": "060_The_Metabarons_3_p03",
+      "source_image": "external/comics/meta-barons/060_The_Metabarons_3_p03.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The creature is not named on this page; it is unclear whether it is fully mechanical, biomechanical, or organic with armor.",
+    "Some narration is small and partially hard to read, so wording may be approximate even though the sequence of events is clear.",
+    "The exact function and appearance details of the proto-nuclear units are not explained beyond their name and activation."
+  ],
+  "visual_summary": "A small insect-like mechanical organism flies through a vast bright technological interior, reaches a chamber identified by narration as the central brain, crashes itself into a dense wall of controls, triggers a violent attack routine, and the page ends on a large industrial cavity containing heavy machinery identified as three proto-nuclear units.",
+  "volume": 3
+}

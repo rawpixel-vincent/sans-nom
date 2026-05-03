@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "One speaker is theatrical and romantic, insisting that love justifies pressing on.",
+    "Tonto is the addressed companion during the approach to Gzayn.",
+    "The older bearded character presents himself as highly lethal in close combat and confident in carrying out a mass extermination plan."
+  ],
+  "characters_present": [
+    "A caped speaker/traveler",
+    "Tonto",
+    "An older bearded man, likely the same principal speaker shown close-up"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The mission appears aimed at correcting earlier mistakes involving the Halerce tree and the Dyuukka-birds.",
+    "The page continues an ongoing operation focused on reaching and removing or neutralizing the ancient tree despite escalating defenses."
+  ],
+  "dialogue_meaning": [
+    "The main speaker frames the journey as a corrective mission driven by love.",
+    "Gzayn is presented as an exceptionally vile and dangerous planet.",
+    "The Halerce tree is valuable or important enough that the party considers uprooting it.",
+    "The tree's defenses make bombardment ineffective, forcing a ground operation.",
+    "The operational objective is not simply destruction from orbit but deactivating a buried self-destruct system.",
+    "The speaker is boastful and confident about killing large numbers of insectoid defenders quickly.",
+    "The order to bring de-chitinators implies the coming fight is against chitinous bug-like enemies."
+  ],
+  "image_sha256": "b3846dd10fc259ba1216af22197f334c7d15cbf0559e9cebe66e3444612cebed",
+  "is_spread": false,
+  "locations": [
+    "A large futuristic interior or station",
+    "Space above Gzayn",
+    "Gzayn, described as the central planet of the Dark Galaxy",
+    "The Halerce tree site on Gzayn",
+    "A temple and altar area at the tree's roots"
+  ],
+  "lore_facts": [
+    "Gzayn is identified as the central planet of the Dark Galaxy.",
+    "Gzayn is said to host vicious, disgusting macromites that devour human flesh.",
+    "A Halerce tree on Gzayn is described as 370,000 years old.",
+    "That tree is described as a nest for 9 million Dyuukka-birds.",
+    "A barrier of indestructible astro-fibers surrounds the tree.",
+    "The bugs have built a temple protecting the tree's roots.",
+    "There is a self-destruct mechanism associated with the site, with a switch hidden beneath an altar.",
+    "About 72,000 warrior mites guard the area beneath the surface."
+  ],
+  "page_id": "293_The_Metabarons_11_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "The speakers decide to go to Gzayn despite its dangers because they believe love overrides prior errors.",
+    "Gzayn is described as a horrific world inhabited by flesh-eating creatures and containing an ancient Halerce tree tied to millions of Dyuukka-birds.",
+    "The travelers arrive near the planet and react with disgust, urging haste.",
+    "They observe that the tree is protected by an indestructible astro-fiber barrier and by a temple built around its roots.",
+    "They conclude the tree cannot be uprooted or destroyed from above.",
+    "A plan is proposed to disable a self-destruct mechanism by reaching a switch beneath an altar guarded by thousands of warrior mites.",
+    "One speaker claims that in hand-to-hand combat he could exterminate the guards at a rate of ten per second, in about two hours.",
+    "The group calls for 'de-chitinators' to prepare for the assault."
+  ],
+  "source_image": "external/comics/meta-barons/293_The_Metabarons_11_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b3846dd10fc259ba1216af22197f334c7d15cbf0559e9cebe66e3444612cebed",
+      "page_id": "293_The_Metabarons_11_p16",
+      "source_image": "external/comics/meta-barons/293_The_Metabarons_11_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some lettering is difficult to read due to image resolution; exact wording and some proper nouns may be slightly uncertain.",
+    "It is unclear from this page alone whether the bearded close-up character is the same person as the earlier caped figure or a different speaker.",
+    "The exact spelling of species and place names such as Dyuukka-birds and macromites may be uncertain from the scan."
+  ],
+  "visual_summary": "A caped figure speaks grandly while crossing a vast futuristic interior with a smaller companion. The scene then shifts to space above the planet Gzayn and to an immense ancient tree surrounded by angular structures and a protective barrier. In the final panels, a bearded character studies a schematic-like view of the site and proposes a direct assault using specialized equipment.",
+  "volume": 11
+}

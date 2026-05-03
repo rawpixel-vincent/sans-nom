@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "The armored fighter can project or wield an energy-based weapon.",
+    "He is capable of recognizing an enemy's biological trait during combat and changing tactics.",
+    "He references being taught by his father to change weapons according to circumstance."
+  ],
+  "characters_present": [
+    "An armored warrior/fighter with a gold-colored head or mask",
+    "Krgptah, a self-generating multi-lizard species or creature swarm"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page presents a combat lesson: the current weapon is ineffective because the enemy reproduces when cut, prompting an immediate tactical shift."
+  ],
+  "dialogue_meaning": [
+    "The fighter initially believes his attack will kill the creature.",
+    "A narration box identifies the alien enemy and its origin.",
+    "The fighter realizes severing the creatures makes them multiply.",
+    "He states that he was taught to adapt his weapons to the situation."
+  ],
+  "image_sha256": "3002247210f94d75b2cb4040154b1a803e9f923e776990bb7b2cd7510230428b",
+  "is_spread": false,
+  "locations": [
+    "A combat area filled with alien reptilian creatures; exact setting unspecified"
+  ],
+  "lore_facts": [
+    "Krgptah is described as a self-generating multi-lizard.",
+    "Krgptah comes from the eight-planet system of Pengrix.",
+    "Cutting or severing these creatures causes them to multiply instead of being neutralized."
+  ],
+  "page_id": "394_The_Metabarons_15_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "The warrior attacks a clustered alien creature with a close-range energy weapon.",
+    "A caption identifies the enemy as a self-generating multi-lizard from the eight-planet system of Pengrix.",
+    "The attack causes the creatures to multiply rather than die.",
+    "The warrior realizes the problem mid-battle and is nearly engulfed by the creatures.",
+    "He withdraws upward and decides to change weapons to match the enemy."
+  ],
+  "source_image": "external/comics/meta-barons/394_The_Metabarons_15_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3002247210f94d75b2cb4040154b1a803e9f923e776990bb7b2cd7510230428b",
+      "page_id": "394_The_Metabarons_15_p12",
+      "source_image": "external/comics/meta-barons/394_The_Metabarons_15_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The fighter is not named on this page.",
+    "Some text is small and partially hard to read, so wording may not be exact.",
+    "It is unclear whether Krgptah refers to one creature, a species, or the whole swarm.",
+    "The visible printed page number appears to be 14, while the provided page label is p12."
+  ],
+  "visual_summary": "An armored warrior with a gold-colored face mask or head fires an energy blade or beam into a mass of dark, many-jawed reptilian creatures. The attack appears ineffective or counterproductive, as the creatures surround him and a caption explains that this species multiplies when cut apart. Realizing this, he leaps back or rises into the air while declaring that he will switch weapons to suit the situation.",
+  "volume": 15
+}

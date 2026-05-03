@@ -1,0 +1,4466 @@
+{
+  "entries": [
+    {
+      "byte_size": 410076,
+      "image_sha256": "327adc9dae12a24bc34d80849999ef40429a8db8ad93a210decbeef8c5aa6b50",
+      "is_spread": false,
+      "ordinal": 1,
+      "page_id": "001_The_Metabarons_1_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/001_The_Metabarons_1_c01.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 330001,
+      "image_sha256": "a3a581115d9662bef132b6db4217db92ecb7845a7cdcae98fffbac732236f321",
+      "is_spread": false,
+      "ordinal": 2,
+      "page_id": "002_The_Metabarons_1_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/002_The_Metabarons_1_ic1.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 459896,
+      "image_sha256": "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a",
+      "is_spread": false,
+      "ordinal": 3,
+      "page_id": "003_The_Metabarons_1_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 447008,
+      "image_sha256": "537ebd6662b1de9d129d9cdea89f9b36a4c8e772b507cd95efa4efad060e0a1d",
+      "is_spread": false,
+      "ordinal": 4,
+      "page_id": "004_The_Metabarons_1_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/004_The_Metabarons_1_p02.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 362144,
+      "image_sha256": "e5bb7ef40384376d9b522cf14e92c377d468b9a4ee23f94c50efb5d1a4e73ced",
+      "is_spread": false,
+      "ordinal": 5,
+      "page_id": "005_The_Metabarons_1_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/005_The_Metabarons_1_p03.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 385187,
+      "image_sha256": "615e69d7398fb5e37e2572bb2c91b20898e69d1e1ae7af213f3677687ce4f44a",
+      "is_spread": false,
+      "ordinal": 6,
+      "page_id": "006_The_Metabarons_1_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/006_The_Metabarons_1_p04.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 403377,
+      "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+      "is_spread": false,
+      "ordinal": 7,
+      "page_id": "007_The_Metabarons_1_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 428912,
+      "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+      "is_spread": false,
+      "ordinal": 8,
+      "page_id": "008_The_Metabarons_1_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 414630,
+      "image_sha256": "4bdc077212229f0393ecb7a42cb92df81e52a6b0cec155910db28efa26325350",
+      "is_spread": false,
+      "ordinal": 9,
+      "page_id": "009_The_Metabarons_1_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/009_The_Metabarons_1_p07.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 431021,
+      "image_sha256": "a36a466e9e2561545ae5dedf18ce1f4349c76f74fb4b634d8649485bbc6b985d",
+      "is_spread": false,
+      "ordinal": 10,
+      "page_id": "010_The_Metabarons_1_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/010_The_Metabarons_1_p08.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 466853,
+      "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+      "is_spread": false,
+      "ordinal": 11,
+      "page_id": "011_The_Metabarons_1_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 440286,
+      "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+      "is_spread": false,
+      "ordinal": 12,
+      "page_id": "012_The_Metabarons_1_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 399353,
+      "image_sha256": "e13ba1593360cc9a82f25f355c173a43efd2659371bc1227c97f51600c47233e",
+      "is_spread": false,
+      "ordinal": 13,
+      "page_id": "013_The_Metabarons_1_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/013_The_Metabarons_1_p11.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 402048,
+      "image_sha256": "712e5976ca8e4f18b43ec41d54b70254f4321ee5521ae41c2d8e7e0e9e739022",
+      "is_spread": false,
+      "ordinal": 14,
+      "page_id": "014_The_Metabarons_1_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/014_The_Metabarons_1_p12.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 416067,
+      "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+      "is_spread": false,
+      "ordinal": 15,
+      "page_id": "015_The_Metabarons_1_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 417163,
+      "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+      "is_spread": false,
+      "ordinal": 16,
+      "page_id": "016_The_Metabarons_1_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 422317,
+      "image_sha256": "fb4026ad73f5f04f59cb9a9e44a0f0c9e5a30eba33d5b75b8d41e1f2ce3ad19c",
+      "is_spread": false,
+      "ordinal": 17,
+      "page_id": "017_The_Metabarons_1_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/017_The_Metabarons_1_p15.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 446452,
+      "image_sha256": "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+      "is_spread": false,
+      "ordinal": 18,
+      "page_id": "018_The_Metabarons_1_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 425849,
+      "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+      "is_spread": false,
+      "ordinal": 19,
+      "page_id": "019_The_Metabarons_1_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 393378,
+      "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+      "is_spread": false,
+      "ordinal": 20,
+      "page_id": "020_The_Metabarons_1_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 414155,
+      "image_sha256": "fe1c84de8e3eba57295aa03baface1c6c59cf038b28abee9197a49fe1f305f2d",
+      "is_spread": false,
+      "ordinal": 21,
+      "page_id": "021_The_Metabarons_1_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/021_The_Metabarons_1_p19.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 427501,
+      "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+      "is_spread": false,
+      "ordinal": 22,
+      "page_id": "022_The_Metabarons_1_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 402514,
+      "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+      "is_spread": false,
+      "ordinal": 23,
+      "page_id": "023_The_Metabarons_1_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 449927,
+      "image_sha256": "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+      "is_spread": false,
+      "ordinal": 24,
+      "page_id": "024_The_Metabarons_1_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 509167,
+      "image_sha256": "a2c0429c2089f7e9c97ebea382033d63a48d32c3f756ec31b5b29a44eed3b44b",
+      "is_spread": false,
+      "ordinal": 25,
+      "page_id": "025_The_Metabarons_1_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/025_The_Metabarons_1_p24.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 472701,
+      "image_sha256": "abd0fe976740514b18f545399cd77456a5ffc6eb8c5e618ae1dc36b785d7567f",
+      "is_spread": false,
+      "ordinal": 26,
+      "page_id": "026_The_Metabarons_1_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/026_The_Metabarons_1_p25.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 492696,
+      "image_sha256": "4ed86dfd1a94ebb487e266fc320803bb2ecab6e19ec55e7ae10e8d0620feb6ab",
+      "is_spread": false,
+      "ordinal": 27,
+      "page_id": "027_The_Metabarons_1_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/027_The_Metabarons_1_p26.jpg",
+      "volume": 1
+    },
+    {
+      "byte_size": 445584,
+      "image_sha256": "f65f9c04cef0fe6d8ede2c1c6d1b009b29cf07b922e4574e656e6d70b0ea9b6b",
+      "is_spread": false,
+      "ordinal": 28,
+      "page_id": "028_The_Metabarons_2_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/028_The_Metabarons_2_c01.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 405355,
+      "image_sha256": "f771bc35a8432e86c7c8836ff3e3699bce802fe327a828c80d07856f364366a7",
+      "is_spread": false,
+      "ordinal": 29,
+      "page_id": "029_The_Metabarons_2_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/029_The_Metabarons_2_ic1.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 446622,
+      "image_sha256": "e079f6cd05e85eb2a24259549e097fb25cfdc0422659967c15af088241ccf276",
+      "is_spread": false,
+      "ordinal": 30,
+      "page_id": "030_The_Metabarons_2_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/030_The_Metabarons_2_p01.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 395244,
+      "image_sha256": "d5032ce06f2809317d9fc48544053038f552d9dd556043f2713715d67de261f6",
+      "is_spread": false,
+      "ordinal": 31,
+      "page_id": "031_The_Metabarons_2_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/031_The_Metabarons_2_p02.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 503627,
+      "image_sha256": "aee3cf6a1b6e77de7178d5a70f6a58f238f867d35267a75732815bc3631ad525",
+      "is_spread": false,
+      "ordinal": 32,
+      "page_id": "032_The_Metabarons_2_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/032_The_Metabarons_2_p03.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 481416,
+      "image_sha256": "5d31a8db3df37228d9f9dae261fb1e45f19a00c0217c7f3a677aff559c2677ee",
+      "is_spread": false,
+      "ordinal": 33,
+      "page_id": "033_The_Metabarons_2_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/033_The_Metabarons_2_p04.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 495105,
+      "image_sha256": "87f5a746e8dead08925a3e7f89389082451051eca7cadf83216cb186c7605ec8",
+      "is_spread": false,
+      "ordinal": 34,
+      "page_id": "034_The_Metabarons_2_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/034_The_Metabarons_2_p05.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 488306,
+      "image_sha256": "c8fcb7c948a4dfad353afbf78ec6a548e4d1f666fc2e1d69546ec9844706186d",
+      "is_spread": false,
+      "ordinal": 35,
+      "page_id": "035_The_Metabarons_2_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/035_The_Metabarons_2_p06.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 474213,
+      "image_sha256": "a70d96210a1f1ee8cbe4b6627560a5dac5987b5e19f41a06ce9ff83b1ca8dcfe",
+      "is_spread": false,
+      "ordinal": 36,
+      "page_id": "036_The_Metabarons_2_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/036_The_Metabarons_2_p07.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 423147,
+      "image_sha256": "6da1125c488cc330d981bf13850a719ea31fa04ebd6c094f764500a8e819ac8d",
+      "is_spread": false,
+      "ordinal": 37,
+      "page_id": "037_The_Metabarons_2_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/037_The_Metabarons_2_p08.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 478209,
+      "image_sha256": "77153655f75effe9efcb2390dbf6c64915724bf14f3392da5474bc71142bd3ae",
+      "is_spread": false,
+      "ordinal": 38,
+      "page_id": "038_The_Metabarons_2_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/038_The_Metabarons_2_p09.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 457703,
+      "image_sha256": "1006bbd3c65d7b1d72f16b427d17494019c56b179b0eb5ccffad74dabf19d8ad",
+      "is_spread": false,
+      "ordinal": 39,
+      "page_id": "039_The_Metabarons_2_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/039_The_Metabarons_2_p10.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 441978,
+      "image_sha256": "0dc4ed02e23b221a9c11fd0da765a3f12f4fd17bf7d1019bded59217b1411b01",
+      "is_spread": false,
+      "ordinal": 40,
+      "page_id": "040_The_Metabarons_2_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/040_The_Metabarons_2_p11.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 362485,
+      "image_sha256": "2cfae34e3546a4f89a8eb77974800b2e9e86061006f8e6fd800d6460f82ee9c3",
+      "is_spread": false,
+      "ordinal": 41,
+      "page_id": "041_The_Metabarons_2_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/041_The_Metabarons_2_p12.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 434732,
+      "image_sha256": "cd5b2b63ae5637d5cd90eeeed48b59b77804a8ac27def2257e0f01cdb8d4b671",
+      "is_spread": false,
+      "ordinal": 42,
+      "page_id": "042_The_Metabarons_2_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/042_The_Metabarons_2_p13.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 390204,
+      "image_sha256": "35b0eede503ac072d8e718f64ab389e0db6b1d06f2eddf888681a281dae5a354",
+      "is_spread": false,
+      "ordinal": 43,
+      "page_id": "043_The_Metabarons_2_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/043_The_Metabarons_2_p14.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 403618,
+      "image_sha256": "2eb4af0670caa02816a6d8660b791bf1c4565e9e1e4f954c8d793cf06e06a71b",
+      "is_spread": false,
+      "ordinal": 44,
+      "page_id": "044_The_Metabarons_2_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/044_The_Metabarons_2_p15.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 497261,
+      "image_sha256": "1823b6b73d503f3f9872cd5de10158a29e74be0cc44d931a678e59be9298fa58",
+      "is_spread": false,
+      "ordinal": 45,
+      "page_id": "045_The_Metabarons_2_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/045_The_Metabarons_2_p16.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 443701,
+      "image_sha256": "1e9c286ade6f842c5f96af7c22ddb0e7373f6f99abdcca701969bf6782aafbef",
+      "is_spread": false,
+      "ordinal": 46,
+      "page_id": "046_The_Metabarons_2_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/046_The_Metabarons_2_p17.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 435640,
+      "image_sha256": "ebde4743fa5cdc40a6c4b8e60d7c4bb9ffd26a012eeeedbbba39e959f1a7d504",
+      "is_spread": false,
+      "ordinal": 47,
+      "page_id": "047_The_Metabarons_2_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/047_The_Metabarons_2_p18.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 454329,
+      "image_sha256": "5af77aaacee999edaad7c3d7f19232d71520bb50612a91ed5ff6854f29932ce8",
+      "is_spread": false,
+      "ordinal": 48,
+      "page_id": "048_The_Metabarons_2_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/048_The_Metabarons_2_p19.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 432065,
+      "image_sha256": "ca0c6c894c5ae66708d1e39fefc5e706aa8494c3ff309aa122860b3fe2e2ec50",
+      "is_spread": false,
+      "ordinal": 49,
+      "page_id": "049_The_Metabarons_2_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/049_The_Metabarons_2_p20.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 452492,
+      "image_sha256": "4cac1064911fec9babb14f5f02f346683fe0307cf4982b518ef1e82f7586a9e7",
+      "is_spread": false,
+      "ordinal": 50,
+      "page_id": "050_The_Metabarons_2_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/050_The_Metabarons_2_p21.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 478667,
+      "image_sha256": "5aca9de801ee284cde5528f23d405a2269be1bd5e59fe60d1f304fac910e0969",
+      "is_spread": false,
+      "ordinal": 51,
+      "page_id": "051_The_Metabarons_2_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/051_The_Metabarons_2_p22.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 394699,
+      "image_sha256": "9015d1475e47912903d18cafcc69b3008c7aa75fed412d752422be21696ce335",
+      "is_spread": false,
+      "ordinal": 52,
+      "page_id": "052_The_Metabarons_2_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/052_The_Metabarons_2_p23.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 460271,
+      "image_sha256": "c99039d063a83c88d60c9753fbddde03d05ee84b08fd074b2ab0914dc56a26ba",
+      "is_spread": false,
+      "ordinal": 53,
+      "page_id": "053_The_Metabarons_2_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/053_The_Metabarons_2_p24.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 441288,
+      "image_sha256": "d0ae48879440148fab0e3b858df43f1aac88bb68089fd6128763895513e673e7",
+      "is_spread": false,
+      "ordinal": 54,
+      "page_id": "054_The_Metabarons_2_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/054_The_Metabarons_2_p25.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 429343,
+      "image_sha256": "3d657b620b7f6d3ca4728df4c20bbc5c2b119eefcaed48179ed6f99b64b42c0c",
+      "is_spread": false,
+      "ordinal": 55,
+      "page_id": "055_The_Metabarons_2_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/055_The_Metabarons_2_p26.jpg",
+      "volume": 2
+    },
+    {
+      "byte_size": 452131,
+      "image_sha256": "7ed8d668ef71dbf107970c4ce89e22c348005d34cc5507d8478b88e0aa81aeab",
+      "is_spread": false,
+      "ordinal": 56,
+      "page_id": "056_The_Metabarons_3_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/056_The_Metabarons_3_c01.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 440532,
+      "image_sha256": "1cb877791deea9164855016abbac2cc1c26720fcbe5a1341980590db9a9bbde3",
+      "is_spread": false,
+      "ordinal": 57,
+      "page_id": "057_The_Metabarons_3_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/057_The_Metabarons_3_ic1.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 349281,
+      "image_sha256": "85e2be959e75ce7060336c67be527cd5cffe9a8e27f6b1874e0342206fead7f0",
+      "is_spread": false,
+      "ordinal": 58,
+      "page_id": "058_The_Metabarons_3_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/058_The_Metabarons_3_p01.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 470152,
+      "image_sha256": "a1745d0af70fc684798143c143b7ad8550072fc06623a49d3afde2e6a2492d2a",
+      "is_spread": false,
+      "ordinal": 59,
+      "page_id": "059_The_Metabarons_3_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/059_The_Metabarons_3_p02.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 403331,
+      "image_sha256": "77ac30bce136e4eb1ba74977a8c998393301a4650887670eef370c5e0fc4d745",
+      "is_spread": false,
+      "ordinal": 60,
+      "page_id": "060_The_Metabarons_3_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/060_The_Metabarons_3_p03.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 443527,
+      "image_sha256": "72137cd57fd8cc09cc36d15209412b18b51dd0114a60b1edfcfa4b3cddf05ad0",
+      "is_spread": false,
+      "ordinal": 61,
+      "page_id": "061_The_Metabarons_3_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/061_The_Metabarons_3_p04.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 439388,
+      "image_sha256": "0220c1ac176f513d1670e02c64b1534ad1013641ede41cc014ecd72a7ae209f4",
+      "is_spread": false,
+      "ordinal": 62,
+      "page_id": "062_The_Metabarons_3_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/062_The_Metabarons_3_p05.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 394408,
+      "image_sha256": "06e5769219ddea7207d061e6bf13bef69a7cba194c7eb2f25dea965add9e4934",
+      "is_spread": false,
+      "ordinal": 63,
+      "page_id": "063_The_Metabarons_3_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/063_The_Metabarons_3_p06.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 464946,
+      "image_sha256": "337d197f2efb13804a4dfa8ef9868962ef71c237ea448b8753f6bf2e90668504",
+      "is_spread": false,
+      "ordinal": 64,
+      "page_id": "064_The_Metabarons_3_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/064_The_Metabarons_3_p07.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 447116,
+      "image_sha256": "1ec534aa68d2732d4532a9ab52d9305f74b2948b88f5a44fe4a777656ce513fe",
+      "is_spread": false,
+      "ordinal": 65,
+      "page_id": "065_The_Metabarons_3_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/065_The_Metabarons_3_p08.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 440628,
+      "image_sha256": "bc43bcedbc4c4d5867b3ff07f4ce019c5a83746ed00ff2da53d52c2b4167c5ea",
+      "is_spread": false,
+      "ordinal": 66,
+      "page_id": "066_The_Metabarons_3_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/066_The_Metabarons_3_p09.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 475000,
+      "image_sha256": "42b40e658d55d79768c3650b25bfdd8cbf5cb38c52111325bb4d069a923bc496",
+      "is_spread": false,
+      "ordinal": 67,
+      "page_id": "067_The_Metabarons_3_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/067_The_Metabarons_3_p10.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 431005,
+      "image_sha256": "097f2a8d81fcb553c2c5bffd533393143a90aaafe60d6d097f156f506151fa94",
+      "is_spread": false,
+      "ordinal": 68,
+      "page_id": "068_The_Metabarons_3_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/068_The_Metabarons_3_p11.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 493889,
+      "image_sha256": "e235be1ff0926356bb96633f4cec99fd64a909416403f92fc675f312ff3b1b32",
+      "is_spread": false,
+      "ordinal": 69,
+      "page_id": "069_The_Metabarons_3_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/069_The_Metabarons_3_p12.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 394649,
+      "image_sha256": "eff3e777ed114cdd56b7415a634e9497b866b6fa9514f0b6ac657589ca2bbe97",
+      "is_spread": false,
+      "ordinal": 70,
+      "page_id": "070_The_Metabarons_3_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/070_The_Metabarons_3_p13.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 965948,
+      "image_sha256": "8ac4b2cbabea586b69d6af542b445ec719810736054b3d7fade9c8f14e1679c6",
+      "is_spread": true,
+      "ordinal": 71,
+      "page_id": "071_The_Metabarons_3_p14-p15",
+      "page_label": "p14-p15",
+      "source_image": "external/comics/meta-barons/071_The_Metabarons_3_p14-p15.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 431756,
+      "image_sha256": "a20965476ea83184edf00ff3b0f36834a5b70ef16931f7b37053471bed457fa9",
+      "is_spread": false,
+      "ordinal": 72,
+      "page_id": "072_The_Metabarons_3_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/072_The_Metabarons_3_p16.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 429415,
+      "image_sha256": "94aa5e054f1460cc5c047eb73e38720de6551251a6bc59c2649b790f4fb502a3",
+      "is_spread": false,
+      "ordinal": 73,
+      "page_id": "073_The_Metabarons_3_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/073_The_Metabarons_3_p17.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 449704,
+      "image_sha256": "b95712350b9d2ab6ba31df42d06df65d2b56cca25e80c553559379ccb2a7be15",
+      "is_spread": false,
+      "ordinal": 74,
+      "page_id": "074_The_Metabarons_3_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/074_The_Metabarons_3_p18.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 503016,
+      "image_sha256": "393b252788f686260b1ea6e820451843fb75a762fdbb02dde0f1debe467828ab",
+      "is_spread": false,
+      "ordinal": 75,
+      "page_id": "075_The_Metabarons_3_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/075_The_Metabarons_3_p19.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 462434,
+      "image_sha256": "cb29f3f18c30bcda04543ca36ea8a73cdfb557e0c635a6bc9dca66ce9d28296a",
+      "is_spread": false,
+      "ordinal": 76,
+      "page_id": "076_The_Metabarons_3_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/076_The_Metabarons_3_p20.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 514580,
+      "image_sha256": "9f40119a0f909111c3557471dc15ecff69f30e6f32dd48979fd791752b52d781",
+      "is_spread": false,
+      "ordinal": 77,
+      "page_id": "077_The_Metabarons_3_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/077_The_Metabarons_3_p21.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 467181,
+      "image_sha256": "f279fc1c73547155a9c3b3bd5aafae7148913bdc30faa1b141b7f5ae61fc8a84",
+      "is_spread": false,
+      "ordinal": 78,
+      "page_id": "078_The_Metabarons_3_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/078_The_Metabarons_3_p22.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 463472,
+      "image_sha256": "ec20c421fad965ff82845df5ed63709a8c788164b1926e2f055d2d9e4f60a8cb",
+      "is_spread": false,
+      "ordinal": 79,
+      "page_id": "079_The_Metabarons_3_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/079_The_Metabarons_3_p23.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 456191,
+      "image_sha256": "97d1ab2028395e63dde8372fbe2edf82ea7fded5269d053ddc5603565d623268",
+      "is_spread": false,
+      "ordinal": 80,
+      "page_id": "080_The_Metabarons_3_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/080_The_Metabarons_3_p24.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 413862,
+      "image_sha256": "46105a93a961bf561bb81a16b6fe0235e3cf314d5187d7b9c822b7e29cc3ed88",
+      "is_spread": false,
+      "ordinal": 81,
+      "page_id": "081_The_Metabarons_3_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/081_The_Metabarons_3_p25.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 449804,
+      "image_sha256": "292cfc057cd6f6937a46cdc4b6eaa9cdf5c2136105a8e305f7b91e80eec08500",
+      "is_spread": false,
+      "ordinal": 82,
+      "page_id": "082_The_Metabarons_3_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/082_The_Metabarons_3_p26.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 481163,
+      "image_sha256": "f4bd640a7a0819326979a09530f27e3ad6a291133f413fc79e925495d29fd79e",
+      "is_spread": false,
+      "ordinal": 83,
+      "page_id": "083_The_Metabarons_3_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/083_The_Metabarons_3_p27.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 462187,
+      "image_sha256": "14d5460902523b31de9e542289e1c7804bfc0c8b8b0c16d91bfaf148ec7a2546",
+      "is_spread": false,
+      "ordinal": 84,
+      "page_id": "084_The_Metabarons_3_p28",
+      "page_label": "p28",
+      "source_image": "external/comics/meta-barons/084_The_Metabarons_3_p28.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 365069,
+      "image_sha256": "1d0613df0a213099b1053946acbcf1bc32f7809b3c612387a6da5317e349cd14",
+      "is_spread": false,
+      "ordinal": 85,
+      "page_id": "085_The_Metabarons_3_p29",
+      "page_label": "p29",
+      "source_image": "external/comics/meta-barons/085_The_Metabarons_3_p29.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 385069,
+      "image_sha256": "19cc2cce2f6ddfb590931b634ed48d42d38d1daba0e493fdec66f2d909ef70dd",
+      "is_spread": false,
+      "ordinal": 86,
+      "page_id": "086_The_Metabarons_3_p30",
+      "page_label": "p30",
+      "source_image": "external/comics/meta-barons/086_The_Metabarons_3_p30.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 383547,
+      "image_sha256": "9631c1a5df8d5de529ba7a127732e591d4aa9676f9f1661e14f3eb58646e357d",
+      "is_spread": false,
+      "ordinal": 87,
+      "page_id": "087_The_Metabarons_3_p31",
+      "page_label": "p31",
+      "source_image": "external/comics/meta-barons/087_The_Metabarons_3_p31.jpg",
+      "volume": 3
+    },
+    {
+      "byte_size": 476803,
+      "image_sha256": "044fa4401ca9a819d33b97a9399358c11ab7f31f2be670f4148d5e1e8bdd349d",
+      "is_spread": false,
+      "ordinal": 88,
+      "page_id": "088_The_Metabarons_4_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/088_The_Metabarons_4_c01.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 474394,
+      "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431",
+      "is_spread": false,
+      "ordinal": 89,
+      "page_id": "089_The_Metabarons_4_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 432794,
+      "image_sha256": "23f37cea5ebe1bfb7d484ba46212be2a28dfb739eddd0e209e5f0d9e1f890d2e",
+      "is_spread": false,
+      "ordinal": 90,
+      "page_id": "090_The_Metabarons_4_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/090_The_Metabarons_4_p01.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 423731,
+      "image_sha256": "c663ffd67cab044e8978b543eeb7e2d090ab2dbf68625f46260c437d1bcdc567",
+      "is_spread": false,
+      "ordinal": 91,
+      "page_id": "091_The_Metabarons_4_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/091_The_Metabarons_4_p02.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 498330,
+      "image_sha256": "2344ba9e5431b647627f742388be1ed2fc4f719e04fba3234cc7cb114ee5067f",
+      "is_spread": false,
+      "ordinal": 92,
+      "page_id": "092_The_Metabarons_4_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/092_The_Metabarons_4_p03.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 355625,
+      "image_sha256": "9d599b2aff532980ff59d6301c036849ae628997c6ccd73000f496935f8e65b2",
+      "is_spread": false,
+      "ordinal": 93,
+      "page_id": "093_The_Metabarons_4_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/093_The_Metabarons_4_p04.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 477864,
+      "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4",
+      "is_spread": false,
+      "ordinal": 94,
+      "page_id": "094_The_Metabarons_4_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 451026,
+      "image_sha256": "4673bc0dbea0e73e6dd47b14c36b7301727199a554544d9eb65e216faad8fb7c",
+      "is_spread": false,
+      "ordinal": 95,
+      "page_id": "095_The_Metabarons_4_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/095_The_Metabarons_4_p06.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 455251,
+      "image_sha256": "9b0ca07b81878436ed4a2ed204f3dc4f6deaaf534084b36591c15a0b7fcaa7ba",
+      "is_spread": false,
+      "ordinal": 96,
+      "page_id": "096_The_Metabarons_4_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/096_The_Metabarons_4_p07.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 432708,
+      "image_sha256": "80fab3dbd843e3574ed2795385fd82da2abe8a7d5839bcb9987551f0bd2c1e30",
+      "is_spread": false,
+      "ordinal": 97,
+      "page_id": "097_The_Metabarons_4_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/097_The_Metabarons_4_p08.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 423064,
+      "image_sha256": "b5fa707617af0b3532efd249fc0572b5646e22dfbc3bb3447e61db8ebd536ce0",
+      "is_spread": false,
+      "ordinal": 98,
+      "page_id": "098_The_Metabarons_4_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/098_The_Metabarons_4_p09.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 464669,
+      "image_sha256": "b5fe786ee179201784f4d381430eee30da36673f0fe6e91086ffc04b88c4db2f",
+      "is_spread": false,
+      "ordinal": 99,
+      "page_id": "099_The_Metabarons_4_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/099_The_Metabarons_4_p10.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 399939,
+      "image_sha256": "06a0384f8ba8f932dafc904f7e2afd0d7307854a87ba6ff15f916e656a9df3d5",
+      "is_spread": false,
+      "ordinal": 100,
+      "page_id": "100_The_Metabarons_4_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/100_The_Metabarons_4_p11.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 450641,
+      "image_sha256": "facd9959fcbdfcf1f617c86a36c44a6e04de8f936da6ffa27f2226b57846673e",
+      "is_spread": false,
+      "ordinal": 101,
+      "page_id": "101_The_Metabarons_4_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/101_The_Metabarons_4_p12.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 474939,
+      "image_sha256": "14a13e289c63b7b72fa09f59ed2981cffba688e7d8a0b17d18c7f9f2196641bf",
+      "is_spread": false,
+      "ordinal": 102,
+      "page_id": "102_The_Metabarons_4_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/102_The_Metabarons_4_p13.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 477087,
+      "image_sha256": "a6bc12f8851441440e949945603c1185cd41d41fc84fc0d12f5001f756af30b3",
+      "is_spread": false,
+      "ordinal": 103,
+      "page_id": "103_The_Metabarons_4_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/103_The_Metabarons_4_p14.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 497382,
+      "image_sha256": "e0e2b9b20c430572ba525f23aeda0c3fb376b941988820367e3c589fa309db8c",
+      "is_spread": false,
+      "ordinal": 104,
+      "page_id": "104_The_Metabarons_4_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/104_The_Metabarons_4_p15.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 453131,
+      "image_sha256": "1f12a841a31eb2e3902bc30cfc5b5e04d0cee3b25278157c370d387e40cebe67",
+      "is_spread": false,
+      "ordinal": 105,
+      "page_id": "105_The_Metabarons_4_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/105_The_Metabarons_4_p16.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 440305,
+      "image_sha256": "344752ca0a966fd8149bf94ef2f548ac9d7aab798f50bd51e132f5c3a415bf82",
+      "is_spread": false,
+      "ordinal": 106,
+      "page_id": "106_The_Metabarons_4_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/106_The_Metabarons_4_p17.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 407988,
+      "image_sha256": "362b9ad9a4f19807398306d9dfc1e676c5208d330f3ae9d5f422a285e5d6eaea",
+      "is_spread": false,
+      "ordinal": 107,
+      "page_id": "107_The_Metabarons_4_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/107_The_Metabarons_4_p18.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 425010,
+      "image_sha256": "97ddb9600473fdcdc322807faab0e470626e107a99f7325c5d2a0e03073c58ed",
+      "is_spread": false,
+      "ordinal": 108,
+      "page_id": "108_The_Metabarons_4_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/108_The_Metabarons_4_p19.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 489612,
+      "image_sha256": "05c3ee72925b7e63c56e86b3a2bc7a931efcf20e349302335caa109d7a85a264",
+      "is_spread": false,
+      "ordinal": 109,
+      "page_id": "109_The_Metabarons_4_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/109_The_Metabarons_4_p20.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 474261,
+      "image_sha256": "73628044416368e1c64e4b642631b57dda04e61c297d99570fde74079e2d8844",
+      "is_spread": false,
+      "ordinal": 110,
+      "page_id": "110_The_Metabarons_4_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/110_The_Metabarons_4_p21.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 435222,
+      "image_sha256": "bc9ef6c4b06c35b02a81d1ecdde7c02f8698b83e2ac8727737654ec32516a9b8",
+      "is_spread": false,
+      "ordinal": 111,
+      "page_id": "111_The_Metabarons_4_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/111_The_Metabarons_4_p22.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 446091,
+      "image_sha256": "d88b28368a2af407ea636835c41fccba30f6257809e78b74ce2fe5037fa89cac",
+      "is_spread": false,
+      "ordinal": 112,
+      "page_id": "112_The_Metabarons_4_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/112_The_Metabarons_4_p23.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 462624,
+      "image_sha256": "7cc9591eb566a34d130f944d3181f794894c548102a61fcdf68f04eaecc81984",
+      "is_spread": false,
+      "ordinal": 113,
+      "page_id": "113_The_Metabarons_4_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/113_The_Metabarons_4_p24.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 439409,
+      "image_sha256": "019f6b5e77dba88443f58bdf0eae0a774eeb553655ca5868c681976b275d93da",
+      "is_spread": false,
+      "ordinal": 114,
+      "page_id": "114_The_Metabarons_4_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/114_The_Metabarons_4_p25.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 446549,
+      "image_sha256": "55f50b3a8b2f346a1bca48eb6e56fa00557089f0ff79a2429af175cb82076fcd",
+      "is_spread": false,
+      "ordinal": 115,
+      "page_id": "115_The_Metabarons_4_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/115_The_Metabarons_4_p26.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 487248,
+      "image_sha256": "4b78bfae44d89348a009edac1fa094c5810db54938a7f2fd842bc10caf86a6a9",
+      "is_spread": false,
+      "ordinal": 116,
+      "page_id": "116_The_Metabarons_4_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/116_The_Metabarons_4_p27.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 497248,
+      "image_sha256": "4e072cefee69215a07d9edd163754ee4f993d63f88a385fe9513cfcd6f423c45",
+      "is_spread": false,
+      "ordinal": 117,
+      "page_id": "117_The_Metabarons_4_p28",
+      "page_label": "p28",
+      "source_image": "external/comics/meta-barons/117_The_Metabarons_4_p28.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 450318,
+      "image_sha256": "76d8ba4b9b9cc9d464afbaee66a2bfc4274f027845fa9d99ba1dcd9c221bf265",
+      "is_spread": false,
+      "ordinal": 118,
+      "page_id": "118_The_Metabarons_4_p29",
+      "page_label": "p29",
+      "source_image": "external/comics/meta-barons/118_The_Metabarons_4_p29.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 506782,
+      "image_sha256": "1dbd4ae3110cd2d91d24e1fe319d285e3339ff1ee9bea6c0d786b902a23a0857",
+      "is_spread": false,
+      "ordinal": 119,
+      "page_id": "119_The_Metabarons_4_p30",
+      "page_label": "p30",
+      "source_image": "external/comics/meta-barons/119_The_Metabarons_4_p30.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 506092,
+      "image_sha256": "3f692ea3d5a6f320e029efe405e1ebd04c9ff8fd6e7e1c98476f232ef59a1c63",
+      "is_spread": false,
+      "ordinal": 120,
+      "page_id": "120_The_Metabarons_4_p31",
+      "page_label": "p31",
+      "source_image": "external/comics/meta-barons/120_The_Metabarons_4_p31.jpg",
+      "volume": 4
+    },
+    {
+      "byte_size": 545310,
+      "image_sha256": "a0fe29dac96eb6d1f310344ae93edc7a2ac9db74207a59c53505a64e3eeac980",
+      "is_spread": false,
+      "ordinal": 121,
+      "page_id": "121_The_Metabarons_5_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/121_The_Metabarons_5_c01.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 471458,
+      "image_sha256": "daa3d13c103986850c1d192a3cf16a7183e040049d93c1e0d70bc37f38c7399d",
+      "is_spread": false,
+      "ordinal": 122,
+      "page_id": "122_The_Metabarons_5_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/122_The_Metabarons_5_ic1.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 387565,
+      "image_sha256": "8fd493c52037f7d3446f8b50c6aecd0070c47dcf9cbb5bc338a3f744086e3e46",
+      "is_spread": false,
+      "ordinal": 123,
+      "page_id": "123_The_Metabarons_5_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/123_The_Metabarons_5_p01.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 393449,
+      "image_sha256": "1e26d34ab8d7e77c21f0f1ccb51c9b1e68901e04ee150058f613650cc2052a14",
+      "is_spread": false,
+      "ordinal": 124,
+      "page_id": "124_The_Metabarons_5_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/124_The_Metabarons_5_p02.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 391546,
+      "image_sha256": "f93a4e89252946a537a0b590b8e57f431bc51f722053efc42c77b5993d01d9ac",
+      "is_spread": false,
+      "ordinal": 125,
+      "page_id": "125_The_Metabarons_5_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/125_The_Metabarons_5_p03.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 413456,
+      "image_sha256": "07af4d528c2aaa8bd3915b57c39a3fc58d0c9b5458d73e8b45fa6dd4464f12fe",
+      "is_spread": false,
+      "ordinal": 126,
+      "page_id": "126_The_Metabarons_5_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/126_The_Metabarons_5_p04.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 427137,
+      "image_sha256": "bae5f66661a58819cbe97a390bda6c2a11b690521120fcf4f0e511ff46c7591b",
+      "is_spread": false,
+      "ordinal": 127,
+      "page_id": "127_The_Metabarons_5_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/127_The_Metabarons_5_p05.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 409698,
+      "image_sha256": "094c41b860a3f5f09611435e5f490d7f72160d0654a11e666e245eeac8943031",
+      "is_spread": false,
+      "ordinal": 128,
+      "page_id": "128_The_Metabarons_5_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/128_The_Metabarons_5_p06.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 403178,
+      "image_sha256": "18740e03274b3881dbe72edd42c5189f207a526009c835bdab38bb5c1b1540a3",
+      "is_spread": false,
+      "ordinal": 129,
+      "page_id": "129_The_Metabarons_5_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/129_The_Metabarons_5_p07.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 814578,
+      "image_sha256": "c126ab859fc931cb00130bdd0fc5083726cc91e6ffce97ea634cfc7cf1140678",
+      "is_spread": true,
+      "ordinal": 130,
+      "page_id": "130_The_Metabarons_5_p08-p09",
+      "page_label": "p08-p09",
+      "source_image": "external/comics/meta-barons/130_The_Metabarons_5_p08-p09.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 436247,
+      "image_sha256": "3fd25ee27db2e84f43962d834c4e8754c5f79ea164a13c9acb38e63bdc510451",
+      "is_spread": false,
+      "ordinal": 131,
+      "page_id": "131_The_Metabarons_5_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/131_The_Metabarons_5_p10.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 411258,
+      "image_sha256": "bf259c1c65d1fed6456be7bdc29a5242b37ad0ff8c947978e191f28d6ad50b4e",
+      "is_spread": false,
+      "ordinal": 132,
+      "page_id": "132_The_Metabarons_5_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/132_The_Metabarons_5_p11.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 395022,
+      "image_sha256": "79f134dc2b211a0873478d4136d0c67843a109ff752ce5abeff0f0d7aa546123",
+      "is_spread": false,
+      "ordinal": 133,
+      "page_id": "133_The_Metabarons_5_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/133_The_Metabarons_5_p12.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 413148,
+      "image_sha256": "b8e7f8be76dc22146fd30798d71352a9546f46ce688eaa4900b3e943d3222785",
+      "is_spread": false,
+      "ordinal": 134,
+      "page_id": "134_The_Metabarons_5_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/134_The_Metabarons_5_p13.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 436643,
+      "image_sha256": "d5408dea93dca8d6a55c986b6d267a220cd35312d7923d22ac9bc8d97fbc8aad",
+      "is_spread": false,
+      "ordinal": 135,
+      "page_id": "135_The_Metabarons_5_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/135_The_Metabarons_5_p14.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 423757,
+      "image_sha256": "abb3acaff353a9ab1c8d4adb9cab006217c064a17ecbb477ea9960cc5c2b496e",
+      "is_spread": false,
+      "ordinal": 136,
+      "page_id": "136_The_Metabarons_5_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/136_The_Metabarons_5_p15.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 475843,
+      "image_sha256": "b387110da0fc07a040eeec226f5cbbce28fb4276357c0cf1f752c87e74cde9a0",
+      "is_spread": false,
+      "ordinal": 137,
+      "page_id": "137_The_Metabarons_5_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/137_The_Metabarons_5_p16.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 415353,
+      "image_sha256": "f3bfbf0c681df95b65720882752594feabd7fd7ba8f9ee49680ddd25e885dc82",
+      "is_spread": false,
+      "ordinal": 138,
+      "page_id": "138_The_Metabarons_5_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/138_The_Metabarons_5_p17.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 426230,
+      "image_sha256": "62eb04ffc5a08c1a3646f2ef07886cbabe93dd0ddc9f2314ccd6d84264b8916d",
+      "is_spread": false,
+      "ordinal": 139,
+      "page_id": "139_The_Metabarons_5_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/139_The_Metabarons_5_p18.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 400213,
+      "image_sha256": "ec0895e345e39b0118bb8f241feeaed7fecda6bb2aeba6124c74ed56992fd754",
+      "is_spread": false,
+      "ordinal": 140,
+      "page_id": "140_The_Metabarons_5_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/140_The_Metabarons_5_p19.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 450283,
+      "image_sha256": "de5d2166b5b68f20ad2d83d1c31fa35d95087b67866e097d3889f53cae0cfabb",
+      "is_spread": false,
+      "ordinal": 141,
+      "page_id": "141_The_Metabarons_5_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/141_The_Metabarons_5_p20.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 447111,
+      "image_sha256": "01bb9e50c2b5d5d71ecf3da54d4fd73d39613a743f06c8d1858a4425097e83b2",
+      "is_spread": false,
+      "ordinal": 142,
+      "page_id": "142_The_Metabarons_5_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/142_The_Metabarons_5_p21.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 442592,
+      "image_sha256": "ec163c84916e6ee9909647333c7c58df47e011fbb4d5fcdebe485e5efc56cc63",
+      "is_spread": false,
+      "ordinal": 143,
+      "page_id": "143_The_Metabarons_5_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/143_The_Metabarons_5_p22.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 328978,
+      "image_sha256": "fc4007bd77b279e59c6f079d07753b8044d4c24c5397f9a6098323cd65b963b4",
+      "is_spread": false,
+      "ordinal": 144,
+      "page_id": "144_The_Metabarons_5_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/144_The_Metabarons_5_p23.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 431161,
+      "image_sha256": "517f720765274de9657a4b8c092df03d0b3cc8fabff1c67898affc6b7467d89e",
+      "is_spread": false,
+      "ordinal": 145,
+      "page_id": "145_The_Metabarons_5_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/145_The_Metabarons_5_p24.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 436144,
+      "image_sha256": "eca63db3be87f9423571f0ffa1fc5cacd51740919decab23f2340f3c6af0b252",
+      "is_spread": false,
+      "ordinal": 146,
+      "page_id": "146_The_Metabarons_5_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/146_The_Metabarons_5_p25.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 443267,
+      "image_sha256": "86e508e73ceeacdf3edf9f5116ff5de218937be05852cc671e30ee7608c88161",
+      "is_spread": false,
+      "ordinal": 147,
+      "page_id": "147_The_Metabarons_5_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/147_The_Metabarons_5_p26.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 415946,
+      "image_sha256": "fe2f5013f99e5d95f995ce5af35f5bd7f0110f2ac79eee63fe20e2f2b43f1693",
+      "is_spread": false,
+      "ordinal": 148,
+      "page_id": "148_The_Metabarons_5_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/148_The_Metabarons_5_p27.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 730297,
+      "image_sha256": "96f63baabc670b3213828435d0e44c43217b592b58a93720c58013da9b24272f",
+      "is_spread": true,
+      "ordinal": 149,
+      "page_id": "149_The_Metabarons_5_p28-p29",
+      "page_label": "p28-p29",
+      "source_image": "external/comics/meta-barons/149_The_Metabarons_5_p28-p29.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 341717,
+      "image_sha256": "fd6ebb1f07fda8f4f13bf91afa1366495c7633d0585bfc018132990b5720d4fa",
+      "is_spread": false,
+      "ordinal": 150,
+      "page_id": "150_The_Metabarons_5_p30",
+      "page_label": "p30",
+      "source_image": "external/comics/meta-barons/150_The_Metabarons_5_p30.jpg",
+      "volume": 5
+    },
+    {
+      "byte_size": 391053,
+      "image_sha256": "011c99bea62ed5b75a7b303a28760f79d09329a54867b000e5a3c026cf1c1a9f",
+      "is_spread": false,
+      "ordinal": 151,
+      "page_id": "151_The_Metabarons_6_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/151_The_Metabarons_6_c01.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 439592,
+      "image_sha256": "fd10869756c32f831527e135d32990618a24d58d410b52bbe4d1f90dc39f1739",
+      "is_spread": false,
+      "ordinal": 152,
+      "page_id": "152_The_Metabarons_6_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/152_The_Metabarons_6_ic1.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 387013,
+      "image_sha256": "1d56e9b17c1570d367f3aadf3144d6a65bcee5dbcc93977f519d7d7961bbd89e",
+      "is_spread": false,
+      "ordinal": 153,
+      "page_id": "153_The_Metabarons_6_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/153_The_Metabarons_6_p01.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 477903,
+      "image_sha256": "2396c8d1e7d69517c845e332955c06b5dab6b9d75b164c2cfb233f41a4b2513a",
+      "is_spread": false,
+      "ordinal": 154,
+      "page_id": "154_The_Metabarons_6_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/154_The_Metabarons_6_p02.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 445158,
+      "image_sha256": "501577fc1c7084637caec172b94311b67f63db2e87419d0c24955a8802c506bf",
+      "is_spread": false,
+      "ordinal": 155,
+      "page_id": "155_The_Metabarons_6_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/155_The_Metabarons_6_p03.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 480969,
+      "image_sha256": "3bbc75c722bc30610c97824bdba6efb962739bdba230f2613f4add1e8c3a18f3",
+      "is_spread": false,
+      "ordinal": 156,
+      "page_id": "156_The_Metabarons_6_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/156_The_Metabarons_6_p04.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 481657,
+      "image_sha256": "434d155d0a9f097b6f11777c37c00fdc3aedac6fb735a41a7a5a75a57ff0dec7",
+      "is_spread": false,
+      "ordinal": 157,
+      "page_id": "157_The_Metabarons_6_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/157_The_Metabarons_6_p05.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 492385,
+      "image_sha256": "83d3879de9a7f452dae23c393fb4c85ba4a6ab90ef99650bc47896b43c25f1f0",
+      "is_spread": false,
+      "ordinal": 158,
+      "page_id": "158_The_Metabarons_6_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/158_The_Metabarons_6_p06.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 475351,
+      "image_sha256": "232255dc38a5d418d3923028d7d5fbdebd266263515d9e73df399727e0c199e6",
+      "is_spread": false,
+      "ordinal": 159,
+      "page_id": "159_The_Metabarons_6_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/159_The_Metabarons_6_p07.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 445693,
+      "image_sha256": "eddd7774c013248e7d0c8801dc0325c1cb186a988501a9f3970b9b33c9e0f479",
+      "is_spread": false,
+      "ordinal": 160,
+      "page_id": "160_The_Metabarons_6_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/160_The_Metabarons_6_p08.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 516338,
+      "image_sha256": "b3674f4bc8bf1ead94783f6e034ac59b68d61d78cf8bf4e5ae64df90e0e75404",
+      "is_spread": false,
+      "ordinal": 161,
+      "page_id": "161_The_Metabarons_6_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/161_The_Metabarons_6_p09.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 429893,
+      "image_sha256": "b42fa193277b97c621917c9b70eb769a1009263c10accf608d4da62e0869bcce",
+      "is_spread": false,
+      "ordinal": 162,
+      "page_id": "162_The_Metabarons_6_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/162_The_Metabarons_6_p10.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 455055,
+      "image_sha256": "12a714c5ee24ee6d702b9c1ab8119f220bb0605ef95f04788b0d0c5055206045",
+      "is_spread": false,
+      "ordinal": 163,
+      "page_id": "163_The_Metabarons_6_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/163_The_Metabarons_6_p11.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 933754,
+      "image_sha256": "e0ac617ed9aed61676df98921a52dfdd9d9ab24e633f96bba4322ad6c7bee47e",
+      "is_spread": true,
+      "ordinal": 164,
+      "page_id": "164_The_Metabarons_6_p12-p13",
+      "page_label": "p12-p13",
+      "source_image": "external/comics/meta-barons/164_The_Metabarons_6_p12-p13.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 536499,
+      "image_sha256": "a43ef8251538e99d3c25fcc31766c748bce65b3e535db63d20cd672811be515c",
+      "is_spread": false,
+      "ordinal": 165,
+      "page_id": "165_The_Metabarons_6_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/165_The_Metabarons_6_p14.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 481226,
+      "image_sha256": "6858c3d5e62539f09cd65f1fc164796aa532367dc684bc23cb9ef9982539b4af",
+      "is_spread": false,
+      "ordinal": 166,
+      "page_id": "166_The_Metabarons_6_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/166_The_Metabarons_6_p15.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 481507,
+      "image_sha256": "eff0d99bedd863e37c9c94cdf3abb0f3631487a4de7ca6711d713f006654ec85",
+      "is_spread": false,
+      "ordinal": 167,
+      "page_id": "167_The_Metabarons_6_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/167_The_Metabarons_6_p16.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 487218,
+      "image_sha256": "f492645d325c5faa09e1c22df0d3be4ba6b21be21dd28306ff6502ee0f210264",
+      "is_spread": false,
+      "ordinal": 168,
+      "page_id": "168_The_Metabarons_6_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/168_The_Metabarons_6_p17.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 460000,
+      "image_sha256": "5ab707360913d85faa0a6aa3f345816b11ef101ce99740141e9b083b9a9ccf19",
+      "is_spread": false,
+      "ordinal": 169,
+      "page_id": "169_The_Metabarons_6_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/169_The_Metabarons_6_p18.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 425674,
+      "image_sha256": "4c7fd91a85cf095443d0a1549d2ef02b8bd4daf5170fd6eb25297107d1b9db98",
+      "is_spread": false,
+      "ordinal": 170,
+      "page_id": "170_The_Metabarons_6_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/170_The_Metabarons_6_p19.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 552367,
+      "image_sha256": "2c79eaad4b5ef18a5e1f9d4493ccc2934fc31b694b0d5157c2a91c7e9a140380",
+      "is_spread": false,
+      "ordinal": 171,
+      "page_id": "171_The_Metabarons_6_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/171_The_Metabarons_6_p20.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 511991,
+      "image_sha256": "7df3b4f8cc9270830ef9a9d6ab6ca2331d014cf53dd9ac0a2cae14cb7919ec3d",
+      "is_spread": false,
+      "ordinal": 172,
+      "page_id": "172_The_Metabarons_6_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/172_The_Metabarons_6_p21.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 458988,
+      "image_sha256": "4692f7c2ea71233372bd0a2ca0c123c71447bea9583817c7df3804c999d87ef2",
+      "is_spread": false,
+      "ordinal": 173,
+      "page_id": "173_The_Metabarons_6_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/173_The_Metabarons_6_p22.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 454810,
+      "image_sha256": "21eab6a7ef29dc23b0f3d6846e4e93077f90cb407321bda88b6af39ca931db8f",
+      "is_spread": false,
+      "ordinal": 174,
+      "page_id": "174_The_Metabarons_6_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/174_The_Metabarons_6_p23.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 520837,
+      "image_sha256": "49efbd3082b46576341acaf9e436097f869d7a3ef23bc218534c0888aa92d43a",
+      "is_spread": false,
+      "ordinal": 175,
+      "page_id": "175_The_Metabarons_6_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/175_The_Metabarons_6_p24.jpg",
+      "volume": 6
+    },
+    {
+      "byte_size": 484197,
+      "image_sha256": "58266b64ef6bc5d0eab6b188540ee4a166750548bbabaed7ac3fed9930a92a20",
+      "is_spread": false,
+      "ordinal": 176,
+      "page_id": "176_The_Metabarons_7_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/176_The_Metabarons_7_c01.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 438470,
+      "image_sha256": "9b67f3a6535d8d71937c497f40520187482c684243cbf9c9049b5244b08fd5ff",
+      "is_spread": false,
+      "ordinal": 177,
+      "page_id": "177_The_Metabarons_7_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/177_The_Metabarons_7_ic1.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 508069,
+      "image_sha256": "349fd25d33a0903d7d2327836ed9a4b7075969414e1eb0362f60b3b0e2c51c3d",
+      "is_spread": false,
+      "ordinal": 178,
+      "page_id": "178_The_Metabarons_7_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/178_The_Metabarons_7_p01.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 510822,
+      "image_sha256": "f607212027e6f82fbc3e8067b81f579963f0f0192149d57587610593b9d31609",
+      "is_spread": false,
+      "ordinal": 179,
+      "page_id": "179_The_Metabarons_7_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/179_The_Metabarons_7_p02.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 514545,
+      "image_sha256": "2fca7641979265a6ef579a50243b6f03a8125be936b94dfc239f266a9c76f641",
+      "is_spread": false,
+      "ordinal": 180,
+      "page_id": "180_The_Metabarons_7_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/180_The_Metabarons_7_p03.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 427397,
+      "image_sha256": "a39a7ab4973bfbe1e0cd823926eb30c70150a9e9fe49b7e693558b002735ee8d",
+      "is_spread": false,
+      "ordinal": 181,
+      "page_id": "181_The_Metabarons_7_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/181_The_Metabarons_7_p04.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 453564,
+      "image_sha256": "e675558a760f77363e4088c05d240de98fe9c5c0881a04eb43d087707bfb071a",
+      "is_spread": false,
+      "ordinal": 182,
+      "page_id": "182_The_Metabarons_7_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/182_The_Metabarons_7_p05.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 502760,
+      "image_sha256": "59331a9a3a82d280555c3474b7e8fe8a369d3d28b18f8790e92217073e8b2bcf",
+      "is_spread": false,
+      "ordinal": 183,
+      "page_id": "183_The_Metabarons_7_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/183_The_Metabarons_7_p06.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 438165,
+      "image_sha256": "118a110c00dad84f4e2e8459701b5b4dec77254a6fcb7d3f123bac7da85766ab",
+      "is_spread": false,
+      "ordinal": 184,
+      "page_id": "184_The_Metabarons_7_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/184_The_Metabarons_7_p07.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 403868,
+      "image_sha256": "286530b74c9ff46eedb4547acc229738864b274e069db865ac3387dbd35819af",
+      "is_spread": false,
+      "ordinal": 185,
+      "page_id": "185_The_Metabarons_7_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/185_The_Metabarons_7_p08.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 379725,
+      "image_sha256": "05dbfbcc7ac988eff15028abe9c4c87bea73f1e7019741500c306e7c2a55e362",
+      "is_spread": false,
+      "ordinal": 186,
+      "page_id": "186_The_Metabarons_7_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/186_The_Metabarons_7_p09.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 455638,
+      "image_sha256": "98114d063a0f43e34d0cae419e0e975ed33bd6c7c15cded5ae524f2af139b998",
+      "is_spread": false,
+      "ordinal": 187,
+      "page_id": "187_The_Metabarons_7_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/187_The_Metabarons_7_p10.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 478974,
+      "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+      "is_spread": false,
+      "ordinal": 188,
+      "page_id": "188_The_Metabarons_7_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/188_The_Metabarons_7_p11.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 478974,
+      "image_sha256": "49e93627407d75e50105b4ac4eda2b25743245c9857217fde7f57ce5169ea252",
+      "is_spread": false,
+      "ordinal": 189,
+      "page_id": "189_The_Metabarons_7_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/189_The_Metabarons_7_p12.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 378929,
+      "image_sha256": "9578956da32a919169ce3e5f429fca5c83f1522576543475d881c884652c5ba4",
+      "is_spread": false,
+      "ordinal": 190,
+      "page_id": "190_The_Metabarons_7_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/190_The_Metabarons_7_p13.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 423816,
+      "image_sha256": "19e909d7a0a4e5e270bdb13c0295a103f4ed90a1025076aed15571f273376890",
+      "is_spread": false,
+      "ordinal": 191,
+      "page_id": "191_The_Metabarons_7_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/191_The_Metabarons_7_p14.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 374180,
+      "image_sha256": "4948773e05beebb2701e8531964fb7390421e657aced098b089d087ef562cc50",
+      "is_spread": false,
+      "ordinal": 192,
+      "page_id": "192_The_Metabarons_7_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/192_The_Metabarons_7_p15.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 429129,
+      "image_sha256": "24c565fd37d0fda939792615b7adea37e828125ac85ebee8c110a485d5e6e406",
+      "is_spread": false,
+      "ordinal": 193,
+      "page_id": "193_The_Metabarons_7_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/193_The_Metabarons_7_p16.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 430134,
+      "image_sha256": "f612f78046919cfd6e681caa46216b10558ccb965dea39221075b8a16be47817",
+      "is_spread": false,
+      "ordinal": 194,
+      "page_id": "194_The_Metabarons_7_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/194_The_Metabarons_7_p17.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 407691,
+      "image_sha256": "929ec187cbee1efe1641737bc1943de79d42619339758a1f64211e3163feabb1",
+      "is_spread": false,
+      "ordinal": 195,
+      "page_id": "195_The_Metabarons_7_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/195_The_Metabarons_7_p18.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 493764,
+      "image_sha256": "568205f3f6e0b8959cc572e5b88727ff903b1c1a29af1424f68914fb4dbed828",
+      "is_spread": false,
+      "ordinal": 196,
+      "page_id": "196_The_Metabarons_7_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/196_The_Metabarons_7_p19.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 460804,
+      "image_sha256": "6fe11ce7748d292d867e879d4fb80790ee2bf042320ac3b735568d1849efa404",
+      "is_spread": false,
+      "ordinal": 197,
+      "page_id": "197_The_Metabarons_7_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/197_The_Metabarons_7_p20.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 451632,
+      "image_sha256": "a74f61f198211cd842e9a35a4a81ee2b733aef22cae9fbd69dcc7b7eda575f55",
+      "is_spread": false,
+      "ordinal": 198,
+      "page_id": "198_The_Metabarons_7_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/198_The_Metabarons_7_p21.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 439836,
+      "image_sha256": "451cdc3378a36e8789d3bcab3b6d578a97f357156a99a42dc515d97b8ce65521",
+      "is_spread": false,
+      "ordinal": 199,
+      "page_id": "199_The_Metabarons_7_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/199_The_Metabarons_7_p22.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 434727,
+      "image_sha256": "0370ffb69b9ef56e2d85dd7c9b284ba9ec7813066d28e4eebb0dab2b0543e87f",
+      "is_spread": false,
+      "ordinal": 200,
+      "page_id": "200_The_Metabarons_7_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/200_The_Metabarons_7_p23.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 490346,
+      "image_sha256": "43d48467300399f06884a337ed7e9811ef8a5bd520a4713ad49b50a36f1d99b0",
+      "is_spread": false,
+      "ordinal": 201,
+      "page_id": "201_The_Metabarons_7_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/201_The_Metabarons_7_p24.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 474373,
+      "image_sha256": "7389dcf7a45dc1967ac0d337efcc3daf90b2844ccc7f7fead171ce5e8a89da87",
+      "is_spread": false,
+      "ordinal": 202,
+      "page_id": "202_The_Metabarons_7_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/202_The_Metabarons_7_p25.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 401073,
+      "image_sha256": "fdfbf14b7578dc47990a8d42b1fb051e4c517637307a496170c671ad4f465e4c",
+      "is_spread": false,
+      "ordinal": 203,
+      "page_id": "203_The_Metabarons_7_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/203_The_Metabarons_7_p26.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 424231,
+      "image_sha256": "d0541e089c92174aaa269adbcaec44055d55eaf60296038e2eedaa849946aa6b",
+      "is_spread": false,
+      "ordinal": 204,
+      "page_id": "204_The_Metabarons_7_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/204_The_Metabarons_7_p27.jpg",
+      "volume": 7
+    },
+    {
+      "byte_size": 422825,
+      "image_sha256": "b3ad1577371b6f1206ae0c0fce98cc03d1d8fe55c117b57f8f8892a5d61114a4",
+      "is_spread": false,
+      "ordinal": 205,
+      "page_id": "205_The_Metabarons_8_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/205_The_Metabarons_8_c01.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 485849,
+      "image_sha256": "c43e1cabe257308b8e4f3fbc2c7c116c6f888ad06d33a538c4f4d73ca2192ce8",
+      "is_spread": false,
+      "ordinal": 206,
+      "page_id": "206_The_Metabarons_8_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/206_The_Metabarons_8_ic1.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 449921,
+      "image_sha256": "f2f29942c78db4d1a7b61b87fbb7adfbc4e1c21524b1958528eb04f7f628e69f",
+      "is_spread": false,
+      "ordinal": 207,
+      "page_id": "207_The_Metabarons_8_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/207_The_Metabarons_8_p01.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 477541,
+      "image_sha256": "33d2673c1cb1b25e4ce12c49a142a375989276d39ddcb2ab496b28679b2b84c6",
+      "is_spread": false,
+      "ordinal": 208,
+      "page_id": "208_The_Metabarons_8_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/208_The_Metabarons_8_p02.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 419442,
+      "image_sha256": "7fb7eaf5ac7a191060de05d00e93514f8b2dfb9d27a13cf48c212d3baf22f0df",
+      "is_spread": false,
+      "ordinal": 209,
+      "page_id": "209_The_Metabarons_8_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/209_The_Metabarons_8_p03.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 808983,
+      "image_sha256": "4fd3296f64d7fdb0e13cb6026853c629a3b556d3e3a3d41fc9570c16cd1441b1",
+      "is_spread": true,
+      "ordinal": 210,
+      "page_id": "210_The_Metabarons_8_p04-p05",
+      "page_label": "p04-p05",
+      "source_image": "external/comics/meta-barons/210_The_Metabarons_8_p04-p05.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 403641,
+      "image_sha256": "5266e3247d0f6d5fc26ffff1a8c3f121643f51104f5a2eca432959a5b1eb655f",
+      "is_spread": false,
+      "ordinal": 211,
+      "page_id": "211_The_Metabarons_8_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/211_The_Metabarons_8_p06.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 439493,
+      "image_sha256": "2789c1e5877920b3d43b1b2efea7fa249f9d53fa23ca0ae0aa21fe7c416f1f0d",
+      "is_spread": false,
+      "ordinal": 212,
+      "page_id": "212_The_Metabarons_8_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/212_The_Metabarons_8_p07.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 395511,
+      "image_sha256": "09a8d64b4747919acdee009b5072351f5ebe52ef4b7cf3c07de75c4ee001ffaf",
+      "is_spread": false,
+      "ordinal": 213,
+      "page_id": "213_The_Metabarons_8_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/213_The_Metabarons_8_p08.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 406890,
+      "image_sha256": "54db59d03b56603029328395f5a763f5a4f279b1936eb569526f7e7dc1bff407",
+      "is_spread": false,
+      "ordinal": 214,
+      "page_id": "214_The_Metabarons_8_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/214_The_Metabarons_8_p09.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 401244,
+      "image_sha256": "310454d3949fe1ff6e390730e8b1253ab7329a3cbfa3ac2a66328c2bc559285d",
+      "is_spread": false,
+      "ordinal": 215,
+      "page_id": "215_The_Metabarons_8_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/215_The_Metabarons_8_p10.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 363562,
+      "image_sha256": "034b6351afb6d01f0306c9ec357c75513f80bf0f469a9820e53ade30cb941104",
+      "is_spread": false,
+      "ordinal": 216,
+      "page_id": "216_The_Metabarons_8_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/216_The_Metabarons_8_p11.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 452739,
+      "image_sha256": "1b38870548a76886e03b3d7ee31bd9f8cc50df172873f2b3112604634ae61061",
+      "is_spread": false,
+      "ordinal": 217,
+      "page_id": "217_The_Metabarons_8_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/217_The_Metabarons_8_p12.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 429836,
+      "image_sha256": "1f3368a51c069db30b26b3f11a920871fbd85120e9df0fdbea5217fc2e9eee53",
+      "is_spread": false,
+      "ordinal": 218,
+      "page_id": "218_The_Metabarons_8_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/218_The_Metabarons_8_p13.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 416905,
+      "image_sha256": "8f2a3e53974bef884c7d40e24d830b22aa2acc51f86906c8dbc8b58b32df1f6e",
+      "is_spread": false,
+      "ordinal": 219,
+      "page_id": "219_The_Metabarons_8_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/219_The_Metabarons_8_p14.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 429142,
+      "image_sha256": "d75e3244b18233d9b7be203a5f518d6211f4a0cfef2e068c3b27cfca5e3a4b6c",
+      "is_spread": false,
+      "ordinal": 220,
+      "page_id": "220_The_Metabarons_8_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/220_The_Metabarons_8_p15.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 464503,
+      "image_sha256": "7adf3224ae6f112bf7284c112ce55648a1b32cc8e0e7fd61051e51fa308612e4",
+      "is_spread": false,
+      "ordinal": 221,
+      "page_id": "221_The_Metabarons_8_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/221_The_Metabarons_8_p16.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 440914,
+      "image_sha256": "f6d1f25fea50aa07037216fe384848a949b6fd8197cff92430921f606db49419",
+      "is_spread": false,
+      "ordinal": 222,
+      "page_id": "222_The_Metabarons_8_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/222_The_Metabarons_8_p17.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 414851,
+      "image_sha256": "3fccdf3461d7d9e16dcdf2b0479a52f07ca8b0cad99b9f726812a12229fb3637",
+      "is_spread": false,
+      "ordinal": 223,
+      "page_id": "223_The_Metabarons_8_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/223_The_Metabarons_8_p18.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 471468,
+      "image_sha256": "97a5e17c406f4443653176d61f42d16f1bbc4eda0517b39025604ad01305ae7a",
+      "is_spread": false,
+      "ordinal": 224,
+      "page_id": "224_The_Metabarons_8_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/224_The_Metabarons_8_p19.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 427699,
+      "image_sha256": "bf811df1711f0ff991d5f85b2cb804b2b6cec171c694b76eb5ae2dbf212e440d",
+      "is_spread": false,
+      "ordinal": 225,
+      "page_id": "225_The_Metabarons_8_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/225_The_Metabarons_8_p20.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 434649,
+      "image_sha256": "5e9fec967e874f1dc423a834620a80fcbbd8e6c0e1be66ffce045fcba627df52",
+      "is_spread": false,
+      "ordinal": 226,
+      "page_id": "226_The_Metabarons_8_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/226_The_Metabarons_8_p21.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 413239,
+      "image_sha256": "3e25c3b9560e178850979bcc946c966c814c6159e5a4dffeb61c04e12cf8d523",
+      "is_spread": false,
+      "ordinal": 227,
+      "page_id": "227_The_Metabarons_8_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/227_The_Metabarons_8_p22.jpg",
+      "volume": 8
+    },
+    {
+      "byte_size": 477053,
+      "image_sha256": "0c275dd37c580e20cb278a4c97e0325721f90b9b33addd0df7f24004708d57e7",
+      "is_spread": false,
+      "ordinal": 228,
+      "page_id": "228_The_Metabarons_9_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/228_The_Metabarons_9_c01.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 382448,
+      "image_sha256": "08e5ae3cc989fb6e516e10a6fa6128ce74bcb9de19e555afc63faebd80bb41ad",
+      "is_spread": false,
+      "ordinal": 229,
+      "page_id": "229_The_Metabarons_9_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/229_The_Metabarons_9_ic1.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 388218,
+      "image_sha256": "ff24da95b3f5f72b836609663d896a360017af8fc68e25881ea9850188f64c13",
+      "is_spread": false,
+      "ordinal": 230,
+      "page_id": "230_The_Metabarons_9_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/230_The_Metabarons_9_p01.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 360145,
+      "image_sha256": "4734036df9f089a5835915ddabf80f623cdafb42f9b6f047f701f02aa968ae87",
+      "is_spread": false,
+      "ordinal": 231,
+      "page_id": "231_The_Metabarons_9_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/231_The_Metabarons_9_p02.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 354104,
+      "image_sha256": "63664d66228183923fa760d28b842e375762b51bb50ce4c724dd897ea707b75d",
+      "is_spread": false,
+      "ordinal": 232,
+      "page_id": "232_The_Metabarons_9_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/232_The_Metabarons_9_p03.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 349807,
+      "image_sha256": "c2f993495d215a68ff6c5fa2301ea080c45f88dc3aa5154643dcafea41f9a318",
+      "is_spread": false,
+      "ordinal": 233,
+      "page_id": "233_The_Metabarons_9_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/233_The_Metabarons_9_p04.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 394489,
+      "image_sha256": "f2dbbe64c2081cabe9e1ae6d251118ad387609db467263c50ef7f580b9dce839",
+      "is_spread": false,
+      "ordinal": 234,
+      "page_id": "234_The_Metabarons_9_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/234_The_Metabarons_9_p05.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 368647,
+      "image_sha256": "b9cd568f065a2d5bc714e3c272633d76dd9cf8e9a0b0007fe2d7dab50f048392",
+      "is_spread": false,
+      "ordinal": 235,
+      "page_id": "235_The_Metabarons_9_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/235_The_Metabarons_9_p06.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 411099,
+      "image_sha256": "15a1167da7cfd3942f37d6d03a861fc94bf6c899d78dc699d10b4792eeb47c05",
+      "is_spread": false,
+      "ordinal": 236,
+      "page_id": "236_The_Metabarons_9_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/236_The_Metabarons_9_p07.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 821549,
+      "image_sha256": "043359ab327041aad0e1d2454016514bea7898ea0a9ae80fe5be1cf23bfd8d8b",
+      "is_spread": true,
+      "ordinal": 237,
+      "page_id": "237_The_Metabarons_9_p08-p09",
+      "page_label": "p08-p09",
+      "source_image": "external/comics/meta-barons/237_The_Metabarons_9_p08-p09.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 382600,
+      "image_sha256": "3b2c0938807cf9b856199ed9e5913bb984e49476a13d6928d1c816596f571b73",
+      "is_spread": false,
+      "ordinal": 238,
+      "page_id": "238_The_Metabarons_9_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/238_The_Metabarons_9_p10.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 355969,
+      "image_sha256": "d2c453047b6fafe9ed9befb8253209553b2b027c4022156f053a5d0e7c9a52c5",
+      "is_spread": false,
+      "ordinal": 239,
+      "page_id": "239_The_Metabarons_9_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/239_The_Metabarons_9_p11.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 324000,
+      "image_sha256": "a6c5b29aebc39240b133d90a022beda142c8b15154ae86ac58f4662878a10f22",
+      "is_spread": false,
+      "ordinal": 240,
+      "page_id": "240_The_Metabarons_9_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/240_The_Metabarons_9_p12.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 387509,
+      "image_sha256": "d097eef72b5ef40fe5c87ce4ab811fa996e12639440b24a7dac5311f508a2dfd",
+      "is_spread": false,
+      "ordinal": 241,
+      "page_id": "241_The_Metabarons_9_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/241_The_Metabarons_9_p13.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 375097,
+      "image_sha256": "fb62cf0a42a48431ac1a15f7ba49d3bef15074b0a65dabb3ddf39826b606c268",
+      "is_spread": false,
+      "ordinal": 242,
+      "page_id": "242_The_Metabarons_9_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/242_The_Metabarons_9_p14.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 397657,
+      "image_sha256": "7683cf8b4422f25456acc00c7712b199760a673be3231a653ada587c5ffebb7e",
+      "is_spread": false,
+      "ordinal": 243,
+      "page_id": "243_The_Metabarons_9_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/243_The_Metabarons_9_p15.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 396677,
+      "image_sha256": "848c58a1ef807cdf4746b770ecedbdefd46a869bee9b8be2322cb9f173e0e36b",
+      "is_spread": false,
+      "ordinal": 244,
+      "page_id": "244_The_Metabarons_9_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/244_The_Metabarons_9_p16.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 338368,
+      "image_sha256": "5457fe22c3fe4b708e64bd8f9f8dbdc22ce8f4bdd36543b7a5cadaa65df366a4",
+      "is_spread": false,
+      "ordinal": 245,
+      "page_id": "245_The_Metabarons_9_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/245_The_Metabarons_9_p17.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 697673,
+      "image_sha256": "8511f3d090d26bc7b3237f21e1475fd394e130b1787e28c6182d241c9036eb15",
+      "is_spread": true,
+      "ordinal": 246,
+      "page_id": "246_The_Metabarons_9_p18-p19",
+      "page_label": "p18-p19",
+      "source_image": "external/comics/meta-barons/246_The_Metabarons_9_p18-p19.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 329121,
+      "image_sha256": "4c04269a2eb5707d809bba331d5de02a483b528a9007f38a53c5663f93b316a6",
+      "is_spread": false,
+      "ordinal": 247,
+      "page_id": "247_The_Metabarons_9_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/247_The_Metabarons_9_p20.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 360354,
+      "image_sha256": "a91edc94476dcabfc67357dee39519b3d25c492e5d5728e2cda5f3f511265f8c",
+      "is_spread": false,
+      "ordinal": 248,
+      "page_id": "248_The_Metabarons_9_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/248_The_Metabarons_9_p21.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 326091,
+      "image_sha256": "197c6144c791bc9e2f651f89b141108e5dd717e9b0cf4f3166dda6f17c1b1ef0",
+      "is_spread": false,
+      "ordinal": 249,
+      "page_id": "249_The_Metabarons_9_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/249_The_Metabarons_9_p22.jpg",
+      "volume": 9
+    },
+    {
+      "byte_size": 539502,
+      "image_sha256": "bcbce0f670683ee6afb2b007e01d8e7b2df7ef6651f241d66a30e9c063b461a9",
+      "is_spread": false,
+      "ordinal": 250,
+      "page_id": "250_The_Metabarons_10_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/250_The_Metabarons_10_c01.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 453706,
+      "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+      "is_spread": false,
+      "ordinal": 251,
+      "page_id": "251_The_Metabarons_10_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 400915,
+      "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+      "is_spread": false,
+      "ordinal": 252,
+      "page_id": "252_The_Metabarons_10_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 408539,
+      "image_sha256": "867457b2cec10ab456fa28ca5e711ba887c27964e48bc78cf9ed8f977942f442",
+      "is_spread": false,
+      "ordinal": 253,
+      "page_id": "253_The_Metabarons_10_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/253_The_Metabarons_10_p02.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 417859,
+      "image_sha256": "afe0aec5e388498e856405a32770f5a674c6ae4bb484e330ab5d115fe733ae4c",
+      "is_spread": false,
+      "ordinal": 254,
+      "page_id": "254_The_Metabarons_10_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/254_The_Metabarons_10_p03.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 425586,
+      "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+      "is_spread": false,
+      "ordinal": 255,
+      "page_id": "255_The_Metabarons_10_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 470609,
+      "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+      "is_spread": false,
+      "ordinal": 256,
+      "page_id": "256_The_Metabarons_10_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 885645,
+      "image_sha256": "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+      "is_spread": true,
+      "ordinal": 257,
+      "page_id": "257_The_Metabarons_10_p06-p07",
+      "page_label": "p06-p07",
+      "source_image": "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 774800,
+      "image_sha256": "28fa97fa77a642785692e0e24c5c8cda22d9c49d226073361a95fa43dd2c3da8",
+      "is_spread": true,
+      "ordinal": 258,
+      "page_id": "258_The_Metabarons_10_p08-p09",
+      "page_label": "p08-p09",
+      "source_image": "external/comics/meta-barons/258_The_Metabarons_10_p08-p09.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 776504,
+      "image_sha256": "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+      "is_spread": true,
+      "ordinal": 259,
+      "page_id": "259_The_Metabarons_10_p10-p11",
+      "page_label": "p10-p11",
+      "source_image": "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 438543,
+      "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+      "is_spread": false,
+      "ordinal": 260,
+      "page_id": "260_The_Metabarons_10_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 418906,
+      "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+      "is_spread": false,
+      "ordinal": 261,
+      "page_id": "261_The_Metabarons_10_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 469037,
+      "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+      "is_spread": false,
+      "ordinal": 262,
+      "page_id": "262_The_Metabarons_10_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 485927,
+      "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+      "is_spread": false,
+      "ordinal": 263,
+      "page_id": "263_The_Metabarons_10_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 442428,
+      "image_sha256": "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f",
+      "is_spread": false,
+      "ordinal": 264,
+      "page_id": "264_The_Metabarons_10_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 465251,
+      "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+      "is_spread": false,
+      "ordinal": 265,
+      "page_id": "265_The_Metabarons_10_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 333988,
+      "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+      "is_spread": false,
+      "ordinal": 266,
+      "page_id": "266_The_Metabarons_10_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 341991,
+      "image_sha256": "3c153f38bec0ba509e4d84709a563564dd085d63d7c9e17f26f926868c717bef",
+      "is_spread": false,
+      "ordinal": 267,
+      "page_id": "267_The_Metabarons_10_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/267_The_Metabarons_10_p19.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 490400,
+      "image_sha256": "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+      "is_spread": false,
+      "ordinal": 268,
+      "page_id": "268_The_Metabarons_10_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 482943,
+      "image_sha256": "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07",
+      "is_spread": false,
+      "ordinal": 269,
+      "page_id": "269_The_Metabarons_10_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 426813,
+      "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+      "is_spread": false,
+      "ordinal": 270,
+      "page_id": "270_The_Metabarons_10_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 366564,
+      "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+      "is_spread": false,
+      "ordinal": 271,
+      "page_id": "271_The_Metabarons_10_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 488695,
+      "image_sha256": "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+      "is_spread": false,
+      "ordinal": 272,
+      "page_id": "272_The_Metabarons_10_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 410253,
+      "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+      "is_spread": false,
+      "ordinal": 273,
+      "page_id": "273_The_Metabarons_10_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 415159,
+      "image_sha256": "2e73168c50b84119e169cde367c6024ea85791186642bcc388b601e8d72d47e7",
+      "is_spread": false,
+      "ordinal": 274,
+      "page_id": "274_The_Metabarons_10_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/274_The_Metabarons_10_p26.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 420804,
+      "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+      "is_spread": false,
+      "ordinal": 275,
+      "page_id": "275_The_Metabarons_10_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 419678,
+      "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+      "is_spread": false,
+      "ordinal": 276,
+      "page_id": "276_The_Metabarons_10_p28",
+      "page_label": "p28",
+      "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg",
+      "volume": 10
+    },
+    {
+      "byte_size": 455753,
+      "image_sha256": "b671ec2e354595c48241f7e538f3280efa13c3b5b894104ce4654ed0bf8b886b",
+      "is_spread": false,
+      "ordinal": 277,
+      "page_id": "277_The_Metabarons_11_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/277_The_Metabarons_11_c01.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 451951,
+      "image_sha256": "9dd6cb585a89f36bdc7f182f5ec31f82dd8e30eae9c3fe9b46f645a2ba6c6faa",
+      "is_spread": false,
+      "ordinal": 278,
+      "page_id": "278_The_Metabarons_11_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/278_The_Metabarons_11_ic1.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 457320,
+      "image_sha256": "7c2d49ef9db63da45ab4a192374451cc80180e2703c535251fee731436a98663",
+      "is_spread": false,
+      "ordinal": 279,
+      "page_id": "279_The_Metabarons_11_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/279_The_Metabarons_11_p01.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 432336,
+      "image_sha256": "941d41240bc63b81ec375867984246d7af02486041325e43c1972340f8f886d5",
+      "is_spread": false,
+      "ordinal": 280,
+      "page_id": "280_The_Metabarons_11_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/280_The_Metabarons_11_p02.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 446787,
+      "image_sha256": "b7a7b8ef6d83a7b980c419ec1a70601a9a326f4001ff176b93886ece3dd58432",
+      "is_spread": false,
+      "ordinal": 281,
+      "page_id": "281_The_Metabarons_11_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/281_The_Metabarons_11_p03.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 452011,
+      "image_sha256": "9df1a4962cb0989365ecf59e595a7a1a0c660e645e57d9cd899675e4ed7c452c",
+      "is_spread": false,
+      "ordinal": 282,
+      "page_id": "282_The_Metabarons_11_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/282_The_Metabarons_11_p04.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 406586,
+      "image_sha256": "1cac6f24a7d63da9951cd8c994853a363c2b6c7e69191748342f12d69cc2c8f9",
+      "is_spread": false,
+      "ordinal": 283,
+      "page_id": "283_The_Metabarons_11_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/283_The_Metabarons_11_p05.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 443220,
+      "image_sha256": "0c654e24fd626476ab0c77c9563cb54b897d068d4fffce5af20d25ee10d7e144",
+      "is_spread": false,
+      "ordinal": 284,
+      "page_id": "284_The_Metabarons_11_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/284_The_Metabarons_11_p06.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 396786,
+      "image_sha256": "1fb83061c96f7d0a3cb2bc98946937a9f1bfdf597d56175a7679f13187884edd",
+      "is_spread": false,
+      "ordinal": 285,
+      "page_id": "285_The_Metabarons_11_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/285_The_Metabarons_11_p07.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 756858,
+      "image_sha256": "c2fdf267eeb50e2019fd9f9edfa5f2335ad703a4edadd8545665385e5df685f5",
+      "is_spread": true,
+      "ordinal": 286,
+      "page_id": "286_The_Metabarons_11_p08-p09",
+      "page_label": "p08-p09",
+      "source_image": "external/comics/meta-barons/286_The_Metabarons_11_p08-p09.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 411932,
+      "image_sha256": "644f2f0d5738b659811c8cfe8a9396f24da7024229943ee72fc81a1b786fa5ee",
+      "is_spread": false,
+      "ordinal": 287,
+      "page_id": "287_The_Metabarons_11_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/287_The_Metabarons_11_p10.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 446899,
+      "image_sha256": "e072039b35f9e0cf015e06d0a5205eea256244652d4d52456fc84a9817caf5c5",
+      "is_spread": false,
+      "ordinal": 288,
+      "page_id": "288_The_Metabarons_11_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/288_The_Metabarons_11_p11.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 449406,
+      "image_sha256": "3fc01e74bd453cddf2cb40b5b5e0cea3cb2c5a0d43eb87fd5c85f136b600e9ce",
+      "is_spread": false,
+      "ordinal": 289,
+      "page_id": "289_The_Metabarons_11_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/289_The_Metabarons_11_p12.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 394559,
+      "image_sha256": "a3967b225dbcc58c731bd565227e9411743105f90fe2995c765f7085b3f57657",
+      "is_spread": false,
+      "ordinal": 290,
+      "page_id": "290_The_Metabarons_11_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/290_The_Metabarons_11_p13.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 419337,
+      "image_sha256": "0d195c3bd30330121e24ee1376739961ded70400993c2cfcf4e7c94a2d7a7c80",
+      "is_spread": false,
+      "ordinal": 291,
+      "page_id": "291_The_Metabarons_11_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/291_The_Metabarons_11_p14.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 390207,
+      "image_sha256": "2e1033e1b03a8bcef842df89005deee9a628fc060c8a00e56409fa563beb6a5b",
+      "is_spread": false,
+      "ordinal": 292,
+      "page_id": "292_The_Metabarons_11_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/292_The_Metabarons_11_p15.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 424166,
+      "image_sha256": "b3846dd10fc259ba1216af22197f334c7d15cbf0559e9cebe66e3444612cebed",
+      "is_spread": false,
+      "ordinal": 293,
+      "page_id": "293_The_Metabarons_11_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/293_The_Metabarons_11_p16.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 501966,
+      "image_sha256": "af88e7899d864e2845229e7842cf7717953e5604bd65df698d60fb06e2ec898a",
+      "is_spread": false,
+      "ordinal": 294,
+      "page_id": "294_The_Metabarons_11_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/294_The_Metabarons_11_p17.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 479392,
+      "image_sha256": "e038cec69d0fa9b55426a7d2fa30f6f6e7563865ac528d9a55c46467a599e9db",
+      "is_spread": false,
+      "ordinal": 295,
+      "page_id": "295_The_Metabarons_11_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/295_The_Metabarons_11_p18.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 428902,
+      "image_sha256": "1cb6fd35972fc015c96d4c08a4fe16f683855248d8d50fee1ce552685f92b5da",
+      "is_spread": false,
+      "ordinal": 296,
+      "page_id": "296_The_Metabarons_11_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/296_The_Metabarons_11_p19.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 375702,
+      "image_sha256": "7df03c6ae7f6e61e65964f62f9eac7a3e333dab63a5b7f0168880d422ae0c7ee",
+      "is_spread": false,
+      "ordinal": 297,
+      "page_id": "297_The_Metabarons_11_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/297_The_Metabarons_11_p20.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 376511,
+      "image_sha256": "591c47f3e9fb3e38c770e940689ec33f1edea745ad93f129f3847617e9a06cc1",
+      "is_spread": false,
+      "ordinal": 298,
+      "page_id": "298_The_Metabarons_11_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/298_The_Metabarons_11_p21.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 445918,
+      "image_sha256": "df5b49b27df5e3f6b5306a4cd120a2a7846aeac18fd0c604891b4f77fd308353",
+      "is_spread": false,
+      "ordinal": 299,
+      "page_id": "299_The_Metabarons_11_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/299_The_Metabarons_11_p22.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 422801,
+      "image_sha256": "f63829d792d366a01dd5fa3fe35177d11b5bfff916adf5b0c6d3d798b8a8aa0b",
+      "is_spread": false,
+      "ordinal": 300,
+      "page_id": "300_The_Metabarons_11_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/300_The_Metabarons_11_p23.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 423371,
+      "image_sha256": "19dfc7e4c6e9a6cf6d8800a19536c6c486a996904e192d3bde6fd9c18bbdce45",
+      "is_spread": false,
+      "ordinal": 301,
+      "page_id": "301_The_Metabarons_11_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/301_The_Metabarons_11_p24.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 304774,
+      "image_sha256": "1589637c62e17f732e8fb09c1fe2f710415b2638269c6fdd82d25fcfc7db814b",
+      "is_spread": false,
+      "ordinal": 302,
+      "page_id": "302_The_Metabarons_11_p25",
+      "page_label": "p25",
+      "source_image": "external/comics/meta-barons/302_The_Metabarons_11_p25.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 298952,
+      "image_sha256": "b749f8f7c2d1e48c30a54e4fbb083c2bcf958fec82e58d923156502d6acf48eb",
+      "is_spread": false,
+      "ordinal": 303,
+      "page_id": "303_The_Metabarons_11_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/303_The_Metabarons_11_p26.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 361741,
+      "image_sha256": "613ea722d271e2f70ec13d9ba2ae8f62b4a69e27dd091a7e95bbb0e2b1c78109",
+      "is_spread": false,
+      "ordinal": 304,
+      "page_id": "304_The_Metabarons_11_p27",
+      "page_label": "p27",
+      "source_image": "external/comics/meta-barons/304_The_Metabarons_11_p27.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 280006,
+      "image_sha256": "1bdfdc45d4867e2002d12c556450a3aa0e3fc912647c43e770559b72afff8227",
+      "is_spread": false,
+      "ordinal": 305,
+      "page_id": "305_The_Metabarons_11_p28",
+      "page_label": "p28",
+      "source_image": "external/comics/meta-barons/305_The_Metabarons_11_p28.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 318283,
+      "image_sha256": "7f956e1d277d837a0e2d99a489fc20bfa376ff63e8bf86f99b34da077ec52f58",
+      "is_spread": false,
+      "ordinal": 306,
+      "page_id": "306_The_Metabarons_11_p29",
+      "page_label": "p29",
+      "source_image": "external/comics/meta-barons/306_The_Metabarons_11_p29.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 325686,
+      "image_sha256": "fb3201e0e75f4d814d24da7b3e8261712c860fadc21bcf5daf398237b4766049",
+      "is_spread": false,
+      "ordinal": 307,
+      "page_id": "307_The_Metabarons_11_p30",
+      "page_label": "p30",
+      "source_image": "external/comics/meta-barons/307_The_Metabarons_11_p30.jpg",
+      "volume": 11
+    },
+    {
+      "byte_size": 457767,
+      "image_sha256": "edf8716da050e671389368a47e0c885860bc21a529f465172cfc3d73761977df",
+      "is_spread": false,
+      "ordinal": 308,
+      "page_id": "308_The_Metabarons_12_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/308_The_Metabarons_12_c01.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 439996,
+      "image_sha256": "1ce5fbd6b10234982cbe92656f03283f16824f3ac79e491610df1c18a10ae21c",
+      "is_spread": false,
+      "ordinal": 309,
+      "page_id": "309_The_Metabarons_12_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/309_The_Metabarons_12_ic1.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 370058,
+      "image_sha256": "3abf444f652bc867b3fc8569a82369fb1b2b935ef8860324c68ced926904d153",
+      "is_spread": false,
+      "ordinal": 310,
+      "page_id": "310_The_Metabarons_12_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/310_The_Metabarons_12_p01.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 398029,
+      "image_sha256": "c7f60e31e3f80e57c2f6bed79c98603135ebb73ddccb76c49d74415616c80b2b",
+      "is_spread": false,
+      "ordinal": 311,
+      "page_id": "311_The_Metabarons_12_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/311_The_Metabarons_12_p02.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 400627,
+      "image_sha256": "e4c08444b051c5507ecfb8e4c1177e451abd3720aa2a11b7c566e4b8ee620bec",
+      "is_spread": false,
+      "ordinal": 312,
+      "page_id": "312_The_Metabarons_12_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/312_The_Metabarons_12_p03.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 462932,
+      "image_sha256": "9b2df6d7e3c464c9f273302408836a10d0b4dd45a30f4e7f88c1fbe0f49fd641",
+      "is_spread": false,
+      "ordinal": 313,
+      "page_id": "313_The_Metabarons_12_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/313_The_Metabarons_12_p04.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 420933,
+      "image_sha256": "f9c3e39bd33cc7c0ade8d85ead9af45e6d641c260280f1f4980ea14ab4a4d863",
+      "is_spread": false,
+      "ordinal": 314,
+      "page_id": "314_The_Metabarons_12_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/314_The_Metabarons_12_p05.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 428718,
+      "image_sha256": "375abf9d6cc09ab0a09e887d66d597dfce0db2374a2d7aede2a86b836b5e558c",
+      "is_spread": false,
+      "ordinal": 315,
+      "page_id": "315_The_Metabarons_12_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/315_The_Metabarons_12_p06.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 420546,
+      "image_sha256": "adde0bd01e93a98a6e6e518b62f5d33efddddf3910d3e42b9b5ddbb47f57ae13",
+      "is_spread": false,
+      "ordinal": 316,
+      "page_id": "316_The_Metabarons_12_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/316_The_Metabarons_12_p07.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 431686,
+      "image_sha256": "b12e5764e672a0fc56b8fc4e23a0f90e964e3f9416abc2251f26502924cec216",
+      "is_spread": false,
+      "ordinal": 317,
+      "page_id": "317_The_Metabarons_12_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/317_The_Metabarons_12_p08.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 413789,
+      "image_sha256": "2d53221bfd3d4cf13f1f410312fbf5774368b02b33e15a03d8505b2ca04ac66a",
+      "is_spread": false,
+      "ordinal": 318,
+      "page_id": "318_The_Metabarons_12_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/318_The_Metabarons_12_p09.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 433177,
+      "image_sha256": "38b76073751b84732283e0ca48bfc5502f468c850788ae23e5f487484c2b1ce2",
+      "is_spread": false,
+      "ordinal": 319,
+      "page_id": "319_The_Metabarons_12_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/319_The_Metabarons_12_p10.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 424455,
+      "image_sha256": "5dd5dfac5247215181bf0fbfcb7ef181e4a2eb0c89b3c261c59587cd2b89ada6",
+      "is_spread": false,
+      "ordinal": 320,
+      "page_id": "320_The_Metabarons_12_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/320_The_Metabarons_12_p11.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 432610,
+      "image_sha256": "2c656b18ed102dbd95c86a8ed270fd4fce69cb1d4c3ed658f92bf370f9192d6f",
+      "is_spread": false,
+      "ordinal": 321,
+      "page_id": "321_The_Metabarons_12_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/321_The_Metabarons_12_p12.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 388051,
+      "image_sha256": "2390ad5a7a34e1fdb9c37f0e8fffc8da8c67301b215e6d2144efc9cef48a0e39",
+      "is_spread": false,
+      "ordinal": 322,
+      "page_id": "322_The_Metabarons_12_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/322_The_Metabarons_12_p13.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 340067,
+      "image_sha256": "d1b0eebd51e13f6de3a25fbb255c113db39c235bb39b064203116f6223d5cc0f",
+      "is_spread": false,
+      "ordinal": 323,
+      "page_id": "323_The_Metabarons_12_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/323_The_Metabarons_12_p14.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 368806,
+      "image_sha256": "1f24a4ca99de85451466633f36e3bdef3b5698629214bad6f5851d4a7f89cf70",
+      "is_spread": false,
+      "ordinal": 324,
+      "page_id": "324_The_Metabarons_12_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/324_The_Metabarons_12_p15.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 423506,
+      "image_sha256": "0c722db05782a730772737e8fb30c0f086ae3ed923a06caa3556b04479a58b67",
+      "is_spread": false,
+      "ordinal": 325,
+      "page_id": "325_The_Metabarons_12_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/325_The_Metabarons_12_p16.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 417619,
+      "image_sha256": "732f5d92971d077a15fa70b1d1a4cea272878886d9419ae31fab180cfdb7d183",
+      "is_spread": false,
+      "ordinal": 326,
+      "page_id": "326_The_Metabarons_12_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/326_The_Metabarons_12_p17.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 397439,
+      "image_sha256": "72c0ddd9bbe1f5fcb510db557caee3930cbffa499ec2c4502f08f281d757b536",
+      "is_spread": false,
+      "ordinal": 327,
+      "page_id": "327_The_Metabarons_12_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/327_The_Metabarons_12_p18.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 374618,
+      "image_sha256": "9eddcfe6e046df88706b2e88633157eb6f3a04ae5ce8c82d38927d98ac96b21f",
+      "is_spread": false,
+      "ordinal": 328,
+      "page_id": "328_The_Metabarons_12_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/328_The_Metabarons_12_p19.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 386414,
+      "image_sha256": "56af5590907ca54e271ae686893a28c1293faa808fd23b8af1b363aef39e1947",
+      "is_spread": false,
+      "ordinal": 329,
+      "page_id": "329_The_Metabarons_12_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/329_The_Metabarons_12_p20.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 434419,
+      "image_sha256": "216551c4cb382ae4283abb755770e600edd3520a966c193d5d109f092868f745",
+      "is_spread": false,
+      "ordinal": 330,
+      "page_id": "330_The_Metabarons_12_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/330_The_Metabarons_12_p21.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 402390,
+      "image_sha256": "e6dc82c384e32fe6741154ff63aa301e6f7abd59b244e2fcb3ddc3cd8c5b7c5d",
+      "is_spread": false,
+      "ordinal": 331,
+      "page_id": "331_The_Metabarons_12_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/331_The_Metabarons_12_p22.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 368013,
+      "image_sha256": "0fee8eded977fc7393392a68cb0b099c5e6bbe3ed5d69549ec620e8b5d87e84c",
+      "is_spread": false,
+      "ordinal": 332,
+      "page_id": "332_The_Metabarons_12_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/332_The_Metabarons_12_p23.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 230255,
+      "image_sha256": "4442c5cbb815e679dae516000f07d381c134ac6286699f2c96b38e8e5c3588b8",
+      "is_spread": false,
+      "ordinal": 333,
+      "page_id": "333_The_Metabarons_12_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/333_The_Metabarons_12_p24.jpg",
+      "volume": 12
+    },
+    {
+      "byte_size": 370659,
+      "image_sha256": "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+      "is_spread": false,
+      "ordinal": 334,
+      "page_id": "334_The_Metabarons_13_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 802686,
+      "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+      "is_spread": true,
+      "ordinal": 335,
+      "page_id": "335_The_Metabarons_13_ic1-p01",
+      "page_label": "ic1-p01",
+      "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 407792,
+      "image_sha256": "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+      "is_spread": false,
+      "ordinal": 336,
+      "page_id": "336_The_Metabarons_13_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 427586,
+      "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+      "is_spread": false,
+      "ordinal": 337,
+      "page_id": "337_The_Metabarons_13_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 415813,
+      "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+      "is_spread": false,
+      "ordinal": 338,
+      "page_id": "338_The_Metabarons_13_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 432548,
+      "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+      "is_spread": false,
+      "ordinal": 339,
+      "page_id": "339_The_Metabarons_13_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 400364,
+      "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+      "is_spread": false,
+      "ordinal": 340,
+      "page_id": "340_The_Metabarons_13_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 413588,
+      "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+      "is_spread": false,
+      "ordinal": 341,
+      "page_id": "341_The_Metabarons_13_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 442377,
+      "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+      "is_spread": false,
+      "ordinal": 342,
+      "page_id": "342_The_Metabarons_13_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 457269,
+      "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+      "is_spread": false,
+      "ordinal": 343,
+      "page_id": "343_The_Metabarons_13_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 446457,
+      "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+      "is_spread": false,
+      "ordinal": 344,
+      "page_id": "344_The_Metabarons_13_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 394366,
+      "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+      "is_spread": false,
+      "ordinal": 345,
+      "page_id": "345_The_Metabarons_13_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 446587,
+      "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+      "is_spread": false,
+      "ordinal": 346,
+      "page_id": "346_The_Metabarons_13_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 418765,
+      "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+      "is_spread": false,
+      "ordinal": 347,
+      "page_id": "347_The_Metabarons_13_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 414382,
+      "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+      "is_spread": false,
+      "ordinal": 348,
+      "page_id": "348_The_Metabarons_13_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 366794,
+      "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+      "is_spread": false,
+      "ordinal": 349,
+      "page_id": "349_The_Metabarons_13_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 363816,
+      "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+      "is_spread": false,
+      "ordinal": 350,
+      "page_id": "350_The_Metabarons_13_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 384484,
+      "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+      "is_spread": false,
+      "ordinal": 351,
+      "page_id": "351_The_Metabarons_13_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 812055,
+      "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+      "is_spread": true,
+      "ordinal": 352,
+      "page_id": "352_The_Metabarons_13_p18-p19",
+      "page_label": "p18-p19",
+      "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 438049,
+      "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+      "is_spread": false,
+      "ordinal": 353,
+      "page_id": "353_The_Metabarons_13_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 410642,
+      "image_sha256": "f9f7e2e4525e562f315ee1995168df2420272a03f9080ccfbaceed251f7c743c",
+      "is_spread": false,
+      "ordinal": 354,
+      "page_id": "354_The_Metabarons_13_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/354_The_Metabarons_13_p21.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 399580,
+      "image_sha256": "a09444ca4b00277875be6ef3659f347f62fff9c50ae7d1b0963d2c386560b694",
+      "is_spread": false,
+      "ordinal": 355,
+      "page_id": "355_The_Metabarons_13_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/355_The_Metabarons_13_p22.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 452356,
+      "image_sha256": "6d56c7813f585cca26ff91e81ca3bfba55e7d638449c46adf0d060f3af0b4dcb",
+      "is_spread": false,
+      "ordinal": 356,
+      "page_id": "356_The_Metabarons_13_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/356_The_Metabarons_13_p23.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 872424,
+      "image_sha256": "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+      "is_spread": true,
+      "ordinal": 357,
+      "page_id": "357_The_Metabarons_13_p24-p25",
+      "page_label": "p24-p25",
+      "source_image": "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 413262,
+      "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+      "is_spread": false,
+      "ordinal": 358,
+      "page_id": "358_The_Metabarons_13_p26",
+      "page_label": "p26",
+      "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg",
+      "volume": 13
+    },
+    {
+      "byte_size": 426778,
+      "image_sha256": "1838595cf6adf5f0bf9b9e9bf1b200e825c13ceaf2206ed1eebfb8622371f0e9",
+      "is_spread": false,
+      "ordinal": 359,
+      "page_id": "359_The_Metabarons_14_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/359_The_Metabarons_14_c01.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 452062,
+      "image_sha256": "40975eaf7be8c2e310f42f49fc0db2984a9676228096c9b4b62d98482d9f40b0",
+      "is_spread": false,
+      "ordinal": 360,
+      "page_id": "360_The_Metabarons_14_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/360_The_Metabarons_14_ic1.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 444972,
+      "image_sha256": "8366499e03763617475bd6f348ba2740dd8ddd23861f353d8dda5b13ec802b6e",
+      "is_spread": false,
+      "ordinal": 361,
+      "page_id": "361_The_Metabarons_14_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/361_The_Metabarons_14_p01.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 527707,
+      "image_sha256": "2d899409fbbf33906450da65a5ef91fbb62f0b071e874405092171eca63e0789",
+      "is_spread": false,
+      "ordinal": 362,
+      "page_id": "362_The_Metabarons_14_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/362_The_Metabarons_14_p02.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 478527,
+      "image_sha256": "3824632f58c9c7873850d47c0c7e79c8c840446c550fbebd80aba87f1c5f67b4",
+      "is_spread": false,
+      "ordinal": 363,
+      "page_id": "363_The_Metabarons_14_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/363_The_Metabarons_14_p03.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 912949,
+      "image_sha256": "9969bccb5caed987696f17db62c2d7d5278732d8410a9ce4a7fb91c3a9a33143",
+      "is_spread": true,
+      "ordinal": 364,
+      "page_id": "364_The_Metabarons_14_p04-p05",
+      "page_label": "p04-p05",
+      "source_image": "external/comics/meta-barons/364_The_Metabarons_14_p04-p05.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 811811,
+      "image_sha256": "6de6e23d45999a203b6ba868afb422008d9a530e89eda399cc14844fd71b2186",
+      "is_spread": true,
+      "ordinal": 365,
+      "page_id": "365_The_Metabarons_14_p06-p07",
+      "page_label": "p06-p07",
+      "source_image": "external/comics/meta-barons/365_The_Metabarons_14_p06-p07.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 410057,
+      "image_sha256": "1492d282ea6a0a4b69cff06cab985e71fb7e0aed3ed03bd74e2ae4444bedda2d",
+      "is_spread": false,
+      "ordinal": 366,
+      "page_id": "366_The_Metabarons_14_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/366_The_Metabarons_14_p08.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 444359,
+      "image_sha256": "941fb4d276c876a4772ad9d17192ce0d5da08b4726477fb70f1ca7b3a51e1372",
+      "is_spread": false,
+      "ordinal": 367,
+      "page_id": "367_The_Metabarons_14_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/367_The_Metabarons_14_p09.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 408576,
+      "image_sha256": "354abae4acbb5410e9188da3f4fb412627da7967554ce1e4bafbee9a6b17fb04",
+      "is_spread": false,
+      "ordinal": 368,
+      "page_id": "368_The_Metabarons_14_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/368_The_Metabarons_14_p10.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 428372,
+      "image_sha256": "c54cfa459adb3404b1935bc716ae0bfaab79744d9704ee7c31aa8c2211c9b2ea",
+      "is_spread": false,
+      "ordinal": 369,
+      "page_id": "369_The_Metabarons_14_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/369_The_Metabarons_14_p11.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 424182,
+      "image_sha256": "b72f32e3cdec80fd0ce2191534699a40c2e59ed603f19207c4f0876d154e17e2",
+      "is_spread": false,
+      "ordinal": 370,
+      "page_id": "370_The_Metabarons_14_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/370_The_Metabarons_14_p12.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 398263,
+      "image_sha256": "7ac229687fbb0d0ae84d5c2df54e59e39ae626d8642fac14e6bad981fcddc82c",
+      "is_spread": false,
+      "ordinal": 371,
+      "page_id": "371_The_Metabarons_14_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/371_The_Metabarons_14_p13.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 500933,
+      "image_sha256": "a7f454089e958790c4bd1160d494eae83cdb8f2e77429ddcf51e202760b0d864",
+      "is_spread": false,
+      "ordinal": 372,
+      "page_id": "372_The_Metabarons_14_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/372_The_Metabarons_14_p14.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 480420,
+      "image_sha256": "44477e38730da40135c88b3c815c7484c02e2251fb85f2699a5b1e1d04f86777",
+      "is_spread": false,
+      "ordinal": 373,
+      "page_id": "373_The_Metabarons_14_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/373_The_Metabarons_14_p15.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 985732,
+      "image_sha256": "2e8876c81aec3b2388c003bb8a92cf883ab4ac840051f4e7095f495f6b8be095",
+      "is_spread": true,
+      "ordinal": 374,
+      "page_id": "374_The_Metabarons_14_p16-p17",
+      "page_label": "p16-p17",
+      "source_image": "external/comics/meta-barons/374_The_Metabarons_14_p16-p17.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 1014228,
+      "image_sha256": "c06f79e9145d05a96c84b184f8cb99e836fd68c1c7c11411a70bf91e48b4b4bc",
+      "is_spread": true,
+      "ordinal": 375,
+      "page_id": "375_The_Metabarons_14_p18-p19",
+      "page_label": "p18-p19",
+      "source_image": "external/comics/meta-barons/375_The_Metabarons_14_p18-p19.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 591123,
+      "image_sha256": "e6b0cc4812e137ed55f1052c596afab37fba705d9015d8036f17fdca558a40de",
+      "is_spread": false,
+      "ordinal": 376,
+      "page_id": "376_The_Metabarons_14_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/376_The_Metabarons_14_p20.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 465050,
+      "image_sha256": "3aba24a67b75115f1ac323582cd305cc7778393d8cbe423f44eec0db942dbf50",
+      "is_spread": false,
+      "ordinal": 377,
+      "page_id": "377_The_Metabarons_14_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/377_The_Metabarons_14_p21.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 527020,
+      "image_sha256": "e0758573d8feb2bec75fef2c10f58d3a9fbdcd2ffd00eaaf48ae454ed881e186",
+      "is_spread": false,
+      "ordinal": 378,
+      "page_id": "378_The_Metabarons_14_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/378_The_Metabarons_14_p22.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 445082,
+      "image_sha256": "47147b60e7312fd3202c4d924adc3e4d17a6f07c8a3369fb5d854fe578853166",
+      "is_spread": false,
+      "ordinal": 379,
+      "page_id": "379_The_Metabarons_14_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/379_The_Metabarons_14_p23.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 458184,
+      "image_sha256": "c2124212c16a3336a5d88d01561f467f55da5fbf1b0590eb88f0d3ce972f4b2b",
+      "is_spread": false,
+      "ordinal": 380,
+      "page_id": "380_The_Metabarons_14_p24",
+      "page_label": "p24",
+      "source_image": "external/comics/meta-barons/380_The_Metabarons_14_p24.jpg",
+      "volume": 14
+    },
+    {
+      "byte_size": 321476,
+      "image_sha256": "68e4cf819bf966a66036ae96c67048d2ce40569b94db9fd35ee4ca5b15df74c1",
+      "is_spread": false,
+      "ordinal": 381,
+      "page_id": "381_The_Metabarons_15_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/381_The_Metabarons_15_c01.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 422962,
+      "image_sha256": "cbc8af22958295de718c9b099f0cd7473161994b9c009ffabadd3ce18b542210",
+      "is_spread": false,
+      "ordinal": 382,
+      "page_id": "382_The_Metabarons_15_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/382_The_Metabarons_15_ic1.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 352819,
+      "image_sha256": "02f945844518ea741a6ae9b7976cbed103aa6b6878d6e2522111b25478dd1917",
+      "is_spread": false,
+      "ordinal": 383,
+      "page_id": "383_The_Metabarons_15_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/383_The_Metabarons_15_p01.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 359761,
+      "image_sha256": "938c8df3ce012f0b879e466215bffd67cb1055b7c3c60a97d70ff0728a828476",
+      "is_spread": false,
+      "ordinal": 384,
+      "page_id": "384_The_Metabarons_15_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/384_The_Metabarons_15_p02.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 339592,
+      "image_sha256": "ddc4d32ec8063313fba3f9ac6676ba6caffb3bef914cb95423ceee995cc43371",
+      "is_spread": false,
+      "ordinal": 385,
+      "page_id": "385_The_Metabarons_15_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/385_The_Metabarons_15_p03.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 309693,
+      "image_sha256": "fd61831bf4d2509e492ab652a6394655a791163548ab834492a04523a986ed8e",
+      "is_spread": false,
+      "ordinal": 386,
+      "page_id": "386_The_Metabarons_15_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/386_The_Metabarons_15_p04.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 333058,
+      "image_sha256": "7e8ef2cae41f43fe32276ed9ec9c7f4dac7efa50de78dfa297911bec69f92b3f",
+      "is_spread": false,
+      "ordinal": 387,
+      "page_id": "387_The_Metabarons_15_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/387_The_Metabarons_15_p05.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 361882,
+      "image_sha256": "92d7081202c29879b52999b53444f18f8440ca5f243dfa2dec0a74b63e8319e3",
+      "is_spread": false,
+      "ordinal": 388,
+      "page_id": "388_The_Metabarons_15_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/388_The_Metabarons_15_p06.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 351702,
+      "image_sha256": "729de4a5d981318f99f7e08cb2ee4d79c5b9f48f0fbb22602df5551c821c2691",
+      "is_spread": false,
+      "ordinal": 389,
+      "page_id": "389_The_Metabarons_15_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/389_The_Metabarons_15_p07.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 346279,
+      "image_sha256": "aa3e223800217805970438f1634d3da3397220dca3637407784c368b71b33877",
+      "is_spread": false,
+      "ordinal": 390,
+      "page_id": "390_The_Metabarons_15_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/390_The_Metabarons_15_p08.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 334219,
+      "image_sha256": "eb4806fc1bd04cf898289c6c31f80fec0a0cac6ebd02d6ee1657161d32f19b32",
+      "is_spread": false,
+      "ordinal": 391,
+      "page_id": "391_The_Metabarons_15_p09",
+      "page_label": "p09",
+      "source_image": "external/comics/meta-barons/391_The_Metabarons_15_p09.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 306762,
+      "image_sha256": "2245b4d2631018129b97929b02ce376d52199a7f3514804d7800b9969d8120a6",
+      "is_spread": false,
+      "ordinal": 392,
+      "page_id": "392_The_Metabarons_15_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/392_The_Metabarons_15_p10.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 340764,
+      "image_sha256": "eabab08662f447e2d0a9bad6f59cde92ff5a87efc6ff555d4491887b9f512d2c",
+      "is_spread": false,
+      "ordinal": 393,
+      "page_id": "393_The_Metabarons_15_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/393_The_Metabarons_15_p11.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 326923,
+      "image_sha256": "3002247210f94d75b2cb4040154b1a803e9f923e776990bb7b2cd7510230428b",
+      "is_spread": false,
+      "ordinal": 394,
+      "page_id": "394_The_Metabarons_15_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/394_The_Metabarons_15_p12.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 339662,
+      "image_sha256": "c74fee2c6f3bb1510ba9536c3853e30cd6d8fb3ea178599a916e432e878f9ada",
+      "is_spread": false,
+      "ordinal": 395,
+      "page_id": "395_The_Metabarons_15_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/395_The_Metabarons_15_p13.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 309450,
+      "image_sha256": "767be642c85e77de53a61dc2a5a2ee5c43e06b7cd955b4e04c5483e540d675f6",
+      "is_spread": false,
+      "ordinal": 396,
+      "page_id": "396_The_Metabarons_15_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/396_The_Metabarons_15_p14.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 310277,
+      "image_sha256": "c27d9a1973cf67e62b046150a937049c225b0577e39ddd0f893bf7608134c902",
+      "is_spread": false,
+      "ordinal": 397,
+      "page_id": "397_The_Metabarons_15_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/397_The_Metabarons_15_p15.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 307757,
+      "image_sha256": "896955c35f532d10efbc19a617e7b8b4dbfe329b8b17d2392008eaf26fa4e8b9",
+      "is_spread": false,
+      "ordinal": 398,
+      "page_id": "398_The_Metabarons_15_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/398_The_Metabarons_15_p16.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 335706,
+      "image_sha256": "d551fe07341bb84315632ca5765929e92dc28a73c246deacafa79c94f83c4cf6",
+      "is_spread": false,
+      "ordinal": 399,
+      "page_id": "399_The_Metabarons_15_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/399_The_Metabarons_15_p17.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 324541,
+      "image_sha256": "d6f6f58c00c03d74f2e9c7b0e1ecf79534e1b523768491ced6036e41e0691e60",
+      "is_spread": false,
+      "ordinal": 400,
+      "page_id": "400_The_Metabarons_15_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/400_The_Metabarons_15_p18.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 310650,
+      "image_sha256": "934a406821184843a7f6160539d7eb343886d8b74add0cfd9bfed4b8aaf5d2f1",
+      "is_spread": false,
+      "ordinal": 401,
+      "page_id": "401_The_Metabarons_15_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/401_The_Metabarons_15_p19.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 652988,
+      "image_sha256": "a4437ecb72ca9e9b813feb0d67b3323a5005fd1920fbb664550a05d59f561563",
+      "is_spread": true,
+      "ordinal": 402,
+      "page_id": "402_The_Metabarons_15_p20-p21",
+      "page_label": "p20-p21",
+      "source_image": "external/comics/meta-barons/402_The_Metabarons_15_p20-p21.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 366037,
+      "image_sha256": "7c80f557607ad005b8b17815b0b8d06c9808d444ed77d3c8db144e956ff02500",
+      "is_spread": false,
+      "ordinal": 403,
+      "page_id": "403_The_Metabarons_15_p22",
+      "page_label": "p22",
+      "source_image": "external/comics/meta-barons/403_The_Metabarons_15_p22.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 406460,
+      "image_sha256": "b0fb22a2e88c2140189f14bd755b29624956218cc954a0367392b95bcd6037f6",
+      "is_spread": false,
+      "ordinal": 404,
+      "page_id": "404_The_Metabarons_15_p23",
+      "page_label": "p23",
+      "source_image": "external/comics/meta-barons/404_The_Metabarons_15_p23.jpg",
+      "volume": 15
+    },
+    {
+      "byte_size": 394468,
+      "image_sha256": "2f206585595271b9c372128c0100b096285962a53b29d82019c557f916837cef",
+      "is_spread": false,
+      "ordinal": 405,
+      "page_id": "405_The_Metabarons_16_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/405_The_Metabarons_16_c01.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 418478,
+      "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+      "is_spread": false,
+      "ordinal": 406,
+      "page_id": "406_The_Metabarons_16_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 358872,
+      "image_sha256": "eebbcae5d60bb007187687b690827359b8fe10310b3b41c4411a30875349bed3",
+      "is_spread": false,
+      "ordinal": 407,
+      "page_id": "407_The_Metabarons_16_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/407_The_Metabarons_16_p01.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 338108,
+      "image_sha256": "5e4e60effcec6619717e676f45767bc390a6ce60615541beb31863a44364490d",
+      "is_spread": false,
+      "ordinal": 408,
+      "page_id": "408_The_Metabarons_16_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/408_The_Metabarons_16_p02.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 405187,
+      "image_sha256": "177a9aa081517f30efdec7d016ac3c38d5aa55c6742b3dd708534d643eb56b6c",
+      "is_spread": false,
+      "ordinal": 409,
+      "page_id": "409_The_Metabarons_16_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/409_The_Metabarons_16_p03.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 382473,
+      "image_sha256": "24168c6dafa500f9e3023f408f0e0173dae2acbe758fc11158af3ca9060f558a",
+      "is_spread": false,
+      "ordinal": 410,
+      "page_id": "410_The_Metabarons_16_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/410_The_Metabarons_16_p04.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 361634,
+      "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+      "is_spread": false,
+      "ordinal": 411,
+      "page_id": "411_The_Metabarons_16_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 405939,
+      "image_sha256": "a3547ce523e62cbfe9bf70b81d1b841ead1095e0549b8c550ae6782563c6cc4f",
+      "is_spread": false,
+      "ordinal": 412,
+      "page_id": "412_The_Metabarons_16_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/412_The_Metabarons_16_p06.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 393842,
+      "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+      "is_spread": false,
+      "ordinal": 413,
+      "page_id": "413_The_Metabarons_16_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 417751,
+      "image_sha256": "dea1fe3998ceda1b7813fc32a7f0f6f9e774d95d3f24f8908d2eafd6213f8c6f",
+      "is_spread": false,
+      "ordinal": 414,
+      "page_id": "414_The_Metabarons_16_p08",
+      "page_label": "p08",
+      "source_image": "external/comics/meta-barons/414_The_Metabarons_16_p08.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 685084,
+      "image_sha256": "3b334f37bac317c53d25dca5fe4b63fa9f6aa0151271d8e07c4d75d2bc8cbb1a",
+      "is_spread": true,
+      "ordinal": 415,
+      "page_id": "415_The_Metabarons_16_p09-p10",
+      "page_label": "p09-p10",
+      "source_image": "external/comics/meta-barons/415_The_Metabarons_16_p09-p10.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 326011,
+      "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+      "is_spread": false,
+      "ordinal": 416,
+      "page_id": "416_The_Metabarons_16_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 395845,
+      "image_sha256": "a316c046fc3581f6223ea1a91f6cf4765173b9105bf9b6d2dcec3cbd7425b6ad",
+      "is_spread": false,
+      "ordinal": 417,
+      "page_id": "417_The_Metabarons_16_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/417_The_Metabarons_16_p12.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 524250,
+      "image_sha256": "dbc696e2935b1be881dfd43085f52b1b8ab39cc6d68844d17128fd6b353f4301",
+      "is_spread": true,
+      "ordinal": 418,
+      "page_id": "418_The_Metabarons_16_p13-p14",
+      "page_label": "p13-p14",
+      "source_image": "external/comics/meta-barons/418_The_Metabarons_16_p13-p14.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 404212,
+      "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+      "is_spread": false,
+      "ordinal": 419,
+      "page_id": "419_The_Metabarons_16_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 413105,
+      "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+      "is_spread": false,
+      "ordinal": 420,
+      "page_id": "420_The_Metabarons_16_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 404731,
+      "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+      "is_spread": false,
+      "ordinal": 421,
+      "page_id": "421_The_Metabarons_16_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 407566,
+      "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+      "is_spread": false,
+      "ordinal": 422,
+      "page_id": "422_The_Metabarons_16_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 341628,
+      "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+      "is_spread": false,
+      "ordinal": 423,
+      "page_id": "423_The_Metabarons_16_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 367411,
+      "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+      "is_spread": false,
+      "ordinal": 424,
+      "page_id": "424_The_Metabarons_16_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 390717,
+      "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+      "is_spread": false,
+      "ordinal": 425,
+      "page_id": "425_The_Metabarons_16_p21",
+      "page_label": "p21",
+      "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg",
+      "volume": 16
+    },
+    {
+      "byte_size": 426059,
+      "image_sha256": "06c1b76db9a52593cd88987b1326b6864868ac604faa2e64eaaf04fdba9b381f",
+      "is_spread": false,
+      "ordinal": 426,
+      "page_id": "426_The_Metabarons_17_c01",
+      "page_label": "c01",
+      "source_image": "external/comics/meta-barons/426_The_Metabarons_17_c01.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 413860,
+      "image_sha256": "ab213d412d78528faea322cea0ed0091f18434ecdb75443e63951bc341ad3868",
+      "is_spread": false,
+      "ordinal": 427,
+      "page_id": "427_The_Metabarons_17_ic1",
+      "page_label": "ic1",
+      "source_image": "external/comics/meta-barons/427_The_Metabarons_17_ic1.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 396007,
+      "image_sha256": "ac7dc32b10daed177972ea18dd5dd0e78048e331a964c0da5d11206b30139354",
+      "is_spread": false,
+      "ordinal": 428,
+      "page_id": "428_The_Metabarons_17_p01",
+      "page_label": "p01",
+      "source_image": "external/comics/meta-barons/428_The_Metabarons_17_p01.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 379927,
+      "image_sha256": "e50937f72b1bb546162137e212f269e4a81f69e7a4d804d21193c202dd42fdb7",
+      "is_spread": false,
+      "ordinal": 429,
+      "page_id": "429_The_Metabarons_17_p02",
+      "page_label": "p02",
+      "source_image": "external/comics/meta-barons/429_The_Metabarons_17_p02.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 360615,
+      "image_sha256": "09b94b5053e0c3f29fddff9856f82c5a3409d15c9cdb437b65bb8b83c2d9f15d",
+      "is_spread": false,
+      "ordinal": 430,
+      "page_id": "430_The_Metabarons_17_p03",
+      "page_label": "p03",
+      "source_image": "external/comics/meta-barons/430_The_Metabarons_17_p03.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 357797,
+      "image_sha256": "8ac73aadc5ebfd0d1718106b06e7071d0fc77fba27bda056aff35bab56641c9b",
+      "is_spread": false,
+      "ordinal": 431,
+      "page_id": "431_The_Metabarons_17_p04",
+      "page_label": "p04",
+      "source_image": "external/comics/meta-barons/431_The_Metabarons_17_p04.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 365010,
+      "image_sha256": "fc9d5acc9bdbaed6955cc2b05551f26267db92605456c72c2e3bc166455ff705",
+      "is_spread": false,
+      "ordinal": 432,
+      "page_id": "432_The_Metabarons_17_p05",
+      "page_label": "p05",
+      "source_image": "external/comics/meta-barons/432_The_Metabarons_17_p05.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 383215,
+      "image_sha256": "2480eddfb7410be87ee1fc041b1914b4b67dc9720db783bddca250bf0f58241b",
+      "is_spread": false,
+      "ordinal": 433,
+      "page_id": "433_The_Metabarons_17_p06",
+      "page_label": "p06",
+      "source_image": "external/comics/meta-barons/433_The_Metabarons_17_p06.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 369070,
+      "image_sha256": "fe28d24bad9881eac381089acf1ae76b38f0dbbaf0123511a7e5fa452a46e3cc",
+      "is_spread": false,
+      "ordinal": 434,
+      "page_id": "434_The_Metabarons_17_p07",
+      "page_label": "p07",
+      "source_image": "external/comics/meta-barons/434_The_Metabarons_17_p07.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 797035,
+      "image_sha256": "b11c22bfa6bf1018280cb6d7aa690f91954bd4dd96b310cee579a6b25142e7de",
+      "is_spread": true,
+      "ordinal": 435,
+      "page_id": "435_The_Metabarons_17_p08-p09",
+      "page_label": "p08-p09",
+      "source_image": "external/comics/meta-barons/435_The_Metabarons_17_p08-p09.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 330063,
+      "image_sha256": "5ad6fe06912e2ccd3cf640ae858c47ad0ed8b82f0f8d98388635a03ec1f01c67",
+      "is_spread": false,
+      "ordinal": 436,
+      "page_id": "436_The_Metabarons_17_p10",
+      "page_label": "p10",
+      "source_image": "external/comics/meta-barons/436_The_Metabarons_17_p10.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 349943,
+      "image_sha256": "1ece6e8a2a0c38200a595fc8eba7162b2aaf8dd0cb8c357e0a22a05573838ae5",
+      "is_spread": false,
+      "ordinal": 437,
+      "page_id": "437_The_Metabarons_17_p11",
+      "page_label": "p11",
+      "source_image": "external/comics/meta-barons/437_The_Metabarons_17_p11.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 368570,
+      "image_sha256": "d71de20e53da7cdec3e6d981259e38d3fb081f707a62cb48af73bb4f5ce0ab50",
+      "is_spread": false,
+      "ordinal": 438,
+      "page_id": "438_The_Metabarons_17_p12",
+      "page_label": "p12",
+      "source_image": "external/comics/meta-barons/438_The_Metabarons_17_p12.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 347334,
+      "image_sha256": "07fb3137106cf866f7aab42b0e13d2e3b610891fe249acb56ff22bd7845fab61",
+      "is_spread": false,
+      "ordinal": 439,
+      "page_id": "439_The_Metabarons_17_p13",
+      "page_label": "p13",
+      "source_image": "external/comics/meta-barons/439_The_Metabarons_17_p13.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 316281,
+      "image_sha256": "219d5a081b1ba6799818867c09c3a8ca6df42529fbf502c16db6a4c54250b924",
+      "is_spread": false,
+      "ordinal": 440,
+      "page_id": "440_The_Metabarons_17_p14",
+      "page_label": "p14",
+      "source_image": "external/comics/meta-barons/440_The_Metabarons_17_p14.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 400854,
+      "image_sha256": "f5ba77f8cc0056c5bf4164d959eb0be9be15d7059e3ea3f1bcac56b8c6dc0d2f",
+      "is_spread": false,
+      "ordinal": 441,
+      "page_id": "441_The_Metabarons_17_p15",
+      "page_label": "p15",
+      "source_image": "external/comics/meta-barons/441_The_Metabarons_17_p15.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 359587,
+      "image_sha256": "5f65af1ea0e15772bbcb4c40306ca02fd9832577020957f7d00dcb7c5b8c84b3",
+      "is_spread": false,
+      "ordinal": 442,
+      "page_id": "442_The_Metabarons_17_p16",
+      "page_label": "p16",
+      "source_image": "external/comics/meta-barons/442_The_Metabarons_17_p16.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 395902,
+      "image_sha256": "7ee956d436e24566df00fff47e237d5ff187a3199983d6a9d79682f004a42b3c",
+      "is_spread": false,
+      "ordinal": 443,
+      "page_id": "443_The_Metabarons_17_p17",
+      "page_label": "p17",
+      "source_image": "external/comics/meta-barons/443_The_Metabarons_17_p17.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 385869,
+      "image_sha256": "5e8fd231bef2ee18e9f09d5ed438896772d5f3679ca53d4147994045ea875960",
+      "is_spread": false,
+      "ordinal": 444,
+      "page_id": "444_The_Metabarons_17_p18",
+      "page_label": "p18",
+      "source_image": "external/comics/meta-barons/444_The_Metabarons_17_p18.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 316299,
+      "image_sha256": "fa222591661b951a94c55901cea2a8ab1639107dc7a3c26718c5fd2a2a8747ad",
+      "is_spread": false,
+      "ordinal": 445,
+      "page_id": "445_The_Metabarons_17_p19",
+      "page_label": "p19",
+      "source_image": "external/comics/meta-barons/445_The_Metabarons_17_p19.jpg",
+      "volume": 17
+    },
+    {
+      "byte_size": 354672,
+      "image_sha256": "8a33456cc2185c9b90784444e2237408da548f4eab1c44a431464a953719741e",
+      "is_spread": false,
+      "ordinal": 446,
+      "page_id": "446_The_Metabarons_17_p20",
+      "page_label": "p20",
+      "source_image": "external/comics/meta-barons/446_The_Metabarons_17_p20.jpg",
+      "volume": 17
+    }
+  ],
+  "image_dir": "external/comics/meta-barons",
+  "page_count": 446
+}

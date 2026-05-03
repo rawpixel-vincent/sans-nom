@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The armored messenger has direct knowledge of the completed mission and the asteroid access mechanism.",
+    "The reverend mothers are authority figures or ritual leaders overseeing the event.",
+    "The eldest elder is portrayed as physically frail or obscured but socially powerful, speaking with authority about heredity.",
+    "Princess Oda is a princess and is singled out as central to the breeding or lineage plan.",
+    "Oda appears alarmed or distressed when the elder addresses and touches her."
+  ],
+  "characters_present": [
+    "Armored messenger or soldier",
+    "Reverend mothers / robed priestesses",
+    "Eldest of elders / senior elder figure",
+    "Princess Oda",
+    "Additional attendants or witnesses"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page follows a completed off-page mission whose result is now being reported.",
+    "The mention of the asteroid access switch points to a continuing plot involving restricted entry to an asteroid.",
+    "The focus on Oda’s womb establishes or advances a longer breeding-line storyline tied to an awaited future figure."
+  ],
+  "dialogue_meaning": [
+    "The report confirms success and delivers strategic intelligence about how access to an asteroid is opened and closed.",
+    "The religious women treat the elder figure with reverence and gratitude, framing recent events as part of a larger plan or prophecy.",
+    "The elder presents herself or himself as understanding hereditary or genetic destiny.",
+    "Oda is told that her reproductive line is crucial because she will bear the person they have been awaiting for many generations."
+  ],
+  "image_sha256": "4948773e05beebb2701e8531964fb7390421e657aced098b089d087ef562cc50",
+  "is_spread": false,
+  "locations": [
+    "A large ceremonial hall or chamber with balconies/platforms",
+    "A raised platform or dais before assembled religious figures"
+  ],
+  "lore_facts": [
+    "A 'delta-psychic force switch' is said to open and close entry to an asteroid.",
+    "There is an organized group called the reverend mothers who receive mission reports and act ceremonially.",
+    "There is an 'eldest of elders' with high status among these figures.",
+    "The page links lineage and reproduction to a concept of genetic pathways.",
+    "A prophecy, plan, or long-term expectation has lasted for twelve generations.",
+    "Princess Oda is identified as the woman through whom the awaited birth will occur."
+  ],
+  "page_id": "192_The_Metabarons_7_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "An armored messenger reports that the mission has been completed to the reverend mothers.",
+    "The messenger also relays information about a special force-switch that controls entry to an asteroid.",
+    "A senior elder is publicly thanked and praised by the reverend mothers.",
+    "The elder claims knowledge of genetic pathways and their outcome.",
+    "The elder identifies Princess Oda as the bodily line through which those pathways continue.",
+    "Oda is physically approached and touched as the elder declares that her womb will generate the awaited offspring."
+  ],
+  "source_image": "external/comics/meta-barons/192_The_Metabarons_7_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4948773e05beebb2701e8531964fb7390421e657aced098b089d087ef562cc50",
+      "page_id": "192_The_Metabarons_7_p15",
+      "source_image": "external/comics/meta-barons/192_The_Metabarons_7_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some names and terms are read from small speech balloons and could be slightly off, though 'Princess Oda' and the asteroid access device are fairly legible.",
+    "The exact identity of the armored messenger is not stated on this page.",
+    "The exact nature of the awaited figure is not explained beyond being anticipated for twelve generations."
+  ],
+  "visual_summary": "In a ceremonial interior filled with robed onlookers, an armored figure reports successful completion of a mission to a group of reverend mothers. The scene shifts to a dark, many-veiled elder figure being honored by the women, then addressing a young noblewoman named Oda. The elder reaches toward Oda’s body while attendants look on, declaring that her womb will produce a long-awaited person.",
+  "volume": 7
+}

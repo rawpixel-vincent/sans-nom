@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Aghnar is described as colder than a Venusian salmon's blood.",
+    "Aghnar is connected to his craft's control mechanism through his groin, echoing his father before him.",
+    "Aghnar removes his helmet to prepare the craft's weapons.",
+    "Oda-Honorada insists on riding with Aghnar.",
+    "Oda-Honorada explicitly frames the killing of Aghnar's father as the fulfillment of Metabaron tradition.",
+    "The robot speaker is rigidly logical and comments on the limits of robotic reasoning about humans."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Oda-Honorada",
+    "A floating robot narrator/speaker"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page explicitly links Aghnar's actions and piloting method to his father and forefathers.",
+    "The impending duel is framed as father-versus-son and as a rite within the Metabaron lineage.",
+    "The final shot of opposing metacraft sets up the next stage of the confrontation."
+  ],
+  "dialogue_meaning": [
+    "The robotic speaker contrasts machine logic with human psychology and frames the episode as an example of victory through apparent loss.",
+    "The narration presents Aghnar as emotionally cold, heir to a paternal lineage, and deeply integrated with his vehicle's controls.",
+    "Oda-Honorada encourages or legitimizes patricide as part of Metabaron custom and wants to witness Aghnar's triumph."
+  ],
+  "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+  "is_spread": false,
+  "locations": [
+    "Inside a metacraft cockpit packed with cables, tubes, and weapon/control systems",
+    "Outer space, where two metacraft face each other"
+  ],
+  "lore_facts": [
+    "The Metabarons have a legendary tradition that a son is not fully recognized until he proves himself mightier than his father.",
+    "Aghnar is presented as belonging to a paternal lineage and following his father's example.",
+    "Metacraft can be piloted through intimate bodily or neural linkage rather than only conventional manual controls.",
+    "These craft carry highly sensitive and deadly weapon systems.",
+    "Oda-Honorada accompanies Aghnar into battle rather than remaining elsewhere."
+  ],
+  "page_id": "256_The_Metabarons_10_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A robot or robotic speaker argues that rigid logic cannot understand the chaos of the human psyche and says it will explain how one can win by losing.",
+    "The narration introduces Aghnar, linked to an ancestral line and physically connected to a control stick in his craft.",
+    "Aghnar removes his helmet and prepares an ultra-sensitive network of deadly weapons associated with his head or neural interface.",
+    "Oda-Honorada is present with him inside the craft and has insisted on accompanying him.",
+    "Oda-Honorada tells him that killing his father will fulfill a legendary Metabaron tradition in which a son proves himself stronger than his father.",
+    "The page ends with two metacraft taking up their positions for an imminent confrontation."
+  ],
+  "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+      "page_id": "256_The_Metabarons_10_p05",
+      "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several narration boxes are small and partially difficult to read, so wording-dependent details may be imperfectly captured.",
+    "The exact spelling of some names and terms, especially Aghnar and Oda-Honorada, could be slightly off due to image resolution.",
+    "The precise wording about the weapons being 'of deadly weapons that made up his head' is hard to read and may indicate a more specific biomechanical detail than summarized here."
+  ],
+  "visual_summary": "A heavily illustrated sci-fi page intercuts narration with close views of a warrior seated inside a dense biomechanical spacecraft cockpit, a woman in similar gear beside him, a hovering robot speaking, and a final wide shot of two elaborate spiked metacraft facing each other in space. The page frames a coming duel as both tactical and deeply familial.",
+  "volume": 10
+}

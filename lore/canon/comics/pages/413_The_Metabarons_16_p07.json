@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The armored protagonist is resourceful and plans to use enemy tools against the enemy.",
+    "The protagonist identifies themselves or their authority through the title Metabaron.",
+    "The protagonist is concerned with keeping a psycho-mimetic aura active.",
+    "Deyanira is physically large, many-limbed, and nonhuman in appearance on this page."
+  ],
+  "characters_present": [
+    "An armored Metabaron-like figure in a space suit",
+    "Deyanira, a large spider-like or biomechanical creature",
+    "Unseen Imperial/Empire personnel implied by the ships"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing escape or infiltration involving a mirror barrier.",
+    "The relationship between the protagonist and Deyanira appears pre-established, since the speaker addresses Deyanira directly and makes a promise to return.",
+    "The imperial ships and stealthy movement suggest an ongoing larger battle or covert maneuver."
+  ],
+  "dialogue_meaning": [
+    "The protagonist decides to turn the enemy's own capabilities against them to cross a mirror barrier.",
+    "The protagonist tries to calm Deyanira and gives a solemn promise to return.",
+    "A narration box indicates someone slips unseen between imperial ships.",
+    "The protagonist internally wonders whether a psycho-mimetic aura still works while passing through the bright fractured field."
+  ],
+  "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+  "is_spread": false,
+  "locations": [
+    "Outer space near or between ships",
+    "A battlefield around imperial ships",
+    "A mirror-like barrier or reflective fractured field"
+  ],
+  "lore_facts": [
+    "A 'mirror' exists as a real obstacle or boundary that can apparently be broken through.",
+    "A Metabaron's sworn word is treated as significant enough to invoke explicitly.",
+    "A psycho-mimetic aura is a functioning ability or protective effect important to stealth or survival.",
+    "Imperial ships are present and vulnerable to violent destruction in this conflict.",
+    "Deyanira is associated with the protagonist and can howl or vocalize."
+  ],
+  "page_id": "413_The_Metabarons_16_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "The main armored character resolves to fight the enemy using the enemy's own weapons or methods.",
+    "The character says they want to break through a mirror.",
+    "A large spider-like being identified in dialogue as Deyanira is addressed and told to stop howling.",
+    "The speaker promises Deyanira they will return, invoking their word as a Metabaron.",
+    "An imperial ship is damaged or destroyed in a fiery explosion.",
+    "A figure moves through open space near the wreckage and toward a bright mirror-like fractured barrier.",
+    "The character relies on a psycho-mimetic aura and hopes it is still active."
+  ],
+  "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+      "page_id": "413_The_Metabarons_16_p07",
+      "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some text is small and partially difficult to read, especially the narration box about slipping between imperial ships.",
+    "It is visually unclear whether Deyanira is inside a vessel, behind glass, or simply framed against a reflective surface.",
+    "The exact identity of the armored protagonist is not stated on the page beyond being a Metabaron.",
+    "The precise nature of the mirror and psycho-mimetic aura is not explained on this page alone."
+  ],
+  "visual_summary": "An armored figure in space or near a ship hull decides to use the enemy's own means to break through a mirror-like barrier. A large spider-like creature or biomechanical being is nearby, howling, while the armored figure vows to return. In parallel, imperial ships explode amid heavy debris and fire. The final wide panel shows the suited figure passing through or within a bright shattered mirror-field effect while hoping a psycho-mimetic aura is still functioning.",
+  "volume": 16
+}

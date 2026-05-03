@@ -1,0 +1,50 @@
+{
+  "character_facts": [
+    "The armored speaker has at least one close emotional bond, referring to certain beings as their only friends.",
+    "Dona Vicenta is important enough to be named and visually highlighted in the next-episode teaser."
+  ],
+  "characters_present": [
+    "An armored spacecraft pilot or passenger",
+    "Small portrait of Dona Vicenta in the episode teaser"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an ending beat and direct bridge into the next episode focused on Dona Vicenta."
+  ],
+  "dialogue_meaning": [
+    "The speaker is making a final or emotional farewell to companions they identify as their only friends."
+  ],
+  "image_sha256": "4442c5cbb815e679dae516000f07d381c134ac6286699f2c96b38e8e5c3588b8",
+  "is_spread": false,
+  "locations": [
+    "Interior of a spacecraft cockpit",
+    "Outer space or a luminous transit corridor/energy field"
+  ],
+  "lore_facts": [
+    "Space travel on this page is depicted as movement through a bright, possibly nonstandard transit path or energy corridor.",
+    "The story explicitly sets up a following chapter or episode titled 'The Torment of Dona Vicenta.'"
+  ],
+  "page_id": "333_The_Metabarons_12_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "An armored character inside a spacecraft says goodbye to their 'only friends.'",
+    "A small angular ship travels through a luminous corridor or energy stream.",
+    "The ship enters or is consumed by a bright flare or transition effect.",
+    "The page ends with a teaser caption for the next episode, 'The Torment of Dona Vicenta.'"
+  ],
+  "source_image": "external/comics/meta-barons/333_The_Metabarons_12_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4442c5cbb815e679dae516000f07d381c134ac6286699f2c96b38e8e5c3588b8",
+      "page_id": "333_The_Metabarons_12_p24",
+      "source_image": "external/comics/meta-barons/333_The_Metabarons_12_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the armored character is not given on this page alone.",
+    "The exact nature of the bright corridor or flash (warp travel, portal, explosion, or other phenomenon) is not explicitly identified on the page.",
+    "The teaser portrait is presumed to depict Dona Vicenta because it accompanies her name, but the image itself is not labeled."
+  ],
+  "visual_summary": "A heavily armored figure sits inside a dark spacecraft cockpit and delivers a farewell. The following panels show a sharp, triangular ship moving through bright curved bands or a tunnel-like field, then being engulfed in an intense burst of light until it vanishes into a distant point. At the bottom, a caption announces the next episode, 'The Torment of Dona Vicenta,' alongside a small portrait.",
+  "volume": 12
+}

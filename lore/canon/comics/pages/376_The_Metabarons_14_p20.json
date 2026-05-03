@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "The people shown are being displaced or evacuated rather than living normally.",
+    "The crowd maintains order and near-silence during the departure.",
+    "At least some individuals are involved in honoring or burying their dead during the evacuation."
+  ],
+  "characters_present": [
+    "Unidentified bundled/helmeted evacuees or workers",
+    "Large crowds of colonists or residents",
+    "Armored personnel involved in burial and evacuation"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts consequences on Philoendra and a transition from habitation to evacuation.",
+    "The exodus and burial imagery suggest continuation of a larger conflict, collapse, or colonization process already underway."
+  ],
+  "dialogue_meaning": [
+    "Narration explains a burial custom tied to exile from an alien world: a small amount of Philoendra's soil will remain with the dead.",
+    "Narration emphasizes that the exodus happens in shocked, disciplined silence.",
+    "Narration states that after the population leaves, industrial exploitation will turn Philoendra's surface into wasteland."
+  ],
+  "image_sha256": "e6b0cc4812e137ed55f1052c596afab37fba705d9015d8036f17fdca558a40de",
+  "is_spread": false,
+  "locations": [
+    "Snow-covered alien settlement or industrial zone on Philoendra",
+    "Burial area or makeshift gravesite",
+    "Mass embarkation/exodus site with huge structures and transport craft"
+  ],
+  "lore_facts": [
+    "The world shown is named Philoendra.",
+    "People associated with Philoendra are living on an alien land.",
+    "There is a funerary practice of burying the dead with some soil from Philoendra.",
+    "A large-scale, organized planetary exodus takes place from this location.",
+    "After the exodus, industrial activity is expected to devastate Philoendra's surface.",
+    "The narration names 'Troglosocialiks' as a group driven away or displaced by the massive operation."
+  ],
+  "page_id": "376_The_Metabarons_14_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "A bundled armored figure walks through a devastated, snow-covered area filled with crowds and debris.",
+    "A burial or memorial act is performed for the dead of an alien land.",
+    "Narration states that a little of Philoendra's earth will accompany the departing people when they are buried there.",
+    "A planetary exodus begins in silent, orderly fashion.",
+    "Large numbers of people assemble and move through an industrial embarkation zone with vehicles and supplies.",
+    "Ships depart overhead as the evacuation proceeds.",
+    "Narration says the departure leaves Philoendra to be transformed into wasteland by industrial forces."
+  ],
+  "source_image": "external/comics/meta-barons/376_The_Metabarons_14_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e6b0cc4812e137ed55f1052c596afab37fba705d9015d8036f17fdca558a40de",
+      "page_id": "376_The_Metabarons_14_p20",
+      "source_image": "external/comics/meta-barons/376_The_Metabarons_14_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration is difficult to read precisely; terms such as 'Troglosocialiks' and the exact wording about industrial predators may be imperfectly transcribed.",
+    "The specific identities, ranks, and affiliations of the armored figures are not given on this page alone.",
+    "It is unclear whether the small object being held in the mid-page panel is remains, soil, or another burial-related item."
+  ],
+  "visual_summary": "In a snowy industrial landscape, armored workers or soldiers move through crowds, carry out burials, and prepare a mass departure. Small top panels show a figure walking past wreckage and crowds, kneeling over a body or grave marker, and carrying belongings. A larger panel shows one helmeted figure presenting a small object or remains to another amid a packed group. The main lower panel depicts immense structures, heavy vehicles, and long lines of people and cargo moving toward embarkation while ships lift off overhead.",
+  "volume": 14
+}

@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghora is the father of the newborn and has authority to define the child's identity.",
+    "Aghora presents the child in ideological terms, prioritizing destiny and office over individuality.",
+    "The infant son is visually shown as bald, wide-eyed, and cradled by Aghora in close-up.",
+    "The infant is suspended or displayed in a transparent pod in the ceremonial overview panel.",
+    "The meta-narrating speaker has a humorous, intrusive tone and appears separate from the main scene.",
+    "The speaker seems not to be in their own body when addressing Master Lothar, though the exact circumstance is not explained on this page."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Aghora's infant son / 'No-Name'",
+    "Ceremonial or medical attendants",
+    "Armed guards or soldiers",
+    "Multiple robots or mechanical attendants",
+    "A meta-narrating speaker addressing the reader",
+    "Master Lothar (mentioned, not clearly shown on page)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page functions as a chapter or episode break and explicitly says the story will continue in the next episode of The Metabarons.",
+    "It establishes 'No-Name' as the child whose later training and facial scar will matter in subsequent pages."
+  ],
+  "dialogue_meaning": [
+    "A formal functionary asks for the newborn's name for official registration.",
+    "Aghora declares that the child is meant to become the perfect warrior and supreme technopope, so he will not have a personal name.",
+    "A narrator comically stops the story at a dramatic moment and defers the rest to the next installment.",
+    "A final aside asks for a body to be returned to 'Master Lothar,' implying the speaker is temporarily inhabiting another form."
+  ],
+  "image_sha256": "8a33456cc2185c9b90784444e2237408da548f4eab1c44a431464a953719741e",
+  "is_spread": false,
+  "locations": [
+    "A large golden ceremonial or technological chamber",
+    "A platform or dais containing a transparent pod with the infant",
+    "Exterior view of a massive white pyramid-like building under a dark sky"
+  ],
+  "lore_facts": [
+    "Aghora has a son.",
+    "The newborn is being formally presented or registered in a highly technological setting.",
+    "The child is expected to become both a perfect warrior and a technopope.",
+    "Aghora explicitly states that the child's role is more important than his individual identity.",
+    "The child is therefore given no personal name and is referred to as 'No-Name' by the page's narration.",
+    "Future backstory is flagged concerning harsh training and a scar on the child's right eyebrow.",
+    "'Master Lothar' exists in the story and is connected to the speaker's body-related remark."
+  ],
+  "page_id": "446_The_Metabarons_17_p20",
+  "page_label": "p20",
+  "plot_events": [
+    "Officials or attendants ask Aghora for his son's name so it can be recorded.",
+    "Aghora refuses to give the child an individual name and states that the boy's future role outweighs personal identity.",
+    "The child is identified instead by function and is effectively designated as having no name.",
+    "The narration abruptly shifts into a humorous interruption announcing a break until the next episode.",
+    "The teaser text promises later information about No-Name's training, pain, and the origin of a scar on his right eyebrow."
+  ],
+  "source_image": "external/comics/meta-barons/446_The_Metabarons_17_p20.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8a33456cc2185c9b90784444e2237408da548f4eab1c44a431464a953719741e",
+      "page_id": "446_The_Metabarons_17_p20",
+      "source_image": "external/comics/meta-barons/446_The_Metabarons_17_p20.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some of the lower-page narration is small and partially difficult to read, so wording may be approximate.",
+    "The identity and appearance of the meta-narrating speaker are not fully clear from this page alone.",
+    "The exact nature of the ceremony, the institution involved, and the white pyramid structure are not explicitly explained on this page.",
+    "It is unclear whether Master Lothar is present in the scene or only mentioned in the narrator's aside."
+  ],
+  "visual_summary": "An overhead scene shows a formal technological or ceremonial gathering around a newborn suspended in a transparent pod, with attendants, armed guards, and robots arranged inside a bright gold-toned chamber. A close-up panel shows Aghora holding the baby while declaring that the child, destined to be the perfect warrior and technopope, will have no name. The lower half of the page shifts to a dark sky over a large white pyramid-like structure while a meta-narrating voice breaks the story flow, announces a pause before the next episode, and hints at future details about No-Name's training and a scar over his right eyebrow.",
+  "volume": 17
+}

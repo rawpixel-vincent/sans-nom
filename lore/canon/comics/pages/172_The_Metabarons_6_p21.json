@@ -1,0 +1,52 @@
+{
+  "character_facts": [
+    "The figure operates alone on this page.",
+    "The figure wears a sealed helmet and heavy armored suit designed for space or hazardous environments.",
+    "The figure actively pilots or controls their movement with suit thrusters rather than walking normally."
+  ],
+  "characters_present": [
+    "A single human or humanoid figure in a compact armored space suit with a helmet"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an infiltration, inspection, or traversal sequence from the outside of a massive craft/structure to its interior."
+  ],
+  "dialogue_meaning": [],
+  "image_sha256": "7df3b4f8cc9270830ef9a9d6ab6ca2331d014cf53dd9ac0a2cae14cb7919ec3d",
+  "is_spread": false,
+  "locations": [
+    "Outer hull of a massive spacecraft or spaceborne structure",
+    "Interior maintenance or machinery passage within that structure"
+  ],
+  "lore_facts": [
+    "The setting is in outer space, with stars visible beyond the structure.",
+    "The structure being traversed is extremely large relative to the suited figure.",
+    "Its exterior and interior both appear highly mechanical, with layered plating, conduits, and cable-filled compartments.",
+    "The suited figure has independent propulsion suitable for maneuvering in vacuum."
+  ],
+  "page_id": "172_The_Metabarons_6_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "An armored astronaut-like figure approaches or moves along the exterior of an enormous spacecraft or biomechanical structure.",
+    "The figure surveys the hull at close range, apparently looking for an entry point or target area.",
+    "Using a bright thruster plume, the figure accelerates across the surface.",
+    "The figure enters a dense mechanical opening filled with tubing and cables.",
+    "Inside, the figure advances through a gridded or scaffolded internal passage near a larger machine or armored body."
+  ],
+  "source_image": "external/comics/meta-barons/172_The_Metabarons_6_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7df3b4f8cc9270830ef9a9d6ab6ca2331d014cf53dd9ac0a2cae14cb7919ec3d",
+      "page_id": "172_The_Metabarons_6_p21",
+      "source_image": "external/comics/meta-barons/172_The_Metabarons_6_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "No clear readable dialogue or captions are visible on the page.",
+    "The character's identity is not stated on this page image alone.",
+    "It is unclear whether the larger form seen in the final panel is machinery, a vehicle component, or another armored being.",
+    "A sound effect appears near the thruster action, but the lettering is not fully legible."
+  ],
+  "visual_summary": "A lone armored figure in a small personal space suit drifts over the hull of a gigantic vessel or structure in open space. The page then follows the figure as they inspect the surface, ignite thrusters, and fly into an opening packed with cables and machinery, ending with the figure moving through an interior lattice or maintenance shaft beside a bulkier mechanical form.",
+  "volume": 6
+}

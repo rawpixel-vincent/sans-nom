@@ -1,0 +1,613 @@
+[
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "page_id: 003_The_Metabarons_1_p01; note: addressed off-panel as storyteller",
+      "page_id: 007_The_Metabarons_1_p05; note: named explicitly; identified as robot storyteller",
+      "page_id: 019_The_Metabarons_1_p17; note: named; reports internal component failure"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "page_id: 007_The_Metabarons_1_p05; action: agrees to narrate the full origin story of the Metabaron caste",
+      "page_id: 019_The_Metabarons_1_p17; action: reports blowing an electro-emotion diode and activating auxiliary system mid-narration"
+    ],
+    "knowledge_boundaries": [
+      "narrates history as oral account; implies knowledge is secondhand or inherited",
+      "exact limits of Tonto's first-person observation versus learned history are not defined"
+    ],
+    "relationships": [
+      "character: the_metabaron; relation: servant; refers to him as 'master'",
+      "character: lothar; relation: companion robot; storytelling partner"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a",
+        "page_id": "003_The_Metabarons_1_p01",
+        "source_image": "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg"
+      },
+      {
+        "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+        "page_id": "007_The_Metabarons_1_p05",
+        "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+      },
+      {
+        "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+        "page_id": "019_The_Metabarons_1_p17",
+        "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "speaks with exasperation toward Lothar; narrates history in an epic, sometimes sardonic register; breaks the fourth wall with comic malfunction asides"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "knows the Metabaron possesses a bionic ear and bionic lobes in the right half of his brain",
+      "knows the Metabaron's absence duration to a precise standard-time measurement",
+      "knows the origin story of the Metabaron caste back to great-great-grandfather Othon von Salza"
+    ]
+  },
+  {
+    "aliases": [
+      "Lothar"
+    ],
+    "appearances": [
+      "page_id: 007_The_Metabarons_1_p05; note: named explicitly by Tonto; shown as eager listener"
+    ],
+    "character_id": "lothar",
+    "important_actions": [
+      "page_id: 007_The_Metabarons_1_p05; action: presses Tonto to tell the full origin story of the Metabaron caste"
+    ],
+    "knowledge_boundaries": [
+      "dependent on Tonto for historical knowledge of the Metabaron lineage"
+    ],
+    "relationships": [
+      "character: tonto; relation: companion robot; story audience"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+        "page_id": "007_The_Metabarons_1_p05",
+        "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "enthusiastic, almost childlike fascination with the Metabaron's violent history; pushes narrative forward as a foil to Tonto"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "heard Tonto describe the Meta-warrior mutilation customs just before p05"
+    ]
+  },
+  {
+    "aliases": [
+      "The Metabaron",
+      "meta-warrior"
+    ],
+    "appearances": [
+      "page_id: 001_The_Metabarons_1_c01; note: cover figure, unnamed; bald, stern, associated with ornate sword and cybernetic elements",
+      "page_id: 004_The_Metabarons_1_p02; note: described by Tonto; not physically present"
+    ],
+    "character_id": "the_metabaron",
+    "important_actions": [
+      "page_id: 004_The_Metabarons_1_p02; note: his bionic augmentations are the narrative catalyst for Tonto's origin story"
+    ],
+    "knowledge_boundaries": [
+      "absent at the time of the framing narrative; not directly observed on story pages"
+    ],
+    "relationships": [
+      "character: tonto; relation: master",
+      "character: lothar; relation: master",
+      "character: othon_von_salza; relation: great-great-grandson (implied through lineage narration)"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "327adc9dae12a24bc34d80849999ef40429a8db8ad93a210decbeef8c5aa6b50",
+        "page_id": "001_The_Metabarons_1_c01",
+        "source_image": "external/comics/meta-barons/001_The_Metabarons_1_c01.jpg"
+      },
+      {
+        "image_sha256": "537ebd6662b1de9d129d9cdea89f9b36a4c8e772b507cd95efa4efad060e0a1d",
+        "page_id": "004_The_Metabarons_1_p02",
+        "source_image": "external/comics/meta-barons/004_The_Metabarons_1_p02.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "not directly heard speaking in this volume; known only through Tonto's description and cover imagery"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Othon von Salza"
+    ],
+    "appearances": [
+      "page_id: 008_The_Metabarons_1_p06; note: named in ancestral narration; depicted or referenced in row of faces",
+      "page_id: 012_The_Metabarons_1_p10; note: named; commits premature cutting discharge",
+      "page_id: 015_The_Metabarons_1_p13; note: referenced as trapped, likely depicted as fallen armored figure",
+      "page_id: 016_The_Metabarons_1_p14; note: rescue debate centers on him",
+      "page_id: 018_The_Metabarons_1_p16; note: named; rebuked for pirate thinking; declared next baron",
+      "page_id: 020_The_Metabarons_1_p18; note: target of Baron Berard's dagger attack",
+      "page_id: 022_The_Metabarons_1_p20; note: named; receives the spirit and birthmark transfer from Berard",
+      "page_id: 023_The_Metabarons_1_p22; note: recipient of Berard's completed transfer; marked with birthmark"
+    ],
+    "character_id": "othon_von_salza",
+    "important_actions": [
+      "page_id: 012_The_Metabarons_1_p10; action: ignores father-in-law's instructions and triggers premature cut, causing industrial accident",
+      "page_id: 020_The_Metabarons_1_p20; action: agrees to surrender to Berard's knowledge and accepts succession",
+      "page_id: 022_The_Metabarons_1_p20; action: receives spirit and birthmark transfer from Berard; becomes new baron"
+    ],
+    "knowledge_boundaries": [
+      "at the start of the volume was considered to lack the willingness to sacrifice, per Berard's teaching (p20)",
+      "no direct evidence of knowledge beyond what is depicted in these pages"
+    ],
+    "relationships": [
+      "character: baron_berard; relation: father-in-law, master, predecessor baron; performs spirit transfer to Othon",
+      "character: lady_edna; relation: wife; described as his mate by Berard",
+      "character: bari; relation: son with Edna (referenced p06)",
+      "character: the_metabaron; relation: great-great-grandfather"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "page_id": "008_The_Metabarons_1_p06",
+        "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+      },
+      {
+        "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+        "page_id": "012_The_Metabarons_1_p10",
+        "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg"
+      },
+      {
+        "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "page_id": "015_The_Metabarons_1_p13",
+        "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+      },
+      {
+        "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "page_id": "016_The_Metabarons_1_p14",
+        "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+      },
+      {
+        "image_sha256": "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+        "page_id": "018_The_Metabarons_1_p16",
+        "source_image": "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg"
+      },
+      {
+        "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+        "page_id": "020_The_Metabarons_1_p18",
+        "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg"
+      },
+      {
+        "image_sha256": "",
+        "page_id": "020_The_Metabarons_1_p20",
+        "source_image": ""
+      },
+      {
+        "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+        "page_id": "022_The_Metabarons_1_p20",
+        "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg"
+      },
+      {
+        "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "page_id": "023_The_Metabarons_1_p22",
+        "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "speaks defiantly and impulsively in the accident scene; later speaks with emotional warmth toward Berard; accepts succession with formal address 'father'"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "witnessed or caused industrial accident by triggering premature cutting discharge (p10)",
+      "was trapped beneath a fallen stone block and rescued using the sacred glowing orb (p12–p15)",
+      "witnessed Baron Berard declare him next baron and rebuke his pirate past (p16)",
+      "received Berard's spirit, knowledge, and birthmark transfer before Berard's death (p20, p22)"
+    ]
+  },
+  {
+    "aliases": [
+      "Lady Edna",
+      "Edna"
+    ],
+    "appearances": [
+      "page_id: 008_The_Metabarons_1_p06; note: referenced as daughter of Baron Berard; described as beautiful and indomitable",
+      "page_id: 011_The_Metabarons_1_p09; note: named; expected to perform precision cuts",
+      "page_id: 016_The_Metabarons_1_p14; note: named; argues in favor of saving Othon",
+      "page_id: 023_The_Metabarons_1_p22; note: addressed directly by dying Berard; admonished for showing emotion"
+    ],
+    "character_id": "lady_edna",
+    "important_actions": [
+      "page_id: 016_The_Metabarons_1_p14; action: argues in council for saving Othon's life despite secrecy risk",
+      "page_id: 023_The_Metabarons_1_p22; action: weeps at Berard's death; admonished by Berard for emotional weakness"
+    ],
+    "knowledge_boundaries": [
+      "awareness of the sacred oil and its sensitivity is implied by the rescue debate context"
+    ],
+    "relationships": [
+      "character: baron_berard; relation: daughter",
+      "character: othon_von_salza; relation: wife; chosen mate per Berard's account (p20)",
+      "character: bari; relation: mother (p06)"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "page_id": "008_The_Metabarons_1_p06",
+        "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+      },
+      {
+        "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "page_id": "011_The_Metabarons_1_p09",
+        "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+      },
+      {
+        "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "page_id": "016_The_Metabarons_1_p14",
+        "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+      },
+      {
+        "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "page_id": "023_The_Metabarons_1_p22",
+        "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "speaks in favor of family over secrecy; emotional register contrasts with the warrior stoicism Berard demands"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "present at stone-cutting worksite (p09)",
+      "present at rescue council debate and argued for Othon's rescue (p14)",
+      "present when Berard performed the spirit transfer and died (p22/p23)"
+    ]
+  },
+  {
+    "aliases": [
+      "Baron Berard",
+      "Berard",
+      "Baron Berard of Castaka"
+    ],
+    "appearances": [
+      "page_id: 008_The_Metabarons_1_p06; note: named in narration as ruler of Marmola",
+      "page_id: 011_The_Metabarons_1_p09; note: named in the worksite cutting scene as father/authority",
+      "page_id: 012_The_Metabarons_1_p10; note: present as Othon's father-in-law during accident",
+      "page_id: 015_The_Metabarons_1_p13; note: likely the grandfather figure pressuring Bari to let Othon die",
+      "page_id: 018_The_Metabarons_1_p16; note: older white-haired elder giving final orders; orders visitors killed; declares Othon new baron",
+      "page_id: 019_The_Metabarons_1_p17; note: described as heavy with gloom in his armory",
+      "page_id: 020_The_Metabarons_1_p18; note: attacks Othon with a dagger; described as green-faced with white hair",
+      "page_id: 021_The_Metabarons_1_p19; note: wins the duel against Othon",
+      "page_id: 022_The_Metabarons_1_p20; note: explains duel lesson; performs spirit and birthmark transfer; prepares to die",
+      "page_id: 023_The_Metabarons_1_p22; note: dies; instructs body be cast into the Great Azure Ocean",
+      "page_id: 024_The_Metabarons_1_p23; note: referenced in narration; said to have died by stubbornly holding his breath"
+    ],
+    "character_id": "baron_berard",
+    "important_actions": [
+      "page_id: 018_The_Metabarons_1_p16; action: orders the imperial visitors killed; decrees Othon becomes new baron",
+      "page_id: 020_The_Metabarons_1_p18; action: attacks Othon with a dagger in a formal duel",
+      "page_id: 021_The_Metabarons_1_p19; action: wins the duel by deliberately accepting a shoulder wound as strategic sacrifice",
+      "page_id: 022_The_Metabarons_1_p20; action: reveals birthmark; performs spirit and knowledge transfer into Othon",
+      "page_id: 023_The_Metabarons_1_p22; action: dies; instructs body be cast into the Great Azure Ocean; warns of coming wars over sacred oil"
+    ],
+    "knowledge_boundaries": [
+      "full custodian of the sacred oil secret and stone-loading method",
+      "aware of imperial politics and the danger of exposure"
+    ],
+    "relationships": [
+      "character: lady_edna; relation: father",
+      "character: othon_von_salza; relation: son-in-law; master; eventually accepts as worthy heir",
+      "character: bari; relation: grandfather (implied via Edna being his daughter)",
+      "character: the_metabaron; relation: great-great-grandfather"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "page_id": "008_The_Metabarons_1_p06",
+        "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+      },
+      {
+        "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "page_id": "011_The_Metabarons_1_p09",
+        "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+      },
+      {
+        "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+        "page_id": "012_The_Metabarons_1_p10",
+        "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg"
+      },
+      {
+        "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "page_id": "015_The_Metabarons_1_p13",
+        "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+      },
+      {
+        "image_sha256": "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+        "page_id": "018_The_Metabarons_1_p16",
+        "source_image": "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg"
+      },
+      {
+        "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+        "page_id": "019_The_Metabarons_1_p17",
+        "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+      },
+      {
+        "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+        "page_id": "020_The_Metabarons_1_p18",
+        "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg"
+      },
+      {
+        "image_sha256": "fe1c84de8e3eba57295aa03baface1c6c59cf038b28abee9197a49fe1f305f2d",
+        "page_id": "021_The_Metabarons_1_p19",
+        "source_image": "external/comics/meta-barons/021_The_Metabarons_1_p19.jpg"
+      },
+      {
+        "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+        "page_id": "022_The_Metabarons_1_p20",
+        "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg"
+      },
+      {
+        "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "page_id": "023_The_Metabarons_1_p22",
+        "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+      },
+      {
+        "image_sha256": "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+        "page_id": "024_The_Metabarons_1_p23",
+        "source_image": "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "commands with authority and finality; speaks in the idiom of honor, sacrifice, and warrior tradition; admonishes emotion as weakness; formal register with son-in-law shifts to paternal warmth only when acknowledging Othon's worth"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "witnessed imperial visitors observe the sacred stone-loading secret (p09/p16)",
+      "witnessed the glowing orb used to levitate the stone block; declared this a 'major technical revolution' via the authority figure's reaction (p16/p18)",
+      "performed the spirit and birthmark transfer into Othon (p20/p22)",
+      "predicted wars over sacred oil and refused to be part of that future (p23)"
+    ]
+  },
+  {
+    "aliases": [
+      "Bari"
+    ],
+    "appearances": [
+      "page_id: 008_The_Metabarons_1_p06; note: referenced as infant/son of Othon and Edna",
+      "page_id: 011_The_Metabarons_1_p09; note: named; entrusted with clean cuts during marble operation",
+      "page_id: 015_The_Metabarons_1_p13; note: likely the Bari confronting elders about Othon; identified as a warrior",
+      "page_id: 016_The_Metabarons_1_p14; note: likely the younger silver-haired man who overrules his father in the council"
+    ],
+    "character_id": "bari",
+    "important_actions": [
+      "page_id: 015_The_Metabarons_1_p13; action: defies elder patriarch; insists Othon will live; accuses patriarch of prejudice over birth status",
+      "page_id: 016_The_Metabarons_1_p14; action: overrules father in council vote to save Othon"
+    ],
+    "knowledge_boundaries": [
+      "awareness of the sacred technology is implied; aware of what secrecy cost could be"
+    ],
+    "relationships": [
+      "character: othon_von_salza; relation: child (Othon is her/his father)",
+      "character: lady_edna; relation: child (Edna is mother)",
+      "character: baron_berard; relation: grandchild (implied)"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "page_id": "008_The_Metabarons_1_p06",
+        "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+      },
+      {
+        "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "page_id": "011_The_Metabarons_1_p09",
+        "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+      },
+      {
+        "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "page_id": "015_The_Metabarons_1_p13",
+        "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+      },
+      {
+        "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "page_id": "016_The_Metabarons_1_p14",
+        "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "passionate and confrontational in council; speaks in terms of love vs. hatred and lineage acceptance"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "present at marble-cutting worksite (p09)",
+      "present at council debate over rescuing Othon (p13/p14)"
+    ]
+  },
+  {
+    "aliases": [
+      "The Techno-Pope"
+    ],
+    "appearances": [
+      "page_id: 008_The_Metabarons_1_p06; note: referenced; planning a new temple-bank requiring vast marble",
+      "page_id: 009_The_Metabarons_1_p07; note: referenced; project scale escalates to requiring an entire mountain of marble"
+    ],
+    "character_id": "the_techno_pope",
+    "important_actions": [
+      "page_id: 008_The_Metabarons_1_p06; action: commissions marble from Marmola for a new temple-bank, triggering the Guild ship's arrival"
+    ],
+    "knowledge_boundaries": [
+      "not present in person; known only through the ship crew's references"
+    ],
+    "relationships": [
+      "character: imperial_merchants_guild; relation: employs or commissions them for marble acquisition"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "page_id": "008_The_Metabarons_1_p06",
+        "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+      },
+      {
+        "image_sha256": "4bdc077212229f0393ecb7a42cb92df81e52a6b0cec155910db28efa26325350",
+        "page_id": "009_The_Metabarons_1_p07",
+        "source_image": "external/comics/meta-barons/009_The_Metabarons_1_p07.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "never speaks directly in this volume"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Hohenhole"
+    ],
+    "appearances": [
+      "page_id: 011_The_Metabarons_1_p09; note: named; mentally distracted by songs during the cutting operation"
+    ],
+    "character_id": "hohenhole",
+    "important_actions": [
+      "page_id: 011_The_Metabarons_1_p09; action: must be reminded to concentrate on the stone-cutting task"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: baron_berard; relation: team member under his command"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "page_id": "011_The_Metabarons_1_p09",
+        "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "distracted register; must be redirected to focus"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Sire Barako"
+    ],
+    "appearances": [
+      "page_id: 011_The_Metabarons_1_p09; note: named; seeks evaluation of his work during operation"
+    ],
+    "character_id": "sire_barako",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: baron_berard; relation: team member under his command"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "page_id": "011_The_Metabarons_1_p09",
+        "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "asks 'how am I doing?' mid-operation"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Konrath"
+    ],
+    "appearances": [
+      "page_id: 010_The_Metabarons_1_p08; note: named by off-panel voices; visually unconfirmed which figure is him"
+    ],
+    "character_id": "konrath",
+    "important_actions": [],
+    "knowledge_boundaries": [
+      "receives contradictory orders; context suggests an ongoing operation already underway"
+    ],
+    "relationships": [],
+    "source_refs": [
+      {
+        "image_sha256": "a36a466e9e2561545ae5dedf18ce1f4349c76f74fb4b634d8649485bbc6b985d",
+        "page_id": "010_The_Metabarons_1_p08",
+        "source_image": "external/comics/meta-barons/010_The_Metabarons_1_p08.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "addressed but not heard speaking"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "approached a significant white cubic structure in an alien landscape (p08)"
+    ]
+  },
+  {
+    "aliases": [
+      "Black Endoguard"
+    ],
+    "appearances": [
+      "page_id: 025_The_Metabarons_1_p24; note: named in narration as the group that delivers an unexpected betrayal"
+    ],
+    "character_id": "black_endoguard",
+    "important_actions": [
+      "page_id: 025_The_Metabarons_1_p24; action: betrays their side unexpectedly during the space battle over Marmola, contributing to the opposing fleet's defeat"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: imperial_house; relation: apparent allies or subordinates; their betrayal benefits the Imperial House"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "a2c0429c2089f7e9c97ebea382033d63a48d32c3f756ec31b5b29a44eed3b44b",
+        "page_id": "025_The_Metabarons_1_p24",
+        "source_image": "external/comics/meta-barons/025_The_Metabarons_1_p24.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "not directly heard"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Unknown Castakan Warrior",
+      "warrior of Castaka"
+    ],
+    "appearances": [
+      "page_id: 027_The_Metabarons_1_p26; note: central action figure; self-identifies or is identified as 'a warrior of Castaka'"
+    ],
+    "character_id": "castakan_warrior_last_stand",
+    "important_actions": [
+      "page_id: 027_The_Metabarons_1_p26; action: fights through multiple armored guards in a stairwell and crashes through a window to escape or advance"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: castaka_lineage; relation: member or descendant of Castaka"
+    ],
+    "source_refs": [
+      {
+        "image_sha256": "4ed86dfd1a94ebb487e266fc320803bb2ecab6e19ec55e7ae10e8d0620feb6ab",
+        "page_id": "027_The_Metabarons_1_p26",
+        "source_image": "external/comics/meta-barons/027_The_Metabarons_1_p26.jpg"
+      }
+    ],
+    "traits": [],
+    "voice_notes": [
+      "defiant; identifies by lineage rather than personal name"
+    ],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

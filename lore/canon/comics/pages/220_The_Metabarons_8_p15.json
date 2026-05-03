@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Steelhead is an ancestor in the Metabaron lineage.",
+    "The present Metabaron has a grandfather named Steelhead.",
+    "The storyteller speaks from a robotic perspective or includes themself among robots.",
+    "The listener is engaged enough in the family history to interrupt with a question about a name."
+  ],
+  "characters_present": [
+    "Two unnamed humans engaged in intimacy",
+    "An unseen or partially unseen storyteller/narrator",
+    "An unseen listener asking about Steelhead's name",
+    "A small hovering robot visible in the bedroom panel"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a narrated family-history account focused on the lineage leading to the present Metabaron.",
+    "The mention of Steelhead sets up a later explanation for his name, deferred by the storyteller."
+  ],
+  "dialogue_meaning": [
+    "The narration explains human kissing and sex from a robotic or nonhuman perspective, emphasizing unfamiliarity with bodily pleasure.",
+    "The storyteller identifies this sexual encounter as the conception of Steelhead, ancestor of the current Metabaron.",
+    "The listener is curious about the odd name 'Steelhead.'",
+    "The storyteller refuses the digression and insists on continuing the tragic story in order."
+  ],
+  "image_sha256": "d75e3244b18233d9b7be203a5f518d6211f4a0cfef2e068c3b27cfca5e3a4b6c",
+  "is_spread": false,
+  "locations": [
+    "An interior room",
+    "A bedroom"
+  ],
+  "lore_facts": [
+    "Steelhead is the grandfather of the present Metabaron.",
+    "Steelhead was conceived during the sexual union shown on this page.",
+    "The narrator contrasts robots with humans by stating robots do not experience orgasm."
+  ],
+  "page_id": "220_The_Metabarons_8_p15",
+  "page_label": "p15",
+  "plot_events": [
+    "Two humans are shown kissing and embracing.",
+    "The pair move toward a bedroom and begin sexual intercourse.",
+    "The narration describes the act in detached biological terms.",
+    "The page states that Steelhead, grandfather of the present Metabaron, is conceived during this encounter.",
+    "A listener interrupts the story to ask why Steelhead has that name.",
+    "The storyteller says that explanation will come later and resumes the main tale."
+  ],
+  "source_image": "external/comics/meta-barons/220_The_Metabarons_8_p15.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d75e3244b18233d9b7be203a5f518d6211f4a0cfef2e068c3b27cfca5e3a4b6c",
+      "page_id": "220_The_Metabarons_8_p15",
+      "source_image": "external/comics/meta-barons/220_The_Metabarons_8_p15.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration and speech text is small and may be imperfectly read, so wording has been paraphrased rather than transcribed.",
+    "The exact identities of the two humans and the small hovering robot are not given on this page alone.",
+    "The page label supplied as 'p15' does not match the printed page number visible at the bottom of the image, which appears to be 17."
+  ],
+  "visual_summary": "A narrated montage shows two humans embracing, kissing, moving into a bedroom, and having sex while dark mechanical or organic-looking forms crowd the page margins. A small hovering robot appears in one panel. The narration frames the act in clinical, alien terms and states that this is the moment when Steelhead, identified as an ancestor of the current Metabaron, was conceived. In the final panel, an unseen listener interrupts to ask about Steelhead's unusual name, and the storyteller refuses to jump ahead.",
+  "volume": 8
+}

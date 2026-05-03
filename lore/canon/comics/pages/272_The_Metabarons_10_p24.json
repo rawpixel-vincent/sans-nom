@@ -1,0 +1,53 @@
+{
+  "character_facts": [
+    "Steelhead is resistant or immune to the vampires' mind-targeting attack because of his cybernetic construction.",
+    "Steelhead is the one credited with sealing the breach in space."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Vampire invaders"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the resolution of an ongoing vampire attack by showing both their failed assault on Steelhead and their collapse after the spatial breach is sealed."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that the vampires' usual cerebral or mental attack method fails against Steelhead's cybernetic nature.",
+    "The narration links Steelhead's action of sealing the spatial breach to the defeat of the vampires.",
+    "The final narration states that once cut off from their energy source, the vampires fall apart."
+  ],
+  "image_sha256": "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+  "is_spread": false,
+  "locations": [
+    "A space-breach or rupture in outer space",
+    "The surrounding space near a dark triangular craft or structure"
+  ],
+  "lore_facts": [
+    "The vampires appear to rely on an external energy source.",
+    "A breach in space can function as the vampires' connection to that source.",
+    "Steelhead possesses extensive cybernetic mechanisms.",
+    "The vampires use a form of attack aimed at an opponent's cerebral mass or mind."
+  ],
+  "page_id": "272_The_Metabarons_10_p24",
+  "page_label": "p24",
+  "plot_events": [
+    "Narration states that vampires attack Steelhead but cannot affect him because he is largely cybernetic.",
+    "Steelhead reseals a breach in space.",
+    "After the breach is closed, the invading vampire entities lose access to their energy source.",
+    "The vampire invaders disintegrate afterward."
+  ],
+  "source_image": "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+      "page_id": "272_The_Metabarons_10_p24",
+      "source_image": "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact appearance and boundaries of Steelhead's body are partly obscured by the translucent attacking forms.",
+    "The black triangular object in the space panels is visible but not explicitly identified on this page alone."
+  ],
+  "visual_summary": "The page shows a mostly mechanical figure, identified in narration as Steelhead, surrounded by translucent tube-like organisms or energy conduits that press over his armored body and weapon. In the next panels, a bright rupture or tear in space closes as streams of dark and pale tendrils converge into a glowing point. A black triangular craft or structure remains near the sealed area while the surrounding wormlike vampire forms fade or break apart in space.",
+  "volume": 10
+}

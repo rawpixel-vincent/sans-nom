@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The man has significant mechanical augmentation, visibly including part of the face and a hand.",
+    "The man carries deep resentment over believing his mother was dead for years.",
+    "The woman presents herself as having concealed her existence intentionally for strategic reasons.",
+    "The woman appears calm, controlled, and unapologetically manipulative in explaining her choices.",
+    "The woman is linked to the man through his childhood and to his father through her account of foreseeing his death."
+  ],
+  "characters_present": [
+    "Angry male figure with a mechanical lower face/hand and, per dialogue, a mechanical heart",
+    "Woman with long pale hair dressed in black, calm and seated, speaking as if she hid her existence"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page refers back to an earlier period when the man was a child and believed his mother was dead.",
+    "It also refers to an earlier incident involving the father's lung injury and predicted death.",
+    "The dialogue connects the man's lifelong suffering and revenge to a larger plan culminating in the destruction of 'Shabda-Oud.'"
+  ],
+  "dialogue_meaning": [
+    "The exchange is a confrontation over long absence, secrecy, and emotional harm.",
+    "The woman justifies hiding herself by saying open emotion or knowledge of her survival would have exposed them to hostile pursuers.",
+    "She claims she deliberately preserved the man's hatred and grief because those emotions were required to drive him toward a destructive mission against 'Shabda-Oud.'",
+    "The man rejects this justification and frames his childhood belief that his mother was dead as prolonged agony.",
+    "The woman treats the man's current cyborg state as distancing him from ordinary human suffering and urges him to leave with her."
+  ],
+  "image_sha256": "034b6351afb6d01f0306c9ec357c75513f80bf0f469a9820e53ade30cb941104",
+  "is_spread": false,
+  "locations": [
+    "Interior of a blue, organic or biomechanical room, likely aboard a ship",
+    "A spacecraft shown in an inset panel, identified by dialogue as the woman's ship"
+  ],
+  "lore_facts": [
+    "The woman possesses some form of psychic or precognitive sensing, described as a 'psychic sonar.'",
+    "The man's father had injured lungs and was expected to die.",
+    "There are hostile 'beasts' capable of detecting emotions and wiping people out if alerted.",
+    "'Shabda-Oud' is a target the man was expected to exterminate.",
+    "The man has a mechanical heart.",
+    "The woman has access to a ship and invites the man aboard it."
+  ],
+  "page_id": "216_The_Metabarons_8_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A man accuses the woman of abandoning him for roughly ten years and causing suffering.",
+    "The woman explains that she foresaw the death of the man's father and intervened because his lungs were injured.",
+    "She says the man had to remain alive despite that intervention.",
+    "The man says believing his mother was dead made his life a continual torment.",
+    "The woman argues that a child part of him still survived inside him, while an adult self had to hear and conceal her existence.",
+    "She says strong emotions would have exposed them to enemies, who would have detected and destroyed them.",
+    "She says it was necessary for him to keep his hatred and desire for revenge so that he would destroy the 'Shabda-Oud' himself.",
+    "The woman concludes that he now has a mechanical heart and therefore does not understand suffering, and she invites him to come with her to her ship."
+  ],
+  "source_image": "external/comics/meta-barons/216_The_Metabarons_8_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "034b6351afb6d01f0306c9ec357c75513f80bf0f469a9820e53ade30cb941104",
+      "page_id": "216_The_Metabarons_8_p11",
+      "source_image": "external/comics/meta-barons/216_The_Metabarons_8_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact names of the man, the woman, and the father are not given on this page.",
+    "The precise spelling and nature of 'Shabda-Oud' are uncertain because it is read from small dialogue text.",
+    "The exact identity of the 'beasts' and the full mechanics of the woman's 'psychic sonar' are not explained on this page.",
+    "The room appears to be inside a ship or organic structure, but the page does not explicitly label the location until the final invitation to 'my ship'."
+  ],
+  "visual_summary": "A tense conversation unfolds inside a blue-toned, organic-looking room or ship interior. A furious man with a metallic lower face and a mechanical hand confronts a seated woman in black with long pale hair. He crouches near her, then leans in angrily in close-up panels. The woman remains composed and explanatory. A later panel shows her hand on or near the top of his head, where a spiral-like device or mechanical feature is visible. The page ends with a small spacecraft image between dialogue boxes and another close-up of the man's enraged face.",
+  "volume": 8
+}

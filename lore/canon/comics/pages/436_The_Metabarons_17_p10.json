@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The larger robot is overheating, emitting smoke, and leaking fluid.",
+    "The larger robot is physically much bigger than the smaller one.",
+    "The smaller robot is highly curious about Aghora and the Metabaron.",
+    "The smaller robot presents itself as having authority to enforce robotic law.",
+    "The larger robot expresses hostility and claims robots can feel hate."
+  ],
+  "characters_present": [
+    "A small floating robot with a screen-like face",
+    "A large humanoid robot or mechanized being, smoking and leaking fluid"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues a prior discussion about Aghora's victory over the Metabaron.",
+    "The confrontation shifts that discussion into a direct conflict between the two machines."
+  ],
+  "dialogue_meaning": [
+    "The larger machine is in physical distress and tries to stop the conversation.",
+    "The smaller robot is desperate to learn how Aghora triumphed over the Metabaron.",
+    "Both robots trade insults centered on mechanical inferiority, age, and emotional capacity.",
+    "The smaller robot appeals to robotic law as authority and threatens punitive action.",
+    "The larger robot claims to experience something like hatred and promises physical retaliation."
+  ],
+  "image_sha256": "5ad6fe06912e2ccd3cf640ae858c47ad0ed8b82f0f8d98388635a03ec1f01c67",
+  "is_spread": false,
+  "locations": [
+    "A metallic interior or industrial chamber with shallow liquid covering the floor"
+  ],
+  "lore_facts": [
+    "Aghora is presented as someone who triumphed over or got the better of the Metabaron.",
+    "There is said to be a robotic law governing how one machine may address another.",
+    "Identity circuits are described as removable components of a robot."
+  ],
+  "page_id": "436_The_Metabarons_17_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "The larger robot says it is overheating and needs to pause for eight hours.",
+    "The smaller robot presses for information about how Aghora defeated or outmaneuvered the Metabaron, showing intense curiosity.",
+    "The larger robot becomes angry at being questioned and threatens to keep the smaller robot waiting as punishment.",
+    "The smaller robot invokes robotic law and threatens to remove the larger robot's identity circuits for speaking disrespectfully.",
+    "The exchange escalates into mutual insults about machine inferiority, emotion, and hatred.",
+    "The larger robot rejects the smaller robot's claim that robots cannot feel hate and moves toward it aggressively."
+  ],
+  "source_image": "external/comics/meta-barons/436_The_Metabarons_17_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5ad6fe06912e2ccd3cf640ae858c47ad0ed8b82f0f8d98388635a03ec1f01c67",
+      "page_id": "436_The_Metabarons_17_p10",
+      "source_image": "external/comics/meta-barons/436_The_Metabarons_17_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue details are hard to read precisely, including some insulting compound terms and the exact phrasing about Aghora and the Metabaron.",
+    "The exact names or designations of the two robots are not given clearly on this page alone.",
+    "It is unclear from the page alone whether the larger figure is fully robotic or a heavily mechanized being."
+  ],
+  "visual_summary": "A small floating robot confronts a much larger, damaged humanoid machine standing in shallow liquid. The larger machine is visibly overheating or smoking and leaking dark fluid. Their argument escalates from insults and threats into imminent violence, ending with the larger robot advancing on the smaller one.",
+  "volume": 17
+}

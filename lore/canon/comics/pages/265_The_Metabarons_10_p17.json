@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The woman is both a wife and a mother, and she identifies herself with warrior honor.",
+    "She has blood on her white gloves and appears emotionally volatile, shifting from pride to condemnation to possessive devotion.",
+    "She addresses the wounded male figure as her son.",
+    "The male figure is severely augmented or armored and physically damaged, especially around the head/face area.",
+    "The male figure once saved the woman's life, according to his own statement."
+  ],
+  "characters_present": [
+    "Helmeted woman with cybernetic/armored gear, identified by dialogue as a wife and mother and addressing the male figure as her son",
+    "Wounded male warrior/cyborg addressed as the woman's son",
+    "Possible additional armored body or figure drifting in space in the final panels"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a rupture between the son and the woman after a contested victory.",
+    "The page ties the conflict to the honor code and collective allegiance of the Metabarons clan.",
+    "The ending suggests immediate danger or death connected to decompression, ejection into space, or a violent departure from the ship."
+  ],
+  "dialogue_meaning": [
+    "The woman says she helped secure the son's victory and initially frames that as something he should acknowledge.",
+    "The son rejects her physically and morally, saying saving her was a mistake.",
+    "She argues that the victory was illegitimate because it relied on treachery, blackmail, or dishonorable interference.",
+    "She defines herself by a warrior code and says she refuses to live by cowardly tactics.",
+    "She states that the son's conduct has cost him both her loyalty and the support of the Metabarons.",
+    "He wants separation and escape; she first tells him to go if he wishes.",
+    "She then declares an intense final attachment, saying she will leave with him even into death."
+  ],
+  "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+  "is_spread": false,
+  "locations": [
+    "A cramped mechanical interior filled with pipes, armor, and machinery, likely aboard a spacecraft or station",
+    "Open outer space visible in the lower panels"
+  ],
+  "lore_facts": [
+    "The page explicitly mentions a 'whole clan of Metabarons.'",
+    "Traditional combat and warrior honor are treated as important values by at least one speaker.",
+    "Advanced prosthetics or cybernetics exist in this setting, including artificial fingers.",
+    "The characters are operating in a high-tech spacefaring environment with armored suits and exposed machinery."
+  ],
+  "page_id": "265_The_Metabarons_10_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A woman claims responsibility for helping the male warrior win and mocks or threatens his mother with 'artificial fingers.'",
+    "The wounded male figure angrily rejects her touch and curses the day he saved her life.",
+    "The woman condemns the manner of his victory as treachery and blackmail rather than traditional combat.",
+    "She says she is the wife and mother of a warrior, not someone willing to use dishonorable methods for advantage.",
+    "She declares that by winning this way he has lost both her and the whole clan of Metabarons with her, and that their 'beautiful dream' is over.",
+    "The male figure tries to pull away or leave, shouting for her to let him go.",
+    "The woman insults him, then reverses course and says she will depart with him because death will bind as strongly as love.",
+    "The scene ends with bodies or armored figures tumbling into space near machinery, alongside a bright blast or flare."
+  ],
+  "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+      "page_id": "265_The_Metabarons_10_p17",
+      "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read; exact phrasing may be imprecise.",
+    "The specific identities/names of the speakers are not given on the page image alone.",
+    "It is unclear whether the final drifting figures are both main characters or one main character plus another body/armored figure.",
+    "The exact cause of the bright blue-white burst in the final panels is unclear from this page alone."
+  ],
+  "visual_summary": "Inside a machinery-filled spacecraft or mechanical chamber, a helmeted woman with bloodied white gloves rages at a wounded, heavily augmented male figure she addresses as her son. She first boasts that she helped him win and threatens to make artificial fingers for his mother, then recoils from him and denounces the dishonorable way he won. As she argues, she physically grapples with him amid pipes and armor. She declares that by winning this way he has lost her and the whole clan of Metabarons, calls their shared dream finished, and tries to break away. In the final panels she embraces or clings to him, saying she will depart with him, while figures are hurled or drift into open blue space and a bright burst of energy or exhaust fills one panel.",
+  "volume": 10
+}

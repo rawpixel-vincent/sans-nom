@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "Honorata is blamed or judged for earlier actions, but those actions are partially excused as stemming from love.",
+    "The two central armored figures choose synchronized self-destruction.",
+    "The bottom-left speaker is emotionally invested in glorifying the dead pair and their sacrifice.",
+    "The bottom-right speaker is hostile toward the bottom-left speaker and claims authority over the true version of the history."
+  ],
+  "characters_present": [
+    "Honorata (mentioned)",
+    "An unnamed speaker addressing Honorata",
+    "Two armored figures who die together in the explosion",
+    "An unnamed storyteller or commentator in the bottom-left scene",
+    "An unnamed interrupting speaker in the bottom-right scene",
+    "Aghnar/\"our master\" (mentioned, not shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page treats the explosion as the culmination of the two figures' shared sacrifice.",
+    "The bottom dialogue explicitly transitions from the explosion's aftermath into the story of Aghnar's birth or beginning."
+  ],
+  "dialogue_meaning": [
+    "A speaker offers conditional forgiveness to Honorata, framing her past actions as motivated by love for the speaker's father.",
+    "The narration states that the two dying figures deliberately detonate internal mini-bombs together.",
+    "One speaker romanticizes the deaths as a noble, spectacular ending tied to heroic sacrifice.",
+    "That same speaker wonders why the lineage did not end in disgrace and instead continued, asking how their master was born.",
+    "Another speaker angrily dismisses the sentimental account and says this is only the beginning of the next part of the history, focused on Aghnar."
+  ],
+  "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+  "is_spread": false,
+  "locations": [
+    "Outer space amid multiple spacecraft",
+    "An interior chamber or corridor in the bottom panel"
+  ],
+  "lore_facts": [
+    "This setting includes mini-bombs implanted inside bodies, capable of causing huge explosions.",
+    "The event is significant enough to be described as unmatched in the galaxy.",
+    "Honorata is linked emotionally to the speaker's father through love.",
+    "The narrative being recounted concerns the continuation of the Metabaron line after an apparently terminal sacrifice.",
+    "Aghnar is presented as an important later figure whose origin story follows this event."
+  ],
+  "page_id": "266_The_Metabarons_10_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "One character addresses Honorata and says her actions came from love for the speaker's father.",
+    "Two figures embrace while badly wounded or near death.",
+    "The pair trigger mini-bombs inside their own bodies at the same time.",
+    "A massive explosion erupts in space and is presented as the result of their joint self-destruction.",
+    "A narrator or raconteur celebrates the event as a grand finale involving two titans dying for sacred heroes.",
+    "Another speaker cuts in, rejects that interpretation, and insists the history continues with the beginning of Aghnar's story."
+  ],
+  "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+      "page_id": "266_The_Metabarons_10_p18",
+      "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue balloons are hard to read precisely due image resolution; wording may be approximate.",
+    "The names and identities of the two armored figures shown embracing are not explicitly readable on this page alone.",
+    "The exact spelling of the mentioned later figure's name may be uncertain because the final balloon text is difficult to decipher."
+  ],
+  "visual_summary": "A dying or wounded armored figure is held closely by another in a small panel, with blood visible on the armor. A second small panel turns into a blinding white burst. Most of the page is dominated by an enormous explosion in open space, surrounded by spacecraft. At the bottom, the scene shifts to an interior with two dialogue balloons, where one speaker theatrically praises the deaths and another angrily interrupts to continue the story.",
+  "volume": 10
+}

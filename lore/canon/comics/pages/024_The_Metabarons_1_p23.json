@@ -1,0 +1,57 @@
+{
+  "character_facts": [
+    "The Baron is described as famously stubborn.",
+    "According to the narration, the Baron died by holding his breath until he died.",
+    "The robot narrator is prone to breakdowns or overloads while speaking."
+  ],
+  "characters_present": [
+    "Robot narrator",
+    "The Baron (mentioned, not clearly shown)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page directly follows prior narration about the Baron and advances the timeline by ten days.",
+    "The conflict at Marmola appears to be a consequence of the Baron’s death or the resulting situation, though the exact cause is not stated on this page."
+  ],
+  "dialogue_meaning": [
+    "The robot narrator explains the Baron’s death as self-destructive stubbornness.",
+    "The robot’s aside suggests it is malfunction-prone and narrating in a sardonic tone.",
+    "The narration marks a ten-day time jump and frames the arrival of many opportunistic forces at Marmola.",
+    "The narration identifies the conflict as a battle among numerous groups drawn by opportunity or conflict."
+  ],
+  "image_sha256": "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+  "is_spread": false,
+  "locations": [
+    "A mechanical interior or shipboard setting in the opening panel",
+    "The skies/space around Marmola"
+  ],
+  "lore_facts": [
+    "Marmola becomes a destination for ships from many parts of the universe within ten days of the Baron’s death.",
+    "Multiple named factions exist in this setting, including techno-techno robots, Hmanti assassins, bursak corsairs, maganats mercenaries, Laylori vipers, and troglosocialiks warriors.",
+    "These factions are depicted as spacefaring armed groups capable of large-scale battle.",
+    "The robot narrator can suffer electrical failures such as a blown fuse."
+  ],
+  "page_id": "024_The_Metabarons_1_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A robot narrator states that the Baron died after stubbornly holding his breath.",
+    "The narrator interrupts itself with a comic aside about having blown another fuse.",
+    "Ten days later, Marmola’s skies are shown filled with ships arriving from across the universe.",
+    "A major space battle erupts among many competing factions, depicted with intense crossfire and explosions."
+  ],
+  "source_image": "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+      "page_id": "024_The_Metabarons_1_p23",
+      "source_image": "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some faction names are stylized and may be difficult to read precisely from the page image alone.",
+    "The Baron is referenced in narration but is not clearly identifiable in the artwork on this page.",
+    "The exact nature of Marmola (planet, city, or region) is not specified on this page."
+  ],
+  "visual_summary": "A robot narrator continues recounting the Baron’s death with dark humor, shown in close-up beside machinery. The page then jumps forward ten days to Marmola’s skies, now crowded with many spacecraft. The final large battle panel shows a chaotic space engagement with ships exchanging heavy fire and one vessel exploding amid debris.",
+  "volume": 1
+}

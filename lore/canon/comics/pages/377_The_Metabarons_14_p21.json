@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Dona Vicenta is physically ill and repeatedly coughing.",
+    "Dona Vicenta is pregnant on this page.",
+    "Dona Vicenta rejects the artificial environment and longs for a more natural world.",
+    "The metallic man has a steel or artificial head/body but claims to possess a human heart.",
+    "The metallic man is emotionally invested in Dona Vicenta and begs her not to reject him.",
+    "Tonto and Lothar comment on the situation from off-panel, acting as observers or narrators."
+  ],
+  "characters_present": [
+    "Dona Vicenta",
+    "A bald metallic/cybernetic nobleman identified in dialogue as tied to the Castaka line",
+    "Off-panel narrators/speakers named Tonto and Lothar"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page refers to a prior wedding night between Dona Vicenta and the metallic man.",
+    "The dialogue references Keleza as someone who taught the metallic man how to love.",
+    "The unborn child is framed as important to the future of the Castaka/Metabaron family line."
+  ],
+  "dialogue_meaning": [
+    "The narration frames Dona Vicenta's sickness as psychological and environmental, not just physical.",
+    "Dona Vicenta feels profound revulsion toward the artificial world and cannot live normally within it.",
+    "Her counterpart argues that synthetic reality has replaced natural reality long ago and must be accepted.",
+    "Dona Vicenta uses her pregnancy to argue that true nature and authentic life still persist.",
+    "The metallic man sees the pregnancy primarily as dynastic continuation of the Castaka/Metabaron line.",
+    "Dona Vicenta draws a distinction between bodily intercourse and genuine love, denying him full paternity in an emotional or spiritual sense.",
+    "The metallic man answers with a mix of literalism and desperation, claiming the child will still carry the other influence while begging for affection."
+  ],
+  "image_sha256": "3aba24a67b75115f1ac323582cd305cc7778393d8cbe423f44eec0db942dbf50",
+  "is_spread": false,
+  "locations": [
+    "An artificial or enclosed futuristic environment with industrial overhead structures",
+    "A polluted synthetic cityscape with plastic vegetation and holographic birds"
+  ],
+  "lore_facts": [
+    "Dona Vicenta is in an environment dominated by artificial air, artificial rain, plastic plant life, and holographic birds.",
+    "The setting presents real nature as having vanished centuries earlier, according to one speaker.",
+    "Dona Vicenta's condition is described as lung infection linked to 'bio-despair.'",
+    "The Castaka line is treated as a lineage whose continuation matters intensely to the metallic male character.",
+    "The page presents a world where spirit or essence may be discussed as capable of affecting matter, at least in the characters' beliefs."
+  ],
+  "page_id": "377_The_Metabarons_14_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "Narration explains that Dona Vicenta is failing to adapt to her environment and that her lungs are being affected by 'bio-despair.'",
+    "Dona Vicenta coughs repeatedly and rejects the artificial environment around her, including fake weather and simulated nature.",
+    "Another speaker tells her that real nature disappeared centuries earlier and urges her to accept reality.",
+    "Dona Vicenta reveals that she is pregnant, invoking a past intimate encounter as proof that nature still exists.",
+    "The armored or cybernetic man immediately interprets the pregnancy as the continuation of his bloodline and future of the Castaka/Metabaron lineage.",
+    "Dona Vicenta denies that the child is truly his in a spiritual sense, saying his body was involved but her love belonged to someone else.",
+    "The man rejects that distinction, insists the child will bear the other man's traits only through transformed matter, and pleads with her emotionally."
+  ],
+  "source_image": "external/comics/meta-barons/377_The_Metabarons_14_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3aba24a67b75115f1ac323582cd305cc7778393d8cbe423f44eec0db942dbf50",
+      "page_id": "377_The_Metabarons_14_p21",
+      "source_image": "external/comics/meta-barons/377_The_Metabarons_14_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some lettering is small and partially hard to read, especially proper names and the exact phrasing of the narration.",
+    "The exact spelling of 'Castaka' and 'Keleza' may be uncertain due to image resolution.",
+    "The metallic man's specific identity is not explicitly confirmed on this page beyond his connection to the Castaka line."
+  ],
+  "visual_summary": "The page opens with narration over a harsh industrial canopy and then a polluted futuristic cityscape under a bright sky. A sick woman coughs and complains about artificial air, rain, and synthetic nature. In the lower panels, she stands or sits near a metallic, bald man with a stern face and red-black clothing. Their exchange turns from her illness and alienation from the environment to a dispute over her pregnancy and whether the child is truly his.",
+  "volume": 14
+}

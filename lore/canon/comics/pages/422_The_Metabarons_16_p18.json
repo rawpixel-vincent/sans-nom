@@ -1,0 +1,73 @@
+{
+  "character_facts": [
+    "Aghora is bald and appears emotionally restrained until the final tear.",
+    "Aghora has authority to order tests and make life-or-death decisions.",
+    "Deyanira is gravely injured or incapacitated throughout the page.",
+    "Tonto serves Aghora in a diagnostic or advisory role.",
+    "The tarant-wolf is physically strong enough to carry Deyanira and remains close to Aghora."
+  ],
+  "characters_present": [
+    "Aghora",
+    "Deyanira",
+    "Tonto",
+    "A giant spider-like companion identified as a tarant-wolf",
+    "Armed guards or soldiers",
+    "Onlookers/crowd",
+    "Floating robotic devices"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier violent event in which Deyanira was injured.",
+    "The page sets up Deyanira's imminent death and Aghora's reaction to it."
+  ],
+  "dialogue_meaning": [
+    "Someone asks Endoguards to help carry the injured woman, but another voice refuses out of fear that she may wake up and kill them.",
+    "Narration emphasizes that the spider-like companion is taking away Deyanira, described as Aghora's only friend.",
+    "Aghora orders medical testing on Deyanira after returning to the Metabunker.",
+    "Aghora asks Tonto for the test results.",
+    "Tonto reports that Deyanira is dying from a tumor and has almost no bio-life left.",
+    "Aghora says she will not allow Deyanira to suffer and will kill her immediately.",
+    "The tarant-wolf's growls and gesture read as a final affectionate farewell."
+  ],
+  "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+  "is_spread": false,
+  "locations": [
+    "A large public or ceremonial interior crowded with guards and spectators",
+    "The Metabunker",
+    "A medical/testing chamber filled with tubes and machinery"
+  ],
+  "lore_facts": [
+    "The setting includes an organization or group called the Endoguards.",
+    "The Metabunker is a named location with facilities for medical testing.",
+    "Tonto can perform or relay comprehensive medical analysis.",
+    "Deyanira is suffering from a tumor and is near death.",
+    "The creature called a tarant-wolf is capable of loyalty and affection toward its master.",
+    "Aghora is said to have had only one friend in her life, Deyanira."
+  ],
+  "page_id": "422_The_Metabarons_16_p18",
+  "page_label": "p18",
+  "plot_events": [
+    "A wounded woman is carried away by a giant spider-like companion despite fearful reactions from surrounding figures.",
+    "A narration box explains that the creature carries away the only friend the woman has known.",
+    "Back at the Metabunker, comprehensive tests are ordered on the woman, identified as Deyanira.",
+    "A mechanical assistant reports that Deyanira has a severe tumor and very little bio-life remaining, and that she will die painfully.",
+    "The man decides he cannot let Deyanira continue suffering and prepares to kill her himself.",
+    "Before that happens, the spider-like companion gives him a final affectionate lick.",
+    "A narration box states that Aghora cries a single tear for the first time in her life."
+  ],
+  "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+      "page_id": "422_The_Metabarons_16_p18",
+      "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and names are slightly hard to read from the image alone; confidence in exact wording is limited.",
+    "The exact spelling of 'Endoguards' and 'tarant-wolf' may be uncertain due to image resolution.",
+    "The relationship between Tonto and the visible machinery is not fully explicit on this page alone."
+  ],
+  "visual_summary": "A large spider-like creature carries an injured woman through a crowded interior while armed figures and floating machines watch. In a medical chamber full of tubes and machinery, the creature lies beside the woman as a man consults a mechanical assistant about her condition. In the final panels, the man points a gun at the creature, the creature affectionately licks him, and a close-up shows a single tear falling from the bald woman's eye.",
+  "volume": 16
+}

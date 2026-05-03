@@ -1,0 +1,63 @@
+{
+  "character_facts": [
+    "Othon von Salza is portrayed as an exceptionally precise and deadly close-quarters fighter.",
+    "Othon is associated with superhuman precision in the narration.",
+    "Tonto is someone the narrator speaks to familiarly.",
+    "The narrator is enthusiastic about the master's lineage and treats Othon's exploit as a point of pride."
+  ],
+  "characters_present": [
+    "Othon von Salza, shown in the battle being recounted",
+    "Endoguards",
+    "A small floating narrator/speaker object addressing Tonto",
+    "Tonto, present only as the addressee in dialogue and not clearly shown on the page"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page functions as an anecdotal or historical retelling about the ancestry of the master rather than only present-time action.",
+    "The battle image is framed by present-tense narration directed at Tonto, linking past family legend to an ongoing conversation."
+  ],
+  "dialogue_meaning": [
+    "A cry of aggression accompanies the fighter's counterattack.",
+    "The speaker explains to Tonto that the depicted battle is a story about Othon von Salza, described as the master's great ancestor.",
+    "The explanation emphasizes that Othon defeated about 1,500 endogards by finding tiny openings in their supposedly impenetrable armor and striking precisely with a very small steel dagger.",
+    "The speaker assumes Tonto should admire this ancestor and casually offers more ultra-coolant."
+  ],
+  "image_sha256": "87f5a746e8dead08925a3e7f89389082451051eca7cadf83216cb186c7605ec8",
+  "is_spread": false,
+  "locations": [
+    "A battlefield or combat chamber crowded with armored endoguards",
+    "A separate narration frame or conversational setting at the bottom of the page"
+  ],
+  "lore_facts": [
+    "Othon von Salza is identified as the master's great ancestor.",
+    "Endogards are presented as armored enemies with allegedly impenetrable armor except for tiny weak points or gaps.",
+    "Othon's legendary feat is said to involve defeating roughly 1,500 endogards.",
+    "The method of defeating them is described as precision dagger strikes into small openings in their armor.",
+    "Ultra-coolant is a drink or consumable offered in the framing conversation."
+  ],
+  "page_id": "034_The_Metabarons_2_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "An armored fighter emerges from beneath a crush of enemy bodies and machinery.",
+    "He shouts and attacks endoguards at extremely close range.",
+    "The fighter exploits gaps in the enemies' armor and drives a small blade into them.",
+    "A large number of endoguards are shown falling around him during the melee.",
+    "In the framing conversation, a narrator explains that Othon von Salza accomplished this feat and presents it as an ancestral exploit.",
+    "The narrator addresses Tonto and invites him to share another ultra-coolant drink."
+  ],
+  "source_image": "external/comics/meta-barons/034_The_Metabarons_2_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "87f5a746e8dead08925a3e7f89389082451051eca7cadf83216cb186c7605ec8",
+      "page_id": "034_The_Metabarons_2_p05",
+      "source_image": "external/comics/meta-barons/034_The_Metabarons_2_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity and nature of the small floating narrator/speaker object are not stated on this page.",
+    "Tonto is addressed in dialogue but is not clearly visible in the provided page image.",
+    "The exact spelling of 'endogards' is somewhat hard to verify from the image and may be affected by scan clarity, though the meaning is readable."
+  ],
+  "visual_summary": "A heavily armored warrior with long pale hair fights through a dense mass of mechanized soldiers in a chaotic battlefield. Small upper panels show him forcing his way up from beneath piled enemies, shouting and stabbing into weak points between armor plates. A large central panel shows him surrounded by bodies and muzzle flashes as he continues cutting through the endoguards. At the bottom, the scene cuts to a calmer storytelling frame with a small floating, gem-like or mechanical speaker narrating the feat to Tonto and offering him a drink.",
+  "volume": 2
+}

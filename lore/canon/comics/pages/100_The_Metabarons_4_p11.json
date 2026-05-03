@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "Othon is male and is identified as the father of the child.",
+    "Othon does not appear to know the full purpose behind the conception until this conversation.",
+    "The silver-haired woman claims her affair with Othon was mission-driven rather than romantic.",
+    "The silver-haired woman is protective of the newborn's secret.",
+    "The newborn is central to the secrecy and is visually depicted as very small and fragile."
+  ],
+  "characters_present": [
+    "Othon",
+    "Silver-haired woman who bore the child",
+    "Newborn child",
+    "Figure arriving or speaking from a dark craft/seat"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to depict the immediate aftermath of the child's birth and a revelation about the child's intended nature.",
+    "The conversation sets up future conflict around concealment of the child's sex and identity.",
+    "The praise about Othon fathering a boy is directly undermined by the mother's revelation, indicating tension between public story and private truth."
+  ],
+  "dialogue_meaning": [
+    "The mother is emotionally separated from the baby and says she cannot embrace the child.",
+    "She insists the child's sex must remain secret.",
+    "Someone assumes or publicly frames the baby as a male heir fathered by Othon.",
+    "The mother reveals her relationship with Othon began as an assigned seduction intended to produce a specific kind of offspring.",
+    "Othon is disturbed by the revelation and questions the purpose behind producing such a child."
+  ],
+  "image_sha256": "06a0384f8ba8f932dafc904f7e2afd0d7307854a87ba6ff15f916e656a9df3d5",
+  "is_spread": false,
+  "locations": [
+    "An interior or bed-like setting where the woman lies with the newborn",
+    "Clouded sky with small flying craft",
+    "Aerial craft or cockpit-like setting in the lower left panel"
+  ],
+  "lore_facts": [
+    "Othon has fathered the newborn child shown on the page.",
+    "The child's gender is treated as highly secret information.",
+    "The mother says she was sent by superiors to seduce Othon for a breeding purpose rather than from love.",
+    "The intended child was described on-page as a hermaphrodite.",
+    "The page presents the idea that Othon is regarded as 'the greatest warrior in the galaxy' by the mother's superiors or faction."
+  ],
+  "page_id": "100_The_Metabarons_4_p11",
+  "page_label": "p11",
+  "plot_events": [
+    "A woman lies beside a newborn and laments that she cannot take the baby into her arms.",
+    "The scene shifts through the sky to a lower conversation sequence involving Othon, the woman, and an approaching figure in a dark craft.",
+    "The woman warns Othon that he must never reveal the child's gender to anyone.",
+    "A speaker praises Othon and says the galaxy will know he has fathered a boy.",
+    "The woman contradicts that framing by explaining she came to seduce Othon under orders to conceive a child with the galaxy's greatest warrior, specifically 'a hermaphrodite.'",
+    "Othon reacts with confusion and asks why such secrecy exists and whether the child was conceived as a monster for some reason."
+  ],
+  "source_image": "external/comics/meta-barons/100_The_Metabarons_4_p11.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "06a0384f8ba8f932dafc904f7e2afd0d7307854a87ba6ff15f916e656a9df3d5",
+      "page_id": "100_The_Metabarons_4_p11",
+      "source_image": "external/comics/meta-barons/100_The_Metabarons_4_p11.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially difficult to read, so wording may be approximate even where the meaning is clear.",
+    "The identity of the figure in the dark craft is not explicitly readable from this page alone.",
+    "The exact setting of the lower panels is ambiguous; it may be inside or adjacent to an aircraft rather than a clearly defined room."
+  ],
+  "visual_summary": "A silver-haired woman reclines with a newborn beside her in the top panel, speaking with distress about not being able to hold the child. A small aircraft or shuttle crosses a cloudy sky in a wide transition panel. In the lower sequence, an older man named Othon is shown with the woman and baby; another figure approaches in a dark craft. Their conversation reveals the child’s birth, secrecy around the child’s sex, and the woman’s claim that she was sent to conceive a child with Othon for a larger purpose.",
+  "volume": 4
+}

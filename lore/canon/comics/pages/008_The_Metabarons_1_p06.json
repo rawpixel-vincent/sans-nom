@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Othon von Salza is an ancestor in the central bloodline and has a pirate past.",
+    "Lady Edna is presented as beautiful, indomitable, and politically significant through her parentage.",
+    "Edna's fertility or lineage is treated as notable because she gave Othon only one son, Bari.",
+    "Baron Berard holds authority over Marmola and Castaka.",
+    "The Techno-Pope commands enough power or wealth to requisition vast quantities of marble."
+  ],
+  "characters_present": [
+    "Othon von Salza (depicted or referenced in ancestral narration)",
+    "Lady Edna (referenced in narration)",
+    "Baron Berard of Castaka (referenced in narration)",
+    "Bari (referenced as infant/son, not visibly shown)",
+    "Unidentified shipboard speakers or merchants",
+    "The Techno-Pope (referenced, not visibly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues the genealogical history of the Metabaron line by moving from Othon von Salza to his union with Edna and their son Bari.",
+    "It introduces Marmola and Castaka as the next important family setting in that lineage.",
+    "The unexpected arrival of the Imperial Merchants Guild ship sets up a likely conflict between Marmola's peaceful life and imperial extraction demands."
+  ],
+  "dialogue_meaning": [
+    "The narration establishes a family link: Othon von Salza married into the ruling house of Marmola through Lady Edna.",
+    "It emphasizes a succession detail that Edna produced only one son, Bari.",
+    "The captions characterize Marmola as a marble planet with a small fertile valley supporting Castaka, living by exporting precious stone for imperial building works.",
+    "The dialogue frames Marmola as a resource target, with enough marble to pave Technogea and to build the Techno-Pope's new temple-bank.",
+    "The final remark revises the scale of extraction upward from a limited order to the removal of an entire mountain."
+  ],
+  "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+  "is_spread": false,
+  "locations": [
+    "Marmola",
+    "Castaka",
+    "Space above Marmola",
+    "A large interior structure or stair hall shown in inset, exact location unclear"
+  ],
+  "lore_facts": [
+    "Othon von Salza is described as the master's great-great-grandfather.",
+    "Othon was once an intergalactic pirate.",
+    "Lady Edna was the daughter of Baron Berard of Castaka.",
+    "Baron Berard is described as the undisputed ruler of Marmola in the Philorian system.",
+    "Marmola is a gigantic marble globe with only a small fertile valley housing the fortress of Castaka.",
+    "The Marmolans sustain themselves by selling precious marble to builders of imperial palaces.",
+    "Marmola had lived in tranquility until the arrival of a cargo ship from the Imperial Merchants Guild.",
+    "Technogea has streets that can be paved with Marmola's marble.",
+    "The Techno-Pope is building or planning a new temple-bank."
+  ],
+  "page_id": "008_The_Metabarons_1_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "The narration identifies Othon von Salza as an ancestor in the line being recounted.",
+    "The page states that Othon won the hand of Lady Edna, daughter of Baron Berard of Castaka and ruler of Marmola.",
+    "The narration says Edna bore Othon only one son, Bari.",
+    "The setting shifts to Marmola, described as a peaceful marble-producing world centered on Castaka.",
+    "A cargo ship from the Imperial Merchants Guild arrives unexpectedly at Marmola.",
+    "Observers aboard or near the ship assess Marmola as a vast source of marble for Technogea.",
+    "They conclude that the Techno-Pope's construction project will require far more marble than first suggested, up to an entire mountain."
+  ],
+  "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+      "page_id": "008_The_Metabarons_1_p06",
+      "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The upper row of faces is not explicitly labeled panel-by-panel; it is unclear which face is meant to represent Othon or other ancestors.",
+    "Some wording in the top narration is small and slightly hard to read; details such as descriptive phrasing around Edna may not be perfectly transcribed.",
+    "The small inset stairway scene is visually present but its exact participants and location are not identified on the page.",
+    "The speaking characters in the lower scene are off-panel or not clearly singled out, so their identities are uncertain beyond being associated with the arriving ship or merchants."
+  ],
+  "visual_summary": "The page combines genealogical narration with a new setting introduction. The top half shows a row of severe-looking figures in close-up against a starry backdrop, alongside a small inset of a monumental interior stairway with tiny people and cargo-like objects. Caption boxes explain the ancestry of Othon von Salza and Lady Edna, then describe the marble world Marmola and its fortress-valley of Castaka. The lower half is dominated by a large, detailed spacecraft looming over a gray spherical planet. Speech balloons from unseen or off-panel speakers describe the planet as a quarry rich in marble and estimate how much stone the Techno-Pope needs for a temple-bank, ending with the escalation that an entire mountain is required.",
+  "volume": 1
+}

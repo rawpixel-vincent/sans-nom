@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "Aghora survives by leaving the universe rather than remaining in the confrontation.",
+    "The Metabaron or Metabaron-aligned figure acts according to an uncompromising martial code.",
+    "An unidentified speaker argues from a broader moral concern, warning about the lives of countless beings."
+  ],
+  "characters_present": [
+    "Aghora",
+    "A Metabaron or Metabaron-aligned warrior",
+    "An unidentified dark circular presence or entity in space",
+    "Invading jellyfish creatures"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to conclude a larger battle with Aghora.",
+    "The invading jellyfish are tied to Aghora's presence or to the open gateway.",
+    "The outcome suggests the immediate threat ends once the gateway is shut."
+  ],
+  "dialogue_meaning": [
+    "A surrender is offered, but mercy is refused.",
+    "One speaker warns that sparing the defeated being would lead to mass death.",
+    "The Metabaron code is presented as absolute: only victory or death, not clemency.",
+    "The narration explains that closing the gateway severs the invaders from the power sustaining them."
+  ],
+  "image_sha256": "dbc696e2935b1be881dfd43085f52b1b8ab39cc6d68844d17128fd6b353f4301",
+  "is_spread": true,
+  "locations": [
+    "Outer space",
+    "A cosmic gateway or portal between universes",
+    "The universe Aghora leaves"
+  ],
+  "lore_facts": [
+    "The Metabarons are said to follow a strict law centered on victory or death.",
+    "Aghora is capable of leaving an entire universe through a gateway.",
+    "The gateway's closure permanently cuts passage between realms in this moment.",
+    "The invading jellyfish depend on an external energy source connected to that gateway.",
+    "When cut off from that energy source, the jellyfish dissolve."
+  ],
+  "page_id": "418_The_Metabarons_16_p13-p14",
+  "page_label": "p13-p14",
+  "plot_events": [
+    "One participant in the confrontation offers surrender.",
+    "Another voice rejects that surrender and argues that accepting it would doom vast numbers of beings.",
+    "A warrior aligned with the Metabarons' law declares that defeat requires destruction rather than mercy.",
+    "A cosmic energy point or gateway intensifies into a blinding detonation.",
+    "Aghora departs from the universe.",
+    "As the gateway closes, the invading jellyfish lose their energy source and dissolve."
+  ],
+  "source_image": "external/comics/meta-barons/418_The_Metabarons_16_p13-p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "dbc696e2935b1be881dfd43085f52b1b8ab39cc6d68844d17128fd6b353f4301",
+      "page_id": "418_The_Metabarons_16_p13-p14",
+      "source_image": "external/comics/meta-barons/418_The_Metabarons_16_p13-p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be off.",
+    "The identity of the close-up cybernetic face is not explicitly confirmed on this page alone.",
+    "The dark circular figure in space may represent a being, portal aspect, or visual symbol; the page does not make that fully explicit."
+  ],
+  "visual_summary": "A cosmic confrontation resolves across a two-page spread. A dark circular presence hangs in space while speech balloons announce surrender, reject mercy, and invoke the Metabarons' code. A furious, cybernetic-looking face appears in close-up, then a smaller armored figure is shown amid blinding energy. A glowing sphere or gateway erupts into white light and jagged blue-white energy, ending with a caption that says Aghora leaves the universe and the invading jellyfish dissolve.",
+  "volume": 16
+}

@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "The elderly narrator is scarred, mechanically altered in appearance, and speaks with authority.",
+    "The narrator identifies himself as a supreme techno-priest.",
+    "The narrator is reflective and cynical about his past ideals.",
+    "The three seated subjects are emotionally and mentally affected by the procedure, shifting from pain to declarations of affection.",
+    "The small white companion stays physically close to the narrator, riding on his shoulder in the final panel."
+  ],
+  "characters_present": [
+    "An elderly scarred techno-priest or narrator figure",
+    "A small white companion identified as Tingrifi or Tigrifiri",
+    "A blond male subject undergoing rehabilitation",
+    "A dark-skinned male subject undergoing rehabilitation",
+    "A dark-haired subject undergoing rehabilitation",
+    "Background attendants or observers in the chamber"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The narrator says he will continue retelling his memories, linking this page to an ongoing framed recollection.",
+    "The rehabilitation scene appears to be one episode within the narrator's larger account of the past."
+  ],
+  "dialogue_meaning": [
+    "The procedure is described as the pain of losing one's identity, but also as liberation from guilt through imposed or virtual memories.",
+    "The three subjects react in terror and agony while the process is happening.",
+    "Once altered, the subjects voice attachment, brotherhood, and love, suggesting the treatment has reshaped their emotions or loyalties.",
+    "The narrator insists the process was punishment reframed as rehabilitation.",
+    "The narrator complains privately that he cannot easily find peace because of the people around him.",
+    "He reflects bitterly that his youthful idealization of 'game creators' ended in disappointment."
+  ],
+  "image_sha256": "fb3201e0e75f4d814d24da7b3e8261712c860fadc21bcf5daf398237b4766049",
+  "is_spread": false,
+  "locations": [
+    "A clinical or technological rehabilitation/memory-installation chamber",
+    "The narrator's route back toward his cabin"
+  ],
+  "lore_facts": [
+    "This setting includes technology capable of erasing or overwriting identity through virtual or implanted memories.",
+    "Such a process can be described as both punishment and rehabilitation.",
+    "A high-ranking techno-priest figure has authority over or involvement in this rehabilitation process.",
+    "The narrator has a cabin and a named small companion called Tingrifi/Tigrifiri.",
+    "'Game creators' are treated as a recognized group or profession within the setting."
+  ],
+  "page_id": "307_The_Metabarons_11_p30",
+  "page_label": "p30",
+  "plot_events": [
+    "Three people are subjected to a painful identity or memory-altering process.",
+    "The elderly narrator frames the process as both severe suffering and a form of rehabilitation tied to implanted or virtual memories.",
+    "After the procedure, the three subjects appear mentally changed and express affection or kinship toward each other.",
+    "The narrator declares the rehabilitation complete and prepares to return to his cabin.",
+    "The narrator resumes recounting his memories while addressing his small companion."
+  ],
+  "source_image": "external/comics/meta-barons/307_The_Metabarons_11_p30.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fb3201e0e75f4d814d24da7b3e8261712c860fadc21bcf5daf398237b4766049",
+      "page_id": "307_The_Metabarons_11_p30",
+      "source_image": "external/comics/meta-barons/307_The_Metabarons_11_p30.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read at this resolution, especially the narrator's early explanation and the exact spelling of the companion's name.",
+    "The precise identities of the three rehabilitated subjects are not stated clearly on this page alone.",
+    "The exact name or title of the elderly narrator is not readable on this page.",
+    "The page footer shows '32' while the provided page label is 'p30'."
+  ],
+  "visual_summary": "Three distressed people undergo a procedure in which glowing tendrils or interfaces descend onto their heads, making them scream. An elderly, heavily scarred techno-priest-like man watches and explains the process. The three subjects then sit separately in rounded chairs, calmer and emotionally altered, declaring fraternal love. The old man leaves the chamber and continues narrating beside a small white companion perched on his shoulder.",
+  "volume": 11
+}

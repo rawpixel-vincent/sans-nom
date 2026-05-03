@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Master Othon receives reports from others, suggesting command over attendants.",
+    "Bari is physically exhausted on this page and falls asleep quickly.",
+    "Iku-Tta appears to be a confidant or subordinate addressed directly by the white-haired man.",
+    "The white-haired man expresses emotional loneliness and a desire for companionship.",
+    "The rider outdoors is delighted by Bari's happiness."
+  ],
+  "characters_present": [
+    "Master Othon",
+    "Bari",
+    "Iku-Tta",
+    "a sleeping young Bari",
+    "a rider on a white horse",
+    "a large white flying creature"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "Bari's happiness is treated as a notable recent change, implying prior sadness or difficulty.",
+    "The failed attempt to question Bari suggests earlier events made his testimony or explanation important.",
+    "The praise of Shazam implies Shazam was introduced or became relevant before this page."
+  ],
+  "dialogue_meaning": [
+    "The outdoor dialogue conveys relief and happiness, with plans for a celebratory meal and feed for the horse.",
+    "The attendant explains that Bari could not be questioned because exhaustion overcame him.",
+    "The speakers agree that Bari’s mood has improved dramatically.",
+    "Shazam is described as a beneficial presence or intervention, especially during a gloomy season.",
+    "The final exchange reveals Master Othon’s personal loneliness and wish for a companion."
+  ],
+  "image_sha256": "1e9c286ade6f842c5f96af7c22ddb0e7373f6f99abdcca701969bf6782aafbef",
+  "is_spread": false,
+  "locations": [
+    "An outdoor waterside or marsh-like landscape with birds overhead",
+    "An interior bedchamber or private room"
+  ],
+  "lore_facts": [
+    "Othon is addressed as 'Master Othon,' indicating rank or authority.",
+    "Bari is young enough to be referred to as 'young Bari.'",
+    "A place called Aldebaran exists and is associated here with oats.",
+    "The setting includes a season of misty nights associated with depression or gloom.",
+    "Shazam is regarded on this page as a positive influence or 'godsend.'"
+  ],
+  "page_id": "046_The_Metabarons_2_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "A rider traveling outdoors is accompanied overhead by a large white flying creature.",
+    "The rider speaks warmly about sharing food and oats, celebrating the mood of a young person named Othon.",
+    "The scene shifts indoors where a servant or attendant reports to Master Othon that the young Bari was too exhausted to be properly questioned and fell asleep immediately.",
+    "One speaker remarks that he has never seen Bari so happy and credits someone or something named Shazam for it.",
+    "The white-haired man admits he struggles with loneliness and desires companionship."
+  ],
+  "source_image": "external/comics/meta-barons/046_The_Metabarons_2_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1e9c286ade6f842c5f96af7c22ddb0e7373f6f99abdcca701969bf6782aafbef",
+      "page_id": "046_The_Metabarons_2_p17",
+      "source_image": "external/comics/meta-barons/046_The_Metabarons_2_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the outdoor rider is not fully explicit from this page alone.",
+    "The species or nature of the large white flying creature is not identified on the page.",
+    "It is unclear whether the masked figure is Iku-Tta or another attendant speaking to Master Othon.",
+    "Some names and terms, especially 'Karviz' and possibly 'Iku-Tta,' may be difficult to read with complete certainty."
+  ],
+  "visual_summary": "A large white flying creature glides over a rider on a white horse in a bright outdoor landscape with water and birds. The page then cuts indoors to a dim room where a sleeping young person lies in bed while two older men speak beside him. One is masked or tattooed and dressed in layered garments; the other is a white-haired man in a dark red robe. The final close-up focuses on the white-haired man’s serious, lonely expression.",
+  "volume": 2
+}

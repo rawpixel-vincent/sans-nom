@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Aghnar seeks vengeance, explicitly tying it to his mother.",
+    "Aghnar believes he cannot overcome all of his enemies alone.",
+    "Aghnar is opportunistic and looks for a way to capture a cetacyborg without alerting the main enemy stronghold.",
+    "Aghnar considers becoming patriarch of the Magon proto-civilization a necessary step in his plan.",
+    "The subordinate provides intelligence about the enemy's total number of cetacyborgs and warns about their destructive power."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "A robotic or cyborg subordinate/attendant"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page advances Aghnar's revenge plot by turning it toward the theft or takeover of a cetacyborg.",
+    "It links the enemy stronghold, the missing seventh guardian, and the Magon proto-civilization into one strategic plan.",
+    "The mention of Aghnar's mother ties his current scheme to an earlier personal grievance or family tragedy."
+  ],
+  "dialogue_meaning": [
+    "The narration explains that the Shabda-Oud are sheltered inside a comet-like ice asteroid guarded by powerful cetacyborgs.",
+    "Aghnar's inner thoughts frame the guarded comet as nearly impossible to attack directly.",
+    "The exchange with the subordinate clarifies a discrepancy: six protect the comet now, but seven cetacyborgs exist overall.",
+    "Aghnar identifies the absent seventh as being away on a covert mission, creating a vulnerability.",
+    "The subordinate warns that a cetacyborg is overwhelmingly destructive and cannot be beaten by ordinary force.",
+    "Aghnar responds by shifting from direct revenge to a takeover plan involving the Magon proto-civilization and a patriarchal role."
+  ],
+  "image_sha256": "4c7fd91a85cf095443d0a1549d2ef02b8bd4daf5170fd6eb25297107d1b9db98",
+  "is_spread": false,
+  "locations": [
+    "Interior of Aghnar's spacecraft or station",
+    "Outer space near the Shabda-Oud comet",
+    "The blue solar system of Beta-Kuntri (mentioned as destination)"
+  ],
+  "lore_facts": [
+    "The Shabda-Oud inhabit an ice asteroid that has been transformed into a comet.",
+    "Cetacyborgs are depicted as monstrous guardians of the Shabda-Oud.",
+    "Six cetacyborgs are currently protecting the comet.",
+    "The witches are said to possess seven cetacyborgs in total.",
+    "A 'spy-needle' is a craft or vessel capable of carrying three assassins.",
+    "One such vessel is traveling to the blue solar system of Beta-Kuntri on a secret mission.",
+    "Defeating a cetacyborg is described as requiring force comparable to an exploding sun.",
+    "The Magon proto-civilization is presented as something Aghnar has discovered and can potentially rule as patriarch."
+  ],
+  "page_id": "170_The_Metabarons_6_p19",
+  "page_label": "p19",
+  "plot_events": [
+    "The page establishes that the Shabda-Oud live on an ice asteroid transformed into a comet.",
+    "The comet is said to be protected by six monstrous cetacyborgs.",
+    "Aghnar laments that he cannot destroy them by himself.",
+    "A subordinate states that the witches have seven cetacyborgs in total, prompting the question of the missing seventh.",
+    "Aghnar learns that a spy-needle is heading toward the blue solar system of Beta-Kuntri with three assassins aboard.",
+    "He sees this secret mission as his only chance to seize the beast without alerting the ice asteroid.",
+    "Aghnar then connects his plan to the discovered Magon proto-civilization and declares that becoming its patriarch is essential.",
+    "He concludes that this will let him take over a cetacyborg and avenge his mother."
+  ],
+  "source_image": "external/comics/meta-barons/170_The_Metabarons_6_p19.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4c7fd91a85cf095443d0a1549d2ef02b8bd4daf5170fd6eb25297107d1b9db98",
+      "page_id": "170_The_Metabarons_6_p19",
+      "source_image": "external/comics/meta-barons/170_The_Metabarons_6_p19.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact spelling of some proper nouns is hard to verify from the page image alone, especially 'Shabda-Oud' and 'Beta-Kuntri'.",
+    "The identity and nature of the subordinate are visually ambiguous; it appears to be a robotic or cybernetic attendant.",
+    "The page states Aghnar 'discovered' the Magon proto-civilization, but the circumstances of that discovery are not shown here."
+  ],
+  "visual_summary": "Aghnar is shown inside a spacecraft or station, watching a faceted ice-asteroid/comet in space and nearby biomechanical-looking ships. He broods over enemies he cannot defeat alone, questions the number of enemy cetacyborgs, and learns that one target craft carrying assassins is traveling toward the blue solar system of Beta-Kuntri. In the final panel he raises his arms and declares a new plan tied to the Magon proto-civilization and control of a cetacyborg.",
+  "volume": 6
+}

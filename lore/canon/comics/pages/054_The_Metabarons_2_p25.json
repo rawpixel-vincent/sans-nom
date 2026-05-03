@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The Baron suffers catastrophic injuries to his groin and hips but survives.",
+    "The Baron remains bedridden for months and is mentally distressed during recovery.",
+    "Shazam is associated with the Baron's survival and return journey.",
+    "Iku-Tta and his daughters personally tend to the Baron's care.",
+    "The Baron's son is described as destined to become a renowned warrior."
+  ],
+  "characters_present": [
+    "the Baron",
+    "Shazam",
+    "Iku-Tta",
+    "Iku-Tta's two daughters",
+    "an elderly bedside attendant or speaker (possibly Iku-Tta)",
+    "Bari (mentioned, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page follows an earlier event in which the Baron was mutilated in the groin and hips.",
+    "It refers back to a prior incident involving the death of someone the Baron fears may have been his son.",
+    "It sets up the future importance of the Baron's son as a warrior."
+  ],
+  "dialogue_meaning": [
+    "Narration states that the Baron's groin and hips were destroyed and that Shazam enabled his return to the palace.",
+    "Narration states that Iku-Tta and his two daughters nursed the Baron through a recovery lasting several months.",
+    "The Baron, apparently delirious, insists he killed a pirate rather than his son and calls for Bari to return.",
+    "The bedside speaker comforts him with a symbolic story about a rare scarlet bird becoming a flower that grows upward.",
+    "The speaker foretells that the Baron's son will become a famous warrior and urges the Baron to rest."
+  ],
+  "image_sha256": "d0ae48879440148fab0e3b858df43f1aac88bb68089fd6128763895513e673e7",
+  "is_spread": false,
+  "locations": [
+    "an outdoor night landscape during the Baron's return",
+    "the Baron's palace",
+    "the Baron's sickbed or recovery chamber"
+  ],
+  "lore_facts": [
+    "Shazam is capable of bringing the severely wounded Baron back to his palace.",
+    "Iku-Tta is loyal to the Baron.",
+    "Iku-Tta has two daughters.",
+    "The Baron's palace serves as a place of recovery after catastrophic injury.",
+    "Prophetic or symbolic speech is used to speak about the fate of the Baron's son."
+  ],
+  "page_id": "054_The_Metabarons_2_p25",
+  "page_label": "p25",
+  "plot_events": [
+    "The Baron is shown grievously injured, especially in the groin and hips.",
+    "He survives long enough to return to his palace with Shazam's help.",
+    "He spends several months near death while recovering.",
+    "Iku-Tta and his two daughters care for him during his recovery.",
+    "While bedridden, the Baron cries out about killing a pirate rather than his son and calls for 'Bari' to answer.",
+    "A bedside figure tries to soothe him and predicts that his son will become a renowned warrior."
+  ],
+  "source_image": "external/comics/meta-barons/054_The_Metabarons_2_p25.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "d0ae48879440148fab0e3b858df43f1aac88bb68089fd6128763895513e673e7",
+      "page_id": "054_The_Metabarons_2_p25",
+      "source_image": "external/comics/meta-barons/054_The_Metabarons_2_p25.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely; 'Bari' may be slightly misread.",
+    "The exact identity of the bedside speaker is not fully certain from this page alone.",
+    "The exact visual status of Shazam in the middle panels is somewhat ambiguous due to the stylized, spectral rendering."
+  ],
+  "visual_summary": "The page shows the badly wounded Baron clutching his lower body in armor, then a night escape associated with his mount Shazam, including a ghostly horse image and a ride through a pale, wild landscape. In the final large panel, the Baron lies bandaged in bed near a fire while Iku-Tta and two daughters tend him; he appears feverish or delirious as another figure speaks to calm him.",
+  "volume": 2
+}

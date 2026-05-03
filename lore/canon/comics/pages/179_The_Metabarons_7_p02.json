@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The noblewoman is unwavering and publicly dismisses powerful suitors who fail her condition.",
+    "General Amagho presents himself through military victory, wealth, and theatrical extravagance.",
+    "The silver-haired man is bold and physically forceful, unwilling to wait his turn."
+  ],
+  "characters_present": [
+    "A dark-haired noblewoman or desired lady in revealing formal attire with a translucent white wrap",
+    "A short hooded attendant or escort standing beside her",
+    "General Amagho, a flamboyantly dressed suitor with an elaborate green headdress/helmet and staff-like object",
+    "Multiple guards or courtiers watching from the hall and balcony",
+    "A silver-haired armored or battle-worn man pushing through the crowd",
+    "A grimacing courtier or clown-like figure beside the silver-haired man"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page appears to continue a courtship or contest centered on obtaining the true blue rose.",
+    "The repeated rejection suggests previous failed offerings before this page or earlier in the same sequence.",
+    "The silver-haired man's entrance sets up a likely confrontation or decisive presentation on the following page."
+  ],
+  "dialogue_meaning": [
+    "The woman makes clear she wants a specific symbolic object: the blue rose, and rejects substitutes.",
+    "General Amagho tries to impress her with conquest, wealth, and a macabre luxury gift fashioned from a defeated emperor's remains.",
+    "The court treats Amagho as a prominent and wealthy candidate.",
+    "The silver-haired newcomer asserts himself aggressively, implying he has what the woman actually wants or intends to confront the crowd directly."
+  ],
+  "image_sha256": "f607212027e6f82fbc3e8067b81f579963f0f0192149d57587610593b9d31609",
+  "is_spread": false,
+  "locations": [
+    "A large ceremonial interior hall or court",
+    "An upper balcony/gallery overlooking the hall"
+  ],
+  "lore_facts": [
+    "A 'blue rose' is established as a uniquely desired object and not merely any rose-shaped gift.",
+    "General Amagho is identified as owner of the Tazzum mines.",
+    "General Amagho is described as possessing a fabulous fortune.",
+    "A referenced emperor of Androkla-5 has allegedly been vanquished by Amagho."
+  ],
+  "page_id": "179_The_Metabarons_7_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A noblewoman publicly rejects a presented gift, stating it is not the blue rose she desires.",
+    "A flamboyant suitor offers a grotesque rose made from an enemy emperor's intestines and frames it as a token of devotion.",
+    "The suitor is suddenly interrupted by a violent upward burst of debris or force and is knocked away.",
+    "Observers on an upper level react as the disturbance throws the presenter off balance.",
+    "Another figure identifies the failed suitor as General Amagho and notes his ownership of the Tazzum mines and great wealth.",
+    "The desired woman repeats that the offering is not the blue rose she seeks.",
+    "A silver-haired man forcefully advances through the crowd, ordering others aside, apparently bringing a blue rose."
+  ],
+  "source_image": "external/comics/meta-barons/179_The_Metabarons_7_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f607212027e6f82fbc3e8067b81f579963f0f0192149d57587610593b9d31609",
+      "page_id": "179_The_Metabarons_7_p02",
+      "source_image": "external/comics/meta-barons/179_The_Metabarons_7_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some small dialogue is difficult to read precisely; wording of the boast and title may contain minor transcription uncertainty.",
+    "It is visually unclear whether the upward blast is caused by a person arriving, a trap, or an off-panel strike.",
+    "The exact identity and role of the silver-haired man are not stated on this page alone.",
+    "The exact spelling of 'Tazzum' and 'Androkla-5' may be slightly uncertain due to image resolution."
+  ],
+  "visual_summary": "In a grand interior gallery or ceremonial hall, a richly dressed noblewoman rejects a suitor's offering, saying it is not the blue rose she wants. A flamboyantly dressed man presents an extravagant grisly gift and boasts of defeating an emperor, but he is abruptly attacked from below or off-panel: debris erupts upward, he is struck and falls, and onlookers react from a balcony. The scene then shifts to another speaker identifying the disrupted suitor as General Amagho, owner of the Tazzum mines and possessor of a vast fortune. The woman repeats her rejection. In the final panel, a forceful silver-haired man pushes forward, telling others to step aside while holding or reaching toward a blue rose-like object.",
+  "volume": 7
+}

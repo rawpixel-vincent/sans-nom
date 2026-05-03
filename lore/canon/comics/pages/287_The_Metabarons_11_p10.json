@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The faceted giant entity controls the trial and explains its rules.",
+    "The armored figure is being tested and initially responds with skepticism or sarcasm.",
+    "The octo-tiger is the designated opponent in this challenge.",
+    "The armored figure is physically overwhelmed or blasted backward when the confrontation begins."
+  ],
+  "characters_present": [
+    "A large faceted giant head or entity acting as instructor/judge",
+    "A rounded armored humanoid figure receiving the bow",
+    "A beastlike opponent identified in dialogue as the octo-tiger"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues an ongoing trial or initiation overseen by the faceted entity.",
+    "The ancient bow and its unusual restrictions are introduced as key elements for the next combat sequence.",
+    "The octo-tiger is established here as the immediate adversary for the following action."
+  ],
+  "dialogue_meaning": [
+    "The faceted entity imposes a test with strict constraints: only the ancient bow may be used.",
+    "Using powers or even misusing the bow is said to risk catastrophic planetary destruction.",
+    "The hero does not understand how a bow without arrows is supposed to work.",
+    "Victory requires subduing the octo-tiger without killing it.",
+    "The speaker frames success as depending on understanding an abstract lesson rather than brute force alone."
+  ],
+  "image_sha256": "644f2f0d5738b659811c8cfe8a9396f24da7024229943ee72fc81a1b786fa5ee",
+  "is_spread": false,
+  "locations": [
+    "A metallic or futuristic interior chamber with large geometric structures",
+    "The same chamber during the start of the combat trial"
+  ],
+  "lore_facts": [
+    "An ancient bow exists and is important enough to be assigned as the only permitted weapon in this trial.",
+    "The bow is specifically to be used without arrows.",
+    "The trial's rules prohibit the fighter from using their other powers.",
+    "The penalty for breaking the rule is described as the planet exploding.",
+    "There is a creature called the octo-tiger.",
+    "Within this setting, defeating an opponent does not necessarily mean killing it, and that distinction matters to the trial."
+  ],
+  "page_id": "287_The_Metabarons_11_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A giant faceted speaker gives the armored figure an ancient bow.",
+    "The speaker forbids the use of arrows and any other powers or weapons.",
+    "The armored figure questions the usefulness of the fragile bow without arrows.",
+    "The speaker states that the fighter must defeat the octo-tiger without killing it.",
+    "The speaker offers a cryptic philosophical clue about reality, consciousness, and returning to oneself.",
+    "After wishing the fighter luck, the scene erupts into a violent attack or explosive start to the trial.",
+    "The armored figure is thrown across the chamber amid debris."
+  ],
+  "source_image": "external/comics/meta-barons/287_The_Metabarons_11_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "644f2f0d5738b659811c8cfe8a9396f24da7024229943ee72fc81a1b786fa5ee",
+      "page_id": "287_The_Metabarons_11_p10",
+      "source_image": "external/comics/meta-barons/287_The_Metabarons_11_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, especially the philosophical line about reality and consciousness.",
+    "The exact identities or names of the armored figure and the faceted speaker are not given on this page.",
+    "The bottom-left figure is interpreted as the octo-tiger, but the art is stylized and partially obscured.",
+    "It is unclear whether the final explosion is caused by the opponent's attack, the environment, or the trial mechanism itself."
+  ],
+  "visual_summary": "A large faceted stone-or-metal face addresses a rounded, heavily armored figure inside a metallic chamber. The speaker presents an ancient bow and lays out strict rules for an upcoming fight: the bow may be used, but not arrows or the fighter's other powers. The armored figure reacts skeptically. The speaker then explains that the opponent is an 'octo-tiger' and that it must be defeated without being killed, adding an abstract riddle-like instruction about reality and returning to oneself. In the bottom tier, the challenge begins violently: a beastlike figure with the bow appears at left while an explosive force hurls the armored figure through orange-lit destruction and debris.",
+  "volume": 11
+}

@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "The white-haired rider is physically capable and aggressive, arriving on horseback and immediately taking action.",
+    "The armored and robotic figures serve or assist a higher authority rather than acting independently.",
+    "The speaking captive or targeted figure is lucid, verbally resistant, and appeals to intellect over instinct or superstition.",
+    "The followers are fanatical and jealous enough to be accused of acting on primitive superstition."
+  ],
+  "characters_present": [
+    "White-haired male rider on a white horse",
+    "Figure in green lying or kneeling in the grass",
+    "Yellow-armored attendant or guard",
+    "Gray/white-armored attendants or guards",
+    "Several robotic or mechanical servants",
+    "A speaker who appears confined or positioned within the large machine, identity not explicitly shown on the page",
+    "Shazam, mentioned in dialogue but not clearly identified visually"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the arrival of an important master figure at an ongoing ritual or confinement scene.",
+    "The mention of Shazam implies events involving that character occurred shortly before this page or nearby off-panel.",
+    "The discussion of sacrifice and a demon suggests this confrontation is part of a larger plot about lineage, birth, or supernatural creation."
+  ],
+  "dialogue_meaning": [
+    "The white-haired man orders subordinates or attendants to take care of Shazam and insults their competence.",
+    "The gathered followers announce that their master has arrived and speak with ecstatic devotion about dying under his gaze.",
+    "They claim their sacrifice serves a purpose and say it will spare someone pain connected to having fathered a demon.",
+    "Another voice rejects their fanaticism, appeals to reason, and demands immediate release from confinement or restraint."
+  ],
+  "image_sha256": "4673bc0dbea0e73e6dd47b14c36b7301727199a554544d9eb65e216faad8fb7c",
+  "is_spread": false,
+  "locations": [
+    "Grassy outdoor approach",
+    "Wooded or overgrown industrial site",
+    "Exterior and open access sections of a massive cylindrical machine, vessel, or installation"
+  ],
+  "lore_facts": [
+    "A character named Shazam exists in this story and currently needs to be 'looked after.'",
+    "The group at the machine is organized around a 'master' whose arrival is treated with religious or cult-like reverence.",
+    "The followers believe a sacrificial act is necessary and meaningful.",
+    "Their ritual language connects the situation to a demon and to someone having fathered that demon.",
+    "The setting combines natural terrain with advanced machinery, including robots and a huge engineered cylindrical structure."
+  ],
+  "page_id": "095_The_Metabarons_4_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "A white-haired rider crosses open ground on a white horse near a motionless or bowed figure in green.",
+    "The rider arrives at a site where robots and armored attendants are clustered around a huge cylindrical machine or craft.",
+    "He forcefully engages the group at the entrance area, kicking or striking while still beside the horse.",
+    "He moves onto the outer hull of the large structure, closing in on the center of the scene.",
+    "A figure associated with the ritual or confinement argues for release and urges the others to think instead of obeying superstition.",
+    "The gathered followers declare that their master has arrived and that their sacrifice will matter, framing the moment as part of a ritual involving a demon."
+  ],
+  "source_image": "external/comics/meta-barons/095_The_Metabarons_4_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4673bc0dbea0e73e6dd47b14c36b7301727199a554544d9eb65e216faad8fb7c",
+      "page_id": "095_The_Metabarons_4_p06",
+      "source_image": "external/comics/meta-barons/095_The_Metabarons_4_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity of the white-haired rider is not stated on this page.",
+    "The figure in green in the opening panel is not clearly identifiable.",
+    "It is unclear whether the rational voice comes from a prisoner inside the machine or from a figure just out of clear view.",
+    "Some dialogue placement is dense, so exact speaker attribution among the cultists may be slightly uncertain."
+  ],
+  "visual_summary": "A white-haired man rides a white horse through rough grass past a fallen figure in green, then reaches a wooded industrial area where armored figures and robots are gathered around a large cylindrical machine or vessel. He dismounts or leaps onto the machine’s curved hull and confronts the group while one captive or central figure speaks from within the structure. The page ends with a wide view of the immense metallic cylinder, showing openings, machinery, and the small figures positioned around it.",
+  "volume": 4
+}

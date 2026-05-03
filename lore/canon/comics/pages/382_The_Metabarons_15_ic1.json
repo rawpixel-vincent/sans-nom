@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "Steelhead is associated with an internal split involving the poet Zaran Klezra and is described here as capable of extreme ruthlessness.",
+    "Dona Vicenta comes to hate Steelhead, contracts tuberculosis, and carries twins with different fathers according to the recap.",
+    "Zaran Klezra is identified as the father of the female twin.",
+    "Tonto is the one recounting these prior events on this page.",
+    "Lothar is specifically said to wonder how the Metabaron succession tradition can be preserved after Steelhead's choice."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Don Nicanor",
+    "Zaran Klezra",
+    "Dona Vicenta",
+    "TechnoPope",
+    "Tonto",
+    "Lothar"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page explicitly bridges earlier events into the current issue through a 'Previously' summary.",
+    "It sets up the central continuity problem of the issue: a break or challenge in the hereditary father-to-son rule of the Metabarons.",
+    "The recap ties together the war with the Techno-Technos, the destruction/sale of Philodendra, and the birth-choice dilemma as immediate backstory."
+  ],
+  "dialogue_meaning": [
+    "The page is an editorial recap summarizing prior major events in the saga rather than presenting active dialogue between characters.",
+    "It emphasizes Steelhead's brutality, Dona Vicenta's disillusionment, the political and economic struggle over Philodendra, and the succession crisis caused by Steelhead's final choice.",
+    "Tonto's narration frames the revelation that the female child was chosen, and Lothar is left questioning how Metabaron lineage law can survive."
+  ],
+  "image_sha256": "cbc8af22958295de718c9b099f0cd7473161994b9c009ffabadd3ce18b542210",
+  "is_spread": false,
+  "locations": [
+    "Philodendra",
+    "Techno-Techno stronghold",
+    "the new artificial world",
+    "the wider galaxy"
+  ],
+  "lore_facts": [
+    "The Metabarons' line is said to pass only from father to son.",
+    "Philodendra contains valuable bikramen, important enough to attract galaxy-wide military and economic attention.",
+    "The Techno-Technos are an opposing power with a stronghold and a ruling TechnoPope.",
+    "The Troglosocialists are a population whose relocation can be negotiated as part of planetary sale.",
+    "A new artificial world exists and becomes the relocation site after the sale of Philodendra."
+  ],
+  "page_id": "382_The_Metabarons_15_ic1",
+  "page_label": "ic1",
+  "plot_events": [
+    "The page recounts Don Nicanor's death and says Steelhead, after removing the part of himself associated with the poet Zaran Klezra, joins the war against the Techno-Technos.",
+    "During the battle, Dona Vicenta realizes how cold and ruthless Steelhead truly is and begins to hate him.",
+    "Although Steelhead wins, Philodendra is described as almost entirely destroyed.",
+    "Steelhead launches a plan to infiltrate the Techno-Techno stronghold, abduct the reigning TechnoPope, and bring him back to Philodendra.",
+    "A vast siege forms around the planet, and Steelhead publicizes the value of bikramen there, drawing major outside interest and fleets from across the galaxy.",
+    "With Dona Vicenta's reluctant help, Steelhead negotiates the sale of the planet and the relocation of the Troglosocialists to another world.",
+    "On the new artificial world, Dona Vicenta develops tuberculosis and later reveals she is pregnant with twins: a boy by Steelhead and a girl by Zaran.",
+    "Tonto says complications allow only one baby to be born, and Dona Vicenta assumes Steelhead will choose the male heir.",
+    "The recap ends by stating that Steelhead instead chooses the female child, raising doubt about how the Metabarons' father-to-son succession can continue."
+  ],
+  "source_image": "external/comics/meta-barons/382_The_Metabarons_15_ic1.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "cbc8af22958295de718c9b099f0cd7473161994b9c009ffabadd3ce18b542210",
+      "page_id": "382_The_Metabarons_15_ic1",
+      "source_image": "external/comics/meta-barons/382_The_Metabarons_15_ic1.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The page is a recap page with dense small text; some wording may be imperfectly read even though the main plot points are clear.",
+    "The circular portraits at the bottom likely depict key cast members, but exact left-to-right identification is uncertain from the image alone.",
+    "The large inset image appears to show a mass urban crowd or relocation scene, but its precise narrative moment is not labeled on the page."
+  ],
+  "visual_summary": "A recap/credits page titled 'The Metabarons' shows a large block of summary text on the right, a framed illustration of a crowded futuristic city or evacuation scene on the left, and a biomechanical border with circular portraits of several characters along the bottom. The page functions as a 'previously in' summary rather than a new scene.",
+  "volume": 15
+}

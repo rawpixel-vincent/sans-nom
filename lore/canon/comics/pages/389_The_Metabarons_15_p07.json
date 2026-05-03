@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Milday is near death on this page.",
+    "Steelhead is Milday's husband.",
+    "Steelhead is Aghora's father and is determined to oversee her upbringing.",
+    "Doña Vicenta is the name used for the preserved woman placed in the Hall of Weapons; the page identifies her as Steelhead's wife.",
+    "Aghora is an infant at this point in the story."
+  ],
+  "characters_present": [
+    "Milday",
+    "Steelhead",
+    "Doña Vicenta",
+    "Aghora as an infant",
+    "An unidentified speaker in the final panel/dialogue"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page establishes or continues the origin circumstance of Aghora's upbringing with her mother preserved but incapacitated.",
+    "The installation of Doña Vicenta in the Hall of Weapons suggests an enduring presence that may matter later to Aghora's development."
+  ],
+  "dialogue_meaning": [
+    "Milday is dying or close to death and expresses remorse.",
+    "Steelhead refuses to let her die, framing it as enforcement of her promise to raise their daughter.",
+    "A second figure dismisses emotional display as purposeless.",
+    "Narration explains that cryogenic technology preserves Steelhead's wife in suspended near-death rather than allowing death.",
+    "Steelhead says the preserved mother will witness Aghora's upbringing and that motherhood still obligates her.",
+    "Steelhead explicitly links mental strength rather than flesh to making an invincible warrior.",
+    "The final exchange points out a biological problem with feeding the infant and answers it with a crude, mocking suggestion that milk came from other women or sources."
+  ],
+  "image_sha256": "729de4a5d981318f99f7e08cb2ee4d79c5b9f48f0fbb22602df5551c821c2691",
+  "is_spread": false,
+  "locations": [
+    "A medical or technological chamber with advanced life-support machinery",
+    "The Hall of Weapons",
+    "An exterior or open industrial superstructure under a smoky sky"
+  ],
+  "lore_facts": [
+    "An 'omni-cryoshroud' exists and can halt biological processes while keeping someone in a preserved near-death state.",
+    "The Hall of Weapons is a place important enough to house Doña Vicenta in a prominent, icon-like manner.",
+    "Aghora is female and is referred to as Steelhead's child/daughter.",
+    "The page presents a cultural or personal ideal of forging an 'invincible warrior' through will or brain rather than body alone."
+  ],
+  "page_id": "389_The_Metabarons_15_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "A gravely weakened woman named Milday apologizes while holding or near a crying infant.",
+    "Another figure insists she must not die because she promised to raise her daughter.",
+    "Steelhead places his wife in an omni-cryoshroud that freezes her biological processes and preserves her in a near-death state.",
+    "Steelhead says the preserved woman will remain to watch her child, Aghora, grow up.",
+    "Doña Vicenta is installed in the Hall of Weapons like a revered object or icon.",
+    "Steelhead vows to make his daughter into an invincible warrior.",
+    "A later exchange raises the practical question of how the child survived without milk from her mother, and someone retorts that other mammary sources existed."
+  ],
+  "source_image": "external/comics/meta-barons/389_The_Metabarons_15_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "729de4a5d981318f99f7e08cb2ee4d79c5b9f48f0fbb22602df5551c821c2691",
+      "page_id": "389_The_Metabarons_15_p07",
+      "source_image": "external/comics/meta-barons/389_The_Metabarons_15_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read at this resolution, especially the final exchange and the exact wording in smaller narration boxes.",
+    "The relationship between the names Milday and Doña Vicenta is implied by the page but not fully clarified in the visible text alone.",
+    "One participant in the final dialogue exchange is not clearly shown or identified on the page."
+  ],
+  "visual_summary": "A blue-skinned humanoid and a helmeted cyborg/robot attend to a dying woman while an infant cries. The woman is enclosed in a technological pod or cryogenic shell amid dense machinery. A later panel shows her upright capsule installed in a large industrial chamber called the Hall of Weapons, with the child nearby. The bottom panel shifts to an exterior metal structure under a smoky orange sky while narration/dialogue explains how the child survived despite the mother's incapacitation.",
+  "volume": 15
+}

@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The central warrior is physically capable of carrying or recovering another armored body through ruins.",
+    "He performs funerary or memorial acts for both a friend and his wife.",
+    "He is motivated by loyalty, grief, and adherence to a martial code.",
+    "Konrath is dead by this point on the page.",
+    "Edna is already dead before the events shown here."
+  ],
+  "characters_present": [
+    "An armored white-haired warrior",
+    "Konrath, shown as a recovered or carried dead body",
+    "Edna, referenced in narration but not visibly present"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page refers back to Konrath's death, which happened earlier.",
+    "It also refers back to Edna's disintegration at the column, an earlier event revisited here emotionally.",
+    "The narration continues a larger lineage theme by invoking the warrior's father and master."
+  ],
+  "dialogue_meaning": [
+    "The narration says the warrior deliberately went back to retrieve Konrath's body, presenting Konrath as loyal and worthy of honor.",
+    "It states that he then honored his wife Edna at the exact place where she was destroyed.",
+    "It connects his conduct to a warrior creed taught by his father and master: true valor is detached from both triumph and defeat."
+  ],
+  "image_sha256": "a70d96210a1f1ee8cbe4b6627560a5dac5987b5e19f41a06ce9ff83b1ca8dcfe",
+  "is_spread": false,
+  "locations": [
+    "A shattered battlefield or ruin strewn with corpses and debris",
+    "The base of a tall column or tower",
+    "A monumental stair and damaged ornamental structure"
+  ],
+  "lore_facts": [
+    "Konrath was considered a loyal friend of the central warrior.",
+    "Edna was the warrior's wife.",
+    "Edna's body was disintegrated at the base of a column.",
+    "The warrior follows teachings inherited from both his father and his master.",
+    "Those teachings include a principle that a valiant warrior thinks in terms beyond victory and defeat."
+  ],
+  "page_id": "036_The_Metabarons_2_p07",
+  "page_label": "p07",
+  "plot_events": [
+    "The armored warrior returns south through the ruins to recover the body of his loyal companion, Konrath.",
+    "He reaches the base of a great column or tower associated with his wife Edna's death.",
+    "He kneels and pays a final tribute at the place where Edna's body was disintegrated.",
+    "The narration frames his actions as guided by his father's and master's teachings about warrior discipline."
+  ],
+  "source_image": "external/comics/meta-barons/036_The_Metabarons_2_p07.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "a70d96210a1f1ee8cbe4b6627560a5dac5987b5e19f41a06ce9ff83b1ca8dcfe",
+      "page_id": "036_The_Metabarons_2_p07",
+      "source_image": "external/comics/meta-barons/036_The_Metabarons_2_p07.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity/name of the central armored warrior is not stated on this page.",
+    "It is unclear whether Konrath's body is fully carried, dragged, or otherwise supported in the opening panel.",
+    "The exact nature of the floating debris and the broader setting is not explained on this page alone."
+  ],
+  "visual_summary": "An armored white-haired warrior moves through a devastated landscape filled with wreckage and floating stone slabs under an orange sky. He carries or supports the body of another armored figure, then crosses the ruins toward a tall column or tower. At the base of an ornate structure near the column, he kneels in mourning. The page emphasizes aftermath, burial or recovery, and solemn tribute after destruction.",
+  "volume": 2
+}

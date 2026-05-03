@@ -1,0 +1,72 @@
+{
+  "character_facts": [
+    "The speaker addressing 'milady' claims to have learned love and is determined to save the girl.",
+    "A speaker associated with 'my poet' wants the girl to survive so he can raise her.",
+    "The avian-faced attendants are talkative and concerned with clan naming rules.",
+    "Steelhead is directly associated with the surgical brain-transplant procedure."
+  ],
+  "characters_present": [
+    "A male figure or voice addressing a 'milady' and speaking about the girl's survival",
+    "A higher-status female addressee implied by the term 'milady'",
+    "A speaker referring to the child as the offspring of 'my poet'",
+    "Birdlike or avian-faced attendants/observers",
+    "Steelhead, identified as performing the brain transplant",
+    "Mechanical/robotic surgeons or assistants",
+    "The newborn conjoined twins"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page centers on the birth and emergency survival of a girl child tied to the Castaka lineage.",
+    "The operation appears to establish the girl's survival through extreme surgical intervention, likely important to her later identity or role."
+  ],
+  "dialogue_meaning": [
+    "One speaker has become emotionally invested and insists the baby girl must live.",
+    "Another speaker sees the child as a source of renewed purpose tied to someone called 'my poet'.",
+    "Some attendants object because preserving a girl conflicts with a lineage rule attached to the Castaka name.",
+    "A superior figure silences the attendants and orders them to stop interrupting.",
+    "Medical staff deliver grim updates about the twins' condition and the girl's malformed skull.",
+    "Narration boxes describe the separation and brain-transplant procedure step by step."
+  ],
+  "image_sha256": "7e8ef2cae41f43fe32276ed9ec9c7f4dac7efa50de78dfa297911bec69f92b3f",
+  "is_spread": false,
+  "locations": [
+    "A surgical or medical chamber",
+    "An industrial/mechanical interior surrounding the operating table"
+  ],
+  "lore_facts": [
+    "Within the Castaka clan, a son is said to be the one who can bear the family name.",
+    "A caesarean birth is performed in this setting.",
+    "The newborn twins are conjoined at the hip.",
+    "The twins possess only one brain between them.",
+    "The girl is described as having a hollow skull.",
+    "Steelhead performs or leads a brain transplant into the girl.",
+    "The girl's skull is reconstructed with a replacement crown after surgery."
+  ],
+  "page_id": "387_The_Metabarons_15_p05",
+  "page_label": "p05",
+  "plot_events": [
+    "A male speaker vows that a girl child will survive.",
+    "Another speaker frames the child as the offspring of 'my poet' and says she will give him a reason to live and raise her.",
+    "Observers argue over the consequences of saving a girl, noting that only sons can bear the Castaka name.",
+    "An operation report states that the caesarean succeeded but produced conjoined twins joined at the hip.",
+    "A further report reveals the twins share only one brain and that the girl's skull is hollow.",
+    "The surgery proceeds to separate the conjoined twins.",
+    "The shared brain is transplanted into the girl's head.",
+    "The girl's skull crown is replaced, concluding the operation."
+  ],
+  "source_image": "external/comics/meta-barons/387_The_Metabarons_15_p05.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "7e8ef2cae41f43fe32276ed9ec9c7f4dac7efa50de78dfa297911bec69f92b3f",
+      "page_id": "387_The_Metabarons_15_p05",
+      "source_image": "external/comics/meta-barons/387_The_Metabarons_15_p05.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speakers are not visually identified by name on this page; their exact identities are uncertain.",
+    "Some dialogue is small and partially hard to read, especially in the upper and middle speech balloons.",
+    "The exact appearance and fate of the other twin after the brain transplant are not explicitly shown on this page alone."
+  ],
+  "visual_summary": "A blue-toned, industrial surgical chamber is shown in fragmented panels. Mechanical figures and birdlike attendants speak around an operating table. A childbirth by caesarean is reported as successful, but the newborn twins are conjoined and share only one brain. The page then shows a grim surgical procedure in which the twins are separated and the shared brain is transplanted into the girl, whose skull is mechanically reconstructed.",
+  "volume": 15
+}

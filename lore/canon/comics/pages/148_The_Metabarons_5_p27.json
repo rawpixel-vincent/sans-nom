@@ -1,0 +1,76 @@
+{
+  "character_facts": [
+    "Honorata has an artificial heart, and that heart has been turned into a bomb.",
+    "Honorata chooses to stay behind and urges others to survive her.",
+    "Honorata is addressed by name and also addressed as 'Mother,' indicating at least one child present.",
+    "Lothar is listening to a retelling of these events rather than participating directly in the farewell scene.",
+    "Tonto is the one recounting the event to Lothar.",
+    "Othon and Aghnar depart aboard the metabunker."
+  ],
+  "characters_present": [
+    "Honorata",
+    "Lothar",
+    "Tonto",
+    "Othon",
+    "Aghnar",
+    "large armored male companion or lover",
+    "small hovering robot narrator"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page explains why Honorata cannot be saved by surgery: the bomb is her heart.",
+    "It establishes the separation of Honorata from Othon and Aghnar before an imminent enemy arrival.",
+    "The narration format suggests these events are being recounted after the fact to Lothar."
+  ],
+  "dialogue_meaning": [
+    "A rescue attempt is proposed, but Honorata reveals it is impossible because the explosive is also the organ keeping her alive.",
+    "The page presents her death as a conscious act of self-sacrifice motivated by love.",
+    "The farewell scene shows emotional separation between Honorata and her family or loved ones.",
+    "The robot's account turns the scene into a narrated recollection for Lothar.",
+    "An external threat is imminent: seven Cetycoborgs are approaching, forcing immediate evacuation.",
+    "Othon and Aghnar escape in the metabunker while Honorata remains behind at the fortress."
+  ],
+  "image_sha256": "fe2f5013f99e5d95f995ce5af35f5bd7f0110f2ac79eee63fe20e2f2b43f1693",
+  "is_spread": false,
+  "locations": [
+    "interior area near or within the fortress",
+    "desert exterior around the fortress",
+    "metabunker in flight"
+  ],
+  "lore_facts": [
+    "In this setting, an artificial heart can function as both a life-sustaining organ and a bomb.",
+    "'Robo-surgeons' are advanced enough to be considered for extreme operations.",
+    "Ultra-radars can detect incoming forces at range.",
+    "Cetycoborgs are a hostile or dangerous group, and seven of them are approaching in this scene.",
+    "A vehicle called the metabunker is used for departure or evacuation.",
+    "There is a fortress located in a desert-like environment."
+  ],
+  "page_id": "148_The_Metabarons_5_p27",
+  "page_label": "p27",
+  "plot_events": [
+    "A man proposes tearing out the bomb from the white-haired woman with advanced robotic surgery.",
+    "The woman explains that the bomb is inseparable from her artificial heart, so removing it would kill her.",
+    "Someone accuses another of having made them male as part of a cruel punishment tied to death.",
+    "The woman frames her death as a willing sacrifice for love and urges the others to live on.",
+    "Her loved ones say farewell, calling her by name and addressing her as mother.",
+    "A robot narrator tells Lothar that Othon and Aghnar left aboard the metabunker.",
+    "The narrator says seven Cetycoborgs were detected approaching by ultra-radar.",
+    "Honorata returns to the fortress while the metabunker departs."
+  ],
+  "source_image": "external/comics/meta-barons/148_The_Metabarons_5_p27.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "fe2f5013f99e5d95f995ce5af35f5bd7f0110f2ac79eee63fe20e2f2b43f1693",
+      "page_id": "148_The_Metabarons_5_p27",
+      "source_image": "external/comics/meta-barons/148_The_Metabarons_5_p27.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read, so exact wording may be imperfect.",
+    "The panel layout shifts between the original scene and Tonto's later narration to Lothar; the exact transition point is implied rather than explicitly labeled.",
+    "The unnamed large armored man speaking to Honorata is visually clear but not identified by name on this page alone.",
+    "The precise identities of Othon and Aghnar within the goodbye embrace are not fully distinguishable from the page alone."
+  ],
+  "visual_summary": "A white-haired woman lies or leans in close conversation with a large armored man, then is shown in alarmed close-ups as a fatal truth is revealed: the explosive device inside her is her artificial heart. She urges her loved ones to leave and accept her sacrifice. In the next panels, figures embrace her goodbye while a robot narrator recounts the scene to another listener. The final wide panel shows a bunker-like vehicle flying away from a fortress in a stark desert landscape lit by massive beams.",
+  "volume": 5
+}

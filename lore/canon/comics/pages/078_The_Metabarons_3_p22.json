@@ -1,0 +1,58 @@
+{
+  "character_facts": [
+    "An unidentified officer advocates immediate pursuit of the attackers through the asteroids.",
+    "An unidentified commander issues fleetwide orders and speaks in highly aggressive terms about destroying the attackers."
+  ],
+  "characters_present": [
+    "Unidentified Endocrat military personnel aboard warships",
+    "An unidentified commander or officer shown in close-up",
+    "Predator forces (group, not individually identified)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts an ongoing conflict between Predators and Endocrats rather than a self-contained incident.",
+    "The narration suggests a tactical divergence: Predator concentration versus Endocrat dispersal, implying a broader battle plan in progress."
+  ],
+  "dialogue_meaning": [
+    "The speakers report that their base is under torpedo attack and emphasize the severity and urgency of the situation.",
+    "The responding force chooses aggressive pursuit rather than remaining on defense.",
+    "The narration contrasts the Predators' concentration in the asteroids with the quiet dispersal of the Endocrat ships."
+  ],
+  "image_sha256": "f279fc1c73547155a9c3b3bd5aafae7148913bdc30faa1b141b7f5ae61fc8a84",
+  "is_spread": false,
+  "locations": [
+    "Space near an Endocrat base",
+    "An asteroid field used as the main battle zone"
+  ],
+  "lore_facts": [
+    "The Endocrats have a base in space near or within an asteroid region.",
+    "Tri-H torpedoes exist and are described in dialogue as illegal.",
+    "There are factions or forces identified as the Predators and the Endocrats.",
+    "The asteroid field is navigable by multiple warships and small craft during combat.",
+    "Endocrat ships can execute a coordinated silent dispersal maneuver."
+  ],
+  "page_id": "078_The_Metabarons_3_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "An Endocrat base or installation is attacked with torpedoes and suffers a major explosion.",
+    "Military personnel identify the attack as illegal and urgent, and order immediate pursuit through the asteroids.",
+    "A commander orders all units to stop defensive maneuvers and head into the asteroid field to crush the attackers.",
+    "Predator forces converge among the asteroids.",
+    "At the same time, the Endocrat fleet silently scatters through the asteroid field."
+  ],
+  "source_image": "external/comics/meta-barons/078_The_Metabarons_3_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f279fc1c73547155a9c3b3bd5aafae7148913bdc30faa1b141b7f5ae61fc8a84",
+      "page_id": "078_The_Metabarons_3_p22",
+      "source_image": "external/comics/meta-barons/078_The_Metabarons_3_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identity, rank, and faction membership of the close-up officer are not explicitly labeled on the page, though he appears to be part of the commanding force shown.",
+    "The precise meaning or full name behind 'Tri-H' torpedoes is not explained on this page alone.",
+    "The exact nature of the exploding structure as a 'base' versus a section of a larger installation is stated in dialogue but not visually specified in detail."
+  ],
+  "visual_summary": "A space battle unfolds around an asteroid field. An Endocrat base is struck by incoming torpedoes and explodes. Large warships and smaller craft maneuver into the asteroids after a command to abandon defensive maneuvers and pursue the attackers. A narration box states that, while the Predators converge in the asteroid field, Endocrat ships quietly disperse. The final panel shows angular attack craft and multiple ships amid explosions inside the asteroid zone.",
+  "volume": 3
+}

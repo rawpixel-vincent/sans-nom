@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "The dark-haired woman opposes or ridicules the two-headed claimant's bid for power.",
+    "The woman says the Metabaron defeated her previously.",
+    "The two-headed ape-like figure believes itself to be the destined androgyne ruler.",
+    "The council of elders or priests is willing to discuss regicide against the Empress."
+  ],
+  "characters_present": [
+    "Dark-haired woman warrior/advisor",
+    "Three elderly cybernetic or ceremonial male figures",
+    "Two-headed ape-like claimant in ceremonial hood",
+    "Small robed attendants in the background",
+    "The Empress (mentioned only)",
+    "The Metabaron (mentioned only)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page references an existing Empress who rules from the Golden Planet.",
+    "The page refers to a prior encounter in which the Metabaron defeated the woman speaker.",
+    "The Metabaron is positioned as a major obstacle to any coup attempt."
+  ],
+  "dialogue_meaning": [
+    "The council frames its plan in terms of a prophecy about an ideal androgynous ruler.",
+    "They see the Empress as an obstacle and propose her assassination.",
+    "The two-headed ape-like figure presents itself as the prophetic replacement.",
+    "Its claim to legitimacy rests on spirit transfer and genetic modification.",
+    "The woman rejects that claim and redirects the discussion to the practical obstacle: the Metabaron.",
+    "She makes clear that the Metabaron is the Empress's defender and a greater force than she can overcome."
+  ],
+  "image_sha256": "8ac73aadc5ebfd0d1718106b06e7071d0fc77fba27bda056aff35bab56641c9b",
+  "is_spread": false,
+  "locations": [
+    "A ceremonial or council chamber",
+    "The Golden Planet (mentioned as the Empress's seat)"
+  ],
+  "lore_facts": [
+    "There is a prophecy that a perfect androgyne will rule eternally and serve as a kind of cosmic conscience.",
+    "The Empress resides on the Golden Planet.",
+    "The Metabaron acts as the Empress's guardian.",
+    "Spirit transfer into another body exists in this setting.",
+    "Genetically modified prehistoric animals exist in this setting."
+  ],
+  "page_id": "431_The_Metabarons_17_p04",
+  "page_label": "p04",
+  "plot_events": [
+    "A prophecy is invoked about a perfect androgyne destined to rule and guide humankind.",
+    "The assembled figures argue that the Empress must be assassinated.",
+    "A question is raised over who would replace the Empress if she were removed.",
+    "A hooded two-headed ape-like being volunteers as the candidate to fulfill the prophecy.",
+    "The being claims its spirit was transferred into a genetically modified prehistoric animal body.",
+    "The woman dismisses the claim as absurd.",
+    "She states that control of the Golden Planet requires first eliminating the Metabaron, guardian of the Empress.",
+    "She warns that the Metabaron has already defeated the speaker once and is stronger than she is."
+  ],
+  "source_image": "external/comics/meta-barons/431_The_Metabarons_17_p04.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "8ac73aadc5ebfd0d1718106b06e7071d0fc77fba27bda056aff35bab56641c9b",
+      "page_id": "431_The_Metabarons_17_p04",
+      "source_image": "external/comics/meta-barons/431_The_Metabarons_17_p04.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several dialogue boxes are small and partially hard to read; exact wording may be imperfect.",
+    "The personal names of the dark-haired woman and the two-headed claimant are not clearly legible on this page alone.",
+    "The nature and rank of the elderly figures are unclear beyond their role as advisers, priests, or conspirators."
+  ],
+  "visual_summary": "In a ceremonial chamber, a dark-haired woman stands before elderly, cybernetically adorned advisors or priests. They discuss a prophecy about a perfect androgyne and propose killing the Empress. A hooded, two-headed ape-like figure volunteers as the prophetic successor, claiming to house a transferred spirit in a genetically modified prehistoric animal body. The woman mocks the idea, then warns that anyone trying to seize the Golden Planet must first defeat the Metabaron, the Empress's protector, whom she says is stronger than she is.",
+  "volume": 17
+}

@@ -1,0 +1,70 @@
+{
+  "character_facts": [
+    "Aghnar is recovering from extensive prosthetic grafting.",
+    "Othon von Salza is associated with the ultra-radars that detect the approaching object.",
+    "Mother Superior is cautious, authoritative, and concerned about an anomaly.",
+    "The subordinate crew member defers to Mother Superior's decision about contact protocol."
+  ],
+  "characters_present": [
+    "Mother Superior",
+    "Unidentified subordinate aboard the incoming vessel",
+    "Aghnar (mentioned in narration)",
+    "Othon von Salza (mentioned in narration)"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "Continues Aghnar's post-surgery recovery after receiving metal prostheses.",
+    "Introduces or advances the arrival of a foreign vessel at Okhar.",
+    "Sets up a tense first contact or infiltration scenario at Okhar.",
+    "Raises the strategic stakes by linking the visit to the fate of the galaxy and the Shabda-Oud's success."
+  ],
+  "dialogue_meaning": [
+    "A subordinate reports that the ship is only a few hours from the planet and asks if they should announce themselves.",
+    "Mother Superior believes the planet has already detected them, so a formal signal is unnecessary.",
+    "Mother Superior senses an unspecified anomaly and responds by ordering caution and the preparation of hidden weapons.",
+    "The visit is framed as critically important to a galactic-scale conflict and to the ambitions of the Shabda-Oud."
+  ],
+  "image_sha256": "c126ab859fc931cb00130bdd0fc5083726cc91e6ffce97ea634cfc7cf1140678",
+  "is_spread": true,
+  "locations": [
+    "Outer space near Okhar",
+    "Aboard the incoming foreign vessel",
+    "Approach to Okhar"
+  ],
+  "lore_facts": [
+    "Aghnar has metal prostheses that were grafted onto him.",
+    "Okhar has defenses capable of detecting incoming craft.",
+    "Othon von Salza possesses or commands ultra-radars used for long-range detection.",
+    "The incoming party belongs to or serves the Shabda-Oud.",
+    "The arriving ship carries secret weapons.",
+    "A figure called Mother Superior has command authority on the vessel.",
+    "Mother Superior claims to possess 'alpha-plus intuition.'"
+  ],
+  "page_id": "130_The_Metabarons_5_p08-p09",
+  "page_label": "p08-p09",
+  "plot_events": [
+    "Aghnar is said to be only beginning to recover from the grafting of his metal prostheses.",
+    "Othon von Salza's ultra-radars detect a foreign body heading toward Okhar.",
+    "The incoming vessel is only hours from the planet.",
+    "One speaker asks whether they should signal their arrival to the planet.",
+    "Mother Superior says signaling is pointless because Okhar's defenses should already have detected them.",
+    "Mother Superior orders extreme caution and tells the crew to prepare secret weapons.",
+    "The page states that the mission's outcome is tied to both the fate of the galaxy and the triumph of the Shabda-Oud."
+  ],
+  "source_image": "external/comics/meta-barons/130_The_Metabarons_5_p08-p09.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c126ab859fc931cb00130bdd0fc5083726cc91e6ffce97ea634cfc7cf1140678",
+      "page_id": "130_The_Metabarons_5_p08-p09",
+      "source_image": "external/comics/meta-barons/130_The_Metabarons_5_p08-p09.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and appearances of the speakers aboard the incoming vessel are not visually explicit beyond the title 'Mother Superior.'",
+    "The page does not clearly show Aghnar or Othon von Salza in person; they may be off-page and are only referenced in narration.",
+    "The nature of the sensed anomaly is not explained on this page.",
+    "The precise destination shown in the final inset is ambiguous; it appears to be Okhar or one of its structures/defensive surfaces."
+  ],
+  "visual_summary": "A painted double-page space spread shows a sleek, biomechanical-looking alien spacecraft crossing space toward a planet or large domed world. Small inset panels frame parts of the vessel and its approach while narration explains that Okhar has detected an incoming foreign object. Dialogue aboard the ship shows its occupants debating whether to announce themselves, then deciding to continue cautiously and arm hidden weapons because they sense something is wrong.",
+  "volume": 5
+}

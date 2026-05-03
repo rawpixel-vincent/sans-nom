@@ -1,0 +1,68 @@
+{
+  "character_facts": [
+    "Baron Berard is identified as being of Castaka.",
+    "Berard is described as heavy with gloom on this page.",
+    "Tonto is a robot or mechanical being capable of reporting internal component failure.",
+    "Tonto refers to an electro-emotion diode and an auxiliary system, indicating a designed emotional or behavioral mechanism."
+  ],
+  "characters_present": [
+    "Baron Berard of Castaka",
+    "Tonto",
+    "A large mechanical or armored figure speaking with Tonto",
+    "An unidentified dark-armored or helmeted figure partially visible in close-up"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page advances a plotline about a valuable imperial resource and connects it to travel from Marmola to Castaka.",
+    "It also cuts to Baron Berard's household, linking the resource plot to events in the great armory on Castaka."
+  ],
+  "dialogue_meaning": [
+    "The page establishes that a certain oil is so potent that even a drop has immense physical effect, making it a resource the Empire wants to control.",
+    "The information about this substance is treated as financially and politically significant.",
+    "The narration frames the voyage from Marmola to Castaka as part of a larger imperial context.",
+    "Berard is presented as worried or gloomy while assembling his family in a secure or important place.",
+    "Tonto briefly malfunctions, suggesting comic relief or mechanical fragility amid the serious scene."
+  ],
+  "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+  "is_spread": false,
+  "locations": [
+    "Marmola",
+    "A cargo ship in space",
+    "Castaka",
+    "The great armory",
+    "A large hangar or docking bay interior"
+  ],
+  "lore_facts": [
+    "There exists an oil whose power is described as immense even in tiny quantities.",
+    "The Empire seeks control over that ingredient because of its strategic value.",
+    "News about the substance is said to be worth millions of gold kublars.",
+    "Marmola is identified as the point of departure for the cargo ship.",
+    "Castaka is described as a planet of gold and a seat of major power within the galactic Empire.",
+    "There is a location called the great armory associated with Baron Berard and his family.",
+    "The setting includes advanced robots or mechanical beings with replaceable or auxiliary systems."
+  ],
+  "page_id": "019_The_Metabarons_1_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "Someone explains that a newly discussed oil is extraordinarily valuable and strategically important to the Empire.",
+    "The cargo ship departs Marmola and heads toward Castaka, described as a wealthy imperial center.",
+    "The narration shifts to Baron Berard of Castaka, who gathers his family inside the armory because he is troubled.",
+    "A small robot named Tonto says it has accidentally blown an electro-emotion diode and needs to activate an auxiliary system.",
+    "The speaker then resumes, indicating the scene is taking place in the great armory."
+  ],
+  "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+      "page_id": "019_The_Metabarons_1_p17",
+      "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The identity of the large mechanical figure beside Tonto is not explicitly stated on the page.",
+    "The partially visible dark-armored face at the bottom left is not named here.",
+    "Some dialogue balloons appear to come from off-panel speakers in the hangar scene, so exact speaker attribution is uncertain."
+  ],
+  "visual_summary": "A vast industrial hangar or docking interior is shown beneath massive suspended spacecraft and machinery. A separate panel shows a ship traveling through space above a planet. In the lower-right, a bulky mechanical figure and a small round-headed robot converse, while the lower-left edge shows part of a dark armored or helmeted face observing them.",
+  "volume": 1
+}

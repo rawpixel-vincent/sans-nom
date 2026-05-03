@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "Aghnar is a newborn infant on this page.",
+    "Aghnar has a visible or diagnosed problem affecting normal movement, especially walking or leg function.",
+    "The mother is protective and refuses to accept that her son is doomed.",
+    "The stern examiner considers physical normalcy essential for training.",
+    "The final speaker is confident enough to override the examiner and assume responsibility for Aghnar's training."
+  ],
+  "characters_present": [
+    "Newborn child identified as Aghnar",
+    "Dark-haired woman holding the baby, likely his mother",
+    "Large stern man examining the child and judging his fitness",
+    "Shadowed final speaker who volunteers to train Aghnar"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page appears to mark Aghnar's origin point as a physically impaired heir whose future must be redefined through alternative training.",
+    "The threat that this is 'the end' of the Metabarons sets up a succession crisis resolved, for now, by the promise of Shabda-Oud training."
+  ],
+  "dialogue_meaning": [
+    "One authority figure believes the baby's bodily condition means the Metabaron line is finished.",
+    "The mother rejects that judgment and argues the child still has potential.",
+    "The baby's leg or mobility problem is presented as serious enough to affect combat training.",
+    "A separate speaker resolves the dispute by personally taking charge of the child's martial education.",
+    "The page introduces the Shabda-Oud as a specialized or secret combat discipline."
+  ],
+  "image_sha256": "1f12a841a31eb2e3902bc30cfc5b5e04d0cee3b25278157c370d387e40cebe67",
+  "is_spread": false,
+  "locations": [
+    "Interior setting, exact location not shown"
+  ],
+  "lore_facts": [
+    "The Metabarons are treated as a lineage whose continuation depends on the physical capability of heirs.",
+    "Aghnar is named on the page.",
+    "The Shabda-Oud is described as involving secret skills and combat training."
+  ],
+  "page_id": "105_The_Metabarons_4_p16",
+  "page_label": "p16",
+  "plot_events": [
+    "An older or authoritative man declares that this is the end of the Metabarons, implying the newborn's condition threatens the lineage.",
+    "The mother protests and insists her son will be able to stand or walk, urging the man to look more closely.",
+    "A close inspection of the baby's lower leg/ankle reveals an apparent physical abnormality or weakness.",
+    "The examining man concludes the child will never move like a normal man and says he would not know how to train such a child.",
+    "Another figure then decides to take responsibility for the boy's training in combat and in the secret skills of the Shabda-Oud."
+  ],
+  "source_image": "external/comics/meta-barons/105_The_Metabarons_4_p16.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1f12a841a31eb2e3902bc30cfc5b5e04d0cee3b25278157c370d387e40cebe67",
+      "page_id": "105_The_Metabarons_4_p16",
+      "source_image": "external/comics/meta-barons/105_The_Metabarons_4_p16.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities of the two adult men are not explicitly readable from this page alone.",
+    "The precise nature of Aghnar's physical condition is not medically specified; only impaired normal movement is stated.",
+    "The final speaker is shown mostly in silhouette, so visual identification is uncertain without surrounding pages."
+  ],
+  "visual_summary": "A large armored or heavily built man examines a newborn held by a dark-haired woman. Close-up panels show the baby's ankle/foot and the adults' worried faces. The baby is lifted and cries while the adults discuss his condition. The final panel shifts to a dark silhouette speaking decisively from below.",
+  "volume": 4
+}

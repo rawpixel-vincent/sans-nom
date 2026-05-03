@@ -1,0 +1,62 @@
+{
+  "character_facts": [
+    "The visitors being escorted hold very high status, as shown by the honorific used for them.",
+    "The guards are armed and operate as a formal escort or security detail.",
+    "One member of the escorting group appears to act as a guide, explaining the site's history."
+  ],
+  "characters_present": [
+    "Several armed guards or soldiers in helmets and heavy suits",
+    "At least two cloaked figures addressed as royal or very high-ranking persons",
+    "A guide or escort speaking to the group",
+    "Two stern, bareheaded men in dark clothing among the escorted party"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page presents a transition from arrival at a remote site to entry into an ancient interior location.",
+    "The mention of the Castakas ties the destination to an older lineage or civilization important to the story's history."
+  ],
+  "dialogue_meaning": [
+    "An escort respectfully directs the important visitors onward.",
+    "The narration/dialogue identifies the passage as an ancient construction made by the Castakas thousands of years earlier."
+  ],
+  "image_sha256": "cd5b2b63ae5637d5cd90eeeed48b59b77804a8ac27def2257e0f01cdb8d4b671",
+  "is_spread": false,
+  "locations": [
+    "A desolate exterior landing area with cracked or icy ground",
+    "An ancient carved stairway or tunnel",
+    "A blue-lit subterranean interior passage",
+    "A high faceted platform or ledge inside a vast luminous chamber"
+  ],
+  "lore_facts": [
+    "There is a stairway or passage said to have been carved by the Castakas.",
+    "The page states this construction dates back thousands of years.",
+    "The name Castakas is associated with an ancient engineering or architectural legacy.",
+    "The escorted figures are treated as 'majesties,' indicating royal or near-royal status within the scene."
+  ],
+  "page_id": "042_The_Metabarons_2_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A transport lands or has already landed at a barren stone-like site.",
+    "Armed guards disembark and escort cloaked high-status figures.",
+    "The group is directed toward a carved stairway or tunnel entrance.",
+    "A guide explains that the passage was carved by the Castakas long ago.",
+    "The party proceeds through the blue-lit interior passage.",
+    "The group emerges onto a high geometric platform inside a large glowing chamber."
+  ],
+  "source_image": "external/comics/meta-barons/042_The_Metabarons_2_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "cd5b2b63ae5637d5cd90eeeed48b59b77804a8ac27def2257e0f01cdb8d4b671",
+      "page_id": "042_The_Metabarons_2_p13",
+      "source_image": "external/comics/meta-barons/042_The_Metabarons_2_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the cloaked figures and the two bareheaded men are not given on this page alone.",
+    "The environment could be ice, salt, or pale stone; the image does not make the material fully clear.",
+    "Some dialogue is small and partially hard to read, though the key references to 'majesties' and 'Castakas' are legible.",
+    "It is unclear whether the final chamber is natural, carved, or partly artificial based only on this page."
+  ],
+  "visual_summary": "A small group arrives by a yellow transport on a bleak, cracked or icy-looking surface. Armed escorts in heavy gear surround several robed or cloaked figures and lead them toward a tunnel entrance. Close-up panels show a dark boot stepping across angular stone. The party enters a smooth, blue-lit passage, then appears inside with guards and two stern men in the foreground. In the final wide panel, the group stands together on a faceted platform or ledge within a vast luminous cavern-like space.",
+  "volume": 2
+}

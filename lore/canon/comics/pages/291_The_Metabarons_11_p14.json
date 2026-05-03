@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Zaran is one of the two participants in the operation.",
+    "Zaran has a master who is the other participant in the fusion.",
+    "At least one participant is associated with elevated emotions or poetic qualities.",
+    "At least one participant is associated with great physical strength, described as titanic.",
+    "Zaran and his master both endure the operation without anesthetic."
+  ],
+  "characters_present": [
+    "Zaran",
+    "Zaran's master",
+    "Endo-robots",
+    "The newly forming composite being"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page depicts the transformation of Zaran and his master into a single successor being.",
+    "The narration suggests this fusion has major lineage or identity consequences because the originals' egos are said to disappear."
+  ],
+  "dialogue_meaning": [
+    "One participant argues that two incomplete entities should merge into one complete being.",
+    "The promised result is a synthesis of emotional refinement and immense physical power.",
+    "The acceptance of the proposal defines the new being as simultaneously poetic and martial.",
+    "The narration and speech together frame the surgery as a total rebirth rather than a simple transplant.",
+    "The final being is described as childlike or newborn, specifically linked to love and mystery."
+  ],
+  "image_sha256": "0d195c3bd30330121e24ee1376739961ded70400993c2cfcf4e7c94a2d7a7c80",
+  "is_spread": false,
+  "locations": [
+    "A surgical or transformation chamber filled with biomechanical apparatus"
+  ],
+  "lore_facts": [
+    "This setting has endo-robots capable of splicing nerves, veins, and arteries in extreme biomechanical surgery.",
+    "A body and a separate head can be surgically fused into a single living being.",
+    "The procedure can be done without anesthetic, and both Zaran and his master refuse it here.",
+    "The fusion is said to destroy the separate egos of the original participants.",
+    "The intended product of the operation is treated as a distinct new individual rather than merely one of the originals continued unchanged."
+  ],
+  "page_id": "291_The_Metabarons_11_p14",
+  "page_label": "p14",
+  "plot_events": [
+    "A speaker proposes joining a head without a body to a body without a head.",
+    "The union is framed as combining elevated emotions with titanic physical strength.",
+    "Another speaker accepts the fusion, describing the result as both warrior and poet.",
+    "Narration explains that endo-robots perform a long, intricate surgical splicing of nerves, veins, and arteries.",
+    "The page states that neither Zaran nor his master would accept anesthetic during the procedure.",
+    "The operation is presented as erasing both prior egos and producing a new being described as a child.",
+    "The final panels show the head being attached to a muscular body in the operating chamber."
+  ],
+  "source_image": "external/comics/meta-barons/291_The_Metabarons_11_p14.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "0d195c3bd30330121e24ee1376739961ded70400993c2cfcf4e7c94a2d7a7c80",
+      "page_id": "291_The_Metabarons_11_p14",
+      "source_image": "external/comics/meta-barons/291_The_Metabarons_11_p14.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual identity of which figure is Zaran and which is the master is not fully explicit on the page alone.",
+    "The exact name of the final composite being is not given on this page.",
+    "Some small dialogue text may be imprecise in wording due to image resolution, but the meaning is clear."
+  ],
+  "visual_summary": "In a bright surgical chamber, a disembodied organic-looking head or neural core suspended in cables speaks to a large white robotic body or armored shell. Close-ups show human eyes behind mechanical apparatus, emphasizing a union of machine and human identity. The lower panels depict a lengthy biomechanical operation performed by endo-robots as a head is connected to a powerful body under intense light, culminating in the creation of a new composite being.",
+  "volume": 11
+}

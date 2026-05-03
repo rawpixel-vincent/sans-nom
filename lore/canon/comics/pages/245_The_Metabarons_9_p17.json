@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The noblewoman names herself as both Oda and Honorata.",
+    "She identifies herself as the widow of Othon von Salza.",
+    "She identifies herself as the mother of Aghnar von Salza.",
+    "She appears calm and authoritative during the confrontation.",
+    "A disguised person is present under a holo-mask and is implied to be the champion she refers to."
+  ],
+  "characters_present": [
+    "A formally dressed noblewoman identifying herself as Oda and Honorata, widow and mother within the von Salza family",
+    "Black-and-red uniformed officials or guards",
+    "Crowded onlookers in a public chamber",
+    "A bulbous or enclosed figure addressed during the confrontation",
+    "An unseen or disguised 'champion' said to be beside the noblewoman"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page continues a confrontation over whether someone can challenge or defeat the Metabaron.",
+    "The von Salza family appears to have direct relevance to the hidden champion or to the political dispute in the chamber."
+  ],
+  "dialogue_meaning": [
+    "The officials try to halt an execution or violent act because they believe a warrior capable of defeating the Metabaron exists.",
+    "They dismiss supposed envoys or claimants as fraudulent and insist on immediate identification.",
+    "The noblewoman asserts high-status identity through a formal genealogical introduction.",
+    "When challenged to produce her champion, she claims that person is already present beside her.",
+    "The reveal of a holo-mask indicates someone nearby has been concealed under a false appearance."
+  ],
+  "image_sha256": "5457fe22c3fe4b708e64bd8f9f8dbdc22ce8f4bdd36543b7a5cadaa65df366a4",
+  "is_spread": false,
+  "locations": [
+    "A large crowded hall or chamber with tiered spectators and officials"
+  ],
+  "lore_facts": [
+    "The title 'Metabaron' is treated as that of a nearly unbeatable figure, but some people believe a warrior exists who can defeat him.",
+    "Formal identity and legitimacy in this setting can be checked through badges or similar credentials.",
+    "Holographic masks exist and can convincingly conceal a person's appearance.",
+    "Aristocratic identity is expressed through lineage, marriage, and parentage, including the von Salza name."
+  ],
+  "page_id": "245_The_Metabarons_9_p17",
+  "page_label": "p17",
+  "plot_events": [
+    "Officials in a packed hall intervene and argue that a warrior exists who can defeat the Metabaron.",
+    "A spokesperson or attendant in an enclosed pod-like setup is challenged by the officials, who demand identity badges or proof.",
+    "A woman in elaborate aristocratic attire formally identifies herself through family and widowhood ties.",
+    "The officials ask where her supposed champion is hiding.",
+    "She answers that the champion is 'beside' her.",
+    "Observers realize she is wearing a holographic mask, and the page ends on close-ups of the disguise shifting or being removed."
+  ],
+  "source_image": "external/comics/meta-barons/245_The_Metabarons_9_p17.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5457fe22c3fe4b708e64bd8f9f8dbdc22ce8f4bdd36543b7a5cadaa65df366a4",
+      "page_id": "245_The_Metabarons_9_p17",
+      "source_image": "external/comics/meta-barons/245_The_Metabarons_9_p17.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are difficult to read precisely, especially the wording about envoys, credentials, and family names.",
+    "The exact spelling of some names and titles may be imperfect due to image resolution.",
+    "It is not fully explicit on this page alone which visible figure is wearing the holo-mask until the final close-ups, though the reveal clearly indicates a disguise."
+  ],
+  "visual_summary": "In a crowded ceremonial or political chamber, black-and-red uniformed officials are trying to stop violence and demanding proof of identity from a veiled or masked noblewoman who stands beside them. The woman identifies herself with a formal lineage-based declaration and says the champion they seek is beside her. A close-up then reveals that the apparent face is a holographic mask, with the final panels focusing on the false face beginning to change or open.",
+  "volume": 9
+}

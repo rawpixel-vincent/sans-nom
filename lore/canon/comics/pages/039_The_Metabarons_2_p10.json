@@ -1,0 +1,71 @@
+{
+  "character_facts": [
+    "Othon is addressed as Baron.",
+    "Othon acts as the negotiator and uses his exclusive knowledge as leverage.",
+    "Bari is identified by Othon as sharing the secret of the Epiphyte.",
+    "The imperial couple hold authority and conduct the negotiation from a position of power.",
+    "The Endoguard is depicted as an elite armed escort accompanying the imperial party."
+  ],
+  "characters_present": [
+    "Baron Othon",
+    "Bari",
+    "the imperial couple",
+    "purple Endoguard",
+    "additional armored guards",
+    "attendants or courtiers"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page follows an earlier event by explicitly stating that a week has passed.",
+    "The negotiation continues an existing conflict over control of or access to the Epiphyte.",
+    "Othon and Bari remain allied at this stage and present a united front before the empire."
+  ],
+  "dialogue_meaning": [
+    "The narration establishes a one-week time jump and the arrival of the imperial party at Marmola.",
+    "The page says Othon and Bari are honored before the negotiation.",
+    "Othon claims that he and Bari alone possess the knowledge needed to locate the Epiphyte.",
+    "He warns that coercion would not produce the secret efficiently and that searching without them would take years.",
+    "The imperial side wants a deal quickly and demands that Othon name his conditions."
+  ],
+  "image_sha256": "1006bbd3c65d7b1d72f16b427d17494019c56b179b0eb5ccffad74dabf19d8ad",
+  "is_spread": false,
+  "locations": [
+    "Marmola",
+    "a large industrial or urban installation at Marmola",
+    "a ceremonial reception hall",
+    "a private negotiation chamber"
+  ],
+  "lore_facts": [
+    "The imperial couple travel in a distinctive golden vessel.",
+    "A purple Endoguard is presented as part of the imperial entourage.",
+    "Marmola is important enough to host the imperial couple and negotiations over the Epiphyte.",
+    "The Epiphyte is a secret whose location or access method is known only to Othon and Bari on this page.",
+    "Finding the Epiphyte without Othon and Bari would, according to Othon, take years on Marmola because the planet is immense.",
+    "The empire urgently wants an agreement concerning the Epiphyte."
+  ],
+  "page_id": "039_The_Metabarons_2_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "One week after the prior scene, the imperial couple travel to Marmola in their golden vessel.",
+    "A new purple Endoguard accompanies the imperial party.",
+    "Othon and Bari arrive and are publicly congratulated and rewarded.",
+    "The meeting moves into a private chamber for negotiations.",
+    "Othon tells the imperial couple that only he and his son know the secret of the Epiphyte and that torture alone will not reveal it quickly.",
+    "The imperial side presses Othon to state his terms for an agreement."
+  ],
+  "source_image": "external/comics/meta-barons/039_The_Metabarons_2_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1006bbd3c65d7b1d72f16b427d17494019c56b179b0eb5ccffad74dabf19d8ad",
+      "page_id": "039_The_Metabarons_2_p10",
+      "source_image": "external/comics/meta-barons/039_The_Metabarons_2_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact visual identity and names of the two imperial figures are not stated on this page beyond being the imperial couple.",
+    "Some background figures may be guards, attendants, or courtiers, but their roles are not individually labeled.",
+    "The precise spelling and meaning of 'Epiphyte' depend on the page lettering; it is readable but could benefit from confirmation against adjacent pages."
+  ],
+  "visual_summary": "A narration box states that one week later the imperial couple's golden vessel arrives at Marmola with a new purple Endoguard. The page shows the gold ship approaching a vast mechanical city or installation, then Baron Othon and his son Bari being received inside a monumental chamber by robed imperial figures and armored guards. In a private audience, Othon kneels or bows before the imperial couple, and then sits facing them while negotiations begin over the secret location of the Epiphyte.",
+  "volume": 2
+}

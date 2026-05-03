@@ -1,0 +1,67 @@
+{
+  "character_facts": [
+    "The authority figure is addressed with high status language, indicating rank or religious/political authority.",
+    "One woman is emotionally invested in the rescue because the trapped victim is identified as her husband and the endangered man as her father.",
+    "The older scarred man is forceful and protective of secrecy, overriding the woman's desperation.",
+    "The attendants around the authority figure appear to share or affirm the authority's judgment about technoscience."
+  ],
+  "characters_present": [
+    "A robed authority figure addressed as 'your eminence'",
+    "Several attendants or followers beside the authority figure",
+    "Multiple armored rescuers or workers at the cleft",
+    "A woman whose husband is said to be trapped and whose father is endangered",
+    "An older scarred man with white hair who silences the woman",
+    "A trapped man beneath the block, not visible directly"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page introduces or reinforces the importance of sacred technoscience as a major power distinction.",
+    "The mention of a secret oil suggests an inherited, restricted resource or technique relevant to this group's identity or survival.",
+    "The rescue crisis centers on a family relationship, linking the physical danger to lineage and succession stakes."
+  ],
+  "dialogue_meaning": [
+    "The observers frame the crisis as proof that ordinary people are helpless without advanced or sacred technology.",
+    "The rescue team concludes the obstruction is lodged over the cleft and that cutting it apart will take too long.",
+    "A speaker warns that the trapped husband may run out of air before rescuers can reach him.",
+    "The woman urgently proposes using a hidden substance, oil, or technique to save her father.",
+    "The older man forbids her from revealing or using that secret in front of others."
+  ],
+  "image_sha256": "712e5976ca8e4f18b43ec41d54b70254f4321ee5521ae41c2d8e7e0e9e739022",
+  "is_spread": false,
+  "locations": [
+    "A rocky outdoor rescue site centered on a cleft or chasm",
+    "A viewing position adjacent to the site where the authority figure and attendants observe"
+  ],
+  "lore_facts": [
+    "The setting includes a concept called 'sacred technoscience,' treated as a specialized or revered technological capability.",
+    "A large engineered block or slab can become embedded over a natural cleft, creating a deadly rescue problem.",
+    "Hyperlasers exist in this setting but are considered ineffective or too slow for this specific rescue.",
+    "A secret 'oil' exists and is presented as powerful enough that someone wants to use it in an emergency.",
+    "Knowledge or use of that secret oil is closely guarded, especially in the presence of outsiders."
+  ],
+  "page_id": "014_The_Metabarons_1_p12",
+  "page_label": "p12",
+  "plot_events": [
+    "A massive block is shown embedded directly over a cleft, creating an apparent rescue obstacle.",
+    "Observers aligned with an authority figure comment that others are powerless without 'sacred technoscience.'",
+    "Rescuers determine that the block cannot simply be cut through quickly enough to save the trapped man beneath it.",
+    "A woman argues that they should use a secret resource or technique to save her father.",
+    "An older man harshly rejects her plea and insists they are not alone, implying the secret must not be revealed publicly."
+  ],
+  "source_image": "external/comics/meta-barons/014_The_Metabarons_1_p12.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "712e5976ca8e4f18b43ec41d54b70254f4321ee5521ae41c2d8e7e0e9e739022",
+      "page_id": "014_The_Metabarons_1_p12",
+      "source_image": "external/comics/meta-barons/014_The_Metabarons_1_p12.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and slightly hard to read; exact wording may be imperfectly interpreted.",
+    "The identities and names of the woman, the older scarred man, and the authority figure are not given on this page.",
+    "The exact nature of the 'secret oil' is not explained here beyond being secret and potentially useful in the rescue.",
+    "It is stated that a husband is still alive beneath the block, but the page does not visually confirm him."
+  ],
+  "visual_summary": "A huge rectangular block or slab sits wedged over a rocky cleft, surrounded by bright light or dust and several small armored figures. In a side panel, a robed authority figure and attendants watch while discussing the others' helplessness without sacred technoscience. The lower panels show rescuers at the rubble, a woman pleading to save her father by using a secret substance or method, and an older, scarred man angrily silencing her.",
+  "volume": 1
+}

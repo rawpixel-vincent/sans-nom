@@ -1,0 +1,77 @@
+{
+  "character_facts": [
+    "Lothar is a robot entity and is naive or optimistic about the story's outcome.",
+    "The elderly speaker is cynical and contemptuous of romantic or happy interpretations.",
+    "The elderly speaker addresses Lothar as intellectually childish ('paleo-fool'), showing a superior or lecturing stance.",
+    "Krleza appreciates romantic grandeur.",
+    "Steelhead despises ostentation and associates it with impotence.",
+    "Melmoth is described as a composite being formed from two contrasting personalities that never fully disappeared into the union."
+  ],
+  "characters_present": [
+    "Lothar (small robot, named in dialogue)",
+    "An elderly white-bearded male speaker addressing Lothar",
+    "Krleza (mentioned, not clearly shown)",
+    "Steelhead (identified by narration; likely the elderly bearded figure)",
+    "The narrator's master / prince consort (mentioned, not clearly shown)",
+    "The betrothed (mentioned, not shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "Refers back to an earlier transformation or union in which the poet and the warrior became Melmoth.",
+    "Positions the current scene as the lead-in to a wedding ceremony at the Halerce tree.",
+    "Uses the observers' conversation to reinterpret the supposed happy resolution as internally conflicted."
+  ],
+  "dialogue_meaning": [
+    "The page frames the arrival as a formal wedding procession with military spectacle.",
+    "Lothar reads the marriage as a happy ending.",
+    "The older speaker argues that the Metabarons' lives are defined by suffering, not happiness.",
+    "Krleza is moved by the romantic symbolism of the heart-shaped fleet.",
+    "Steelhead is repulsed by the same display and interprets it as weakness or impotence.",
+    "The merger of the 'poet' and the 'warrior' into Melmoth was incomplete because each retained hidden individuality."
+  ],
+  "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+  "is_spread": false,
+  "locations": [
+    "Space above Philodendra",
+    "Philodendra, capital planet of the Trogolosandia federation",
+    "Approach to the Halerce tree",
+    "Interior/cockpit-like observation space with the two commentators"
+  ],
+  "lore_facts": [
+    "Philodendra is the capital planet of the Trogolosandia federation.",
+    "A free-space fleet exists and can field roughly a thousand assorted warships for state ceremony.",
+    "Those ceremonial warships are painted white for the wedding occasion.",
+    "The prince consort is being escorted to the Halerce tree, where his betrothed awaits.",
+    "Within this narration, 'the poet and warrior' previously united to create Melmoth.",
+    "The speaker claims the Metabarons are characterized by suffering rather than happiness."
+  ],
+  "page_id": "344_The_Metabarons_13_p10",
+  "page_label": "p10",
+  "plot_events": [
+    "A fleet officer calls for ships to form up as metacraft come into view.",
+    "Narration identifies the setting as the sky above Philodendra during a wedding procession.",
+    "A thousand warships of the free-space fleet, painted white for the ceremony, greet the arrival of the prince consort.",
+    "The ships arrange themselves into a heart shape and escort the narrator's master toward the Halerce tree, where his betrothed waits.",
+    "A small robot assumes the story has reached a happy marriage ending.",
+    "The older speaker rejects that reading, insisting the Metabarons are driven by suffering rather than happiness.",
+    "Narration says the romantic display pleases Krleza but disgusts Steelhead.",
+    "Steelhead dismisses the grand display as a cover for impotence.",
+    "When asked how this fits with the earlier union of the poet and the warrior, the older speaker explains that their merger created Melmoth but did not erase their separate selves."
+  ],
+  "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+      "page_id": "344_The_Metabarons_13_p10",
+      "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some narration and dialogue are hard to read at this resolution; wording about the fleet and the federation may be slightly imprecise.",
+    "The elderly bearded figure is likely Steelhead based on the narration, but the page does not label him directly in a speech tag.",
+    "The narrator who says 'my master' is not visually identified on this page alone.",
+    "The exact spelling of 'Halerce tree' is somewhat uncertain due to image clarity."
+  ],
+  "visual_summary": "Large panels show a dense formation of white-painted warships in space above a planet, assembling into a heart-shaped ceremonial escort for the arriving prince consort. Smaller lower panels cut to two interior observers: a small robot and an elderly, white-bearded figure in a headset or cockpit-like setting, reacting very differently to the spectacle.",
+  "volume": 13
+}

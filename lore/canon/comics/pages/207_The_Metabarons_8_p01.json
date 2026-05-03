@@ -1,0 +1,78 @@
+{
+  "character_facts": [
+    "Tonto can speak authoritatively about Oda's condition and denies having needed to perform real brain surgery.",
+    "Tonto is being questioned by someone who relies on him for a factual account.",
+    "Oda is portrayed as physically alive but spiritually dead at the time being discussed.",
+    "Klawoutai is emotionally affected during a farewell, experiencing both joy and sadness.",
+    "Klawoutai regards the person leaving as his messiah.",
+    "The unnamed speaker at the end fears the seven C-T cyborgs and believes they are otherwise unbeatable."
+  ],
+  "characters_present": [
+    "Tonto",
+    "Oda (discussed, not clearly shown)",
+    "an unidentified questioner speaking to Tonto",
+    "Klawoutai",
+    "Klawoutai's ten wives (mentioned in narration, not individually distinguished)",
+    "a 'little white ape' being addressed",
+    "crowds of ape-like or simian figures around the city/ship"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page appears to continue an ongoing oral recounting by Tonto about Oda and prior events.",
+    "The farewell scene is presented as a remembered or narrated past episode connected to prophecy and later conflict with the C-T cyborgs."
+  ],
+  "dialogue_meaning": [
+    "The opening exchange frames Tonto as recounting or explaining a past event involving Oda's condition.",
+    "Tonto's explanation suggests Oda's state made conventional brain surgery unnecessary or irrelevant.",
+    "The anxious interruption adds urgency and impatience to hearing the rest of the account.",
+    "The farewell dialogue marks a parting between Klawoutai and a revered figure he considers messianic.",
+    "The prophecy language indicates the departing figure has completed or is continuing a significant destined journey.",
+    "The final statement establishes the seven C-T cyborgs as an overwhelming threat unless their vulnerability is discovered."
+  ],
+  "image_sha256": "f2f29942c78db4d1a7b61b87fbb7adfbc4e1c21524b1958528eb04f7f628e69f",
+  "is_spread": false,
+  "locations": [
+    "An interior or abstract setting with a domed reflective structure during the Tonto conversation",
+    "The surface of an ice asteroid",
+    "A city or settlement on the ice asteroid filled with giant mushrooms",
+    "Outer space with multiple ships or structures"
+  ],
+  "lore_facts": [
+    "Tonto is a machine and is explicitly contrasted with organic knowledge of cerebral bio-mass.",
+    "Oda is described as having a soul already extinguished, a dead spirit within a living body.",
+    "Spores transported in the goitres of female apes can generate gigantic mushrooms.",
+    "These mushrooms spread across the surface of an ice asteroid.",
+    "Klawoutai has ten wives.",
+    "There is a prophecy connected to a 'little white ape.'",
+    "A journey or destiny is described as leading from a fog world to a diamond planet.",
+    "There are seven C-T cyborgs, and defeating them requires knowing their weak spot."
+  ],
+  "page_id": "207_The_Metabarons_8_p01",
+  "page_label": "p01",
+  "plot_events": [
+    "A speaker asks Tonto how he managed to perform brain surgery on Oda despite being a machine without knowledge of cerebral bio-mass.",
+    "Tonto explains that he did not truly operate because Oda's soul was already gone, describing her as a dead spirit in a living body.",
+    "Another speaker anxiously presses Tonto to continue the story.",
+    "The narration shifts to a place where spores carried in female apes' goitres produce gigantic mushrooms across the surface of an ice asteroid.",
+    "Klawoutai stands with his ten wives and says farewell to his messiah, with the narration emphasizing mixed joy and sadness.",
+    "A farewell is addressed to a 'little white ape,' tied to the fulfillment of a prophecy and a journey from a fog world to a diamond planet.",
+    "A ship departs or prepares to depart from the mushroom-filled cityscape.",
+    "The page ends with a warning that without knowing an enemy's weak spot, no one can defeat seven C-T cyborgs, who will otherwise devour the speakers."
+  ],
+  "source_image": "external/comics/meta-barons/207_The_Metabarons_8_p01.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "f2f29942c78db4d1a7b61b87fbb7adfbc4e1c21524b1958528eb04f7f628e69f",
+      "page_id": "207_The_Metabarons_8_p01",
+      "source_image": "external/comics/meta-barons/207_The_Metabarons_8_p01.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and may be partially misread; the exact wording of the technical opening exchange is difficult to confirm.",
+    "The identity of the impatient speaker addressing Tonto is not given on this page.",
+    "The exact visual identity of the 'little white ape' is unclear from this page alone.",
+    "It is not fully clear whether the ship is actively launching on-panel or simply shown at the departure site."
+  ],
+  "visual_summary": "The page opens with a conversation presented over a domed, reflective structure, then shifts to a large city-and-spaceport scene filled with giant mushrooms and ape-like figures around a sleek ship. Captions describe a farewell involving Klawoutai and a prophetic journey from a fog world to a diamond planet. The bottom panel shows spacecraft in space as the narration turns to the threat of seven C-T cyborgs.",
+  "volume": 8
+}

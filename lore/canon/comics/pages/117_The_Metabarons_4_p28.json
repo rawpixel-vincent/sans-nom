@@ -1,0 +1,56 @@
+{
+  "character_facts": [
+    "The main figure has long light-colored hair visible outside or through the armor.",
+    "The figure is agile enough to maneuver in mid-fall through hazardous machinery.",
+    "The figure appears determined and focused on reaching and tampering with or repairing a machine rather than escaping."
+  ],
+  "characters_present": [
+    "One central long-haired armored figure performing the action.",
+    "Two small background onlookers visible behind a transparent barrier or window."
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts an ongoing action sequence involving infiltration, sabotage, repair, or forced access to machinery.",
+    "The observers suggest the main figure's actions are being witnessed by others elsewhere in the same facility or craft."
+  ],
+  "dialogue_meaning": [
+    "The page emphasizes impact and mechanical violence through sound effects rather than readable spoken dialogue.",
+    "No clear conversation is legible; the storytelling is primarily visual action."
+  ],
+  "image_sha256": "4e072cefee69215a07d9edd163754ee4f993d63f88a385fe9513cfcd6f423c45",
+  "is_spread": false,
+  "locations": [
+    "A large industrial or spacecraft-like mechanical chamber.",
+    "A possible control room or observation area visible behind glass in one panel."
+  ],
+  "lore_facts": [
+    "The setting contains advanced machinery with articulated arms, exposed conduits, and smooth pod-like housings.",
+    "At least some parts of the environment are monitored from a separate enclosed observation space.",
+    "The technology shown includes accessible internal compartments with dense wiring or biomechanical-looking components."
+  ],
+  "page_id": "117_The_Metabarons_4_p28",
+  "page_label": "p28",
+  "plot_events": [
+    "An armored figure is struck or violently dislodged near heavy machinery.",
+    "The figure falls or propels through a complex mechanical area filled with struts, blades, and articulated devices.",
+    "Observers appear in the background of one panel, watching from behind a window or control-room barrier.",
+    "The figure stretches toward a rounded white machine or vessel and makes contact.",
+    "After grabbing hold, the figure accesses or opens a panel, exposing internal circuitry or tubing."
+  ],
+  "source_image": "external/comics/meta-barons/117_The_Metabarons_4_p28.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "4e072cefee69215a07d9edd163754ee4f993d63f88a385fe9513cfcd6f423c45",
+      "page_id": "117_The_Metabarons_4_p28",
+      "source_image": "external/comics/meta-barons/117_The_Metabarons_4_p28.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Spoken text is not legible; only sound effects are clearly visible.",
+    "It is unclear whether the initial impact is an explosion, weapon strike, or collision.",
+    "The exact identity of the main figure and the two observers cannot be confirmed from this page alone.",
+    "The function of the white rounded machine or vessel is not stated on the page."
+  ],
+  "visual_summary": "A long-haired figure in a bulky armored suit is blasted or jolted loose among large mechanical structures and rotating components in a cold blue industrial environment. Across several panels, the figure tumbles through a dense field of machinery, reaches toward a smooth white pod-like surface, then clings to it and begins opening or manipulating an exposed access panel filled with cables and components.",
+  "volume": 4
+}

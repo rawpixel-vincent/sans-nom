@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Melmoth has access to inherited psychic powers.",
+    "Melmoth can use those powers with precision, not just raw force.",
+    "Melmoth cares about the woman enough for the narration to call her his beloved.",
+    "The narrator serves under Melmoth's orders at this moment."
+  ],
+  "characters_present": [
+    "Melmoth",
+    "An unnamed woman described as Melmoth's beloved",
+    "The unnamed narrator addressed by Melmoth",
+    "Doña Vicenta (mentioned, not clearly shown)"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page explicitly links Melmoth's abilities to Steelhead's mother and the Shabda-Oud.",
+    "It sets up a follow-on objective involving Doña Vicenta's room and a crucial item.",
+    "It also moves the injured or stunned woman toward the metabunker, continuing her subplot."
+  ],
+  "dialogue_meaning": [
+    "Narration explains that Melmoth possesses psychic powers inherited through Steelhead's mother from the Shabda-Oud line.",
+    "The narration emphasizes that Melmoth's reaction speed is effectively beyond normal time.",
+    "It states that Melmoth carefully redirected the shot so his beloved would be stunned rather than fatally harmed.",
+    "The narrator reports being ordered to take the woman to the metabunker.",
+    "The narration says Melmoth searched Doña Vicenta's room for a crucial object."
+  ],
+  "image_sha256": "c7f60e31e3f80e57c2f6bed79c98603135ebb73ddccb76c49d74415616c80b2b",
+  "is_spread": false,
+  "locations": [
+    "An interior room or chamber where the shooting occurs",
+    "The metabunker (mentioned destination)",
+    "Doña Vicenta's room (mentioned destination/search target)"
+  ],
+  "lore_facts": [
+    "Steelhead's mother passed psychic powers of the Shabda-Oud to Melmoth.",
+    "These powers allow extremely fast perception or movement, depicted as faster than time.",
+    "The setting includes a place called the metabunker.",
+    "Doña Vicenta possesses or is associated with a crucial item kept in her room."
+  ],
+  "page_id": "311_The_Metabarons_12_p02",
+  "page_label": "p02",
+  "plot_events": [
+    "A shot is fired toward a woman or near her at close range.",
+    "Melmoth, using inherited psychic ability, reacts with extreme speed and deflects the bullet.",
+    "He intentionally moderates the effect so the woman is only stunned, not killed.",
+    "He orders the narrator to transport the woman to the metabunker.",
+    "He then goes to Doña Vicenta's room to retrieve an important item."
+  ],
+  "source_image": "external/comics/meta-barons/311_The_Metabarons_12_p02.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "c7f60e31e3f80e57c2f6bed79c98603135ebb73ddccb76c49d74415616c80b2b",
+      "page_id": "311_The_Metabarons_12_p02",
+      "source_image": "external/comics/meta-barons/311_The_Metabarons_12_p02.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some caption text is small and partially hard to read; names and wording may not be perfectly transcribed.",
+    "The identity of the woman shown being stunned and carried is not explicitly labeled on the page beyond being called Melmoth's beloved.",
+    "The narrator is referred to in first person but is not visually identified with certainty.",
+    "Doña Vicenta is mentioned but may not actually be depicted in these panels."
+  ],
+  "visual_summary": "A gun is fired at close range, but a bright psychic or energy effect stops or redirects the shot. A woman cries out as a large bearded man catches and carries her amid shattered debris. A small craft or transport pod departs through a golden, wrecked-looking space. In the final panels, the bearded man appears near metallic structures and flowers while narration explains his next move.",
+  "volume": 12
+}

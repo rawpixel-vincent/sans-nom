@@ -1,0 +1,61 @@
+{
+  "character_facts": [
+    "The armored figure is physically holding or operating a firearm on this page.",
+    "The elderly bearded figure is emotionally unstable on the page, shifting from despair to manic excitement.",
+    "One internal persona identifies as a warrior and demands bodily control to fight.",
+    "Another persona explicitly rejects killing and frames itself as a poet or lover."
+  ],
+  "characters_present": [
+    "A black-armored humanoid figure",
+    "An elderly, wild-haired, bearded man or face associated with the body/scene",
+    "Multiple unseen speaking personas or voices, including names that appear to include 'Kleiza' and 'Melemoth'"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The footer states the story will continue in the next episode, 'Galactic Threat.'",
+    "The plea to be saved from being wiped out implies an immediate prior threat already in progress before this page."
+  ],
+  "dialogue_meaning": [
+    "The page centers on internal conflict: different voices argue over whether to fight, love, flee, or die.",
+    "One voice claims to be a warrior and wants the body used for battle.",
+    "Another voice rejects slaughter and identifies more with poetry and love than combat.",
+    "The old bearded speaker accuses another presence of selfishness and laments his own inadequacy and long frustration.",
+    "The argument ends with a sudden embrace of death or destruction, immediately followed by gunfire."
+  ],
+  "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+  "is_spread": false,
+  "locations": [
+    "An interior room or chamber with wooden wall panels, curtains, and a window or barred opening"
+  ],
+  "lore_facts": [
+    "A single body appears to be contested by multiple distinct personalities or entities.",
+    "At least two of the internal voices are identified by name in the balloons, seemingly 'Kleiza' and 'Melemoth.'",
+    "These voices have sharply opposed values, including warfare versus love/poetry.",
+    "The page ends on a cliffhanger and explicitly points to the next episode, 'Galactic Threat.'"
+  ],
+  "page_id": "358_The_Metabarons_13_p26",
+  "page_label": "p26",
+  "plot_events": [
+    "A distressed plea asks for rescue from destruction.",
+    "Several conflicting voices urge action, reject battle, or demand control of the body.",
+    "An elderly, long-haired bearded figure denounces another voice and declares despair, repeating a wish to die.",
+    "The armored figure manipulates a firearm while contradictory replies of assent and refusal continue.",
+    "The old man suddenly becomes eager and fires or triggers the weapon.",
+    "The armored body is destroyed in an explosive blast."
+  ],
+  "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+      "page_id": "358_The_Metabarons_13_p26",
+      "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is difficult to read precisely from the image; exact wording and some names may be slightly off.",
+    "It is unclear whether the elderly bearded figure is physically separate, a reflection, or one of the personalities inhabiting the armored body.",
+    "The exact identity of the shooter in the final panels is ambiguous because the page presents overlapping voices and fragmented close-ups."
+  ],
+  "visual_summary": "Inside a room with paneled walls and a barred or framed window, a black-armored figure stands while multiple speech balloons argue around him. An elderly, wild-haired bearded face is shown in close-up, then the armored figure handles a gun as competing voices answer each other. In the final sequence, the old man exults, a muzzle flash erupts, and the armored figure is blown apart in a violent burst. A footer announces the next episode, 'Galactic Threat.'",
+  "volume": 13
+}

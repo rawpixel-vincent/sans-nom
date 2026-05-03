@@ -1,0 +1,65 @@
+{
+  "character_facts": [
+    "Steelhead experiments with outward appearances by trying different helmets.",
+    "Steelhead's head is not ordinary; it is described as being made up of deadly weapons.",
+    "Steelhead is vain, theatrical, or image-conscious enough to solicit opinions on helmet style.",
+    "Steelhead is highly ambitious or self-important, reacting to the summons as if his moment has arrived.",
+    "Tonto is close enough to Steelhead to advise him and manage communications."
+  ],
+  "characters_present": [
+    "Steelhead",
+    "Tonto"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing political thread involving the imperial couple and the new Golden Palace.",
+    "Steelhead is already established enough that his unusual weapon-head anatomy and his assistant Tonto are presented without introduction."
+  ],
+  "dialogue_meaning": [
+    "Steelhead is evaluating alternate helmet designs to hide or stylize his dangerous head.",
+    "Tonto serves as an assistant or attendant, offering blunt aesthetic judgment on the helmet options.",
+    "A high-level summons has arrived from the imperial court or palace.",
+    "Steelhead interprets the message as a major opportunity and immediately wants to respond."
+  ],
+  "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+  "is_spread": false,
+  "locations": [
+    "The Metabunker",
+    "The deserts of Sirtha",
+    "The new Golden Palace (mentioned as the transmission source)"
+  ],
+  "lore_facts": [
+    "The Metabunker can drift across the deserts of Sirtha.",
+    "Sirtha has deserts.",
+    "Steelhead's head is composed of or includes deadly weapons, and helmets are used to mask that fact.",
+    "There is a place called the new Golden Palace.",
+    "The new Golden Palace can send galactic transmissions requesting audiences.",
+    "The page refers to the imperial couple as associated with the transmission or its broader context."
+  ],
+  "page_id": "270_The_Metabarons_10_p22",
+  "page_label": "p22",
+  "plot_events": [
+    "A gruesome armored headpiece or helmet design is shown in close-up, emphasizing its bio-mechanical weapons components.",
+    "The narration states that the Metabunker is drifting across the deserts of Sirtha.",
+    "Steelhead is trying on costume helmets intended to conceal the deadly weapons that make up his head.",
+    "Steelhead asks Tonto for an opinion on one helmet design.",
+    "Tonto dismisses one design as overly poetic and better suited to someone else.",
+    "Tonto informs Steelhead that an urgent galactic transmission has arrived from the new Golden Palace requesting an audience.",
+    "Steelhead becomes eager, declares that he is needed, and orders Tonto to activate the holo-display."
+  ],
+  "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+      "page_id": "270_The_Metabarons_10_p22",
+      "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue and caption text are small and partially hard to read, so wording may be slightly imprecise.",
+    "The exact appearance and function of the bio-mechanical headpiece in the opening panel are visually clear as grotesque and weaponized, but its precise mechanism is not explained on this page.",
+    "The printed page number at the bottom appears to differ from the provided page label, but the supplied metadata identifies this as p22."
+  ],
+  "visual_summary": "A violent close-up shows a grotesque, weaponized head assembly being tested or fitted, with fleshy organic parts mixed into heavy armor and machinery. A caption situates the scene in the Metabunker drifting over the deserts of Sirtha. In the lower panels, Steelhead tries on stylized combat helmets while a small companion, Tonto, comments on them and relays an urgent galactic transmission from the new Golden Palace. Steelhead reacts excitedly and puts on a smooth reflective helmet, preparing to answer the summons.",
+  "volume": 10
+}

@@ -1,0 +1,357 @@
+[
+  {
+    "aliases": [
+      "Aghnar"
+    ],
+    "appearances": [
+      "description: Armored male figure with mechanical lower face, mechanical hand, and (later) a mechanical heart; silver/dark hair; cybernetically augmented; source_refs: ['216_The_Metabarons_8_p11', '219_The_Metabarons_8_p14']"
+    ],
+    "character_id": "aghnar",
+    "important_actions": [
+      "action: Disguised himself among witches and delivered Oda to the Shabda-Oud to pursue revenge (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "action: Controlled a Cetacyborg by mental command and deployed Magon apes against Jejoh (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "action: Sacrificed his arm as a bomb inside Jejoh to kill the god (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "action: Refuses to approach Honorata's cloaked form until robot attendants are dismissed; source_refs: ['211_The_Metabarons_8_p06']",
+      "action: Forced to choose between Honorata and Oda; chooses Oda; source_refs: ['218_The_Metabarons_8_p13']",
+      "action: Formally rejects the Metabaron warrior identity; declares the Castakas will continue but not as warriors; source_refs: ['218_The_Metabarons_8_p13']",
+      "action: Receives a protonic prosthetic arm after losing one earlier; source_refs: ['219_The_Metabarons_8_p14']",
+      "action: Conceives Steelhead (grandfather of the present Metabaron) with Oda; source_refs: ['220_The_Metabarons_8_p15']",
+      "action: Accuses Honorata of occupying Oda's body via a Lota-linked virus and demands the infant; source_refs: ['224_The_Metabarons_8_p19']",
+      "action: Departs vowing to become the most merciless of the Metabarons and to return to duel the grown child; source_refs: ['227_The_Metabarons_8_p22']"
+    ],
+    "knowledge_boundaries": [
+      "Does not initially know Honorata is alive when he encounters the cloaked woman",
+      "Does not know whether the tractor beam taking his ship belongs to enemies or allies (p06)",
+      "Uncertain whether the woman holding his infant is Oda or Honorata inhabiting Oda's body—his accusation is unverified by the pages"
+    ],
+    "relationships": [
+      "character: Oda; type: wife; notes: Deeply attached; chooses Oda over Honorata when forced; conceives Steelhead with her",
+      "character: Honorata; type: mother; notes: Believed her dead for years; reunion is emotionally destabilizing; later accuses her of occupying Oda's body",
+      "character: Tonto; type: ally / machine companion; notes: Relies on Tonto as assistant and companion; Tonto later becomes life-support host for his infant son",
+      "character: Steelhead; type: son (infant); notes: Infant grafted onto Tonto to survive; Aghnar vows to return and duel the grown child",
+      "character: Shabda-Oud; type: enemy; notes: Blames them for his mother's apparent death via heart-bomb"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Capable of long-term deception and infiltration",
+      "Direct combatant and mental combatant",
+      "Deeply emotionally attached to Oda and to his mother Honorata",
+      "Distrustful and cautious (refuses to approach the cloaked woman until robots are dismissed)",
+      "Carries a strong desire for death at one point in the narrative",
+      "Ultimately rejects the Metabaron warrior identity in favor of a different Castaka future"
+    ],
+    "voice_notes": [
+      "Calls Honorata 'witch' in confrontation, sets conditions before approaching",
+      "Tells Oda 'no witch can keep us apart for long' while comforting her (p06)",
+      "Identifies the phrase about Okkhar's carnivorous flowers as his mother's dying words (p07)",
+      "Says 'I do not want to father a merciless warrior' when Oda presses for a warrior heir (p16)",
+      "When announcing the birth to Honorata, calls her 'grandmother of a handsome grandson' (p17)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Witnessed (or believes he witnessed) the explosion of the bowl implanted in Honorata's heart; source_refs: ['212_The_Metabarons_8_p07']",
+      "fact: Was rescued in a space battle against tentacled biomechanical entities by an unidentified figure who knew his name; source_refs: ['210_The_Metabarons_8_p04-p05']",
+      "fact: Personally fought Jejoh by letting the entity devour his bomb-rigged arm (recap); source_refs: ['206_The_Metabarons_8_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "Oda",
+      "Princess Oda",
+      "Oda-Honorata (used after Aghnar's accusation that Honorata inhabits her body)"
+    ],
+    "appearances": [
+      "description: Female; depicted in ornate biomechanical armor on cover with a forehead emblem or implant; later shown in pale ceremonial outfit; eventually appears reviving from a medical pod in a translucent sheet; source_refs: ['205_The_Metabarons_8_c01', '206_The_Metabarons_8_ic1', '219_The_Metabarons_8_p14']"
+    ],
+    "character_id": "oda",
+    "important_actions": [
+      "action: Won Aghnar's trust and agreed to help him seek revenge (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "action: Joined Aghnar spiritually in final mental confrontation with elder witches (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "action: Revived from catatonic state via Honorata's psycho-surgery with Tonto as assistant; source_refs: ['218_The_Metabarons_8_p13', '219_The_Metabarons_8_p14']",
+      "action: Gives birth to a bio-male son (later known as Steelhead); source_refs: ['222_The_Metabarons_8_p17']",
+      "action: Insists Aghnar should father a warrior heir; Aghnar disagrees; source_refs: ['221_The_Metabarons_8_p16']",
+      "action: Carries the near-fatally injured infant to Tonto for emergency grafting; source_refs: ['227_The_Metabarons_8_p22']"
+    ],
+    "knowledge_boundaries": [
+      "Her subjective consciousness during her catatonic/spiritually-dead state is unknown; Tonto states her soul had already departed"
+    ],
+    "relationships": [
+      "character: Aghnar; type: husband; notes: Deep mutual attachment; reunion after revival is wordless—only names spoken",
+      "character: Honorata; type: mother-in-law; accused usurper of her body; notes: Honorata performs psycho-surgery to revive her; Aghnar later accuses Honorata of having occupied her body via cloning",
+      "character: Tonto; type: surgical assistant; notes: Tonto assists Honorata in Oda's revival procedure",
+      "character: Steelhead; type: son (infant); notes: Conceives and gives birth to him; protects the infant even as a deadly conflict erupts",
+      "character: Shabda-Oud; type: captor (past); notes: Was delivered to the Shabda-Oud for breeding purposes as part of Aghnar's revenge scheme"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Brave enough to join Aghnar mentally in the final battle against the elder witches",
+      "Forceful and ideological about dynastic duty—strongly advocates producing a male warrior heir",
+      "Emotionally reduced to near-silence upon revival: can only say Aghnar's name"
+    ],
+    "voice_notes": [
+      "Insists child must be a son so the Metabaron line continues (p16)",
+      "Argues 'a good soul should not waste the chance to make his son the greatest warrior in the universe' (p16)",
+      "States the Castakas will not return to the warrior path, consistent with Aghnar's declaration (p13)"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Was chained to an altar on the witches' asteroid and participated in a ritual involving the god Jejoh (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+      "fact: Joined Aghnar in the mental battle against the elder witches (recap); source_refs: ['206_The_Metabarons_8_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "Honorata",
+      "Honorata Lao"
+    ],
+    "appearances": [
+      "description: Cloaked female figure; long pale/white hair; calm and composed demeanor; later shown immobilized in medical machinery; source_refs: ['211_The_Metabarons_8_p06', '213_The_Metabarons_8_p08', '216_The_Metabarons_8_p11']"
+    ],
+    "character_id": "honorata",
+    "important_actions": [
+      "action: Opened a time fissure at the Maxiprotonic Tower at age 30 (with ~5 minutes to live), remaining inside for 20 years and emerging at 50 with a new beating heart; source_refs: ['213_The_Metabarons_8_p08']",
+      "action: Reached Chrono-G (punctual Pradex point) and spent years studying how to safely remove a heart-bomb with assistants; source_refs: ['214_The_Metabarons_8_p09']",
+      "action: Underwent a high-risk heart transplant; received an Arcturian Katria agent's organ; source_refs: ['215_The_Metabarons_8_p10']",
+      "action: Hid her survival from Aghnar for years, deliberately preserving his grief and hatred to drive him toward destroying the Shabda-Oud; source_refs: ['216_The_Metabarons_8_p11']",
+      "action: Rescued Aghnar in a space battle against tentacled enemies (implied as the mysterious rescuer) and urged psychic union; source_refs: ['210_The_Metabarons_8_p04-p05']",
+      "action: Revealed herself to Aghnar using her perfume and a phrase about Okkhar's carnivorous flowers; source_refs: ['212_The_Metabarons_8_p07']",
+      "action: Performed dangerous psycho-surgery (deep mental probe) on Oda, nearly exhausting her energy; required years of strict isolation afterward; source_refs: ['218_The_Metabarons_8_p13']",
+      "action: Forced Aghnar to choose between her and Oda; accepted his choice of Oda as fulfilling the Castaka bloodline's continuation; source_refs: ['218_The_Metabarons_8_p13']",
+      "action: Secluded herself in the south gallery post-procedure; appeared nightly for exactly ~30 seconds before retreating; source_refs: ['221_The_Metabarons_8_p16', '222_The_Metabarons_8_p17']",
+      "action: Accused by a robot of using a corpse to fake nightly appearances to Aghnar; source_refs: ['223_The_Metabarons_8_p18']",
+      "action: Accused by Aghnar of cloning herself within Oda via a Lota-linked virus and occupying her body; source_refs: ['224_The_Metabarons_8_p19']",
+      "action: Unleashed a devastating energy beam tearing through the mechanical interior (likely); source_refs: ['225_The_Metabarons_8_p20']"
+    ],
+    "knowledge_boundaries": [
+      "Her exact motivation for cloning herself within Oda (if true) is only presented through Aghnar's accusation—not independently confirmed by the pages",
+      "Her full awareness of the infant's fate after she is accused and the energy blast occurs is not shown"
+    ],
+    "relationships": [
+      "character: Aghnar; type: son; notes: Was believed dead by Aghnar for years; reunion is explosive; later he accuses her of occupying Oda's body",
+      "character: Oda; type: daughter-in-law / surgery subject; notes: Performs psycho-surgery to revive Oda using Shabda-Oud techniques",
+      "character: Tonto; type: surgical assistant; notes: Specifically requests Tonto as assistant for Oda's procedure",
+      "character: Aghnar's father; type: deceased partner (implied); notes: Foresaw his death due to lung injury; intervened to keep Aghnar alive",
+      "character: Aghnar's mother (the corpse); type: another character used in deception; notes: Accused of using a corpse of Aghnar's mother to fake nightly appearances"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Extremely powerful psychic—pushed her shabda-ud power beyond training limits",
+      "Capable of manipulating chrono-temporal forces (opening time fissures)",
+      "Possesses psychic sonar capable of detecting emotional states and foreseeing deaths",
+      "Strategically and emotionally manipulative—concealed her survival to protect them from emotion-detecting enemies",
+      "Calm and unapologetically calculating in her justifications",
+      "Commands robot attendants with authority",
+      "Deeply committed to the continuation of the Castaka lineage"
+    ],
+    "voice_notes": [
+      "Uses scent and recitation of a private phrase (about Okkhar's carnivorous flowers) as proof of identity to Aghnar",
+      "Argues that breaking emotion-concealment would have exposed them to hostile entities that detect feelings",
+      "Tells Aghnar his mechanical heart means he no longer understands suffering",
+      "Invites Aghnar to board her ship to escape",
+      "Forces binary choice: 'between Oda and me'",
+      "On Aghnar's choice: 'The Castakas must continue'",
+      "Nightly appearance lasts only ~30 seconds; performs a formal wave before retreating"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Was inside the Maxiprotonic Tower when her heart allegedly exploded in a Shabda-Oud bombing; source_refs: ['212_The_Metabarons_8_p07', '213_The_Metabarons_8_p08']",
+      "fact: Spent 20 subjective years inside a time fissure, emerging biologically aged from 30 to 50; source_refs: ['213_The_Metabarons_8_p08']",
+      "fact: Reached the fortress tower in 16.09 seconds after the Metabunker departed with Aghnar and his father; source_refs: ['213_The_Metabarons_8_p08']"
+    ]
+  },
+  {
+    "aliases": [
+      "Tonto"
+    ],
+    "appearances": [
+      "description: Robot; acts as narrator recounting past events; later appears as surgical assistant and life-support host for the infant Steelhead; source_refs: ['207_The_Metabarons_8_p01', '218_The_Metabarons_8_p13', '227_The_Metabarons_8_p22']"
+    ],
+    "character_id": "tonto",
+    "important_actions": [
+      "action: Declined to perform real brain surgery on Oda because her spirit was already gone; source_refs: ['207_The_Metabarons_8_p01']",
+      "action: Assisted Honorata in Oda's psycho-surgical procedure; source_refs: ['218_The_Metabarons_8_p13']",
+      "action: Served as sole companion to Honorata during years of post-procedure isolation in the south gallery; source_refs: ['221_The_Metabarons_8_p16']",
+      "action: Had the near-fatally injured infant grafted onto his back; his internal circuits sustain the child's life; source_refs: ['227_The_Metabarons_8_p22']"
+    ],
+    "knowledge_boundaries": [
+      "Lacks organic knowledge of cerebral bio-mass by his own admission",
+      "Narrates past events from memory, implying comprehensive internal records"
+    ],
+    "relationships": [
+      "character: Honorata; type: assistant / companion; notes: Specifically requested by Honorata as surgical assistant; sole companion in her seclusion",
+      "character: Aghnar; type: informant / narrator; notes: Recounts past events to an unseen questioner; Aghnar can contact him at the Metabunker",
+      "character: Steelhead (infant); type: life-support host; notes: Infant grafted onto Tonto's back; Tonto's internal circuits keep the child alive"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Authoritative on lore and technical matters—provides the detailed explanation of Honorata's survival",
+      "No organic knowledge of cerebral bio-mass (by his own statement)",
+      "Operates as assistant/companion to Honorata during her isolation",
+      "Sole companion to Honorata during her post-procedure seclusion in the south gallery",
+      "Possesses internal circuits capable of sustaining an attached organic body (life-support function)"
+    ],
+    "voice_notes": [
+      "Narrates in a recounting mode, explaining events to an impatient questioner",
+      "States plainly that he did not operate because 'her soul was already gone'",
+      "Explains Honorata's survival through the time-fissure mechanism in technical detail"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Did not truly operate on Oda's brain because her soul had already departed—she was a dead spirit in a living body; source_refs: ['207_The_Metabarons_8_p01']",
+      "fact: Was present during Honorata's dangerous mental probe of Oda; source_refs: ['218_The_Metabarons_8_p13']",
+      "fact: Provided the technical explanation of Honorata's time-fissure survival to a questioner; source_refs: ['213_The_Metabarons_8_p08']"
+    ]
+  },
+  {
+    "aliases": [
+      "Steelhead",
+      "the infant son of Aghnar and Oda",
+      "future Steelhead"
+    ],
+    "appearances": [
+      "description: Born as a bio-male infant; grafted onto Tonto's back for survival; a steel head will be grafted when he reaches adult size; source_refs: ['222_The_Metabarons_8_p17', '227_The_Metabarons_8_p22']"
+    ],
+    "character_id": "steelhead",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: father; notes: Aghnar vows to return and duel him when grown; also condemns him initially as incestuous",
+      "character: Oda / Oda-Honorata; type: mother; notes: Mother carries him to Tonto in a panic to save his life",
+      "character: Honorata; type: grandmother; notes: Announced as grandmother by Aghnar; her psycho-surgery made Oda's recovery (and thus Steelhead's conception) possible",
+      "character: Tonto; type: life-support host; notes: Steelhead is grafted onto Tonto's back and sustained by his circuits"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Conceived during Aghnar and Oda's post-revival reunion",
+      "Near-fatally injured (decapitated or severely dismembered) as an infant in a violent confrontation",
+      "Survives only through grafting onto Tonto's internal life-support",
+      "Destined to have a steel head grafted on at adulthood—giving him his name"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Klawoutai"
+    ],
+    "appearances": [
+      "description: Male figure; present on a mushroom-covered ice asteroid populated by ape-like figures; source_refs: ['207_The_Metabarons_8_p01']"
+    ],
+    "character_id": "klawoutai",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Ten wives; type: spouse (×10); notes: Has ten wives who accompany him at the farewell",
+      "character: The 'little white ape' / messiah figure; type: follower / devotee; notes: Bids farewell with deep reverence; the departure fulfills a prophecy"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Emotionally affected during farewell—experiencing both joy and sadness simultaneously",
+      "Regards the departing figure as his messiah"
+    ],
+    "voice_notes": [
+      "Farewell addressed to 'little white ape,' tied to prophecy of a journey from a fog world to a diamond planet"
+    ],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Stands with his ten wives and says farewell to his messiah on the ice asteroid; source_refs: ['207_The_Metabarons_8_p01']"
+    ]
+  },
+  {
+    "aliases": [
+      "Jejoh"
+    ],
+    "appearances": [
+      "description: Depicted as hideous and powerful; visually associated with the witches' power structure; source_refs: ['206_The_Metabarons_8_ic1']"
+    ],
+    "character_id": "jejoh",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: The witches (elder witches / Shabda-Oud); type: affiliated deity; notes: His destruction collapses the witches' power",
+      "character: Aghnar; type: combatant / killer; notes: Aghnar kills Jejoh by letting him devour a bomb-rigged arm"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Initially invulnerable to direct physical attacks",
+      "Associated with the witches' asteroid and their power structure",
+      "Can devour a human arm"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": [
+      "fact: Appeared on the witches' asteroid during Oda's ritual; source_refs: ['206_The_Metabarons_8_ic1']",
+      "fact: Was unaffected by direct attacks until Aghnar's bomb detonated inside him; source_refs: ['206_The_Metabarons_8_ic1']"
+    ]
+  },
+  {
+    "aliases": [
+      "Unknown Rescuer",
+      "the unknown figure who saves Aghnar in the space battle"
+    ],
+    "appearances": [
+      "description: Unidentified ship or pilot; intervenes in a space battle against tentacled biomechanical entities; eliminates several enemies rapidly; source_refs: ['210_The_Metabarons_8_p04-p05']"
+    ],
+    "character_id": "the_mysterious_rescuer",
+    "important_actions": [
+      "action: Destroys several tentacled biomechanical enemies in rapid succession to rescue Aghnar; source_refs: ['210_The_Metabarons_8_p04-p05']",
+      "action: Calls Aghnar by name and urges psychic/mental union; source_refs: ['210_The_Metabarons_8_p04-p05']"
+    ],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Aghnar; type: rescuer / someone who knows him personally; notes: Addresses Aghnar by name; Aghnar is shocked that the rescuer both saved him and knows him intimately"
+    ],
+    "source_refs": [],
+    "traits": [
+      "Extraordinarily powerful—destroys multiple formidable enemies in quick succession",
+      "Knows Aghnar by name without introduction",
+      "Urges psychic union described as surrender to a 'mind's shadow' connection",
+      "Apparently familiar with Aghnar on a personal level"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Shabda-Oud",
+      "Shabda-Oud whores (Aghnar's epithet)"
+    ],
+    "appearances": [
+      "description: Represented by witches and associated figures; not shown as a single character but as a collective antagonist faction; source_refs: ['206_The_Metabarons_8_ic1', '212_The_Metabarons_8_p07', '216_The_Metabarons_8_p11']"
+    ],
+    "character_id": "shabda_oud",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [],
+    "source_refs": [],
+    "traits": [
+      "Seek individuals for breeding purposes",
+      "Possess advanced psycho-surgical science",
+      "Associated with heart-bombs implanted in targets",
+      "Use Cetacyborg guards",
+      "Target of Aghnar's multigenerational revenge campaign"
+    ],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  },
+  {
+    "aliases": [
+      "Othon"
+    ],
+    "appearances": [],
+    "character_id": "othon",
+    "important_actions": [],
+    "knowledge_boundaries": [],
+    "relationships": [
+      "character: Honorata / Oda-Honorata; type: dynastic associate; notes: The woman holding the infant invokes Othon's dream as justification for the child's existence"
+    ],
+    "source_refs": [],
+    "traits": [],
+    "voice_notes": [],
+    "volumes": [],
+    "witnessed_facts": []
+  }
+]

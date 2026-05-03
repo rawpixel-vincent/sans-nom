@@ -1,0 +1,66 @@
+{
+  "character_facts": [
+    "The white-robed man is calm under threat and speaks as if directing a societal project.",
+    "He considers his opponents ethically deficient.",
+    "He claims specialized training let him transcend or shed physical embodiment.",
+    "The dark-haired attacker is openly hostile and impatient with his speech.",
+    "All three attackers act together and use similar energy weapons."
+  ],
+  "characters_present": [
+    "A pale, white-robed male figure at the center of the confrontation",
+    "A dark-haired attacker who speaks the death threat",
+    "A blond attacker firing an energy weapon",
+    "A dark-skinned attacker firing an energy weapon"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts the apparent payoff to an earlier 'false oasis' plan mentioned in the dialogue.",
+    "The reference to returning to the 'techno-tech no zone' implies an ongoing storyline about that place and the people being moved from it."
+  ],
+  "dialogue_meaning": [
+    "The white-robed figure claims a major relocation is underway after creating a false oasis.",
+    "He says dreamers and thousands of old technologists are being sent to another galaxy.",
+    "He presents his plan as a moral reset: a healthier society built on human bonds rather than scientific advancement.",
+    "He accuses the armed trio of moral emptiness.",
+    "The dark-haired attacker rejects his speech and attempts to execute him.",
+    "The white-robed figure says long training allowed him to free himself from corporeal form, explaining why the attack does not stop him conventionally."
+  ],
+  "image_sha256": "1bdfdc45d4867e2002d12c556450a3aa0e3fc912647c43e770559b72afff8227",
+  "is_spread": false,
+  "locations": [
+    "A futuristic interior chamber or hall",
+    "An area associated in dialogue with a return to the 'techno-tech no zone'"
+  ],
+  "lore_facts": [
+    "This setting includes 'dreamers' and 'technotechnicians' as distinct groups mentioned in dialogue.",
+    "A large-scale transfer to a 'promised galaxy' is stated to be in progress.",
+    "The speaker contrasts social or relational well-being with scientific advancement as competing civilizational values.",
+    "At least one character in this world can separate from bodily form through training.",
+    "Energy weapons or energy-projecting devices are used by the attackers."
+  ],
+  "page_id": "305_The_Metabarons_11_p28",
+  "page_label": "p28",
+  "plot_events": [
+    "A pale man explains that dreamers and old technologists will be relocated to a 'promised galaxy.'",
+    "He frames this as the start of a new society that values healthy human relationships above scientific progress.",
+    "He condemns his opponents as lacking conscience.",
+    "One of the attackers cuts him off and declares the lesson over, threatening to kill him.",
+    "Three attackers fire energy blasts at close range.",
+    "The target does not visibly resist in a physical way and instead transforms or disperses into a radiant, swirling phenomenon."
+  ],
+  "source_image": "external/comics/meta-barons/305_The_Metabarons_11_p28.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "1bdfdc45d4867e2002d12c556450a3aa0e3fc912647c43e770559b72afff8227",
+      "page_id": "305_The_Metabarons_11_p28",
+      "source_image": "external/comics/meta-barons/305_The_Metabarons_11_p28.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Some dialogue is small and partially hard to read; wording may be approximate.",
+    "Character names are not given on this page, so figures are described by appearance and role only.",
+    "The exact nature of the final phenomenon is unclear from the page alone: it could be disintegration, ascension, teleportation, or projection-loss rather than literal death."
+  ],
+  "visual_summary": "In a futuristic chamber, three dark-clad figures confront a pale, white-robed man standing before a large organic-looking structure. He speaks calmly while the trio aim circular weapons at him. A close-up of the central attacker shows an angry face and a death threat. The three fire bright energy blasts; the white-robed figure is engulfed in a huge burst of light and then seems to disperse into a swirling, star-like vortex rather than falling as a body.",
+  "volume": 11
+}

@@ -1,0 +1,60 @@
+{
+  "character_facts": [
+    "The infant is central to the conflict and appears to unleash or channel immense energy.",
+    "The woman holding the infant is emotionally devastated and physically present at the moment of the child's destruction.",
+    "The long-haired augmented figure advocates machine-grafting as a way to preserve life.",
+    "The attacker appears heavily cybernetic or armored rather than purely organic."
+  ],
+  "characters_present": [
+    "Infant with destructive or energy-projecting power",
+    "Adult woman holding the infant",
+    "Long-haired cybernetically augmented adult figure speaking in the final panel",
+    "Dark armored/cybernetic attacker or creature"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "This page depicts a pivotal violent incident involving an infant and cybernetic ideology, likely with consequences for surviving characters and lineage."
+  ],
+  "dialogue_meaning": [
+    "A scream underscores the immediate horror of the infant's injury or death.",
+    "One speaker condemns the killing as murder.",
+    "The same speaker claims the infant could have continued living if attached to a machine, and says that would have destroyed the child's descendants."
+  ],
+  "image_sha256": "5e9fec967e874f1dc423a834620a80fcbbd8e6c0e1be66ffce045fcba627df52",
+  "is_spread": false,
+  "locations": [
+    "Biomechanical or technologically advanced interior chamber"
+  ],
+  "lore_facts": [
+    "Advanced biomechanical technology exists that can potentially keep a severely damaged body alive by grafting it onto a machine.",
+    "The idea of destroying a being's offspring or lineage is discussed explicitly.",
+    "Energy-beam weaponry or innate beam-like power is present in this conflict."
+  ],
+  "page_id": "226_The_Metabarons_8_p21",
+  "page_label": "p21",
+  "plot_events": [
+    "A beam from the infant's side collides with an attacking armored or cybernetic figure.",
+    "The exchange of energy blasts appears to damage or repel the attacker.",
+    "A large biomechanical arm or weapon fires across the scene.",
+    "An adult woman holding the infant is caught in the violent aftermath and screams.",
+    "The infant is decapitated or otherwise dismembered, with blood spraying visibly.",
+    "Another adult figure accuses someone of murder and says the child should have been fused to a machine rather than killed."
+  ],
+  "source_image": "external/comics/meta-barons/226_The_Metabarons_8_p21.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "5e9fec967e874f1dc423a834620a80fcbbd8e6c0e1be66ffce045fcba627df52",
+      "page_id": "226_The_Metabarons_8_p21",
+      "source_image": "external/comics/meta-barons/226_The_Metabarons_8_p21.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of all characters cannot be confirmed from this page alone.",
+    "It is unclear whether the infant actively fires the beam or is caught within another beam exchange.",
+    "The exact cause of the infant's decapitation is visually implied but not fully explicit.",
+    "Some dialogue is small and partially hard to read, especially in the final speech balloon.",
+    "The printed page number visible in the image is 25, which differs from the provided page label p21."
+  ],
+  "visual_summary": "A chaotic firefight erupts in a biomechanical interior. A small infant emits or is aligned with a powerful energy beam that clashes with a dark armored/cybernetic attacker. A long mechanical arm or weapon discharges another blast across the page. In the lower panels, an adult woman cradling the baby screams as the infant is gruesomely decapitated or torn apart, spraying blood. A second adult figure with long dark hair and heavy cybernetic augmentation denounces the act and argues that the child should have been preserved by grafting him onto a machine instead of being destroyed.",
+  "volume": 8
+}

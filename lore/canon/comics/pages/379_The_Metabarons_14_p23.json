@@ -1,0 +1,64 @@
+{
+  "character_facts": [
+    "The masked master is female, since the attendant addresses her as 'milady'.",
+    "The bio-mother is physically failing and appears dependent on tubes and a respirator-like mask.",
+    "The bio-mother expects to die during the delivery.",
+    "The bio-mother loved a man described as a poet.",
+    "The master is connected to the Castaka bloodline or clan through the unborn boy."
+  ],
+  "characters_present": [
+    "masked master addressed as 'milady'",
+    "bio-mother in medical life-support apparatus",
+    "armored or robotic medical attendant"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "The page centers on succession and bloodline questions within the Castaka/Metabaron lineage.",
+    "The mention of Krleza and the poet-lover points to an earlier relationship affecting the twins' parentage."
+  ],
+  "dialogue_meaning": [
+    "The scene is a forced choice between the survival of one twin or the other.",
+    "The mother believes lineage and clan duty should make the master's decision favor the boy.",
+    "The boy is framed as belonging to the master's hereditary line.",
+    "The girl is emotionally associated with the mother's lover and an alternative future.",
+    "The master tests whether the mother would reject clan expectations if the girl were chosen."
+  ],
+  "image_sha256": "47147b60e7312fd3202c4d924adc3e4d17a6f07c8a3369fb5d854fe578853166",
+  "is_spread": false,
+  "locations": [
+    "a medical or birthing chamber filled with machinery and life-support equipment"
+  ],
+  "lore_facts": [
+    "Castaka can sire only male children, according to the mother's statement.",
+    "Krleza is identified as the origin or affiliation connected to the girl and the man the mother loves.",
+    "The title or role 'Metabaron' is associated with raising boys as pitiless warriors, according to the mother's description.",
+    "The setting includes advanced reproductive or surgical technology capable of monitoring and attempting a selective delivery."
+  ],
+  "page_id": "379_The_Metabarons_14_p23",
+  "page_label": "p23",
+  "plot_events": [
+    "A medical attendant announces that the pregnant woman carries twins, one girl and one boy.",
+    "The attendant states the mother's condition is too weak to deliver both children and only one infant can be saved.",
+    "The mother insists the master will choose to save the boy.",
+    "She explains the boy is the master's because Castaka can sire only male children.",
+    "She says the girl is linked to Krleza and to the man she loves.",
+    "The mother argues that if the boy lives he will be raised as a pitiless warrior, while she herself expects to die in childbirth.",
+    "The master asks what would happen if the girl were saved instead.",
+    "The mother replies that the daughter of her poet-lover would give her strength to live and raise her."
+  ],
+  "source_image": "external/comics/meta-barons/379_The_Metabarons_14_p23.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "47147b60e7312fd3202c4d924adc3e4d17a6f07c8a3369fb5d854fe578853166",
+      "page_id": "379_The_Metabarons_14_p23",
+      "source_image": "external/comics/meta-barons/379_The_Metabarons_14_p23.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the masked master, the bio-mother, and the medical attendant are not given on this page.",
+    "The mother's line about the girl being 'from Krleza' is legible in meaning but may contain nuance about parentage or origin that is not fully clear from the page alone.",
+    "It is not fully explicit whether 'the man I love' is the girl's biological father, though the dialogue strongly links him to her."
+  ],
+  "visual_summary": "In a dark, mechanical birthing chamber, an armored medical attendant projects an image of twins in the womb while reporting to a masked master. The mother, encased in life-support machinery, is too weak to deliver both infants, so one must be sacrificed. She argues over which child should live: the boy belongs to the master's Castaka line, while the girl is tied to the man she loves. The master questions her about saving the girl, ending on a close-up of the mother answering desperately through her mask.",
+  "volume": 14
+}

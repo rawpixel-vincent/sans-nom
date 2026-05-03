@@ -1,0 +1,69 @@
+{
+  "character_facts": [
+    "Aghnar is regarded as a champion and appears to have already defeated his son.",
+    "Aghnar's son is still alive after the larger battle but submits to the expected ritual or rule of death.",
+    "The son is strongly motivated by honor and family duty rather than survival.",
+    "A maternal figure influences the son's decision by urging a dignified acceptance of death.",
+    "Some spectators are impatient and bloodthirsty, while at least one official insists on the formal completion of the duel."
+  ],
+  "characters_present": [
+    "Aghnar",
+    "Aghnar's son",
+    "A maternal figure addressed as 'Mother'",
+    "Celebrating alien/nonhuman spectators",
+    "Helmeted official or attendant",
+    "Hooded attendants/observers"
+  ],
+  "confidence": "medium",
+  "continuity_links": [
+    "The page continues an ongoing father-versus-son confrontation centered on honor, lineage, and ritual death.",
+    "The large-scale destruction around them is tied to the personal duel, with outside observers waiting for its final outcome."
+  ],
+  "dialogue_meaning": [
+    "A command involving 'psychotrons' accompanies the opening attack or detonation.",
+    "The spectators exult that humans are finished and boast about their own people's superiority.",
+    "A dissenting voice insists the victory celebration is premature because the duel's rule is death, and Aghnar has not yet killed his son.",
+    "A maternal voice tells the defeated son to accept death calmly because a warrior's dignity lies in turning defeat into honorable triumph and honoring his champion father.",
+    "The son says he will honor his mother and that his death should be worthy.",
+    "Another voice praises Aghnar's victory and frames dying by his hand as a sacred honor.",
+    "The son openly concedes defeat and offers his life to his father."
+  ],
+  "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+  "is_spread": false,
+  "locations": [
+    "Outer space amid exploding ship debris",
+    "A bright observation platform or viewing terrace overlooking the event"
+  ],
+  "lore_facts": [
+    "A formal combat or trial is underway whose rule is explicitly death.",
+    "Aghnar and his opponent are father and son.",
+    "Observers treat death at a champion's hands as an honorable or even sacred outcome.",
+    "The surrounding crowd includes nonhuman groups hostile to humans and eager to see humanity destroyed.",
+    "Advanced destructive technology called 'psychotrons' is referenced during the attack."
+  ],
+  "page_id": "261_The_Metabarons_10_p13",
+  "page_label": "p13",
+  "plot_events": [
+    "A mechanical or bio-mechanical warship fires or triggers an explosion that destroys an opposing vessel.",
+    "Spectators celebrate prematurely, believing the human race has ended.",
+    "An advisor or attendant reminds the crowd that the contest is a fight to the death and is unfinished until Aghnar kills his son.",
+    "In space near debris, the son stops resisting and accepts death honorably.",
+    "The son addresses Aghnar as father and surrenders his life to him after being defeated."
+  ],
+  "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+      "page_id": "261_The_Metabarons_10_p13",
+      "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+    }
+  ],
+  "uncertainties": [
+    "Several speech balloons are small and partially hard to read; exact wording and some proper nouns may be inaccurate.",
+    "The exact name/spelling of the celebrating species or faction is unclear from the page.",
+    "The precise identity of the maternal figure is uncertain; she may be present remotely, symbolically, or off-panel rather than physically in the same space.",
+    "The exact nature of the opening destroyed craft and how 'psychotrons' function is not fully clear from this page alone."
+  ],
+  "visual_summary": "A spiked spacecraft or weapons platform detonates another craft in a huge white blast, scattering debris. On a bright observation deck, alien or nonhuman onlookers cheer what they believe is the end of humanity. In a lower scene, hooded attendants and a helmeted figure interrupt the celebration, insisting the real trial is not over until Aghnar kills his son. The final panels shift to open space amid wreckage, where two armored figures float near each other: the son is urged to meet death with honor, and he yields himself to his victorious father, Aghnar.",
+  "volume": 10
+}

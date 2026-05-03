@@ -1,0 +1,59 @@
+{
+  "character_facts": [
+    "The younger woman is defiant under threat and willing to injure or kill herself to resist the father's claim.",
+    "The white-haired woman remains beside the younger woman throughout the armed standoff.",
+    "The father is emotionally shaken by the threat and chooses compliance over escalation.",
+    "The soldiers obey the father's command."
+  ],
+  "characters_present": [
+    "White-haired armored woman",
+    "Younger woman holding a blade to herself",
+    "Armed soldiers in helmets",
+    "Older male authority figure addressed as the younger woman's father"
+  ],
+  "confidence": "high",
+  "continuity_links": [
+    "This page centers an existing conflict between the younger woman and her father over possession, kinship, or marriage.",
+    "The white-haired woman appears to be an ally or companion of the younger woman during their attempted escape or release."
+  ],
+  "dialogue_meaning": [
+    "The younger woman pleads for release rather than capture.",
+    "She draws a line between biological kinship and a forced or claimed marriage.",
+    "Her suicide threat is used as leverage to stop the armed standoff.",
+    "The father ultimately yields to her demand and orders the troops aside."
+  ],
+  "image_sha256": "59331a9a3a82d280555c3474b7e8fe8a369d3d28b18f8790e92217073e8b2bcf",
+  "is_spread": false,
+  "locations": [
+    "A guarded interior chamber or hall filled with armed soldiers"
+  ],
+  "lore_facts": [
+    "The younger woman is being treated by the older man as both kin and a prospective or claimed wife, and she explicitly rejects the latter on this page.",
+    "The older male figure has command authority over the surrounding soldiers.",
+    "The younger woman's personal choice is strong enough that the father halts the soldiers rather than force the confrontation further."
+  ],
+  "page_id": "183_The_Metabarons_7_p06",
+  "page_label": "p06",
+  "plot_events": [
+    "Soldiers corner two women and aim multiple guns at them.",
+    "The younger woman appeals to her father to let them go.",
+    "She rejects a marital claim from him while acknowledging a possible father-daughter relation.",
+    "She threatens to kill herself if the soldiers are not withdrawn.",
+    "An older male authority figure reacts with distress and orders the soldiers to let the women leave."
+  ],
+  "source_image": "external/comics/meta-barons/183_The_Metabarons_7_p06.jpg",
+  "source_refs": [
+    {
+      "image_sha256": "59331a9a3a82d280555c3474b7e8fe8a369d3d28b18f8790e92217073e8b2bcf",
+      "page_id": "183_The_Metabarons_7_p06",
+      "source_image": "external/comics/meta-barons/183_The_Metabarons_7_p06.jpg"
+    }
+  ],
+  "uncertainties": [
+    "The exact identities and names of the characters are not given on this page alone.",
+    "The precise location is unclear beyond being an interior space under heavy guard.",
+    "The blade appears to be pressed to the upper chest or throat area; the exact point of contact is visually ambiguous."
+  ],
+  "visual_summary": "A white-haired armored woman and a younger woman are surrounded at gunpoint by helmeted soldiers in a crowded interior space. The younger woman addresses an unseen or off-panel father, first pleading to be released, then declaring that she may be his daughter but not his wife. She presses a blade to her own upper chest or throat area and threatens suicide unless the soldiers are called off. Reaction panels show her determination, the older man's shock and anguish, and a final order to let the pair leave, with a small line of blood visible from the self-inflicted threat.",
+  "volume": 7
+}
