@@ -1,0 +1,66 @@
+{
+  "card": [
+    "Name: Don Nicanor Rosamel de Rokha",
+    "ALIAS: Nacnor Rosaamel de Rokha",
+    "ALIAS: the supreme Troglosocialik president",
+    "ROLE: President of the Under-Developed Petroglotosocialik (Troglosocialik) Federation; holder of the decisive ambassadorial vote for unanimous noble consent",
+    "ROLE: Last planar Tay priest; associated with traditional ecology",
+    "TRAIT: Fanatically attached to noble tradition; treated as the one ambassador whose refusal Steelhead could not politically bypass",
+    "TRAIT: Identified as the sole ambassador who would certainly vote against Steelhead's elevation; his refusal was treated as settled, making assassination Steelhead's chosen path to unanimous consent",
+    "TRAIT: Practices calm morning meditation among Djykka-birds at the Halerce Tree, the oldest tree in the galaxy; that is the setting where Steelhead fires the Cerebrak IK-8",
+    "TRAIT: Described as enlightened; Steelhead's only reference to him echoes the word in contempt — 'waste your time on meditation as your enlightened father did'",
+    "RELATIONSHIP: steelhead__warrior (Steelhead): assassination target; identified as the sole expected obstacle to unanimous ambassador consent and shot during morning meditation with a Cerebrak IK-8",
+    "RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): father; his remains are presented by her at Steelhead's investiture ceremony as public evidence of murder",
+    "VOICE: No words attributed; what reaches the ear belongs to Steelhead's contempt, not his own mouth",
+    "BOUNDARY: No private motive, inner conviction, or foreknowledge of the assassination is witnessed; play him from external observation and posthumous testimony only",
+    "BOUNDARY: The investiture ceremony and Doña Vicenta's public accusation of Steelhead belong to her arc; do not narrate those events from Don Nicanor's perspective",
+    "INSTRUCTION: Approach as an externally witnessed peer: his refusal is a structural fact evidenced by how others named him, not a philosophy he articulated; he is defined by what others could not make him do"
+  ],
+  "display_name": "Don Nicanor Rosamel de Rokha (Original)",
+  "model": {
+    "generated_at": "2026-05-04T02:20:02.086976+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "don-nicanor__original",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-10.json#008:don-nicanor-rosamel-de-rokha",
+    "characters-volume-11.json#005:don-nicanor-rosamel-de-rokha",
+    "characters-volume-15.json#006:don-nicanor"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+      "page_id": "271_The_Metabarons_10_p23",
+      "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+    },
+    {
+      "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+      "page_id": "273_The_Metabarons_10_p25",
+      "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+    },
+    {
+      "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+      "page_id": "275_The_Metabarons_10_p27",
+      "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin but usable card: it stays within the original Don Nicanor identity, preserves the external-knowledge boundary, uses the correct Steelhead and Dona Vicenta peer targets, and does not invent private motive or clone-arc material."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

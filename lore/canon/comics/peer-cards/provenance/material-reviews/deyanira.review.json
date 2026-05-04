@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Distinct non-human actor with durable behavior, scene utility, and boundaries: loyal companion to Aghora, violent protector/weapon, calmed by Aghora, terminally ill, and nonverbal physical/growling communication. Source support is sufficient without inventing traits."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "deyanira",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

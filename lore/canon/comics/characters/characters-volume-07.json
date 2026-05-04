@@ -492,6 +492,12 @@
       "Scar across right eyebrow documented as present by age 30 years, 2 months, 3 hours, 20:40:00 — cause unresolved (vol 7 p10)"
     ],
     "volumes": [],
-    "witnessed_facts": []
+    "witnessed_facts": [],
+    "peer_candidate": false,
+    "non_peer_reason": "Title/mystery hook for a scar origin in the frame narrative, not a distinct Honcho peer character.",
+    "related_peer_ids": [
+      "tonto",
+      "lothar"
+    ]
   }
 ]

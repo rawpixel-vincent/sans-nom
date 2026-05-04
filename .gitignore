@@ -37,6 +37,7 @@ qdrant_storage/
 # generated / local runtime state
 *.log
 tmp/
+lore/canon/comics/peer-cards/runs/
 
 # Editor/IDE
 # .idea/

@@ -1,0 +1,274 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "008_The_Metabarons_1_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/008_The_Metabarons_1_p06.json",
+    "011_The_Metabarons_1_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/011_The_Metabarons_1_p09.json",
+    "012_The_Metabarons_1_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/012_The_Metabarons_1_p10.json",
+    "015_The_Metabarons_1_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/015_The_Metabarons_1_p13.json",
+    "018_The_Metabarons_1_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/018_The_Metabarons_1_p16.json",
+    "019_The_Metabarons_1_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/019_The_Metabarons_1_p17.json",
+    "020_The_Metabarons_1_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/020_The_Metabarons_1_p18.json",
+    "021_The_Metabarons_1_p19": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/021_The_Metabarons_1_p19.json",
+    "022_The_Metabarons_1_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/022_The_Metabarons_1_p20.json",
+    "023_The_Metabarons_1_p22": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/023_The_Metabarons_1_p22.json",
+    "024_The_Metabarons_1_p23": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/024_The_Metabarons_1_p23.json"
+  },
+  "peer_card_id": "baron-berard-of-castaka",
+  "peer_identity": {
+    "arc_label": "Baron Berard of Castaka — Castaka noble appearing across early volumes",
+    "display_name": "Baron Berard of Castaka",
+    "honcho_notes": "Merge: same person, cross-volume id drift. Prefer baron-berard-of-castaka as it carries the dynasty name.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "baron-berard-of-castaka",
+    "rationale": "baron-berard-of-castaka (vol02) and baron_berard (vol01) are the same character extracted under two character_ids due to naming inconsistency between volumes. Both are single-record singletons with no phase split. 'baron-berard-of-castaka' is the more specific and complete identifier and should be canonical.",
+    "source_record_ids": [
+      "characters-volume-01.json#005:baron_berard",
+      "characters-volume-02.json#002:baron-berard-of-castaka"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Baron Berard",
+        "Berard",
+        "Baron Berard of Castaka"
+      ],
+      "appearances": [
+        "page_id: 008_The_Metabarons_1_p06; note: named in narration as ruler of Marmola",
+        "page_id: 011_The_Metabarons_1_p09; note: named in the worksite cutting scene as father/authority",
+        "page_id: 012_The_Metabarons_1_p10; note: present as Othon's father-in-law during accident",
+        "page_id: 015_The_Metabarons_1_p13; note: likely the grandfather figure pressuring Bari to let Othon die",
+        "page_id: 018_The_Metabarons_1_p16; note: older white-haired elder giving final orders; orders visitors killed; declares Othon new baron",
+        "page_id: 019_The_Metabarons_1_p17; note: described as heavy with gloom in his armory",
+        "page_id: 020_The_Metabarons_1_p18; note: attacks Othon with a dagger; described as green-faced with white hair",
+        "page_id: 021_The_Metabarons_1_p19; note: wins the duel against Othon",
+        "page_id: 022_The_Metabarons_1_p20; note: explains duel lesson; performs spirit and birthmark transfer; prepares to die",
+        "page_id: 023_The_Metabarons_1_p22; note: dies; instructs body be cast into the Great Azure Ocean",
+        "page_id: 024_The_Metabarons_1_p23; note: referenced in narration; said to have died by stubbornly holding his breath"
+      ],
+      "character_id": "baron_berard",
+      "image_sha256s": [
+        "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+        "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+        "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+        "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+        "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+        "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+        "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+        "fe1c84de8e3eba57295aa03baface1c6c59cf038b28abee9197a49fe1f305f2d"
+      ],
+      "important_actions": [
+        "page_id: 018_The_Metabarons_1_p16; action: orders the imperial visitors killed; decrees Othon becomes new baron",
+        "page_id: 020_The_Metabarons_1_p18; action: attacks Othon with a dagger in a formal duel",
+        "page_id: 021_The_Metabarons_1_p19; action: wins the duel by deliberately accepting a shoulder wound as strategic sacrifice",
+        "page_id: 022_The_Metabarons_1_p20; action: reveals birthmark; performs spirit and knowledge transfer into Othon",
+        "page_id: 023_The_Metabarons_1_p22; action: dies; instructs body be cast into the Great Azure Ocean; warns of coming wars over sacred oil"
+      ],
+      "knowledge_boundaries": [
+        "full custodian of the sacred oil secret and stone-loading method",
+        "aware of imperial politics and the danger of exposure"
+      ],
+      "page_ids": [
+        "008_The_Metabarons_1_p06",
+        "011_The_Metabarons_1_p09",
+        "012_The_Metabarons_1_p10",
+        "015_The_Metabarons_1_p13",
+        "018_The_Metabarons_1_p16",
+        "019_The_Metabarons_1_p17",
+        "020_The_Metabarons_1_p18",
+        "021_The_Metabarons_1_p19",
+        "022_The_Metabarons_1_p20",
+        "023_The_Metabarons_1_p22",
+        "024_The_Metabarons_1_p23"
+      ],
+      "record_id": "characters-volume-01.json#005:baron_berard",
+      "record_index": 5,
+      "relationships": [
+        "character: lady_edna; relation: father",
+        "character: othon_von_salza; relation: son-in-law; master; eventually accepts as worthy heir",
+        "character: bari; relation: grandfather (implied via Edna being his daughter)",
+        "character: the_metabaron; relation: great-great-grandfather"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+        "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg",
+        "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg",
+        "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg",
+        "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg",
+        "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg",
+        "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg",
+        "external/comics/meta-barons/021_The_Metabarons_1_p19.jpg",
+        "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg",
+        "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg",
+        "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+          "page_id": "008_The_Metabarons_1_p06",
+          "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+        },
+        {
+          "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+          "page_id": "011_The_Metabarons_1_p09",
+          "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+        },
+        {
+          "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+          "page_id": "012_The_Metabarons_1_p10",
+          "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg"
+        },
+        {
+          "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+          "page_id": "015_The_Metabarons_1_p13",
+          "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+        },
+        {
+          "image_sha256": "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+          "page_id": "018_The_Metabarons_1_p16",
+          "source_image": "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg"
+        },
+        {
+          "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+          "page_id": "019_The_Metabarons_1_p17",
+          "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+        },
+        {
+          "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+          "page_id": "020_The_Metabarons_1_p18",
+          "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg"
+        },
+        {
+          "image_sha256": "fe1c84de8e3eba57295aa03baface1c6c59cf038b28abee9197a49fe1f305f2d",
+          "page_id": "021_The_Metabarons_1_p19",
+          "source_image": "external/comics/meta-barons/021_The_Metabarons_1_p19.jpg"
+        },
+        {
+          "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+          "page_id": "022_The_Metabarons_1_p20",
+          "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg"
+        },
+        {
+          "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+          "page_id": "023_The_Metabarons_1_p22",
+          "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+        },
+        {
+          "image_sha256": "87591139ad509a72e26e739dc96473f3592a2d87615d280997571aac2127a6c8",
+          "page_id": "024_The_Metabarons_1_p23",
+          "source_image": "external/comics/meta-barons/024_The_Metabarons_1_p23.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "commands with authority and finality; speaks in the idiom of honor, sacrifice, and warrior tradition; admonishes emotion as weakness; formal register with son-in-law shifts to paternal warmth only when acknowledging Othon's worth"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "witnessed imperial visitors observe the sacred stone-loading secret (p09/p16)",
+        "witnessed the glowing orb used to levitate the stone block; declared this a 'major technical revolution' via the authority figure's reaction (p16/p18)",
+        "performed the spirit and birthmark transfer into Othon (p20/p22)",
+        "predicted wars over sacred oil and refused to be part of that future (p23)"
+      ]
+    },
+    {
+      "aliases": [
+        "Baron Berard of Castaka",
+        "Berard",
+        "the Baron"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['ic1']"
+      ],
+      "character_id": "baron-berard-of-castaka",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Opposed revealing Epyphite to save Othon; detail: Prioritized secrecy over Othon's life until the clan overruled him; source_pages: ['ic1']",
+        "action: Transferred the family legacy to Othon; detail: Formally passed clan leadership and knowledge to Othon before dying; source_pages: ['ic1']"
+      ],
+      "knowledge_boundaries": [
+        "Sole guardian of the Epyphite secret before passing the legacy to Othon"
+      ],
+      "page_ids": [],
+      "record_id": "characters-volume-02.json#002:baron-berard-of-castaka",
+      "record_index": 2,
+      "relationships": [
+        "character: Edna; relation: Daughter",
+        "character: Othon Von Salza; relation: Son-in-law and successor",
+        "character: Castaka clan; relation: Patriarch"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Ruler of Marmola",
+        "Initially suspicious of Othon; placed clan secrecy above Othon's life",
+        "Eventually recognized Othon as a worthy successor",
+        "Source of martial doctrine; his sayings are quoted by later commanders as authoritative"
+      ],
+      "voice_notes": [
+        "Quoted posthumously in battle: his sayings about total commitment to destroying the enemy are cited as authoritative military doctrine",
+        "Direct speech not shown in surviving pages of this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Saw the clan vote to expose the Epyphite secret to save Othon",
+        "Judged Othon's reaction and found him worthy"
+      ]
+    }
+  ]
+}

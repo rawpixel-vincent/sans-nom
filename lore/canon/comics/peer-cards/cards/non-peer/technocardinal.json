@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-04T02:10:28.678736+00:00",
+  "non_peer_reason": "Recap-only title/office record with no distinct personal voice or scene behavior; its useful evidence is the TechnoCardinal/Technoclergy ultimatum already better supported by the fuller Immaculate Techno Cardinal and Don Nicanor clone records.",
+  "peer_card_id": "technocardinal",
+  "related_peer_ids": [
+    "immaculate_techno_cardinal",
+    "don-nicanor__clone"
+  ],
+  "source_record_ids": [
+    "characters-volume-14.json#007:technocardinal"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Volume 14 TechnoCardinal appears to be a source-thin recap echo of the volume 13 Immaculate Techno Cardinal ultimatum rather than a separate usable persona."
+    ],
+    "non_peer_reason": "Recap-only title/office record with no distinct personal voice or scene behavior; its useful evidence is the TechnoCardinal/Technoclergy ultimatum already better supported by the fuller Immaculate Techno Cardinal and Don Nicanor clone records.",
+    "peer_card_id": "technocardinal",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "immaculate_techno_cardinal",
+      "don-nicanor__clone"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

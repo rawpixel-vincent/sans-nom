@@ -1,0 +1,121 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "metacraft",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Metacraft",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "metacraft",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-14.json#009:metacraft"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Metacraft"
+      ],
+      "appearances": [
+        "Small black angular spacecraft visible in space combat (vol.14 p04-p05)",
+        "Breaches Amalek XII's sealed techno-temple and lands under defensive fire (vol.14 p08)",
+        "Carries protective multi-layer shield strong enough to withstand techno-temple defenses: lasers, paralysis gas, electro-spies (vol.14 p08)"
+      ],
+      "character_id": "metacraft",
+      "image_sha256s": [],
+      "important_actions": [
+        "Executed about-turn maneuver exploiting speed and size advantage against the gigantic petro-morph vessel (vol.14 p04-p05)",
+        "Jumped thousands of light years through inter-space and breached Amalek XII's techno-temple defenses (vol.14 p08)",
+        "Protected Tonto and crew inside with multi-shield under hostile landing fire (vol.14 p08)"
+      ],
+      "knowledge_boundaries": [
+        "Whether Metacraft is fully sentient or a sophisticated automated system is not stated in this volume"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#009:metacraft",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "Primary craft of the Metabaron/Steelhead (vol.14 p04-p05)",
+        "Tonto rides aboard Metacraft during the space battle and temple landing (vol.14 p04-p05, p08)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Voice-interfaced: receives spoken commands and verbally confirms them (vol.14 p04-p05, p08)",
+        "Sentient or sophisticated automated system (exact nature unresolved)",
+        "Highly maneuverable relative to capital-scale vessels; exploits size advantage tactically (vol.14 p04-p05)",
+        "Capable of anti-matter inter-space jumps spanning thousands of light years in seconds (vol.14 p08)"
+      ],
+      "voice_notes": [
+        "Verbally acknowledges flight orders: confirms retreat, about-turn, jump destination, and multi-shield status (vol.14 p04-p05, p08)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Executed an immediate about-turn against the merged petro-morph ship and confirmed the maneuver (vol.14 p04-p05)",
+        "Leaped from the Troglosocialik system to the Techno Central Planet and successfully landed inside the temple's defensive perimeter (vol.14 p08)",
+        "Sustained attack by lasers and paralysis gas; multi-shield protected crew throughout (vol.14 p08)"
+      ]
+    }
+  ]
+}

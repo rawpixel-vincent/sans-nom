@@ -1,0 +1,104 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "ulkran",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Ulkran",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "ulkran",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-02.json#013:ulkran"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Ulkran"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['p18', 'p22']"
+      ],
+      "character_id": "ulkran",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Part of the Shazam theft expedition; detail: Group used paleo-compass and marble disintegrator to breach the fortress; source_pages: ['p18']"
+      ],
+      "knowledge_boundaries": [],
+      "page_ids": [],
+      "record_id": "characters-volume-02.json#013:ulkran",
+      "record_index": 13,
+      "relationships": [
+        "character: Wulthor; relation: Fellow raider",
+        "character: Tokkar; relation: Fellow raider",
+        "character: Bargoth; relation: Fellow raider"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Member of the armed raiding party that stole Shazam",
+        "Called out by name during the battle; either missing or fallen by p22"
+      ],
+      "voice_notes": [
+        "Directly addressed during the fog approach; expresses anxiety about visibility"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Participated in the fog approach to the marble fortress on Okhar"
+      ]
+    }
+  ]
+}

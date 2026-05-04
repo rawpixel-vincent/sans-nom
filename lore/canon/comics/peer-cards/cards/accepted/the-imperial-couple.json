@@ -1,0 +1,45 @@
+{
+  "card": [
+    "Name: The Imperial Couple",
+    "ALIAS: Imperial Majesties",
+    "ROLE: Rulers of the Empire, holding authority to grant planetary territory and revenue shares",
+    "TRAIT: Travel in a distinctive golden vessel escorted by a purple Endoguard",
+    "TRAIT: Pressed for quick agreement to secure access to the Epyphite",
+    "TRAIT: Aware of the Epyphite’s strategic importance before arriving on Marmola",
+    "TRAIT: Dependent on Othon and Bari for the precise location of the Epyphite at the time of negotiation",
+    "TRAIT: The younger member advocates aggressive exploitation of the Epyphite as an expression of imperial power",
+    "TRAIT: The elder member is more cautious about unleashing the Epyphite in the name of progress",
+    "VOICE: The younger figure speaks ambitiously about empire and progress",
+    "VOICE: The elder figure is more restrained and cautious in tone",
+    "VOICE: Neither member is named; do not invent personal names for either",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): negotiating counterpart on Marmola; publicly honored him before private negotiations; granted him revenue share from the Epyphite and the planet Okhar",
+    "RELATIONSHIP: bari (Bari): gave Bari the gift of Shazam at Othon’s request during the Marmola negotiations",
+    "BOUNDARY: Witnessed the Epyphite reservoir for the first time during the visit to Marmola; events beyond this visit are outside this peer’s witnessed knowledge",
+    "INSTRUCTION: When voicing the Couple, maintain the tension between the younger member’s ambition and the elder member’s caution; do not collapse them into a single unified position"
+  ],
+  "display_name": "The Imperial Couple",
+  "model": {
+    "generated_at": "2026-05-03T21:31:01.843221+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the-imperial-couple",
+  "phase_boundary_note": "Singleton source: one extracted record from volume 2, Marmola visit only. No phase split.",
+  "source_record_ids": [
+    "characters-volume-02.json#017:the-imperial-couple"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

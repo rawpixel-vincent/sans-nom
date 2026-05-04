@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-04T02:17:43.446474+00:00",
+  "non_peer_reason": "One-page unidentified deathbed figure with no durable behavior, traits, or reusable scene voice; the record mainly preserves contextual birth/lineage evidence around Aghora and the uncertain Klezea/Klezra reference.",
+  "peer_card_id": "the-dying-cyborg-master",
+  "related_peer_ids": [
+    "aghora",
+    "zaran-krleza"
+  ],
+  "source_record_ids": [
+    "characters-volume-15.json#007:the-dying-cyborg-master"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [],
+    "non_peer_reason": "One-page unidentified deathbed figure with no durable behavior, traits, or reusable scene voice; the record mainly preserves contextual birth/lineage evidence around Aghora and the uncertain Klezea/Klezra reference.",
+    "peer_card_id": "the-dying-cyborg-master",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora",
+      "zaran-krleza"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "aghnar__child",
+  "peer_identity": {
+    "arc_label": "Aghnar from weightless infant through brutal initiation ordeal to first combat on Okhar",
+    "display_name": "Aghnar (Child)",
+    "honcho_notes": "Born permanently weightless; steel bracelets for grounding. Carries internalized total-distrust doctrine including distrust of mother. Exceptionally high pain tolerance from Shabda-Oud training. Defeated Honorata in combat; received only one kiss as reward. Metabaronic initiation rite canonized through his experience. At end of vol05: able to fight adult-level opponents, vows vengeance alongside Othon.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "aghnar__child",
+    "rationale": "Three-way split of Aghnar records. This card covers his formation as a character: born weightless from epiphyte exposure, raised in seven-year exile by Honorata, passed the robo-killer trial and foot-crushing ordeal, received prosthetic feet, defeated Shabda-Oud assassins. The voice in this phase is 'short determined utterances; I want to make my father proud; trust no one not even your mother.' Distinct from the adult revenge-arc warrior whose voice is emotionally complex and command-oriented.",
+    "source_record_ids": [
+      "characters-volume-04.json#002:aghnar",
+      "characters-volume-05.json#002:aghnar"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Aghnar",
+        "Yippi (name used in the crystal cave childhood scenes)"
+      ],
+      "appearances": [
+        "description: Born weightless; white/silver hair (visible through armor); depicted as infant through childhood to near-adulthood in this volume; receives metal prosthetic feet after initiation ordeal, which increase his weight; source_refs: ['102_The_Metabarons_4_p13', '109_The_Metabarons_4_p20', '112_The_Metabarons_4_p23', '120_The_Metabarons_4_p31']"
+      ],
+      "character_id": "aghnar",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Tamed a ferocious Eodactyl without Honorata's help before initiation; source_refs: ['114_The_Metabarons_4_p25']",
+        "action: Killed his beloved toad companion on Honorata's order as a lesson in duty over love; source_refs: ['109_The_Metabarons_4_p20']",
+        "action: Defeated Honorata in combat and resisted her hypnotic waves; source_refs: ['111_The_Metabarons_4_p22']",
+        "action: Triggered robo-killer self-destruct after over an hour of combat; accepted as future Metabaron; source_refs: ['118_The_Metabarons_4_p29']",
+        "action: Endured foot-crushing capsule to full destruction of his feet without yielding; source_refs: ['119_The_Metabarons_4_p30']",
+        "action: Received metal prosthetic feet, becoming heavier and gaining superhuman power; source_refs: ['120_The_Metabarons_4_p31']"
+      ],
+      "knowledge_boundaries": [
+        "Trained in Shabda-Oud meditation and auto-hypnosis; masters pain suppression [110_The_Metabarons_4_p21]",
+        "Has internalized total-distrust doctrine including distrust of his own mother [110_The_Metabarons_4_p21]",
+        "Born as a son, not the mandated hermaphrodite; his sex was kept secret for seven years [101_The_Metabarons_4_p12]",
+        "Not depicted as aware of the Oiders' succession plot or his intended nature as a hermaphrodite"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#002:aghnar",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: father; notes: Conceived via blood ritual; seeks father's approval; subjected to brutal trials by Othon; Othon vowed to die if Aghnar fails",
+        "character: Honorata; type: mother / trainer; notes: Raised and trained in seven-year exile at Anasirma; received only one kiss from her in childhood (reward for defeating her in combat)",
+        "character: Woolly toad companion; type: beloved animal (killed on order); notes: Large male woolly toad that learned a few human words from Aghnar; ordered killed by Honorata at Aghnar's age five as a lesson in duty over love [109_The_Metabarons_4_p20]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Permanently weightless from birth due to epiphyte installed in cells by dart strike on Honorata's embryonic sac [103_The_Metabarons_4_p14]",
+        "Exceptional pain tolerance developed through Shabda-Oud training and auto-hypnosis [110_The_Metabarons_4_p21]",
+        "Emotionally repressed; trained to distrust everyone including his mother [110_The_Metabarons_4_p21]",
+        "Courageous; frames tests as opportunities to earn his father's pride [119_The_Metabarons_4_p30]",
+        "Capable of resisting his mother's hypnotic waves [111_The_Metabarons_4_p22]",
+        "Castaka blood through Othon; White Castaka birthmark lineage",
+        "Matures from infancy to near-adulthood described as unusually rapid [110_The_Metabarons_4_p21]",
+        "After initiation: metal prosthetic feet granting increased weight and superhuman power [120_The_Metabarons_4_p31]"
+      ],
+      "voice_notes": [
+        "Short, determined utterances; says 'I want to make my father proud'; voices the internalized doctrine 'trust no one, not even your mother'; expresses hatred during combat training"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Named Aghnar after Iku-Tta's suicide, in a robot-staffed room [102_The_Metabarons_4_p13]",
+        "Discovered to levitate; cause identified as the epiphyte in his cells from the dart strike on Honorata's embryonic sac [103_The_Metabarons_4_p14]",
+        "Othon moved to kill him as physically unfit; Honorata defended him [104_The_Metabarons_4_p15]",
+        "A physical defect affecting normal leg function or walking was observed and diagnosed [105_The_Metabarons_4_p16]",
+        "An unnamed figure volunteered to train him in Shabda-Oud skills [105_The_Metabarons_4_p16]",
+        "Raised in exile at Anasirma crystal cave for seven years [107_The_Metabarons_4_p18]",
+        "Survived on woolly toads with Honorata in the cave [109_The_Metabarons_4_p20]",
+        "At age five, ordered to kill his toad companion as a lesson in duty over love [109_The_Metabarons_4_p20]",
+        "Trained with escalating weights added every six months, daily combat, Shabda-Oud meditation, auto-hypnosis for pain suppression [110_The_Metabarons_4_p21, 111_The_Metabarons_4_p22]",
+        "Lashed by his mother for shedding a single tear [110_The_Metabarons_4_p21]",
+        "Defeated Honorata in combat by resisting her hypnotic waves; received the only kiss of his childhood [111_The_Metabarons_4_p22]",
+        "Traveled with Honorata to the Castaka fortress on the eve of his seventh birthday [112_The_Metabarons_4_p23]",
+        "Faced the robo-killer: fought for over an hour, then triggered its self-destruct via the red chest button [114_The_Metabarons_4_p25, 118_The_Metabarons_4_p29]",
+        "Judges disputed legitimacy due to his weightlessness but honored their prior oath and accepted him as future Metabaron [118_The_Metabarons_4_p29]",
+        "Endured a voice-keyed foot-crushing capsule without yielding; device destroyed his feet [119_The_Metabarons_4_p30]",
+        "Received metal prosthetic feet; gained increased weight and superhuman power [120_The_Metabarons_4_p31]",
+        "Bodily mutilation established as a component of Metabaronic initiation through his experience [120_The_Metabarons_4_p31]"
+      ]
+    },
+    {
+      "aliases": [
+        "Aghnar"
+      ],
+      "appearances": [],
+      "character_id": "aghnar",
+      "image_sha256s": [],
+      "important_actions": [
+        "Passed Othon's initiation ordeal, originating the Metabaron ritual of mutilation and prosthetics",
+        "Defeated multiple floating priestess-assassins by exploiting their epyphite-infused prostheses",
+        "Accepted his father's vow to destroy the Shabda-Oud",
+        "Escaped Okhar aboard the Metabunker with Othon"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-05.json#002:aghnar",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'Honorata': 'mother; she protects, trains, and ultimately sacrifices herself for him', 'Othon von Salza': 'father; harsh, demanding warrior patriarch who tests him brutally', 'Shabda-Oud': \"they sought him as a promised hermaphrodite child; he is actually fully male, contradicting their expectation; vows to destroy them after Honorata's death\"}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-05.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "As a child: curious, obedient; responds to his father's warrior teaching by saying 'renouncing glory is also heroic'",
+        "Objects 'it's not fair' when Honorata's death is forced on him as a formative memory"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Born during Honorata's fall from the fortress; epyphite exposure made him permanently lighter than air",
+        "Fitted with steel bracelets to stay grounded",
+        "Raised in exile on the sacred mountain of Ansirma; trained in mental powers and pain resistance",
+        "At age seven: passed Othon's warrior test — defeated a robot, endured a foot-crushing machine",
+        "Received metal prosthetic feet after the ordeal; this event canonized ritual mutilation and prosthesis as Metabaron initiation rite",
+        "Examined in the Hall of Arms: found in alpha-mode with no killer programming; permitted to proceed",
+        "In a circular chamber: coerced into a humiliating inspection of his claimed dual sex organs; deployed blade prosthetics and attacked",
+        "Exploited epyphite-infused prostheses of floating assassins to kill multiple airborne enemies",
+        "Was left exhausted after achieving a major combat victory",
+        "Forced by Othon to watch Honorata's heart-bomb detonate; sworn to avenge her",
+        "Departed aboard the Metabunker when seven Cetycoborgs were detected approaching"
+      ]
+    }
+  ]
+}

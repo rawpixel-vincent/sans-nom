@@ -1,0 +1,138 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "271_The_Metabarons_10_p23": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/271_The_Metabarons_10_p23.json"
+  },
+  "peer_card_id": "neocerth-empress",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Neocerth Empress",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "neocerth-empress",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-10.json#010:neocerth-empress"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Neocerth Empress",
+        "neocerth empress of the galaxy",
+        "holographic imperial woman",
+        "the imperial couple (partial)"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p23']"
+      ],
+      "character_id": "neocerth-empress",
+      "image_sha256s": [
+        "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464"
+      ],
+      "important_actions": [
+        "Contacted Steelhead and set in motion the chain of events leading to the assassination of Don Nicanor Rosamel de Rokha [v10 p23]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the interspace breach and its origin in the duel with Aghnar [v10 p23]",
+        "Knows the political mechanics of the noble medallion process [v10 p23]",
+        "Does not appear to anticipate or attempt to prevent Steelhead's choice of assassination to remove the obstacle"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "271_The_Metabarons_10_p23"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#010:neocerth-empress",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Steelhead; type: patron / client; notes: Contacted Steelhead to request help sealing the interspace breach in exchange for the title Supreme Metabaron and a high nobility medallion [v10 p23]",
+        "character: Don Nicanor Rosamel de Rokha; type: political obstacle named by her; notes: She identified him as the sole ambassador who would block unanimous consent [v10 p23]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+          "page_id": "271_The_Metabarons_10_p23",
+          "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+        }
+      ],
+      "traits": [
+        "Presents herself as the supreme galactic ruler facing a universe-level emergency [v10 p23]",
+        "Desperate; describes having suffered military losses and mass casualties before escaping [v10 p23]",
+        "Pragmatic negotiator: shifts quickly from moral appeals to transactional offers when altruism fails [v10 p23]",
+        "Uses holographic communication to contact distant parties [v10 p23]"
+      ],
+      "voice_notes": [
+        "Appeals first to friendship, duty, and survival; pivots to transactional offers when moral framing fails [v10 p23]",
+        "Projects authority as supreme ruler while clearly operating from a position of desperation [v10 p23]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Contacted Steelhead via hologram with an urgent request for help [v10 p23]",
+        "Explained that the duel with Aghnar opened a reality breach releasing devourers from interspace threatening the universe [v10 p23]",
+        "Offered the title Supreme Metabaron and a high nobility medallion requiring unanimous planetary ambassador consent as reward [v10 p23]",
+        "Identified Don Nicanor Rosamel de Rokha as the one obstacle to unanimous consent [v10 p23]"
+      ]
+    }
+  ]
+}

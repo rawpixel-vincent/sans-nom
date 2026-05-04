@@ -1,0 +1,13 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin, unnamed single actor, but the bundle supports a usable persona: command authority over Crow, explicit strategic intent, ruthless world-destruction order, and clear knowledge boundaries."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "the-armored-leader-unnamed-travels-with-crow",
+  "peer_card_material": true,
+  "related_peer_ids": [
+    "crow"
+  ],
+  "should_mark_non_peer_lore": false
+}

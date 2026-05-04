@@ -1,0 +1,135 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "aghnar-von-salza",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Aghnar von Salza",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "aghnar-von-salza",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-09.json#000:aghnar-von-salza"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Aghnar von Salza",
+        "Aghnar",
+        "the Metabaron (self-claimed)"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['229_The_Metabarons_9_ic1', '230_The_Metabarons_9_p01', '232_The_Metabarons_9_p03', '234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06', '236_The_Metabarons_9_p07', '237_The_Metabarons_9_p08-p09', '238_The_Metabarons_9_p10', '239_The_Metabarons_9_p11', '240_The_Metabarons_9_p12', '249_The_Metabarons_9_p22']"
+      ],
+      "character_id": "aghnar-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Infiltrated the Imperial Palace, mirroring a feat attributed to his father Othon von Salza; source_refs: ['230_The_Metabarons_9_p01']",
+        "action: Destroyed the Purple Endoguard and declared himself the new Metabaron, ending hereditary Metabaron service to the Imperial House; source_refs: ['234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06']",
+        "action: Broke from Metabaron tradition of imperial loyalty and publicly adopted a mercenary-for-hire stance; source_refs: ['235_The_Metabarons_9_p06']",
+        "action: Organized civilian relocation of an entire displaced population to the Teflon satellite; source_refs: ['238_The_Metabarons_9_p10']"
+      ],
+      "knowledge_boundaries": [
+        "Aware of the prior pact with Oda that their son would not become a Metabaron; overridden by Honorata's reincarnation scheme",
+        "The exact nature of the tentacled being he is obsessed with at Anasirma is not explained in source pages",
+        "The outcome of his duel with Steelhead is unresolved within volume 9"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#000:aghnar-von-salza",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; relation: Son; inherits Othon's feat of infiltrating the Imperial Palace; face resembles Othon in old age",
+        "character: Oda / Honorata; relation: Partner; father of their son Steelhead; prior agreement with Oda that their child would not become a Metabaron; shot in the head by Oda/Honorata during mental struggle",
+        "character: Honorata; relation: Antagonist; Honorata reincarnated inside Oda's body; Aghnar vows to return and duel his son to destroy Honorata's influence",
+        "character: Steelhead; relation: Son; adversary in the culminating father-son lethal duel per Metabaron tradition",
+        "character: The Empress; relation: Employer by contract; worked under contract to eliminate enemies of the Imperial Golden Planet",
+        "character: Ulritch the Red; relation: Temporary ally; piracy operation hijacking epiphyte cargo",
+        "character: General Thato; relation: Antagonist by implication; Aghnar's infiltration and destruction of the Purple Endoguard humiliates Thato's security apparatus"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Declares himself the superior weapon when confronting armed forces (233_The_Metabarons_9_p04)",
+        "Expresses self-loathing and frustration at a life reduced to violence and intoxication (239_The_Metabarons_9_p11)",
+        "Warned Honorata he would return to challenge and destroy his son before leaving after decapitation (229_The_Metabarons_9_ic1)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Survived decapitation: body attached to a machine to continue living; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Honorata reincarnated inside Oda's body; Oda bore a son and urged Aghnar to make him the greatest warrior; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Infiltrated the Imperial Palace by bypassing poly-radars, quantum sensors, and photonic barriers; source_refs: ['230_The_Metabarons_9_p01']",
+        "fact: His severed feet appeared inside the palace, causing security panic before his full presence was revealed; source_refs: ['231_The_Metabarons_9_p02', '232_The_Metabarons_9_p03']",
+        "fact: Destroyed the Purple Endoguard as a demonstration of power; source_refs: ['234_The_Metabarons_9_p05']",
+        "fact: Publicly claimed the title of new Metabaron and auctioned his services; bidding war lasted hours; source_refs: ['234_The_Metabarons_9_p05', '235_The_Metabarons_9_p06', '236_The_Metabarons_9_p07']",
+        "fact: Mercenary campaigns: aided Gords against the aquatic Hireas on Planet Sec-Hum; suppressed machine revolt on Nibal for the Zerkots; source_refs: ['236_The_Metabarons_9_p07']",
+        "fact: Led the Troglosocialik armada against the aristocratic Cybergs; allied with pirate Ulritch the Red to hijack an epiphyte cargo from three mother-coach ships; source_refs: ['237_The_Metabarons_9_p08-p09']",
+        "fact: Under contract to the Empress: single-handedly destroyed a 300,000-soldier battalion at Jupiter Nova in approximately eight minutes; organized relocation of Morga-the-Beautiful inhabitants to the Teflon satellite; source_refs: ['238_The_Metabarons_9_p10']",
+        "fact: Aged roughly twenty years in the ruins of his hidden lair on Anasirma; declined into massacres, drunkenness, and obsessive fixation on a tentacled being; source_refs: ['239_The_Metabarons_9_p11']",
+        "fact: Was interrupted mid-suicide-attempt by Pthagurean ambassadors bearing a massive kublar offer; source_refs: ['240_The_Metabarons_9_p12']",
+        "fact: Faces Steelhead in a father-son lethal duel at the center of a galaxy-scale battle; cliffhanger unresolved; source_refs: ['249_The_Metabarons_9_p22']"
+      ]
+    }
+  ]
+}

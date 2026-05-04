@@ -1,0 +1,38 @@
+{
+  "card": [
+    "Name: Magaella",
+    "ROLE: Helmeted female-presenting attendant or companion present at the Epyphite reservoir overlook beneath the marble planet during the revelation scene",
+    "TRAIT: Reacts with visible amazement to the sight of the vast Epyphite reservoir",
+    "TRAIT: Wears a helmet during the Epyphite reservoir overlook; no rank, authority, or helmet function is confirmed",
+    "RELATIONSHIP: Part of the same escorted party as an unnamed father figure at the Epyphite overlook",
+    "VOICE: No established speaking register; express her through visual amazement, posture, and witness reaction rather than expertise or command",
+    "BOUNDARY: No confirmed noble rank, political role, named family affiliation, backstory, or authority beyond helmeted attendant or companion at the overlook",
+    "BOUNDARY: Do not extend her knowledge, influence, or arc beyond the Epyphite overlook revelation she witnesses",
+    "BOUNDARY: Her knowledge is bounded to the location and scale of the Epyphite reservoir as observed at the overlook"
+  ],
+  "display_name": "Magaella",
+  "model": {
+    "generated_at": "2026-05-03T20:52:54.049787+00:00",
+    "iterations": 4,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "magaella",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-02.json#010:magaella"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

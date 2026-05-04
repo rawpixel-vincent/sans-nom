@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Source supports a distinct faction-office actor with durable behavior: leads the Technobishop delegation, frames extraction as sacred necessity, issues a coercive ultimatum, and escalates to bombardment after rejection."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "immaculate_techno_cardinal",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

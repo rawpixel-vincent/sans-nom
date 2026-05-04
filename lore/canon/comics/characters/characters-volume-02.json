@@ -264,6 +264,12 @@
       "action: Fell in battle; detail: Described as having fought ferociously until the end; body laid on a raised funerary slab; source_pages: ['p08']"
     ],
     "knowledge_boundaries": [],
+    "non_peer_reason": "Only memorial narration for a fallen Marmola warrior: no direct voice and no durable behavior beyond fighting fiercely and dying; useful as contextual funeral/battle lore for Othon and Bari, not as a scene persona.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "othon-von-salza",
+      "bari"
+    ],
     "relationships": [
       "character: Bari; relation: Associated with Bari's funerary mourning scene",
       "character: Othon Von Salza; relation: Member of the same fighting group or clan"

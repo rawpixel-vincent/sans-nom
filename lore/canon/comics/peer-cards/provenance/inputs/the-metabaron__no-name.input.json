@@ -1,0 +1,191 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-metabaron__no-name",
+  "peer_identity": {
+    "arc_label": "Bald scarred Metabaron who is Tonto and Lothar's master throughout the frame narrative",
+    "display_name": "The Metabaron (No-Name, frame narrative master)",
+    "honcho_notes": "Bald; distinctive scar over right eyebrow (origin deliberately withheld—'deplorable episode'). Self-described as 'a warrior without a past in the new galaxy.' Forceful, impatient with robot reasoning. Ruthlessly security-conscious: destroyed loyal servants to prevent enemies learning his secret. Calls robots his 'only friends.' Operates in another dimension; returns only for combat. Bio-electrogram manifestation dissolves in ~3 minutes.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "the-metabaron__no-name",
+    "rationale": "Both records describe the same bald figure who is Tonto and Lothar's current master. Vol03 shows the bald Metabaron manifesting as a bio-electrogram during the Metabunker assault. Vol12 shows the bald Metabaron with the right-eyebrow scar destroying the Metabunker and departing to another dimension—explicitly identified as 'the last of the Metabarons.' Tonto references the eyebrow scar mystery in vol07/11 as a deferred story topic, placing this character as the frame narrative's anchor throughout. This is Aghora's son No-Name.",
+    "source_record_ids": [
+      "characters-volume-03.json#004:the-metabaron",
+      "characters-volume-12.json#005:the-metabaron"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Metabaron",
+        "the master (per Tonto)",
+        "bald Metabaron"
+      ],
+      "appearances": [
+        "{'description': 'Bald male, stern expression. Appears as a luminous bio-electric projection rather than a physical body in these pages. Wears dark gear in cockpit/combat context. Exact personal name not stated in vol. 3.', 'source_refs': ['062_The_Metabarons_3_p05', '063_The_Metabarons_3_p06', '064_The_Metabarons_3_p07', '065_The_Metabarons_3_p08', '066_The_Metabarons_3_p09']}"
+      ],
+      "character_id": "the-metabaron",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Armed the metacraft and launched through the Metabunker under attack; source_refs: ['062_The_Metabarons_3_p05']",
+        "action: Defeated three armored fighters in under three seconds as a solidified bio-electrogram; source_refs: ['063_The_Metabarons_3_p06']",
+        "action: Destroyed multiple space targets in timed combat run before bio-electrogram dissolved; source_refs: ['064_The_Metabarons_3_p07', '065_The_Metabarons_3_p08']"
+      ],
+      "knowledge_boundaries": [
+        "Identity not confirmed on-page in vol. 3; appears only as temporary bio-electrogram manifestation"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#004:the-metabaron",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; type: subordinate robot; notes: Commands Lothar by name; Lothar activates the bio-electrogram and prepares the metacraft.; source_refs: ['062_The_Metabarons_3_p05']",
+        "character: Tonto; type: devoted servant robot; notes: Tonto idolizes the Metabaron and is distressed by his disappearance.; source_refs: ['066_The_Metabarons_3_p09']",
+        "character: Othon von Salza; type: ancestor (contextual — lineage told by robots); notes: The robots narrate Othon's history as the lineage of this Metabaron.; source_refs: ['066_The_Metabarons_3_p09']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Forceful, impatient, gives commands to robots",
+        "Near-invincible in combat — defeats three armored fighters in under three seconds as a bio-electrogram",
+        "Operates through solidified bio-electrogram that dissolves after roughly three minutes"
+      ],
+      "voice_notes": [
+        "Refuses to accept the robots' tone and asserts authority immediately upon manifesting (vol.3 p05)",
+        "Asks directly whether the metacraft is armed before departing (vol.3 p05)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Manifested via bio-electrogram during the Metabunker assault (vol.3 p05)",
+        "Destroyed multiple armored opponents and space targets during the timed combat sequence (vol.3 p06–p08)",
+        "Dematerialized in front of Tonto after the combat session ended (vol.3 p09)"
+      ]
+    },
+    {
+      "aliases": [
+        "The Metabaron",
+        "Master Metabaron",
+        "Last of the Metabarons"
+      ],
+      "appearances": [
+        "description: Bald, scarred adult man. Has a distinctive scar over his right eyebrow. Depicted in dark clothing with a red inner collar or garment; also shown in red-and-dark armor in a cockpit. Robots describe him as the greatest warrior in all the galaxies.; source_refs: ['324_The_Metabarons_12_p15', '328_The_Metabarons_12_p19', '329_The_Metabarons_12_p20', '331_The_Metabarons_12_p22', '333_The_Metabarons_12_p24']"
+      ],
+      "character_id": "the-metabaron",
+      "image_sha256s": [],
+      "important_actions": [
+        "Deployed a bio-electrogram simulacrum in combat inside the city-shaft [326_The_Metabarons_12_p17]",
+        "Launched the Metacraft in a combat engagement [324_The_Metabarons_12_p15]",
+        "Ordered and oversaw the destruction of the Metabunker and city-shaft [329_The_Metabarons_12_p20, 330_The_Metabarons_12_p21]",
+        "Aimed a weapon at loyal robots to eliminate the only witnesses to his secret past [331_The_Metabarons_12_p22]",
+        "Authorized the destruction of centuries-loyal servants [332_The_Metabarons_12_p23]",
+        "Departed alone for another dimension to fight an important battle [333_The_Metabarons_12_p24]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the secret behind his own right-eyebrow scar; this is the 'deplorable episode' deliberately withheld from the reader [331_The_Metabarons_12_p22]",
+        "Knows the city-shaft is the last fragment of a galaxy that disintegrated many centuries ago [330_The_Metabarons_12_p21]",
+        "Knows that enemies' spy networks with hyper-brains are actively trying to uncover his past [331_The_Metabarons_12_p22]",
+        "Enemies have found no weakness except the scar; his prior history in the new galaxy is unknown to them [331_The_Metabarons_12_p22]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#005:the-metabaron",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; type: former_master; note: Tonto served the Metabaron; their relationship is strained by Tonto's despair over the master's absence",
+        "character: Plea-Se; type: master; note: Plea-Se remains loyal and maintains the metabunker in the master's absence",
+        "character: Lothar; type: associate; note: Named in the readiness exchange for the Metacraft; accused by a robot of losing faith, weakening the simulacrum",
+        "character: Castaka bloodline; type: dynastic_identity; note: The Metabaron is the last of the Metabarons; producing a future Metabaron is a Castaka duty",
+        "character: Centuries-loyal servants; type: servants_destroyed; note: Servants who waited for him for centuries; he came to destroy rather than take them with him [332_The_Metabarons_12_p23]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Self-described as a warrior without a past in the new galaxy",
+        "Ruthlessly security-conscious: prepared to kill loyal servants to prevent enemies learning his secret",
+        "Emotionally reserved but capable of calling robots his 'only friends'",
+        "Aggressive and contemptuous toward robots when they reason against his orders",
+        "Claims to be the greatest warrior in all the galaxies",
+        "Operates independently; departs alone at the end of the issue"
+      ],
+      "voice_notes": [
+        "Terse and commanding; dismisses robot reasoning as overintelligence equated with madness [329_The_Metabarons_12_p20]",
+        "Self-aggrandizing: calls himself the greatest warrior in all the galaxies [331_The_Metabarons_12_p22]",
+        "Emotionally isolated: his farewell to 'only friends' (robots) reveals that his human connections are minimal or absent [333_The_Metabarons_12_p24]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Was dormant or in a bio-electrogram state and had to be awakened by attendants [322_The_Metabarons_12_p13]",
+        "A bio-electrogram simulacrum of the Metabaron was deployed in combat and destroyed [326_The_Metabarons_12_p17]",
+        "The Metacraft was armed and launched; named in a readiness exchange with Lothar and Tonto [324_The_Metabarons_12_p15]",
+        "Robots identified a bald man as their returned master upon sensing him near the Metacraft [328_The_Metabarons_12_p19]",
+        "Ordered the destruction of his enemies and the Metabunker; showed robots a massive firestorm visible from space [329_The_Metabarons_12_p20]",
+        "Stated that the city-shaft is the last fragment of a galaxy disintegrated centuries ago and destroyed it [330_The_Metabarons_12_p21]",
+        "Stated he lives in another dimension of the universe and must return for an important battle [330_The_Metabarons_12_p21]",
+        "Explained that enemies in the new galaxy identified his right-eyebrow scar as the sole clue to his hidden past; raised a weapon at the robots [331_The_Metabarons_12_p22]",
+        "Ordered final destruction of centuries-loyal servants; a vast dome shattered [332_The_Metabarons_12_p23]",
+        "Departed alone through a luminous energy corridor in his Metacraft, bidding farewell to 'his only friends' [333_The_Metabarons_12_p24]"
+      ]
+    }
+  ]
+}

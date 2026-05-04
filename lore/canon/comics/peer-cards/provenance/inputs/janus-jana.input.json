@@ -1,0 +1,284 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "251_The_Metabarons_10_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/251_The_Metabarons_10_ic1.json"
+  },
+  "peer_card_id": "janus-jana",
+  "peer_identity": {
+    "arc_label": "Sacred androgyne from imperial embryo to reigning empress across multiple generations",
+    "display_name": "Janus-Jana",
+    "honcho_notes": "Conjoined-twin androgyne; biologically male and female simultaneously. Created after 30 years of effort on a hospital-planet. Messianic figure expected to unite all factions. Targeted by Shabda-Oud succession plot (Sama-Wajd prophesied to dethrone her). Commands Purple Endoguard. Rarely speaks directly in surviving pages—acts as political anchor rather than active voice.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "janus-jana",
+    "rationale": "All records describe the same entity at different life stages. Vol03 is the embryo/sacred egg; vol04 is the named assassination target of the Oiders' plot; vol07–10 are the reigning empress of the galaxy. No direct voice exists in any record (vol10 has minimal implied agency). No contradictory TRAIT facts arise from merging—the entity transitions from embryo to ruler but remains consistently the target of dethronement plots and the political anchor of the galactic order.",
+    "source_record_ids": [
+      "characters-volume-03.json#007:janus-jana",
+      "characters-volume-04.json#007:janus-jana",
+      "characters-volume-07.json#010:janus-jana",
+      "characters-volume-09.json#006:janus-jana",
+      "characters-volume-10.json#003:janus-jana"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Janus-Jana",
+        "the perfect androgyne",
+        "the sacred egg",
+        "the imperial embryo"
+      ],
+      "appearances": [
+        "{'description': 'Conjoined male-female twins joined at the neck and shoulders. Depicted in vol. 3 only as a fetus/embryo inside a mesh-like womb or incubator under scientific supervision.', 'source_refs': ['069_The_Metabarons_3_p12']}"
+      ],
+      "character_id": "janus-jana",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Whether Janus-Jana survived the transport and Othon's theft of the sacred egg is unresolved in vol. 3"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#007:janus-jana",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Emperor and Empress; type: offspring / heir; notes: Product of thirty years of effort on a hospital-planet using the sterile Emperor's sperm. The Union of Planets' future depends on the imperial line.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Biologically male and female simultaneously — conjoined twins",
+        "Classified as a potential mutant by the narration",
+        "Presented as messianic: expected to unite all factions of the galaxy"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Produced after 30 years, 10 days, 5 hours, and 8 minutes on a hospital-planet at immense cost (vol.3 p11)",
+        "Transported aboard the Mother-Coach fortress-ship toward the Golden Planet under purple endoguard escort (vol.3 p13)",
+        "Sacred egg associated with Janus-Jana was stolen by Othon from the Mother-Coach (vol.3 p25)"
+      ]
+    },
+    {
+      "aliases": [
+        "Janus-Jana"
+      ],
+      "appearances": [
+        "description: Not depicted; mentioned solely as the intended poisoning victim in the Oiders' succession plot; source_refs: ['101_The_Metabarons_4_p12']"
+      ],
+      "character_id": "janus-jana",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#007:janus-jana",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Oiders; type: intended assassination target; notes: Named as the person the Oiders planned to poison to clear the path for their succession scheme"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Not depicted or quoted in this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Named as the Oiders' intended poisoning victim in Honorata's confession to Othon [101_The_Metabarons_4_p12]"
+      ]
+    },
+    {
+      "aliases": [
+        "Janus-Jana",
+        "empress of the galaxy"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['p16']"
+      ],
+      "character_id": "janus-jana",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#010:janus-jana",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Sama-Wajd; type: prophesied target of dethronement; notes: Sama-Wajd is prophesied to dethrone Janus-Jana (vol 7 p16)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Current empress of the galaxy",
+        "Target of the Shabda-Oud's twelve-generation succession and dethronement plot"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Janus-Jana",
+        "the Sacred Androgyne",
+        "divine empress",
+        "master of all galaxies"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['231_The_Metabarons_9_p02', '238_The_Metabarons_9_p10']"
+      ],
+      "character_id": "janus-jana",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Janus-Jana does not appear to act directly in volume 9; all references are to her status and protection",
+        "Whether Janus-Jana is the same entity as 'the Empress' who contracted Aghnar is implied but not confirmed explicitly in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#006:janus-jana",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Imperial rulers / Purple Endoguard; relation: Divine ruler to whom the Purple Endoguard and the entire imperial military are consecrated",
+        "character: General Thato; relation: Protected by Thato's planetary defense system",
+        "character: Aghnar von Salza; relation: Aghnar worked under contract to the Empress (possibly Janus-Jana) and destroyed the battalion threatening her"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "No direct dialogue attributed to Janus-Jana in volume 9 page summaries"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: The Purple Endoguard is consecrated to serve Janus-Jana; her name is invoked in the request to arm the Purple Endoguard with multicogans; source_refs: ['231_The_Metabarons_9_p02']",
+        "fact: A battalion of 300,000 soldiers on Jupiter Nova was preparing to invade the Golden Planet and consume Janus-Jana's flesh; Aghnar destroyed them under contract; source_refs: ['238_The_Metabarons_9_p10']",
+        "fact: The Imperial Palace fortress exists specifically to protect the Sacred Androgyne; source_refs: ['230_The_Metabarons_9_p01']"
+      ]
+    },
+    {
+      "aliases": [
+        "Janus-Jana",
+        "Empress",
+        "Emperoress"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['ic1']"
+      ],
+      "character_id": "janus-jana",
+      "image_sha256s": [
+        "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0"
+      ],
+      "important_actions": [
+        "Oversaw arming of Purple Endoguards at moment of Aghnar's defection [v10 ic1]",
+        "Accepted the Techno-Techno proposal that led to Steelhead being designated humanity's champion [v10 ic1]"
+      ],
+      "knowledge_boundaries": [
+        "Aware of the Metabaron's invincibility against conventional imperial weapons [v10 ic1]",
+        "Aware of the Pthagurean threat [v10 ic1]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "251_The_Metabarons_10_ic1"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#003:janus-jana",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: former sovereign over; notes: Aghnar killed her guards and renounced service to her [v10 ic1]",
+        "character: Purple Endoguards; type: commander of; notes: Was overseeing their arming when Aghnar broke away [v10 ic1]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+          "page_id": "251_The_Metabarons_10_ic1",
+          "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+        }
+      ],
+      "traits": [
+        "Imperial ruler shown in elaborate ceremonial or military regalia [v10 ic1]",
+        "Commands Purple Endoguards from the Imperial Palace [v10 ic1]"
+      ],
+      "voice_notes": [
+        "No direct dialogue captured in these pages; known only through recap narration [v10 ic1]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Present when Aghnar entered, killed guards, and announced the end of his service [v10 ic1]",
+        "The Empire under her could find no conventional weapon capable of defeating Aghnar [v10 ic1]",
+        "Accepted a Techno-Techno proposal presenting Steelhead as humanity's champion against Aghnar [v10 ic1]"
+      ]
+    }
+  ]
+}

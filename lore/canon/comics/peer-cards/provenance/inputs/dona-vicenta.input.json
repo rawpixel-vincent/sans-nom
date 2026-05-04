@@ -1,0 +1,528 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "334_The_Metabarons_13_c01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/334_The_Metabarons_13_c01.json",
+    "335_The_Metabarons_13_ic1-p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/335_The_Metabarons_13_ic1-p01.json",
+    "339_The_Metabarons_13_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/339_The_Metabarons_13_p05.json",
+    "340_The_Metabarons_13_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/340_The_Metabarons_13_p06.json",
+    "341_The_Metabarons_13_p07": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/341_The_Metabarons_13_p07.json",
+    "342_The_Metabarons_13_p08": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/342_The_Metabarons_13_p08.json",
+    "343_The_Metabarons_13_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/343_The_Metabarons_13_p09.json",
+    "346_The_Metabarons_13_p12": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/346_The_Metabarons_13_p12.json",
+    "347_The_Metabarons_13_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/347_The_Metabarons_13_p13.json",
+    "348_The_Metabarons_13_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/348_The_Metabarons_13_p14.json",
+    "406_The_Metabarons_16_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/406_The_Metabarons_16_ic1.json"
+  },
+  "peer_card_id": "dona-vicenta",
+  "peer_identity": {
+    "arc_label": "The Grandmother — from Troglosocialik noble to Metabaronic matriarch",
+    "display_name": "Doña Vicenta Gabriela de Rokha",
+    "honcho_notes": "Merge: OCR alias collision plus old-format duplicate. dona-vicenta is the authoritative 5-record card.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "dona-vicenta",
+    "rationale": "dona-vicenta (5-record merged card) and dona_vicenta_gabriela_de_rokha are the same character. The fuzzy pair 'do a vicenta' (ratio 0.967) is an OCR artifact of the same alias. dona_vicenta_gabriela_de_rokha uses old underscore format; dona-vicenta is the clean merged canonical. No phase or role split warranted.",
+    "source_record_ids": [
+      "characters-volume-11.json#002:dona-vicenta-gabriela-de-rokha",
+      "characters-volume-12.json#002:dona-vicenta",
+      "characters-volume-13.json#000:dona_vicenta_gabriela_de_rokha",
+      "characters-volume-14.json#001:dona-vicenta-gabriela-de-rokha",
+      "characters-volume-15.json#002:dona-vicenta-gabriela-de-rokha",
+      "characters-volume-16.json#002:dona-vicenta"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Dona Vicenta Gabriela de Rokha",
+        "Doña Vicenta Gabriela de Rokha",
+        "Donna Vicenta Gabriela de Rokha (variant spelling in p15)"
+      ],
+      "appearances": [
+        "description: Dark-haired woman in military-style clothing and boots. Armed with a hyper-pistol. Later shown in civilian attire in bedroom scenes on Philodendra.; source_refs: ['280_The_Metabarons_11_p02', '297_The_Metabarons_11_p20']"
+      ],
+      "character_id": "dona-vicenta-gabriela-de-rokha",
+      "image_sha256s": [],
+      "important_actions": [
+        "Interrupted the investiture ceremony by presenting her father's remains and naming Steelhead as his murderer (p01)",
+        "Formally cast a dissenting vote blocking the unanimous requirement for the Medallion of High Nobility (p02)",
+        "Drew her hyper-pistol to her own head as a protest suicide threat (p02)",
+        "Refused to submit to Steelhead's demand for her vote even under physical coercion (p03–p04)",
+        "Woke to Djy-ouk birdsong, investigated her open room and sleeping guards, discovered the Halerce tree restored (p20–p21)",
+        "Confronted Melmoth in the golden environment; learned he killed her father; refused forgiveness (p22–p23)",
+        "Received the Castaka paleo-revolver from Melmoth at end of volume; outcome deferred (p24)"
+      ],
+      "knowledge_boundaries": [
+        "Did not know Melmoth's identity when she first found herself attracted to him in the golden environment (p22–p23)",
+        "Does not know who put her guards to sleep at the start of p20"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#002:dona-vicenta-gabriela-de-rokha",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Don Nicanor Rosamel de Rokha; nature: Her father; President of the Troglosocialik Confederation; murdered by Steelhead before the investiture ceremony; she presents his remains as evidence; source_refs: ['279_The_Metabarons_11_p01', '282_The_Metabarons_11_p04']",
+        "target: Steelhead / Melmoth; nature: He murdered her father; physically overpowered her; she blocked his ceremony; later develops feelings for him as Melmoth before learning his identity; declares she loves and hates him most; source_refs: ['280_The_Metabarons_11_p02', '300_The_Metabarons_11_p23', '301_The_Metabarons_11_p24']",
+        "target: The Empire / The Empress; nature: Imperial Purple Endoguards have been stationed around her, implying imperial protection or surveillance; source_refs: ['297_The_Metabarons_11_p20']",
+        "target: Metabaron lineage; nature: Claims clan membership or descent; invokes it as authority at the ceremony; source_refs: ['280_The_Metabarons_11_p02']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Forceful and principled — interrupts a major public ceremony alone",
+        "Willing to die publicly rather than endorse a corrupt ceremony",
+        "Identifies herself as a member or descendant of the Metabaron lineage",
+        "Refuses to submit even when physically overpowered",
+        "Emotionally conflicted — loves and hates Melmoth simultaneously",
+        "Alert and investigative — immediately notices birdsong, open doors, sleeping guards",
+        "Refuses to accept the Halerce tree's return as compensation for her father's murder"
+      ],
+      "voice_notes": [
+        "Accuses Steelhead of destroying the 250,000-year-old Halerce tree and exterminating five million Dyukka-birds (p02)",
+        "Invokes Metabaron lineage: 'a Metabaron is part of a lineage that will continue after her death' (p02)",
+        "To Melmoth: 'I love you most and hate you most' (p23–p24)",
+        "Refuses the Halerce tree as atonement: 'a tree can be replaced but her father cannot' (p23)",
+        "Her father is described as enlightened, meditating, and associated with Philodendra (p04)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Her father's remains — a skull or bone fragments — were presented by her at the investiture ceremony as evidence of murder (p01)",
+        "Steelhead physically threw her aside before a large public crowd (p03–p04)",
+        "The site of the Halerce tree on Philodendra was a scorched hole the day before Melmoth restored it (p21)",
+        "Her Imperial Endoguards were rendered unconscious by an unknown actor (p20)"
+      ]
+    },
+    {
+      "aliases": [
+        "Dona Vicenta",
+        "Aina Vicenta Gabriela (full name given on p07)",
+        "Madam President (title on p09)"
+      ],
+      "appearances": [
+        "description: Dark-haired young woman; seen aiming an ornate large revolver on p01; depicted in intimate scenes with Melmoth and her revived father in subsequent pages; shown running toward Don Nicanor in a parliamentary chamber. Small portrait included in the next-episode teaser on p24.; source_refs: ['310_The_Metabarons_12_p01', '314_The_Metabarons_12_p05', '315_The_Metabarons_12_p06', '316_The_Metabarons_12_p07', '333_The_Metabarons_12_p24']"
+      ],
+      "character_id": "dona-vicenta",
+      "image_sha256s": [],
+      "important_actions": [
+        "Public denunciation of Steelhead—catalyst for his quest toward love and eventual transformation [309_The_Metabarons_12_ic1]",
+        "Self-inflicted gunshot wound rather than shoot Melmoth [310_The_Metabarons_12_p01]",
+        "Publicly embraced her father at the assembly, triggering crowd chants [315_The_Metabarons_12_p06]",
+        "Refused to allow killing during the siege, prioritizing her father's life over her own escape [318_The_Metabarons_12_p09]"
+      ],
+      "knowledge_boundaries": [
+        "Knew the man she loves (Melmoth) is also her father's murderer [309_The_Metabarons_12_ic1]",
+        "Recognized that the clone had recovered public memory from his parliamentary speech [315_The_Metabarons_12_p06]",
+        "Did not know (per recap) the full nature of Melmoth's composite identity until the revelation of Steelhead's past"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#002:dona-vicenta",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Don Nicanor Rosamel de Rokha; type: daughter; note: Her father; his murder by Steelhead and subsequent cloning-revival are central to her arc",
+        "character: Melmoth; type: beloved; note: Returns his love and promises him descendants; had to forgive him for being her father's murderer",
+        "character: Steelhead; type: antagonist_via_prior_identity; note: Publicly accused him; her denunciation triggered his quest for love and eventual transformation into Melmoth",
+        "character: Honorata; type: continuity_link; note: Mechanical observers on p01 link Dona Vicenta's suicide attempt to Honorata reaching a temporal fissure; relationship unclear from these pages"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Morally principled: refuses to allow the killing of her own people even under siege",
+        "Deeply emotionally bonded to her father; his absence left her in acute distress, and his revival in a coma",
+        "Courageous and self-sacrificial: attempted to turn a gun on herself rather than endure further trauma",
+        "Politically significant: holds the title of president and commands public support ('Don Nicanor and Dona Vicenta' chanted by crowds)",
+        "Resilient but traumatized: recovering from weeks-long coma when first shown in vol. 12",
+        "Capable of forgiveness: exchanges declarations of forgiveness and love with Melmoth"
+      ],
+      "voice_notes": [
+        "Emotionally intense; declares that her soul has already been 'murdered' on p01",
+        "Speaks with filial clarity when rebuffing the clone's romantic confusion: 'my love is that of a daughter' [316_The_Metabarons_12_p07]",
+        "Frames her future with Melmoth in politically and dynastically charged terms: descendants, devotion, beginning again [314_The_Metabarons_12_p05]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Publicly accused Steelhead of murdering her father, exterminating millions of Dylvaks, and vaporizing a Halerce tree, then threatened suicide to deny him his honor [309_The_Metabarons_12_ic1]",
+        "Shot herself rather than shoot Melmoth, reportedly destroying a vital organ; mechanical observers link this to the Metabaron ancestry line and Honorata's time fissure [310_The_Metabarons_12_p01]",
+        "Was stunned (not killed) by Melmoth deflecting the bullet via Shabda-Oud psychic power [311_The_Metabarons_12_p02]",
+        "Was transported to the metabunker while unconscious [311_The_Metabarons_12_p02]",
+        "Awakened from a weeks-long coma and reacted with acute emotional distress to her father's cloned presence [313_The_Metabarons_12_p04]",
+        "Exchanged forgiveness and declarations of love with Melmoth; promised him descendants [314_The_Metabarons_12_p05]",
+        "Recognized her father's recovered memory during his public speech; ran to embrace him publicly [315_The_Metabarons_12_p06]",
+        "Approached the clone of Don Nicanor as his daughter Aina Vicenta Gabriela; he failed to recognize her and later made delusional romantic advances toward her [316_The_Metabarons_12_p07]",
+        "Found herself under siege with the elder man; refused escape and refused to sanction killing her father [318_The_Metabarons_12_p09]",
+        "Named in the next-episode teaser: 'The Torment of Dona Vicenta' [333_The_Metabarons_12_p24]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Dark-haired woman with serious, unsmiling expression', 'Wears dark attire and a choker; posed beside advanced weaponry on cover', 'Later shown with damaged mechanical-looking eyes after blinding', 'Wears a thick veil throughout public wedding ceremony']}"
+      ],
+      "character_id": "dona_vicenta_gabriela_de_rokha",
+      "image_sha256s": [
+        "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+        "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+        "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+        "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+        "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+        "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9"
+      ],
+      "important_actions": [
+        "Attempted suicide after Melmoth's confession (recap)",
+        "Removed her own eye and gave it to Don Nicanor to restore his paternal memory (p07)",
+        "Cast formal vote granting Melmoth noble rank / Supreme Metabaron title (implied p08–p09)",
+        "Married Melmoth publicly while keeping veil throughout ceremony (p12)"
+      ],
+      "knowledge_boundaries": [
+        "Did not know Melmoth's true disfigured appearance until wedding-night lightning strike",
+        "No confirmed knowledge of Melmoth's dual-personality internal split"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "334_The_Metabarons_13_c01",
+        "335_The_Metabarons_13_ic1-p01",
+        "339_The_Metabarons_13_p05",
+        "340_The_Metabarons_13_p06",
+        "341_The_Metabarons_13_p07",
+        "342_The_Metabarons_13_p08",
+        "343_The_Metabarons_13_p09",
+        "346_The_Metabarons_13_p12",
+        "347_The_Metabarons_13_p13",
+        "348_The_Metabarons_13_p14"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#000:dona_vicenta_gabriela_de_rokha",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Don Nicanor Rosamel de Rokha; type: daughter",
+        "character: Melmoth; type: wife; married in vol 13",
+        "character: white-haired elder (unidentified); type: protected and treated medically by him"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg",
+        "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+        "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg",
+        "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg",
+        "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg",
+        "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg",
+        "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+        "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg",
+        "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg",
+        "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "c61967fe8424f2f4c3fa425aa4bbab6d23e8ca599fa5b590970ac95c96c7ce74",
+          "page_id": "334_The_Metabarons_13_c01",
+          "source_image": "external/comics/meta-barons/334_The_Metabarons_13_c01.jpg"
+        },
+        {
+          "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+          "page_id": "335_The_Metabarons_13_ic1-p01",
+          "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+        },
+        {
+          "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+          "page_id": "339_The_Metabarons_13_p05",
+          "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+        },
+        {
+          "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+          "page_id": "340_The_Metabarons_13_p06",
+          "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+        },
+        {
+          "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+          "page_id": "341_The_Metabarons_13_p07",
+          "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+        },
+        {
+          "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+          "page_id": "342_The_Metabarons_13_p08",
+          "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+        },
+        {
+          "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+          "page_id": "343_The_Metabarons_13_p09",
+          "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+        },
+        {
+          "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+          "page_id": "346_The_Metabarons_13_p12",
+          "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg"
+        },
+        {
+          "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+          "page_id": "347_The_Metabarons_13_p13",
+          "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+        },
+        {
+          "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+          "page_id": "348_The_Metabarons_13_p14",
+          "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+        }
+      ],
+      "traits": [
+        "Fiercely loyal to father and people even under assault",
+        "Willing to self-mutilate to restore familial bond",
+        "Sustains idealized illusions through concealment — darkness, veil",
+        "Verbally composed under pressure; challenges those who claim to love her",
+        "Emotionally tormented by rejection after cybernetic alteration"
+      ],
+      "voice_notes": [
+        "Names Don Nicanor directly and challenges whether it is truly her soul he worships: 'Nicanor Rosamel de Rokha…' (p06)",
+        "States the darkness and veil existed so she could preserve her idealized memory of him (p13)",
+        "Declares the eye belongs to Don Nicanor because he fathered it (p07)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Attempted suicide after learning Melmoth killed her father; Melmoth stopped bullet using Shabda-Oud powers (recap)",
+        "Don Nicanor clone lacks memory of her, confuses her for a desired woman (recap)",
+        "Refused to let Melmoth kill her father again or harm her people (recap)",
+        "Argued to spare attacking soldiers including her father during siege (p05)",
+        "Challenged Don Nicanor's claim to love her soul by naming him and questioning his desire (p06)",
+        "Self-removed one eye and gave it to Don Nicanor, restoring his paternal recognition (p07)",
+        "Suffered extreme bleeding and pain during eye removal (p07)",
+        "Blinded; eye wounds cauterized by white-haired elder (p08)",
+        "Received advanced vento-robotic eyes via microsurgery (p09)",
+        "Voted for Melmoth's noble rank before the Galactic Union (implied p08–p09)",
+        "Married Melmoth at public ceremony; refused to lift veil for traditional kiss (p12)",
+        "Lightning on wedding night exposed Melmoth's disfigured face; recoiled in horror (p13)",
+        "Revealed she had used darkness and veil to preserve idealized memory of Melmoth (p13, p14)",
+        "Cybernetically altered post-blinding; mechanical eyes referenced in dialogue (p14)",
+        "Rejected by Melmoth after his revulsion at her altered appearance (p14)",
+        "Wandered De Rokha castle corridors in torment hoping for compassion from Melmoth (p14)"
+      ]
+    },
+    {
+      "aliases": [
+        "Dona Vicenta Gabriela de Rokha",
+        "Milady (probable identity; see uncertainties)",
+        "Acting President of the Troglosocialik Federation"
+      ],
+      "appearances": [
+        "Young woman with cybernetic/mechanical eyes — eyes acquired before vol.14 ic1 recap; visible in p02",
+        "Curly-haired woman in armor or headgear during the temple assault (vol.14 p09, p11)",
+        "Emotionally raw, in ruined devastated landscape (vol.14 p15)",
+        "Gravely ill, repeatedly coughing, in an artificial urban environment with plastic vegetation and holographic birds (vol.14 p21)",
+        "Near death in medical life-support apparatus with respirator mask, surrounded by machinery (vol.14 p23)"
+      ],
+      "character_id": "dona-vicenta-gabriela-de-rokha",
+      "image_sha256s": [],
+      "important_actions": [
+        "Sacrificed her fingernails to Don Nicanor to secure permission for her marriage to Melmoth (vol.14 ic1 recap)",
+        "Accepted cybernetic replacement eyes (vol.14 ic1 recap)",
+        "Pleaded with Steelhead to fight for her people; Steelhead killed Zaran in response (vol.14 ic1 recap)",
+        "Inherited the acting presidency of the Troglosocialik Federation (vol.14 p15)",
+        "Overcame grief to negotiate a joint Bikramen contract with the Empire, Magnate, and Techno Guild (vol.14 p15, p18-p19)",
+        "Authorized galaxy-wide announcement of Bikramen in the Troglosocialik system (plan Item 4, vol.14 p15)",
+        "Revealed pregnancy to Steelhead, disputing his full emotional paternity (vol.14 p21)",
+        "Argued for saving the girl twin, saying it would give her strength to live (vol.14 p23)"
+      ],
+      "knowledge_boundaries": [
+        "Does not know which twin will be chosen to survive at the volume's end (vol.14 p23)",
+        "Her survival or death in childbirth is unresolved in this volume",
+        "Her identity as 'Milady' in p08-p13 is probable but not confirmed on those pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#001:dona-vicenta-gabriela-de-rokha",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "Daughter of Don Nicanor Rosamel de Rokha — deceased (vol.14 ic1, p01, p15)",
+        "Married to Melmoth/Steelhead (vol.14 p21, p22)",
+        "In love with a poet figure distinct from Steelhead, linked to Krleza (vol.14 p21, p23)",
+        "Carries twins: boy attributed to Castaka/Steelhead bloodline, girl attributed to poet-lover (vol.14 p23)",
+        "Protected by the heavy cyborg warrior/The Metabaron during temple assault (vol.14 p09) — possibly Steelhead",
+        "Observed and narrated by Tonto and Lothar as frame narrators (vol.14 p21)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Emotionally volatile; devastated by loss of father and homeland; refuses to negotiate with those she holds responsible (vol.14 p15)",
+        "Self-identifies as a warrior; resists being treated as fragile by the heavy cyborg protector (vol.14 p09)",
+        "Pragmatic when pressed: willing to sacrifice personal pride for collective survival (vol.14 p15)",
+        "Capable of extreme bodily sacrifice: gave Don Nicanor her fingernails; accepted cybernetic eyes (vol.14 ic1 recap)",
+        "Deeply spiritually attached to Philodendra; watches evacuation from her father's tomb (vol.14 p18-p19)",
+        "Physically fragile by volume's end: lung infection labelled 'bio-despair,' then paleo-tuberculosis (vol.14 p21, p22)"
+      ],
+      "voice_notes": [
+        "On negotiation: 'They killed my father, my people, my planet — I will not negotiate with them' (vol.14 p15)",
+        "On paternity: body was Steelhead's, but love and spirit belonged to her poet (vol.14 p21)",
+        "On the twins: boy is Steelhead's Castaka heir and will be raised as a pitiless warrior; girl is her poet's daughter and would give her the will to survive (vol.14 p23)",
+        "On Philodendra: vows not to forget it even as people depart (vol.14 p18-p19)",
+        "On her illness and losses: speaks as if death may be all she has left (vol.14 p22)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Don Nicanor failed to recognize her as his daughter during their encounter (vol.14 ic1 recap)",
+        "Melmoth's horror at her cybernetic eyes fractured his psyche into Steelhead and Zaran (vol.14 ic1 recap)",
+        "Techno-Technos bombarded Philodendra after Don Nicanor refused the TechnoCardinal's ultimatum (vol.14 ic1 recap)",
+        "Signed joint Bikramen governance contract with the Empire, Magnate, and Techno Guild (vol.14 p18-p19)",
+        "Watched Philodendra's evacuation from the ruins of her castle, now also her father's tomb (vol.14 p18-p19)",
+        "Medical examination revealed she carries twins; her body is too weak to deliver both (vol.14 p23)"
+      ]
+    },
+    {
+      "aliases": [
+        "Dona Vicenta Gabriela de Rokha",
+        "Milday",
+        "Doña Vicenta"
+      ],
+      "appearances": [
+        "description: Elderly or gravely ill noblewoman on operating table in the metasurgery; later sealed upright in an omni-cryoshroud capsule installed in the Hall of Weapons; transparent pod shattered by Aghora in the initiation duel; source_refs: ['385_The_Metabarons_15_p03', '389_The_Metabarons_15_p07', '399_The_Metabarons_15_p17']"
+      ],
+      "character_id": "dona-vicenta-gabriela-de-rokha",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#002:dona-vicenta-gabriela-de-rokha",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'husband': 'Steelhead', 'lover': 'Zaran Klezra (poet; father of the female twin Aghora)', 'children': 'Conjoined twins—male (by Steelhead), female (by Zaran; survived as Aghora)', 'granddaughter_implied': \"The current no-name Metabaron (Tonto's narration identifies her as his grandmother)\"}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Despairing and self-resigned at time of surgery ('I have lost everything'); pleaded for both twins to be saved"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Reluctantly helped Steelhead negotiate sale of Philodendra",
+        "Developed tuberculosis on the new artificial world",
+        "Revealed she was pregnant with twins from different fathers",
+        "Was told only one twin could be safely delivered",
+        "Assumed Steelhead would choose the male heir; he chose the female",
+        "Preserved in omni-cryoshroud; installed in Hall of Weapons to watch Aghora grow up",
+        "Pod destroyed by Aghora during the initiation trial"
+      ]
+    },
+    {
+      "aliases": [
+        "Dona Vicenta"
+      ],
+      "appearances": [
+        "volume: 16; pages: ic1 (backstory recap only)"
+      ],
+      "character_id": "dona-vicenta",
+      "image_sha256s": [
+        "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "406_The_Metabarons_16_ic1"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#002:dona-vicenta",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Steelhead; relation: partner; preserved by Steelhead in near-death state",
+        "character: Aghora; relation: mother; her condition motivated Steelhead's grief-driven self-transformation",
+        "character: Male twin; relation: mother; could safely bear only one child"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+          "page_id": "406_The_Metabarons_16_ic1",
+          "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+        }
+      ],
+      "traits": [
+        "Suffered from tuberculosis",
+        "Experienced a pulmonary hemorrhage after seeing her daughter Aghora",
+        "Preserved in near-death state by Steelhead"
+      ],
+      "voice_notes": [
+        "No direct speech; appears only in recap narration [ic1]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Told only one of her twins could be born [ic1]",
+        "Suffered pulmonary hemorrhage after seeing her daughter [ic1]",
+        "Body destroyed by Aghora to force Steelhead into stasis [ic1]"
+      ]
+    }
+  ]
+}

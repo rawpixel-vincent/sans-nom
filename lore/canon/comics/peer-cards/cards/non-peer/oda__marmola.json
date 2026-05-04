@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-04T04:05:59.177094+00:00",
+  "non_peer_reason": "Only memorial narration for a fallen Marmola warrior: no direct voice and no durable behavior beyond fighting fiercely and dying; useful as contextual funeral/battle lore for Othon and Bari, not as a scene persona.",
+  "peer_card_id": "oda__marmola",
+  "related_peer_ids": [
+    "othon-von-salza",
+    "bari"
+  ],
+  "source_record_ids": [
+    "characters-volume-02.json#006:oda"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Distinct from Princess Oda Capricious, but the split prevents a bad merge rather than justifying a base peer card."
+    ],
+    "non_peer_reason": "Only memorial narration for a fallen Marmola warrior: no direct voice and no durable behavior beyond fighting fiercely and dying; useful as contextual funeral/battle lore for Othon and Bari, not as a scene persona.",
+    "peer_card_id": "oda__marmola",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "othon-von-salza",
+      "bari"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

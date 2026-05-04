@@ -1,0 +1,139 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "406_The_Metabarons_16_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/406_The_Metabarons_16_ic1.json",
+    "424_The_Metabarons_16_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/424_The_Metabarons_16_p20.json"
+  },
+  "peer_card_id": "the-male-twin",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "The Male Twin",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "the-male-twin",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-16.json#003:the-male-twin"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Male Twin",
+        "Aghora's twin brother"
+      ],
+      "appearances": [
+        "volume: 16; pages: ic1 (backstory), p20 (stasis-chamber flashback)"
+      ],
+      "character_id": "the-male-twin",
+      "image_sha256s": [
+        "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734"
+      ],
+      "important_actions": [
+        "Posthumous: brain tissue in Aghora's head provided male cells for the first auto-conception via hypo-genetics [p20, p21]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "406_The_Metabarons_16_ic1",
+        "424_The_Metabarons_16_p20"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#003:the-male-twin",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: twin sister who carries his brain; his brain tissue later used for her self-conception",
+        "character: Steelhead; relation: father who performed the transplant",
+        "character: Dona Vicenta; relation: mother"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg",
+        "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+          "page_id": "406_The_Metabarons_16_ic1",
+          "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+        },
+        {
+          "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+          "page_id": "424_The_Metabarons_16_p20",
+          "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+        }
+      ],
+      "traits": [
+        "Brain transplanted into female twin's (Aghora's) body at or near birth",
+        "Body placed in stasis by Steelhead",
+        "Body decomposed immediately on removal from stasis"
+      ],
+      "voice_notes": [
+        "No direct speech; appears only in backstory narration and flashback"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Brain transplanted into female twin's body [ic1]",
+        "Male body placed and preserved in stasis [ic1]",
+        "Body decomposed immediately upon removal from stasis chamber, eliminating it as a source of male cells [p20]"
+      ]
+    }
+  ]
+}

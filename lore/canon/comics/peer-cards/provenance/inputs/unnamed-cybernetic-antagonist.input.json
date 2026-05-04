@@ -1,0 +1,149 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "262_The_Metabarons_10_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/262_The_Metabarons_10_p14.json",
+    "263_The_Metabarons_10_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/263_The_Metabarons_10_p15.json"
+  },
+  "peer_card_id": "unnamed-cybernetic-antagonist",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Unnamed Cybernetic Antagonist",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "unnamed-cybernetic-antagonist",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-10.json#009:unnamed-cybernetic-antagonist"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Unnamed Cybernetic Antagonist",
+        "bio-rat",
+        "traitor"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p14', 'p15']"
+      ],
+      "character_id": "unnamed-cybernetic-antagonist",
+      "image_sha256s": [
+        "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0"
+      ],
+      "important_actions": [
+        "Seized Oda and tortured her systematically to psychologically break Aghnar [v10 p14, p15]",
+        "Explicitly rejected the warrior honor code, arguing victory justifies any method [v10 p14]"
+      ],
+      "knowledge_boundaries": [
+        "Knows Aghnar's dual emotional attachment — to Oda as wife and to Honorata's spirit within her [v10 p14]",
+        "Aware of the Metabaron honor code and deliberately rejects it [v10 p14]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "262_The_Metabarons_10_p14",
+        "263_The_Metabarons_10_p15"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#009:unnamed-cybernetic-antagonist",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: adversary; notes: Seized Oda to exploit Aghnar's emotional attachment to both wife and mother [v10 p14]",
+        "character: Oda; type: captor / torturer; notes: Restrained Oda and severed her fingers sequentially as psychological leverage [v10 p14, p15]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+        "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+          "page_id": "262_The_Metabarons_10_p14",
+          "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+        },
+        {
+          "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+          "page_id": "263_The_Metabarons_10_p15",
+          "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+        }
+      ],
+      "traits": [
+        "Heavily cybernetic or biomechanical; gold-faced appearance [v10 p15]",
+        "Explicitly rejects warrior honor codes in favor of pragmatic victory at any cost [v10 p14]",
+        "Sadistic and methodical; counts each act of torture in sequence [v10 p15]",
+        "Fixated on the loss of his own humanity, which he blames on his victim [v10 p15]",
+        "Weaponizes emotional bonds and family ties deliberately [v10 p14]"
+      ],
+      "voice_notes": [
+        "Speaks with cold contempt when dismissing honor: 'victory justifies any weapon' [v10 p14]",
+        "Becomes ranting and emotionally raw when invoking his lost humanity [v10 p15]",
+        "Counts torture acts methodically — calculated cruelty, not rage [v10 p15]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Seized Oda (vessel of Honorata's spirit) and presented her as leverage against Aghnar [v10 p14]",
+        "Threatened to dismember Oda piece by piece unless Aghnar submitted [v10 p14]",
+        "Systematically severed all ten of Oda's fingers, counting aloud from one to ten [v10 p15]",
+        "Declared he would leave her 'only half-woman' [v10 p15]",
+        "Stated he is a machine with no mother or father and accused the victim of taking his humanity [v10 p15]"
+      ]
+    }
+  ]
+}

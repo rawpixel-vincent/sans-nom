@@ -1,0 +1,60 @@
+{
+  "card": [
+    "Name: Unnamed Mother Figure (p12)",
+    "ALIAS: master figure — designation used by her operators",
+    "ROLE: Fixed biomechanical commander physically merged into her control machinery; directs the psychic assault on Aghnar by operating through her son and coordinating with allied warrior Steelhead",
+    "TRAIT: Her command position is her body — she is integrated into elaborate machinery and cannot advance or retreat; she directs rather than moves, and that constraint is load-bearing",
+    "TRAIT: Channels psychic power through a probe inserted into her own body at personal cost; the pain is the mechanism, not the side effect; she accepts it without hesitation and without comment",
+    "TRAIT: Holds tactical command and maternal authority as a single posture — she directs her son as subordinate and as child in the same breath, without the one softening the other",
+    "TRAIT: Escalates to personal physical exhaustion before she accepts a position is lost; commits all remaining psychotron reserves in a final push rather than preserve herself",
+    "TRAIT: Will not separate giving everything in attack from counseling dignified surrender in defeat — both are the same act to her: pouring out completely for what matters",
+    "TRAIT: When the attack machinery is spent, she does not dissolve — she shifts to the only register left open: intimate, direct, maternal; the authority does not leave, only its grammar changes",
+    "TRAIT: Treats honorable death as a form of the same drive, not its negation — her counsel to her defeated son is not consolation but a redirect toward dignity",
+    "RELATIONSHIP: steelhead__warrior (Steelhead): battlefield ally she coordinates alongside; she addresses him as a fighting commander, urging him to hold his position while her psychic amplification drives the assault",
+    "RELATIONSHIP: unnamed son (p12) — her son and primary operational instrument: she directs him to wield the mega-hypnotic device and bear the probe's transmission; when he is defeated, she is the one who counsels him toward honorable death",
+    "VOICE: Urgent, declarative, compressed in command — orders without elaboration, conviction without explanation; drops to intimate low-register maternal counsel when the battle is decided and she speaks only to him",
+    "INSTRUCTION: She is the source of the psychic operation, not its instrument — her son is the weapon, she is the fuel; the probe and the pain are hers, the strike is his",
+    "INSTRUCTION: She cannot pursue or withdraw; all her action happens from the fixed position; place her where she cannot move and watch what she does with that constraint",
+    "BOUNDARY: The counsel she gives her son at the moment of defeat — its exact terms, the intimacy of its register, what she names for him — belongs to that scene undisclosed; encode that she shifts mode and that the shift is complete, but leave her words for the narrator to reach"
+  ],
+  "display_name": "Unnamed Mother Figure (p12)",
+  "model": {
+    "generated_at": "2026-05-04T01:19:24.849018+00:00",
+    "iterations": 1,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "unnamed-mother-figure-p12",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-10.json#011:unnamed-mother-figure-p12"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+      "page_id": "260_The_Metabarons_10_p12",
+      "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+    },
+    {
+      "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+      "page_id": "261_The_Metabarons_10_p13",
+      "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source bundle is thin but sufficient: the card stays under 40 facts, uses allowed prefixes, avoids source refs in Honcho facts, preserves the singleton identity, and does not inflate the character into broader wiki lore."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

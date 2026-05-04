@@ -261,6 +261,13 @@
       "Posthumous: brain tissue in Aghora's head provided male cells for the first auto-conception via hypo-genetics [p20, p21]"
     ],
     "knowledge_boundaries": [],
+    "non_peer_reason": "Source record is an unnamed, voiceless birth/stasis hook whose value is contextual lore for Aghora's origin and Steelhead's intervention, not a usable peer persona.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora",
+      "steelhead__late",
+      "dona-vicenta"
+    ],
     "relationships": [
       "character: Aghora; relation: twin sister who carries his brain; his brain tissue later used for her self-conception",
       "character: Steelhead; relation: father who performed the transplant",
@@ -494,6 +501,11 @@
     "character_id": "bushitaka",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "Source evidence treats Bushitaka as a narration-cited combat doctrine/authority label, not a distinct actor with voice, behavior, or scene presence; its value is contextual lore for Aghora's strike.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
     "relationships": [
       "character: Aghora; relation: Aghora follows Bushitaka's doctrine as the basis for her decapitation strike against the enemy mother-brain"
     ],

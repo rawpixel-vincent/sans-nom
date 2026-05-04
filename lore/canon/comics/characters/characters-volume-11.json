@@ -388,6 +388,11 @@
     "knowledge_boundaries": [
       "Directed Steelhead to Terra Prima but the library's ancient paper proved useless on contact (p05)"
     ],
+    "non_peer_reason": "Single source-thin advising-intelligence hook with one contextual action directing Steelhead to Terra Prima; no durable voice, behavior, or scene-usable persona beyond Steelhead's love-quest lore.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "steelhead__warrior"
+    ],
     "relationships": [
       "target: Steelhead; nature: Advising intelligence that directed him to Terra Prima's omni-library in his search for knowledge of love; source_refs: ['283_The_Metabarons_11_p05']"
     ],

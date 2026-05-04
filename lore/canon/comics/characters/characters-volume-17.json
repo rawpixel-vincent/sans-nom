@@ -438,6 +438,13 @@
       "Name not given in volume 17.",
       "The validity of its claim to the prophecy is disputed by another character and unconfirmed by the narrative."
     ],
+    "non_peer_reason": "Unnamed one-page prophecy claimant whose only durable value is contextual scene lore for the conspiracy against the Empress and the dark-haired warrior's dismissal; a base card would require inventing personality beyond the claim.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "the-dark-haired-female-warrior-unnamed",
+      "the-empress__reigning",
+      "aghora"
+    ],
     "relationships": [
       "character: The Cybernetic Conspirators / Council of Elders; nature: Member or candidate presented by the council as a replacement for the Empress; source_refs: ['431_The_Metabarons_17_p04']",
       "character: The Dark-Haired Female Warrior; nature: Dismissed by her; she ridicules the claim and redirects to the practical obstacle of the Metabaron; source_refs: ['431_The_Metabarons_17_p04']"
@@ -570,6 +577,12 @@
     ],
     "knowledge_boundaries": [
       "Dead; no agency in volume 17."
+    ],
+    "non_peer_reason": "Deceased, voiceless, and not physically depicted; the record exists only to preserve Aghora's carried-brain/self-impregnation lineage fact for No-Name, not a scene-usable peer persona.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora",
+      "no-name"
     ],
     "relationships": [
       "character: Aghora; nature: Siamese twin; brain resides in Aghora's body; biological father of No-Name via extracted cells; source_refs: ['427_The_Metabarons_17_ic1']",

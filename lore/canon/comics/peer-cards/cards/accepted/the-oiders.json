@@ -1,0 +1,45 @@
+{
+  "card": [
+    "Name: The Oiders",
+    "ROLE: Off-screen command faction; never appeared directly — known only through Honorata's confession to Othon",
+    "ROLE: Architects of a dynastic succession conspiracy aimed at seizing the Imperial throne",
+    "TRAIT: Dispatched Honorata, a Shabda-Oud priestess, to seduce Othon and produce a mandated hermaphrodite heir — a 'perfect androgyne' — from his blood",
+    "TRAIT: Intended to present the androgyne heir to gain majority planetary support and secure the throne",
+    "TRAIT: Planned to seize the Imperial throne by poisoning Janus-Jana as the linchpin of their scheme",
+    "TRAIT: Planned to remove the child from its parents at age seven to raise as their political instrument",
+    "TRAIT: Their law mandates assassination of parents, child, and all associates if a forbidden birth is exposed",
+    "RELATIONSHIP: honorata__living (Honorata, Living Priestess): the agent they dispatched; she defied their order and bore a male son instead of the mandated androgyne; whether that defection ended their succession plan is unresolved",
+    "RELATIONSHIP: janus-jana (Janus-Jana): their intended assassination target; her poisoning was the mechanism for the planned throne seizure",
+    "VOICE: No direct voice; known entirely through Honorata's confession to Othon — they speak only through the orders she chose to betray",
+    "BOUNDARY: No confirmed visual appearance or direct speech at any point in the story",
+    "BOUNDARY: Whether their succession plot targeting Janus-Jana remained active after Honorata's defection is unresolved"
+  ],
+  "display_name": "The Oiders",
+  "model": {
+    "generated_at": "2026-05-03T21:52:52.713852+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the-oiders",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-04.json#006:the-oiders"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source is thin but usable: the card stays compact, keeps The Oiders as an off-screen faction, uses the correct Honorata split peer id, and preserves the unresolved post-defection boundary."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

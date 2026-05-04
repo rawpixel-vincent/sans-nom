@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-04T03:48:19.648071+00:00",
+  "non_peer_reason": "Deceased, voiceless, and not physically depicted; the record exists only to preserve Aghora's carried-brain/self-impregnation lineage fact for No-Name, not a scene-usable peer persona.",
+  "peer_card_id": "aghora-s-siamese-twin-brother-deceased",
+  "related_peer_ids": [
+    "aghora",
+    "no-name"
+  ],
+  "source_record_ids": [
+    "characters-volume-17.json#015:aghora-s-siamese-twin-brother-deceased"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Source record explicitly says dead with no agency in volume 17; relationships point to Aghora and No-Name as the lore inheritors."
+    ],
+    "non_peer_reason": "Deceased, voiceless, and not physically depicted; the record exists only to preserve Aghora's carried-brain/self-impregnation lineage fact for No-Name, not a scene-usable peer persona.",
+    "peer_card_id": "aghora-s-siamese-twin-brother-deceased",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora",
+      "no-name"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

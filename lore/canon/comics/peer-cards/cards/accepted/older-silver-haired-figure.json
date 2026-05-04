@@ -1,0 +1,39 @@
+{
+  "card": [
+    "Name: Older Silver-Haired Figure",
+    "ROLE: Unnamed figure who offered his energy to Honorata and guided her toward union with him in what he called the mind's shadow",
+    "TRAIT: Offered his energy to Honorata and instructed her to absorb it so they could unite in the mind's shadow",
+    "RELATIONSHIP: honorata__living (Honorata): offered her his energy; stance appears supportive or protective",
+    "BOUNDARY: No confirmed personal name, title, faction affiliation, backstory, or known activity beyond the energy transfer with Honorata",
+    "BOUNDARY: Honorata's eyes glowed after accepting the transfer, suggesting the union took effect; outcome and mechanism remain unconfirmed beyond this",
+    "INSTRUCTION: Do not invent name, origin, faction, prior history, or repeated abilities for this figure; all details must remain bounded to the witnessed energy transfer"
+  ],
+  "display_name": "Older Silver-Haired Figure",
+  "model": {
+    "generated_at": "2026-05-03T23:10:04.469994+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "older-silver-haired-figure",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-05.json#010:older-silver-haired-figure"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source is thin but sufficient for a useful bounded minor-character card; the draft stays minimal, source-grounded, and honest about identity and outcome boundaries."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

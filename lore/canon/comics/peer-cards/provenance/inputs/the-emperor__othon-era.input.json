@@ -1,0 +1,161 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-emperor__othon-era",
+  "peer_identity": {
+    "arc_label": "Sterile Emperor who fathered Janus-Jana and bestowed the Metabaron title on Othon",
+    "display_name": "The Emperor (Othon's era)",
+    "honcho_notes": "Sterile; Janus-Jana produced after 30 years via scientific means. Expresses deep personal gratitude to Othon. Offers compassionate consolation ('another horse'). Rules jointly with the Empress. Grateful sovereign rather than commanding autocrat.",
+    "merge_policy": "split_role",
+    "peer_card_id": "the-emperor__othon-era",
+    "rationale": "Split from the Aghora-era Emperor because generations separate them—different people hold the same title. The Othon-era Emperor is personally sterile (required hospital-planet conception of Janus-Jana), emotionally attached to Othon, bestowed the hereditary Metabaron title. The Aghora-era Emperor (vol16) is described as 'two-headed'—visually and biologically distinct. Contradictory TRAIT facts if merged.",
+    "source_record_ids": [
+      "characters-volume-03.json#008:the-emperor",
+      "characters-volume-04.json#004:the-emperor"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Emperor",
+        "His Majesty",
+        "member of the Imperial Couple"
+      ],
+      "appearances": [
+        "{'description': 'Not distinctly described in vol. 3 visuals; seen with the Empress in a golden ceremonial hall. Appears aged and weary at the knighting ceremony.', 'source_refs': ['076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']}"
+      ],
+      "character_id": "the-emperor",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Granted command of fifty remaining endoguard ships to Othon; source_refs: ['076_The_Metabarons_3_p20']",
+        "action: Bestowed the hereditary title 'Metabaron' on Othon von Salza; source_refs: ['083_The_Metabarons_3_p27']"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#008:the-emperor",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Empress; type: spouse / co-ruler; notes: Rules together; the future of the Union of Planets depends on their heir.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']",
+        "character: Othon von Salza; type: sovereign / grateful patron; notes: Previously negotiated with Othon after the Marmola war. Later bestows the title 'Metabaron' on him and his descendants.; source_refs: ['057_The_Metabarons_3_ic1', '076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']",
+        "character: Janus-Jana; type: parent / heir's progenitor; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Sterile — required thirty years and a hospital-planet to father a child",
+        "Emotionally attached to Othon; expresses heartfelt gratitude and wishes him happiness",
+        "Attempts compassionate consolation (offers Othon 'another horse')",
+        "Acts with the Empress in public appeals and court decisions"
+      ],
+      "voice_notes": [
+        "Expresses deep personal gratitude to Othon in private embrace at the knighting (vol.3 p27)",
+        "Offers 'another horse' as consolation for Othon's losses (vol.3 p27)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Issued a galaxy-wide civilian appeal for help against the pirates alongside the Empress (vol.3 p16–p17)",
+        "Granted Othon command of fifty endoguard ships (vol.3 p20)",
+        "Bestowed the hereditary title 'Metabaron' on Othon and his descendants (vol.3 p27)"
+      ]
+    },
+    {
+      "aliases": [
+        "The Emperor"
+      ],
+      "appearances": [
+        "description: Not directly depicted; referenced in recap narration only; source_refs: ['089_The_Metabarons_4_ic1']"
+      ],
+      "character_id": "the-emperor",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Knighted Othon as Metabaron; source_refs: ['089_The_Metabarons_4_ic1']"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#004:the-emperor",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: liege; notes: Appealed to subjects for help against pirates; knighted Othon as Metabaron",
+        "character: The Empress; type: consort"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Sterile at the time of these events",
+        "Commands subjects' loyalty through personal appeal"
+      ],
+      "voice_notes": [
+        "Not directly quoted in this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Is sterile; Imperial heirs created through extraordinary scientific means from an ovum of the Empress fertilized by sperm of the now-sterile Emperor [089_The_Metabarons_4_ic1]",
+        "Appealed to subjects when pirates attacked the Imperial offspring [089_The_Metabarons_4_ic1]",
+        "Knighted Othon as Metabaron after Othon rescued the Imperial offspring at the Golden Planet [089_The_Metabarons_4_ic1]"
+      ]
+    }
+  ]
+}

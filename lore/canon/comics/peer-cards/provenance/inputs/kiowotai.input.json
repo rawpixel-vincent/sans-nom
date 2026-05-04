@@ -1,0 +1,107 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "kiowotai",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Kiowotai",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "kiowotai",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-06.json#009:kiowotai"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Kiowotai",
+        "Kioka (possibly, as invoked by the Magon on vol6_p17)",
+        "Possibly another name for Aghnar the main character (explicitly unresolved)"
+      ],
+      "appearances": [
+        "source: vol6_p12-p13; page: p12-p13; description: Silver-haired youth who can float (possibly via specialized footwear); asserts sworn brotherhood with the ape Aghnar; insists on ascending above the mushroom domes despite warnings.",
+        "source: vol6_p15; page: p15; description: Silver-haired humanoid with extended metal claws fighting through alien tribal creatures; a smaller creature recites the Magon legend of the 'little no-hair white ape' who will take the Magon people to the fog world and diamond planet.",
+        "source: vol6_p16; page: p16; description: Captured by a giant creature; tears or blasts through the creature's head area in reversal.",
+        "source: vol6_p17; page: p17; description: Airborne figure after defeating the giant creature; Magon creatures below invoke 'Kioka' as their master and speak of departure to the Diamond Planet."
+      ],
+      "character_id": "kiowotai",
+      "image_sha256s": [],
+      "important_actions": [
+        "Rose into the air above the mushroom-dome settlement following the ape Aghnar (vol6_p12-p13)",
+        "Fought through alien tribal creatures and confronted the Magon Patriarch (vol6_p15–vol6_p17)",
+        "Tore or blasted through a giant creature's head area after being seized (vol6_p16–vol6_p17)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-06.json#009:kiowotai",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Ape Companion ('Aghnar'); type: Self-described brother / companion; notes: Sworn brotherhood; follows the ape into dangerous upper territory. Source: vol6_p12-p13.",
+        "character: Magon people; type: Prophesied leader ('little white ape'); notes: Magon legend says he will one day take them away to the fog world and diamond planet. Sources: vol6_p15, vol6_p17."
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-06.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    }
+  ]
+}

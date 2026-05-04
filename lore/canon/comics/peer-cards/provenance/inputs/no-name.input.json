@@ -1,0 +1,126 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "no-name",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "No-Name",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "no-name",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-17.json#008:no-name"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "No-Name",
+        "Trino-Viscount",
+        "Metabaron's heroic baby",
+        "little tadpole (in utero)"
+      ],
+      "appearances": [
+        "description: Newborn; bald, wide-eyed, unusually alert expression. Laughs in a strikingly adult-like way. Eyes glow with a diamond-like brilliance.; source_refs: ['439_The_Metabarons_17_p13', '445_The_Metabarons_17_p19']",
+        "description: Crawls on all fours across a battle-damaged room; shown glowing in narration. Cradled by Aghora in close-up at the naming ceremony.; source_refs: ['444_The_Metabarons_17_p18', '446_The_Metabarons_17_p20']"
+      ],
+      "character_id": "no-name",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Survived birth during active combat assault by the Zombra swarm.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+        "action: Crawled unharmed through mental beams during battle at the Golden Planet.; source_refs: ['444_The_Metabarons_17_p18']",
+        "action: Diamond-bright eyes appear to have neutralized the psychic attackers threatening the Empress (implied, not explicitly confirmed).; source_refs: ['445_The_Metabarons_17_p19']"
+      ],
+      "knowledge_boundaries": [
+        "Infant; no knowledge or intent attributable beyond possible innate powers.",
+        "Future backstory flagged by narrator: harsh training and a scar over the right eyebrow to be explained in subsequent episodes."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#008:no-name",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; nature: Parent; Aghora is referred to as 'father-mother'; Aghora refuses to give the child a personal name; source_refs: ['444_The_Metabarons_17_p18', '446_The_Metabarons_17_p20']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Unusually alert and adult-like in expression for a newborn",
+        "Immune to or unaffected by mental beam attacks",
+        "Diamond-bright glowing eyes; implied connection to the destruction of the psychic attacking force",
+        "Calm amid active battle conditions"
+      ],
+      "voice_notes": [
+        "Laughs in a way narration describes as adult-like, treated as abnormal and significant."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Born during the Zombra assault on Rock Dragonis while Aghora climbed and the Metabaron fought rearguard.; source_refs: ['435_The_Metabarons_17_p08-p09']",
+        "fact: Escaped Flos with Aghora through the pollen layer aboard the Metacraft; fed artificial milk because Aghora could not nurse.; source_refs: ['439_The_Metabarons_17_p13']",
+        "fact: Crawled unharmed between Aghora (kneeling) and an androgynous monkey-like figure through crossing mental beams.; source_refs: ['444_The_Metabarons_17_p18']",
+        "fact: His diamond-bright eyes appeared to be associated with the destruction of the psychic attacking force at the Golden Planet battle.; source_refs: ['445_The_Metabarons_17_p19']",
+        "fact: Formally honored by the imperial court with a high-nobility medallion, the title Trino-Viscount, and three billion kiblars.; source_refs: ['445_The_Metabarons_17_p19']",
+        "fact: Designated 'No-Name' by Aghora; declared destined to be the perfect warrior and supreme technopope.; source_refs: ['446_The_Metabarons_17_p20']"
+      ]
+    }
+  ]
+}

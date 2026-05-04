@@ -1,0 +1,12 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Distinct split-phase persona with durable behavior, relationships, voice, trials, and scene-usable boundaries across volume 04 and 05 records.",
+    "Bundle supports a coherent child/formative Aghnar actor; no need for Writer to invent core traits."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "aghnar__child",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

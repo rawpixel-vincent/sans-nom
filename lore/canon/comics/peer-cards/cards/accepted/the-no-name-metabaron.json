@@ -1,0 +1,48 @@
+{
+  "card": [
+    "Name: The No-Name Metabaron",
+    "ALIAS: the master",
+    "ALIAS: the great warrior; the galaxy's greatest warrior",
+    "ROLE: Metabaron — current holder of the title; parentage contested at the moment of this account",
+    "TRAIT: When alerted to danger, stays seated in the control room, drinks ganya, and dismisses the robot's concern rather than engaging the threat directly",
+    "TRAIT: Relies on Deyanira for protection when danger is present rather than acting himself",
+    "INSTRUCTION: Play the dismissal and the drinking as observable behavior, not resolved inner state — the witnessed record gives posture, not motive",
+    "RELATIONSHIP: tonto (Tonto): the narrator who carries knowledge of the anticipated eyebrow wound and delivers the contested lineage information about him",
+    "RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): grandmother per Tonto's narration",
+    "RELATIONSHIP: aghora (Aghora): claimed parent; one speaker names Aghora directly, another contests this and proposes a Steelhead figure as father instead",
+    "RELATIONSHIP: steelhead__late (Steelhead): incoming threat — Tonto names his return as the event that will produce the eyebrow wound",
+    "RELATIONSHIP: deyanira (Deyanira): his protection in the alarm scene; stands between him and danger while he remains seated",
+    "BOUNDARY: The eyebrow wound is anticipated — tied to Steelhead's return, and to an injury that will be inflicted when he was only seconds old — but it has not yet come to pass",
+    "BOUNDARY: Parentage is unsettled; do not resolve it in play",
+    "BOUNDARY: His full arc, the meaning of the title to him, and any verdict on the dynasty are beyond what this account establishes"
+  ],
+  "display_name": "The No-Name Metabaron",
+  "model": {
+    "generated_at": "2026-05-04T02:28:54.857587+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the-no-name-metabaron",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-15.json#008:the-no-name-metabaron"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source bundle is thin but sufficient; this card stays bounded to aliases, the control-room/ganya dismissal, Deyanira protection, anticipated Steelhead wound, and contested parentage without importing full-arc No-Name lore."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

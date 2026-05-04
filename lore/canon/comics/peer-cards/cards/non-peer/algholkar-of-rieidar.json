@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-04T02:29:49.608199+00:00",
+  "non_peer_reason": "One-line named opponent/prisoner record with no voice, relationships, durable behavior, or scene-usable persona; its value is contextual evidence for Aghora's Khaliyuga executioner assignment.",
+  "peer_card_id": "algholkar-of-rieidar",
+  "related_peer_ids": [
+    "aghora"
+  ],
+  "source_record_ids": [
+    "characters-volume-15.json#011:algholkar-of-rieidar"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Resolved Aghora to peer_card_id `aghora` from the identity map."
+    ],
+    "non_peer_reason": "One-line named opponent/prisoner record with no voice, relationships, durable behavior, or scene-usable persona; its value is contextual evidence for Aghora's Khaliyuga executioner assignment.",
+    "peer_card_id": "algholkar-of-rieidar",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "008_The_Metabarons_1_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/008_The_Metabarons_1_p06.json",
+    "011_The_Metabarons_1_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/011_The_Metabarons_1_p09.json",
+    "016_The_Metabarons_1_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/016_The_Metabarons_1_p14.json",
+    "023_The_Metabarons_1_p22": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/023_The_Metabarons_1_p22.json"
+  },
+  "peer_card_id": "edna",
+  "peer_identity": {
+    "arc_label": "Daughter of Baron Berard of Castaka, wife of Othon Von Salza—argues for Othon's rescue in vol1, dies defending clan honor in vol2",
+    "display_name": "Lady Edna of Castaka",
+    "honcho_notes": "Daughter of Baron Berard of Castaka; married to Othon Von Salza per Berard's arrangement. Mother of Bari, who declared he wanted to die as she did. Knows the Epyphite secret by clan membership. Emotionally open in contrast to warrior stoicism Berard demands—wept at Berard's death; argued for saving Othon's life over secrecy. Willing to sacrifice herself for clan honor: walked alone to confront the invading force and was disintegrated at the base of a great column. Her death is called 'needless' by some but Bari frames it as heroic.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "edna",
+    "rationale": "Identical identity across both records: daughter of Baron Berard of Castaka, wife of Othon Von Salza, mother of Bari. The 'Lady' title appears in vol1 formal usage and is dropped in vol2. The underscore peer_card_id (lady_edna) is the old staged format. The edna record is the newer format and is canonical. Vol1 covers her alive and active (arguing in council, present at Berard's death); vol2 covers her death defending clan honor. One continuous person across both volumes.",
+    "source_record_ids": [
+      "characters-volume-01.json#004:lady_edna",
+      "characters-volume-02.json#001:edna"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Lady Edna",
+        "Edna"
+      ],
+      "appearances": [
+        "page_id: 008_The_Metabarons_1_p06; note: referenced as daughter of Baron Berard; described as beautiful and indomitable",
+        "page_id: 011_The_Metabarons_1_p09; note: named; expected to perform precision cuts",
+        "page_id: 016_The_Metabarons_1_p14; note: named; argues in favor of saving Othon",
+        "page_id: 023_The_Metabarons_1_p22; note: addressed directly by dying Berard; admonished for showing emotion"
+      ],
+      "character_id": "lady_edna",
+      "image_sha256s": [
+        "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d"
+      ],
+      "important_actions": [
+        "page_id: 016_The_Metabarons_1_p14; action: argues in council for saving Othon's life despite secrecy risk",
+        "page_id: 023_The_Metabarons_1_p22; action: weeps at Berard's death; admonished by Berard for emotional weakness"
+      ],
+      "knowledge_boundaries": [
+        "awareness of the sacred oil and its sensitivity is implied by the rescue debate context"
+      ],
+      "page_ids": [
+        "008_The_Metabarons_1_p06",
+        "011_The_Metabarons_1_p09",
+        "016_The_Metabarons_1_p14",
+        "023_The_Metabarons_1_p22"
+      ],
+      "record_id": "characters-volume-01.json#004:lady_edna",
+      "record_index": 4,
+      "relationships": [
+        "character: baron_berard; relation: daughter",
+        "character: othon_von_salza; relation: wife; chosen mate per Berard's account (p20)",
+        "character: bari; relation: mother (p06)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+        "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg",
+        "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg",
+        "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+          "page_id": "008_The_Metabarons_1_p06",
+          "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+        },
+        {
+          "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+          "page_id": "011_The_Metabarons_1_p09",
+          "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+        },
+        {
+          "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+          "page_id": "016_The_Metabarons_1_p14",
+          "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+        },
+        {
+          "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+          "page_id": "023_The_Metabarons_1_p22",
+          "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "speaks in favor of family over secrecy; emotional register contrasts with the warrior stoicism Berard demands"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "present at stone-cutting worksite (p09)",
+        "present at rescue council debate and argued for Othon's rescue (p14)",
+        "present when Berard performed the spirit transfer and died (p22/p23)"
+      ]
+    },
+    {
+      "aliases": [
+        "Edna",
+        "Edna of Castaka"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['ic1', 'p02', 'p07']"
+      ],
+      "character_id": "edna",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Walked alone to confront the invading force; detail: Went out to defend clan honor against the invaders; was disintegrated at the base of a great column; source_pages: ['ic1', 'p02', 'p07']"
+      ],
+      "knowledge_boundaries": [
+        "Knew the Epyphite secret (implied by clan membership)"
+      ],
+      "page_ids": [],
+      "record_id": "characters-volume-02.json#001:edna",
+      "record_index": 1,
+      "relationships": [
+        "character: Baron Berard of Castaka; relation: Father (deceased)",
+        "character: Othon Von Salza; relation: Husband",
+        "character: Bari; relation: Son; notes: Bari declared he wanted to die like his mother"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Daughter of Baron Berard of Castaka",
+        "Deeply committed to clan honor",
+        "Willing to sacrifice herself to defend the clan's reputation",
+        "Armed and combative"
+      ],
+      "voice_notes": [
+        "Not directly quoted in surviving pages; described as acting from honor rather than orders",
+        "Her death is framed by others as 'needless' but Bari views it as heroic"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Saw her father transfer the family legacy to Othon before dying",
+        "Was present during the battle over Marmola"
+      ]
+    }
+  ]
+}

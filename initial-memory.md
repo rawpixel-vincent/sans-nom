@@ -31,11 +31,14 @@ Works iteratively and directly; expects Claude to build on prior context without
 Corrects scope and responsibility boundaries clearly when Claude drifts (e.g., misattributing functions between layers).
 Prefers going deep into lore, mechanics, and character psychology rather than surface-level treatments.
 Combines creative/narrative work (character design, lore) tightly with technical implementation (prompt engineering, tool architecture, UI animation).
+Before implementation, scan for existing functions/helpers that can be reused instead of duplicating behavior across modules. At the end of each phase, include a cleanup pass that removes dead code and throwaway tests left behind by the work.
+Canon extraction artifacts are protected source data at every development stage: preserve source refs, review trails, and structured intermediate layers because they enable later fact-card extraction and experimentation.
+After canon extraction, the next major focus is the writer/narrator loop: model choice, context assembly, lore retrieval tools, character-store selection, and an initial story-seeding turn. A useful split is a lore-heavy "nerd" verifier that protects Metabarons invariants and a less-encoded scenarist that creates new main characters/core lines without merely replaying canon.
 
 
 Tools & resources
 
 Providers: OpenAI, Anthropic, OpenRouter (via OpenAI interface), MiniMax
-Models in active use: Claude Opus (Sans-Nom, Tonto RP), Claude Sonnet (most council members), MiniMax (Tonto conversational)
+Models in active use: Claude Opus (Sans-Nom, Tonto RP), Claude Sonnet (most council members), MiniMax (Tonto conversational). For future Claude model aliases, use sonnet[1m] and opus[1m] when the task asks for Sonnet or Opus.
 Open-source repo: github.com/delta-9/council-of-castaka
 Reference sources: Bedetheque, Humanoids, Writeups.org, ComicArtFans, Heritage Auctions, Corner4art, DeviantArt

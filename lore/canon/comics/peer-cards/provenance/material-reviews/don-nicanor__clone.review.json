@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Distinct cloned-phase persona supported across volumes 12-14 with durable behavior, public role, private memory instability, relationships, voice, and consequential actions."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "don-nicanor__clone",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

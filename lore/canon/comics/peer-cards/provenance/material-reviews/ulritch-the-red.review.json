@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin but distinct named actor: a pirate gang leader who allies with Aghnar for a specific hijack operation. Source has no dialogue or appearance, but provides enough action, role, and relationship boundary for a small base peer card."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "ulritch-the-red",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

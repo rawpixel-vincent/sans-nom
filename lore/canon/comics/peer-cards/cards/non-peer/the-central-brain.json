@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-05-04T01:22:08.376508+00:00",
+  "non_peer_reason": "Single source-thin advising-intelligence hook with one contextual action directing Steelhead to Terra Prima; no durable voice, behavior, or scene-usable persona beyond Steelhead's love-quest lore.",
+  "peer_card_id": "the-central-brain",
+  "related_peer_ids": [
+    "steelhead__warrior"
+  ],
+  "source_record_ids": [
+    "characters-volume-11.json#009:the-central-brain"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [],
+    "non_peer_reason": "Single source-thin advising-intelligence hook with one contextual action directing Steelhead to Terra Prima; no durable voice, behavior, or scene-usable persona beyond Steelhead's love-quest lore.",
+    "peer_card_id": "the-central-brain",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "steelhead__warrior"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

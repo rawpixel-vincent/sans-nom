@@ -1,0 +1,190 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "oda__princess",
+  "peer_identity": {
+    "arc_label": "Princess Oda Capricious as an independent agent—before Honorata's reincarnation within her",
+    "display_name": "Oda Capricious (Princess)",
+    "honcho_notes": "Voice: 'That is not the blue rose I want'—unwavering public standards. Courageous under lethal threat; held blade to herself to coerce father. Willing co-conspirator in Aghnar's infiltration plan. Deeply emotionally attached; merges psychic energy with Aghnar 'united forever.' Left mentally devastated after the battle. Genetically unique—Shabda-Oud target her womb for their breeding plan.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "oda__princess",
+    "rationale": "Separated from the Marmola Oda (different person) and from the Honorata-in-Oda records (vol09–10). In vol07–08, Oda operates with her own will: refuses suitors, holds a blade to herself to coerce her father, agrees to infiltrate the Shabda-Oud, tends Aghnar's wounds, merges psychic energy with him. She has a clear personal voice and agency. After vol08, Honorata's spirit supplants her identity. Keeping vol07–08 separate preserves Oda's distinct VOICE and TRAIT data for an authentic individual persona.",
+    "source_record_ids": [
+      "characters-volume-07.json#001:oda",
+      "characters-volume-08.json#001:oda"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Oda",
+        "Princess Oda",
+        "Oda the Capricious"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['ic1 (recap)', 'p02', 'p04', 'p05', 'p06', 'p07', 'p08', 'p14', 'p15', 'p16', 'p17', 'p19', 'p23', 'p24', 'p25', 'p26', 'p27']"
+      ],
+      "character_id": "oda",
+      "image_sha256s": [],
+      "important_actions": [
+        "Refused all suitors who did not bring the true blue rose (vol 7 p02–p04)",
+        "Accepted Aghnar's offer and verbally agreed to leave with him (vol 7 p05)",
+        "Held a blade to her chest or throat and forced her father to stand down under armed standoff (vol 7 p06)",
+        "Agreed to serve as Aghnar's feigned captive to infiltrate the Shabda-Oud lair (vol 7 p07)",
+        "Tended Aghnar's severe blood loss from his severed arm on the battlefield (vol 7 p24)",
+        "Merged psychic energy with Aghnar in a mind's-shadow union — described as making them 'united forever' — to help him survive the Elders' assault (vol 7 p25)"
+      ],
+      "knowledge_boundaries": [
+        "Left mentally devastated after the battle; condition regarding retained memories or cognition unknown at volume's close (vol 7 p27)",
+        "Her knowledge of the Shabda-Oud's plans (from having been inside their lair) is not explored before the mental injury occurs"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#001:oda",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: beloved / partner / mind's-shadow union; notes: Agreed to join his plan; tended his wounds in battle; merged energy with him permanently in the mind's-shadow union (vol 7 p25)",
+        "character: Oda's Father (unnamed king); type: daughter — coerced relationship; notes: Father treated her as both kin and a claimed prospective wife; Oda explicitly rejects the marriage claim (vol 7 p06); forced him to release them by threatening suicide",
+        "character: Sama-Wajd; type: intended genetic progenitor; notes: Shabda-Oud believe her womb will produce the prophesied hermaphrodite Sama-Wajd",
+        "character: Honorata; type: uncertain — a woman who loved Oda more than anything; notes: Narration in vol 7 p11 mentions a woman who loved Oda more than anything; identity not fully resolved on that page alone"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Unwavering in her public demands — dismisses even the wealthiest and most powerful suitors who fail the blue-rose condition",
+        "Courageous under lethal threat; held a blade to herself to coerce her father",
+        "Submissive or compliant in her responses to Aghnar during their journey together",
+        "Described as beautiful and genetically unique — the Shabda-Oud consider her womb the key to their twelve-generation breeding plan",
+        "Deeply emotionally attached to Aghnar; merges her psychic energy with his in a permanent mind's-shadow union"
+      ],
+      "voice_notes": [
+        "Repeatedly: 'That is not the blue rose I want' — dismisses every substitute offering (vol 7 p02, p03)",
+        "Begs 'Aghnar' to save her during the forced Shabda-Oud ritual (vol 7 p17)",
+        "Responds affirmatively each time Aghnar describes their shared future (vol 7 p07, p08)",
+        "Alarmed rather than triumphant when the glowing cocoon appears after the final blast; asks what is happening (vol 7 p26)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Repeatedly witnessed suitors fail her blue-rose demand, including General Amagho's grotesque offering from a defeated emperor's remains (vol 7 p02)",
+        "Experienced Aghnar manifesting the true blue rose via psychic eye-beam (vol 7 p04)",
+        "Heard Aghnar's full tragic history and his plan to use her as a feigned captive (vol 7 p07)",
+        "Was subjected to the Shabda-Oud's forced reproductive ritual invoking Jejoh and Sama-Wajd (vol 7 p16, p17)",
+        "Was present and in danger during the main battle at the ice asteroid lair (vol 7 p19)",
+        "Witnessed Aghnar's arm severed and his stoic response (vol 7 p24)",
+        "Co-survived the Elders' psychic assault through the mind's-shadow union (vol 7 p25)"
+      ]
+    },
+    {
+      "aliases": [
+        "Oda",
+        "Princess Oda",
+        "Oda-Honorata (used after Aghnar's accusation that Honorata inhabits her body)"
+      ],
+      "appearances": [
+        "description: Female; depicted in ornate biomechanical armor on cover with a forehead emblem or implant; later shown in pale ceremonial outfit; eventually appears reviving from a medical pod in a translucent sheet; source_refs: ['205_The_Metabarons_8_c01', '206_The_Metabarons_8_ic1', '219_The_Metabarons_8_p14']"
+      ],
+      "character_id": "oda",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Won Aghnar's trust and agreed to help him seek revenge (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+        "action: Joined Aghnar spiritually in final mental confrontation with elder witches (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+        "action: Revived from catatonic state via Honorata's psycho-surgery with Tonto as assistant; source_refs: ['218_The_Metabarons_8_p13', '219_The_Metabarons_8_p14']",
+        "action: Gives birth to a bio-male son (later known as Steelhead); source_refs: ['222_The_Metabarons_8_p17']",
+        "action: Insists Aghnar should father a warrior heir; Aghnar disagrees; source_refs: ['221_The_Metabarons_8_p16']",
+        "action: Carries the near-fatally injured infant to Tonto for emergency grafting; source_refs: ['227_The_Metabarons_8_p22']"
+      ],
+      "knowledge_boundaries": [
+        "Her subjective consciousness during her catatonic/spiritually-dead state is unknown; Tonto states her soul had already departed"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#001:oda",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: husband; notes: Deep mutual attachment; reunion after revival is wordless—only names spoken",
+        "character: Honorata; type: mother-in-law; accused usurper of her body; notes: Honorata performs psycho-surgery to revive her; Aghnar later accuses Honorata of having occupied her body via cloning",
+        "character: Tonto; type: surgical assistant; notes: Tonto assists Honorata in Oda's revival procedure",
+        "character: Steelhead; type: son (infant); notes: Conceives and gives birth to him; protects the infant even as a deadly conflict erupts",
+        "character: Shabda-Oud; type: captor (past); notes: Was delivered to the Shabda-Oud for breeding purposes as part of Aghnar's revenge scheme"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Brave enough to join Aghnar mentally in the final battle against the elder witches",
+        "Forceful and ideological about dynastic duty—strongly advocates producing a male warrior heir",
+        "Emotionally reduced to near-silence upon revival: can only say Aghnar's name"
+      ],
+      "voice_notes": [
+        "Insists child must be a son so the Metabaron line continues (p16)",
+        "Argues 'a good soul should not waste the chance to make his son the greatest warrior in the universe' (p16)",
+        "States the Castakas will not return to the warrior path, consistent with Aghnar's declaration (p13)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Was chained to an altar on the witches' asteroid and participated in a ritual involving the god Jejoh (recap); source_refs: ['206_The_Metabarons_8_ic1']",
+        "fact: Joined Aghnar in the mental battle against the elder witches (recap); source_refs: ['206_The_Metabarons_8_ic1']"
+      ]
+    }
+  ]
+}

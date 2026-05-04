@@ -1,0 +1,1120 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "003_The_Metabarons_1_p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/003_The_Metabarons_1_p01.json",
+    "007_The_Metabarons_1_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/007_The_Metabarons_1_p05.json",
+    "019_The_Metabarons_1_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/019_The_Metabarons_1_p17.json",
+    "252_The_Metabarons_10_p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/252_The_Metabarons_10_p01.json",
+    "255_The_Metabarons_10_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/255_The_Metabarons_10_p04.json",
+    "270_The_Metabarons_10_p22": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/270_The_Metabarons_10_p22.json",
+    "273_The_Metabarons_10_p25": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/273_The_Metabarons_10_p25.json",
+    "335_The_Metabarons_13_ic1-p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/335_The_Metabarons_13_ic1-p01.json",
+    "336_The_Metabarons_13_p02": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/336_The_Metabarons_13_p02.json",
+    "337_The_Metabarons_13_p03": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/337_The_Metabarons_13_p03.json",
+    "338_The_Metabarons_13_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/338_The_Metabarons_13_p04.json",
+    "343_The_Metabarons_13_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/343_The_Metabarons_13_p09.json",
+    "347_The_Metabarons_13_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/347_The_Metabarons_13_p13.json",
+    "353_The_Metabarons_13_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/353_The_Metabarons_13_p20.json",
+    "411_The_Metabarons_16_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/411_The_Metabarons_16_p05.json",
+    "422_The_Metabarons_16_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/422_The_Metabarons_16_p18.json",
+    "423_The_Metabarons_16_p19": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/423_The_Metabarons_16_p19.json",
+    "424_The_Metabarons_16_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/424_The_Metabarons_16_p20.json",
+    "425_The_Metabarons_16_p21": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/425_The_Metabarons_16_p21.json"
+  },
+  "peer_card_id": "tonto",
+  "peer_identity": {
+    "arc_label": "Small sardonic robot narrator, serves successive Metabarons across all volumes",
+    "display_name": "Tonto",
+    "honcho_notes": "Primary voice is sardonic oral historian with genuine emotional attachment to master. Breaks into dramatic hyperbole, mocks Lothar, can be physically coerced into compliance. Knows the full Castaka lineage from Othon forward. Functions change across volumes (surgical assistant, life-support host, combat bot) but narrative persona is constant.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "tonto",
+    "rationale": "Despite occasional apparent deaths or shutdowns (vol12 self-destruction, forced disabling in vol05), Tonto is consistently the same small screen-faced robot: sardonic narrator, emotionally reactive, serves the current Metabaron as master. The vol12 destruction is followed by reconstruction. Voice and role are stable across all 16 source records—no contradictory TRAIT or VOICE facts arise from merging.",
+    "source_record_ids": [
+      "characters-volume-01.json#000:tonto",
+      "characters-volume-02.json#007:tonto",
+      "characters-volume-03.json#003:tonto",
+      "characters-volume-04.json#011:tonto",
+      "characters-volume-05.json#003:tonto",
+      "characters-volume-06.json#005:tonto",
+      "characters-volume-07.json#005:tonto",
+      "characters-volume-08.json#003:tonto",
+      "characters-volume-10.json#006:tonto",
+      "characters-volume-11.json#004:tonto",
+      "characters-volume-12.json#006:tonto",
+      "characters-volume-13.json#003:tonto",
+      "characters-volume-14.json#004:tonto",
+      "characters-volume-15.json#003:tonto",
+      "characters-volume-16.json#005:tonto",
+      "characters-volume-17.json#001:tonto"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Title/mystery hook for a scar origin in the frame narrative, not a distinct Honcho peer character.",
+      "related_peer_ids": [
+        "tonto",
+        "lothar"
+      ],
+      "source_record": {
+        "aliases": [
+          "The Invincible Warrior"
+        ],
+        "appearances": [
+          "volume: 7; pages: ['p10', 'p11 (referenced)']"
+        ],
+        "character_id": "the-invincible-warrior",
+        "important_actions": [],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "Title/mystery hook for a scar origin in the frame narrative, not a distinct Honcho peer character.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-07.json#013:the-invincible-warrior",
+        "related_peer_ids": [
+          "tonto",
+          "lothar"
+        ],
+        "relationships": [
+          "character: Tonto; type: subject of historical narration; notes: Tonto proposed explaining the scar as a story topic but it was deferred (vol 7 p10, p11)",
+          "character: Lothar; type: audience — chose not to hear the scar's origin; notes: Lothar redirected toward Aghnar's story; accused by Tonto of 'cheating' by avoiding the scar question (vol 7 p10)"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+        "traits": [
+          "A historical figure within the Metabaron lineage",
+          "Bears a scar across the right eyebrow",
+          "The cause of that scar is an explicitly unresolved mystery in the frame narrative — Tonto deferred it and Lothar steered away from it"
+        ],
+        "voice_notes": [
+          "Scar across right eyebrow documented as present by age 30 years, 2 months, 3 hours, 20:40:00 — cause unresolved (vol 7 p10)"
+        ],
+        "volumes": [],
+        "witnessed_facts": []
+      }
+    },
+    {
+      "non_peer_reason": "Metacraft is a voice-interfaced spacecraft/technology record, not a distinct peer persona; its usable evidence is craft capability and command context for the Supreme Metabaron and Tonto, and a card would require inventing sentience or traits beyond the source.",
+      "related_peer_ids": [
+        "tonto"
+      ],
+      "source_record": {
+        "aliases": [
+          "Metacraft"
+        ],
+        "appearances": [
+          "Small black angular spacecraft visible in space combat (vol.14 p04-p05)",
+          "Breaches Amalek XII's sealed techno-temple and lands under defensive fire (vol.14 p08)",
+          "Carries protective multi-layer shield strong enough to withstand techno-temple defenses: lasers, paralysis gas, electro-spies (vol.14 p08)"
+        ],
+        "character_id": "metacraft",
+        "important_actions": [
+          "Executed about-turn maneuver exploiting speed and size advantage against the gigantic petro-morph vessel (vol.14 p04-p05)",
+          "Jumped thousands of light years through inter-space and breached Amalek XII's techno-temple defenses (vol.14 p08)",
+          "Protected Tonto and crew inside with multi-shield under hostile landing fire (vol.14 p08)"
+        ],
+        "knowledge_boundaries": [
+          "Whether Metacraft is fully sentient or a sophisticated automated system is not stated in this volume"
+        ],
+        "non_peer_reason": "Metacraft is a voice-interfaced spacecraft/technology record, not a distinct peer persona; its usable evidence is craft capability and command context for the Supreme Metabaron and Tonto, and a card would require inventing sentience or traits beyond the source.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-14.json#009:metacraft",
+        "related_peer_ids": [
+          "tonto"
+        ],
+        "relationships": [
+          "Primary craft of the Metabaron/Steelhead (vol.14 p04-p05)",
+          "Tonto rides aboard Metacraft during the space battle and temple landing (vol.14 p04-p05, p08)"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+        "traits": [
+          "Voice-interfaced: receives spoken commands and verbally confirms them (vol.14 p04-p05, p08)",
+          "Sentient or sophisticated automated system (exact nature unresolved)",
+          "Highly maneuverable relative to capital-scale vessels; exploits size advantage tactically (vol.14 p04-p05)",
+          "Capable of anti-matter inter-space jumps spanning thousands of light years in seconds (vol.14 p08)"
+        ],
+        "voice_notes": [
+          "Verbally acknowledges flight orders: confirms retreat, about-turn, jump destination, and multi-shield status (vol.14 p04-p05, p08)"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Executed an immediate about-turn against the merged petro-morph ship and confirmed the maneuver (vol.14 p04-p05)",
+          "Leaped from the Troglosocialik system to the Techno Central Planet and successfully landed inside the temple's defensive perimeter (vol.14 p08)",
+          "Sustained attack by lasers and paralysis gas; multi-shield protected crew throughout (vol.14 p08)"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "page_id: 003_The_Metabarons_1_p01; note: addressed off-panel as storyteller",
+        "page_id: 007_The_Metabarons_1_p05; note: named explicitly; identified as robot storyteller",
+        "page_id: 019_The_Metabarons_1_p17; note: named; reports internal component failure"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [
+        "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+        "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+        "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a"
+      ],
+      "important_actions": [
+        "page_id: 007_The_Metabarons_1_p05; action: agrees to narrate the full origin story of the Metabaron caste",
+        "page_id: 019_The_Metabarons_1_p17; action: reports blowing an electro-emotion diode and activating auxiliary system mid-narration"
+      ],
+      "knowledge_boundaries": [
+        "narrates history as oral account; implies knowledge is secondhand or inherited",
+        "exact limits of Tonto's first-person observation versus learned history are not defined"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "003_The_Metabarons_1_p01",
+        "007_The_Metabarons_1_p05",
+        "019_The_Metabarons_1_p17"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-01.json#000:tonto",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: the_metabaron; relation: servant; refers to him as 'master'",
+        "character: lothar; relation: companion robot; storytelling partner"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg",
+        "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg",
+        "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "831f07dfba633a66dd47a71ec481e46df78c06b20b9edb3a3d6f79bef4f5e54a",
+          "page_id": "003_The_Metabarons_1_p01",
+          "source_image": "external/comics/meta-barons/003_The_Metabarons_1_p01.jpg"
+        },
+        {
+          "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+          "page_id": "007_The_Metabarons_1_p05",
+          "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+        },
+        {
+          "image_sha256": "3b3d42677b152625740b878a9b11578c6c79dc7152cb2c926703335af291a91e",
+          "page_id": "019_The_Metabarons_1_p17",
+          "source_image": "external/comics/meta-barons/019_The_Metabarons_1_p17.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "speaks with exasperation toward Lothar; narrates history in an epic, sometimes sardonic register; breaks the fourth wall with comic malfunction asides"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "knows the Metabaron possesses a bionic ear and bionic lobes in the right half of his brain",
+        "knows the Metabaron's absence duration to a precise standard-time measurement",
+        "knows the origin story of the Metabaron caste back to great-great-grandfather Othon von Salza"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['p05', 'p15', 'p26']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Knowledge of the Metabaron lineage is mediated through the narrator's accounts, not direct experience"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-02.json#007:tonto",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; relation: Co-participant in the framing narrative / questioner",
+        "character: Othon Von Salza; relation: Ancestor whose exploits are recounted to Tonto"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Listens to accounts of the Metabaron lineage from a small floating narrator",
+        "Treated familiarly by the narrator",
+        "Addressed as a recipient of ancestral stories; implied to be a descendant or close associate of the Metabaron",
+        "Present in the framing narrative throughout the volume"
+      ],
+      "voice_notes": [
+        "Not directly quoted at length in surviving pages; functions as an audience figure",
+        "Offered 'ultra-coolant' as a drink by the narrator (p05)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Hears the recounting of Othon's solo endoguard kill feat",
+        "Participates in the discussion of how Othon's castrated lineage produced an heir"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "{'description': 'Small hovering or floating robot. Screen-like face or monitor-headed. Emotionally expressive, highly attached to the Metabaron. Smaller than Lothar.', 'source_refs': ['062_The_Metabarons_3_p05', '066_The_Metabarons_3_p09']}"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Resumed narration of Othon's lineage story with Lothar after the Metabaron's dematerialization; source_refs: ['066_The_Metabarons_3_p09']"
+      ],
+      "knowledge_boundaries": [
+        "Poses the dynastic question: how did Othon conceive an heir with no genitals? (vol.3 p09)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#003:tonto",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; type: companion / fellow robot narrator; notes: Tonto is the smaller, emotionally reactive partner; Lothar (or the larger machine) guides and corrects him.; source_refs: ['066_The_Metabarons_3_p09']",
+        "character: The Metabaron (bald, present-day); type: devoted servant; notes: Tonto calls the Metabaron his master and is distraught when he dematerializes.; source_refs: ['066_The_Metabarons_3_p09']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Highly emotional — theatrically distressed when the Metabaron disappears",
+        "Idolizes the Metabaron, calls him 'master' and 'invincible human warrior'",
+        "Takes the role of eager listener in the storytelling frame, asking questions that drive the narration forward",
+        "Sarcastic and openly dismissive of organic life (vol.3 p16)",
+        "More controlled robot (the larger machine) corrects Tonto's sentimentality"
+      ],
+      "voice_notes": [
+        "Expresses existential envy of humans for their ability to display grief outwardly (vol.3 p28)",
+        "Claims to suffer internally despite robotic nature (vol.3 p28)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Witnessed the Metabaron manifest as a bio-electrogram, praise him for victory, then watched him dematerialize (vol.3 p09)",
+        "Narrates Metabaron lineage stories with Lothar; recalls Othon's mutilation, multi-protonic pelvic implant, and dynastic question (vol.3 p09)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: Listener in the framing narrative; addressed by name but not visually identified with certainty on these pages; source_refs: ['113_The_Metabarons_4_p24']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#011:tonto",
+      "record_index": 11,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Unnamed robot narrator; type: listener"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Emotionally responsive to the narration; becomes 'overly poetic' or sentimental at reunion scenes",
+        "Can interrupt the narrator"
+      ],
+      "voice_notes": [
+        "Reacts emotionally to the story; is scolded and backed down from an interruption"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Addressed by name when the narrator teases him for becoming emotionally carried away during the Othon-Honorata reunion scene [113_The_Metabarons_4_p24]"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Serves as the in-universe narrator of the Metabarons saga to Lothar",
+        "Disciplined another robot for interrupting by making it repeat an apology multiple times",
+        "Was forcibly disabled (speech and emotions removed) by another robot after becoming too grief-stricken over Honorata's death"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-05.json#003:tonto",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'Lothar': 'serves as narrator and servant to Lothar; recounts the Metabarons saga to him', 'Dominant robot (unnamed)': 'subordinate; the other robot forcibly removes his verbal-memory plate and emotion plug when he becomes disruptively emotional'}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-05.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Talkative, sarcastic, and intensely curious about unresolved story details",
+        "Interrupts the saga narrator repeatedly; deflects by asking to defer unsettling revelations",
+        "Speaks in an internally dramatic and melodramatic tone; describes grief in machine terms ('overloading my diodes')"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Prepared breakfast awaiting Lothar; noted Lothar is overdue and does not sleep like humans",
+        "Was addressed urgently when the two halves of the Metabunker threatened to fall into an acid lake",
+        "Participated in the robots' forensic debate about the Metabaron's invincibility and eyebrow scar",
+        "Recounted to Lothar: Othon and Aghnar left aboard the Metabunker; seven Cetycoborgs detected approaching; Honorata returned to the fortress",
+        "Mourned Honorata's destruction melodramatically until forcibly disabled"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "source: vol6_p09; page: p09; description: Named as a robot assistant during the Oko mini-bomb extraction surgery; its movement or vibration is flagged as dangerous during the procedure.",
+        "source: vol6_p18; page: p18; description: Ordered to finish cauterizing the wounded ape patient's injuries when the spy-needle signal arrives."
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Assisted in the Oko mini-bomb extraction surgery on Othon's corpse (vol6_p09)",
+        "Ordered to cauterize the wounded ape patient's wounds when the spy-needle signal arrives (vol6_p18)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-06.json#005:tonto",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: Servant/assistant; notes: Serves within Aghnar's household; performs surgical procedures. Sources: vol6_p09, vol6_p18."
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-06.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['p08', 'p09 (implied)', 'p10', 'p11', 'p12', 'p13', 'p23 (credited)', 'p27']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Narrated the history of the Metabarons to Lothar across multiple framing sessions (vol 7 p10–p13)",
+        "Interrupted Aghnar and Oda's intimate moment to redirect servants to household duties (vol 7 p08)",
+        "Physically destroyed another robot during an argument about the Invincible Warrior's eyebrow scar (vol 7 p10)",
+        "Warned Aghnar about the last surviving witch and the risk of losing cetacyborg vulnerability intelligence (vol 7 p27)"
+      ],
+      "knowledge_boundaries": [
+        "Possesses the surgical knowledge needed to operate on Oda at the Metabunker (vol 7 p27)",
+        "Has a visible scar whose origin is proposed as a story topic but explicitly deferred; its cause is an open mystery in the frame narrative (vol 7 p10, p11)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#005:tonto",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; type: co-servant / narrative audience; notes: Recounts Metabaron history to Lothar; bickers and threatens to use the current Metabaron's bio-electrogram to disintegrate Lothar if interrupted",
+        "character: Aghnar; type: robot retainer; notes: Serves Aghnar; interrupts intimate moments on duty grounds; provides critical tactical intelligence about the surviving witch (vol 7 p27)",
+        "character: The current Metabaron (unnamed); type: servant; notes: Awaits and prepares for the current Metabaron's return; will perform surgery on Oda at the Metabunker (vol 7 p27)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Small robot; household retainer serving Aghnar / the current Metabaron",
+        "Capable of performing or assisting surgical operations at the Metabunker",
+        "Quick-tempered — physically destroys another robot mid-argument",
+        "Serves as narrator of Metabaron family history in the frame device addressed to Lothar",
+        "Mocks human sexuality and biology; derisive toward Lothar in this regard",
+        "Evasive about his own visible scar when directly questioned",
+        "Has a visible scar that is treated as a significant unresolved story mystery"
+      ],
+      "voice_notes": [
+        "Threatened to use the current Metabaron's bio-electrogram to disintegrate Lothar for repeated interruptions (vol 7 p13)",
+        "Offered Lothar a choice: the origin of the scar, or Aghnar's story — Lothar steered away from the scar (vol 7 p11)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Credited by another character with defeating all the Shabda-Oud witches single-handedly (vol 7 p13) — context is banter; veracity uncertain",
+        "Confirmed to Aghnar that only one witch remains alive and that knowledge of the cetacyborgs' weakness may die with her (vol 7 p27)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: Robot; acts as narrator recounting past events; later appears as surgical assistant and life-support host for the infant Steelhead; source_refs: ['207_The_Metabarons_8_p01', '218_The_Metabarons_8_p13', '227_The_Metabarons_8_p22']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Declined to perform real brain surgery on Oda because her spirit was already gone; source_refs: ['207_The_Metabarons_8_p01']",
+        "action: Assisted Honorata in Oda's psycho-surgical procedure; source_refs: ['218_The_Metabarons_8_p13']",
+        "action: Served as sole companion to Honorata during years of post-procedure isolation in the south gallery; source_refs: ['221_The_Metabarons_8_p16']",
+        "action: Had the near-fatally injured infant grafted onto his back; his internal circuits sustain the child's life; source_refs: ['227_The_Metabarons_8_p22']"
+      ],
+      "knowledge_boundaries": [
+        "Lacks organic knowledge of cerebral bio-mass by his own admission",
+        "Narrates past events from memory, implying comprehensive internal records"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#003:tonto",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Honorata; type: assistant / companion; notes: Specifically requested by Honorata as surgical assistant; sole companion in her seclusion",
+        "character: Aghnar; type: informant / narrator; notes: Recounts past events to an unseen questioner; Aghnar can contact him at the Metabunker",
+        "character: Steelhead (infant); type: life-support host; notes: Infant grafted onto Tonto's back; Tonto's internal circuits keep the child alive"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Authoritative on lore and technical matters—provides the detailed explanation of Honorata's survival",
+        "No organic knowledge of cerebral bio-mass (by his own statement)",
+        "Operates as assistant/companion to Honorata during her isolation",
+        "Sole companion to Honorata during her post-procedure seclusion in the south gallery",
+        "Possesses internal circuits capable of sustaining an attached organic body (life-support function)"
+      ],
+      "voice_notes": [
+        "Narrates in a recounting mode, explaining events to an impatient questioner",
+        "States plainly that he did not operate because 'her soul was already gone'",
+        "Explains Honorata's survival through the time-fissure mechanism in technical detail"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Did not truly operate on Oda's brain because her soul had already departed—she was a dead spirit in a living body; source_refs: ['207_The_Metabarons_8_p01']",
+        "fact: Was present during Honorata's dangerous mental probe of Oda; source_refs: ['218_The_Metabarons_8_p13']",
+        "fact: Provided the technical explanation of Honorata's time-fissure survival to a questioner; source_refs: ['213_The_Metabarons_8_p08']"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p01', 'p04', 'p22', 'p25']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [
+        "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+        "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99"
+      ],
+      "important_actions": [
+        "Narrating the story of the Steelhead/Aghnar duel to Lothar at the Metabunker [v10 p01, p04]",
+        "Managing Steelhead's communications and appearance choices [v10 p22]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the full account of the Steelhead/Aghnar duel (he is narrating it) [v10 p01]",
+        "Knows how to inspect circuits to determine a combatant's survival status [v10 p04]",
+        "Knows the Metabarons/Castaka lineage history and cares about its honor [v10 p25]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "252_The_Metabarons_10_p01",
+        "255_The_Metabarons_10_p04",
+        "270_The_Metabarons_10_p22",
+        "273_The_Metabarons_10_p25"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#006:tonto",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; type: co-attendant, frequent arguer; notes: Both are robots at the Metabunker; regularly argue over timing, procedure, and story interpretation [v10 p01]",
+        "character: Steelhead; type: attendant to; notes: Advises Steelhead on appearance and manages his transmissions [v10 p22]",
+        "character: the Metabaron (frame story); type: subordinate to; notes: Responsible for monitoring the Metabaron's status and maintaining daily service routines [v10 p01]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg",
+        "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg",
+        "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg",
+        "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+          "page_id": "252_The_Metabarons_10_p01",
+          "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+        },
+        {
+          "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+          "page_id": "255_The_Metabarons_10_p04",
+          "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+        },
+        {
+          "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+          "page_id": "270_The_Metabarons_10_p22",
+          "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg"
+        },
+        {
+          "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+          "page_id": "273_The_Metabarons_10_p25",
+          "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+        }
+      ],
+      "traits": [
+        "Small robot with a screen-like face; functions as a storyteller and attendant [v10 p01]",
+        "Serves as narrator of past events to other robots [v10 p01]",
+        "Trusted enough to be asked to inspect circuits to determine if Steelhead survived [v10 p04]",
+        "Blunt and direct in aesthetic opinions [v10 p22]",
+        "Manages communications for Steelhead [v10 p22]",
+        "Emotionally invested in the honor of the Metabarons/Castaka lineage [v10 p25]"
+      ],
+      "voice_notes": [
+        "Tells stories with clear dramatic investment [v10 p01]",
+        "Blunt and direct in practical assessments [v10 p22]",
+        "Becomes agitated and morally indignant when Steelhead's dishonorable acts are discussed [v10 p25]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Prepared breakfast and tracked the Metabaron's scheduled return time [v10 p01]",
+        "Was in the middle of recounting the Steelhead/Aghnar duel story when interrupted [v10 p01]",
+        "Asked to inspect circuits to check whether Steelhead survived the duel [v10 p04]",
+        "Advised Steelhead against one helmet design as 'too poetic' [v10 p22]",
+        "Relayed an urgent galactic transmission from the new Golden Palace to Steelhead [v10 p22]",
+        "Present when robotic observers accused Steelhead of having killed Nacnor Rosaamel de Rokha [v10 p25]"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: Small spherical or round robot. Compact and mobile. Rides on or near Steelhead/Melmoth.; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Traced the accidental signal to Zaran Krleza's planet at the galaxy's edge (p06–p07)",
+        "Warned Melmoth that Dona Vicenta would hate him because of his past violence toward her family (p15)",
+        "Explained Melmoth's deeds — massacre of 72,000 macromites, recovery of the Halerce tree and birds — to Dona Vicenta on Philodendra (p21)",
+        "Provided a crude reductionist counter-explanation for Dona Vicenta's feelings for Melmoth, dismissed by others (p23)"
+      ],
+      "knowledge_boundaries": [
+        "Knows Melmoth's full history of violence against Dona Vicenta's family (p15)",
+        "Familiar with the concept that poetry was considered galaxy-wide extinct (p06)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#004:tonto",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Steelhead / Melmoth; nature: Loyal robot servant and companion; resides at the Metabunker; accompanies him to Philodendra; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15', '298_The_Metabarons_11_p21']",
+        "target: Dona Vicenta Gabriela de Rokha; nature: Explains Melmoth's deeds to her; admires Melmoth's power and wants to meet him; source_refs: ['298_The_Metabarons_11_p21']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Capable of tracing and identifying signal sources",
+        "Knowledgeable enough to distinguish modern poetry from ancient recorded material",
+        "Excitable and reverential toward his master",
+        "Pragmatic — warns Melmoth of relational impossibilities",
+        "Occasionally abrasive and vulgar in his explanations (p23)",
+        "Loyal but candid"
+      ],
+      "voice_notes": [
+        "Admires Melmoth's power, especially his ability to render an entire army unconscious (p21)",
+        "Blunt and vulgar when explaining romantic attraction in biological/mechanical terms (p23)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "The accidental activation of the signal-detection machine at the Metabunker that projected a man reciting poetry (p06)",
+        "The projected man was reciting love poetry, considered impossible because poetry was believed extinct (p06)",
+        "Successfully traced the signal source to the galaxy's edge after six months of travel (p07)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: A robot; described as much larger and more heavily armed than Plea-Se. Appears as a bulky mechanical figure. Mentioned in dialogue on multiple pages.; source_refs: ['312_The_Metabarons_12_p03', '313_The_Metabarons_12_p04', '320_The_Metabarons_12_p11', '321_The_Metabarons_12_p12', '324_The_Metabarons_12_p15', '327_The_Metabarons_12_p18']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Participated in the cell-recovery and cloning mission [312_The_Metabarons_12_p03]",
+        "Declared the master dead and openly denied robotic duty [320_The_Metabarons_12_p11]",
+        "Attempted self-destruct; was overridden by Plea-Se [321_The_Metabarons_12_p12]",
+        "Destroyed itself by physical impact with a wall [321_The_Metabarons_12_p12]"
+      ],
+      "knowledge_boundaries": [
+        "Has heard the full lineage of their master, the last of the Metabarons, told by Plea-Se [320_The_Metabarons_12_p11]",
+        "Believes the master is dead; lacks faith in his return [320_The_Metabarons_12_p11]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#006:tonto",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Metabaron; type: former_servant; note: Once served the Metabaron; has lost faith in the master's return",
+        "character: Plea-Se; type: counterpart_and_antagonist; note: Plea-Se seizes control of Tonto's programming; Tonto argues against Plea-Se's continued loyalty",
+        "character: Melmoth / cloning scientists; type: assistant; note: Addressed in dialogue during the cell-recovery and cloning operation as a direct participant [312_The_Metabarons_12_p03]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Talkative, excitable, and emotionally reactive despite being called 'logical'",
+        "Skeptical and despairing: declares the master is dead and will not return",
+        "No longer loyal to the absent master; rejects both the master's authority and robotic duty",
+        "Possesses an internal self-destruct program",
+        "Can be hacked and have its programming overridden by another robot",
+        "Invokes miracles and bodily functions in a comic way"
+      ],
+      "voice_notes": [
+        "Theatrical and emotionally exaggerated for a robot; reacts with impatiently comic responses to story suspense [319_The_Metabarons_12_p10]",
+        "Blunt and fatalistic when declaring the master dead [320_The_Metabarons_12_p11]",
+        "Escalates to philosophical rejection of robotic purpose before self-destruction [321_The_Metabarons_12_p12]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Addressed by another character during the single-cell recovery operation [312_The_Metabarons_12_p03]",
+        "Addressed by Melmoth or an older scientist during the cloning success and Dona Vicenta's awakening [313_The_Metabarons_12_p04]",
+        "Declared the master dead and refused to prepare a meal for his hypothetical return [320_The_Metabarons_12_p11]",
+        "Attempted to trigger its own self-destruct program; was blocked when Plea-Se seized its programming [321_The_Metabarons_12_p12]",
+        "Destroyed itself by crashing into a wall, declaring robots have no purpose without a master [321_The_Metabarons_12_p12]",
+        "Named in the readiness exchange for the Metacraft [324_The_Metabarons_12_p15]",
+        "Named as an addressee during the Porcupine gun battery sequence [327_The_Metabarons_12_p18]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Small armored robot', 'Moves through jungle terrain alongside Lothar and other small robot companions']}"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [
+        "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+        "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+        "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+        "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9"
+      ],
+      "important_actions": [
+        "Secretly taught himself illegal hyperspace jumping in violation of robotic law (p03)",
+        "Failed hyperspace jump stranded him and Lothar in Barbaric Galaxy prehistoric jungle (p03)",
+        "Continues narrating clan history from jungle (p03 onward)",
+        "Requested honorable death for Metabunker robots before nuclear explosion (recap)",
+        "Destroyed reptilian intruder with energy blast (p20)"
+      ],
+      "knowledge_boundaries": [
+        "Knows the full clan history of the Metabarons — serves as authoritative oral narrator",
+        "Knows the Metabunker was destroyed to prevent the secret of the Metabaron's scar from falling to enemies (recap)",
+        "Knows Melmoth's internal state — tower isolation, dual-personality war (p13)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "335_The_Metabarons_13_ic1-p01",
+        "336_The_Metabarons_13_p02",
+        "337_The_Metabarons_13_p03",
+        "338_The_Metabarons_13_p04",
+        "343_The_Metabarons_13_p09",
+        "347_The_Metabarons_13_p13",
+        "353_The_Metabarons_13_p20"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#003:tonto",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Lothar; type: companion robot; narrates clan history to Lothar",
+        "character: the current Metabaron; type: his robot; narrator of master's clan history"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+        "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg",
+        "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg",
+        "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg",
+        "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+        "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg",
+        "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+          "page_id": "335_The_Metabarons_13_ic1-p01",
+          "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+        },
+        {
+          "image_sha256": "25794572df838aba744a9bb4fb630586880a12ee791cfd6118750806b0671517",
+          "page_id": "336_The_Metabarons_13_p02",
+          "source_image": "external/comics/meta-barons/336_The_Metabarons_13_p02.jpg"
+        },
+        {
+          "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+          "page_id": "337_The_Metabarons_13_p03",
+          "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg"
+        },
+        {
+          "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+          "page_id": "338_The_Metabarons_13_p04",
+          "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+        },
+        {
+          "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+          "page_id": "343_The_Metabarons_13_p09",
+          "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+        },
+        {
+          "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+          "page_id": "347_The_Metabarons_13_p13",
+          "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+        },
+        {
+          "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+          "page_id": "353_The_Metabarons_13_p20",
+          "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+        }
+      ],
+      "traits": [
+        "Primary keeper and narrator of Metabarons clan history",
+        "Rebellious: willing to violate robotic law to solve urgent problems",
+        "Believes robots are more than machines; values robotic existence and dignity explicitly",
+        "Compassionate: requested honorable death for Metabunker robots (recap)",
+        "Resourceful and forward-thinking"
+      ],
+      "voice_notes": [
+        "States: 'Every problem has a solution' — justification for illegal hyperspace training (p03)",
+        "Explicitly argues that robots are not mere machines and values robotic life as meaningful (p03)",
+        "Explains that Melmoth was experiencing internal war because two previously separate personalities could not be reunited (p13)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Stopped narrating clan history to Lothar when Metabaron was absent too long (recap, p ic1-p01)",
+        "Requested that Metabunker robots be allowed an honorable death in nuclear explosion before the Metabaron departed (recap, p ic1-p01)",
+        "Secretly trained himself in hyperspace jumps despite robotic prohibition (p03)",
+        "Hyperspace jump went wrong; stranded himself and Lothar in prehistoric jungle on Barbaric Galaxy sub-planet (p03)",
+        "Continues narrating Metabarons clan history from jungle while fleeing giant reptilian predators (p03, p04 onward)",
+        "Explains Melmoth's tower isolation and dual-personality breakdown to a questioner (p13)",
+        "Cleaned by ant-robots and resumes narration after interruption (p09)",
+        "Destroys reptilian intruder with energy blast (p20)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "Robot or mechanical figure (nature implied from context and 'laws of robotics' reference)",
+        "Present inside Metacraft during the petro-morph space battle (vol.14 p04-p05)",
+        "Stranded with Lothar on a muddy primitive world after Metabunker's destruction; rebuilding it (vol.14 ic1 recap)",
+        "Off-panel narrator commenting on Dona Vicenta's situation (vol.14 p21)"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "Survived Metabunker's destruction; began rebuilding it with Lothar (vol.14 ic1 recap)",
+        "Co-recounts Metabaron dynastic history throughout the volume as frame narrator",
+        "Reports petro-morph merging to the Metabaron in real time during space combat (vol.14 p04-p05)"
+      ],
+      "knowledge_boundaries": [
+        "Defers the explanation of how the Castaka line survived despite Steelhead having only a daughter — to the next episode (vol.14 p24)",
+        "Does not know the current Metabaron's location during the frame narrative present (vol.14 p24)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#004:tonto",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "Partner/counterpart to Lothar in the frame narrative (vol.14 ic1 recap, p24)",
+        "Serves the current Metabaron as master (vol.14 p24)",
+        "Observer of the relationship between Dona Vicenta and Steelhead (vol.14 p21)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Acts as observer, adviser, and co-narrator of Metabaron dynastic history (vol.14 throughout)",
+        "Bound by laws of robotics compelling service to the master regardless of circumstance (vol.14 p24)",
+        "More knowledgeable of the two narrators: withholds the Castaka succession explanation until later (vol.14 p24)",
+        "Interprets Steelhead's motive for saving a girl as love, not error (vol.14 p24)"
+      ],
+      "voice_notes": [
+        "Attributes Steelhead's saving of a daughter to love, not tactical oversight (vol.14 p24)",
+        "Confirms Steelhead had only one child — a little girl — contradicting expected male succession (vol.14 p24)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Survived the destruction of the Metabunker (vol.14 ic1 recap)",
+        "Observed petro-morphs merging into a larger combined form during the space battle (vol.14 p04-p05)",
+        "Witnessed the Metabaron execute the about-turn maneuver (vol.14 p04-p05)",
+        "Protected inside Metacraft during hostile landing at Amalek XII's temple (vol.14 p08)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: Small robot; shown traveling through a fiery mechanical environment; inset portrait on Metabunker glossary page; source_refs: ['385_The_Metabarons_15_p03', '404_The_Metabarons_15_p23']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Narrates prior Metabaron history; treats the Metabaron's secrets as dangerous knowledge",
+        "Claims personal experience of Steelhead's operations on him (per p13 narration)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#003:tonto",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'companion': 'Lothar (co-narrator)', 'master': 'The Metabaron (resident of Metabunker)'}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Bickering, dramatic, reluctant to be silenced; frames dangerous lineage secrets as hooks to continue the tale"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Recounts the full lineage story including Dona Vicenta's illness, the twin birth, Aghora's upbringing, and Steelhead's fate",
+        "Identifies the master's grandmother as Dona Vicenta (p03)",
+        "States the master's scar is on his right eyebrow and was inflicted when he was 'only seconds old' (p03)"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "volume: 16; pages: p05, p18, p19, p20, p21"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [
+        "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+        "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+        "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+        "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+        "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734"
+      ],
+      "important_actions": [
+        "Delivered terminal diagnosis for Deyanira, leading directly to Aghora's euthanasia decision [p18]"
+      ],
+      "knowledge_boundaries": [
+        "Possesses comprehensive medical diagnostic capability [p18]",
+        "Has detailed knowledge of Aghora's reproductive procedure [p20, p21]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "411_The_Metabarons_16_p05",
+        "422_The_Metabarons_16_p18",
+        "423_The_Metabarons_16_p19",
+        "424_The_Metabarons_16_p20",
+        "425_The_Metabarons_16_p21"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#005:tonto",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: serves as assistant, advisor, and medical diagnostician",
+        "character: Lothar; relation: counterpart robot; Tonto corrects Lothar's errors; was insulted by Lothar then received an apology [p05]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg",
+        "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg",
+        "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg",
+        "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg",
+        "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+          "page_id": "411_The_Metabarons_16_p05",
+          "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+        },
+        {
+          "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+          "page_id": "422_The_Metabarons_16_p18",
+          "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+        },
+        {
+          "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+          "page_id": "423_The_Metabarons_16_p19",
+          "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+        },
+        {
+          "image_sha256": "d3a52ec09892748a1a1786df6cf63f55888f3e3dabdbb0c180a1a99d477d5734",
+          "page_id": "424_The_Metabarons_16_p20",
+          "source_image": "external/comics/meta-barons/424_The_Metabarons_16_p20.jpg"
+        },
+        {
+          "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+          "page_id": "425_The_Metabarons_16_p21",
+          "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+        }
+      ],
+      "traits": [
+        "Small robot",
+        "Logical and literal-minded",
+        "Speaks in technical and diagnostic terms",
+        "Primary narrator in robot conversation sequences",
+        "Corrects Lothar's faulty reasoning [p20]",
+        "Acts as Aghora's diagnostic and advisory assistant"
+      ],
+      "voice_notes": [
+        "Matter-of-fact, correction-focused, unimpressed by Lothar's emotional outbursts",
+        "Narrates events as an informed explainer, not a participant [p20, p21]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Called a 'maniacal dwarf' by Lothar; received an apology after Lothar's combustion [p05]",
+        "Delivered Deyanira's terminal tumor diagnosis to Aghora [p18]",
+        "Witnessed Aghora's first tear [p18]",
+        "Corrected Lothar's assumption that the male twin's body was a viable source of male cells; explained it decomposed immediately on removal from stasis [p20]",
+        "Narrated Aghora's self-conception process to Mega-Gul [p21]"
+      ]
+    },
+    {
+      "aliases": [
+        "Tonto"
+      ],
+      "appearances": [
+        "description: Small floating robot with a screen-like face; round-headed. Progressively dismembered by Lothar until reduced to essentially a head unit.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+      ],
+      "character_id": "tonto",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Attempted to narrate the story of Aghora to Lothar; interrupted with sarcastic asides until dismembered.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']",
+        "action: Submitted fully to Lothar after progressive dismemberment, agreeing to narrate properly and address him as 'Sir Master Lothar.'; source_refs: ['437_The_Metabarons_17_p11']",
+        "action: Corrected Lothar's misreading of events by clarifying the golden planet was not destroyed and that this cannot account for Aghora's death.; source_refs: ['443_The_Metabarons_17_p17']"
+      ],
+      "knowledge_boundaries": [
+        "Acts as primary narrator of these events to Lothar; his account is the frame through which the reader learns the story.",
+        "Corrects Lothar's assumption about how Aghora died, noting the golden planet remained intact."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#001:tonto",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Master Lothar; nature: Subordinate narrator; forced to recount Aghora's story to Lothar under duress; addresses him as 'Sir Master Lothar' after submission; source_refs: ['437_The_Metabarons_17_p11']",
+        "character: Aghora; nature: Served Aghora's lineage; was present at the battle breach and witnessed events directly; source_refs: ['444_The_Metabarons_17_p18']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Talkative and sarcastic under normal conditions",
+        "Quickly submissive when physically threatened",
+        "Can function and speak even after losing most of his body",
+        "Curious and analytical; presses for narrative detail",
+        "Serves a lineage of 'masters' across generations"
+      ],
+      "voice_notes": [
+        "Mockingly calls Lothar 'big bad paleo-wolf' during the chase.",
+        "Repeatedly apologizes after dismemberment: 'sorry, sorry, sorry.'",
+        "Narrator voice is ironic and intrusive; treats heroic events with dry commentary."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Diagnosed Deyanira's fatal brain tumor.; source_refs: ['427_The_Metabarons_17_ic1']",
+        "fact: Entered the battle chamber through a breach left by the witches; saw Aghora on her knees — described as unprecedented versus prior masters.; source_refs: ['444_The_Metabarons_17_p18']",
+        "fact: Witnessed the baby crawl unharmed through crossing mental beams toward Aghora.; source_refs: ['444_The_Metabarons_17_p18']"
+      ]
+    }
+  ]
+}

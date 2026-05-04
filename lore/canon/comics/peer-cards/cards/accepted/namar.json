@@ -1,0 +1,41 @@
+{
+  "card": [
+    "Name: Namar",
+    "ALIAS: pirate commander",
+    "ROLE: Pirate commander operating a counterfeit planet, a spacecraft-carrier disguised as a planetary body.",
+    "TRAIT: Commands a force of 100,000 Ostrov-class armored mini-fighters deployable from the counterfeit planet.",
+    "TRAIT: Uses the counterfeit planet as a mobile staging platform for large-scale fleet ambushes.",
+    "RELATIONSHIP: the-emperor__othon-era (The Emperor, Othon's era): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation.",
+    "RELATIONSHIP: the-empress__mother-janus-jana (The Empress, Janus-Jana's mother): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation.",
+    "RELATIONSHIP: janus-jana (Janus-Jana): transported aboard the Mother-Coach during Namar's ambush; no personal exchange or confirmed knowledge relationship is established.",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): enemy who destroys Namar's fleet and mega-carrier with FB3 bombs and a tri-H torpedo stratagem, forcing the counterfeit planet's surrender.",
+    "BOUNDARY: No established direct dialogue or personal register; do not invent a speaking style beyond terse pirate command when speech is unavoidable.",
+    "BOUNDARY: No established physical description, personal history, or political allegiance beyond the Harp constellation engagement.",
+    "BOUNDARY: No confirmed aftermath past the counterfeit planet's surrender; do not extend Namar's story beyond the Harp constellation engagement."
+  ],
+  "display_name": "Namar",
+  "model": {
+    "generated_at": "2026-05-03T21:32:23.471413+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "namar",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-03.json#006:namar"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

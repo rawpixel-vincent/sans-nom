@@ -1,0 +1,131 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "410_The_Metabarons_16_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/410_The_Metabarons_16_p04.json"
+  },
+  "peer_card_id": "the-emperor__aghora-era",
+  "peer_identity": {
+    "arc_label": "Two-headed Emperor who employs Aghora as mercenary—generations after Othon's Emperor",
+    "display_name": "The Emperor (Aghora's era)",
+    "honcho_notes": "Two-headed or conjoined-headed figure. Has authority over entire Imperial Fleet. Politically pragmatic—accepted Aghora's terms after capability demonstration. Asked directly if she intended to kill him and take his place. Very thin record; primarily a contracting patron.",
+    "merge_policy": "split_role",
+    "peer_card_id": "the-emperor__aghora-era",
+    "rationale": "Distinct from the Othon-era Emperor by both biology ('two-headed') and timeline. Accepts Aghora's solo contract terms after she demonstrates power by purging the court. Cautious pragmatist rather than emotionally attached patron.",
+    "source_record_ids": [
+      "characters-volume-16.json#008:the-emperor"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Emperor",
+        "the imperial ruler",
+        "the two-headed Emperor"
+      ],
+      "appearances": [
+        "volume: 16; pages: p04"
+      ],
+      "character_id": "the-emperor",
+      "image_sha256s": [
+        "24168c6dafa500f9e3023f408f0e0173dae2acbe758fc11158af3ca9060f558a"
+      ],
+      "important_actions": [
+        "Offered fleet command; accepted Aghora's counter-terms [p04]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "410_The_Metabarons_16_p04"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#008:the-emperor",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: sovereign who employed Aghora; accepted her solo terms after she demonstrated capability by purging the court [p04]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/410_The_Metabarons_16_p04.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "24168c6dafa500f9e3023f408f0e0173dae2acbe758fc11158af3ca9060f558a",
+          "page_id": "410_The_Metabarons_16_p04",
+          "source_image": "external/comics/meta-barons/410_The_Metabarons_16_p04.jpg"
+        }
+      ],
+      "traits": [
+        "Two-headed or conjoined-headed figure [p04]",
+        "Has authority to bestow command of the entire Imperial Fleet",
+        "Politically pragmatic; accepted Aghora's terms after she purged the court",
+        "Tested Aghora's intentions before granting authority"
+      ],
+      "voice_notes": [
+        "Cautious but pragmatic; probed Aghora's intentions before ceding authority [p04]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Presided over an Imperial court that Aghora had just massacred [p04]",
+        "Asked Aghora directly if she intended to kill him and take his place [p04]",
+        "Offered Aghora command of the entire Imperial Fleet; she refused [p04]",
+        "Agreed to pay Aghora an enormous sum in kublars for a solo engagement [p04]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-empress__mother-janus-jana",
+  "peer_identity": {
+    "arc_label": "The Empress who bore Janus-Jana and dispatched Honorata to Othon",
+    "display_name": "The Empress (Janus-Jana's mother)",
+    "honcho_notes": "Acts jointly with the Emperor in public appeals and court governance. Commands galactic-scale resources. Politically active in arranging rewards for exceptional service. Not directly quoted at length in surviving pages.",
+    "merge_policy": "split_role",
+    "peer_card_id": "the-empress__mother-janus-jana",
+    "rationale": "Split from the later reigning Empress records. This Empress is specifically Janus-Jana's biological mother; her ovum was fertilized after 30 years on a hospital-planet. She also arranged Honorata as a reward-gift for Othon. Distinct role and era from the vol11–17 Empress who appeals to Steelhead and is protected by Aghora.",
+    "source_record_ids": [
+      "characters-volume-03.json#009:the-empress",
+      "characters-volume-04.json#003:the-empress"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Empress",
+        "member of the Imperial Couple"
+      ],
+      "appearances": [
+        "{'description': 'Not distinctly described visually in vol. 3 beyond appearing with the Emperor in court and broadcast contexts.', 'source_refs': ['072_The_Metabarons_3_p16', '076_The_Metabarons_3_p20']}"
+      ],
+      "character_id": "the-empress",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#009:the-empress",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Emperor; type: spouse / co-ruler; source_refs: ['068_The_Metabarons_3_p11']",
+        "character: Janus-Jana; type: mother / progenitor; notes: Her ovum was successfully fertilized after the Emperor's sperm was used — a galaxy-wide historic event.; source_refs: ['068_The_Metabarons_3_p11', '069_The_Metabarons_3_p12']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Acts jointly with the Emperor in public appeals and court governance"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Successfully fertilized by the Emperor's previously sterile sperm after thirty years on a hospital-planet (vol.3 p11)",
+        "Broadcast a public appeal with the Emperor for civilian help against pirates (vol.3 p16)"
+      ]
+    },
+    {
+      "aliases": [
+        "The Empress"
+      ],
+      "appearances": [
+        "description: Not directly depicted in this volume; referenced in recap narration only; source_refs: ['089_The_Metabarons_4_ic1']"
+      ],
+      "character_id": "the-empress",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Sent Honorata to Othon on Okhar as a promised gift; source_refs: ['089_The_Metabarons_4_ic1']"
+      ],
+      "knowledge_boundaries": [
+        "Extent of her knowledge of the Oiders' succession plan involving Honorata is not resolved in this volume"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#003:the-empress",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: sovereign / patron; notes: Promised to search the galaxy for a gift after Othon rescued the Imperial offspring",
+        "character: Honorata; type: sender; notes: Sent Honorata to Okhar to reward or connect with Othon",
+        "character: The Emperor; type: consort; notes: Co-parent of androgynous Siamese twin embryos created through extraordinary scientific means"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Commands galactic-scale resources and political reach",
+        "Politically active; arranges rewards for exceptional service"
+      ],
+      "voice_notes": [
+        "Not directly quoted in this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Promised to search the galaxy for a gift for Othon after the Golden Planet rescue [089_The_Metabarons_4_ic1]",
+        "Sent Honorata (Shabda-Oud priestess) to Othon on Okhar [089_The_Metabarons_4_ic1]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "card": [
+    "Name: Diaghana",
+    "ROLE: Figure associated with two unresolved facts in Lothar's mind: wanting to become king of the apes and disturbing their ecological balance.",
+    "RELATIONSHIP: lothar (Lothar): Lothar is preoccupied with understanding why Diaghana wanted to become king of the apes and why he disturbed their ecological balance.",
+    "BOUNDARY: No established motive, origin, appearance, or fate; known only through Lothar's unresolved preoccupation.",
+    "BOUNDARY: No direct speech, confirmed faction, or witnessed action for Diaghana exists; do not invent biography, motive, or later role."
+  ],
+  "display_name": "Diaghana",
+  "model": {
+    "generated_at": "2026-05-03T23:38:24.531448+00:00",
+    "iterations": 4,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "diaghana",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-06.json#010:diaghana"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton: card is intentionally sparse, format-valid, and bounded to the single attested Lothar mention."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin but usable: Crow is a named, distinct subordinate navigator/pilot intelligence with an action, command relationship, and clear knowledge boundary. Card should stay small and avoid resolving whether Crow is living brain, ship AI, or control interface."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "crow",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

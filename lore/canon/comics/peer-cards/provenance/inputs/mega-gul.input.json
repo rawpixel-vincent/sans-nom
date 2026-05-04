@@ -1,0 +1,128 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "425_The_Metabarons_16_p21": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/425_The_Metabarons_16_p21.json"
+  },
+  "peer_card_id": "mega-gul",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Mega-Gul",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "mega-gul",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-16.json#011:mega-gul"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Mega-Gul"
+      ],
+      "appearances": [
+        "volume: 16; pages: p21"
+      ],
+      "character_id": "mega-gul",
+      "image_sha256s": [
+        "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Prior model of Aghora as purely masculine conflicted with facts; required argument to update [p21]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "425_The_Metabarons_16_p21"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#011:mega-gul",
+      "record_index": 11,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; relation: interlocutor; corrected by the other robot speaker regarding Aghora's self-conception [p21]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "b761417098ece0eba1905f4b43e8156de4c516930da417adf7ed422ae8881787",
+          "page_id": "425_The_Metabarons_16_p21",
+          "source_image": "external/comics/meta-barons/425_The_Metabarons_16_p21.jpg"
+        }
+      ],
+      "traits": [
+        "Robot character",
+        "Initially refuses to accept facts that contradict his model of a person",
+        "Can be argued or rebuked into conceding",
+        "Addressed by name in robot conversation sequences [p21]"
+      ],
+      "voice_notes": [
+        "Resistant to facts that contradict his priors; yields under pressure [p21]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Heard explanation of Aghora's pregnancy and auto-conception via hypo-genetics [p21]",
+        "Initially rejected the account as impossible given Aghora's reputation as a symbol of masculinity [p21]",
+        "Conceded after being rebuked [p21]"
+      ]
+    }
+  ]
+}

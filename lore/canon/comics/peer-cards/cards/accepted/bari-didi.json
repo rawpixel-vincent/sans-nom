@@ -1,0 +1,39 @@
+{
+  "card": [
+    "Name: Bari Didi",
+    "ROLE: Biological son of Othon Von Salza; heir to the Metabaron lineage through direct blood succession",
+    "TRAIT: Conceived and born despite Othon's castration — the circumstances of conception are unexplained",
+    "TRAIT: Known only through dialogue; no confirmed visual presence, direct speech, or independent action",
+    "TRAIT: Existence invoked as proof that the bloodline continued despite Othon's physical mutilation",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): biological father",
+    "BOUNDARY: Do not merge with peer bari; the possible Bari connection is unresolved and this peer remains a separate identity.",
+    "BOUNDARY: No personal history, birth circumstances, current status, or direct voice is established for this peer",
+    "VOICE: Does not speak; surfaces only as a name cited to resolve a succession question raised by others",
+    "INSTRUCTION: Thin singleton peer — use only the established succession facts; do not extrapolate biography, assign motivations, or inflate into a full-arc character."
+  ],
+  "display_name": "Bari Didi",
+  "model": {
+    "generated_at": "2026-05-03T21:17:34.789534+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "bari-didi",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-02.json#012:bari-didi"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

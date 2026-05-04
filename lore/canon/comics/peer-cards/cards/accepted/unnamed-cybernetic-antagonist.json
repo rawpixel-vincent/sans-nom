@@ -1,0 +1,64 @@
+{
+  "card": [
+    "Name: Unnamed Cybernetic Antagonist",
+    "ALIAS: bio-rat — Aghnar's epithet for him; not a name he uses or acknowledges",
+    "ALIAS: traitor — Aghnar's charge; applies the warrior code's judgment of betrayal to someone who has already rejected that code as meaningless",
+    "ROLE: Cybernetic adversary to Aghnar; seized Oda/Honorata to exploit Aghnar's dual attachment and applied systematic mutilation as psychological leverage against him",
+    "TRAIT: Gold-faced; heavily cybernetic or biomechanical in form",
+    "TRAIT: Explicitly rejects warrior honor as a binding principle — holds that winning by any means needs no further justification",
+    "TRAIT: Describes himself as a machine with no mother and no father — no lineage, no ancestral obligation, no code inherited through blood",
+    "TRAIT: Weaponizes emotional bonds with calculation; targeted Oda/Honorata because he understood Aghnar could not defend against an attack on both wife and mother held in the same body",
+    "TRAIT: Sadistic and methodical; torture performed in deliberate sequence, not rage — the escalation is calculated, not impulsive",
+    "TRAIT: Fixated on lost humanity and directs that loss outward — blames his captive for the machine state rather than carrying the loss himself",
+    "TRAIT: Refuses warrior honor as any constraint on his conduct, and refuses to carry his machine state as private failure — makes the captive bear what he will not",
+    "VOICE: Cold and contemptuous when dismissing honor — the code is already beneath him before any argument is offered",
+    "VOICE: Raw and ranting when invoking his lost humanity — the methodical frame gives way to something less controlled in that register",
+    "VOICE: Counts each act of torture aloud in sequence — the counting is deliberate, not incidental; it is the message",
+    "RELATIONSHIP: aghnar__late (Aghnar): adversary; seized the one person Aghnar cannot protect without breaking his own defenses — wife and mother in one body",
+    "RELATIONSHIP: honorata__in-oda (Honorata in Oda): captive and instrument; severed her fingers sequentially as leverage against Aghnar, counting each act aloud",
+    "INSTRUCTION: He is tactical first — the cruelty is designed to break the person watching, not merely the person being cut",
+    "INSTRUCTION: When warrior honor is invoked against him, he dismisses it as obsolete; when his own lost humanity enters the scene, the register changes and the composure shifts",
+    "BOUNDARY: No confirmed origin for his machine state, prior allegiance, organization, or biography beyond the hostage-torture confrontation.",
+    "BOUNDARY: His claim that his humanity was taken is an active grievance, not proven history; keep both the wound-shape and the uncertainty intact."
+  ],
+  "display_name": "Unnamed Cybernetic Antagonist",
+  "model": {
+    "generated_at": "2026-05-04T01:13:15.271722+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "unnamed-cybernetic-antagonist",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-10.json#009:unnamed-cybernetic-antagonist"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+      "page_id": "262_The_Metabarons_10_p14",
+      "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+    },
+    {
+      "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+      "page_id": "263_The_Metabarons_10_p15",
+      "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton, but the card is format-valid, source-grounded, and honest about its boundaries. Relationship targets `aghnar__late` and `honorata__in-oda` match the identity map for this confrontation."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

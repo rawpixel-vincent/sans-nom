@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-04T02:30:28.945033+00:00",
+  "non_peer_reason": "Source-thin named robot with only a one-line subordinate surgical-assistant role and no durable behavior, relationship, voice, or scene-usable boundary; a card would require invented traits.",
+  "peer_card_id": "robidiot",
+  "related_peer_ids": [
+    "steelhead__late"
+  ],
+  "source_record_ids": [
+    "characters-volume-15.json#013:robidiot"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Page context ties Robidiot's only usable evidence to Steelhead's Storlon body/heart replacement procedure."
+    ],
+    "non_peer_reason": "Source-thin named robot with only a one-line subordinate surgical-assistant role and no durable behavior, relationship, voice, or scene-usable boundary; a card would require invented traits.",
+    "peer_card_id": "robidiot",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "steelhead__late"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

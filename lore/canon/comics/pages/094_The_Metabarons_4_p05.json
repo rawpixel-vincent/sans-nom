@@ -2,32 +2,32 @@
   "character_facts": [
     "Lothar is being addressed by the robot narrator and appears to be listening to the account.",
     "Othon is away from the tower with Shazam when the emergency begins.",
-    "Ik'uta speaks in abstract, metaphorical language rather than giving a direct report.",
+    "Iku-Tta speaks in abstract, metaphorical language before reporting the catastrophe involving his daughters.",
     "The messenger is distressed and delivers the explicit facts after Othon demands clarity.",
-    "Othon reacts strongly and emotionally to the report about Honorata and his daughters."
+    "Othon reacts strongly and emotionally to the report about Honorata and Iku-Tta's daughters."
   ],
   "characters_present": [
     "Robot narrator",
     "Lothar",
     "Othon",
     "Shazam",
-    "Ik'uta",
+    "Iku-Tta",
     "Messenger or servant",
     "Lady Honorata (mentioned, not clearly shown)",
-    "Othon's daughters (mentioned, not clearly shown)"
+    "Iku-Tta's two daughters (mentioned, not clearly shown)"
   ],
   "confidence": "medium",
   "continuity_links": [
     "The page continues a narrated recounting of Metabarons family history.",
     "The narration connects the pregnancy and birth directly to the continuation of the Metabarons clan.",
-    "The report about Honorata and Othon's daughters sets up or continues a family tragedy tied to the impending birth."
+    "The report about Honorata and Iku-Tta's daughters sets up or continues a family tragedy tied to the impending birth."
   ],
   "dialogue_meaning": [
     "The robot narrator rejects a simple happy-ending version of events and insists the birth caused lasting damage to the child.",
     "The narration marks the timeline as late in Honorata's pregnancy.",
     "The servant urgently recalls Othon to the tower.",
-    "Ik'uta speaks as though sorrow naturally follows joy and hints at imminent catastrophe.",
-    "The servant finally states the concrete disaster: Honorata has been taken by Othon's daughters, who leapt with her from the tower.",
+    "Iku-Tta speaks as though sorrow naturally follows joy and hints at imminent catastrophe.",
+    "Iku-Tta finally states the concrete disaster: Honorata has been taken by his daughters, who leapt with her from the tower.",
     "Othon responds with alarm and disbelief."
   ],
   "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4",
@@ -42,8 +42,8 @@
     "That birth is described as affecting the child's entire existence.",
     "The events occur in the ninth month of a pregnancy.",
     "Othon has a tower.",
-    "Lady Honorata is alive at the start of the reported incident but is said to have been seized and thrown from the tower by Othon's daughters.",
-    "Othon has two daughters."
+    "Lady Honorata is alive at the start of the reported incident but is said to have been seized and thrown from the tower by Iku-Tta's daughters.",
+    "Iku-Tta has two daughters who live within Othon's household orbit."
   ],
   "page_id": "094_The_Metabarons_4_p05",
   "page_label": "p05",
@@ -51,10 +51,10 @@
     "A robot narrator interrupts the idea of a fairy-tale outcome and states that the child's birth was traumatic.",
     "The narration states that the child’s whole existence was disrupted by the birth.",
     "A caption places the next event on a peaceful morning in the ninth month of pregnancy.",
-    "Othon is outdoors with Shazam when a servant rushes to call him back to the tower immediately.",
-    "Othon speaks with Ik'uta, who ominously frames the moment as joy turning into despair.",
-    "The servant reports that Othon's daughters have seized Lady Honorata.",
-    "The servant says the daughters threw themselves with Lady Honorata from the top of Othon's tower.",
+    "Othon is outdoors with Shazam when Iku-Tta, his faithful servant, rushes to call him back to the tower immediately.",
+    "Othon speaks with Iku-Tta, who ominously frames the moment as joy turning into despair.",
+    "Iku-Tta reports that his two daughters have seized Lady Honorata.",
+    "Iku-Tta says his daughters threw themselves with Lady Honorata from the top of Othon's tower.",
     "Othon reacts in shock at the news."
   ],
   "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg",
@@ -67,10 +67,10 @@
   ],
   "uncertainties": [
     "Some dialogue is small and slightly hard to read; exact wording may be imperfect.",
-    "The identification of Ik'uta is based on visible dialogue and may be affected by text legibility.",
-    "Lady Honorata and Othon's daughters are reported in dialogue but are not clearly depicted on the page itself.",
+    "The identification of Iku-Tta is based on visible dialogue; earlier extraction variants misread the name.",
+    "Lady Honorata and Iku-Tta's daughters are reported in dialogue but are not clearly depicted on the page itself.",
     "The exact nature of Shazam (animal, mount, or companion) is not explicit on this page alone."
   ],
-  "visual_summary": "The page alternates between two scenes. At the top, a small robot narrator recounts that a birth was traumatic and tells Lothar to stop imagining a happy ending. Below, a caption shifts to a peaceful morning in the ninth month of pregnancy while Othon is outside with Shazam in a marshy or lakeside landscape. A servant runs to summon him back to the tower. As Othon questions Ik'uta, the old figure speaks in bitter metaphors about joy turning to despair. The servant then reveals that Othon's daughters have seized Lady Honorata and thrown themselves with her from the top of Othon's tower. The page ends on Othon's horrified reaction.",
+  "visual_summary": "The page alternates between two scenes. At the top, a small robot narrator recounts that a birth was traumatic and tells Lothar to stop imagining a happy ending. Below, a caption shifts to a peaceful morning in the ninth month of pregnancy while Othon is outside with Shazam in a marshy or lakeside landscape. A servant runs to summon him back to the tower. As Othon questions Iku-Tta, the old figure speaks in bitter metaphors about joy turning to despair. Iku-Tta then reveals that his daughters have seized Lady Honorata and thrown themselves with her from the top of Othon's tower. The page ends on Othon's horrified reaction.",
   "volume": 4
 }

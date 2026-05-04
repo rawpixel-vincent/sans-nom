@@ -1,0 +1,106 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "zacuda-frolex-mutant-zacuda-frolex",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Zacuda Frolex / Mutant Zacuda Frolex",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "zacuda-frolex-mutant-zacuda-frolex",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-03.json#011:zacuda-frolex-mutant-zacuda-frolex"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Zacuda Frolex / Mutant Zacuda Frolex",
+        "last of its kind (original)",
+        "enormous mutant Zacuda Frolex (offspring)"
+      ],
+      "appearances": [
+        "{'description': 'Insect-like lifeform. Original is small; the mutant offspring is described as enormous by comparison. Exact visual form is small and indistinct in the pages.', 'source_refs': ['058_The_Metabarons_3_p01', '059_The_Metabarons_3_p02', '060_The_Metabarons_3_p03']}"
+      ],
+      "character_id": "zacuda-frolex-mutant-zacuda-frolex",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Original Zacuda Frolex entered Terra 2014 and died in Police Central computer, laying a mutated egg; source_refs: ['058_The_Metabarons_3_p01', '059_The_Metabarons_3_p02']",
+        "action: Mutant offspring deliberately crashed into control banks, reactivating attack program and proto-nuclear units; source_refs: ['060_The_Metabarons_3_p03']"
+      ],
+      "knowledge_boundaries": [],
+      "page_ids": [],
+      "record_id": "characters-volume-03.json#011:zacuda-frolex-mutant-zacuda-frolex",
+      "record_index": 11,
+      "relationships": [],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Capable of independent navigation through large structures",
+        "Can lay a single egg at the moment of death",
+        "Egg is susceptible to mutation from machine electrical shocks during incubation",
+        "Mutant offspring acts with apparent desperation and agency — crashes itself into controls",
+        "Mutant offspring capable of triggering system-wide attack programs and activating proto-nuclear units"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Last original individual drifted through a ventilation hatch into Terra 2014, reached Police Central, and died in a minor computer keyboard (vol.3 p01–p02)",
+        "Laid one egg before dying; egg was mutated by machine shocks into an enormous offspring (vol.3 p02)",
+        "Mutant offspring navigated interior of a facility, crashed into control banks, and reactivated an attack program, bringing three proto-nuclear units online (vol.3 p03)"
+      ]
+    }
+  ]
+}

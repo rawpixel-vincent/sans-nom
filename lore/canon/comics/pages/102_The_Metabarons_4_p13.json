@@ -1,30 +1,30 @@
 {
   "character_facts": [
     "Othon has the authority to make lethal-entry prohibitions regarding his fortress.",
-    "Othon believes Iko-Itta had been a threat to the child.",
+    "Othon believes Iku-Tta had been a threat to the child.",
     "Othon responds to the incident by isolating his household from the tribe.",
     "The silver-haired woman is caring for the newborn during these events.",
     "Aghnar is a newborn infant who has recently fed and is sleeping.",
-    "Iko-Itta is said by Othon's thought to have committed suicide."
+    "Iku-Tta is said by Othon's thought to have committed suicide."
   ],
   "characters_present": [
     "Silver-haired man identified by another speaker as Othon",
     "Silver-haired woman carrying the baby",
     "Newborn baby later named Aghnar",
-    "Iko-Itta, referenced in thought text and likely the hanged figure",
+    "Iku-Tta, referenced in thought text and likely the hanged figure",
     "Crowd of tribe members or attendants",
     "Robots/service automatons",
     "Robed figures near the ceremony"
   ],
   "confidence": "high",
   "continuity_links": [
-    "The page follows an earlier incident involving Iko-Itta and the child.",
+    "The page follows an earlier incident involving Iku-Tta and the child.",
     "The public ban on tribe members entering the fortress likely changes household and political relations going forward.",
     "The naming of Aghnar marks the child's formal introduction after the crisis."
   ],
   "dialogue_meaning": [
     "A ceremonial voice frames death as a return to a true home beyond the physical world.",
-    "Othon internally interprets the death as Iko-Itta's suicide and as the end of a danger to the child.",
+    "Othon internally interprets the death as Iku-Tta's suicide and as the end of a danger to the child.",
     "Othon pauses the woman so he can address the public situation.",
     "He treats the incident as an unforgivable offense and imposes a total ban on tribe members entering his fortress.",
     "He replaces human or tribal domestic attendants with robots.",
@@ -49,7 +49,7 @@
   "plot_events": [
     "A public ritual or funeral scene accompanies speech about bodiless beings returning to their true home.",
     "A hanged body is displayed before a gathered crowd.",
-    "The silver-haired man thinks that Iko-Itta committed suicide and that this removes a threat to the child.",
+    "The silver-haired man thinks that Iku-Tta committed suicide and that this removes a threat to the child.",
     "He briefly speaks to the woman with him, asking her to wait while he addresses the assembly.",
     "He announces that the incident was unforgivable and forbids all tribe members from entering his fortress under threat of death.",
     "He declares that robots will take over his domestic service instead of tribe members.",
@@ -66,9 +66,9 @@
   ],
   "uncertainties": [
     "The ceremonial narration at the top may come from an off-panel ritual speaker rather than a specific identified character.",
-    "The identity of the hanged figure is not explicitly confirmed visually on the page, though Othon's thought links the death to Iko-Itta.",
+    "The identity of the hanged figure is not explicitly confirmed visually on the page, though Othon's thought links the death to Iku-Tta.",
     "Some background figures are too small to identify individually."
   ],
-  "visual_summary": "A ceremonial outdoor gathering is shown around a dead or dying figure hanging by the neck while a crowd, robed attendants, and armored figures look on. A silver-haired man internally reflects on Iko-Itta's suicide and tells a silver-haired woman holding a baby to wait. In a wider scene, he publicly condemns the incident and bans tribe members from entering his fortress, saying robots will handle his household. The page then cuts to an interior chamber full of service robots, where the man and woman present and name a newborn child, shown asleep in the final close-up.",
+  "visual_summary": "A ceremonial outdoor gathering is shown around a dead or dying figure hanging by the neck while a crowd, robed attendants, and armored figures look on. A silver-haired man internally reflects on Iku-Tta's suicide and tells a silver-haired woman holding a baby to wait. In a wider scene, he publicly condemns the incident and bans tribe members from entering his fortress, saying robots will handle his household. The page then cuts to an interior chamber full of service robots, where the man and woman present and name a newborn child, shown asleep in the final close-up.",
   "volume": 4
 }

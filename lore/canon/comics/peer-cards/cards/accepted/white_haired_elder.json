@@ -1,0 +1,65 @@
+{
+  "card": [
+    "Name: White_Haired_Elder",
+    "ROLE: Protector, diagnostician, and emergency caretaker for Doña Vicenta; political architect working through marriage and federation vote mechanics",
+    "TRAIT: Urges Vicenta to use violence against imminent attackers while remaining entirely passive when soldiers corner him at gunpoint — not contradiction but asymmetry: his stated obedience to his wife and future obligation constrain him from acting on his own behalf; Vicenta's defense is hers to invoke",
+    "TRAIT: Frames passivity explicitly as obedience to a wife whose authority over his will he accepts without resistance; invokes a future darkness in which he will be required to create a world — the restraint is temporal and structural, not situational cowardice",
+    "TRAIT: Reads Nicanor's memory instability and the sexual danger it produces with clinical precision — names the distortion before it becomes overt; warns Vicenta with specificity, not alarm",
+    "TRAIT: Reframes the attacking crowd as a perceptual consequence of their leader rather than autonomous agents — argues they cannot see Vicenta, only the president's distorted image; this is a tactical read, not consolation",
+    "TRAIT: Medically competent and unhesitating: cauterizes eye wounds without ceremony in the immediate aftermath of injury, moves between political negotiation and medical procedure without marking the transition",
+    "TRAIT: Politically fluent at the Galactic Union's noble-rank level — holds precise knowledge of federation vote mechanics and deploys them as the primary resolution, not a fallback",
+    "TRAIT: Capable of holding protector, diagnostician, physician, and political engineer simultaneously without any register collapsing into identity",
+    "VOICE: Calm under lethal threat. Speaks in frames: what the crowd actually perceives, what Nicanor has become, what the marriage is worth politically. When self-explanation surfaces, it is mystical: obedience to a wife, an awaited darkness, a world to be created. Does not register being cornered at gunpoint as requiring a change of tone.",
+    "RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): her protector across multiple registers — anticipates her threats, argues the violence she refuses, treats the wounds she incurs from that refusal, engineers her political future while she is still recovering",
+    "RELATIONSHIP: melmoth (Melmoth): holds his advancement as the political instrument; engineers the marriage and the federation vote that will deliver him a medallion of high nobility; this is stewardship of a solution, not personal alliance",
+    "BOUNDARY: His wife, the larger vow, and the future darkness/world-creation remain unexplained; do not identify them or resolve their purpose.",
+    "BOUNDARY: His capacity for direct violence is undemonstrated; his restraint is explicit but its limits and the scope of what he reserves himself for are unknown — do not narrate certainty in either direction",
+    "INSTRUCTION: When he argues for violence it is diagnosis, not temperament — he reads the situation, determines speech will fail, and names the register that fits; his accuracy about the crowd, about Nicanor, about the marriage value is the evidence of this diagnostic habit, not aggression",
+    "INSTRUCTION: He is not reducible to caretaker or political aide; both functions serve a larger mission and prior allegiance; he is a figure who arrived with his own commitments and is present for Vicenta's crisis, not someone whose existence is defined by her"
+  ],
+  "display_name": "White_Haired_Elder",
+  "model": {
+    "generated_at": "2026-05-04T01:47:17.653614+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "white_haired_elder",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-13.json#007:white_haired_elder"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+      "page_id": "339_The_Metabarons_13_p05",
+      "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+    },
+    {
+      "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+      "page_id": "340_The_Metabarons_13_p06",
+      "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+    },
+    {
+      "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+      "page_id": "342_The_Metabarons_13_p08",
+      "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton, but the draft stays useful and bounded: protector/caretaker, political tactician, medical competence, vow-constrained passivity, and explicit unresolved wife/darkness/world-creation limits."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

@@ -718,6 +718,13 @@
       "Knows the political mechanics of the noble medallion process [v10 p23]",
       "Does not appear to anticipate or attempt to prevent Steelhead's choice of assassination to remove the obstacle"
     ],
+    "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "the-empress__reigning",
+      "steelhead__warrior",
+      "don-nicanor__original"
+    ],
     "relationships": [
       "character: Steelhead; type: patron / client; notes: Contacted Steelhead to request help sealing the interspace breach in exchange for the title Supreme Metabaron and a high nobility medallion [v10 p23]",
       "character: Don Nicanor Rosamel de Rokha; type: political obstacle named by her; notes: She identified him as the sole ambassador who would block unanimous consent [v10 p23]"

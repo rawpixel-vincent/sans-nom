@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-04T03:36:04.734777+00:00",
+  "non_peer_reason": "Unnamed one-page prophecy claimant whose only durable value is contextual scene lore for the conspiracy against the Empress and the dark-haired warrior's dismissal; a base card would require inventing personality beyond the claim.",
+  "peer_card_id": "the-two-headed-ape-like-claimant-unnamed",
+  "related_peer_ids": [
+    "the-dark-haired-female-warrior-unnamed",
+    "the-empress__reigning",
+    "aghora"
+  ],
+  "source_record_ids": [
+    "characters-volume-17.json#011:the-two-headed-ape-like-claimant-unnamed"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "The Cybernetic Conspirators / Council of Elders are named in the relationship text but no valid peer_card_id for that group appears in the identity map search, so they are not listed."
+    ],
+    "non_peer_reason": "Unnamed one-page prophecy claimant whose only durable value is contextual scene lore for the conspiracy against the Empress and the dark-haired warrior's dismissal; a base card would require inventing personality beyond the claim.",
+    "peer_card_id": "the-two-headed-ape-like-claimant-unnamed",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "the-dark-haired-female-warrior-unnamed",
+      "the-empress__reigning",
+      "aghora"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "008_The_Metabarons_1_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/008_The_Metabarons_1_p06.json",
+    "011_The_Metabarons_1_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/011_The_Metabarons_1_p09.json",
+    "015_The_Metabarons_1_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/015_The_Metabarons_1_p13.json",
+    "016_The_Metabarons_1_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/016_The_Metabarons_1_p14.json",
+    "089_The_Metabarons_4_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/089_The_Metabarons_4_ic1.json",
+    "094_The_Metabarons_4_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/094_The_Metabarons_4_p05.json"
+  },
+  "peer_card_id": "bari",
+  "peer_identity": {
+    "arc_label": "Othon's passionate son—from council defiance to crippled warrior to mourned dead",
+    "display_name": "Bari",
+    "honcho_notes": "Passionate and confrontational voice; equates glorious death with honor. Equestrian bond (Shazam the horse). Physically disabled from broken legs. Capable of genuine remorse and reconciliation with father. Deceased before vol04 events; present as object of mourning and inheritance reference only in later records.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "bari",
+    "rationale": "All four Bari records describe the same person: Othon's son. Vol01 shows him as infant/young defender; vol02 as crippled, volatile young adult who reconciles with Othon; vol03 as deceased mourned by Othon; vol04 as the 'faithful servant' whose daughters and horse remain with Othon—a post-death reference to the same figure. The vol04 designation 'faithful servant' is a translation artifact; the text describes Bari's daughters and horse, confirming the same person. No contradictory facts.",
+    "source_record_ids": [
+      "characters-volume-01.json#006:bari",
+      "characters-volume-02.json#003:bari",
+      "characters-volume-03.json#001:bari",
+      "characters-volume-04.json#010:bari"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Bari"
+      ],
+      "appearances": [
+        "page_id: 008_The_Metabarons_1_p06; note: referenced as infant/son of Othon and Edna",
+        "page_id: 011_The_Metabarons_1_p09; note: named; entrusted with clean cuts during marble operation",
+        "page_id: 015_The_Metabarons_1_p13; note: likely the Bari confronting elders about Othon; identified as a warrior",
+        "page_id: 016_The_Metabarons_1_p14; note: likely the younger silver-haired man who overrules his father in the council"
+      ],
+      "character_id": "bari",
+      "image_sha256s": [
+        "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d"
+      ],
+      "important_actions": [
+        "page_id: 015_The_Metabarons_1_p13; action: defies elder patriarch; insists Othon will live; accuses patriarch of prejudice over birth status",
+        "page_id: 016_The_Metabarons_1_p14; action: overrules father in council vote to save Othon"
+      ],
+      "knowledge_boundaries": [
+        "awareness of the sacred technology is implied; aware of what secrecy cost could be"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "008_The_Metabarons_1_p06",
+        "011_The_Metabarons_1_p09",
+        "015_The_Metabarons_1_p13",
+        "016_The_Metabarons_1_p14"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-01.json#006:bari",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: othon_von_salza; relation: child (Othon is her/his father)",
+        "character: lady_edna; relation: child (Edna is mother)",
+        "character: baron_berard; relation: grandchild (implied)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+        "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg",
+        "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg",
+        "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+          "page_id": "008_The_Metabarons_1_p06",
+          "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+        },
+        {
+          "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+          "page_id": "011_The_Metabarons_1_p09",
+          "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+        },
+        {
+          "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+          "page_id": "015_The_Metabarons_1_p13",
+          "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+        },
+        {
+          "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+          "page_id": "016_The_Metabarons_1_p14",
+          "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "passionate and confrontational in council; speaks in terms of love vs. hatred and lineage acceptance"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "present at marble-cutting worksite (p09)",
+        "present at council debate over rescuing Othon (p13/p14)"
+      ]
+    },
+    {
+      "aliases": [
+        "Bari"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['ic1', 'p02', 'p08', 'p10', 'p11', 'p15', 'p16', 'p17', 'p19', 'p20', 'p23', 'p24', 'p25']"
+      ],
+      "character_id": "bari",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Attempted to pursue the invaders despite broken legs; detail: Was physically stopped by his father; source_pages: ['ic1', 'p02']",
+        "action: Broke down and reconciled with his father; detail: Embraced Othon, retracted his judgment of cowardice, called him the noblest of the clan; source_pages: ['p08']",
+        "action: Bonded with Shazam; detail: Named the resurrected horse, fed it sugar, began riding it on Okhar; horse described as restoring his appetite for life; source_pages: ['p16']",
+        "action: Pursued Shazam's thieves despite crippled legs; detail: Left before his father was informed; fought the green-skinned raiders; source_pages: ['p20', 'p23', 'p24']"
+      ],
+      "knowledge_boundaries": [
+        "Shares exclusive knowledge of Epyphite's location with Othon — cited as negotiating leverage",
+        "Aware of the secret tunnels used in the battle"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-02.json#003:bari",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon Von Salza; relation: Father; notes: Condemned Othon as a coward for breaking his legs; reconciled and called him the noblest of the clan",
+        "character: Edna; relation: Mother (deceased); notes: Viewed her death as heroic and wanted to emulate it",
+        "character: Shazam; relation: Bonded companion / gifted horse; notes: Shazam became a source of renewed joy and life purpose for Bari",
+        "character: Iku-Tta; relation: Attendant / stable-keeper",
+        "character: Bari Didi; relation: Implied future identity or descendant (name appears as Othon's heir in p26 dialogue)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Young; emotionally volatile and impulsive",
+        "Physically disabled: legs broken by his father, then later crippled in combat",
+        "Equates death in battle with honor; initially suicidal in his idealism",
+        "Capable of genuine remorse and reconciliation",
+        "Deeply bonded to Shazam the horse",
+        "Determined to fight despite physical limitations"
+      ],
+      "voice_notes": [
+        "Speaks in passionate, accusatory terms when in emotional distress",
+        "Explicitly equates glorious death with honor; argues against pragmatic survival",
+        "Voice softens to remorse and gratitude when reconciling with his father"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Was present at the battle on Marmola (prevented from fighting by broken legs)",
+        "Witnessed his mother Edna's death or its immediate aftermath",
+        "Attended Oda's funerary bier and reconciled with his father",
+        "Was present at the Epyphite reservoir during negotiations",
+        "Was publicly honored by the imperial couple on Marmola"
+      ]
+    },
+    {
+      "aliases": [
+        "Bari"
+      ],
+      "appearances": [
+        "{'description': \"Othon's son. Physically disabled — lost use of his legs at an unspecified point before the main narrative of vol. 3. Deceased by vol. 3.\", 'source_refs': ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']}"
+      ],
+      "character_id": "bari",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Accused Othon of cowardice on the Marmola battlefield; source_refs: ['057_The_Metabarons_3_ic1']"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#001:bari",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: father; notes: Conflict over the Marmola battlefield; Bari accused Othon of cowardice. Othon later grieved deeply after Bari's death.; source_refs: ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Accusatory: called Othon a coward for pulling him back from certain death alongside his mother",
+        "Beloved by Othon despite conflict"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Lost use of his legs before the imperial negotiation on Marmola (vol.3 ic1)",
+        "Received a genetically recreated horse (extinct 20,000 years) as an imperial gift; thieves stole it, leading to Othon's mutilation (vol.3 ic1)",
+        "Dead by vol. 3 p28; Othon mourns him on the planet Otho"
+      ]
+    },
+    {
+      "aliases": [
+        "Bari"
+      ],
+      "appearances": [
+        "description: Othon's faithful servant; referenced in recap but not clearly depicted in this volume; source_refs: ['089_The_Metabarons_4_ic1']"
+      ],
+      "character_id": "bari",
+      "image_sha256s": [
+        "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431",
+        "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "089_The_Metabarons_4_ic1",
+        "094_The_Metabarons_4_p05"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#010:bari",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: son / remembered dead heir; notes: Othon accidentally killed Bari before this volume; Othon is later seen outdoors with Shazam, the horse associated with Bari and Othon's household history",
+        "character: Shazam; type: mount associated with Bari; notes: Othon is outdoors with Shazam when Iku-Tta summons him back to the tower"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [
+        "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg",
+        "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431",
+          "page_id": "089_The_Metabarons_4_ic1",
+          "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg"
+        },
+        {
+          "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4",
+          "page_id": "094_The_Metabarons_4_p05",
+          "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg"
+        }
+      ],
+      "traits": [
+        "Dead son of Othon remembered through recap and through Shazam's continued presence"
+      ],
+      "voice_notes": [
+        "Not directly quoted in this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Referenced in recap as Othon's son whose accidental death and Othon's castration precede Othon's transformation [089_The_Metabarons_4_ic1]",
+        "Shazam remains present in Othon's household orbit when Othon is summoned back to the tower [094_The_Metabarons_4_p05]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "344_The_Metabarons_13_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/344_The_Metabarons_13_p10.json",
+    "345_The_Metabarons_13_p11": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/345_The_Metabarons_13_p11.json",
+    "358_The_Metabarons_13_p26": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/358_The_Metabarons_13_p26.json"
+  },
+  "peer_card_id": "steelhead__in-melmoth",
+  "peer_identity": {
+    "arc_label": "Steelhead's warrior ego as a subsumed internal personality after merger with Krleza",
+    "display_name": "Steelhead (Warrior Component within Melmoth)",
+    "honcho_notes": "Internal warrior voice within Melmoth's composite body. Contemptuous of ostentation and romantic display; calls the heart-shaped wedding fleet 'a sign of impotence.' Interprets Metabarons as defined by suffering, not happiness. Demands body be used for combat. Associated with concealed electro-cerebral chips. Never fully dissolved into Melmoth—retained individual selfhood. In open war with Krleza at vol13's end.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "steelhead__in-melmoth",
+    "rationale": "After the Endo-robot fusion with Zaran Krleza to form Melmoth, Steelhead ceases to be an independent actor and exists as an internal voice contesting Krleza for bodily control. Vol12 describes him as a subsumed component; vol13 shows him as the warrior internal personality at war with Krleza inside Melmoth's composite body. The active combatant persona is gone; what remains is a voice arguing for bodily control for battle. This is a fundamentally different state from the active warrior and requires a distinct Honcho card.",
+    "source_record_ids": [
+      "characters-volume-12.json#001:steelhead",
+      "characters-volume-13.json#006:steelhead"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+      "related_peer_ids": [
+        "steelhead__in-melmoth",
+        "melmoth"
+      ],
+      "source_record": {
+        "aliases": [],
+        "appearances": [],
+        "character_id": "castaka",
+        "important_actions": [],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+        "page_ids": [
+          "345_The_Metabarons_13_p11"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-13.json#009:castaka",
+        "related_peer_ids": [
+          "steelhead__in-melmoth",
+          "melmoth"
+        ],
+        "relationships": [],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+        "traits": [],
+        "voice_notes": [],
+        "volumes": [],
+        "witnessed_facts": []
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Steelhead",
+        "Melmoth (successor/merged identity)"
+      ],
+      "appearances": [
+        "description: Not separately depicted in action sequences within these pages; known only through recap. Described as a being without a human brain—mechanical or cybernetic in nature.; source_refs: ['309_The_Metabarons_12_ic1']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [
+        "Exterminated millions of Dylvaks [309_The_Metabarons_12_ic1]",
+        "Vaporized an ancient Halerce tree [309_The_Metabarons_12_ic1]",
+        "Surrendered to Zaran Krleza's merger to become Melmoth [309_The_Metabarons_12_ic1]"
+      ],
+      "knowledge_boundaries": [
+        "Sought but never independently understood love prior to the Zaran merger [309_The_Metabarons_12_ic1]",
+        "Exists only as a subsumed component of Melmoth after the merger; no separate actions in vol. 12"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#001:steelhead",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Dona Vicenta; type: antagonistic_then_transitional; note: Dona Vicenta publicly accused Steelhead of murdering her father, exterminating millions of Dylvaks, and destroying a Halerce tree",
+        "character: Dona Vicenta's father (Don Nicanor Rosamel de Rokha); type: killer; note: Steelhead killed Dona Vicenta's father",
+        "character: Zaran Krleza; type: merger_partner; note: Steelhead accepted Zaran's desire for a body; merged into Melmoth by Endo-robots",
+        "character: Shabda-Oud line; type: psychic_inheritance; note: Steelhead's mother carried Shabda-Oud psychic powers, passed to Melmoth"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "A machine or cybernetic being without a human brain prior to the merger",
+        "Publicly honored but privately accused of mass atrocity",
+        "Capable of seeking self-improvement: studied ancient writings on love",
+        "Underwent extreme trials to reach Zaran Krleza, including abandoning his powers to enter the poet's stronghold"
+      ],
+      "voice_notes": [
+        "No direct dialogue attributed to Steelhead as a separate voice in these pages; known only through third-person recap"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Received the Medallion of High Nobility [309_The_Metabarons_12_ic1]",
+        "Publicly accused by Dona Vicenta of murder, genocide of the Dylvaks, and destroying an ancient Halerce tree [309_The_Metabarons_12_ic1]",
+        "Studied old writings on love and failed to understand it [309_The_Metabarons_12_ic1]",
+        "Crossed deadly hazards to reach Zaran Krleza and abandoned his powers to enter the stronghold [309_The_Metabarons_12_ic1]",
+        "Accepted the merger with Zaran, producing Melmoth [309_The_Metabarons_12_ic1]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': [\"No separate physical form — exists as internal personality within Melmoth's composite body\", 'Associated with concealed electro-cerebral chips (p11)', 'If identified with elderly white-bearded commentator: older male figure, white beard, cockpit-like setting (p10 — uncertain)']}"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [
+        "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "344_The_Metabarons_13_p10",
+        "345_The_Metabarons_13_p11",
+        "358_The_Metabarons_13_p26"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#006:steelhead",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Melmoth; type: component identity; warrior aspect of composite being",
+        "character: Krleza; type: co-inhabiting opposite personality within Melmoth; in open conflict with (p26)",
+        "character: Lothar; type: addresses condescendingly as 'paleo-fool'"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg",
+        "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg",
+        "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+          "page_id": "344_The_Metabarons_13_p10",
+          "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+        },
+        {
+          "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+          "page_id": "345_The_Metabarons_13_p11",
+          "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+        },
+        {
+          "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+          "page_id": "358_The_Metabarons_13_p26",
+          "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+        }
+      ],
+      "traits": [
+        "Warrior; contemptuous of ostentation and romantic display",
+        "Interprets the heart-shaped fleet as a sign of impotence (p10)",
+        "Cynical; lectures Lothar condescendingly as 'paleo-fool' (p10)",
+        "Asserts Metabarons are defined by suffering, not happiness (p10)",
+        "Aggressively demands bodily control for combat (p26)",
+        "Retained individual selfhood within the composite being even after merging into Melmoth (p10)"
+      ],
+      "voice_notes": [
+        "States Metabarons are characterized by suffering, not happiness (p10)",
+        "Calls Lothar 'paleo-fool' (p10)",
+        "In internal argument: identifies as warrior; demands body be used for combat (p26)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Contemptuous of the heart-shaped fleet at Philodendra; calls it impotence (p10)",
+        "Described as having concealed electro-cerebral chips within body (p11)",
+        "Part of merged being that created Melmoth but never fully dissolved into him (p10)",
+        "Argues that the Metabarons are defined by suffering rather than happiness (p10)",
+        "Engaged in internal war with Krleza for control of Melmoth's body at end of issue (p26)",
+        "Warrior voice in internal argument demands bodily control for battle (p26)"
+      ]
+    }
+  ]
+}

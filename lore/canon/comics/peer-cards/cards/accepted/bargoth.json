@@ -1,0 +1,40 @@
+{
+  "card": [
+    "Name: Bargoth",
+    "ROLE: Member of the raiding party involved in capturing Shazam",
+    "TRAIT: Received direct instructions during the horse extraction sequence",
+    "TRAIT: Handled the captured horse with synthetic mare essence present",
+    "TRAIT: Called out as missing during the combat sequence that followed the theft",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the same party",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the same party",
+    "RELATIONSHIP: tokkar (Tokkar): fellow raider in the same party",
+    "BOUNDARY: Bargoth is individually confirmed in the horse extraction sequence and the later missing-call; no further role or fate confirmed beyond these two moments"
+  ],
+  "display_name": "Bargoth",
+  "model": {
+    "generated_at": "2026-05-03T21:26:24.097464+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "bargoth",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-02.json#016:bargoth"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [
+      "A slightly stronger final boundary could also name absent speech, motive, origin, employer, and later history, but the current boundary is narrow enough to stage."
+    ],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

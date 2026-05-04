@@ -1,0 +1,46 @@
+{
+  "card": [
+    "Name: The Ape Companion",
+    "ALIAS: Aghnar — name given by the silver-haired healer in the laboratory",
+    "ROLE: Ape-like creature inhabiting the heights above the mushroom-dome settlement; associated with the Magon apes of that world",
+    "TRAIT: Rational and capable of speech, though this was not apparent before healing — speech after recovery revealed an intelligence that had not been visible",
+    "TRAIT: Asks why it was given life — first words spoken after healing with synthesized green blood",
+    "TRAIT: Describes its own physical makeup openly: throat, glands, body, and why ground-bound life is unsuitable for it",
+    "TRAIT: Hungry; states hunger plainly",
+    "TRAIT: Warns that ascending above the mushroom domes is dangerous, then agrees to guide the way when pressed",
+    "TRAIT: Leapt away from the laboratory immediately after being named, returning to the heights",
+    "RELATIONSHIP: aghnar__warrior (Aghnar): Rescued after being struck by an epyphite dart and falling from the mushroom heights; healed with synthesized green blood in a laboratory; given the name 'Aghnar'",
+    "RELATIONSHIP: kiowotai (Kiowotai): Calls 'brother'; leads into the dangerous upper territory above the domes when pressed",
+    "VOICE: Speaks directly; asks existential questions on first breath, describes physical nature, names hunger, warns of danger",
+    "BOUNDARY: No known biography beyond the epyphite-dart wounding, rescue, healing with synthesized green blood, naming by the Metabaron, departure to the heights, hunger, brother-bond with Kiowotai, and guided ascent above the mushroom domes",
+    "BOUNDARY: This peer is the ape creature given the name 'Aghnar' by the Metabaron — not the Metabaron Aghnar nor any phase of the Metabaronic warrior lineage bearing that name"
+  ],
+  "display_name": "The Ape Companion",
+  "model": {
+    "generated_at": "2026-05-03T23:30:07.610309+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the-ape-companion",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-06.json#008:the-ape-companion"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source is thin but sufficient; this draft is format-valid, bounded, and keeps the ape companion distinct from the Metabaron Aghnar phase peers."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "oda-s-father",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Oda's Father",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "oda-s-father",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-07.json#012:oda-s-father"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Oda's Father",
+        "the King of Amadis (name not given in source)"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['p05', 'p06']"
+      ],
+      "character_id": "oda-s-father",
+      "image_sha256s": [],
+      "important_actions": [
+        "Offered his daughter and kingdom as reward to the winning suitor (vol 7 p05)",
+        "Ordered Aghnar and Oda arrested and threatened Aghnar with mutilation when Aghnar refused the kingdom (vol 7 p05)",
+        "Relented and ordered soldiers to release the pair when Oda threatened to kill herself (vol 7 p06)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#012:oda-s-father",
+      "record_index": 12,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Oda; type: father — also claimed prospective husband; notes: Oda explicitly rejects the marriage/possession claim while acknowledging him as father (vol 7 p06)",
+        "character: Aghnar; type: briefly acknowledged winner, then adversary; notes: Named Aghnar the winner and offered the entire kingdom; reversed to ordering his arrest when Aghnar refused all wealth (vol 7 p05)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Emotionally volatile — swings from joy to generosity to violent rage within moments on the same page",
+        "Treats his daughter as both kin and a political or transactional asset",
+        "Commands a substantial armed force; can order arrest and threatened mutilation",
+        "Ultimately yields rather than escalate when Oda threatens suicide — compliance over force"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Saw Aghnar carry Oda away in the open air above a crowd of guards (vol 7 p05)",
+        "Saw Oda press a blade to herself and demand he order his troops to stand down (vol 7 p06)"
+      ]
+    }
+  ]
+}

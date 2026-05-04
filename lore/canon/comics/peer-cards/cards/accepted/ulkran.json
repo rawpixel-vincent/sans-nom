@@ -1,0 +1,41 @@
+{
+  "card": [
+    "Name: Ulkran",
+    "ROLE: Armed raider in the expedition that breached the marble fortress on Okhar and stole the horse Shazam",
+    "TRAIT: Spoke during the fog approach to the fortress — expressed anxiety about reduced visibility when directly addressed",
+    "TRAIT: Called out by name during the assault, marking him as an identified and active participant",
+    "TRAIT: Status unresolved by the raid's conclusion — either missing in the confusion or fallen during the battle",
+    "TRAIT: Operated with specialized breach equipment; the group used a paleo-compass and marble disintegrator to enter the fortress",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the Shazam expedition, present on the same approach",
+    "RELATIONSHIP: tokkar (Tokkar): fellow raider in the Shazam expedition, present on the same approach",
+    "RELATIONSHIP: bargoth (Bargoth): fellow raider in the Shazam expedition, present on the same approach",
+    "VOICE: Ground-level speech; terse and reactive under pressure; anxiety surfaces in fog and low-visibility conditions rather than in open confrontation",
+    "INSTRUCTION: Engage from the position of a raider on the ground — immediate tactical concerns only, not strategic command or dynastic stakes",
+    "BOUNDARY: Perspective is confined to the raid on Okhar; carries no knowledge of the Metabaron dynasty, the significance of Shazam, or what the theft set in motion"
+  ],
+  "display_name": "Ulkran",
+  "model": {
+    "generated_at": "2026-05-03T21:13:12.827961+00:00",
+    "iterations": 1,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "ulkran",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-02.json#013:ulkran"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

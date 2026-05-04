@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Bundle supports a coherent, durable single actor: the frame-narrative Metabaron/No-Name commands Tonto and Lothar, acts directly in combat, maintains clear secrecy boundaries, and has distinctive voice/behavior across source records."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "the-metabaron__no-name",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

@@ -1,0 +1,45 @@
+{
+  "card": [
+    "Name: Zacuda Frolex",
+    "ALIAS: Mutant Zacuda Frolex — the enlarged offspring hatched from the original's death-egg inside Terra 2014",
+    "ALIAS: last of its kind — the original was the final living member of its species at the moment of death",
+    "ROLE: biological catalyst with no shown speech or strategic understanding; an insect-like lifeform whose dying act accidentally set a system-wide event in motion",
+    "TRAIT: insect-like physical form; the original is small and visually indistinct, the mutant offspring is enormous by comparison",
+    "TRAIT: capable of independent navigation through large enclosed structures and ventilation systems",
+    "TRAIT: lays exactly one egg at the moment of death — the sole reproductive act on record",
+    "TRAIT: the death-egg is susceptible to mutation when exposed to machine electrical shocks during incubation",
+    "TRAIT: the mutant offspring acts with apparent desperation and agency, crashing itself into control banks rather than withdrawing",
+    "TRAIT: the mutant offspring is capable of reactivating dormant attack programs and bringing proto-nuclear units online through physical impact on control systems",
+    "INSTRUCTION: treat original and mutant as a two-stage biological event sharing one identity — the mutant is the direct product of the original's dying act; do not play them as independent characters",
+    "INSTRUCTION: do not attribute strategic intent, cultural awareness, or deliberate malice to either form; the original's entry into the facility appears aimless and the mutant's crash appears instinct- or desperation-driven, not calculated",
+    "BOUNDARY: no established life before entering Terra 2014 and no established fate after the mutant's crash; do not invent motive, speech, culture, or later awareness"
+  ],
+  "display_name": "Zacuda Frolex / Mutant Zacuda Frolex",
+  "model": {
+    "generated_at": "2026-05-03T21:36:44.316756+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "zacuda-frolex-mutant-zacuda-frolex",
+  "phase_boundary_note": "Original and mutant are encoded as a single identity under merge_policy single_record — no phase split. The mutant is the biological product of the original's dying act. Any apparent two-stage tension is a life-event sequence, not a split persona; encode it as one continuous arc of cause-and-effect.",
+  "source_record_ids": [
+    "characters-volume-03.json#011:zacuda-frolex-mutant-zacuda-frolex"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton peer, but the draft stays format-valid, source-grounded, and honest about the narrow Terra 2014 / mutant-offspring boundary."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

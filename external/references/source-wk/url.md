@@ -1,0 +1,12 @@
+https://jodoverse.fandom.com/wiki/In_the_Heart_of_the_Impregnable_Metabunker
+https://jodoverse.fandom.com/wiki/Aghnar_the_Great-Grandfather
+https://jodoverse.fandom.com/wiki/Aghora_the_Father-Mother
+https://jodoverse.fandom.com/wiki/Oda_the_Great-Grandmother
+https://jodoverse.fandom.com/wiki/Othon_the_Great-Great-Grandfather
+https://jodoverse.fandom.com/wiki/Dayal,_the_First_Ancestor
+https://jodoverse.fandom.com/wiki/Do%C3%B1a_Vicenta_Gabriela_de_Rokha_the_Grandmother
+https://jodoverse.fandom.com/wiki/Steelhead_the_Grandfather
+https://jodoverse.fandom.com/wiki/The_Crest_of_Castaka
+https://jodoverse.fandom.com/wiki/Honorata_the_Great-Great-Grandmother
+https://jodoverse.fandom.com/wiki/Weapons_of_the_Metabaron
+https://jodoverse.fandom.com/wiki/Nameless,_the_Last_of_the_Metabarons

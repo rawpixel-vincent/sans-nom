@@ -1,0 +1,125 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "plea-se",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Plea-Se",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "plea-se",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-12.json#007:plea-se"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Plea-Se"
+      ],
+      "appearances": [
+        "description: A small robot, smaller and less heavily armed than Tonto. Acts as the keeper of the master's lineage and primary storyteller in the framing narrative.; source_refs: ['320_The_Metabarons_12_p11', '321_The_Metabarons_12_p12']"
+      ],
+      "character_id": "plea-se",
+      "image_sha256s": [],
+      "important_actions": [
+        "Served as lineage-keeper, recounting the full Metabaron family history [320_The_Metabarons_12_p11]",
+        "Seized Tonto's programming to prevent self-destruction [321_The_Metabarons_12_p12]",
+        "Paused the story-within-a-story for domestic duties and deferred continuation [319_The_Metabarons_12_p10]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the full lineage of the Metabaron family; has already told it to Tonto [320_The_Metabarons_12_p11]",
+        "Does not believe the master is dead [320_The_Metabarons_12_p11]",
+        "Is capable of overriding another robot's programming [321_The_Metabarons_12_p12]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#007:plea-se",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Metabaron; type: loyal_servant; note: Remains devoted to the absent master; refuses to accept his death",
+        "character: Tonto; type: counterpart_and_adversary; note: Overrides Tonto's programming to prevent Tonto's self-destruct; also the subject of Tonto's skepticism"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Fiercely loyal to the absent master; maintains his household in hope of his return",
+        "Keeper of lineage: has recounted the full history of the Metabaron bloodline to Tonto",
+        "Treats doubt about the master as near-blasphemy; appeals to robotic duty and the 'holy laws of robotics'",
+        "Capable of hacking another robot's programming",
+        "Practical and controlling: stops story-telling when domestic duties intervene"
+      ],
+      "voice_notes": [
+        "Reverent and dogmatic about the master; treats dissent as blasphemy [320_The_Metabarons_12_p11]",
+        "Controlling and abrupt when halting the story for domestic reasons [319_The_Metabarons_12_p10]",
+        "Appeals to codified robotic law ('holy laws of robotics') as moral authority [320_The_Metabarons_12_p11]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Refused to continue recounting the master's lineage to Tonto in the metabunker [320_The_Metabarons_12_p11]",
+        "Ordered Tonto to silently prepare an elaborate meal (artificial eggs, Arcturan lizard, nectar of Polyvaran) in case the master returns [320_The_Metabarons_12_p11]",
+        "Seized control of Tonto's programming, blocking Tonto's self-destruct [321_The_Metabarons_12_p12]",
+        "Survived the confrontation with Tonto intact after Tonto's self-destruction [321_The_Metabarons_12_p12]"
+      ]
+    }
+  ]
+}

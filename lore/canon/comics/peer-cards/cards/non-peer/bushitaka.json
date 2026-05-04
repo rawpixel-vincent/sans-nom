@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-04T02:31:32.954272+00:00",
+  "non_peer_reason": "Source evidence treats Bushitaka as a narration-cited combat doctrine/authority label, not a distinct actor with voice, behavior, or scene presence; its value is contextual lore for Aghora's strike.",
+  "peer_card_id": "bushitaka",
+  "related_peer_ids": [
+    "aghora"
+  ],
+  "source_record_ids": [
+    "characters-volume-16.json#007:bushitaka"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Glossary also identifies Bushitaka as the Metabaron warrior code, reinforcing that this should not be seeded as a separate peer persona."
+    ],
+    "non_peer_reason": "Source evidence treats Bushitaka as a narration-cited combat doctrine/authority label, not a distinct actor with voice, behavior, or scene presence; its value is contextual lore for Aghora's strike.",
+    "peer_card_id": "bushitaka",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

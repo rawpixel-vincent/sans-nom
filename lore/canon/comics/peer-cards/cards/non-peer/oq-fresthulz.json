@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-04T02:29:23.390655+00:00",
+  "non_peer_reason": "One-page named traitor/opponent with uncertain visual identity, no voice, traits, relationships, or durable behavior; evidence mainly contextualizes Aghora's executioner/prison combat lore.",
+  "peer_card_id": "oq-fresthulz",
+  "related_peer_ids": [
+    "aghora"
+  ],
+  "source_record_ids": [
+    "characters-volume-15.json#010:oq-fresthulz"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Odaen is mentioned only as the betrayed party, but no valid peer id was present in the bundle or clear identity-map search."
+    ],
+    "non_peer_reason": "One-page named traitor/opponent with uncertain visual identity, no voice, traits, relationships, or durable behavior; evidence mainly contextualizes Aghora's executioner/prison combat lore.",
+    "peer_card_id": "oq-fresthulz",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

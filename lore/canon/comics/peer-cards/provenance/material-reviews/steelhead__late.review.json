@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Distinct split-phase persona with multiple source records, durable behavior, relationships, voice, and scene-usable boundaries: post-Melmoth Steelhead acts as cold warrior-father, transforms his body, initiates Aghora, preserves Dona Vicenta, and is defeated by Aghora."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "steelhead__late",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

@@ -1,0 +1,110 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-oiders",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "The Oiders",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "the-oiders",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-04.json#006:the-oiders"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Oiders"
+      ],
+      "appearances": [
+        "description: Not depicted visually in this volume; referenced in dialogue as the authority who dispatched Honorata; source_refs: ['101_The_Metabarons_4_p12']"
+      ],
+      "character_id": "the-oiders",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Dispatched Honorata to produce a mandated hermaphrodite heir from Othon; source_refs: ['101_The_Metabarons_4_p12']"
+      ],
+      "knowledge_boundaries": [
+        "Whether their succession plot targeting Janus-Jana remains active after Honorata's defection is not resolved in this volume"
+      ],
+      "page_ids": [],
+      "record_id": "characters-volume-04.json#006:the-oiders",
+      "record_index": 6,
+      "relationships": [
+        "character: Honorata; type: commanders / authority she defied; notes: Ordered her to produce a hermaphrodite heir from Othon; she bore a son and defied them",
+        "character: Janus-Jana; type: intended assassination target; notes: Oiders planned to poison Janus-Jana as part of the succession plot"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Political faction holding authority over Honorata",
+        "Planned dynastic conspiracy: use a 'perfect androgyne' to gain support from the majority of planets and seize the Imperial throne by poisoning Janus-Jana",
+        "Command assassination as punishment for exposure of forbidden births",
+        "Law requires death of parents, child, and associates if the forbidden birth is discovered"
+      ],
+      "voice_notes": [
+        "Not directly quoted; described entirely through Honorata's revelation to Othon"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Planned to present a 'perfect androgyne' to gain planetary support and take the throne [101_The_Metabarons_4_p12]",
+        "Sent Honorata to seduce Othon and produce a specific kind of offspring [101_The_Metabarons_4_p12]",
+        "Their law mandates assassination of all involved parties if the forbidden birth is exposed [101_The_Metabarons_4_p12]",
+        "Planned to take Aghnar from his parents at the age of seven [101_The_Metabarons_4_p12]"
+      ]
+    }
+  ]
+}

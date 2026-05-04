@@ -1,0 +1,102 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "namar",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Namar",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "namar",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-03.json#006:namar"
+    ]
+  },
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Namar",
+        "pirate commander"
+      ],
+      "appearances": [
+        "{'description': 'Named in narration only; no confirmed single close-up in the pages reviewed. Associated with the counterfeit planet / pirate mega-carrier.', 'source_refs': ['071_The_Metabarons_3_p14-p15']}"
+      ],
+      "character_id": "namar",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Deployed 100,000 Ostrov-class armored mini-fighters from the counterfeit planet to attack the Mother-Coach; source_refs: ['071_The_Metabarons_3_p14-p15']"
+      ],
+      "knowledge_boundaries": [],
+      "page_ids": [],
+      "record_id": "characters-volume-03.json#006:namar",
+      "record_index": 6,
+      "relationships": [
+        "character: The Imperial Couple / Mother-Coach convoy; type: enemy / attacker; notes: Namar's fleet ambushes the Mother-Coach convoy transporting the perfect androgyne in the Harp constellation.; source_refs: ['071_The_Metabarons_3_p14-p15']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Commands massive pirate forces: 100,000 Ostrov-class armored mini-fighters",
+        "Possesses or operates a counterfeit planet — a mega spacecraft-carrier disguised as a planetary body"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Launched 100,000 Ostrov-class fighters from his counterfeit planet against the Mother-Coach convoy (vol.3 p14–p15)",
+        "His mega-carrier was destroyed by Othon's FB3 bombs and tri-H torpedo stratagem; counterfeit planet surrendered (vol.3 p23)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "zombra",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Zombra",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "zombra",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-17.json#003:zombra"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Zombra"
+      ],
+      "appearances": [
+        "description: Dark-haired woman with extensive circular or spiral body tattoos/patterns.; source_refs: ['433_The_Metabarons_17_p06']",
+        "description: Shown restrained in a prison chamber on p03; undergoing biomechanical reintegration via spiked contact-point apparatus on p06.; source_refs: ['430_The_Metabarons_17_p03', '433_The_Metabarons_17_p06']"
+      ],
+      "character_id": "zombra",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Freed from Kgen-Kgen planetary prison by the whore-priestesses.; source_refs: ['430_The_Metabarons_17_p03']",
+        "action: Underwent biomechanical reintegration; declared herself restored and complete.; source_refs: ['433_The_Metabarons_17_p06']",
+        "action: Demonstrated swarm-division ability: split from one into two, then multiplied into many identical warrior-units while armored observers watched.; source_refs: ['434_The_Metabarons_17_p07']",
+        "action: Swarm copies (Zombras) deployed against Aghora in the Gardens of Flos; overwhelmed the Metabaron's rearguard defense.; source_refs: ['435_The_Metabarons_17_p08-p09']"
+      ],
+      "knowledge_boundaries": [
+        "The exact nature of what was restored inside her during reintegration is not shown explicitly on the pages.",
+        "Whether she retained awareness of or coordination with her swarm copies is not stated."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#003:zombra",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Four Whore-Priestesses of Shabda-Oud; nature: Freed by them from Kgen-Kgen; calls one a 'double-voiced witch'; aware of their near-extermination by the Metabaron; source_refs: ['430_The_Metabarons_17_p03']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Defiant and openly hostile toward even her rescuers",
+        "Suspicious of others' motives; demands explanations",
+        "Experiences biomechanical reintegration as pleasurable and completing",
+        "Possesses power to divide into millions of identical humanoid warrior-units that can recombine into one body",
+        "Swarm-division is said to be capable of devastating an entire planet"
+      ],
+      "voice_notes": [
+        "Immediately demands to know why she is being rescued rather than accepting the act.",
+        "Calls one rescuer a 'double-voiced witch,' suggesting either a title, personal insult, or recognition of unusual speech.",
+        "Declares herself 'reborn and complete' after reintegration."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Was held in a planetary-scale prison — dialogue states an entire planet was built specifically to contain her.; source_refs: ['430_The_Metabarons_17_p03']",
+        "fact: Learned that only four clan members survived after the Metabaron wiped out nearly the entire clan.; source_refs: ['430_The_Metabarons_17_p03']",
+        "fact: Underwent biomechanical reintegration using shadow rods and psycho-essence; reported an internal presence returning.; source_refs: ['433_The_Metabarons_17_p06']",
+        "fact: Her copies (Zombras) were unleashed in the Gardens of Flos by the whore-priestesses; all Zombras were incinerated when planet Flos was destroyed.; source_refs: ['435_The_Metabarons_17_p08-p09', '440_The_Metabarons_17_p14']"
+      ]
+    }
+  ]
+}

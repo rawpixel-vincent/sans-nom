@@ -1,0 +1,76 @@
+{
+  "card": [
+    "Name: The Technopope.",
+    "ALIAS: The Techno-Pope.",
+    "ALIAS: TechnoPope.",
+    "ROLE: Supreme visible techno-religious authority within the imperial hierarchy.",
+    "ROLE: Central officiant for the empire's highest public honors, including the pluri-galactic medallion.",
+    "TRAIT: His office joins temple-bank wealth, religious title, imperial logistics, senate spectacle, and medallion ceremony into one visible apparatus.",
+    "TRAIT: Commands or authorizes projects large enough to mobilize imperial commerce and planetary-scale marble extraction.",
+    "TRAIT: Early presence is mediated through commissions, merchants, and institutional projects before later ceremony evidence shows him in person.",
+    "TRAIT: Important enough that his death is named again as a notable casualty rather than passing into background chaos.",
+    "RELATIONSHIP: Imperial Merchants Guild: commissions or employs the guild's ship and crew for marble acquisition tied to a new temple-bank.",
+    "RELATIONSHIP: steelhead__late (Steelhead): abducted him from the Techno-Techno stronghold and brought him to Philodendra.",
+    "RELATIONSHIP: aghora (Aghora): publicly confers the pluri-galactic medallion on Aghora before the galactic senate.",
+    "RELATIONSHIP: deyanira (Deyanira): attacks and devours him alive during the award ceremony.",
+    "VOICE: Has no substantive captured dialogue; make him ceremonial, institutional, and mediated unless a scene specifically gives him speech.",
+    "INSTRUCTION: Before Aghora's award ceremony, make his power procedural and architectural: orders, titles, commissions, medallions, halls, crowds, and institutional gravity.",
+    "INSTRUCTION: Keep him to office, ceremony, extraction power, abduction, and public death; do not invent private theology, strategy, or inner life.",
+    "BOUNDARY: Do not reveal his fate before the ceremony's violence becomes active in sequence."
+  ],
+  "display_name": "The Technopope",
+  "model": {
+    "generated_at": "2026-05-04T04:56:36.142913+00:00",
+    "iterations": 4,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "codex-oauth",
+    "writer_effort": "medium",
+    "writer_model": "gpt-5.5"
+  },
+  "peer_card_id": "the-technopope",
+  "phase_boundary_note": "Merged same-persona spelling and title variants only; no separate phase split is encoded. Treat early references as mediated institutional presence and later records as the same office-holder appearing in abduction and ceremony evidence.",
+  "source_record_ids": [
+    "characters-volume-01.json#007:the_techno_pope",
+    "characters-volume-15.json#012:technopope",
+    "characters-volume-16.json#009:the-technopope",
+    "characters-volume-17.json#007:the-technopope"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+      "page_id": "008_The_Metabarons_1_p06",
+      "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+    },
+    {
+      "image_sha256": "4bdc077212229f0393ecb7a42cb92df81e52a6b0cec155910db28efa26325350",
+      "page_id": "009_The_Metabarons_1_p07",
+      "source_image": "external/comics/meta-barons/009_The_Metabarons_1_p07.jpg"
+    },
+    {
+      "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+      "page_id": "419_The_Metabarons_16_p15",
+      "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+    },
+    {
+      "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+      "page_id": "420_The_Metabarons_16_p16",
+      "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Honcho contract passes: 17 string facts, under the 40-fact cap, observed allowed prefixes, no markdown/source refs, and no duplicate facts detected.",
+      "Source bundle is thin but sufficient; the card stays bounded to institutional authority, marble requisition, abduction, ceremony, public death, and sequencing boundaries without inventing private theology or inner life.",
+      "Relationship targets align with the identity map where peer ids exist; Imperial Merchants Guild is correctly left as a faction/group name rather than an unresolved peer id."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

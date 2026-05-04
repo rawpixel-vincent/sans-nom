@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Keep as peer material: identity-map explicitly defines this as a split_uncertain persona, and the source record supports a coherent actor with tactical behavior, command voice, protective relationship to Milady, and distinct actions."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "the-metabaron__supreme",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

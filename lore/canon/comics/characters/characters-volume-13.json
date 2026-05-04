@@ -559,42 +559,6 @@
   {
     "aliases": [],
     "appearances": [
-      "{'physical': ['Arrives in disguise inside a Metacraft (recap, p ic1-p01)', 'Has a scar whose secret constitutes a critical weakness']}"
-    ],
-    "character_id": "the_current_metabaron",
-    "important_actions": [],
-    "knowledge_boundaries": [
-      "Knows the secret of his own scar constitutes a critical weakness requiring the Metabunker's destruction"
-    ],
-    "relationships": [
-      "character: Tonto; type: Tonto is his robot and narrator of clan history",
-      "character: Lothar; type: Lothar is emotionally dependent on him; his absence caused Lothar's suicidal crisis"
-    ],
-    "source_refs": [
-      {
-        "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
-        "page_id": "335_The_Metabarons_13_ic1-p01",
-        "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
-      }
-    ],
-    "traits": [
-      "Harsh and decisive in destruction when strategic objectives require it",
-      "Strategic about concealing weakness — destroys the Metabunker specifically to protect the scar secret",
-      "Long absence caused severe psychological crisis in Lothar"
-    ],
-    "voice_notes": [],
-    "volumes": [],
-    "witnessed_facts": [
-      "Was absent from the Metabunker for a long time; absence drove Lothar to suicidal behavior (recap, p ic1-p01)",
-      "Returned to the Metabunker in disguise inside a Metacraft (recap, p ic1-p01)",
-      "Defeated the Metabunker's bio-electrogram defensive measure quickly (recap, p ic1-p01)",
-      "Ordered the Metabunker's nuclear self-destruction to prevent enemies learning the secret of his scar (recap, p ic1-p01)",
-      "Departed before the Metabunker exploded (recap, p ic1-p01)"
-    ]
-  },
-  {
-    "aliases": [],
-    "appearances": [
       "{'physical': ['Tall, white-haired, white-bearded older man in dark clothing (p06)', 'Remains outwardly passive under armed threat (p06)']}"
     ],
     "character_id": "white_haired_elder",
@@ -705,6 +669,12 @@
     "character_id": "castaka",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "steelhead__in-melmoth",
+      "melmoth"
+    ],
     "relationships": [],
     "source_refs": [
       {

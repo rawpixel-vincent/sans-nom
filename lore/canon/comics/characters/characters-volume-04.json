@@ -12,7 +12,7 @@
     "important_actions": [
       "action: Knighted as Metabaron after rescuing Imperial offspring at Golden Planet; source_refs: ['089_The_Metabarons_4_ic1']",
       "action: Blood-ritual conception of Aghnar via nervous-system link during lunar eclipse; source_refs: ['092_The_Metabarons_4_p03', '093_The_Metabarons_4_p04']",
-      "action: Banned tribe from fortress; replaced all staff with robots after Iko-Itta's suicide; source_refs: ['102_The_Metabarons_4_p13']",
+      "action: Banned tribe from fortress; replaced all staff with robots after Iku-Tta's suicide; source_refs: ['102_The_Metabarons_4_p13']",
       "action: Named infant Aghnar; source_refs: ['102_The_Metabarons_4_p13']",
       "action: Attempted to kill Aghnar as physically unfit to be a warrior; source_refs: ['104_The_Metabarons_4_p15']",
       "action: Set seven-year concealment plan and warrior trial terms, vowing to die with son if he fails; source_refs: ['106_The_Metabarons_4_p17']",
@@ -25,11 +25,11 @@
     "relationships": [
       "character: Honorata; type: lover / mother of his child; notes: Union impossible due to his castration; conceived Aghnar via blood-ritual nervous-system link during lunar eclipse",
       "character: Aghnar; type: son; notes: Fathered through blood ritual; moved to kill him as infant for being unfit; administered brutal initiation trials; vowed to die with him if he failed",
-      "character: Bari; type: faithful servant; notes: Othon lives with Bari's two daughters after remaking Castaka fortress; rides Bari's horse at night",
-      "character: Iko-Itta; type: household threat (now deceased); notes: Othon believed Iko-Itta's suicide removed a threat to Aghnar",
+      "character: Iku-Tta; type: faithful servant / household associate; notes: Iku-Tta has two daughters living in Othon's fortress orbit; Othon is outdoors with Shazam when Iku-Tta summons him back to the tower",
+      "character: Iku-Tta; type: household threat (now deceased); notes: Othon believed Iku-Tta's suicide removed a threat to Aghnar",
       "character: The Emperor; type: liege; notes: Knighted Othon as Metabaron after Othon rescued the Imperial offspring at the Golden Planet",
       "character: The Empress; type: patron; notes: Promised to search the galaxy for a gift for Othon; sent Honorata to him",
-      "character: Othon's daughters; type: daughters / household dependents; notes: Lived with him in Castaka fortress; acted against his interests by seizing Honorata and leaping from the tower"
+      "character: Iku-Tta's daughters; type: non-peer daughter pair / household dependents; notes: lived in the Castaka fortress orbit; seized Honorata and leapt from the tower"
     ],
     "source_refs": [],
     "traits": [
@@ -52,8 +52,8 @@
       "Knighted as Metabaron by the Emperor [089_The_Metabarons_4_ic1]",
       "Confessed to Honorata during a lunar eclipse that their union was impossible [091_The_Metabarons_4_p02]",
       "Linked his nervous system to Honorata's during conception ritual; instructed her to place a drop of his blood into herself [093_The_Metabarons_4_p04]",
-      "Reacted with shock when told his daughters had seized Honorata and leapt from the tower [094_The_Metabarons_4_p05]",
-      "Banned all tribe members from his fortress after Iko-Itta's suicide and replaced household staff with robots [102_The_Metabarons_4_p13]",
+      "Reacted with shock when told Iku-Tta's daughters had seized Honorata and leapt from the tower [094_The_Metabarons_4_p05]",
+      "Banned all tribe members from his fortress after Iku-Tta's suicide and replaced household staff with robots [102_The_Metabarons_4_p13]",
       "Named the infant Aghnar [102_The_Metabarons_4_p13]",
       "Moved to kill Aghnar as unfit; stood down when Honorata revealed her permanent sterility [104_The_Metabarons_4_p15]",
       "Imposed a seven-year blackout on news of the child; set warrior trial terms: failure means death for both himself and Aghnar [106_The_Metabarons_4_p17]",
@@ -90,7 +90,7 @@
       "character: Aghnar; type: mother / trainer; notes: Raised him in seven-year exile at Anasirma; administered brutal Shabda-Oud training including corporal punishment and forced emotional cruelty; gave him the only kiss of his childhood after he defeated her in combat",
       "character: The Empress; type: patron who dispatched her; notes: The Empress sent Honorata to Okhar as a gift to Othon",
       "character: The Oiders; type: authority she defied; notes: Sent by Oiders to produce a perfect androgyne for succession plot; disobeyed out of love and bore a son instead",
-      "character: Othon's daughters; type: enemies / captors; notes: Daughters seized her in ninth month of pregnancy and threw themselves with her from the tower"
+      "character: Iku-Tta's daughters; type: non-peer enemies / captors; notes: the two daughters seized her in ninth month of pregnancy and threw themselves with her from the tower"
     ],
     "source_refs": [],
     "traits": [
@@ -113,7 +113,7 @@
       "During a lunar eclipse told Othon she was the last of the Von Salzas and could not transmit the White Castaka birthmark [092_The_Metabarons_4_p03]",
       "Proposed blood-ritual conception as alternative to normal union [092_The_Metabarons_4_p03]",
       "Conceived Aghnar during a nervous-system-linked ritual; this left her permanently sterile [093_The_Metabarons_4_p04, 104_The_Metabarons_4_p15]",
-      "In ninth month of pregnancy, seized by Othon's daughters and thrown from the tower [094_The_Metabarons_4_p05]",
+      "In ninth month of pregnancy, seized by Iku-Tta's daughters and thrown from the tower [094_The_Metabarons_4_p05]",
       "Struck by an epiphyte dart during the fall; suspended in air by wind; gave birth between sky and ground [099_The_Metabarons_4_p10]",
       "Revealed the Oiders' succession conspiracy and her defiance; agreed to seven-year concealment plan [101_The_Metabarons_4_p12]",
       "Took Aghnar into exile at Anasirma — a sacred mountain forbidden for centuries [107_The_Metabarons_4_p18]",
@@ -172,7 +172,7 @@
     ],
     "volumes": [],
     "witnessed_facts": [
-      "Named Aghnar after Iko-Itta's suicide, in a robot-staffed room [102_The_Metabarons_4_p13]",
+      "Named Aghnar after Iku-Tta's suicide, in a robot-staffed room [102_The_Metabarons_4_p13]",
       "Discovered to levitate; cause identified as the epiphyte in his cells from the dart strike on Honorata's embryonic sac [103_The_Metabarons_4_p14]",
       "Othon moved to kill him as physically unfit; Honorata defended him [104_The_Metabarons_4_p15]",
       "A physical defect affecting normal leg function or walking was observed and diagnosed [105_The_Metabarons_4_p16]",
@@ -257,26 +257,50 @@
   },
   {
     "aliases": [
-      "Othon's daughters",
-      "daughters of Othon's faithful servant (recap description)",
-      "Othon's daughters (p05 dialogue)"
+      "Iku-Tta's daughters",
+      "Nan-Nan",
+      "Ohouya",
+      "daughters of Othon's faithful servant",
+      "the servant's two daughters"
     ],
     "appearances": [
       "description: Two dark-haired women in black; later depicted in revealing ceremonial or martial outfits with white headpieces; physically aggressive and fanatical; source_refs: ['090_The_Metabarons_4_p01', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
     ],
-    "character_id": "othon-s-daughters",
+    "character_id": "iku-tta-daughters",
     "important_actions": [
-      "action: Seized and threw Honorata from the tower in her ninth month, triggering mid-air birth and epiphyte dart strike; source_refs: ['094_The_Metabarons_4_p05', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+      "action: As a paired non-peer unit, seized and threw Honorata from the tower in her ninth month, triggering mid-air birth and epiphyte dart strike; source_refs: ['094_The_Metabarons_4_p05', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
     ],
     "knowledge_boundaries": [
       "Believed Honorata possessed genuine supernatural hypnotic powers",
       "Framed the act as a sacrificial ritual connected to a demon — whether their interpretation of events is accurate is not confirmed"
     ],
     "relationships": [
-      "character: Othon von Salza; type: daughters / household dependents; notes: Lived with him in the Castaka fortress; acted against his interests",
-      "character: Honorata; type: enemies; notes: Believed she hypnotized their father; blindfolded her to counter her powers; seized her in ninth month and leapt from the tower with her"
+      "character: Iku-Tta; type: father; notes: page 094 identifies the two attackers as Iku-Tta's daughters, Iku-Tta's children rather than Othon's children",
+      "character: Othon von Salza; type: household dependents / enforced-silent companions; notes: lived in the Castaka fortress orbit after Othon took Iku-Tta's daughters into his household",
+      "character: Honorata; type: enemies / captors; notes: believed she hypnotized Othon; blindfolded her to counter her powers; seized her in ninth month and leapt from the tower with her"
     ],
-    "source_refs": [],
+    "source_refs": [
+      {
+        "page_id": "089_The_Metabarons_4_ic1",
+        "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg",
+        "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431"
+      },
+      {
+        "page_id": "094_The_Metabarons_4_p05",
+        "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg",
+        "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4"
+      },
+      {
+        "page_id": "096_The_Metabarons_4_p07",
+        "source_image": "external/comics/meta-barons/096_The_Metabarons_4_p07.jpg",
+        "image_sha256": "9b0ca07b81878436ed4a2ed204f3dc4f6deaaf534084b36591c15a0b7fcaa7ba"
+      },
+      {
+        "page_id": "097_The_Metabarons_4_p08",
+        "source_image": "external/comics/meta-barons/097_The_Metabarons_4_p08.jpg",
+        "image_sha256": "80fab3dbd843e3574ed2795385fd82da2abe8a7d5839bcb9987551f0bd2c1e30"
+      }
+    ],
     "traits": [
       "Jealous of Honorata's influence over Othon",
       "Fanatical; willing to die alongside Honorata to eliminate her",
@@ -294,6 +318,13 @@
       "Seized Honorata in her ninth month of pregnancy and threw themselves with her from the top of Othon's tower [094_The_Metabarons_4_p05]",
       "Declared their hatred stronger than her magic and willingness to die [097_The_Metabarons_4_p08]",
       "Addressed an older blindfolded woman (likely a household figure) who pleaded with them to stop [097_The_Metabarons_4_p08]"
+    ],
+    "peer_candidate": false,
+    "non_peer_reason": "Non-peer lore fact bundle: two unnamed daughters act as a paired group; Honcho peer cards must represent one character, not a plural unit.",
+    "related_peer_ids": [
+      "iku-itta",
+      "othon-von-salza",
+      "honorata__living"
     ]
   },
   {
@@ -357,59 +388,81 @@
   },
   {
     "aliases": [
-      "Iko-Itta"
+      "Iku-Tta",
+      "Iku-Itta"
     ],
     "appearances": [
-      "description: Likely the hanged figure displayed before a gathered crowd in the ceremonial scene on p13; not explicitly captioned visually; source_refs: ['102_The_Metabarons_4_p13']"
+      "description: likely the hanged green-clad figure displayed before a gathered crowd in the ceremonial scene on p13; source_refs: ['102_The_Metabarons_4_p13']"
     ],
-    "character_id": "iko-itta",
+    "character_id": "iku-itta",
     "important_actions": [
-      "action: Committed suicide, eliminating herself as a threat to Aghnar; source_refs: ['102_The_Metabarons_4_p13']"
+      "action: Committed suicide; detail: Othon interpreted the death as ending a threat to Aghnar and used it to justify banishing tribe members from the fortress; source_refs: ['102_The_Metabarons_4_p13']"
     ],
     "knowledge_boundaries": [],
     "relationships": [
-      "character: Othon von Salza; type: household member / former threat; notes: Othon believed her suicide removed a danger to Aghnar"
+      "character: Othon von Salza; type: faithful servant / former threat; notes: Othon believed Iku-Tta's suicide removed a danger to Aghnar",
+      "character: Iku-Tta's daughters; type: father; notes: his daughters seized Honorata and leapt from the tower"
     ],
-    "source_refs": [],
+    "source_refs": [
+      {
+        "page_id": "102_The_Metabarons_4_p13",
+        "source_image": "external/comics/meta-barons/102_The_Metabarons_4_p13.jpg",
+        "image_sha256": "14a13e289c63b7b72fa09f59ed2981cffba688e7d8a0b17d18c7f9f2196641bf"
+      }
+    ],
     "traits": [
-      "Connected to Othon's household or tribe",
-      "Regarded by Othon as a threat to the infant Aghnar"
+      "Faithful servant or household associate of Othon",
+      "Father of two daughters connected to Othon's household",
+      "Regarded by Othon as a threat to infant Aghnar before or at the moment of his suicide"
     ],
     "voice_notes": [
-      "No direct speech on these pages"
+      "No direct speech on p13; this record preserves Othon's thought about Iku-Tta."
     ],
     "volumes": [],
     "witnessed_facts": [
       "Committed suicide, according to Othon's internal thought on p13 [102_The_Metabarons_4_p13]",
-      "Her death is displayed publicly in a ceremonial or funerary context [102_The_Metabarons_4_p13]",
-      "Her death removed what Othon considered a threat to the infant [102_The_Metabarons_4_p13]"
+      "His hanged body is displayed publicly in a ceremonial or funerary context [102_The_Metabarons_4_p13]",
+      "Othon believed his death removed what Othon considered a threat to the infant [102_The_Metabarons_4_p13]",
+      "Othon banned tribe members from the fortress after the suicide and replaced household service with robots [102_The_Metabarons_4_p13]"
     ]
   },
   {
     "aliases": [
-      "Ik'uta"
+      "Iku-Tta",
+      "Iku-Itta"
     ],
     "appearances": [
-      "description: Older figure present near Othon when the messenger arrives; speaks in metaphorical language; source_refs: ['094_The_Metabarons_4_p05']"
+      "description: green-clad faithful servant or household associate present near Othon when the tower summons arrives; source_refs: ['094_The_Metabarons_4_p05']"
     ],
-    "character_id": "ik-uta",
-    "important_actions": [],
+    "character_id": "iku-itta",
+    "important_actions": [
+      "action: Reported the tower catastrophe to Othon; detail: named the attackers as his own two daughters; source_refs: ['094_The_Metabarons_4_p05']"
+    ],
     "knowledge_boundaries": [],
     "relationships": [
-      "character: Othon von Salza; type: household associate"
+      "character: Othon von Salza; type: faithful servant / household associate; notes: Othon addresses him as Iku-Tta and demands direct facts",
+      "character: Iku-Tta's daughters; type: father; notes: reports that his daughters seized Lady Honorata and leapt from the tower with her"
     ],
-    "source_refs": [],
+    "source_refs": [
+      {
+        "page_id": "094_The_Metabarons_4_p05",
+        "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg",
+        "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4"
+      }
+    ],
     "traits": [
-      "Speaks in abstract, ominous metaphors rather than direct reports",
-      "Associated with Othon's household or the vicinity of the tower"
+      "Faithful servant / household associate of Othon",
+      "Father of two daughters who attack Honorata",
+      "Speaks in abstract, ominous metaphors before reporting catastrophe"
     ],
     "voice_notes": [
-      "Abstract, metaphorical; frames impending catastrophe as the natural consequence of joy"
+      "Abstract, metaphorical; frames impending catastrophe as the natural consequence of joy, then gives concrete facts when pressed."
     ],
     "volumes": [],
     "witnessed_facts": [
-      "Present outdoors with Othon when the messenger urgently summoned him to the tower [094_The_Metabarons_4_p05]",
-      "Spoke ominously about joy naturally turning to despair before the explicit report of Honorata's seizure [094_The_Metabarons_4_p05]"
+      "Present outdoors with Othon when the urgent tower summons arrives [094_The_Metabarons_4_p05]",
+      "Spoke ominously about joy naturally turning to despair before the explicit report of Honorata's seizure [094_The_Metabarons_4_p05]",
+      "Reported that his daughters had seized Lady Honorata and thrown themselves with her from Othon's tower [094_The_Metabarons_4_p05]"
     ]
   },
   {
@@ -423,19 +476,31 @@
     "important_actions": [],
     "knowledge_boundaries": [],
     "relationships": [
-      "character: Othon von Salza; type: faithful servant; notes: Othon lives with Bari's two daughters after remaking Castaka fortress; Othon is riding Bari's horse at night when Honorata first approaches",
-      "character: Othon's daughters; type: father; notes: The two daughters who seize Honorata are described in the recap as daughters of Othon's faithful servant (Bari)"
+      "character: Othon von Salza; type: son / remembered dead heir; notes: Othon accidentally killed Bari before this volume; Othon is later seen outdoors with Shazam, the horse associated with Bari and Othon's household history",
+      "character: Shazam; type: mount associated with Bari; notes: Othon is outdoors with Shazam when Iku-Tta summons him back to the tower"
     ],
-    "source_refs": [],
+    "source_refs": [
+      {
+        "page_id": "089_The_Metabarons_4_ic1",
+        "source_image": "external/comics/meta-barons/089_The_Metabarons_4_ic1.jpg",
+        "image_sha256": "8907dacde0bfca81d7ef98fd845f8c298c74153c2719b7130ce31cd33fbdc431"
+      },
+      {
+        "page_id": "094_The_Metabarons_4_p05",
+        "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg",
+        "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4"
+      }
+    ],
     "traits": [
-      "Faithful servant to Othon"
+      "Dead son of Othon remembered through recap and through Shazam's continued presence"
     ],
     "voice_notes": [
       "Not directly quoted in this volume"
     ],
     "volumes": [],
     "witnessed_facts": [
-      "Othon rides Bari's horse at night on Okhar when Honorata first approaches [089_The_Metabarons_4_ic1]"
+      "Referenced in recap as Othon's son whose accidental death and Othon's castration precede Othon's transformation [089_The_Metabarons_4_ic1]",
+      "Shazam remains present in Othon's household orbit when Othon is summoned back to the tower [094_The_Metabarons_4_p05]"
     ]
   },
   {

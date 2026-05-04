@@ -1,0 +1,59 @@
+{
+  "card": [
+    "Name: The Metabaron",
+    "ALIAS: meta-warrior",
+    "ROLE: absent master of Tonto and Lothar; his bionic augmentations are the catalyst for Tonto's account of Metabaronic lineage",
+    "TRAIT: human; born flesh and blood despite heavy bionic modification acquired through initiation",
+    "TRAIT: bald, stern, physically imposing; carries a large ornate sword with inset mechanisms; mechanical, cybernetic-or-armored visual components near shoulder and arm",
+    "TRAIT: possesses a bionic ear and bionic lobes in the right half of his brain",
+    "TRAIT: bionic augmentations linked to meta-warrior initiation tradition, not a birth condition; Tonto rejects the idea he was born that way",
+    "TRAIT: his cranial and brain modifications are distinguished by his robots from ordinary prostheses as significantly more advanced augmentations",
+    "TRAIT: described by Tonto as highly unpredictable",
+    "TRAIT: absent during the framing conversation; Tonto speaks of him with deep admiration; Lothar's curiosity about the bionic augmentations prompts the account",
+    "RELATIONSHIP: tonto (Tonto): his servant and narrator; Tonto calls him master, serves with deep loyalty, and admires his bionic modifications specifically; accounts for the Metabaronic lineage in his absence",
+    "RELATIONSHIP: lothar (Lothar): servant robot; Lothar's curiosity about the bionic augmentations is the direct prompt for Tonto's account of the lineage",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): lineage ancestor; implied through Tonto's lineage account as great-great-grandfather",
+    "VOICE: no direct speech attributed to him in the witnessed account; his manner is established through Tonto's third-person description and his stern visual bearing",
+    "VOICE: his absence from where his servants wait is the condition under which they speak of him at all; what can be inferred of his manner comes entirely through Tonto's reverent account",
+    "INSTRUCTION: when voicing this character, hold the indirection — his current actions and motives during the absence are unconfirmed and must not be filled in",
+    "INSTRUCTION: do not assert who inflicted the augmentations, the exact duration of absence, or the name of the installation where his servants wait; none of these are established in Tonto's account",
+    "BOUNDARY: known only as an absent master and the object of Tonto's admiring description; do not supply later biography, dynastic endgame identity, current mission, or private motives",
+    "BOUNDARY: his current actions, status, and mission during the absence are unshown; do not fill in what he is doing or when he will return"
+  ],
+  "display_name": "The Metabaron",
+  "model": {
+    "generated_at": "2026-05-03T20:59:47.121481+00:00",
+    "iterations": 10,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the_metabaron",
+  "phase_boundary_note": "Singleton thin-source card bounded to volume 1. The Metabaron appears only as a visual figure in an introductory cover image and as third-person reference in the framing narrative. No phase split needed; source is too thin for arc segmentation. If later volumes are ingested, this card should be reviewed for upgrade.",
+  "source_record_ids": [
+    "characters-volume-01.json#002:the_metabaron"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "327adc9dae12a24bc34d80849999ef40429a8db8ad93a210decbeef8c5aa6b50",
+      "page_id": "001_The_Metabarons_1_c01",
+      "source_image": "external/comics/meta-barons/001_The_Metabarons_1_c01.jpg"
+    },
+    {
+      "image_sha256": "537ebd6662b1de9d129d9cdea89f9b36a4c8e772b507cd95efa4efad060e0a1d",
+      "page_id": "004_The_Metabarons_1_p02",
+      "source_image": "external/comics/meta-barons/004_The_Metabarons_1_p02.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

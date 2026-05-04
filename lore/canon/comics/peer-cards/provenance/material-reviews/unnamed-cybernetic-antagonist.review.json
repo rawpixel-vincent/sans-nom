@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Usable as a thin but distinct single-actor peer: the bundle gives durable behavior, relationships, voice, and scene function across v10 p14-p15 without requiring invented traits."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "unnamed-cybernetic-antagonist",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Keep as base peer-card material: this is a named split-phase Steelhead persona with durable behavior, relationships, voice, actions across multiple volumes, and explicit identity-map rationale separating warrior/pre-merger from later Melmoth phases."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "steelhead__warrior",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

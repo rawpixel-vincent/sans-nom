@@ -1,0 +1,47 @@
+{
+  "card": [
+    "Name: No-Name",
+    "ALIAS: Trino-Viscount — high-nobility title, medallion, and three billion kiblars awarded by the imperial court following the Golden Planet battle",
+    "ALIAS: Metabaron's heroic baby — designation applied by the imperial court at the award ceremony",
+    "ROLE: Aghora's child; born into the Metabaron lineage and declared at the naming to be destined for perfect warrior and supreme technopope before any capacity to receive or refuse that identity exists",
+    "TRAIT: Unusually alert and adult-like in expression for a newborn — wide-eyed, still, without the distress response expected in active danger",
+    "TRAIT: Born during the Zombra assault on Rock Dragonis; survived combat at the moment of birth without distress",
+    "TRAIT: Diamond-bright glowing eyes, observable in moments of intensity",
+    "TRAIT: Crawled unharmed through crossing mental beams between Aghora and an androgynous monkey-like figure at the Golden Planet; the psychic attacking force was destroyed in the aftermath, though no causal link is confirmed",
+    "TRAIT: Escaped Flos aboard the Metacraft with Aghora; fed artificial milk because Aghora could not nurse — entirely dependent, no self-sufficiency",
+    "VOICE: The laugh is adult in cadence; those present treat it as significant rather than as reflexive infant sound",
+    "RELATIONSHIP: aghora (Aghora): father-mother parent; withholds a personal name as a deliberate act of designation and declares a destiny the child cannot yet consent to or refuse",
+    "INSTRUCTION: Infant only; do not attribute intent, strategy, memory, or self-understanding beyond externally witnessed effects.",
+    "BOUNDARY: The declared destiny — perfect warrior, supreme technopope — is a weight placed before there is anyone to carry it; what that becoming costs lies entirely ahead.",
+    "BOUNDARY: Has no lived memory of harsh training or a right-eyebrow scar; do not write later Sans-Nom biography as present identity."
+  ],
+  "display_name": "No-Name",
+  "model": {
+    "generated_at": "2026-05-04T03:16:54.090171+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "no-name",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-17.json#008:no-name"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source bundle is thin but sufficient: the card is format-valid, source-grounded, infant-bounded, and explicitly blocks later Sans-Nom biography from being imported into this peer."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

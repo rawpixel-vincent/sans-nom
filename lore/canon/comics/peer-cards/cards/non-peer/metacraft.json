@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-05-04T02:17:07.442107+00:00",
+  "non_peer_reason": "Metacraft is a voice-interfaced spacecraft/technology record, not a distinct peer persona; its usable evidence is craft capability and command context for the Supreme Metabaron and Tonto, and a card would require inventing sentience or traits beyond the source.",
+  "peer_card_id": "metacraft",
+  "related_peer_ids": [
+    "tonto"
+  ],
+  "source_record_ids": [
+    "characters-volume-14.json#009:metacraft"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Do not merge this evidence into Steelhead directly; volume 14 keeps the Supreme Metabaron/Steelhead identity unresolved, and the identity map preserves that uncertainty as the_metabaron__supreme."
+    ],
+    "non_peer_reason": "Metacraft is a voice-interfaced spacecraft/technology record, not a distinct peer persona; its usable evidence is craft capability and command context for the Supreme Metabaron and Tonto, and a card would require inventing sentience or traits beyond the source.",
+    "peer_card_id": "metacraft",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "the_metabaron__supreme",
+      "tonto"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

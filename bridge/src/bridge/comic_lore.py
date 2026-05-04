@@ -73,6 +73,9 @@ class VolumeSummary(BaseModel):
 
 class CharacterLore(BaseModel):
     character_id: str
+    peer_candidate: bool = True
+    non_peer_reason: str = ""
+    related_peer_ids: list[str] = Field(default_factory=list)
     aliases: list[str] = Field(default_factory=list)
     volumes: list[int] = Field(default_factory=list)
     appearances: list[str] = Field(default_factory=list)
@@ -450,6 +453,9 @@ def normalize_character_item(item: dict[str, Any], page_refs: dict[str, PageRef]
 
     normalized = {
         "character_id": character_id,
+        "peer_candidate": bool(item.get("peer_candidate", True)),
+        "non_peer_reason": str(item.get("non_peer_reason") or ""),
+        "related_peer_ids": string_values(item.get("related_peer_ids")),
         "aliases": aliases,
         "volumes": int_values(item.get("volumes")),
         "appearances": string_values(item.get("appearances")),
@@ -849,9 +855,15 @@ def load_json_model(path: Path, model: type[BaseModel]) -> Any:
 
 def write_json_atomic(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
-    tmp.replace(path)
+    fd, name = tempfile.mkstemp(prefix=f"{path.name}.", suffix=".tmp", dir=path.parent)
+    tmp = Path(name)
+    try:
+        with os.fdopen(fd, "w") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2, sort_keys=True)
+            f.write("\n")
+        tmp.replace(path)
+    finally:
+        tmp.unlink(missing_ok=True)
 
 
 def append_jsonl(path: Path, item: dict[str, Any]) -> None:

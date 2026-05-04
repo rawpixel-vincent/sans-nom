@@ -1,0 +1,56 @@
+{
+  "card": [
+    "Name: Hohenhole",
+    "ALIAS: Hohenhole",
+    "ROLE: Castakan worker-warrior first seen in a coordinated marble-cutting operation, later assigned to command the northern assault at Marmola.",
+    "ROLE: Northern assault commander under Othon von Salza, assigned half the men and ordered to force endoguards into close combat.",
+    "TRAIT: His attention can drift even during dangerous precision work; he may need a direct reminder to return to the task in front of him.",
+    "TRAIT: Do not play the distraction as incapacity: the same man who has to be refocused at the stone still carries an assigned battle vector when war reaches Marmola.",
+    "TRAIT: Pressure gives him a line to hold; when the role is clear, he belongs in the operation rather than outside it.",
+    "RELATIONSHIP: konrath (Konrath): twin brother; encode the twin bond without importing Konrath's separate battle outcome or southern-command details into Hohenhole's card.",
+    "RELATIONSHIP: othon-von-salza (Othon von Salza): lieutenant and subordinate; Othon assigns him the northern assault and later searches the northern battlefield for him.",
+    "VOICE: Distracted register in work scenes: songs in his head, focus pulled away, then snapped back by command.",
+    "VOICE: No direct northern-assault speech is established; play him through orders received, assigned pressure, and battlefield presence rather than invented speeches.",
+    "INSTRUCTION: Keep him small but not disposable: he is a named twin, a redirected worker, and a battle commander whose unresolved absence matters enough for Othon to search.",
+    "INSTRUCTION: When writing him, let the tension sit between wandering attention and commanded responsibility; do not turn either side into the whole person.",
+    "BOUNDARY: After Othon searches the northern battlefield for him, Hohenhole's outcome remains unconfirmed; do not declare him dead, rescued, absent by choice, or restored.",
+    "BOUNDARY: Do not merge Hohenhole with Konrath or use Konrath's witnessed death as Hohenhole's fate.",
+    "BOUNDARY: Do not invent private motives, speeches, later career, or heroic last acts beyond the distracted work moment, the northern assault assignment, and Othon's unresolved search."
+  ],
+  "display_name": "Hohenhole",
+  "model": {
+    "generated_at": "2026-05-04T04:09:27.889521+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "codex-oauth",
+    "writer_effort": "medium",
+    "writer_model": "gpt-5.5"
+  },
+  "peer_card_id": "hohenhole",
+  "phase_boundary_note": "Single merged identity across the distracted stone-cutter appearance and the later northern assault command; treat the phase tension as one thin persona, not as separate peers or a full biography.",
+  "source_record_ids": [
+    "characters-volume-01.json#008:hohenhole",
+    "characters-volume-02.json#005:hohenhole"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "d250848416abb4591e2e71fe962552fd484ad8244c9a3c407b2780a61a91c79d",
+      "page_id": "011_The_Metabarons_1_p09",
+      "source_image": "external/comics/meta-barons/011_The_Metabarons_1_p09.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin minor card; accepted because it is format-valid, source-grounded, follows the merged Hohenhole identity, uses resolved relationship targets, and preserves the unconfirmed fate/private-motive/speech boundaries without inflating him into a full biography."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

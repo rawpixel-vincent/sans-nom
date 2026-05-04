@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-04T01:58:11.958250+00:00",
+  "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+  "peer_card_id": "castaka",
+  "related_peer_ids": [
+    "steelhead__in-melmoth",
+    "melmoth"
+  ],
+  "source_record_ids": [
+    "characters-volume-13.json#009:castaka"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "The page text treats 'Castaka' as the crest/lineage phrase in a Melmoth physiology explanation, not as a character."
+    ],
+    "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+    "peer_card_id": "castaka",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "steelhead__in-melmoth",
+      "melmoth"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

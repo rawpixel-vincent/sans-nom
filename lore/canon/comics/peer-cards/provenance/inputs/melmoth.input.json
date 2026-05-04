@@ -1,0 +1,385 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "335_The_Metabarons_13_ic1-p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/335_The_Metabarons_13_ic1-p01.json",
+    "343_The_Metabarons_13_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/343_The_Metabarons_13_p09.json",
+    "344_The_Metabarons_13_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/344_The_Metabarons_13_p10.json",
+    "345_The_Metabarons_13_p11": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/345_The_Metabarons_13_p11.json",
+    "346_The_Metabarons_13_p12": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/346_The_Metabarons_13_p12.json",
+    "347_The_Metabarons_13_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/347_The_Metabarons_13_p13.json",
+    "348_The_Metabarons_13_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/348_The_Metabarons_13_p14.json",
+    "353_The_Metabarons_13_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/353_The_Metabarons_13_p20.json",
+    "357_The_Metabarons_13_p24-p25": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/357_The_Metabarons_13_p24-p25.json",
+    "358_The_Metabarons_13_p26": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/358_The_Metabarons_13_p26.json"
+  },
+  "peer_card_id": "melmoth",
+  "peer_identity": {
+    "arc_label": "Composite being (Steelhead body + Krleza head) as theatrical romantic warrior pursuing Dona Vicenta",
+    "display_name": "Melmoth",
+    "honcho_notes": "Describes himself as 'complete—a union of poet and warrior.' Speaks in elaborate devotional language to Dona Vicenta; frames massacres of 72,000 macromites as romantic gifts. Still tactically lethal despite emotional transformation. Seeks procreation to continue Metabaron lineage. Believes love can overcome murder and death. Privately distrusts public honors. Dual internal selves that cannot reconcile ultimately cause his breakdown.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "melmoth",
+    "rationale": "Vol11–13 records all describe the same composite Melmoth entity: warrior capability fused with poetic capacity, theatrically romantic in pursuit of Dona Vicenta, orchestrating atonement (cloning her father), marrying her, but undone by internal war between personas and the wedding-night disaster. Excludes vol14 where Melmoth has killed the Krleza persona and reverted to Steelhead.",
+    "source_record_ids": [
+      "characters-volume-11.json#001:melmoth",
+      "characters-volume-12.json#000:melmoth",
+      "characters-volume-13.json#001:melmoth"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+      "related_peer_ids": [
+        "steelhead__in-melmoth",
+        "melmoth"
+      ],
+      "source_record": {
+        "aliases": [],
+        "appearances": [],
+        "character_id": "castaka",
+        "important_actions": [],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "Source is an object/dynastic-crest reference: the Castaka crest contains circuitry used in explaining Steelhead/Melmoth's body, with no distinct actor, voice, behavior, or relationships to support a peer persona.",
+        "page_ids": [
+          "345_The_Metabarons_13_p11"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-13.json#009:castaka",
+        "related_peer_ids": [
+          "steelhead__in-melmoth",
+          "melmoth"
+        ],
+        "relationships": [],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+        "traits": [],
+        "voice_notes": [],
+        "volumes": [],
+        "witnessed_facts": []
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Melmoth",
+        "the Master (post-fusion)",
+        "another Melmoth (p23 self-identification)",
+        "formerly Steelhead (body) + Zaran Krleza (head)"
+      ],
+      "appearances": [
+        "description: Elderly human head with long white hair and beard mounted on a humanoid mechanical/armored body. Wears a cape in public and a blue robe in intimate settings. The head appears organic and aged; the body is non-natural.; source_refs: ['292_The_Metabarons_11_p15', '299_The_Metabarons_11_p22']",
+        "description: In combat configuration retains Steelhead's massive armored war-machine form with gun-like limbs.; source_refs: ['294_The_Metabarons_11_p17']"
+      ],
+      "character_id": "melmoth",
+      "image_sha256s": [],
+      "important_actions": [
+        "Named himself Melmoth upon emerging from surgery; declared love for Dona Vicenta (p15)",
+        "Traveled to Gzayn in the Dark Galaxy and killed all 72,000 macromite defenders of the temple (p17)",
+        "Triggered the temple's buried self-destruct switch (p18)",
+        "Extracted the Halerce tree and its 9 million Djy-ouk birds in a containment cylinder before the planet's destruction (p19)",
+        "Delivered the Halerce tree to Philodendra as an act of love; neutralized the Imperial Endoguards (p20–p21)",
+        "Confronted Dona Vicenta in a radiant golden environment and revealed his identity (p22–p23)",
+        "Offered her the Castaka paleo-revolver and urged her to take revenge on him (p24)"
+      ],
+      "knowledge_boundaries": [
+        "Knows his past violence against Dona Vicenta's family makes his love-quest appear impossible (p15)",
+        "Believes love can overcome murder and death — Dona Vicenta explicitly rejects this (p23)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#001:melmoth",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Dona Vicenta Gabriela de Rokha; nature: Loves her and wants to father a child with her to continue the Metabaron clan; she both loves and hates him because he murdered her father; source_refs: ['292_The_Metabarons_11_p15', '300_The_Metabarons_11_p23', '301_The_Metabarons_11_p24']",
+        "target: Tonto; nature: Small robot servant and companion who warns him of relational impossibilities and admires his power; source_refs: ['292_The_Metabarons_11_p15', '298_The_Metabarons_11_p21']",
+        "target: Steelhead; nature: Prior ego dissolved in surgical fusion; Melmoth's body originates from Steelhead; source_refs: ['291_The_Metabarons_11_p14', '292_The_Metabarons_11_p15', '300_The_Metabarons_11_p23']",
+        "target: Zaran Krleza; nature: Prior ego dissolved in surgical fusion; Melmoth's head and poetic/emotional qualities originate from Zaran Krleza; source_refs: ['291_The_Metabarons_11_p14', '300_The_Metabarons_11_p23']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Claims to have developed genuine emotional capacity after the fusion",
+        "Theatrically romantic and poetic — addresses Dona Vicenta in devotional language",
+        "Still tactically lethal — slaughtered 72,000 macromites without hesitation",
+        "Seeks procreation to continue/perfect the Metabaron lineage",
+        "Capable of rendering an entire army unconscious without killing",
+        "Believes forgiveness and redemption are possible despite his past crimes"
+      ],
+      "voice_notes": [
+        "Describes himself as 'complete' — a union of poet and warrior (p15, p23)",
+        "Speaks in elaborate, devotional romantic language to Dona Vicenta (p22–p24)",
+        "Argues that love and forgiveness can supersede murder; Dona Vicenta refuses (p23–p24)",
+        "Theatrically frames his deeds — the massacre of 72,000 beings — as romantic gifts (p21)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "The Halerce tree had been a scorched hole on Philodendra the day before he restored it (p21)",
+        "Dona Vicenta's Imperial Endoguards could be rendered unconscious by his means (p20–p21)"
+      ]
+    },
+    {
+      "aliases": [
+        "Melmoth",
+        "Steelhead (prior identity, pre-merger)"
+      ],
+      "appearances": [
+        "description: Composite being produced by Endo-robot merger of Steelhead's body/warrior elements with Zaran Krleza's poetic identity. Visual appearance not fully established from these pages alone beyond being depicted as an older white-haired, white-bearded man in ornate armored attire with gold ornamentation and futuristic weapons—consistent with cover figure.; source_refs: ['308_The_Metabarons_12_c01', '309_The_Metabarons_12_ic1', '314_The_Metabarons_12_p05', '317_The_Metabarons_12_p08']"
+      ],
+      "character_id": "melmoth",
+      "image_sha256s": [],
+      "important_actions": [
+        "Tracked down and merged with Zaran Krleza to learn love [309_The_Metabarons_12_ic1]",
+        "Restored the Halerce tree on Philodendra [309_The_Metabarons_12_ic1, 315_The_Metabarons_12_p06]",
+        "Used Shabda-Oud psychic speed to deflect a bullet and save his beloved [311_The_Metabarons_12_p02]",
+        "Orchestrated or oversaw the cloning of Don Nicanor Rosamel de Rokha from a single cell [312_The_Metabarons_12_p03, 313_The_Metabarons_12_p04]"
+      ],
+      "knowledge_boundaries": [
+        "Knows of Shabda-Oud psychic inheritance through Steelhead's mother [311_The_Metabarons_12_p02]",
+        "Knows the 'crucial item' in Dona Vicenta's room—its identity is never disclosed in these pages [311_The_Metabarons_12_p02]",
+        "Understands cloning risks: warns a robot that even small differences in a clone can cause catastrophic divergence [313_The_Metabarons_12_p04]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#000:melmoth",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Steelhead; type: prior_identity; note: Melmoth is the new composite personality produced from Steelhead's body; Steelhead's warrior identity and history are subsumed into Melmoth",
+        "character: Zaran Krleza; type: merged_component; note: Zaran's 5,000-year-old head and poetic identity were merged into Melmoth by Endo-robots",
+        "character: Dona Vicenta; type: beloved; note: Melmoth loves Dona Vicenta; she both returns his love and is the daughter of the man Steelhead murdered; Melmoth seeks her forgiveness and she promises him descendants",
+        "character: Don Nicanor Rosamel de Rokha; type: victim_via_prior_identity; note: As Steelhead, Melmoth killed Dona Vicenta's father; Melmoth later orchestrates the father's cloning to atone",
+        "character: Shabda-Oud line; type: psychic_lineage; note: Psychic powers passed through Steelhead's mother from the Shabda-Oud to Melmoth"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Emotionally driven; existence originates in a quest to understand love",
+        "Capable of great tenderness and poetic speech toward Dona Vicenta",
+        "Also exhibits impulsive, possessive, physically forceful behavior (forcibly embraces a woman, demands marriage)",
+        "Carries inherited psychic powers enabling reaction speed beyond normal time",
+        "Self-sacrificial: offers his life to Dona Vicenta when she discovers he is her father's murderer",
+        "Pragmatic and protective: uses psychic precision to stun rather than kill his beloved"
+      ],
+      "voice_notes": [
+        "Speaks poetically and seductively when addressing Dona Vicenta; narration frames his words as moving and seductive [309_The_Metabarons_12_ic1]",
+        "Can also be blunt and commanding (ordering narrator to transport the woman) [311_The_Metabarons_12_p02]",
+        "Uses grandiose, exalted language in his love declarations; calls Dona Vicenta a 'unique goddess' [314_The_Metabarons_12_p05]",
+        "Forceful and aggressive in the scene with the woman and her father; calls for guards after being restrained [317_The_Metabarons_12_p08]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Melmoth restored the Halerce tree on Philodendra and used poetic speech to win Dona Vicenta's love [309_The_Metabarons_12_ic1]",
+        "When Dona Vicenta discovers Melmoth is also her father's murderer, he offers her his life [309_The_Metabarons_12_ic1]",
+        "Melmoth deflects a bullet using Shabda-Oud psychic powers, stunning rather than killing his beloved [311_The_Metabarons_12_p02]",
+        "Melmoth orders the narrator to transport the stunned woman to the metabunker [311_The_Metabarons_12_p02]",
+        "Melmoth searches Dona Vicenta's room for a crucial but unspecified item [311_The_Metabarons_12_p02]",
+        "Melmoth reassures Dona Vicenta after her father's revival, manages the public reintegration plan, and exchanges forgiveness and declarations of love with her [314_The_Metabarons_12_p05]",
+        "Melmoth is addressed by name while forcibly embracing a woman and demanding a 'paleo-wedding' marriage; her white-haired father physically restrains him [317_The_Metabarons_12_p08]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Physically disfigured face — extent not fully depicted; severe enough to provoke horror when revealed (p13)', 'Wears black armor in final scenes (p26)', 'Composite body bearing cybernetic elements from both Krleza and Steelhead']}"
+      ],
+      "character_id": "melmoth",
+      "image_sha256s": [
+        "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+        "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+        "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+        "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+        "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+        "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9"
+      ],
+      "important_actions": [
+        "Deflected Vicenta's suicide bullet with Shabda-Oud powers (recap)",
+        "Cloned Don Nicanor while Vicenta was unconscious (recap)",
+        "Received Supreme Metabaron title at Golden Planet (p09)",
+        "Married Vicenta Gabriela at Philodendra (p12)",
+        "Isolated in tower for days after wedding-night disaster (p13)",
+        "Rejected cybernetically altered Vicenta (p14)",
+        "Internal personas fired a weapon destroying the armored body in an explosive blast (p26)"
+      ],
+      "knowledge_boundaries": [
+        "Knows his own disfigurement; deliberately concealed it from Vicenta through darkness and her veil",
+        "Knows his two internal selves cannot fully reconcile (p13)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "335_The_Metabarons_13_ic1-p01",
+        "343_The_Metabarons_13_p09",
+        "344_The_Metabarons_13_p10",
+        "345_The_Metabarons_13_p11",
+        "346_The_Metabarons_13_p12",
+        "347_The_Metabarons_13_p13",
+        "348_The_Metabarons_13_p14",
+        "353_The_Metabarons_13_p20",
+        "357_The_Metabarons_13_p24-p25",
+        "358_The_Metabarons_13_p26"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#001:melmoth",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Dona Vicenta Gabriela de Rokha; type: husband; married in vol 13",
+        "character: Don Nicanor Rosamel de Rokha; type: father-in-law",
+        "character: Krleza; type: internal personality / poet component self",
+        "character: Steelhead; type: internal personality / warrior component self"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+        "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+        "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg",
+        "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg",
+        "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg",
+        "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg",
+        "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg",
+        "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg",
+        "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg",
+        "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+          "page_id": "335_The_Metabarons_13_ic1-p01",
+          "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+        },
+        {
+          "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+          "page_id": "343_The_Metabarons_13_p09",
+          "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+        },
+        {
+          "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+          "page_id": "344_The_Metabarons_13_p10",
+          "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+        },
+        {
+          "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+          "page_id": "345_The_Metabarons_13_p11",
+          "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+        },
+        {
+          "image_sha256": "e60c70e69b987a9c59e5a66cd2283020b97f1b9120131d645387718a10767c7d",
+          "page_id": "346_The_Metabarons_13_p12",
+          "source_image": "external/comics/meta-barons/346_The_Metabarons_13_p12.jpg"
+        },
+        {
+          "image_sha256": "e9eb5da466f313429ad2f50ee924d5cd02f1efe6e352a8232aa19e11901cf4c7",
+          "page_id": "347_The_Metabarons_13_p13",
+          "source_image": "external/comics/meta-barons/347_The_Metabarons_13_p13.jpg"
+        },
+        {
+          "image_sha256": "bc9514d4f843c7a96d15cb6b2f91b3b2338a8b3427502c16dc79dfde06eca4a7",
+          "page_id": "348_The_Metabarons_13_p14",
+          "source_image": "external/comics/meta-barons/348_The_Metabarons_13_p14.jpg"
+        },
+        {
+          "image_sha256": "c57037a91104b2851c063b42c3bba241a7408b5da2e4de7ba35e7c663ce0e05d",
+          "page_id": "353_The_Metabarons_13_p20",
+          "source_image": "external/comics/meta-barons/353_The_Metabarons_13_p20.jpg"
+        },
+        {
+          "image_sha256": "65a69aeefe367230216f32884f459965c386d10246c9a4fda0b60906d9bc9636",
+          "page_id": "357_The_Metabarons_13_p24-p25",
+          "source_image": "external/comics/meta-barons/357_The_Metabarons_13_p24-p25.jpg"
+        },
+        {
+          "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+          "page_id": "358_The_Metabarons_13_p26",
+          "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+        }
+      ],
+      "traits": [
+        "Composite being: simultaneously two-in-one (Krleza/poet and Steelhead/warrior) and one split in two",
+        "Privately distrusts and resents public honors",
+        "Prone to despair and self-isolation when dual personalities become irreconcilable",
+        "Sexually and romantically impatient by his own account (p11)",
+        "Possesses Shabda-Oud powers inherited through mother"
+      ],
+      "voice_notes": [
+        "Internally: distrusts those honoring him at the ceremony (p09)",
+        "In wedding ceremony consents formally when asked to take Vicenta Gabriela as wife (p12)",
+        "Impatient for ceremony to end so wedding night can begin (p11)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Stopped Vicenta's suicide bullet using inherited Shabda-Oud powers (recap, p ic1-p01)",
+        "Created a clone of Don Nicanor while Vicenta was unconscious (recap, p ic1-p01)",
+        "Awarded title Supreme Metabaron by unanimous Galactic Union vote at Golden Planet; privately distrusted honor (p09)",
+        "Escorted to Philodendra by approximately 1000 white-painted warships arranged in heart formation (p10)",
+        "Krleza aspect was moved by romantic fleet spectacle; Steelhead aspect was contemptuous of it (p10)",
+        "Married Vicenta Gabriela at public ceremony; she refused to lift veil (p12)",
+        "Wedding night: lightning exposed his disfigured face; Vicenta recoiled in horror (p13)",
+        "Collapsed into despair; isolated in tower for days without sleep, food, or water (p13)",
+        "Internal personalities engaged in open war for control; rejected altered Vicenta and refused to see her (p14)",
+        "Internal personalities destroyed the armored body in an explosive blast; story ends on cliffhanger (p26)"
+      ]
+    }
+  ]
+}

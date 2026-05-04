@@ -1,0 +1,323 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "335_The_Metabarons_13_ic1-p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/335_The_Metabarons_13_ic1-p01.json",
+    "338_The_Metabarons_13_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/338_The_Metabarons_13_p04.json",
+    "339_The_Metabarons_13_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/339_The_Metabarons_13_p05.json",
+    "340_The_Metabarons_13_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/340_The_Metabarons_13_p06.json",
+    "341_The_Metabarons_13_p07": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/341_The_Metabarons_13_p07.json",
+    "342_The_Metabarons_13_p08": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/342_The_Metabarons_13_p08.json",
+    "349_The_Metabarons_13_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/349_The_Metabarons_13_p15.json",
+    "351_The_Metabarons_13_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/351_The_Metabarons_13_p17.json",
+    "352_The_Metabarons_13_p18-p19": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/352_The_Metabarons_13_p18-p19.json"
+  },
+  "peer_card_id": "don-nicanor__clone",
+  "peer_identity": {
+    "arc_label": "The cloned revival of Don Nicanor—publicly coherent but privately memory-unstable; eventually killed again",
+    "display_name": "Don Nicanor Rosamel de Rokha (Clone)",
+    "honcho_notes": "Commanding public orator: inspires large parliamentary crowds with ideological speeches. Post-revival: dangerous private memory instability—fails to recognize his own daughter in private while appearing coherent in public. Makes delusional romantic advances toward Aina Vicenta Gabriela. A trial of socialization was required before full public reintegration. In vol13 paternal memory is restored when he receives Vicenta's self-removed eye—overwhelmed with horror and remorse, weeps and begs forgiveness. Performs public dawn ecological meditation as federation president. Refuses Technoclergy bikramen ultimatum; Philodendra bombarded. Killed during the Metabaron/Petro castle assault in vol14.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "don-nicanor__clone",
+    "rationale": "The vol13 record (don_nicanor_rosamel_de_rokha) explicitly labels 'Clone' as a trait—not an inference. It continues the vol12 clone arc directly: same memory instability toward Dona Vicenta, same clone origin via Melmoth, same political role as federation president. Paternal recognition is restored mid-vol13 by Vicenta's eye-sacrifice, then the same clone commands Philodendran forces in vol14 (still failing to recognize her initially) before being killed during the castle assault. The underscore character_id variant is a formatting artifact from extraction; the entity is identical to don-nicanor__clone.",
+    "source_record_ids": [
+      "characters-volume-12.json#003:don-nicanor-rosamel-de-rokha",
+      "characters-volume-13.json#002:don_nicanor_rosamel_de_rokha",
+      "characters-volume-14.json#002:don-nicanor-rosamel-de-rokha"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Don Nicanor Rosamel de Rokha",
+        "President",
+        "Don Nicanor"
+      ],
+      "appearances": [
+        "description: Elderly or late-middle-aged man, bald, with a heavy beard. After reanimation attached to tubes and biomechanical support machinery. In public scenes appears in commanding attire at a podium. Clone version is visually indistinguishable from the original based on page descriptions.; source_refs: ['313_The_Metabarons_12_p04', '314_The_Metabarons_12_p05', '315_The_Metabarons_12_p06', '316_The_Metabarons_12_p07']"
+      ],
+      "character_id": "don-nicanor-rosamel-de-rokha",
+      "image_sha256s": [],
+      "important_actions": [
+        "Delivered an ideological speech before a large public assembly [315_The_Metabarons_12_p06]",
+        "Personally locked the doors of a private chamber, isolating himself with Aina [316_The_Metabarons_12_p07]"
+      ],
+      "knowledge_boundaries": [
+        "Public memory appears to have recovered enough for coherent political speech [315_The_Metabarons_12_p06]",
+        "Private memory is fragmentary or unstable: does not recall having a daughter, and confuses filial love with romantic desire [316_The_Metabarons_12_p07]",
+        "A 'trial of socialization' was still required before full public reintegration [314_The_Metabarons_12_p05]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#003:don-nicanor-rosamel-de-rokha",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Dona Vicenta / Aina Vicenta Gabriela; type: father; note: His daughter; her accusation of Steelhead set the whole arc in motion; his revival is central to her recovery from coma",
+        "character: Steelhead / Melmoth; type: victim_then_indirect_ally; note: Was killed by Steelhead; later cloned by Melmoth as an act of atonement",
+        "character: Troglosocialik Federation; type: political_ideology; note: He advocates building a Troglosocialik paradise on Philodendra after the Empire's fall"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Commanding public orator: can inspire large parliamentary crowds with ideological speeches",
+        "Politically principled: invokes traditional ecology, ritual nobility, Troglosocialik values, rejection of Empire and 'techno' forces",
+        "Post-revival: exhibits dangerous memory instability in private while appearing coherent in public",
+        "Delusional or confused post-cloning: fails to recognize his daughter in private and makes inappropriate romantic advances toward her"
+      ],
+      "voice_notes": [
+        "Public voice: ideologically charged, traditional, invoking Troglosocialik ideals, anti-Empire, anti-techno slogans [315_The_Metabarons_12_p06]",
+        "Private voice after memory failure: denies having a daughter, escalates into romantic delusion [316_The_Metabarons_12_p07]",
+        "Observers note a 'clone reacting strangely' to contextualize his erratic private behavior [316_The_Metabarons_12_p07]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Was killed by Steelhead before vol. 12 [309_The_Metabarons_12_ic1]",
+        "Was cloned from a single living cell; body and neural programming fully reconstructed [312_The_Metabarons_12_p03, 313_The_Metabarons_12_p04]",
+        "Successfully gave a triumphant public speech in a parliamentary chamber; delegates from multiple planets were traveling to receive him at the presidential palace [314_The_Metabarons_12_p05, 315_The_Metabarons_12_p06]",
+        "Privately failed to recognize Aina Vicenta Gabriela as his daughter; locked her in a private chamber and made delusional romantic advances [316_The_Metabarons_12_p07]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Heavyset, bearded man; leads attacking force in chamber siege (p05)', 'Balding with dark beard in intimate close-up during eye-sacrifice (p07)', 'Appears physically weak and coughing during Technoclergy audience (p17)']}"
+      ],
+      "character_id": "don_nicanor_rosamel_de_rokha",
+      "image_sha256s": [
+        "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+        "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+        "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+        "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+        "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+        "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9"
+      ],
+      "important_actions": [
+        "Battered down door to Vicenta's chamber with armed comrades (p04-p05)",
+        "Received Vicenta's eye, triggering restoration of paternal memory (p07)",
+        "Refused Technoclergy ultimatum for bikramen extraction; expelled delegates (p17-p18)",
+        "Performed public dawn ecological meditation as federation president (p15)"
+      ],
+      "knowledge_boundaries": [
+        "Clone initially lacks memory of daughter; restored by eye-sacrifice",
+        "Aware of his role as federation president and of Melmoth as son-in-law",
+        "Likely unaware of Melmoth's internal dual-personality nature"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "335_The_Metabarons_13_ic1-p01",
+        "338_The_Metabarons_13_p04",
+        "339_The_Metabarons_13_p05",
+        "340_The_Metabarons_13_p06",
+        "341_The_Metabarons_13_p07",
+        "342_The_Metabarons_13_p08",
+        "349_The_Metabarons_13_p15",
+        "351_The_Metabarons_13_p17",
+        "352_The_Metabarons_13_p18-p19"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#002:don_nicanor_rosamel_de_rokha",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Dona Vicenta Gabriela de Rokha; type: father (as clone)",
+        "character: Melmoth; type: son-in-law"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+        "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg",
+        "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg",
+        "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg",
+        "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg",
+        "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg",
+        "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg",
+        "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg",
+        "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+          "page_id": "335_The_Metabarons_13_ic1-p01",
+          "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+        },
+        {
+          "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+          "page_id": "338_The_Metabarons_13_p04",
+          "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+        },
+        {
+          "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+          "page_id": "339_The_Metabarons_13_p05",
+          "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+        },
+        {
+          "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+          "page_id": "340_The_Metabarons_13_p06",
+          "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+        },
+        {
+          "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+          "page_id": "341_The_Metabarons_13_p07",
+          "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+        },
+        {
+          "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+          "page_id": "342_The_Metabarons_13_p08",
+          "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+        },
+        {
+          "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+          "page_id": "349_The_Metabarons_13_p15",
+          "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg"
+        },
+        {
+          "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+          "page_id": "351_The_Metabarons_13_p17",
+          "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+        },
+        {
+          "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+          "page_id": "352_The_Metabarons_13_p18-p19",
+          "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+        }
+      ],
+      "traits": [
+        "Clone: initially lacks memory of daughter; confuses her for a romantic/sexual target",
+        "Paternal recognition restored by eye-sacrifice — overwhelmed with horror and remorse",
+        "Aggressive and commanding when leading assault on chamber",
+        "Participates in public ecological meditation as federation president",
+        "Defiant toward imperial coercion; refuses Technoclergy ultimatum"
+      ],
+      "voice_notes": [
+        "Professes possessive love: claims to desire Vicenta's soul; she names him and challenges this (p06)",
+        "Shouts orders during assault on chamber (p04)",
+        "Curses himself and asks what he has done after receiving the eye (p07)",
+        "Weeps and begs forgiveness over Vicenta's blindness (p08)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Original Don Nicanor was murdered by Melmoth prior to vol 13 (recap, p ic1-p01)",
+        "Melmoth created a clone of him while Vicenta was unconscious (recap, p ic1-p01)",
+        "Clone lacks part of memory; does not remember his daughter; declares desire to take her as wife; Melmoth intervenes (recap, p ic1-p01)",
+        "Led armed assault on Vicenta's private chamber (p04, p05)",
+        "Confronted Vicenta; professed possessive love claiming to desire her soul; she challenged this (p06)",
+        "Received Vicenta's self-removed eye; spectral visions of her at multiple ages call to him as father; paternal recognition restored (p07)",
+        "Reacted with horror and remorse immediately after receiving the eye (p07)",
+        "Wept and begged forgiveness over causing Vicenta's blindness (p08)",
+        "Served as president of Troglosocialik Federation; performed dawn ecological meditation at Halerce tree on Philodendra (p15)",
+        "Received Technoclergy ultimatum demanding population relocation for bikramen extraction (p17)",
+        "Appeared physically weak and coughing during Technoclergy audience (p17)",
+        "Refused Technoclergy demands; expelled delegation; Philodendra bombarded as consequence (p18-p19)"
+      ]
+    },
+    {
+      "aliases": [
+        "Don Nicanor Rosamel de Rokha"
+      ],
+      "appearances": [
+        "Commands Philodendran forces; breaks into the barricade sheltering Melmoth and Dona Vicenta (vol.14 ic1 recap)",
+        "Confirmed killed during the Metabaron/Petro castle assault — reported as already 'reduced to soup' (vol.14 p01)",
+        "His tomb is at or near the ruins of his castle on Philodendra (vol.14 p18-p19)"
+      ],
+      "character_id": "don-nicanor-rosamel-de-rokha",
+      "image_sha256s": [],
+      "important_actions": [
+        "Led Philodendran forces to breach the barricade sheltering Melmoth and Dona Vicenta (vol.14 ic1 recap)",
+        "Tried to claim Dona Vicenta without recognizing her as his daughter (vol.14 ic1 recap)",
+        "Granted permission for Dona Vicenta's marriage to Melmoth after she sacrificed her fingernails (vol.14 ic1 recap)",
+        "Refused TechnoCardinal's planetary evacuation ultimatum; bombardment followed (vol.14 ic1 recap)",
+        "Killed during the Metabaron assault on the castle (vol.14 p01)"
+      ],
+      "knowledge_boundaries": [
+        "Did not know Dona Vicenta was his daughter during their encounter (vol.14 ic1 recap)",
+        "Deceased by p01; no further agency in the volume"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#002:don-nicanor-rosamel-de-rokha",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "Father of Dona Vicenta Gabriela de Rokha (vol.14 ic1, p01, p15)",
+        "Commands Philodendran forces (vol.14 ic1 recap)",
+        "Opposed by the Techno-Technos over Bikramen mining rights (vol.14 ic1 recap)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Authoritarian military commander; willing to use force to break a barricade (vol.14 ic1 recap)",
+        "Failed to recognize his own daughter during their confrontation (vol.14 ic1 recap)",
+        "Could be moved by extreme sacrifice: granted Dona Vicenta's marriage after she gave him her fingernails (vol.14 ic1 recap)",
+        "Defiant against external powers: refused the TechnoCardinal's ultimatum to vacate Philodendra (vol.14 ic1 recap)"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "His refusal of the TechnoCardinal's ultimatum caused Techno-Techno bombardment of Philodendra (vol.14 ic1 recap)",
+        "Dona Vicenta's sacrifice of her fingernails tormented him enough to grant her marriage to Melmoth (vol.14 ic1 recap)"
+      ]
+    }
+  ]
+}

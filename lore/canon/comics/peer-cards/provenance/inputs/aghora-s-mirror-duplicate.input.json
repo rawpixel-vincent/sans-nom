@@ -1,0 +1,136 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "416_The_Metabarons_16_p11": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/416_The_Metabarons_16_p11.json"
+  },
+  "peer_card_id": "aghora-s-mirror-duplicate",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Aghora's Mirror Duplicate",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "aghora-s-mirror-duplicate",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-16.json#012:aghora-s-mirror-duplicate"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Aghora's Mirror Duplicate",
+        "the copy",
+        "the mirrored duplicate"
+      ],
+      "appearances": [
+        "volume: 16; pages: p11"
+      ],
+      "character_id": "aghora-s-mirror-duplicate",
+      "image_sha256s": [
+        "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea"
+      ],
+      "important_actions": [
+        "Produced by the mirror enemy to attempt psychological defeat of Aghora [p11]"
+      ],
+      "knowledge_boundaries": [
+        "Understood itself as materially identical to the original but did not possess Aghora's soul [p11]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "416_The_Metabarons_16_p11"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#012:aghora-s-mirror-duplicate",
+      "record_index": 12,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: material copy of Aghora; claims identity with the original; defeated and dissolved by Aghora [p11]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "29e6674957cc799466b80e40c0bc757d1da5b1447964e031254a8c59da25bbea",
+          "page_id": "416_The_Metabarons_16_p11",
+          "source_image": "external/comics/meta-barons/416_The_Metabarons_16_p11.jpg"
+        }
+      ],
+      "traits": [
+        "Exact physical replica of Aghora including body and weapons [p11]",
+        "Can speak and reason [p11]",
+        "Attempts psychological persuasion rather than pure force [p11]",
+        "Unstable existence; dissolved after being overcome [p11]",
+        "Lacks Aghora's soul or inner essence by the page's logic [p11]"
+      ],
+      "voice_notes": [
+        "Framed its survival as linked to Aghora's own survival [p11]",
+        "Used material identity as its primary argument and threat [p11]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Declared itself a perfect physical copy, not merely a reflection [p11]",
+        "Argued that harming it would be equivalent to self-harm and asked the original to surrender [p11]",
+        "Insisted the two were the same [p11]",
+        "Fired or projected energy at Aghora during the confrontation [p11]",
+        "Began dissolving after the clash [p11]"
+      ]
+    }
+  ]
+}

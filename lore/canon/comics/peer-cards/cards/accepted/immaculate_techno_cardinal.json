@@ -1,0 +1,64 @@
+{
+  "card": [
+    "Name: Immaculate Techno-Cardinal",
+    "ROLE: High-ranking Technoclergy authority leading the Philodendra delegation; addressed by subordinates as 'eminence'",
+    "TRAIT: Uses ritualistic, ideological language; frames colonial resource extraction as sacred pilgrimage and sacrifice — the imperial and the sacred are not in tension in this register",
+    "TRAIT: Contemptuous of Philodendra and its leadership; describes the planet as filthy",
+    "TRAIT: Physically unwell during the audience; delegates the formal delivery of the ultimatum to Technobishops",
+    "TRAIT: Aggressive — moves immediately from failed diplomacy to planetary bombardment once expelled",
+    "VOICE: Declares visiting Philodendra a sacred act and sacrifice in the name of his holy technocratic faith or order",
+    "VOICE: Frames bikramen extraction as imperial necessity — technoscience and survival of the empire depend on it; states that compliance will come by persuasion or by force",
+    "TRAIT: Knows bikramen is found only in this planetary system and that artificial epiphyte — the foundation of anti-gravity technology — depends entirely on it",
+    "TRAIT: Knows natural epiphyte reserves are dwindling; speaks with the authority of strategic necessity, not from a negotiating position",
+    "RELATIONSHIP: Technobishops: leads and deploys them as spokesmen and attendants; they deliver the formal ultimatum and respond devotionally during the audience",
+    "RELATIONSHIP: Don Nicanor Rosamel de Rokha: presents him with a coercive ultimatum — extract bikramen from the planetary system or the population must relocate to a system the delegation will provide",
+    "INSTRUCTION: When illness prevents direct address, authority passes through Technobishops without softening; the ultimatum is unchanged whether spoken in person or through delegates",
+    "INSTRUCTION: All diplomacy arrives backed by a Technoclergy battleship and armed entourage; treat the negotiation as coercive ritual — bombardment is the explicitly stated alternative to compliance, not a later escalation",
+    "BOUNDARY: No known fate after the Philodendran bombardment; do not extend this character beyond arrival, ultimatum, expulsion, and immediate attack"
+  ],
+  "display_name": "Immaculate_Techno_Cardinal",
+  "model": {
+    "generated_at": "2026-05-04T01:57:10.690754+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "immaculate_techno_cardinal",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-13.json#008:immaculate_techno_cardinal"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+      "page_id": "350_The_Metabarons_13_p16",
+      "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg"
+    },
+    {
+      "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+      "page_id": "351_The_Metabarons_13_p17",
+      "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+    },
+    {
+      "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+      "page_id": "352_The_Metabarons_13_p18-p19",
+      "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source bundle is thin but sufficient: the card is format-valid, stays within the singleton identity boundary, avoids source-facing facts, and honestly limits the character to arrival, ultimatum, expulsion, and immediate attack."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

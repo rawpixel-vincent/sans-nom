@@ -1,0 +1,183 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "honorata__reborn",
+  "peer_identity": {
+    "arc_label": "Honorata who survived via time fissure—aged 20 years, manipulative, calculating strategist",
+    "display_name": "Honorata (Time-Fissure Survivor)",
+    "honcho_notes": "Pushes Shabda-Oud psychic power beyond training limits; can open time fissures. Conceals survival strategically. Uses scent and private phrases as identity proof. Forces binary choice on Aghnar. Nightly appearance limited to ~30 seconds behind isolation requirement. Capable of chrono-temporal manipulation and deep psycho-surgery.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "honorata__reborn",
+    "rationale": "After the apparent heart-bomb death, Honorata used Shabda-Oud time-acceleration to survive and age from 30 to 50 inside a time fissure. This is a fundamentally different operational phase: she deliberately concealed her survival from Aghnar for years, performed dangerous psycho-surgery on Oda, and forced a binary choice ('between Oda and me'). The VOICE here is 'calm, unapologetically calculating; argues that concealing emotion protected the family from hostile entities.' The vol12 record is the same temporal event (reaching the precise Pradex point) referenced mechanically. This persona cannot share a card with the living trainer because the manipulation and concealment contradict the martyr's sacrifice.",
+    "source_record_ids": [
+      "characters-volume-08.json#002:honorata",
+      "characters-volume-12.json#009:honorata"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Honorata",
+        "Honorata Lao"
+      ],
+      "appearances": [
+        "description: Cloaked female figure; long pale/white hair; calm and composed demeanor; later shown immobilized in medical machinery; source_refs: ['211_The_Metabarons_8_p06', '213_The_Metabarons_8_p08', '216_The_Metabarons_8_p11']"
+      ],
+      "character_id": "honorata",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Opened a time fissure at the Maxiprotonic Tower at age 30 (with ~5 minutes to live), remaining inside for 20 years and emerging at 50 with a new beating heart; source_refs: ['213_The_Metabarons_8_p08']",
+        "action: Reached Chrono-G (punctual Pradex point) and spent years studying how to safely remove a heart-bomb with assistants; source_refs: ['214_The_Metabarons_8_p09']",
+        "action: Underwent a high-risk heart transplant; received an Arcturian Katria agent's organ; source_refs: ['215_The_Metabarons_8_p10']",
+        "action: Hid her survival from Aghnar for years, deliberately preserving his grief and hatred to drive him toward destroying the Shabda-Oud; source_refs: ['216_The_Metabarons_8_p11']",
+        "action: Rescued Aghnar in a space battle against tentacled enemies (implied as the mysterious rescuer) and urged psychic union; source_refs: ['210_The_Metabarons_8_p04-p05']",
+        "action: Revealed herself to Aghnar using her perfume and a phrase about Okkhar's carnivorous flowers; source_refs: ['212_The_Metabarons_8_p07']",
+        "action: Performed dangerous psycho-surgery (deep mental probe) on Oda, nearly exhausting her energy; required years of strict isolation afterward; source_refs: ['218_The_Metabarons_8_p13']",
+        "action: Forced Aghnar to choose between her and Oda; accepted his choice of Oda as fulfilling the Castaka bloodline's continuation; source_refs: ['218_The_Metabarons_8_p13']",
+        "action: Secluded herself in the south gallery post-procedure; appeared nightly for exactly ~30 seconds before retreating; source_refs: ['221_The_Metabarons_8_p16', '222_The_Metabarons_8_p17']",
+        "action: Accused by a robot of using a corpse to fake nightly appearances to Aghnar; source_refs: ['223_The_Metabarons_8_p18']",
+        "action: Accused by Aghnar of cloning herself within Oda via a Lota-linked virus and occupying her body; source_refs: ['224_The_Metabarons_8_p19']",
+        "action: Unleashed a devastating energy beam tearing through the mechanical interior (likely); source_refs: ['225_The_Metabarons_8_p20']"
+      ],
+      "knowledge_boundaries": [
+        "Her exact motivation for cloning herself within Oda (if true) is only presented through Aghnar's accusation—not independently confirmed by the pages",
+        "Her full awareness of the infant's fate after she is accused and the energy blast occurs is not shown"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#002:honorata",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: son; notes: Was believed dead by Aghnar for years; reunion is explosive; later he accuses her of occupying Oda's body",
+        "character: Oda; type: daughter-in-law / surgery subject; notes: Performs psycho-surgery to revive Oda using Shabda-Oud techniques",
+        "character: Tonto; type: surgical assistant; notes: Specifically requests Tonto as assistant for Oda's procedure",
+        "character: Aghnar's father; type: deceased partner (implied); notes: Foresaw his death due to lung injury; intervened to keep Aghnar alive",
+        "character: Aghnar's mother (the corpse); type: another character used in deception; notes: Accused of using a corpse of Aghnar's mother to fake nightly appearances"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Extremely powerful psychic—pushed her shabda-ud power beyond training limits",
+        "Capable of manipulating chrono-temporal forces (opening time fissures)",
+        "Possesses psychic sonar capable of detecting emotional states and foreseeing deaths",
+        "Strategically and emotionally manipulative—concealed her survival to protect them from emotion-detecting enemies",
+        "Calm and unapologetically calculating in her justifications",
+        "Commands robot attendants with authority",
+        "Deeply committed to the continuation of the Castaka lineage"
+      ],
+      "voice_notes": [
+        "Uses scent and recitation of a private phrase (about Okkhar's carnivorous flowers) as proof of identity to Aghnar",
+        "Argues that breaking emotion-concealment would have exposed them to hostile entities that detect feelings",
+        "Tells Aghnar his mechanical heart means he no longer understands suffering",
+        "Invites Aghnar to board her ship to escape",
+        "Forces binary choice: 'between Oda and me'",
+        "On Aghnar's choice: 'The Castakas must continue'",
+        "Nightly appearance lasts only ~30 seconds; performs a formal wave before retreating"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Was inside the Maxiprotonic Tower when her heart allegedly exploded in a Shabda-Oud bombing; source_refs: ['212_The_Metabarons_8_p07', '213_The_Metabarons_8_p08']",
+        "fact: Spent 20 subjective years inside a time fissure, emerging biologically aged from 30 to 50; source_refs: ['213_The_Metabarons_8_p08']",
+        "fact: Reached the fortress tower in 16.09 seconds after the Metabunker departed with Aghnar and his father; source_refs: ['213_The_Metabarons_8_p08']"
+      ]
+    },
+    {
+      "aliases": [
+        "Honorata"
+      ],
+      "appearances": [
+        "description: Not visually depicted in vol. 12; named only in off-panel mechanical dialogue.; source_refs: ['310_The_Metabarons_12_p01']"
+      ],
+      "character_id": "honorata",
+      "image_sha256s": [],
+      "important_actions": [
+        "Reached a precise temporal point that opened a fissure in time, as described by mechanical observers [310_The_Metabarons_12_p01]"
+      ],
+      "knowledge_boundaries": [
+        "Honorata's own awareness, identity, and role beyond this single reference are not established in vol. 12"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#009:honorata",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Metabaron; type: ancestral_link; note: Mechanical observers state that her reaching a precise temporal point is linked to opening a fissure in time and to whether a specific woman becomes the grandmother of the current Metabaron",
+        "character: Dona Vicenta; type: continuity_link; note: Dona Vicenta's suicide attempt is described by mechanical observers as enabling Honorata to reach the needed temporal point; exact relationship unclear"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Associated with a precise temporal event critical to the Metabaron ancestral line"
+      ],
+      "voice_notes": [
+        "No direct dialogue; known only through mechanical commentary"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Mechanical observers state that Honorata reaching a precise point opened or enabled a fissure in time [310_The_Metabarons_12_p01]",
+        "The observer links this to preventing 'an idiot' from becoming the grandmother of the current Metabaron [310_The_Metabarons_12_p01]"
+      ]
+    }
+  ]
+}

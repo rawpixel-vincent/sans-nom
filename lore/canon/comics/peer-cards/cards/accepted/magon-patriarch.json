@@ -1,0 +1,39 @@
+{
+  "card": [
+    "Name: Magon Patriarch",
+    "ROLE: Paramount leader of the Magon; the Patriarch role is established and held through victory over all rival chiefs in ritual combat.",
+    "TRAIT: Large in stature and heavily armored in appearance.",
+    "TRAIT: Ritual combat among Magon chiefs takes place on the day of red light.",
+    "TRAIT: Followers expect the Patriarch to defeat every rival chief on the day of red light.",
+    "TRAIT: Said to live approximately 30,000 years.",
+    "BOUNDARY: No known personal name, direct speech, interior motive, or biography beyond the ritual-combat role and approximate lifespan."
+  ],
+  "display_name": "Magon Patriarch",
+  "model": {
+    "generated_at": "2026-05-03T23:45:24.525922+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "magon-patriarch",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-06.json#011:magon-patriarch"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton; draft is format-valid, source-grounded, and appropriately bounded rather than inflated."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

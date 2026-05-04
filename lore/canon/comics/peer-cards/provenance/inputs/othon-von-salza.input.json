@@ -1,0 +1,774 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "008_The_Metabarons_1_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/008_The_Metabarons_1_p06.json",
+    "012_The_Metabarons_1_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/012_The_Metabarons_1_p10.json",
+    "015_The_Metabarons_1_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/015_The_Metabarons_1_p13.json",
+    "016_The_Metabarons_1_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/016_The_Metabarons_1_p14.json",
+    "018_The_Metabarons_1_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/018_The_Metabarons_1_p16.json",
+    "020_The_Metabarons_1_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/020_The_Metabarons_1_p18.json",
+    "020_The_Metabarons_1_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/020_The_Metabarons_1_p20.json",
+    "022_The_Metabarons_1_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/022_The_Metabarons_1_p20.json",
+    "023_The_Metabarons_1_p22": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/023_The_Metabarons_1_p22.json",
+    "264_The_Metabarons_10_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/264_The_Metabarons_10_p16.json",
+    "276_The_Metabarons_10_p28": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/276_The_Metabarons_10_p28.json"
+  },
+  "peer_card_id": "othon-von-salza",
+  "peer_identity": {
+    "arc_label": "Othon von Salza — pirate heir through castrated Metabaronic founder",
+    "display_name": "Othon von Salza",
+    "honcho_notes": "Merge: pure id-format duplicate. The 9-record merged card is the authoritative identity. Discard othon_von_salza.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "othon-von-salza",
+    "rationale": "Two peer_card_ids for the same character, differing only in id format (hyphen vs underscore). Both share the alias 'othon von salza'. No phase or role split indicated. othon-von-salza is the 9-record merged card spanning vol01–10; othon_von_salza appears to be a duplicate staging artifact. Canonical: hyphen format (cleaner, consistent with other merged cards).",
+    "source_record_ids": [
+      "characters-volume-01.json#003:othon_von_salza",
+      "characters-volume-02.json#000:othon-von-salza",
+      "characters-volume-03.json#000:othon-von-salza",
+      "characters-volume-04.json#000:othon-von-salza",
+      "characters-volume-05.json#001:othon-von-salza",
+      "characters-volume-06.json#001:othon",
+      "characters-volume-07.json#002:othon",
+      "characters-volume-08.json#009:othon",
+      "characters-volume-09.json#003:othon-von-salza",
+      "characters-volume-10.json#002:othon-von-salza"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Non-peer lore fact bundle: two unnamed daughters act as a paired group; Honcho peer cards must represent one character, not a plural unit.",
+      "related_peer_ids": [
+        "iku-itta",
+        "othon-von-salza",
+        "honorata__living"
+      ],
+      "source_record": {
+        "aliases": [
+          "Iku-Tta's daughters",
+          "Nan-Nan",
+          "Ohouya",
+          "daughters of Othon's faithful servant",
+          "the servant's two daughters"
+        ],
+        "appearances": [
+          "description: Two dark-haired women in black; later depicted in revealing ceremonial or martial outfits with white headpieces; physically aggressive and fanatical; source_refs: ['090_The_Metabarons_4_p01', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+        ],
+        "character_id": "iku-tta-daughters",
+        "important_actions": [
+          "action: As a paired non-peer unit, seized and threw Honorata from the tower in her ninth month, triggering mid-air birth and epiphyte dart strike; source_refs: ['094_The_Metabarons_4_p05', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+        ],
+        "knowledge_boundaries": [
+          "Believed Honorata possessed genuine supernatural hypnotic powers",
+          "Framed the act as a sacrificial ritual connected to a demon — whether their interpretation of events is accurate is not confirmed"
+        ],
+        "non_peer_reason": "Non-peer lore fact bundle: two unnamed daughters act as a paired group; Honcho peer cards must represent one character, not a plural unit.",
+        "page_ids": [
+          "089_The_Metabarons_4_ic1",
+          "094_The_Metabarons_4_p05",
+          "096_The_Metabarons_4_p07",
+          "097_The_Metabarons_4_p08"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-04.json#005:iku-tta-daughters",
+        "related_peer_ids": [
+          "iku-itta",
+          "othon-von-salza",
+          "honorata__living"
+        ],
+        "relationships": [
+          "character: Iku-Tta; type: father; notes: page 094 identifies the two attackers as Iku-Tta's daughters, Iku-Tta's children rather than Othon's children",
+          "character: Othon von Salza; type: household dependents / enforced-silent companions; notes: lived in the Castaka fortress orbit after Othon took Iku-Tta's daughters into his household",
+          "character: Honorata; type: enemies / captors; notes: believed she hypnotized Othon; blindfolded her to counter her powers; seized her in ninth month and leapt from the tower with her"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+        "traits": [
+          "Jealous of Honorata's influence over Othon",
+          "Fanatical; willing to die alongside Honorata to eliminate her",
+          "Frame their act as a religious or cult-like sacrifice",
+          "Believe their sacrifice is connected to a demon and to someone having fathered that demon",
+          "Accuse Honorata of both witchcraft and theft"
+        ],
+        "voice_notes": [
+          "Speak in ecstatic, devotional, and accusatory registers; frame their act as sacrifice; call Honorata a thief and witch; dismiss retreating as impossible"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Interrupted Honorata's first encounter with Othon out of jealousy, causing him to nearly kill her [089_The_Metabarons_4_ic1]",
+          "Blindfolded Honorata on the tower platform to prevent hypnosis [096_The_Metabarons_4_p07]",
+          "Seized Honorata in her ninth month of pregnancy and threw themselves with her from the top of Othon's tower [094_The_Metabarons_4_p05]",
+          "Declared their hatred stronger than her magic and willingness to die [097_The_Metabarons_4_p08]",
+          "Addressed an older blindfolded woman (likely a household figure) who pleaded with them to stop [097_The_Metabarons_4_p08]"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Othon von Salza"
+      ],
+      "appearances": [
+        "page_id: 008_The_Metabarons_1_p06; note: named in ancestral narration; depicted or referenced in row of faces",
+        "page_id: 012_The_Metabarons_1_p10; note: named; commits premature cutting discharge",
+        "page_id: 015_The_Metabarons_1_p13; note: referenced as trapped, likely depicted as fallen armored figure",
+        "page_id: 016_The_Metabarons_1_p14; note: rescue debate centers on him",
+        "page_id: 018_The_Metabarons_1_p16; note: named; rebuked for pirate thinking; declared next baron",
+        "page_id: 020_The_Metabarons_1_p18; note: target of Baron Berard's dagger attack",
+        "page_id: 022_The_Metabarons_1_p20; note: named; receives the spirit and birthmark transfer from Berard",
+        "page_id: 023_The_Metabarons_1_p22; note: recipient of Berard's completed transfer; marked with birthmark"
+      ],
+      "character_id": "othon_von_salza",
+      "image_sha256s": [
+        "",
+        "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+        "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+        "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+        "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+        "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+        "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+        "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+        "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb"
+      ],
+      "important_actions": [
+        "page_id: 012_The_Metabarons_1_p10; action: ignores father-in-law's instructions and triggers premature cut, causing industrial accident",
+        "page_id: 020_The_Metabarons_1_p20; action: agrees to surrender to Berard's knowledge and accepts succession",
+        "page_id: 022_The_Metabarons_1_p20; action: receives spirit and birthmark transfer from Berard; becomes new baron"
+      ],
+      "knowledge_boundaries": [
+        "at the start of the volume was considered to lack the willingness to sacrifice, per Berard's teaching (p20)",
+        "no direct evidence of knowledge beyond what is depicted in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "008_The_Metabarons_1_p06",
+        "012_The_Metabarons_1_p10",
+        "015_The_Metabarons_1_p13",
+        "016_The_Metabarons_1_p14",
+        "018_The_Metabarons_1_p16",
+        "020_The_Metabarons_1_p18",
+        "020_The_Metabarons_1_p20",
+        "022_The_Metabarons_1_p20",
+        "023_The_Metabarons_1_p22"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-01.json#003:othon_von_salza",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: baron_berard; relation: father-in-law, master, predecessor baron; performs spirit transfer to Othon",
+        "character: lady_edna; relation: wife; described as his mate by Berard",
+        "character: bari; relation: son with Edna (referenced p06)",
+        "character: the_metabaron; relation: great-great-grandfather"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "",
+        "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+        "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg",
+        "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg",
+        "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg",
+        "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg",
+        "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg",
+        "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg",
+        "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+          "page_id": "008_The_Metabarons_1_p06",
+          "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+        },
+        {
+          "image_sha256": "cdcf38e1dc9a2bfaa71441fa080d85d543938fd55b221cf72610f2cc16f85087",
+          "page_id": "012_The_Metabarons_1_p10",
+          "source_image": "external/comics/meta-barons/012_The_Metabarons_1_p10.jpg"
+        },
+        {
+          "image_sha256": "70a67ae51e48f6b9950ee2d586446a927502e01ae96dd994aeb741538137cdcd",
+          "page_id": "015_The_Metabarons_1_p13",
+          "source_image": "external/comics/meta-barons/015_The_Metabarons_1_p13.jpg"
+        },
+        {
+          "image_sha256": "ca31b77ed2349be9efb359b2be8aa4d59787ff39326588094246d4c720bf07de",
+          "page_id": "016_The_Metabarons_1_p14",
+          "source_image": "external/comics/meta-barons/016_The_Metabarons_1_p14.jpg"
+        },
+        {
+          "image_sha256": "deb1c275ab7a33c10ad661c5cfb4901ccc37be7803f7838b250d8fe8797cd07f",
+          "page_id": "018_The_Metabarons_1_p16",
+          "source_image": "external/comics/meta-barons/018_The_Metabarons_1_p16.jpg"
+        },
+        {
+          "image_sha256": "fa9ee6eaef58d981c6c102b1f4f22393be0d6f0a1ff20728177be353e2227feb",
+          "page_id": "020_The_Metabarons_1_p18",
+          "source_image": "external/comics/meta-barons/020_The_Metabarons_1_p18.jpg"
+        },
+        {
+          "image_sha256": "",
+          "page_id": "020_The_Metabarons_1_p20",
+          "source_image": ""
+        },
+        {
+          "image_sha256": "31375b6ce9fc88646921bb17cb6388dbb5b195a83554f457f780e23863089acc",
+          "page_id": "022_The_Metabarons_1_p20",
+          "source_image": "external/comics/meta-barons/022_The_Metabarons_1_p20.jpg"
+        },
+        {
+          "image_sha256": "76e46cb198ec4f5d1f0faf34916acd648716395203a57e39b3a0dd2d4b95025b",
+          "page_id": "023_The_Metabarons_1_p22",
+          "source_image": "external/comics/meta-barons/023_The_Metabarons_1_p22.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "speaks defiantly and impulsively in the accident scene; later speaks with emotional warmth toward Berard; accepts succession with formal address 'father'"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "witnessed or caused industrial accident by triggering premature cutting discharge (p10)",
+        "was trapped beneath a fallen stone block and rescued using the sacred glowing orb (p12–p15)",
+        "witnessed Baron Berard declare him next baron and rebuke his pirate past (p16)",
+        "received Berard's spirit, knowledge, and birthmark transfer before Berard's death (p20, p22)"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon Von Salza",
+        "Baron of Castaka",
+        "Master Othon",
+        "the Baron"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['ic1', 'p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p21', 'p25', 'p26']"
+      ],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Solo infiltration through enemy center; detail: Advanced armed only with a short dagger; killed approximately 1,500 endoguards by striking tiny gaps in their armor; source_pages: ['p04', 'p05']",
+        "action: Broke Bari's legs; detail: Deliberately crippled Bari to prevent him joining the battle; source_pages: ['ic1', 'p02']",
+        "action: Retrieved Konrath's body and honored Edna's death site; detail: Carried Konrath south through ruins; knelt at the column where Edna was disintegrated; source_pages: ['p07']",
+        "action: Negotiated with the imperial couple; detail: Used exclusive Epyphite knowledge as leverage to secure revenue share, the planet Okhar, and Shazam for Bari; source_pages: ['p10', 'p11']",
+        "action: Ambushed the Shazam raiders in fog; detail: Used bow and terrain knowledge; defeated them but suffered catastrophic groin/hip injuries; source_pages: ['p21', 'p24', 'p25']",
+        "action: Founded metabaronic traditions; detail: Invested fortune in first metabaronic weapons and initiated cybernetic implant practice; received a multi-protonic pelvis; source_pages: ['p26']",
+        "action: Fathered Bari Didi; detail: Despite castration, fathered a biological son, preserving direct blood succession; source_pages: ['p26']"
+      ],
+      "knowledge_boundaries": [
+        "Sole shared knowledge (with Bari) of the precise location / access method of the Epyphite — used as negotiating leverage",
+        "Personally knows the terrain of the marble fortress on Okhar",
+        "Knows the vulnerabilities of endoguard armor (tiny gaps exploitable with precise dagger strikes)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-02.json#000:othon-von-salza",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Edna; relation: Wife (deceased); notes: Married into the Castaka clan; mourned her at the column where she was disintegrated",
+        "character: Baron Berard of Castaka; relation: Father-in-law (deceased); notes: Berard initially opposed Othon, then judged him worthy and transferred the family legacy to him",
+        "character: Bari; relation: Son; notes: Broke Bari's legs to prevent him from fighting; reconciled after battle; later suppressed public alarm to protect Bari's honor",
+        "character: Bari Didi; relation: Biological heir; notes: Fathered despite castration; confirmed as direct blood successor",
+        "character: Konrath; relation: Subordinate / loyal companion (deceased); notes: Retrieved Konrath's body from the southern ruins after battle",
+        "character: Hohenhole; relation: Lieutenant (fate unconfirmed); notes: Searched the northern battlefield for Hohenhole after the fighting ended",
+        "character: Iku-Tta / Iku-Itta; relation: Trusted attendant / confidant; notes: Confided loneliness to Iku-Tta; Iku-Tta and daughters nursed him during recovery",
+        "character: Tonto; relation: Descendant / addressee of lineage narrative; notes: Othon's exploits are recounted to Tonto as ancestral legend"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "White-haired, heavily armored warrior",
+        "Former pirate who married into the Castaka clan",
+        "Tactically precise; exploits environmental and anatomical vulnerabilities",
+        "Emotionally stoic even during personal loss",
+        "Physically bold — leads from the front",
+        "Pragmatic negotiator; uses leverage coldly",
+        "Deeply loyal to the fallen; personally retrieves bodies and honors death sites",
+        "Initiator of cybernetic augmentation tradition in the lineage"
+      ],
+      "voice_notes": [
+        "Speaks in terms of warrior doctrine and ruthless tactical logic",
+        "Emotionally restrained in dialogue even during grief or reconciliation",
+        "In negotiations: calm, leveraged, never emotional"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Watched the clan expose the Epyphite secret to save him from the marble block",
+        "Saw Baron Berard transfer the family legacy before dying",
+        "Observed Edna walk out alone to confront the invaders",
+        "Led the three-pronged counterattack against the endoguards",
+        "Walked the valley battlefield covered in corpses in the aftermath",
+        "Attended Oda's funerary bier and reconciled with Bari",
+        "Negotiated directly with the imperial couple over Epyphite access",
+        "Witnessed Bari bond with Shazam on Okhar",
+        "Ambushed the green-skinned raiders in fog using a bow and terrain knowledge"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon von Salza",
+        "Baron of Castaka",
+        "Shazam",
+        "Baron von Salza",
+        "the first Metabaron"
+      ],
+      "appearances": [
+        "{'description': 'White-haired, heavily muscular, older man. Wears pale armored suit. Has cybernetic or armored hand/arm. Physically imposing even after severe injury.', 'source_refs': ['056_The_Metabarons_3_c01', '067_The_Metabarons_3_p10', '073_The_Metabarons_3_p17', '082_The_Metabarons_3_p26', '083_The_Metabarons_3_p27', '084_The_Metabarons_3_p28']}"
+      ],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Negotiated share of epyphite revenues, a new planet (Okhar), and a genetically recreated horse for Bari from the Imperial Couple; source_refs: ['057_The_Metabarons_3_ic1']",
+        "action: Invested fortune in early Metabaronic weapon development after abandoning pure martial arts; source_refs: ['067_The_Metabarons_3_p10']",
+        "action: Transformed the rural Castaka fortress on Okkar into a maxi-protonic tower-city using an army of machines; source_refs: ['067_The_Metabarons_3_p10']",
+        "action: Infiltrated the Golden Planet alone, fought through palace guards, and won imperial command of fifty endoguard ships; source_refs: ['073_The_Metabarons_3_p17', '074_The_Metabarons_3_p18', '075_The_Metabarons_3_p19', '076_The_Metabarons_3_p20']",
+        "action: Attacked Namar's mega-carrier and destroyed the pirate fleet; the counterfeit planet surrendered; source_refs: ['077_The_Metabarons_3_p21', '078_The_Metabarons_3_p22', '079_The_Metabarons_3_p23']",
+        "action: Stole the sacred egg and raced to the Golden Planet at unprecedented hyper-light speed; source_refs: ['081_The_Metabarons_3_p25']",
+        "action: Received the hereditary title 'Metabaron' from the Emperor, founding the dynasty; source_refs: ['083_The_Metabarons_3_p27']",
+        "action: Isolated himself in his great hall of weapons on Otho, refusing all visitors, after Bari's death; source_refs: ['084_The_Metabarons_3_p28']",
+        "action: Threatened Honorata with a blade after recognizing her as a Shabda-Oud; source_refs: ['085_The_Metabarons_3_p29', '087_The_Metabarons_3_p31']"
+      ],
+      "knowledge_boundaries": [
+        "Does not know whether Honorata will serve his dynastic needs; vol. 3 ends before resolution",
+        "Has no heir after Bari's death and his own reproductive mutilation"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#000:othon-von-salza",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Bari; type: son (deceased by vol. 3); notes: Othon mourns Bari deeply. Previously prevented Bari from joining his dying mother, which Bari called cowardice. Bari lost use of his legs before his death.; source_refs: ['057_The_Metabarons_3_ic1', '084_The_Metabarons_3_p28']",
+        "character: Iku-Itta; type: slave; notes: Othon took Iku-Itta's daughters as enforced-silent companions after his mutilation.; source_refs: ['067_The_Metabarons_3_p10']",
+        "character: Honorata; type: imperial gift / antagonistic encounter; notes: Honorata arrives veiled, identifying herself as a gift. Othon recognizes her as a Shabda-Oud, reacts with contempt and hostility, presses blade to her throat.; source_refs: ['085_The_Metabarons_3_p29', '086_The_Metabarons_3_p30', '087_The_Metabarons_3_p31']",
+        "character: The Imperial Couple (Emperor and Empress); type: sovereign / patron; notes: Othon negotiated planetary and commercial concessions from them after the Marmola war. Later persuades them to grant command of fifty endoguard ships. Receives the hereditary title 'Metabaron' from the Emperor.; source_refs: ['057_The_Metabarons_3_ic1', '076_The_Metabarons_3_p20', '083_The_Metabarons_3_p27']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Cunning and extremely lethal in battle",
+        "Contemptuous of others, including imperial elites and adoring crowds",
+        "Cruel and solitary after mutilation",
+        "Emotionally volatile: grief-stricken over lost son Bari",
+        "Status-conscious; insists on recognition of rank",
+        "Impatient and theatrically bold",
+        "Pilots through sophisticated planetary defenses by instinct",
+        "Does not trust the empire or those who celebrate him"
+      ],
+      "voice_notes": [
+        "Internally mocks the empire's celebrated warriors as weaker than himself (vol.3 p17)",
+        "At his knighting says he is 'a warrior, but no longer a man' — links mutilation to loss of masculine identity (vol.3 p27)",
+        "Vows to roam the galaxy to find a gift worthy of the Emperor (vol.3 p27)",
+        "Privately views the celebrating crowd as hypocrites who wanted him to fail and steal 'the egg' (vol.3 p26)",
+        "Refuses consolation about descendants: 'what is broken will not grow again' (vol.3 p27)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Cannot be stopped by poly-radars, quantum sensors, or photonic barriers on the Golden Planet (vol.3 p17)",
+        "Fought through imperial palace guards unassisted (vol.3 p19)",
+        "Defeated pirate fleet using concealed FB3 bombs in asteroid fissures and a forbidden tri-H torpedo as diversion (vol.3 p21–p23)",
+        "Stole the sacred egg from the Mother-Coach and fled at hyper-light speed (vol.3 p25)",
+        "Previously killed multiple soldiers with only a dagger on Marmola (vol.3 ic1)",
+        "Survived destruction of groin and hips by a dying bandit's shot (vol.3 ic1)"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon von Salza",
+        "the Metabaron",
+        "great ancestor"
+      ],
+      "appearances": [
+        "description: Large, muscular man; white/silver hair; described in some panels as green-skinned; visible cybernetic or mechanical genital/hip components; wears dark cape; source_refs: ['089_The_Metabarons_4_ic1', '091_The_Metabarons_4_p02', '092_The_Metabarons_4_p03', '113_The_Metabarons_4_p24']"
+      ],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Knighted as Metabaron after rescuing Imperial offspring at Golden Planet; source_refs: ['089_The_Metabarons_4_ic1']",
+        "action: Blood-ritual conception of Aghnar via nervous-system link during lunar eclipse; source_refs: ['092_The_Metabarons_4_p03', '093_The_Metabarons_4_p04']",
+        "action: Banned tribe from fortress; replaced all staff with robots after Iku-Tta's suicide; source_refs: ['102_The_Metabarons_4_p13']",
+        "action: Named infant Aghnar; source_refs: ['102_The_Metabarons_4_p13']",
+        "action: Attempted to kill Aghnar as physically unfit to be a warrior; source_refs: ['104_The_Metabarons_4_p15']",
+        "action: Set seven-year concealment plan and warrior trial terms, vowing to die with son if he fails; source_refs: ['106_The_Metabarons_4_p17']",
+        "action: Administered foot-crushing pain ordeal to Aghnar; refused to intervene despite Honorata's protests; source_refs: ['119_The_Metabarons_4_p30']"
+      ],
+      "knowledge_boundaries": [
+        "Did not know the full Oiders' succession purpose behind Honorata's seduction mission until she revealed it [101_The_Metabarons_4_p12]",
+        "Agreed to conceal the child's sex for seven years and planned to train Aghnar as a warrior within that window [101_The_Metabarons_4_p12, 106_The_Metabarons_4_p17]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#000:othon-von-salza",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Honorata; type: lover / mother of his child; notes: Union impossible due to his castration; conceived Aghnar via blood-ritual nervous-system link during lunar eclipse",
+        "character: Aghnar; type: son; notes: Fathered through blood ritual; moved to kill him as infant for being unfit; administered brutal initiation trials; vowed to die with him if he failed",
+        "character: Iku-Tta; type: faithful servant / household associate; notes: Iku-Tta has two daughters living in Othon's fortress orbit; Othon is outdoors with Shazam when Iku-Tta summons him back to the tower",
+        "character: Iku-Tta; type: household threat (now deceased); notes: Othon believed Iku-Tta's suicide removed a threat to Aghnar",
+        "character: The Emperor; type: liege; notes: Knighted Othon as Metabaron after Othon rescued the Imperial offspring at the Golden Planet",
+        "character: The Empress; type: patron; notes: Promised to search the galaxy for a gift for Othon; sent Honorata to him",
+        "character: Iku-Tta's daughters; type: non-peer daughter pair / household dependents; notes: lived in the Castaka fortress orbit; seized Honorata and leapt from the tower"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Cruel, solitary, without regrets after death of his son",
+        "Warrior and inventor of advanced weapon technology; creator of first Metabaronic weapons",
+        "Emotionally controlled; hides pride",
+        "Ruthless dynastic ideal — willing to kill his own child for failing warrior standard",
+        "Ties his own survival to his heir's success in initiation",
+        "Physically imposing and aggressive; rides on horseback, arms himself quickly"
+      ],
+      "voice_notes": [
+        "Speaks in tragic terms about impossible union; terse and authoritative in initiation scenes; hides emotion under stoic exterior; states dynastic ideals in fatalistic, absolute terms"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Accidentally killed his own son and was castrated before the events of this volume",
+        "Created the first Metabaronic weapons after abandoning pure martial arts [089_The_Metabarons_4_ic1]",
+        "Converted the Castaka fortress on Okhar into a maxi-protonic tower [089_The_Metabarons_4_ic1]",
+        "Defeated pirates at the Golden Planet using advanced technology and trickery, restoring the Imperial egg [089_The_Metabarons_4_ic1]",
+        "Knighted as Metabaron by the Emperor [089_The_Metabarons_4_ic1]",
+        "Confessed to Honorata during a lunar eclipse that their union was impossible [091_The_Metabarons_4_p02]",
+        "Linked his nervous system to Honorata's during conception ritual; instructed her to place a drop of his blood into herself [093_The_Metabarons_4_p04]",
+        "Reacted with shock when told Iku-Tta's daughters had seized Honorata and leapt from the tower [094_The_Metabarons_4_p05]",
+        "Banned all tribe members from his fortress after Iku-Tta's suicide and replaced household staff with robots [102_The_Metabarons_4_p13]",
+        "Named the infant Aghnar [102_The_Metabarons_4_p13]",
+        "Moved to kill Aghnar as unfit; stood down when Honorata revealed her permanent sterility [104_The_Metabarons_4_p15]",
+        "Imposed a seven-year blackout on news of the child; set warrior trial terms: failure means death for both himself and Aghnar [106_The_Metabarons_4_p17]",
+        "Reunited with Honorata after seven years [113_The_Metabarons_4_p24]",
+        "Administered robo-killer initiation trial and voice-keyed foot-crushing capsule ordeal to Aghnar [114_The_Metabarons_4_p25, 119_The_Metabarons_4_p30]"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon von Salza",
+        "The First Metabaron",
+        "Othon"
+      ],
+      "appearances": [],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "Established the Metabaron initiation rite of ritual mutilation and prosthetic replacement through Aghnar's ordeal",
+        "Destroyed the Cetacyborg from within using a virus-like infiltration tactic",
+        "Declared the Metabaron clan would go underground in the Metabunker and re-emerge in years",
+        "Indoctrinated Aghnar with a blood-vow to destroy the Shabda-Oud using Honorata's death as the founding memory"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-05.json#001:othon-von-salza",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'Honorata': 'companion/lover; grieves her loss; forces himself to witness her death', 'Aghnar': \"father; applies brutal warrior tests; teaches warrior philosophy; forces Aghnar to watch Honorata's death as a formative memory\", 'Shabda-Oud': \"enemies; vows their annihilation after Honorata's death\"}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-05.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Harsh and uncompromising in warrior philosophy; frames everything through martial success and clan survival",
+        "Teaches son: 'adapt like water, relinquish attachment to glory'",
+        "Speaks while coughing in later pages; physically strained but insists his condition is minor"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Cannot father children through conventional means; Honorata used a drop of his blood to conceive Aghnar",
+        "Fired an epyphite cartridge to let Honorata float during her fall from the fortress",
+        "Subjected Aghnar to brutal warrior tests at age seven: defeat a robot, endure a machine that crushes feet",
+        "Possesses ultra-radars that detected the approaching Shabda-Oud vessel near Okhar",
+        "Engaged the Cetacyborg, intentionally let himself be swallowed, piloted his metacraft inside to the servo-brain, and fired all weapons simultaneously, destroying the creature",
+        "Returned to his maxi-protonic tower with acid-corroded lungs after the Cetacyborg battle",
+        "Warned family of the approaching Shabda-Oud clan and organized departure in the Metabunker",
+        "Forced Aghnar to witness Honorata's heart-bomb explosion",
+        "Departed aboard the Metabunker with Aghnar while Honorata remained behind"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon"
+      ],
+      "appearances": [
+        "source: vol6_ic1; page: ic1; description: Recap: piloted the Metacraft to infiltrate and destroy the Cetacyborg from inside using viral-infiltration tactics; fatally contaminated in the process; departed Okhar with Aghnar in the Metabunker after Honorata's death.",
+        "source: vol6_p02; page: p02; description: Older father figure arriving at Perdita with his son; coughing repeatedly; names and describes the planet in a bleak inventory.",
+        "source: vol6_p03; page: p03; description: Reveals spy-needle plan and the ten-year concealment order; reveals he is dying from Cetacyborg gas contamination with only days left.",
+        "source: vol6_p04; page: p04; description: Demands Aghnar kill him; frames it as the Castaka rite and preparation for the future campaign against the Shabda-Oud; armed with a long polearm or bladed weapon.",
+        "source: vol6_p05; page: p05; description: Forces combat by opening fire on Aghnar with an ornate energy firearm; has long light-colored hair and segmented armor.",
+        "source: vol6_p06; page: p06; description: Standing figure who praises Aghnar's use of mental powers but immediately warns the fight is not over because Aghnar is paralyzed.",
+        "source: vol6_p07; page: p07; description: Scarred, restrained armored man; threatens Oko mini-bomb detonation to prevent ordinary attack; demands to be killed to pass into 'true life'; praises Aghnar's intelligence when Aghnar identifies the brain-bomb exception.",
+        "source: vol6_p08; page: p08; description: Shot in the head by Aghnar; body preserved in deep-freeze afterward.",
+        "source: vol6_p09; page: p09; description: Mentioned only: his prior orders assigned the robot to keep Aghnar occupied during the wait; his corpse is on the operating table from which the Oko mini-bombs are extracted."
+      ],
+      "character_id": "othon",
+      "image_sha256s": [],
+      "important_actions": [
+        "Infiltrated and destroyed the Cetacyborg from within using viral tactics, fatally contaminating himself in the process (vol6_ic1)",
+        "Dispatched spy-needles across the universe before arriving on Perdita (vol6_p03)",
+        "Ordered a ten-year concealment on Perdita and assigned the robot to maintain Aghnar (vol6_p03, vol6_p09)",
+        "Forced Aghnar into a duel at gunpoint; demanded patricide as Castaka initiation (vol6_p04, vol6_p05)",
+        "Revealed Oko mini-bomb implants as a tactical deterrent against ordinary attack (vol6_p07)",
+        "Died when Aghnar shot him in the head (vol6_p08)"
+      ],
+      "knowledge_boundaries": [
+        "Knew the spy-needles would take ten years to return signals (vol6_p03)",
+        "Knew Planet Perdita and its ecology well enough to summarize it (vol6_p02)",
+        "Knew the Castaka tradition requiring patricide as Metabaron initiation (vol6_p04, vol6_p08)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-06.json#001:othon",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: Son (killed Othon); notes: Forced the patricide duel; accepted death at his son's hand. Sources: vol6_p04–vol6_p08.",
+        "character: Honorata; type: Partner/wife (deceased); notes: Departed Okhar after her death; vowed revenge with his son. Source: vol6_ic1.",
+        "character: Robot Narrator; type: Robot under his command; notes: Gave standing orders to keep Aghnar occupied during the ten-year wait. Source: vol6_p09."
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-06.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Commands with controlled aggression; willing to fire on his own son to force development (vol6_p05)",
+        "Speaks philosophically about death as 'true life' — not resignation but desire (vol6_p07)",
+        "Terse inventory style when describing the external world (vol6_p02)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Destroyed the Cetacyborg by infiltrating it from within — a viral-infiltration tactic — fatally contaminating himself (vol6_ic1)",
+        "Witnessed Honorata and Okhar destroyed from orbit (vol6_ic1)",
+        "Knew his blood was contaminated by Cetacyborg gases with only days to live (vol6_p03)"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['ic1 (recap)', 'p14 (named only)', 'p26 (named only)']"
+      ],
+      "character_id": "othon",
+      "image_sha256s": [],
+      "important_actions": [
+        "Dispatched spy-needles into space to gather information about the Shabda-Oud witches (vol 7 ic1)",
+        "Demanded Aghnar kill him in single combat to harden the son for vengeance (vol 7 ic1)"
+      ],
+      "knowledge_boundaries": [
+        "Dispatched spy-needles expecting intelligence on the Shabda-Oud's location; whether information arrived before his death is not specified (vol 7 ic1)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#002:othon",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: father; notes: Demanded Aghnar kill him in single combat so the son would be hardened enough to avenge Honorata (vol 7 ic1)",
+        "character: Honorata; type: linked in vengeance narrative; notes: Othon wanted Aghnar hardened specifically to avenge Honorata; both are named together as the pair whose deaths drive Aghnar"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Strategically minded — dispatched spy-needles into space to locate the Shabda-Oud witches",
+        "Self-sacrificing in design: chose the manner of his own death to forge Aghnar into a capable avenger",
+        "Died from cetacyborg-related poison gas before Aghnar killed him in combat"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Fatally poisoned by gas released when a Cetacyborg was destroyed (vol 7 ic1)"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon"
+      ],
+      "appearances": [],
+      "character_id": "othon",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#009:othon",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Honorata / Oda-Honorata; type: dynastic associate; notes: The woman holding the infant invokes Othon's dream as justification for the child's existence"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Othon von Salza",
+        "Othon"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['229_The_Metabarons_9_ic1', '230_The_Metabarons_9_p01', '239_The_Metabarons_9_p11', '245_The_Metabarons_9_p17']"
+      ],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Performed an earlier infiltration of the Imperial Palace that is held up as the precedent for Aghnar's infiltration; source_refs: ['230_The_Metabarons_9_p01']"
+      ],
+      "knowledge_boundaries": [
+        "Othon is only referenced in volume 9 and does not appear as an active character; his prior story is not recounted here"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#003:othon-von-salza",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar von Salza; relation: Father; Aghnar is explicitly identified as his son; Aghnar's aged face resembles Othon",
+        "character: Honorata; relation: Husband; Honorata identifies herself publicly as his widow",
+        "character: Steelhead; relation: Grandfather (implied via lineage)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Previously infiltrated the Imperial Palace — a feat Aghnar's infiltration in volume 9 is explicitly compared to and framed as repeating or inheriting; source_refs: ['230_The_Metabarons_9_p01']",
+        "fact: Honorata publicly identifies herself as his widow, placing him as part of the von Salza ancestral line; source_refs: ['245_The_Metabarons_9_p17']",
+        "fact: Aghnar's aged reflection reminds him of Othon, implying physical resemblance between father and son; source_refs: ['239_The_Metabarons_9_p11']"
+      ]
+    },
+    {
+      "aliases": [
+        "Othon von Salza",
+        "Othon"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p16', 'p28']"
+      ],
+      "character_id": "othon-von-salza",
+      "image_sha256s": [
+        "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+        "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f"
+      ],
+      "important_actions": [
+        "Credited with saving humanity on two occasions (nature of the acts not detailed in these pages) [v10 p28]"
+      ],
+      "knowledge_boundaries": [
+        "No direct dialogue or internal perspective given in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "264_The_Metabarons_10_p16",
+        "276_The_Metabarons_10_p28"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#002:othon-von-salza",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: unnamed warrior (p16); type: father of; notes: Warrior condemns 'father Othon' as eternally shamed; if warrior is Aghnar then Othon is Aghnar's father; relationship uncertain [v10 p16]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg",
+        "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f",
+          "page_id": "264_The_Metabarons_10_p16",
+          "source_image": "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg"
+        },
+        {
+          "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+          "page_id": "276_The_Metabarons_10_p28",
+          "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+        }
+      ],
+      "traits": [
+        "Condemned as cold, dishonorable, and inhuman by a warrior identifying himself as Othon's son [v10 p16]",
+        "Publicly credited as having saved humanity on two separate occasions [v10 p28]"
+      ],
+      "voice_notes": [
+        "Does not speak directly in these pages; known only through others' references and the award ceremony"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Named by a warrior during the battle as the warrior's father; condemned as dishonorable [v10 p16]",
+        "Unanimously awarded high nobility by all planetary ambassadors at a formal ceremony [v10 p28]",
+        "Stated to have saved humanity twice from complete annihilation [v10 p28]"
+      ]
+    }
+  ]
+}

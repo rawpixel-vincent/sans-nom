@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Usable as a split-role peer: source records support a distinct Othon-era Emperor with durable actions, relationships, and voice notes rather than only a title reference."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "the-emperor__othon-era",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

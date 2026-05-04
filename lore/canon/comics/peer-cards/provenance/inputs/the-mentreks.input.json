@@ -1,0 +1,119 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-mentreks",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "The Mentreks",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "the-mentreks",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-09.json#007:the-mentreks"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Mentreks",
+        "Mentrek (singular)"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['241_The_Metabarons_9_p13', '242_The_Metabarons_9_p14', '243_The_Metabarons_9_p15', '244_The_Metabarons_9_p16']"
+      ],
+      "character_id": "the-mentreks",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Proposed evacuation to the edge of the universe as the only strategic option; were executed for it; source_refs: ['243_The_Metabarons_9_p15']",
+        "action: One surviving Mentrek proposed the champion-duel mechanism that ultimately resolves the political crisis; source_refs: ['244_The_Metabarons_9_p16']"
+      ],
+      "knowledge_boundaries": [
+        "The Mentreks confirm that both galaxies are otherwise militarily balanced; only the Metabaron shifts the balance",
+        "They possess knowledge of the Pthagurean fleet's position and arrival timeline",
+        "Whether additional Mentreks survive beyond those executed in volume 9 is unclear"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#007:the-mentreks",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Imperial rulers / General Thato; relation: Advisory subordinates; executed by imperial authority when their proposals are deemed insubordinate",
+        "character: The Metabaron (Aghnar); relation: The Metabaron's strategic dominance is the crisis the Mentreks are tasked with solving"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "One Mentrek: 'There is no other solution — millions of enemy ships are already in interstellar transit led by the Metacraft; they will reach our borders within a day' (paraphrased from 243_The_Metabarons_9_p15)",
+        "Cybernetic Mentrek proposes champion-duel under threat of disintegration (244_The_Metabarons_9_p16)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Mentreks are pressured under threat of death to produce a solution to the Pthagurean invasion crisis (241_The_Metabarons_9_p13); source_refs: ['241_The_Metabarons_9_p13']",
+        "fact: A captive Mentrek openly admits there is no solution; executions are ordered in response (242_The_Metabarons_9_p14); source_refs: ['242_The_Metabarons_9_p14']",
+        "fact: One Mentrek warns that millions of Pthagurean ships led by the Metacraft are already in interstellar transit and will reach the empire's borders within twenty-four hours (243_The_Metabarons_9_p15); source_refs: ['243_The_Metabarons_9_p15']",
+        "fact: Imperial officials order General Thato to execute two Mentreks for proposing flight to the universe's edge; at least one is shot (243_The_Metabarons_9_p15); source_refs: ['243_The_Metabarons_9_p15']",
+        "fact: A cybernetic Mentrek, threatened with disintegration, proposes the champion-duel solution: find a warrior stronger than the Metabaron and resolve the conflict through formal duel (244_The_Metabarons_9_p16); source_refs: ['244_The_Metabarons_9_p16']"
+      ]
+    }
+  ]
+}

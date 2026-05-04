@@ -214,6 +214,12 @@
     "character_id": "the-dying-cyborg-master",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "One-page unidentified deathbed figure with no durable behavior, traits, or reusable scene voice; the record mainly preserves contextual birth/lineage evidence around Aghora and the uncertain Klezea/Klezra reference.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora",
+      "zaran-krleza"
+    ],
     "relationships": [
       "{'beloved': \"'Klezea' (possibly Zaran Klezra or related figure; uncertain)\", 'infant_received': 'Aghora', 'attendant': 'Blue-faced masked servant who delivers the baby and invokes a fulfilled promise'}"
     ],
@@ -280,6 +286,11 @@
     "character_id": "oq-fresthulz",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "One-page named traitor/opponent with uncertain visual identity, no voice, traits, relationships, or durable behavior; evidence mainly contextualizes Aghora's executioner/prison combat lore.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
     "relationships": [],
     "source_refs": [],
     "traits": [],
@@ -297,6 +308,11 @@
     "character_id": "algholkar-of-rieidar",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "One-line named opponent/prisoner record with no voice, relationships, durable behavior, or scene-usable persona; its value is contextual evidence for Aghora's Khaliyuga executioner assignment.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "aghora"
+    ],
     "relationships": [],
     "source_refs": [],
     "traits": [],
@@ -331,6 +347,11 @@
     "character_id": "robidiot",
     "important_actions": [],
     "knowledge_boundaries": [],
+    "non_peer_reason": "Source-thin named robot with only a one-line subordinate surgical-assistant role and no durable behavior, relationship, voice, or scene-usable boundary; a card would require invented traits.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "steelhead__late"
+    ],
     "relationships": [],
     "source_refs": [],
     "traits": [],

@@ -1,0 +1,356 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "344_The_Metabarons_13_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/344_The_Metabarons_13_p10.json",
+    "345_The_Metabarons_13_p11": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/345_The_Metabarons_13_p11.json",
+    "358_The_Metabarons_13_p26": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/358_The_Metabarons_13_p26.json"
+  },
+  "peer_card_id": "zaran-krleza",
+  "peer_identity": {
+    "arc_label": "The last poet — 5,000-year disembodied head, then poet component within Melmoth",
+    "display_name": "Zaran Krleza",
+    "honcho_notes": "Merge: OCR kr→kl transposition. zaran-krleza is canonical (correct spelling, authoritative 4-record card).",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "zaran-krleza",
+    "rationale": "zaran-klezra (vol15 single-record singleton) and zaran-krleza (4-record merged card spanning vol11–14) are the same poet entity. 'Klezra' is an OCR transposition of 'Krleza' (kr→kl metathesis, ratio 0.917). zaran-krleza is the authoritative merged card with correct spelling and four source records; zaran-klezra is a later extraction artifact with the transposed form.",
+    "source_record_ids": [
+      "characters-volume-11.json#003:zaran-krleza",
+      "characters-volume-12.json#004:zaran-krleza",
+      "characters-volume-13.json#005:krleza",
+      "characters-volume-14.json#010:krleza",
+      "characters-volume-15.json#005:zaran-klezra"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "One-page unidentified deathbed figure with no durable behavior, traits, or reusable scene voice; the record mainly preserves contextual birth/lineage evidence around Aghora and the uncertain Klezea/Klezra reference.",
+      "related_peer_ids": [
+        "aghora",
+        "zaran-krleza"
+      ],
+      "source_record": {
+        "aliases": [
+          "The Dying Cyborg Master",
+          "orange-gold cyborg",
+          "master"
+        ],
+        "appearances": [
+          "description: Sick, orange-gold cyborg man; suffers coughing fits and visible hemorrhaging while holding or near the infant Aghora; source_refs: ['388_The_Metabarons_15_p06']"
+        ],
+        "character_id": "the-dying-cyborg-master",
+        "important_actions": [],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "One-page unidentified deathbed figure with no durable behavior, traits, or reusable scene voice; the record mainly preserves contextual birth/lineage evidence around Aghora and the uncertain Klezea/Klezra reference.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-15.json#007:the-dying-cyborg-master",
+        "related_peer_ids": [
+          "aghora",
+          "zaran-krleza"
+        ],
+        "relationships": [
+          "{'beloved': \"'Klezea' (possibly Zaran Klezra or related figure; uncertain)\", 'infant_received': 'Aghora', 'attendant': 'Blue-faced masked servant who delivers the baby and invokes a fulfilled promise'}"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+        "traits": [],
+        "voice_notes": [],
+        "volumes": [],
+        "witnessed_facts": [
+          "Receives newborn Aghora; addresses her with intense emotion before dying",
+          "Attendant says 'the child is a girl and a promise has been kept'"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Zaran Krleza",
+        "Zaran Kleza (variant spelling, p08-09)",
+        "Zoran Krleza (variant spelling, p23)",
+        "Zaran Kreza (variant spelling, p13)",
+        "the last poet"
+      ],
+      "appearances": [
+        "description: Disembodied human head with long white hair and beard, suspended in cables and machinery inside his fortress. Only the head survives of his original body.; source_refs: ['290_The_Metabarons_11_p13', '291_The_Metabarons_11_p14']"
+      ],
+      "character_id": "zaran-krleza",
+      "image_sha256s": [],
+      "important_actions": [
+        "Survived 5,000 years as a preserved disembodied head by sacrificing the rest of his body to keep his soul alive (p13)",
+        "Greeted Steelhead as a long-awaited 'culmination' and refused forced entry to his fortress (p08–p09)",
+        "Devised the soul trial: ancient bow without arrows, must defeat octo-tiger without killing it (p10)",
+        "Proposed and accepted surgical fusion with Steelhead's body; endured without anesthetic (p14)"
+      ],
+      "knowledge_boundaries": [
+        "Cannot pursue physical love — lacks a body; substitutes verbal/spiritual love",
+        "Poetry still survives within his mind even without a body (p13)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#003:zaran-krleza",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Steelhead / Melmoth; nature: Agreed to surgical fusion of his surviving head with Steelhead's body; both prior egos dissolved to produce Melmoth; source_refs: ['291_The_Metabarons_11_p14', '292_The_Metabarons_11_p15']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Extremely patient — waited 5,000 years for his 'culmination'",
+        "Values soul and inner worth over combat strength",
+        "Poetic and emotionally refined",
+        "Sacrificed his body to preserve his soul and keep poetry alive",
+        "Contrasts verbal/spiritual love with physical/carnal love",
+        "Frames emotion as something that must be opened into, not academically taught",
+        "Believed dead or extinct for approximately 5,000 years before Steelhead found him"
+      ],
+      "voice_notes": [
+        "States emotions cannot be taught directly (p13)",
+        "Frames entry requirements as a soul trial, not a strength test: 'I want to judge your soul' (p08–p09)",
+        "Philosophy of love: verbal and spiritual love over carnal — regrets lack of body but does not regret the sacrifice (p13)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Many seekers attempted to reach his fortress over 50 centuries; none succeeded before Steelhead (p08–p09)",
+        "Steelhead passed his soul trial by producing music rather than violence (p12)"
+      ]
+    },
+    {
+      "aliases": [
+        "Zaran Krleza",
+        "The last poet"
+      ],
+      "appearances": [
+        "description: Exists as a preserved 5,000-year-old disembodied head; no body. After merger, Zaran's poetic identity becomes a component of Melmoth.; source_refs: ['309_The_Metabarons_12_ic1']"
+      ],
+      "character_id": "zaran-krleza",
+      "image_sha256s": [],
+      "important_actions": [
+        "Long-term survival as a disembodied head [309_The_Metabarons_12_ic1]",
+        "Agreed to the merger that produced Melmoth [309_The_Metabarons_12_ic1]"
+      ],
+      "knowledge_boundaries": [
+        "Possessed the accumulated knowledge and artistry of 5,000 years as the last poet [309_The_Metabarons_12_ic1]",
+        "No further separate actions after the merger"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#004:zaran-krleza",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Steelhead / Melmoth; type: merger_partner; note: Wanted Steelhead's body; accepted the merger; became the poetic component of Melmoth"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "The last poet in existence",
+        "Pragmatic about his own survival: sought a new body by accepting Steelhead's offer",
+        "Lived 5,000 years as only a head by sacrificing his body long before vol. 12"
+      ],
+      "voice_notes": [
+        "His poetic voice is the primary component that enables Melmoth to speak with words that move and seduce Dona Vicenta [309_The_Metabarons_12_ic1]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Survived 5,000 years as a bodiless preserved head [309_The_Metabarons_12_ic1]",
+        "Resided in a fortress or stronghold protected by deadly hazards and requiring the abandonment of powers to enter [309_The_Metabarons_12_ic1]",
+        "Merged with Steelhead by Endo-robots into the new composite identity Melmoth [309_The_Metabarons_12_ic1]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': [\"No separate physical form — exists as internal personality within Melmoth's composite body\", 'Associated with brain-circuits woven into the inner ear (p11)']}"
+      ],
+      "character_id": "krleza",
+      "image_sha256s": [
+        "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+        "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+        "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "344_The_Metabarons_13_p10",
+        "345_The_Metabarons_13_p11",
+        "358_The_Metabarons_13_p26"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#005:krleza",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Melmoth; type: component identity; poet aspect of composite being",
+        "character: Steelhead; type: co-inhabiting opposite personality within Melmoth; in open conflict with (p26)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg",
+        "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg",
+        "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+          "page_id": "344_The_Metabarons_13_p10",
+          "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+        },
+        {
+          "image_sha256": "0d643e3b532179b4534f3fe7ff96b0fbfb1145b35c958622079c1b1230ae56f1",
+          "page_id": "345_The_Metabarons_13_p11",
+          "source_image": "external/comics/meta-barons/345_The_Metabarons_13_p11.jpg"
+        },
+        {
+          "image_sha256": "ce654540a3a75238d4a37f04507d70acb18299843d7a7b6af80a055815148b87",
+          "page_id": "358_The_Metabarons_13_p26",
+          "source_image": "external/comics/meta-barons/358_The_Metabarons_13_p26.jpg"
+        }
+      ],
+      "traits": [
+        "Romantic, poetic, appreciates grand gestures and symbolism",
+        "Moved by the heart-shaped wedding fleet at Philodendra (p10)",
+        "Rejects killing; frames self as lover/poet rather than warrior (p26)",
+        "Retained individual selfhood within the composite being even after merging into Melmoth (p10)"
+      ],
+      "voice_notes": [
+        "In internal argument: identifies as lover/poet; explicitly rejects killing and slaughter (p26)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Appreciates the romantic spectacle of the heart-shaped fleet at Philodendra (p10)",
+        "Described as having brain-circuits woven into inner ear (p11)",
+        "Part of merged being that created Melmoth but never fully dissolved into him (p10)",
+        "Engaged in internal war with Steelhead for control of Melmoth's body at end of issue (p26)",
+        "One of the speaking voices disputing over Melmoth's actions and bodily responsibility (p26)"
+      ]
+    },
+    {
+      "aliases": [
+        "Krleza"
+      ],
+      "appearances": [
+        "Not physically depicted; mentioned only in dialogue (vol.14 p21, p23)"
+      ],
+      "character_id": "krleza",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Whether Krleza is a person, a place, or a clan is explicitly unresolved in this volume (open uncertainty)",
+        "Not physically present in any scene; known only through references in dialogue"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#010:krleza",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "Emotional teacher of Melmoth/Steelhead (vol.14 p21)",
+        "Connected to Dona Vicenta's poet-lover and the girl twin (vol.14 p23)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Taught Melmoth/Steelhead how to love, according to Dona Vicenta (vol.14 p21)",
+        "Associated with the girl twin and with the man Dona Vicenta loves (vol.14 p23)"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Zaran Klezra",
+        "the poet",
+        "my poet"
+      ],
+      "appearances": [],
+      "character_id": "zaran-klezra",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#005:zaran-klezra",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'linked_to': 'Steelhead (identified as an aspect of him that was excised)', 'beloved_of': 'Dona Vicenta (she chose him over Steelhead)', 'daughter': 'Aghora (biological father of the female twin)'}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Identified in recap as father of the female twin",
+        "A speaker on p05 calls the girl child 'the offspring of my poet' and vows to raise her",
+        "The dying cyborg master on p06 refers to 'my beloved Klezea'—possibly an alternate spelling of Klezra or a related figure (uncertain)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin but usable as a distinct faction-office peer: named Supreme Technopope/head of Technoguild, central hostage in Steelhead's plan, and embedded in a numbered succession system. Card should stay constrained to office, hostage status, succession implications, and explicit knowledge boundaries; no voice or personality should be invented."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "amalek-xii",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

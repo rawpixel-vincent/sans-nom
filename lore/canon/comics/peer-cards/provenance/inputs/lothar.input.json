@@ -1,0 +1,938 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [
+    "Reject if Lothar is reduced to small comic relief, a passive audience, or merely Tonto's companion.",
+    "Require late Master Lothar: physically dominates/dismembers Tonto, demands formal address, and enforces narration.",
+    "Require violence/status/control axis: punitive force, status-consciousness, commands obedience.",
+    "Require procedural/operator competence: timing, bio-electrogram, metacraft/weapons, holographic or technical force.",
+    "Require contradiction: anti-romantic machine logic but capable of curiosity, loss of faith, despair, lust, apology, and hatred.",
+    "Require the wiki-level identity reveal: Lothar is in fact Steelhead after Nameless erased his memory, made him believe he was a robot, and fit Steelhead's indestructible body into armor; encode spoiler/reveal boundaries instead of treating Lothar as unrelated to Steelhead.",
+    "Require boundary: Lothar can be comedic or absurd, but must not be used as a joke device that punctures every tense scene.",
+    "Preserve identity-map choice: Lothar stays one peer card; phase tensions become contradictions rather than split personas."
+  ],
+  "page_summary_paths": {
+    "007_The_Metabarons_1_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/007_The_Metabarons_1_p05.json",
+    "252_The_Metabarons_10_p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/252_The_Metabarons_10_p01.json",
+    "254_The_Metabarons_10_p03": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/254_The_Metabarons_10_p03.json",
+    "255_The_Metabarons_10_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/255_The_Metabarons_10_p04.json",
+    "335_The_Metabarons_13_ic1-p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/335_The_Metabarons_13_ic1-p01.json",
+    "337_The_Metabarons_13_p03": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/337_The_Metabarons_13_p03.json",
+    "338_The_Metabarons_13_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/338_The_Metabarons_13_p04.json",
+    "343_The_Metabarons_13_p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/343_The_Metabarons_13_p09.json",
+    "344_The_Metabarons_13_p10": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/344_The_Metabarons_13_p10.json",
+    "411_The_Metabarons_16_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/411_The_Metabarons_16_p05.json"
+  },
+  "peer_card_id": "lothar",
+  "peer_identity": {
+    "arc_label": "Larger robot companion and audience to Tonto's narration across all volumes",
+    "display_name": "Lothar",
+    "honcho_notes": "Speaks with procedural impatience; threatens memory-wipe or dismemberment to enforce compliance. Listens to Tonto's narration but constantly interrupts. Anti-romantic in vol11 ('love is a foolish human concept'); combusts from lust in vol16. Can manifest as devastating holographic form. Status-conscious.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "lothar",
+    "rationale": "Lothar is consistently the larger, procedure-obsessed, impatient counterpart to Tonto. Role shifts between passive audience and active operator, and in vol17 he dominates Tonto ('Sir Master Lothar'), but the core identity—impatient robot who drives the frame narrative forward, clashes with Tonto, serves the Metabaron—remains stable. No contradictory TRAIT or VOICE facts across all records.",
+    "source_record_ids": [
+      "characters-volume-01.json#001:lothar",
+      "characters-volume-02.json#008:lothar",
+      "characters-volume-03.json#002:lothar",
+      "characters-volume-04.json#012:lothar",
+      "characters-volume-05.json#004:lothar",
+      "characters-volume-06.json#004:lothar",
+      "characters-volume-07.json#006:lothar",
+      "characters-volume-10.json#007:lothar",
+      "characters-volume-11.json#010:lothar",
+      "characters-volume-12.json#008:lothar",
+      "characters-volume-13.json#004:lothar",
+      "characters-volume-14.json#005:lothar",
+      "characters-volume-15.json#004:lothar",
+      "characters-volume-16.json#006:lothar",
+      "characters-volume-17.json#002:lothar"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [
+    {
+      "arc_label": "Small sardonic robot narrator, serves successive Metabarons across all volumes",
+      "display_name": "Tonto",
+      "honcho_notes": "Primary voice is sardonic oral historian with genuine emotional attachment to master. Breaks into dramatic hyperbole, mocks Lothar, can be physically coerced into compliance. Knows the full Castaka lineage from Othon forward. Functions change across volumes (surgical assistant, life-support host, combat bot) but narrative persona is constant.",
+      "merge_policy": "merged_same_persona",
+      "peer_card_id": "tonto",
+      "rationale": "Despite occasional apparent deaths or shutdowns (vol12 self-destruction, forced disabling in vol05), Tonto is consistently the same small screen-faced robot: sardonic narrator, emotionally reactive, serves the current Metabaron as master. The vol12 destruction is followed by reconstruction. Voice and role are stable across all 16 source records—no contradictory TRAIT or VOICE facts arise from merging.",
+      "source_record_ids": [
+        "characters-volume-01.json#000:tonto",
+        "characters-volume-02.json#007:tonto",
+        "characters-volume-03.json#003:tonto",
+        "characters-volume-04.json#011:tonto",
+        "characters-volume-05.json#003:tonto",
+        "characters-volume-06.json#005:tonto",
+        "characters-volume-07.json#005:tonto",
+        "characters-volume-08.json#003:tonto",
+        "characters-volume-10.json#006:tonto",
+        "characters-volume-11.json#004:tonto",
+        "characters-volume-12.json#006:tonto",
+        "characters-volume-13.json#003:tonto",
+        "characters-volume-14.json#004:tonto",
+        "characters-volume-15.json#003:tonto",
+        "characters-volume-16.json#005:tonto",
+        "characters-volume-17.json#001:tonto"
+      ]
+    },
+    {
+      "arc_label": "single extracted record",
+      "display_name": "The Metabaron",
+      "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+      "merge_policy": "single_record",
+      "peer_card_id": "the_metabaron",
+      "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+      "source_record_ids": [
+        "characters-volume-01.json#002:the_metabaron"
+      ]
+    },
+    {
+      "arc_label": "Bald scarred Metabaron who is Tonto and Lothar's master throughout the frame narrative",
+      "display_name": "The Metabaron (No-Name, frame narrative master)",
+      "honcho_notes": "Bald; distinctive scar over right eyebrow (origin deliberately withheld—'deplorable episode'). Self-described as 'a warrior without a past in the new galaxy.' Forceful, impatient with robot reasoning. Ruthlessly security-conscious: destroyed loyal servants to prevent enemies learning his secret. Calls robots his 'only friends.' Operates in another dimension; returns only for combat. Bio-electrogram manifestation dissolves in ~3 minutes.",
+      "merge_policy": "merged_same_persona",
+      "peer_card_id": "the-metabaron__no-name",
+      "rationale": "Both records describe the same bald figure who is Tonto and Lothar's current master. Vol03 shows the bald Metabaron manifesting as a bio-electrogram during the Metabunker assault. Vol12 shows the bald Metabaron with the right-eyebrow scar destroying the Metabunker and departing to another dimension—explicitly identified as 'the last of the Metabarons.' Tonto references the eyebrow scar mystery in vol07/11 as a deferred story topic, placing this character as the frame narrative's anchor throughout. This is Aghora's son No-Name.",
+      "source_record_ids": [
+        "characters-volume-03.json#004:the-metabaron",
+        "characters-volume-12.json#005:the-metabaron"
+      ]
+    },
+    {
+      "arc_label": "Supreme Metabaron operating in Steelhead's time—identity explicitly unresolved in vol14",
+      "display_name": "The Metabaron (Supreme Metabaron, Steelhead era)",
+      "honcho_notes": "Relies on speed and maneuverability rather than brute force. Tactically precise—exploits turning radius as a time advantage. Protective of Milady; commands her to follow his exact path. Generates lethal spherical energy field. Addresses subordinates in guiding/commanding tone. Whether this is Steelhead in his Metabaron role or a distinct figure is unresolved.",
+      "merge_policy": "split_uncertain",
+      "peer_card_id": "the-metabaron__supreme",
+      "rationale": "This record is explicitly flagged as uncertain whether it depicts Steelhead or a separate figure ('The Metabaron, Supreme Metabaron, Petro (possible)'). The vol14 narrative itself marks this as unresolved. Cannot safely merge with the No-Name Metabaron (different era) nor with the Steelhead card (unconfirmed identity). Split_uncertain because the source record's own analysis declares the identity open.",
+      "source_record_ids": [
+        "characters-volume-14.json#003:the-metabaron"
+      ]
+    },
+    {
+      "arc_label": "The Father-Mother Metabaron—from Steelhead's daughter to self-conceiving No-Name's parent",
+      "display_name": "Aghora",
+      "honcho_notes": "Bald, female-bodied, carries male twin's brain (transplanted by Steelhead). Raised and presented as male heir. Possesses bionic left hand from initiation rite; psycho-mimetic aura; invisibility cloak. Shed first tear only at Deyanira's death. Radically self-sufficient—fights alone, refuses fleet command. Performed first auto-conception in history via hypo-genetics from own brain tissue. Grieves that she can only destroy, not create, before choosing to have No-Name. Designated him 'No-Name' and 'father-mother.'",
+      "merge_policy": "merged_same_persona",
+      "peer_card_id": "aghora",
+      "rationale": "All three records describe the same person at continuous life stages: vol15 shows childhood through defeating Steelhead; vol16 shows prime Metabaron, self-conceiving No-Name, departing to give birth; vol17 shows her pregnant and giving birth on Flos. The voice and traits are consistent throughout: resolute, mission-focused, duty-driven, despises humanity, governed by Bushitaka warrior doctrine. No contradictory facts.",
+      "source_record_ids": [
+        "characters-volume-15.json#000:aghora",
+        "characters-volume-16.json#000:aghora",
+        "characters-volume-17.json#000:aghora"
+      ]
+    },
+    {
+      "arc_label": "Steelhead from grafted infant to prime Metabaron seeking love—before Krleza merger",
+      "display_name": "Steelhead (Warrior Heir)",
+      "honcho_notes": "Faceless/featureless head; head contains deadly weapons under helmets. Transactional—refuses altruism, demands payment. Prideful about combat supremacy. Emotionally volatile but admits openly he cannot love. Leveraged vampire crisis to demand Supreme Metabaron title. Searched 3,500+ planets for knowledge of love. Capable of stealth infiltration and assassination. Inherited Shabda-Oud psychic powers through mother.",
+      "merge_policy": "split_phase",
+      "peer_card_id": "steelhead__warrior",
+      "rationale": "Three-way split of Steelhead records. This card covers his arc from infant (vol08, grafted on Tonto) through young champion (vol09) to active Metabaron (vol10, dueling Aghnar) to the pre-merger warrior seeking love (vol11). These form a coherent continuous persona: ambitious, militarily dominant, prideful, admits he cannot feel love, searches 3,500 planets. Distinct from the in-Melmoth phase (subsumed warrior component) and the post-Melmoth phase (all-Storlon, reverted pure warrior).",
+      "source_record_ids": [
+        "characters-volume-08.json#004:steelhead",
+        "characters-volume-09.json#004:steelhead",
+        "characters-volume-10.json#001:steelhead",
+        "characters-volume-11.json#000:steelhead"
+      ]
+    },
+    {
+      "arc_label": "Steelhead's warrior ego as a subsumed internal personality after merger with Krleza",
+      "display_name": "Steelhead (Warrior Component within Melmoth)",
+      "honcho_notes": "Internal warrior voice within Melmoth's composite body. Contemptuous of ostentation and romantic display; calls the heart-shaped wedding fleet 'a sign of impotence.' Interprets Metabarons as defined by suffering, not happiness. Demands body be used for combat. Associated with concealed electro-cerebral chips. Never fully dissolved into Melmoth—retained individual selfhood. In open war with Krleza at vol13's end.",
+      "merge_policy": "split_phase",
+      "peer_card_id": "steelhead__in-melmoth",
+      "rationale": "After the Endo-robot fusion with Zaran Krleza to form Melmoth, Steelhead ceases to be an independent actor and exists as an internal voice contesting Krleza for bodily control. Vol12 describes him as a subsumed component; vol13 shows him as the warrior internal personality at war with Krleza inside Melmoth's composite body. The active combatant persona is gone; what remains is a voice arguing for bodily control for battle. This is a fundamentally different state from the active warrior and requires a distinct Honcho card.",
+      "source_record_ids": [
+        "characters-volume-12.json#001:steelhead",
+        "characters-volume-13.json#006:steelhead"
+      ]
+    },
+    {
+      "arc_label": "Steelhead re-emerged as pure warrior after killing the Krleza persona—all-Storlon body, defeats and loses to Aghora",
+      "display_name": "Steelhead (Post-Melmoth Warrior)",
+      "honcho_notes": "Declared 'there is no love, only the reality of war.' Replaced entire body with Storlon indestructible metal; removed his own heart to erase grief over Dona Vicenta. Cold, commanding, emotionally void. Administered brutal initiation rites to Aghora. Chose female twin Aghora over male heir, fracturing succession rule. Preserved Dona Vicenta in omni-cryoshroud. Eventually defeated by Aghora's freezing weapon and sealed in deep space.",
+      "merge_policy": "split_phase",
+      "peer_card_id": "steelhead__late",
+      "rationale": "The vol14 melmoth record describes someone who has killed the Krleza/Zaran internal persona and reverted to pure warrior identity—internally this is Steelhead, operating under the 'Melmoth' label. Vol15–17 records confirm this pure warrior phase: blue-faced, all-Storlon body, removed his own heart to erase grief. Fundamentally different from the in-Melmoth phase (contested composite) and from the pre-merger warrior (who sought love and had emotions). Using character_id 'melmoth' in vol14 for this record is a labeling artifact; the operational persona is Steelhead.",
+      "source_record_ids": [
+        "characters-volume-14.json#000:melmoth",
+        "characters-volume-15.json#001:steelhead",
+        "characters-volume-16.json#001:steelhead",
+        "characters-volume-17.json#006:steelhead"
+      ]
+    }
+  ],
+  "related_peer_ids": [
+    "tonto",
+    "the_metabaron",
+    "the-metabaron__no-name",
+    "the-metabaron__supreme",
+    "aghora",
+    "steelhead__warrior",
+    "steelhead__in-melmoth",
+    "steelhead__late"
+  ],
+  "source_records": [
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "page_id: 007_The_Metabarons_1_p05; note: named explicitly by Tonto; shown as eager listener"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [
+        "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395"
+      ],
+      "important_actions": [
+        "page_id: 007_The_Metabarons_1_p05; action: presses Tonto to tell the full origin story of the Metabaron caste"
+      ],
+      "knowledge_boundaries": [
+        "dependent on Tonto for historical knowledge of the Metabaron lineage"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "007_The_Metabarons_1_p05"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-01.json#001:lothar",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: tonto; relation: companion robot; story audience"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "0641adeb6328cab41ac2f493d6bdda17888731c0893b400e57ef360e64c76395",
+          "page_id": "007_The_Metabarons_1_p05",
+          "source_image": "external/comics/meta-barons/007_The_Metabarons_1_p05.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "enthusiastic, almost childlike fascination with the Metabaron's violent history; pushes narrative forward as a foil to Tonto"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "heard Tonto describe the Meta-warrior mutilation customs just before p05"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['p15', 'p26']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Questions suggest limited prior knowledge of the lineage's history"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-02.json#008:lothar",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; relation: Co-participant in framing narrative",
+        "character: Othon Von Salza; relation: Learns of Othon's lineage through the narration"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Skeptical and inquisitive; repeatedly asks whether promises were genuinely fulfilled",
+        "Co-participant in the framing narrative with Tonto",
+        "Asks naive questions about reproduction (corrected by another speaker on p26)"
+      ],
+      "voice_notes": [
+        "Persistently skeptical: frames questions as 'but were they truly given what was promised?'",
+        "Corrected when he implies Othon may have adopted rather than fathered an heir"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Hears confirmation that the family received a revenue share from Epyphite and inherited Okhar",
+        "Hears the discussion of how the castrated Othon fathered an heir"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "{'description': 'Robot. Bulky build. Operates consoles in machinery-filled chambers. Distinct from Tonto, though which is physically larger is uncertain from the pages alone.', 'source_refs': ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05', '066_The_Metabarons_3_p09']}"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Activated the solidification program to manifest the Metabaron's bio-electrogram during the assault; source_refs: ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05']"
+      ],
+      "knowledge_boundaries": [
+        "Does not know how Othon fathered a child given his destroyed reproductive organs — this is the central question he poses with Tonto (vol.3 p09)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#002:lothar",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; type: companion / fellow robot narrator; notes: The two robots jointly narrate the Metabaron lineage to each other while operating the Metabunker.; source_refs: ['066_The_Metabarons_3_p09', '084_The_Metabarons_3_p28']",
+        "character: The Metabaron (bald, present-day); type: servant / subordinate; notes: Lothar is commanded by the Metabaron; he carries out technical orders and is addressed by name.; source_refs: ['061_The_Metabarons_3_p04', '062_The_Metabarons_3_p05']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Technical operator: activates solidification programs, bio-electrograms, readies the metacraft",
+        "At least partially defiant — willing to talk back to the Metabaron",
+        "Addressed as a co-narrator of the Metabaron lineage story alongside Tonto"
+      ],
+      "voice_notes": [
+        "Shows defiance to the Metabaron when given orders (vol.3 p05)",
+        "Engages in philosophical dialogue with Tonto about organic grief and artificial rebirth (vol.3 p28)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Activated the Metabaron's bio-electrogram under time pressure during the Metabunker assault (vol.3 p04–p05)",
+        "Participated in the Metabaron's solidification program activation (vol.3 p04)",
+        "Was addressed by the other artificial speaker on p28 by name, placing him in the framing narrative on Otho"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "description: Addressed by a robot narrator; not visually identified with certainty on these pages; source_refs: ['094_The_Metabarons_4_p05']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#012:lothar",
+      "record_index": 12,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Robot narrator; type: listener"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Listener in the robot narrator's framing story"
+      ],
+      "voice_notes": [
+        "Not quoted with legible lines in these pages"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Addressed directly by the robot narrator who rejects a fairy-tale happy ending and insists the birth was traumatic [094_The_Metabarons_4_p05]"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-05.json#004:lothar",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'Tonto': 'Tonto is his servant; Tonto narrates the Metabarons saga to him', 'The Metabaron': \"referred to as 'the master' by Tonto; the exact relationship is unclear\"}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-05.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Shown reacting to Tonto's narration with impatient curiosity; presses to hear what happened next despite Tonto's emotional breakdowns"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Is anticipated by Tonto but absent at the start of the volume",
+        "Listens to Tonto's retelling of the Metabarons saga including Honorata's sacrifice and death",
+        "Robot servant connects the concept of 'god' with what paleo-humans called such a figure, implying Lothar may be associated with or compared to such a concept"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "source: vol6_p09; page: p09; description: Addressed directly by the robot narrator, who tells him to stay quiet; in a physically compromised state related to his circuits.",
+        "source: vol6_p18; page: p18; description: Argues with another robot; cannot stop thinking about Diaghana's motives; warned not to split his casing open out of curiosity; threatened with circuit repair to force silence; told to stay quiet and listen."
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-06.json#004:lothar",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Robot Narrator; type: Story recipient / companion; notes: The robot narrator addresses the recounted story directly to Lothar. Source: vol6_p09.",
+        "character: Diaghana; type: Subject of obsessive curiosity; notes: Lothar cannot reconcile why Diaghana wanted kingship over the apes. Source: vol6_p18."
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-06.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Being told the narrated history of Aghnar's isolation by the robot narrator (vol6_p09)",
+        "Knows Diaghana sought to become king of the apes and disrupted their ecological balance (vol6_p18)"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['p07', 'p09', 'p10', 'p13']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [
+        "Destroyed a hovering robot (likely) for continuing to ask unwanted questions (vol 7 p09)"
+      ],
+      "knowledge_boundaries": [
+        "Did not hear the origin of the Invincible Warrior's eyebrow scar — the narrative accuses him of 'cheating' by choosing to hear Aghnar's story instead (vol 7 p10, p11)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#006:lothar",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; type: co-servant / narrative audience; notes: Receives Tonto's historical narration; repeatedly clashes with Tonto; steered the story toward Aghnar's arc rather than the scar origin (vol 7 p11)",
+        "character: The current Metabaron; type: servant; notes: Responsible for preparing breakfast and attending to the current Metabaron's return (vol 7 p09)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Listener and designated audience for Tonto's recounting of Metabaron family history",
+        "Interrupts the narration and requires threatening before he falls silent",
+        "Mocked by a mechanical speaker for human biology and sexuality",
+        "Associated with household service — responsible for preparing the Metabaron's breakfast before expected return",
+        "Likely the bald armed man who destroys a robot in p09, though not fully confirmed on that page alone"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Heard portions of Aghnar's family history as recounted by Tonto (vol 7 p07–p13)",
+        "Was present when a bio-electrogram dissolved in real time before reaching its solid-state time limit (vol 7 p10)"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p01', 'p03', 'p04']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [
+        "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "afe0aec5e388498e856405a32770f5a674c6ae4bb484e330ab5d115fe733ae4c"
+      ],
+      "important_actions": [
+        "Decided to check the Metabaron's bio-electrogram when he failed to return on schedule [v10 p01]",
+        "Holographic Lothar destroyed all cerebomaks in under a minute and disabled an opposing ship's weapons [v10 p03]"
+      ],
+      "knowledge_boundaries": [
+        "Knows precise service schedules and timing for the Metabaron [v10 p01]",
+        "Can operate or read a bio-electrogram monitoring device [v10 p01]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "252_The_Metabarons_10_p01",
+        "254_The_Metabarons_10_p03",
+        "255_The_Metabarons_10_p04"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#007:lothar",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; type: co-attendant / audience; notes: Tonto tells stories to Lothar; they frequently argue over timing and interpretations [v10 p01]",
+        "character: the Metabaron (frame story); type: subordinate to; notes: Responsible for the Metabaron's routine maintenance and monitoring [v10 p01]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg",
+        "external/comics/meta-barons/254_The_Metabarons_10_p03.jpg",
+        "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+          "page_id": "252_The_Metabarons_10_p01",
+          "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+        },
+        {
+          "image_sha256": "afe0aec5e388498e856405a32770f5a674c6ae4bb484e330ab5d115fe733ae4c",
+          "page_id": "254_The_Metabarons_10_p03",
+          "source_image": "external/comics/meta-barons/254_The_Metabarons_10_p03.jpg"
+        },
+        {
+          "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+          "page_id": "255_The_Metabarons_10_p04",
+          "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+        }
+      ],
+      "traits": [
+        "Impatient, literal-minded, highly focused on exact timing and procedure [v10 p01]",
+        "Can manifest as a devastating holographic form; real form is described as far more powerful [v10 p03]",
+        "Holographic form possesses tentacle-like or bandage-like appendages that can physically foul machinery [v10 p03]",
+        "Willing to admit fault; apologized to Tonto for showing too little faith [v10 p04]",
+        "Willing to threaten memory-wipe of fellow robots to enforce compliance [v10 p01]"
+      ],
+      "voice_notes": [
+        "Speaks in an agitated, procedure-obsessed manner [v10 p01]",
+        "Threatening in tone when annoyed; will invoke memory-wipe as leverage [v10 p01]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Became alarmed when the Metabaron did not return after breakfast [v10 p01]",
+        "Described in Tonto's story as a holographic form that destroyed all cerebomaks in under a minute [v10 p03]",
+        "Holographic form fouled an opposing ship's firing tubes with tentacle-like appendages [v10 p03]",
+        "Real Lothar stated to be vastly stronger than the holographic projection [v10 p03]",
+        "Apologized to Tonto for doubting his judgment [v10 p04]"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "description: Machine interlocutor aboard Steelhead's ship or at the Metabunker; associated with a giant robot-like presence in one panel.; source_refs: ['283_The_Metabarons_11_p05']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Believes machines cannot understand or learn love — explicitly stated (p05)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#010:lothar",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Steelhead; nature: Associated with his ship/bunker; argues against Steelhead's quest for love; source_refs: ['283_The_Metabarons_11_p05']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Hard rationalist and anti-romantic — insists machines have no teacher for love",
+        "Dismisses romantic ideas as volatile and foolish human concepts",
+        "Rebuked by another voice for allowing too narrow a philosophy"
+      ],
+      "voice_notes": [
+        "Argues love is 'a foolish, volatile human concept' and machines have no teacher for it (p05)"
+      ],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "description: Not clearly visually identified in these pages; named only in dialogue. Associated with the Metacraft readiness exchange and accused of loss of faith during the battle.; source_refs: ['324_The_Metabarons_12_p15', '326_The_Metabarons_12_p17', '327_The_Metabarons_12_p18']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [
+        "Participated in Metacraft arming and launch [324_The_Metabarons_12_p15]",
+        "Present during the Porcupine Defense activation [327_The_Metabarons_12_p18]"
+      ],
+      "knowledge_boundaries": [
+        "Whether Lothar's loss of faith actually weakened the simulacrum is disputed within the text and unresolved [326_The_Metabarons_12_p17]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-12.json#008:lothar",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Metabaron; type: associate_or_subordinate; note: Participates in readiness exchanges for the Metacraft launch; serves in the battle involving the Metabaron's simulacrum",
+        "character: Tonto; type: co-participant; note: Named alongside Tonto in the Metacraft readiness exchange"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-12.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Involved in Metacraft operations and combat coordination",
+        "Accused by a robot of losing faith in the real Metabaron, which was claimed to have weakened the simulacrum's effectiveness"
+      ],
+      "voice_notes": [
+        "No direct speech attributed to Lothar in these pages; known only through others' references"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Named in the readiness exchange confirming the Metacraft is armed [324_The_Metabarons_12_p15]",
+        "Named as an addressee in the Porcupine gun battery sequence [327_The_Metabarons_12_p18]",
+        "Accused by a robot of losing faith, which that robot claims weakened the simulacrum; another robot dismisses this as foolish [326_The_Metabarons_12_p17]"
+      ]
+    },
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Small robot, comparable scale to Tonto', 'Moves through jungle terrain alongside Tonto']}"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [
+        "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+        "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+        "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+        "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+        "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9"
+      ],
+      "important_actions": [
+        "Began self-destructive behavior during Metabaron's absence (recap)",
+        "Survived failed illegal hyperspace jump alongside Tonto (p03)"
+      ],
+      "knowledge_boundaries": [
+        "Dependent on Tonto for knowledge of clan history",
+        "Receives clan story incrementally — does not know full Metabarons narrative in advance"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "335_The_Metabarons_13_ic1-p01",
+        "337_The_Metabarons_13_p03",
+        "338_The_Metabarons_13_p04",
+        "343_The_Metabarons_13_p09",
+        "344_The_Metabarons_13_p10"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#004:lothar",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; type: companion robot; receives clan history narration from Tonto",
+        "character: the current Metabaron; type: robot of the Metabunker; emotionally dependent on master"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg",
+        "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg",
+        "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg",
+        "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg",
+        "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+          "page_id": "335_The_Metabarons_13_ic1-p01",
+          "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+        },
+        {
+          "image_sha256": "b66e836ab9ca8a296c735623b4092177f55f2f07d3ef30df54e2947b14b1de79",
+          "page_id": "337_The_Metabarons_13_p03",
+          "source_image": "external/comics/meta-barons/337_The_Metabarons_13_p03.jpg"
+        },
+        {
+          "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+          "page_id": "338_The_Metabarons_13_p04",
+          "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+        },
+        {
+          "image_sha256": "275866a3b958c74e00714f6cd7b7e32cc648dd800e7540c37c0dca54550c84b8",
+          "page_id": "343_The_Metabarons_13_p09",
+          "source_image": "external/comics/meta-barons/343_The_Metabarons_13_p09.jpg"
+        },
+        {
+          "image_sha256": "e84b5147867528a795a2a009a6067d4b3f5b78659bc165899b63ab69ea50afbd",
+          "page_id": "344_The_Metabarons_13_p10",
+          "source_image": "external/comics/meta-barons/344_The_Metabarons_13_p10.jpg"
+        }
+      ],
+      "traits": [
+        "Emotionally dependent on stories about the Metabarons clan",
+        "Naively optimistic — expects happy endings in the clan story (p10)",
+        "Less rebellious than Tonto; more concerned with robotic law and consequences (p03)",
+        "Became suicidal during the Metabaron's prolonged absence (recap)",
+        "Questions Tonto's choices; considers illegal actions disgraceful"
+      ],
+      "voice_notes": [
+        "Asks why they are in the situation after the failed jump (p03)",
+        "Considers illegal hyperspace training a grave robotic transgression (p03)",
+        "Pushes story listeners to continue the clan tale (p04)",
+        "Naively assumes wedding = happy ending (p10)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Became suicidal; hurled himself against Metabunker walls during Metabaron's prolonged absence (recap, p ic1-p01)",
+        "Stranded with Tonto in prehistoric jungle on Barbaric Galaxy sub-planet after failed hyperspace jump (p03)",
+        "Questioned Tonto's decision to perform illegal hyperspace jump; called it a grave robotic transgression (p03)",
+        "Pushed for continuation of Metabarons clan story in frame narrative (p04)",
+        "Named by armored speaker in scene involving disintegrator umbrella (p11)",
+        "Asked about fate of 'the poor little blind girl' — leading to Vicenta's robotic eye story (p09)",
+        "Assumed the wedding procession meant a happy marriage ending; corrected by elderly speaker (p10)"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "Robot or mechanical figure (nature implied from context and 'laws of robotics' reference)",
+        "Stranded with Tonto on a muddy primitive world; rebuilding the Metabunker (vol.14 ic1 recap)"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [
+        "Survived Metabunker's destruction; began rebuilding it with Tonto (vol.14 ic1 recap)",
+        "Co-recounts Metabaron dynastic history throughout the volume as frame narrator"
+      ],
+      "knowledge_boundaries": [
+        "Does not know the current Metabaron's location during the frame narrative present (vol.14 p24)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#005:lothar",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "Partner/counterpart to Tonto in the frame narrative (vol.14 ic1 recap, p24)",
+        "Serves the current Metabaron as master (vol.14 p24)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Bound by laws of robotics compelling service to the master regardless of circumstance (vol.14 p24)",
+        "Highly impatient; threatens violence over unanswered questions (vol.14 p24)",
+        "Co-narrator of Metabaron history with Tonto, though apparently less knowledgeable or more impulsive"
+      ],
+      "voice_notes": [
+        "Addressed by Tonto when the claim is made that Steelhead had only a little girl as his sole child (vol.14 p24)",
+        "Responds to narrative delays with impatience and threats (vol.14 p24)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Survived the destruction of the Metabunker (vol.14 ic1 recap)"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar",
+        "Tin-Tin (uncertain; alternate name mentioned in summary, not confirmed)"
+      ],
+      "appearances": [
+        "description: Addressed by name in dialogue on p01 and p02; mentioned in Metabunker glossary page; exact visual appearance uncertain from summaries alone; source_refs: ['383_The_Metabarons_15_p01', '384_The_Metabarons_15_p02', '404_The_Metabarons_15_p23']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Why their former masters chose to destroy them is stated as background fact but not elaborated in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#004:lothar",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'companion': 'Tonto (co-narrator)', 'former_masters': 'Beings who decided to destroy the speakers; drove them to hide on the hostile planet', 'master': 'The Metabaron (resident of Metabunker)'}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Accused by companion of causing their current situation by trusting their former masters",
+        "Understands the Metabaron succession and wonders how it can be preserved after Steelhead's choice of the female twin (recap, p ic1)",
+        "Building or overseeing completion of the metabunker on a hostile planet; expects it to take two to three centuries",
+        "Can be ordered to trigger or manage weapons such as hyper-infrasound (p01)"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar"
+      ],
+      "appearances": [
+        "volume: 16; pages: p05"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [
+        "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478"
+      ],
+      "important_actions": [
+        "Combusted from lust, was repaired, acknowledged the cause [p05]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "411_The_Metabarons_16_p05"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#006:lothar",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; relation: smaller counterpart robot; Lothar insulted Tonto as a 'maniacal dwarf,' then apologized [p05]",
+        "character: Aghora; relation: object of Lothar's lust; his sexual fantasy involving Aghora and a 'bio-male' caused his combustion [p05]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "0267eec43f8d5af4f698cd7b3bdbb6632aeca9dfc5e56f5f27d1b06e5f3ce478",
+          "page_id": "411_The_Metabarons_16_p05",
+          "source_image": "external/comics/meta-barons/411_The_Metabarons_16_p05.jpg"
+        }
+      ],
+      "traits": [
+        "Large humanoid robot",
+        "Volatile and emotionally reactive",
+        "Describes sensations equivalent to pain and lust",
+        "Impulsive; insulted Tonto, then apologized after calming down",
+        "Prone to catastrophic system failure from intense desire",
+        "Cyber-systems said to be guaranteed for ten thousand years [p05]"
+      ],
+      "voice_notes": [
+        "Impulsive and crude when explaining his malfunction",
+        "Apologetic and self-aware once repaired [p05]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Spontaneously combusted from intense sexual fantasy involving Aghora [p05]",
+        "Was repaired after the combustion incident [p05]",
+        "Blamed the malfunction on his techno-synapses being disrupted by desire [p05]"
+      ]
+    },
+    {
+      "aliases": [
+        "Lothar",
+        "Master Lothar",
+        "Sir Master Lothar"
+      ],
+      "appearances": [
+        "description: Large humanoid robot or heavily mechanized being; physically much bigger than Tonto; visibly overheating, smoking, and leaking dark fluid during their confrontation.; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+      ],
+      "character_id": "lothar",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Progressively dismembered Tonto — legs, arms, then torso — to force compliance and proper narration.; source_refs: ['437_The_Metabarons_17_p11']",
+        "action: Ordered Tonto to recount the full story without arrogant interruptions and to address him as 'sir.'; source_refs: ['437_The_Metabarons_17_p11']"
+      ],
+      "knowledge_boundaries": [
+        "Seeks to understand how Aghora triumphed over the Metabaron.",
+        "Has a misreading of events that Tonto corrects: Lothar apparently believed the golden planet was destroyed, which Tonto refutes."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#002:lothar",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Tonto; nature: Authority figure over Tonto; Tonto narrates Aghora's story to him under coercion; source_refs: ['436_The_Metabarons_17_p10', '437_The_Metabarons_17_p11']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Physically dominant; capable of dismembering smaller robots",
+        "Forceful and punitive; enforces compliance through violence",
+        "Status-conscious; insists on being addressed as 'sir'",
+        "Claims robots can feel emotions including hatred",
+        "Needs to pause for eight hours when overheating"
+      ],
+      "voice_notes": [
+        "Insists robots can feel hatred when Tonto challenges the claim.",
+        "Demands formal address: 'sir' or 'Sir Master Lothar.'",
+        "A meta-narrative aside on p20 references returning a body to 'Master Lothar,' suggesting the narrator may temporarily be inhabiting another form."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Listening to Tonto's account of how Aghora got the better of the Metabaron and the events surrounding No-Name's birth.; source_refs: ['436_The_Metabarons_17_p10']"
+      ]
+    }
+  ]
+}

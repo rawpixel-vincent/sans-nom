@@ -1,0 +1,151 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "jejoh",
+  "peer_identity": {
+    "arc_label": "Giant golden deity figure—power source of the Shabda-Oud, destroyed by Aghnar's bomb arm",
+    "display_name": "Jejoh",
+    "honcho_notes": "Treated by Shabda-Oud as godlike and immortal. Giant golden humanoid. Externally impenetrable—vulnerable only from within. Central power source for all Shabda-Oud psychic abilities; their collapse when he is destroyed confirms this. Invoked as religious authority. Destroyed when Aghnar baited him into biting off a bomb-rigged arm.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "jejoh",
+    "rationale": "Both records describe the same entity: vol07 is the active encounter where Jejoh bites off Aghnar's arm and is destroyed by the concealed mini-bombs; vol08 is a recap reference to the same destruction. Straightforward merge.",
+    "source_record_ids": [
+      "characters-volume-07.json#007:jejoh",
+      "characters-volume-08.json#006:jejoh"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Jejoh",
+        "Jejoh the Pure"
+      ],
+      "appearances": [
+        "volume: 7; pages: ['p16', 'p17 (invoked)', 'p20', 'p21', 'p23', 'p24']"
+      ],
+      "character_id": "jejoh",
+      "image_sha256s": [],
+      "important_actions": [
+        "Bit off Aghnar's arm, triggering the concealed mini-bomb trap (vol 7 p21)",
+        "Was destroyed when internal mini-bombs detonated in his stomach (vol 7 p21)",
+        "His destruction caused the Shabda-Oud witches to collapse catastrophically as a fighting force (vol 7 p23)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-07.json#007:jejoh",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Shabda-Oud witches; type: power source / deity; notes: The witches' psychic power is entirely fueled by Jejoh's brainwaves; without him they collapse catastrophically (vol 7 p23)",
+        "character: Sama-Wajd; type: intended genetic progenitor in Shabda-Oud plan; notes: Named as the intended sperm donor in the ritual to produce Sama-Wajd via Oda (vol 7 p16)",
+        "character: Aghnar; type: enemy / destroyed by; notes: Aghnar baited Jejoh into biting off his arm; the concealed mini-bombs then detonated inside Jejoh's stomach, destroying him (vol 7 p21)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-07.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Treated by other characters as godlike, immortal, or a deity figure",
+        "Giant golden humanoid being",
+        "Externally impenetrable — believed to have no skin-level weakness; vulnerable only from within",
+        "The central power source for all Shabda-Oud psychic abilities",
+        "Invoked as a religious and ritual authority by the Shabda-Oud"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Jejoh"
+      ],
+      "appearances": [
+        "description: Depicted as hideous and powerful; visually associated with the witches' power structure; source_refs: ['206_The_Metabarons_8_ic1']"
+      ],
+      "character_id": "jejoh",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#006:jejoh",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The witches (elder witches / Shabda-Oud); type: affiliated deity; notes: His destruction collapses the witches' power",
+        "character: Aghnar; type: combatant / killer; notes: Aghnar kills Jejoh by letting him devour a bomb-rigged arm"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Initially invulnerable to direct physical attacks",
+        "Associated with the witches' asteroid and their power structure",
+        "Can devour a human arm"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Appeared on the witches' asteroid during Oda's ritual; source_refs: ['206_The_Metabarons_8_ic1']",
+        "fact: Was unaffected by direct attacks until Aghnar's bomb detonated inside him; source_refs: ['206_The_Metabarons_8_ic1']"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "251_The_Metabarons_10_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/251_The_Metabarons_10_ic1.json",
+    "255_The_Metabarons_10_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/255_The_Metabarons_10_p04.json",
+    "260_The_Metabarons_10_p12": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/260_The_Metabarons_10_p12.json",
+    "261_The_Metabarons_10_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/261_The_Metabarons_10_p13.json",
+    "268_The_Metabarons_10_p20": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/268_The_Metabarons_10_p20.json",
+    "269_The_Metabarons_10_p21": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/269_The_Metabarons_10_p21.json",
+    "270_The_Metabarons_10_p22": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/270_The_Metabarons_10_p22.json",
+    "271_The_Metabarons_10_p23": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/271_The_Metabarons_10_p23.json",
+    "272_The_Metabarons_10_p24": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/272_The_Metabarons_10_p24.json",
+    "273_The_Metabarons_10_p25": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/273_The_Metabarons_10_p25.json",
+    "275_The_Metabarons_10_p27": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/275_The_Metabarons_10_p27.json",
+    "276_The_Metabarons_10_p28": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/276_The_Metabarons_10_p28.json"
+  },
+  "peer_card_id": "steelhead__warrior",
+  "peer_identity": {
+    "arc_label": "Steelhead from grafted infant to prime Metabaron seeking love—before Krleza merger",
+    "display_name": "Steelhead (Warrior Heir)",
+    "honcho_notes": "Faceless/featureless head; head contains deadly weapons under helmets. Transactional—refuses altruism, demands payment. Prideful about combat supremacy. Emotionally volatile but admits openly he cannot love. Leveraged vampire crisis to demand Supreme Metabaron title. Searched 3,500+ planets for knowledge of love. Capable of stealth infiltration and assassination. Inherited Shabda-Oud psychic powers through mother.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "steelhead__warrior",
+    "rationale": "Three-way split of Steelhead records. This card covers his arc from infant (vol08, grafted on Tonto) through young champion (vol09) to active Metabaron (vol10, dueling Aghnar) to the pre-merger warrior seeking love (vol11). These form a coherent continuous persona: ambitious, militarily dominant, prideful, admits he cannot feel love, searches 3,500 planets. Distinct from the in-Melmoth phase (subsumed warrior component) and the post-Melmoth phase (all-Storlon, reverted pure warrior).",
+    "source_record_ids": [
+      "characters-volume-08.json#004:steelhead",
+      "characters-volume-09.json#004:steelhead",
+      "characters-volume-10.json#001:steelhead",
+      "characters-volume-11.json#000:steelhead"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+      "related_peer_ids": [
+        "the-empress__reigning",
+        "steelhead__warrior",
+        "don-nicanor__original"
+      ],
+      "source_record": {
+        "aliases": [
+          "Neocerth Empress",
+          "neocerth empress of the galaxy",
+          "holographic imperial woman",
+          "the imperial couple (partial)"
+        ],
+        "appearances": [
+          "volume: 10; pages: ['p23']"
+        ],
+        "character_id": "neocerth-empress",
+        "important_actions": [
+          "Contacted Steelhead and set in motion the chain of events leading to the assassination of Don Nicanor Rosamel de Rokha [v10 p23]"
+        ],
+        "knowledge_boundaries": [
+          "Knows the interspace breach and its origin in the duel with Aghnar [v10 p23]",
+          "Knows the political mechanics of the noble medallion process [v10 p23]",
+          "Does not appear to anticipate or attempt to prevent Steelhead's choice of assassination to remove the obstacle"
+        ],
+        "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+        "page_ids": [
+          "271_The_Metabarons_10_p23"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-10.json#010:neocerth-empress",
+        "related_peer_ids": [
+          "the-empress__reigning",
+          "steelhead__warrior",
+          "don-nicanor__original"
+        ],
+        "relationships": [
+          "character: Steelhead; type: patron / client; notes: Contacted Steelhead to request help sealing the interspace breach in exchange for the title Supreme Metabaron and a high nobility medallion [v10 p23]",
+          "character: Don Nicanor Rosamel de Rokha; type: political obstacle named by her; notes: She identified him as the sole ambassador who would block unanimous consent [v10 p23]"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+        "traits": [
+          "Presents herself as the supreme galactic ruler facing a universe-level emergency [v10 p23]",
+          "Desperate; describes having suffered military losses and mass casualties before escaping [v10 p23]",
+          "Pragmatic negotiator: shifts quickly from moral appeals to transactional offers when altruism fails [v10 p23]",
+          "Uses holographic communication to contact distant parties [v10 p23]"
+        ],
+        "voice_notes": [
+          "Appeals first to friendship, duty, and survival; pivots to transactional offers when moral framing fails [v10 p23]",
+          "Projects authority as supreme ruler while clearly operating from a position of desperation [v10 p23]"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Contacted Steelhead via hologram with an urgent request for help [v10 p23]",
+          "Explained that the duel with Aghnar opened a reality breach releasing devourers from interspace threatening the universe [v10 p23]",
+          "Offered the title Supreme Metabaron and a high nobility medallion requiring unanimous planetary ambassador consent as reward [v10 p23]",
+          "Identified Don Nicanor Rosamel de Rokha as the one obstacle to unanimous consent [v10 p23]"
+        ]
+      }
+    },
+    {
+      "non_peer_reason": "Single source-thin advising-intelligence hook with one contextual action directing Steelhead to Terra Prima; no durable voice, behavior, or scene-usable persona beyond Steelhead's love-quest lore.",
+      "related_peer_ids": [
+        "steelhead__warrior"
+      ],
+      "source_record": {
+        "aliases": [
+          "The Central Brain"
+        ],
+        "appearances": [
+          "description: Advising intelligence; not visually depicted with detail in this volume.; source_refs: ['283_The_Metabarons_11_p05']"
+        ],
+        "character_id": "the-central-brain",
+        "important_actions": [
+          "Directed Steelhead to visit Terra Prima and its omni-library as a potential source of knowledge about love (p05)"
+        ],
+        "knowledge_boundaries": [
+          "Directed Steelhead to Terra Prima but the library's ancient paper proved useless on contact (p05)"
+        ],
+        "non_peer_reason": "Single source-thin advising-intelligence hook with one contextual action directing Steelhead to Terra Prima; no durable voice, behavior, or scene-usable persona beyond Steelhead's love-quest lore.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-11.json#009:the-central-brain",
+        "related_peer_ids": [
+          "steelhead__warrior"
+        ],
+        "relationships": [
+          "target: Steelhead; nature: Advising intelligence that directed him to Terra Prima's omni-library in his search for knowledge of love; source_refs: ['283_The_Metabarons_11_p05']"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+        "traits": [
+          "Knowledgeable about galactic geography and ancient sites",
+          "Analytical and advisory in function"
+        ],
+        "voice_notes": [],
+        "volumes": [],
+        "witnessed_facts": []
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Steelhead",
+        "the infant son of Aghnar and Oda",
+        "future Steelhead"
+      ],
+      "appearances": [
+        "description: Born as a bio-male infant; grafted onto Tonto's back for survival; a steel head will be grafted when he reaches adult size; source_refs: ['222_The_Metabarons_8_p17', '227_The_Metabarons_8_p22']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-08.json#004:steelhead",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: father; notes: Aghnar vows to return and duel him when grown; also condemns him initially as incestuous",
+        "character: Oda / Oda-Honorata; type: mother; notes: Mother carries him to Tonto in a panic to save his life",
+        "character: Honorata; type: grandmother; notes: Announced as grandmother by Aghnar; her psycho-surgery made Oda's recovery (and thus Steelhead's conception) possible",
+        "character: Tonto; type: life-support host; notes: Steelhead is grafted onto Tonto's back and sustained by his circuits"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-08.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Conceived during Aghnar and Oda's post-revival reunion",
+        "Near-fatally injured (decapitated or severely dismembered) as an infant in a violent confrontation",
+        "Survives only through grafting onto Tonto's internal life-support",
+        "Destined to have a steel head grafted on at adulthood—giving him his name"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Steelhead"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20', '248_The_Metabarons_9_p21', '249_The_Metabarons_9_p22']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Produced the Golden Flower as a public demonstration of power before the assembled court; source_refs: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20']",
+        "action: Accepted the role of champion of the human galaxy in a formal duel against his father; source_refs: ['248_The_Metabarons_9_p21', '249_The_Metabarons_9_p22']"
+      ],
+      "knowledge_boundaries": [
+        "The precise nature of his cyborg modifications is not detailed in volume 9 pages",
+        "His internal experience of the father-son conflict and his own motivations are not given dialogue in volume 9",
+        "The outcome of the duel with Aghnar is unresolved within volume 9"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#004:steelhead",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar von Salza; relation: Son; adversary in father-son lethal duel per Metabaron tradition",
+        "character: Honorata / Oda; relation: Son; raised by Honorata (reincarnated in Oda's body) to be capable of killing Aghnar; maternally tied to both his mother and grandmother as stated publicly",
+        "character: Othon von Salza; relation: Grandson (implied via lineage)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "No direct dialogue attributed to Steelhead is recorded in volume 9 page summaries; he acts rather than speaks"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Publicly presented as a cyborg before a clan or noble assembly; denounced by a hostile voice as neither fully human nor machine; source_refs: ['246_The_Metabarons_9_p18-p19']",
+        "fact: Identified through his lineage as the son of the current Metabaron (Aghnar) and maternally linked to both his mother and grandmother; source_refs: ['246_The_Metabarons_9_p18-p19']",
+        "fact: Challenged to prove himself superior to his father on the spot; source_refs: ['246_The_Metabarons_9_p18-p19']",
+        "fact: Created the Golden Flower — a massive golden destructive energy construct — on command in front of the assembly; source_refs: ['246_The_Metabarons_9_p18-p19', '247_The_Metabarons_9_p20']",
+        "fact: Formally appointed champion of the human galaxy; the Pythagoreans accepted the challenge and a duel was scheduled for the following day; source_refs: ['248_The_Metabarons_9_p21']",
+        "fact: Faces Aghnar in a father-son duel at the center of a galaxy-scale battle between human and Pthagurean fleets; outcome unresolved within volume 9; source_refs: ['249_The_Metabarons_9_p22']"
+      ]
+    },
+    {
+      "aliases": [
+        "Steelhead"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['ic1', 'p04', 'p12', 'p13', 'p20', 'p21', 'p22', 'p23', 'p24', 'p25', 'p27', 'p28']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [
+        "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+        "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+        "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+        "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+        "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+        "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+        "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+        "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+        "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+        "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07"
+      ],
+      "important_actions": [
+        "Reshaping the Imperial dome into a golden flower as a power demonstration [v10 ic1]",
+        "Fought formal duel against Aghnar through multiple cosmic dimensions ending at the Omphall [v10 p06-p11]",
+        "Resisted psychic assault by the mother figure using a mega-hypnotic head and psychotrons [v10 p12]",
+        "Yielded honorably to Aghnar in open space [v10 p13]",
+        "Sealed the interspace breach, defeating the vampire invaders [v10 p24]",
+        "Infiltrated Troglosocialik defense system; assassinated the supreme Troglosocialik president [v10 p25, p27]",
+        "Killed Nacnor Rosaamel de Rokha (reported by robotic observers) [v10 p25]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the Metabaron succession tradition and the Castaka lineage [v10 ic1, p16]",
+        "Knows the interspace breach created by the duel and its cosmic danger [v10 p23]",
+        "Knows the political requirement for unanimous ambassadorial consent for the noble medallion [v10 p23]",
+        "Aware that his cybernetic nature makes him immune to vampire cerebral attacks [v10 p24]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "251_The_Metabarons_10_ic1",
+        "255_The_Metabarons_10_p04",
+        "260_The_Metabarons_10_p12",
+        "261_The_Metabarons_10_p13",
+        "268_The_Metabarons_10_p20",
+        "269_The_Metabarons_10_p21",
+        "270_The_Metabarons_10_p22",
+        "271_The_Metabarons_10_p23",
+        "272_The_Metabarons_10_p24",
+        "273_The_Metabarons_10_p25",
+        "275_The_Metabarons_10_p27",
+        "276_The_Metabarons_10_p28"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#001:steelhead",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: son of; notes: Fought formal duel against Aghnar as humanity's champion; the Metabaron succession rite frames this as son proving himself mightier than father [v10 ic1]",
+        "character: Tonto; type: attendant / companion; notes: Tonto advises Steelhead on appearance and manages his communications [v10 p22]",
+        "character: Neocerth Empress; type: patron (negotiated); notes: Empress contacts Steelhead for help with the interspace breach; he negotiates political elevation as payment [v10 p23]",
+        "character: Don Nicanor Rosamel de Rokha; type: assassination target; notes: Identified as the sole political obstacle to Steelhead's noble medallion; Steelhead concluded elimination was the solution [v10 p23, p25, p27]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg",
+        "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg",
+        "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg",
+        "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg",
+        "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg",
+        "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg",
+        "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg",
+        "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg",
+        "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg",
+        "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg",
+        "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg",
+        "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+          "page_id": "251_The_Metabarons_10_ic1",
+          "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+        },
+        {
+          "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+          "page_id": "255_The_Metabarons_10_p04",
+          "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+        },
+        {
+          "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+          "page_id": "260_The_Metabarons_10_p12",
+          "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+        },
+        {
+          "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+          "page_id": "261_The_Metabarons_10_p13",
+          "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+        },
+        {
+          "image_sha256": "32fb260bad8d68537d2b64c6bc4cfaab0e0a980ee06d02440e3f9ea961e8ecbf",
+          "page_id": "268_The_Metabarons_10_p20",
+          "source_image": "external/comics/meta-barons/268_The_Metabarons_10_p20.jpg"
+        },
+        {
+          "image_sha256": "d707f893d4303ee26fcb44acc57c3075ce3ae9db517b54eaf7582693a180cd07",
+          "page_id": "269_The_Metabarons_10_p21",
+          "source_image": "external/comics/meta-barons/269_The_Metabarons_10_p21.jpg"
+        },
+        {
+          "image_sha256": "ca0884eab0d019b4ed724b1817868409d2eb8bdf96b40a4ce96ee7b17f124a99",
+          "page_id": "270_The_Metabarons_10_p22",
+          "source_image": "external/comics/meta-barons/270_The_Metabarons_10_p22.jpg"
+        },
+        {
+          "image_sha256": "58b59afd3c474399de284c175b79a2ee176aec849b9009f35a64eda6387e6464",
+          "page_id": "271_The_Metabarons_10_p23",
+          "source_image": "external/comics/meta-barons/271_The_Metabarons_10_p23.jpg"
+        },
+        {
+          "image_sha256": "b3d1cbf6b53794eee9178d50a7741c258d1747722b3c3ce75fc4fe245bc4f3f6",
+          "page_id": "272_The_Metabarons_10_p24",
+          "source_image": "external/comics/meta-barons/272_The_Metabarons_10_p24.jpg"
+        },
+        {
+          "image_sha256": "090fb6fa62a7c9af14f8e703be12a3d3b548b15c22f4cec0583827e1fe000b60",
+          "page_id": "273_The_Metabarons_10_p25",
+          "source_image": "external/comics/meta-barons/273_The_Metabarons_10_p25.jpg"
+        },
+        {
+          "image_sha256": "a450ee7df4284815524c9775cd4d85fc81fc9f061d777e00290d3faaf2c8517b",
+          "page_id": "275_The_Metabarons_10_p27",
+          "source_image": "external/comics/meta-barons/275_The_Metabarons_10_p27.jpg"
+        },
+        {
+          "image_sha256": "31634c06e886e508cd53b10994ff87d074218fcc78052c63804115c8041adc37",
+          "page_id": "276_The_Metabarons_10_p28",
+          "source_image": "external/comics/meta-barons/276_The_Metabarons_10_p28.jpg"
+        }
+      ],
+      "traits": [
+        "Faceless or featureless in appearance [v10 ic1]",
+        "Head composed of deadly weapons, concealed under helmets [v10 p22]",
+        "Highly ambitious and self-important; treats any summons as proof of his indispensability [v10 p22]",
+        "Explicitly transactional — refuses altruism and demands personal reward before acting [v10 p23]",
+        "Indifferent to humanity's welfare as a moral concern [v10 p23]",
+        "Vain or theatrical: solicits aesthetic opinions on helmet styles [v10 p22]",
+        "Capable of stealth infiltration through outdated defensive systems [v10 p25]",
+        "Immune to vampire cerebral attacks due to cybernetic construction [v10 p24]",
+        "Bitter and resentful when not publicly recognized despite victory [v10 p20]"
+      ],
+      "voice_notes": [
+        "Speaks with wounded pride and resentment when unrecognized [v10 p20]",
+        "Negotiates transactionally, explicitly rejecting moral appeals as irrelevant [v10 p23]",
+        "Seeks validation through titles and status, not love or loyalty [v10 p22, p23]",
+        "Addresses Tonto with casual authority as a trusted aide [v10 p22]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Revealed to the Empire via a Techno-Techno ambassador who appeared first as a holo-image [v10 ic1]",
+        "Demonstrated power by reshaping the Imperial dome into a gigantic golden flower [v10 ic1]",
+        "Chosen as humanity's champion; associated with a purple metacraft [v10 ic1]",
+        "Resisted an intense psychic attack during the duel to the point of threatening his own molecular unity [v10 p12]",
+        "Defeated by Aghnar in formal duel; yielded honorably in open space [v10 p13]",
+        "Departed the victory celebration without public recognition, carrying reward treasure, course set for Metabunker [v10 p20]",
+        "Expressed angry resentment at being ignored despite his role in victory [v10 p20]",
+        "Received urgent galactic transmission from the new Golden Palace requesting an audience [v10 p22]",
+        "Negotiated with the neocerth empress for title Supreme Metabaron and a high nobility medallion requiring unanimous ambassador consent [v10 p23]",
+        "Immune to vampire cerebral attack; sealed the interspace breach, causing the vampires to disintegrate [v10 p24]",
+        "Infiltrated the Troglosocialik defense system via poly-cloaked psy-glider over capital planet Philodendra [v10 p25]",
+        "Accused by robotic observers of having killed Nacnor Rosaamel de Rokha, last planar Tay priest [v10 p25]",
+        "Fired a Cerebrak IK-8 at the supreme Troglosocialik president during morning meditation among the Djykka-birds at the Halerce Tree [v10 p27]"
+      ]
+    },
+    {
+      "aliases": [
+        "Steelhead",
+        "the Master",
+        "supreme Metabaron",
+        "future Supreme Metabaron"
+      ],
+      "appearances": [
+        "description: Large white and silver heavily armored humanoid with a rigid mechanical head, mounted guns/cannons, and metal fingers. Physically imposing and much larger than most opponents.; source_refs: ['277_The_Metabarons_11_c01', '279_The_Metabarons_11_p01', '281_The_Metabarons_11_p03', '282_The_Metabarons_11_p04']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [
+        "Fought and defeated Aghnar across dimensions in Metacraft; mutilated Honorata; drove both to suicide by mini-bomb (recap, ic1)",
+        "Defeated dimensional vampires that breached reality through the battle-rift (ic1)",
+        "Assassinated Don Nicanor Rosamel de Rokha during morning meditation on Philodendra to clear the way for his investiture (ic1)",
+        "Overpower Dona Vicenta at the investiture ceremony, threw her aside, ordered her safely returned to Philodendra (p03–p04)",
+        "Vowed to destroy the Golden Planet and its empress after learning love (p04)",
+        "Searched more than 3,500 planets and artificial satellites for written knowledge of love (p05)",
+        "Destroyed Terra Prima's omni-library in frustration when ancient paper crumbled uselessly (p05)",
+        "Survived acid storms and giant pachydermic jellyfish to reach Zaran Krleza's fortress at the galaxy's edge (p08–p09)",
+        "Passed the soul trial by producing a musical note with the ancient bow, soothing the octo-tiger to sleep without killing it (p10–p12)",
+        "Agreed to surgical ego-erasing fusion with Zaran Krleza's surviving head; endured without anesthetic (p14)"
+      ],
+      "knowledge_boundaries": [
+        "Does not know how to love and explicitly admits this (p04, p13)",
+        "Does not know how to use an ancient bow without arrows until he abandons rational logic (p12)",
+        "Unaware at investiture ceremony that Dona Vicenta would appear with evidence (p01)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#000:steelhead",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Aghnar; nature: Fought in cross-dimensional duel; mutilated Aghnar's companion Honorata to force surrender; Steelhead won; source_refs: ['278_The_Metabarons_11_ic1']",
+        "target: Honorata; nature: Grievously mutilated her during the duel with Aghnar as a tactical act of cruelty; source_refs: ['278_The_Metabarons_11_ic1']",
+        "target: Don Nicanor Rosamel de Rokha; nature: Assassinated him during morning meditation on Philodendra to remove the only blocking vote at his investiture; source_refs: ['278_The_Metabarons_11_ic1', '279_The_Metabarons_11_p01']",
+        "target: Dona Vicenta Gabriela de Rokha; nature: She is his adversary and the object of his dynastic reproductive ambitions; he physically overpowers her, orders her returned safely, and declares he will learn love for her; source_refs: ['280_The_Metabarons_11_p02', '281_The_Metabarons_11_p03', '282_The_Metabarons_11_p04']",
+        "target: Tonto; nature: Robot companion/servant at the Metabunker; traces signals and warns Steelhead of relational consequences; source_refs: ['284_The_Metabarons_11_p06', '292_The_Metabarons_11_p15']",
+        "target: The Central Brain; nature: Advising intelligence that directed him to Terra Prima's omni-library; source_refs: ['283_The_Metabarons_11_p05']",
+        "target: Lothar; nature: Machine interlocutor on his ship; holds an anti-romantic philosophy Steelhead argues against; source_refs: ['283_The_Metabarons_11_p05']",
+        "target: Zaran Krleza; nature: Sought him as a teacher of love; agreed to surgical fusion with his surviving head, dissolving both egos to form Melmoth; source_refs: ['285_The_Metabarons_11_p07', '291_The_Metabarons_11_p14']",
+        "target: The Empress; nature: She appealed to him to defeat dimensional vampires; in exchange he demanded the title of Supreme Metabaron; later threatens to destroy the Golden Planet and its empress; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Ruthless and treacherous — mutilated Honorata to break Aghnar's resolve",
+        "Militarily devastating — capable of killing thousands of enemies in minutes",
+        "Emotionally volatile — smashes ant-robots in rage at Metabunker",
+        "Prideful about combat supremacy — dismisses the need for any further trial",
+        "Persistent — searched 3,500+ planets for knowledge of love",
+        "Politically opportunistic — leveraged the vampire crisis to demand the title of Supreme Metabaron",
+        "Admits openly he does not know how to feel love"
+      ],
+      "voice_notes": [
+        "Cynical about honor in public speech: plans to display honor outwardly while profiting (p01)",
+        "Boastful: calls himself the galaxy's greatest warrior and dismisses the soul trial requirement (p08–p09)",
+        "Admits vulnerability openly: states he must find a teacher who can show him what love is (p04)",
+        "Speaks with contempt toward Dona Vicenta while physically dominating her (p03–p04)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Cross-dimensional combat can tear open reality breaches that admit hostile vampiric entities (ic1)",
+        "Ancient paper on Terra Prima disintegrates on contact with his metal fingers (p05)",
+        "Many seekers attempted Zaran Krleza's fortress over 5,000 years; he is the first to survive the approach (p08-p09)",
+        "The soul trial cannot be won by brute force alone — the octo-tiger must be subdued without killing (p10)",
+        "A musical note from the ancient bow pacifies the octo-tiger (p12)"
+      ]
+    }
+  ]
+}

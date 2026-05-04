@@ -1,0 +1,43 @@
+{
+  "card": [
+    "Name: General Amagho",
+    "ROLE: Titled general and wealthy suitor; owner of the Tazzum mines; approached Oda with his military record and fortune as courtship credentials.",
+    "TRAIT: Flamboyantly dressed — elaborate green headdress, helmet, and staff-like object; presents himself as a figure of spectacle and display.",
+    "TRAIT: Extremely wealthy; identifies himself through his fortune and the Tazzum mines as much as through his military title.",
+    "TRAIT: Claims to have defeated an emperor of Androkla-5; frames the conquest as evidence of devotion.",
+    "TRAIT: Presented a rose fashioned from the intestines of a defeated emperor as a courtship offering — theatrical, extravagant, and grotesque.",
+    "RELATIONSHIP: oda__princess (Oda): rejected suitor; offered an intestine-rose fashioned from a conquered emperor; publicly and flatly refused; knocked away mid-presentation by a violent upward burst.",
+    "VOICE: In the courtship presentation, speaks as a magnate announcing a military triumph; declaration of feeling delivered as a conquest report.",
+    "BOUNDARY: No confirmed later role, recovery, or knowledge of Aghnar's lineage or Metabaronic affairs beyond the failed courtship presentation.",
+    "BOUNDARY: No established awareness of rivals for Oda or of the dynasty with prior claim on her."
+  ],
+  "display_name": "General Amagho",
+  "model": {
+    "generated_at": "2026-05-03T23:52:51.764009+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "general-amagho",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-07.json#008:general-amagho"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton minor character; the card is compact, source-grounded, and honest about its boundaries."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "card": [
+    "Name: Black Endoguard",
+    "ROLE: collective military force named only in narration during the Marmola space battle",
+    "TRAIT: functions as a unit; no individual member is named or voiced in the record",
+    "TRAIT: their betrayal during the battle is described as unexpected; no prior warning of disloyalty is established",
+    "TRAIT: their betrayal is presented as decisive — the losing side is crushed by Imperial House battleships in the same engagement",
+    "RELATIONSHIP: imperial_house (Imperial House): apparent allies or subordinates; their betrayal benefits the Imperial House during the Marmola battle",
+    "VOICE: never directly heard; presence established through narration boxes only, not dialogue",
+    "BOUNDARY: no confirmed actions beyond the Marmola betrayal and its immediate battle consequence; do not invent later service, command structure, or motives"
+  ],
+  "display_name": "Black Endoguard",
+  "model": {
+    "generated_at": "2026-05-03T20:08:28.043464+00:00",
+    "iterations": 2,
+    "verifier_effort": "xhigh",
+    "verifier_model": "gpt-5.5",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "black_endoguard",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-01.json#011:black_endoguard"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "a2c0429c2089f7e9c97ebea382033d63a48d32c3f756ec31b5b29a44eed3b44b",
+      "page_id": "025_The_Metabarons_1_p24",
+      "source_image": "external/comics/meta-barons/025_The_Metabarons_1_p24.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

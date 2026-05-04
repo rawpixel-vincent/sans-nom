@@ -1,0 +1,140 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "shabda-oud-mother-superiors",
+  "peer_identity": {
+    "arc_label": "Shabda-Oud hierarchy leaders / Mother Superior office across appearances",
+    "display_name": "Shabda-Oud Mother Superiors",
+    "honcho_notes": "Group-role card for the Mother Superior office; keep separate from ordinary Shabda-Oud witches/priestesses.",
+    "merge_policy": "merged_group_role",
+    "peer_card_id": "shabda-oud-mother-superiors",
+    "rationale": "Project lore rule: Mother Superiors sit above the Shabda-Oud witches and should stay a separate hierarchy card rather than split by volume.",
+    "source_record_ids": [
+      "characters-volume-05.json#005:mother-superior",
+      "characters-volume-06.json#003:mother-superior-of-the-shabda-oud"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Mother Superior"
+      ],
+      "appearances": [],
+      "character_id": "mother-superior",
+      "image_sha256s": [],
+      "important_actions": [
+        "Commanded the Shabda-Oud vessel's cautious approach to Okhar with secret weapons ready",
+        "Led the delegation that interrogated Honorata under psychic security protocols"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-05.json#005:mother-superior",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'Shabda-Oud': 'high-ranking leader or enforcer within the organization', 'Honorata': 'interrogates her; holds her accountable for the undelivered hermaphrodite child', 'Othon von Salza': \"directly addresses him during the delegation's investigation\"}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-05.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Harsh, authoritative, and concerned; dismisses sentiment",
+        "Treats the promised hermaphrodite child as a political instrument with institutional weight"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Ordered extreme caution and preparation of hidden weapons on approach to Okhar, sensing an anomaly",
+        "Led the psychically swept interrogation of Honorata in a soundproof chamber",
+        "Demanded to know why the promised hermaphrodite child, now seven years old, was never delivered",
+        "Threatened that both Honorata's life and the planet's fate depend on her answers"
+      ]
+    },
+    {
+      "aliases": [
+        "Mother Superior of the Shabda-Oud"
+      ],
+      "appearances": [
+        "source: vol6_ic1; page: ic1; description: Recap: arrived on Okhar in a Cetacyborg with two assassins; interrogated Honorata; engaged in telepathic combat with Aghnar (with Honorata's power linked to his)."
+      ],
+      "character_id": "mother-superior-of-the-shabda-oud",
+      "image_sha256s": [],
+      "important_actions": [
+        "Arrived on Okhar in a Cetacyborg with two assassins to interrogate Honorata (vol6_ic1)",
+        "Engaged Aghnar in a telepathic duel (vol6_ic1)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-06.json#003:mother-superior-of-the-shabda-oud",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Honorata; type: Interrogator/antagonist; notes: Interrogated her about the child's nature. Source: vol6_ic1.",
+        "character: Aghnar; type: Opponent in telepathic duel; notes: Fought him with Honorata's power linked to his. Source: vol6_ic1.",
+        "character: Shabda-Oud sisters/witches; type: Superior — commands them; notes: Leads the Shabda-Oud organization. Source: vol6_ic1."
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-06.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    }
+  ]
+}

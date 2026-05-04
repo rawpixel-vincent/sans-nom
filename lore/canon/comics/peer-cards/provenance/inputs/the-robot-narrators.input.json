@@ -1,0 +1,115 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-robot-narrators",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "The Robot Narrators",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "the-robot-narrators",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-09.json#009:the-robot-narrators"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Robot Narrators",
+        "the two robot servants"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['236_The_Metabarons_9_p07', '249_The_Metabarons_9_p22']"
+      ],
+      "character_id": "the-robot-narrators",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Serve as the primary framing and narration device for the entire volume 9 story; source_refs: ['236_The_Metabarons_9_p07', '249_The_Metabarons_9_p22']"
+      ],
+      "knowledge_boundaries": [
+        "Their exact identities, model types, and relationship to specific Metabaron characters are not stated in volume 9",
+        "The identity of their master is not revealed in these pages",
+        "They possess knowledge of the full story history but interpret it with their own moral and predictive biases"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#009:the-robot-narrators",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: An absent master; relation: Servants; narrate the story while performing household duties; must stop when the master is expected to return"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "One narrator angrily denounces shameless hypocrisy in Aghnar's career (236_The_Metabarons_9_p07)",
+        "One argues Steelhead must survive because otherwise a later family line could not exist; the other rejects this as a reason and insists Aghnar will win (249_The_Metabarons_9_p22)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Narrate Aghnar's mercenary career with moral condemnation (236_The_Metabarons_9_p07); source_refs: ['236_The_Metabarons_9_p07']",
+        "fact: Debate which combatant — Steelhead or Aghnar — will win their duel; one argues Steelhead must survive to maintain later family lineage; the other insists Aghnar will win (249_The_Metabarons_9_p22); source_refs: ['249_The_Metabarons_9_p22']",
+        "fact: Halt the story because they must prepare dinner for their master before he returns; promise to continue the next day (249_The_Metabarons_9_p22); source_refs: ['249_The_Metabarons_9_p22']"
+      ]
+    }
+  ]
+}

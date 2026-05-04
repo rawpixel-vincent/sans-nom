@@ -1,0 +1,138 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-metabaron__supreme",
+  "peer_identity": {
+    "arc_label": "Supreme Metabaron operating in Steelhead's time—identity explicitly unresolved in vol14",
+    "display_name": "The Metabaron (Supreme Metabaron, Steelhead era)",
+    "honcho_notes": "Relies on speed and maneuverability rather than brute force. Tactically precise—exploits turning radius as a time advantage. Protective of Milady; commands her to follow his exact path. Generates lethal spherical energy field. Addresses subordinates in guiding/commanding tone. Whether this is Steelhead in his Metabaron role or a distinct figure is unresolved.",
+    "merge_policy": "split_uncertain",
+    "peer_card_id": "the-metabaron__supreme",
+    "rationale": "This record is explicitly flagged as uncertain whether it depicts Steelhead or a separate figure ('The Metabaron, Supreme Metabaron, Petro (possible)'). The vol14 narrative itself marks this as unresolved. Cannot safely merge with the No-Name Metabaron (different era) nor with the Steelhead card (unconfirmed identity). Split_uncertain because the source record's own analysis declares the identity open.",
+    "source_record_ids": [
+      "characters-volume-14.json#003:the-metabaron"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Metabaron",
+        "Supreme Metabaron",
+        "Petro (possible; see uncertainties)"
+      ],
+      "appearances": [
+        "Heavily armored figure commanding Metacraft in space combat (vol.14 p04-p05)",
+        "Addressed formally as 'Supreme Metabaron' during technomonk confrontation (vol.14 p13)",
+        "Heavy armored cyborg warrior on foot, physically very heavy — weight noted as a mobility limitation (vol.14 p09)",
+        "Generates or activates a lethal spherical energy field capable of killing guards en masse (vol.14 p09)",
+        "Uses energy weapon fire and fights through golden organic bio-mechanical structures (vol.14 p10)"
+      ],
+      "character_id": "the-metabaron",
+      "image_sha256s": [],
+      "important_actions": [
+        "Ordered Metacraft to execute an immediate about-turn against the merged petro-morph ship, exploiting size and speed advantage (vol.14 p04-p05)",
+        "Breached Amalek XII's sealed techno-temple and fought through technopapal guardians (vol.14 p08-p13)",
+        "Expelled a small figure through a vertical shaft inside the organic structure (vol.14 p10)",
+        "Destroyed the technoscarab and threatened Amalek XII with total destruction unless he appeared (vol.14 p12)",
+        "Activated pan-atomic anti-shield and repelled technomonk kidnapping attempt; leader immediately capitulated (vol.14 p13)"
+      ],
+      "knowledge_boundaries": [
+        "Whether this is the same person as Melmoth/Steelhead or a distinct figure is an open uncertainty in this volume",
+        "The mechanism of the spherical defensive energy field is not named or explained in any page"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#003:the-metabaron",
+      "record_index": 3,
+      "related_peer_ids": [],
+      "relationships": [
+        "Commands Metacraft (vol.14 p04-p05)",
+        "Tonto serves as observer/adviser aboard Metacraft (vol.14 p04-p05)",
+        "Acts as protector-superior to Milady (vol.14 p09, p10)",
+        "Possibly the same individual as Melmoth/Steelhead — explicitly unresolved in this volume (open uncertainty)",
+        "The 'current Metabaron' referenced by Tonto and Lothar is a separate later figure whose identity is distinct from the historical Steelhead (vol.14 p24)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Relies on speed and maneuverability rather than brute force in ship combat (vol.14 p04-p05)",
+        "Tactically precise: exploits opponent's turning radius as a decisive time advantage (vol.14 p04-p05)",
+        "Disciplined and protective toward Milady; insists she stay within his exact path (vol.14 p09)",
+        "Forceful and confrontational: prefers demand over polite request when approaching authority figures (vol.14 p11)",
+        "Does not retreat when threatened; presses forward despite obstacles (vol.14 p11, p13)",
+        "Confident when direct assault routes seem impossible; reframes the problem tactically (vol.14 p09)"
+      ],
+      "voice_notes": [
+        "On tactics: orders Metacraft to flee because the enemy is too powerful to engage head-on without losing too much time (vol.14 p04-p05)",
+        "On access to the temple: 'If we cannot go up, our enemies will come down to us' (vol.14 p09)",
+        "Invokes 'mega-mortis' as an escalated offensive mode while protected by the pan-atomic anti-shield (vol.14 p13)",
+        "Addresses Milady in a guiding/commanding tone: 'follow your braggart' (approximate, vol.14 p10)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Observed petro-morphs merging into a gigantic combined vessel via Tonto's report (vol.14 p04-p05)",
+        "Landed at Amalek XII's sealed techno-temple; temple defense systems deployed weapons and paralysis gas against Metacraft (vol.14 p08)",
+        "Killed technopapal guardians en masse with a spherical energy field (vol.14 p09)",
+        "Destroyed a large biomechanical technoscarab deployed as a defensive creature (vol.14 p12)",
+        "Technomonk faction attempted to kidnap him; leader capitulated after a blast dispersed them (vol.14 p13)"
+      ]
+    }
+  ]
+}

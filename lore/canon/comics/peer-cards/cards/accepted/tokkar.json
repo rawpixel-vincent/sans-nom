@@ -1,0 +1,36 @@
+{
+  "card": [
+    "Name: Tokkar",
+    "ROLE: Raider and operator of the marble disintegrator; his assigned function in the assault group was breaching the fortress entrance.",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the same assault group.",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the same assault group.",
+    "RELATIONSHIP: bargoth (Bargoth): fellow raider in the same assault group.",
+    "TRAIT: Named as absent or unaccounted for during later combat; no confirmed status after that point.",
+    "BOUNDARY: No recorded speech, stated motive, confirmed origin, employer, fate, or later history beyond the fortress breach and subsequent unresolved disappearance in later combat."
+  ],
+  "display_name": "Tokkar",
+  "model": {
+    "generated_at": "2026-05-03T21:25:06.653847+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "tokkar",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-02.json#015:tokkar"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

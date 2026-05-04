@@ -1,0 +1,12 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Usable peer persona: durable composite actor with repeated actions, relationships, voice, internal boundary, and phase-specific identity across volumes 11-13.",
+    "Identity map explicitly treats this as a merged_same_persona and excludes the later reverted Steelhead phase, so this should not be demoted as contextual lore."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "melmoth",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

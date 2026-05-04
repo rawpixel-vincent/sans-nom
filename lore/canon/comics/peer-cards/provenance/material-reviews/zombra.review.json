@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Zombra is a distinct named actor with direct actions, relationships, voice notes, constraints, and durable behavior/powers; the source does not require inventing a persona to support a base peer card."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "zombra",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

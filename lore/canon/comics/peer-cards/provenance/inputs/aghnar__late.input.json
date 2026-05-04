@@ -1,0 +1,300 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "251_The_Metabarons_10_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/251_The_Metabarons_10_ic1.json",
+    "252_The_Metabarons_10_p01": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/252_The_Metabarons_10_p01.json",
+    "255_The_Metabarons_10_p04": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/255_The_Metabarons_10_p04.json",
+    "256_The_Metabarons_10_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/256_The_Metabarons_10_p05.json",
+    "257_The_Metabarons_10_p06-p07": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/257_The_Metabarons_10_p06-p07.json",
+    "258_The_Metabarons_10_p08-p09": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/258_The_Metabarons_10_p08-p09.json",
+    "259_The_Metabarons_10_p10-p11": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/259_The_Metabarons_10_p10-p11.json",
+    "261_The_Metabarons_10_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/261_The_Metabarons_10_p13.json",
+    "262_The_Metabarons_10_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/262_The_Metabarons_10_p14.json",
+    "263_The_Metabarons_10_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/263_The_Metabarons_10_p15.json",
+    "264_The_Metabarons_10_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/264_The_Metabarons_10_p16.json",
+    "265_The_Metabarons_10_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/265_The_Metabarons_10_p17.json",
+    "266_The_Metabarons_10_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/266_The_Metabarons_10_p18.json"
+  },
+  "peer_card_id": "aghnar__late",
+  "peer_identity": {
+    "arc_label": "Aging cold mercenary Aghnar who accepts genocide contract, duels Steelhead, dies by mini-bomb",
+    "display_name": "Aghnar (Aged Mercenary)",
+    "honcho_notes": "Emotionally cold, transactional mercenary. Adheres to warrior honor code—denounces dishonorable tactics as treason. Aging; notices own deterioration. Accepted Pthagurean genocide contract for payment. Won the Steelhead duel (Steelhead yielded honorably) before Steelhead's treachery cost him Honorata/Oda. Chose mutual mini-bomb suicide rather than capitulate. Final voice: sharp moral indignation ('bio-rat,' 'traitor').",
+    "merge_policy": "split_phase",
+    "peer_card_id": "aghnar__late",
+    "rationale": "By vol10, Aghnar has aged visibly, publicly broke with the Empire (killing guards on departure), accepted a Pthagurean genocide contract, and is described as 'colder than a Venusian salmon's blood.' This is a dramatic shift from the vol06–08 warrior who wanted to retire and build family life. Vol11 shows his final combat against Steelhead and suicide by mini-bomb with Honorata/Oda after Steelhead's treachery. The emotionally cold mercenary voice cannot share a card with the emotionally invested revenge-warrior.",
+    "source_record_ids": [
+      "characters-volume-10.json#000:aghnar",
+      "characters-volume-11.json#006:aghnar"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Aghnar",
+        "Aghnar von Salza",
+        "the Metabaron",
+        "the new Metabaron"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['ic1', 'p01', 'p04', 'p05', 'p06-p07', 'p08-p09', 'p10-p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18']"
+      ],
+      "character_id": "aghnar",
+      "image_sha256s": [
+        "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+        "28fa97fa77a642785692e0e24c5c8cda22d9c49d226073361a95fa43dd2c3da8",
+        "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+        "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+        "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+        "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+        "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+        "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+        "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+        "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+        "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f"
+      ],
+      "important_actions": [
+        "Publicly renounced imperial service by killing guards and walking out [v10 ic1]",
+        "Accepted Pthagurean genocide contract [v10 ic1]",
+        "Piloted metacraft in formal duel against Steelhead including traversal of inter-space and the Omphall [v10 p05–p11]",
+        "Defeated Steelhead in the duel [v10 p13]",
+        "Confronted antagonist who tortured Oda using her as emotional leverage [v10 p14–p16]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the Metabaron ancestral lineage and the father-son succession rite [v10 p05]",
+        "Aware of Pthagurean plans for galactic conquest [v10 ic1]",
+        "Knows the practice of bodily/neural connection to metacraft inherited from his own father [v10 p05]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "251_The_Metabarons_10_ic1",
+        "252_The_Metabarons_10_p01",
+        "255_The_Metabarons_10_p04",
+        "256_The_Metabarons_10_p05",
+        "257_The_Metabarons_10_p06-p07",
+        "258_The_Metabarons_10_p08-p09",
+        "259_The_Metabarons_10_p10-p11",
+        "261_The_Metabarons_10_p13",
+        "262_The_Metabarons_10_p14",
+        "263_The_Metabarons_10_p15",
+        "264_The_Metabarons_10_p16",
+        "265_The_Metabarons_10_p17",
+        "266_The_Metabarons_10_p18"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#000:aghnar",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Steelhead; type: father; notes: Steelhead is Aghnar's son; formal duel arranged between them as father vs. son Metabaron rite [v10 ic1]",
+        "character: Othon; type: son of (uncertain); notes: A warrior on p16 names his father as Othon and condemns him; if that warrior is Aghnar, Othon is his father [v10 p16 — uncertain]",
+        "character: Oda-Honorada; type: companion / wife; notes: She insisted on accompanying Aghnar aboard his metacraft for the formal duel [v10 p05]",
+        "character: Janus-Jana; type: former sovereign (renounced); notes: Aghnar killed her guards and publicly renounced imperial service [v10 ic1]",
+        "character: Pthagureans; type: contractor; notes: Accepted Pthagurean genocide contract to exterminate all life in the Empire [v10 ic1]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg",
+        "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg",
+        "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg",
+        "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg",
+        "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg",
+        "external/comics/meta-barons/258_The_Metabarons_10_p08-p09.jpg",
+        "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg",
+        "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg",
+        "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+        "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg",
+        "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg",
+        "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg",
+        "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+          "page_id": "251_The_Metabarons_10_ic1",
+          "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+        },
+        {
+          "image_sha256": "a092dba630525c266909eca1bdff615c6ef190b355f9cf3b4b44c5531de83a14",
+          "page_id": "252_The_Metabarons_10_p01",
+          "source_image": "external/comics/meta-barons/252_The_Metabarons_10_p01.jpg"
+        },
+        {
+          "image_sha256": "9231a5384c15e275e89011c93f1e7e7714b643169b91a71b93bfbdbf826e25fd",
+          "page_id": "255_The_Metabarons_10_p04",
+          "source_image": "external/comics/meta-barons/255_The_Metabarons_10_p04.jpg"
+        },
+        {
+          "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+          "page_id": "256_The_Metabarons_10_p05",
+          "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg"
+        },
+        {
+          "image_sha256": "2c85fdd64015d302376894649a79837265806b961bb8ba2c740ff814f99c5ab9",
+          "page_id": "257_The_Metabarons_10_p06-p07",
+          "source_image": "external/comics/meta-barons/257_The_Metabarons_10_p06-p07.jpg"
+        },
+        {
+          "image_sha256": "28fa97fa77a642785692e0e24c5c8cda22d9c49d226073361a95fa43dd2c3da8",
+          "page_id": "258_The_Metabarons_10_p08-p09",
+          "source_image": "external/comics/meta-barons/258_The_Metabarons_10_p08-p09.jpg"
+        },
+        {
+          "image_sha256": "1dc3ef5fbf22337ea29ffd87089bced80bfaa325df1d9ffb62dd5167b332296f",
+          "page_id": "259_The_Metabarons_10_p10-p11",
+          "source_image": "external/comics/meta-barons/259_The_Metabarons_10_p10-p11.jpg"
+        },
+        {
+          "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+          "page_id": "261_The_Metabarons_10_p13",
+          "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+        },
+        {
+          "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+          "page_id": "262_The_Metabarons_10_p14",
+          "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+        },
+        {
+          "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+          "page_id": "263_The_Metabarons_10_p15",
+          "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+        },
+        {
+          "image_sha256": "f0b21292647e432606f66cd05bbf3bda4dfb36d3553ea10745bdbeaba506577f",
+          "page_id": "264_The_Metabarons_10_p16",
+          "source_image": "external/comics/meta-barons/264_The_Metabarons_10_p16.jpg"
+        },
+        {
+          "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+          "page_id": "265_The_Metabarons_10_p17",
+          "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+        },
+        {
+          "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+          "page_id": "266_The_Metabarons_10_p18",
+          "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+        }
+      ],
+      "traits": [
+        "Emotionally cold — 'colder than a Venusian salmon's blood' [v10 p05]",
+        "Feared; cannot be defeated by conventional imperial weapons [v10 ic1]",
+        "Aging; observed his own deterioration in a mirror on Anasirma [v10 ic1]",
+        "Adheres to a warrior honor code; denounces dishonorable tactics as treason [v10 p14, p16]",
+        "Transactional mercenary — willing to accept genocidal contracts for payment [v10 ic1]"
+      ],
+      "voice_notes": [
+        "Mostly silent in direct dialogue; characterized through narration and others' reactions",
+        "Described as profoundly cold and detached — piloting method echoes his own father before him [v10 p05]",
+        "Denounces dishonorable tactics with sharp moral indignation; calls antagonist 'bio-rat' and 'traitor' [v10 p14]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Served the Empire, then publicly broke with it, killing Janus-Jana's guards on departure [v10 ic1]",
+        "Worked as mercenary across many clients over years [v10 ic1]",
+        "Noticed his own aging while alone on Anasirma, described as reduced to its last remains [v10 ic1]",
+        "Accepted Pthagurean contract to exterminate all life in the Empire in exchange for payment [v10 ic1]",
+        "Participated in formal duel against Steelhead witnessed by millions of human and Ptaguan spectators [v10 p06-p07]",
+        "Duel carried both combatants through inter-space, the dimension of infinite geometric straight lines, the dimension of origins, and into the Omphall [v10 p08-p09, p10-p11]",
+        "Defeated Steelhead; Steelhead yielded and offered his life honorably in open space [v10 p13]",
+        "Confronted a cybernetic antagonist who seized Oda and tortured her to break him emotionally [v10 p14, p15]",
+        "A warrior in the battle context condemns his father named Othon as dishonorable and requests honorable death [v10 p16 — speaker identity uncertain]",
+        "Two armored figures chose mutual self-destruction via internal mini-bombs, producing a galaxy-scale explosion [v10 p18]"
+      ]
+    },
+    {
+      "aliases": [
+        "Aghnar"
+      ],
+      "appearances": [
+        "description: Armored warrior; fought in a cross-dimensional duel against Steelhead in Metacraft. Specific armor color/design not described beyond prior-arc context.; source_refs: ['278_The_Metabarons_11_ic1']"
+      ],
+      "character_id": "aghnar",
+      "image_sha256s": [],
+      "important_actions": [
+        "Fought Steelhead across dimensions in Metacraft and gained the upper hand before surrendering (ic1)",
+        "Detonated a mini-bomb inside his body in suicide pact with Honorata/Oda after Steelhead mutilated her (ic1)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#006:aghnar",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Honorata / Oda; nature: Companion; died together by detonating mini-bombs in their bodies after Steelhead mutilated her; source_refs: ['278_The_Metabarons_11_ic1']",
+        "target: Steelhead; nature: Opponent in a cross-dimensional duel; defeated when Steelhead mutilated Honorata to force surrender; later died by suicide; source_refs: ['278_The_Metabarons_11_ic1']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Experienced and skilled fighter — gained the advantage in the duel before the surrender",
+        "Emotionally committed to Honorata/Oda — could not bear to watch her mutilated",
+        "Chose death over capitulation"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Steelhead's treachery in mutilating Honorata after a surrender was indicated (ic1)"
+      ]
+    }
+  ]
+}

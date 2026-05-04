@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Bari is a distinct named actor with repeated actions, relationships, voice, durable behavior, and a clear phase arc across volumes. The bundle supports a usable peer persona without forcing invention."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "bari",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

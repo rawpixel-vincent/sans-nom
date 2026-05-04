@@ -1,0 +1,147 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "260_The_Metabarons_10_p12": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/260_The_Metabarons_10_p12.json",
+    "261_The_Metabarons_10_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/261_The_Metabarons_10_p13.json"
+  },
+  "peer_card_id": "unnamed-mother-figure-p12",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Unnamed Mother Figure (p12)",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "unnamed-mother-figure-p12",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-10.json#011:unnamed-mother-figure-p12"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Unnamed Mother Figure (p12)",
+        "master figure (p12 operators)"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p12', 'p13']"
+      ],
+      "character_id": "unnamed-mother-figure-p12",
+      "image_sha256s": [
+        "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+        "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc"
+      ],
+      "important_actions": [
+        "Directed psychic assault on Aghnar via son and probe, escalating to full psychotron reserves [v10 p12]",
+        "Counseled the defeated son to accept death honorably [v10 p13]"
+      ],
+      "knowledge_boundaries": [
+        "Knows how to operate or direct psychic amplification via probe [v10 p12]",
+        "Knows the limits of her psychotron reserves [v10 p12]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "260_The_Metabarons_10_p12",
+        "261_The_Metabarons_10_p13"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#011:unnamed-mother-figure-p12",
+      "record_index": 11,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: unnamed son (p12); type: mother of; notes: Directs her son to wield a mega-hypnotic head against Aghnar [v10 p12]",
+        "character: Steelhead; type: commanding ally; notes: Urges Steelhead to keep fighting a little longer while she amplifies psychic power [v10 p12]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg",
+        "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "1152c731238f7ccded2b852613ff9c2d661ae990399524813207086610d6e4cc",
+          "page_id": "260_The_Metabarons_10_p12",
+          "source_image": "external/comics/meta-barons/260_The_Metabarons_10_p12.jpg"
+        },
+        {
+          "image_sha256": "76ef010015544def60bea239a154ad5cbc0dbdffd7d5e29ae902afac85a657fc",
+          "page_id": "261_The_Metabarons_10_p13",
+          "source_image": "external/comics/meta-barons/261_The_Metabarons_10_p13.jpg"
+        }
+      ],
+      "traits": [
+        "Physically integrated with elaborate biomechanical machinery [v10 p12]",
+        "Commands both her son (subordinate) and Steelhead simultaneously [v10 p12]",
+        "Possesses psychic powers; transmits them through a probe at personal cost [v10 p12]",
+        "Willing to endure pain to amplify her psychic attack [v10 p12]",
+        "Urges acceptance of honorable death as a warrior's highest dignity [v10 p13]"
+      ],
+      "voice_notes": [
+        "Commands with urgency and conviction [v10 p12]",
+        "Shifts to intimate, maternal counsel when urging honorable death [v10 p13]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Directed her son to use a mega-hypnotic head device to incapacitate an armored opponent [v10 p12]",
+        "Had a probe inserted into her body to transmit and amplify psychic power to her son [v10 p12]",
+        "Urged Steelhead that the enemy (Aghnar) was close to permanent incapacitation [v10 p12]",
+        "Committed all remaining psychotron reserves in a final escalation when she could endure no more [v10 p12]",
+        "Told the defeated son that a warrior's dignity lies in turning defeat into honorable triumph [v10 p13]"
+      ]
+    }
+  ]
+}

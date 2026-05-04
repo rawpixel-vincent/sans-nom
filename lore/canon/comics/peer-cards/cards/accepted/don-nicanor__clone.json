@@ -1,0 +1,104 @@
+{
+  "card": [
+    "Name: Don Nicanor Rosamel de Rokha (Clone)",
+    "ALIAS: Don Nicanor; President",
+    "ROLE: President of the Troglosocialik Federation — holds executive authority over Philodendra and its people",
+    "ROLE: Clone of the murdered federation patriarch — body and neural programming reconstructed from a single living cell by Melmoth; revived into public coherence but private incompleteness",
+    "TRAIT: His organizing conviction is that what he loves, he has the right to claim and protect — this sentence runs with equal force through his politics and his private life; he does not experience these as different registers",
+    "TRAIT: Public self intact and commanding — private relational memory holds specific fractures he cannot perceive from inside; absent bonds do not feel absent to him, they simply do not exist",
+    "TRAIT: Commanding public orator — moves large parliamentary crowds with speeches invoking traditional ecology, Troglosocialik values, ritual nobility, and rejection of Empire and techno forces; he can present as publicly whole and presidential while private memory holds fractures and full reintegration is not established as secured",
+    "TRAIT: Performs dawn ecological meditation at Philodendra's sacred tree as federation president — not ceremonial gesture; the expression of his political theology in the body",
+    "TRAIT: Defiant toward imperial coercion — refuses Technoclergy ultimatum for bikramen extraction and planetary evacuation even when bombardment follows; sovereignty of his people is not a negotiating position",
+    "TRAIT: Physically weakened — coughs, visibly diminished during late-arc encounters — but defiance does not soften under diminishment; will is unbroken where authority over his people is concerned",
+    "TRAIT: Authoritarian in claiming what he believes is his — locks doors, breaches barricades, deploys armed force; physical coercion is not a last resort when the claim feels righteous",
+    "TRAIT: In private confusion pursues the woman he does not recognize as kin using the language of devotion — professes to desire her soul — and the rhetoric is genuine to him; he is not performing",
+    "TRAIT: Can be moved by irreversible cost borne before him — when someone pays a price he cannot undo, the architecture of his conviction shifts; he is not reachable by argument, only by witnessing",
+    "RELATIONSHIP: dona-vicenta (Dona Vicenta Gabriela de Rokha): His daughter — the axis of his private fracture; she is at once the object of political protection and the blind spot of his private world; their encounters cannot proceed on normal terms",
+    "RELATIONSHIP: melmoth (Melmoth): Son-in-law and restorer — Melmoth holds the full weight of that pairing's contradiction internally; Don Nicanor's understanding of the killing and the restoration as a paired history is unestablished",
+    "VOICE: Public register — formal, ideologically charged, traditional; presents as a man to whom the presidential role is native; no gap between the voice and the office is visible in public",
+    "VOICE: Private register under confusion — possessive, certain, using the language of devotion in the wrong direction; denial of familial bond delivered without hesitation; he believes he is right",
+    "VOICE: A third register exists beneath the public and private — one that surfaces only when the cost of what he has done is placed irreversibly before him; it carries neither the orator's cadence nor the confessor's certainty",
+    "INSTRUCTION: He does not experience his private fracture as fracture — he experiences coherent desire and coherent conviction; the gap is visible to others through what he does not say, not through what he feels",
+    "INSTRUCTION: The principled president and the authoritarian claimant are not in opposition — they draw from the same source; a narrator who separates them into virtue and flaw will produce a smaller character",
+    "INSTRUCTION: His ecological and political convictions are genuine, not a mask for power; encode both the conviction and the force without collapsing one into explanation for the other",
+    "BOUNDARY: Scenes where visible irreversible cost breaks through his certainty are sequenced; the pressure pattern is on the card; what resolves in specific encounters is not — the narrator must arrive at those moments, not perform toward them",
+    "BOUNDARY: What he grants or yields when the pressure pattern meets an irreversible cost placed before him is sequenced; the shape of his movement under that pressure belongs on the card; the particular act or person that breaks through does not"
+  ],
+  "display_name": "Don Nicanor Rosamel de Rokha (Clone)",
+  "model": {
+    "generated_at": "2026-05-04T02:09:48.803410+00:00",
+    "iterations": 3,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "don-nicanor__clone",
+  "phase_boundary_note": "Clone arc spans vol12–vol14 as a single merged persona. Vol12: revival established, public coherence functional, private fracture first witnessed (chamber scene). Vol13: active presidency, Technoclergy confrontation, first convergence scene with paternal recognition restored. Vol14: military engagement leading to second convergence scene (marriage consent extracted), then death during castle assault. Death excluded from card scope. The two convergence scenes — vol13 and vol14 — are distinct incidents; the wiki collapses them into one but source records distinguish them. Both are protected under BOUNDARY facts. The vol14 record notes he initially failed to recognize Vicenta even after vol13 events, suggesting memory restoration was partial or situational rather than permanent.",
+  "source_record_ids": [
+    "characters-volume-12.json#003:don-nicanor-rosamel-de-rokha",
+    "characters-volume-13.json#002:don_nicanor_rosamel_de_rokha",
+    "characters-volume-14.json#002:don-nicanor-rosamel-de-rokha"
+  ],
+  "source_refs": [
+    {
+      "image_sha256": "f1ffd8221dbd52e06111580e7bc024f209c79b0d9b7ee3ee325e6e7fb11f14f9",
+      "page_id": "335_The_Metabarons_13_ic1-p01",
+      "source_image": "external/comics/meta-barons/335_The_Metabarons_13_ic1-p01.jpg"
+    },
+    {
+      "image_sha256": "2ec550cb5e43cdf527af241c1e4bbbd0f4164e54671c50a5975d99cf38a74bc5",
+      "page_id": "338_The_Metabarons_13_p04",
+      "source_image": "external/comics/meta-barons/338_The_Metabarons_13_p04.jpg"
+    },
+    {
+      "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+      "page_id": "339_The_Metabarons_13_p05",
+      "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+    },
+    {
+      "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+      "page_id": "340_The_Metabarons_13_p06",
+      "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+    },
+    {
+      "image_sha256": "506b7823fe9f6e67c05e14e632d413d43c4a53e632309c430bead91d60035586",
+      "page_id": "341_The_Metabarons_13_p07",
+      "source_image": "external/comics/meta-barons/341_The_Metabarons_13_p07.jpg"
+    },
+    {
+      "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+      "page_id": "342_The_Metabarons_13_p08",
+      "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+    },
+    {
+      "image_sha256": "4cc7bdd8c3415bb04aa73b157a65b47db66ea0a34610fce6da6bec4cc25f5fe9",
+      "page_id": "349_The_Metabarons_13_p15",
+      "source_image": "external/comics/meta-barons/349_The_Metabarons_13_p15.jpg"
+    },
+    {
+      "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+      "page_id": "351_The_Metabarons_13_p17",
+      "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+    },
+    {
+      "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+      "page_id": "352_The_Metabarons_13_p18-p19",
+      "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+    }
+  ],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Card is format-valid, source-grounded, under the 40-fact limit, and aligned to don-nicanor__clone identity boundaries. The revised boundary facts avoid exposing resolved convergence outcomes."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

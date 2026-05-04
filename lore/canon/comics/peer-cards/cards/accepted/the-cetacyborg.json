@@ -1,0 +1,43 @@
+{
+  "card": [
+    "Name: The Cetacyborg",
+    "ALIAS: CetaCyborg",
+    "ALIAS: Cetacyborg",
+    "ROLE: Colossal living bio-mechanical vessel built around a central servo-brain; large enough to swallow a metacraft whole",
+    "ROLE: Associated with Shabda-Oud forces that threatened the planet Okhar",
+    "TRAIT: In the encounter with Othon, direct missile attack on the outer skin proved insufficient; the internal servo-brain is the established critical vulnerability in that encounter",
+    "TRAIT: Internal cavity produces corrosive acids that severely damage human lung tissue on passage through the entity",
+    "TRAIT: Destruction of the servo-brain triggers a catastrophic internal explosion; the blast was compared to a supernova",
+    "TRAIT: Operates as one of a type; at least seven additional units were detected by ultra-radar approaching Okhar at end of the volume, with no further outcome established for those units",
+    "RELATIONSHIP: othon-von-salza (Othon von Salza): Othon deliberately piloted his metacraft into the entity's mouth and destroyed its servo-brain from within by firing all weapons simultaneously; the internal acids severely corroded his lungs in the process",
+    "BOUNDARY: No known speech or direct communication; no individual motive or autonomous will is established beyond its hostile servo-brain-commanded function"
+  ],
+  "display_name": "The Cetacyborg",
+  "model": {
+    "generated_at": "2026-05-03T23:20:37.953796+00:00",
+    "iterations": 5,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "the-cetacyborg",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-05.json#009:the-cetacyborg"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source-thin singleton card; accepted because it stays bounded to the Cetacyborg encounter, uses the correct Othon peer id, and explicitly limits unknown motive, speech, and later outcomes."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

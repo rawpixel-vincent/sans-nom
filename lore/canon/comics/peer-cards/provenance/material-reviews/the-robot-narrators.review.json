@@ -1,0 +1,12 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Usable as an intentional group-role peer: the two robot servants frame and narrate volume 9, debate outcomes with distinct moral/predictive biases, and have a durable servant boundary around an absent master.",
+    "No related peer ids are supplied in the bundle, and the master is explicitly unidentified, so no inherited lore target is listed."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "the-robot-narrators",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

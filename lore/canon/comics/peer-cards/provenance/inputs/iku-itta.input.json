@@ -1,0 +1,330 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "094_The_Metabarons_4_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/094_The_Metabarons_4_p05.json",
+    "102_The_Metabarons_4_p13": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/102_The_Metabarons_4_p13.json"
+  },
+  "peer_card_id": "iku-itta",
+  "peer_identity": {
+    "arc_label": "Othon's faithful servant, father of the unnamed daughter pair, later suicide victim",
+    "display_name": "Iku-Tta / Iku-Itta",
+    "honcho_notes": "Male faithful servant/household associate of Othon and father of two unnamed daughters (Nan-Nan/Ohouya as called on p08). Preserve the daughters' paired attack as related non-peer lore evidence, not as a separate Honcho peer. Iku-Tta speaks in ominous metaphors, reports his daughters' tower attack, later commits suicide, and Othon uses that death to ban tribe members and replace household service with robots.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "iku-itta",
+    "rationale": "Source correction from page images: vol.04 page 05 names the green servant as Iku-Tta and says 'my daughters'; vol.04 page 13 says Iku-Tta committed suicide and refers to his presence as the threat. Prior iko-itta/ik-uta records were OCR/extraction variants of Iku-Tta, not separate daughter/elder peers.",
+    "source_record_ids": [
+      "characters-volume-02.json#009:iku-tta",
+      "characters-volume-03.json#010:iku-itta",
+      "characters-volume-04.json#008:iku-itta",
+      "characters-volume-04.json#009:iku-itta"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Non-peer lore fact bundle: two unnamed daughters act as a paired group; Honcho peer cards must represent one character, not a plural unit.",
+      "related_peer_ids": [
+        "iku-itta",
+        "othon-von-salza",
+        "honorata__living"
+      ],
+      "source_record": {
+        "aliases": [
+          "Iku-Tta's daughters",
+          "Nan-Nan",
+          "Ohouya",
+          "daughters of Othon's faithful servant",
+          "the servant's two daughters"
+        ],
+        "appearances": [
+          "description: Two dark-haired women in black; later depicted in revealing ceremonial or martial outfits with white headpieces; physically aggressive and fanatical; source_refs: ['090_The_Metabarons_4_p01', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+        ],
+        "character_id": "iku-tta-daughters",
+        "important_actions": [
+          "action: As a paired non-peer unit, seized and threw Honorata from the tower in her ninth month, triggering mid-air birth and epiphyte dart strike; source_refs: ['094_The_Metabarons_4_p05', '096_The_Metabarons_4_p07', '097_The_Metabarons_4_p08']"
+        ],
+        "knowledge_boundaries": [
+          "Believed Honorata possessed genuine supernatural hypnotic powers",
+          "Framed the act as a sacrificial ritual connected to a demon — whether their interpretation of events is accurate is not confirmed"
+        ],
+        "non_peer_reason": "Non-peer lore fact bundle: two unnamed daughters act as a paired group; Honcho peer cards must represent one character, not a plural unit.",
+        "page_ids": [
+          "089_The_Metabarons_4_ic1",
+          "094_The_Metabarons_4_p05",
+          "096_The_Metabarons_4_p07",
+          "097_The_Metabarons_4_p08"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-04.json#005:iku-tta-daughters",
+        "related_peer_ids": [
+          "iku-itta",
+          "othon-von-salza",
+          "honorata__living"
+        ],
+        "relationships": [
+          "character: Iku-Tta; type: father; notes: page 094 identifies the two attackers as Iku-Tta's daughters, Iku-Tta's children rather than Othon's children",
+          "character: Othon von Salza; type: household dependents / enforced-silent companions; notes: lived in the Castaka fortress orbit after Othon took Iku-Tta's daughters into his household",
+          "character: Honorata; type: enemies / captors; notes: believed she hypnotized Othon; blindfolded her to counter her powers; seized her in ninth month and leapt from the tower with her"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+        "traits": [
+          "Jealous of Honorata's influence over Othon",
+          "Fanatical; willing to die alongside Honorata to eliminate her",
+          "Frame their act as a religious or cult-like sacrifice",
+          "Believe their sacrifice is connected to a demon and to someone having fathered that demon",
+          "Accuse Honorata of both witchcraft and theft"
+        ],
+        "voice_notes": [
+          "Speak in ecstatic, devotional, and accusatory registers; frame their act as sacrifice; call Honorata a thief and witch; dismiss retreating as impossible"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Interrupted Honorata's first encounter with Othon out of jealousy, causing him to nearly kill her [089_The_Metabarons_4_ic1]",
+          "Blindfolded Honorata on the tower platform to prevent hypnosis [096_The_Metabarons_4_p07]",
+          "Seized Honorata in her ninth month of pregnancy and threw themselves with her from the top of Othon's tower [094_The_Metabarons_4_p05]",
+          "Declared their hatred stronger than her magic and willingness to die [097_The_Metabarons_4_p08]",
+          "Addressed an older blindfolded woman (likely a household figure) who pleaded with them to stop [097_The_Metabarons_4_p08]"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Iku-Tta",
+        "Iku-Itta"
+      ],
+      "appearances": [
+        "volume: 2; pages: ['p17', 'p19', 'p20', 'p25']"
+      ],
+      "character_id": "iku-tta",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Nursed Othon with his two daughters; detail: Provided months of care while Othon recovered from catastrophic groin and hip injuries; source_pages: ['p25']"
+      ],
+      "knowledge_boundaries": [
+        "Has direct knowledge of household events on Okhar",
+        "Knows the state of the stables and Shazam's routine"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-02.json#009:iku-tta",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon Von Salza; relation: Trusted attendant / confidant",
+        "character: Bari; relation: Aware of Bari's condition and welfare",
+        "character: Iku-Tta's two daughters; relation: Father"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-02.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Loyal attendant and confidant to Master Othon",
+        "Associated with the stables / horse-keeping on Okhar",
+        "Has two daughters who assist in nursing",
+        "Trusted enough to hear Othon's private admissions of loneliness"
+      ],
+      "voice_notes": [
+        "Addressed respectfully by Othon",
+        "Speaks matter-of-factly when delivering reports"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Reported to Othon that Bari was too exhausted to be questioned after riding Shazam (p17)",
+        "Was present when the alarm about Shazam's theft was raised (p19)",
+        "Nursed Othon through months of recovery after his castration injuries (p25)"
+      ]
+    },
+    {
+      "aliases": [
+        "Iku-Itta"
+      ],
+      "appearances": [
+        "{'description': \"Othon's slave. Not individually described in physical detail in vol. 3 pages reviewed.\", 'source_refs': ['067_The_Metabarons_3_p10']}"
+      ],
+      "character_id": "iku-itta",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-03.json#010:iku-itta",
+      "record_index": 10,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: slave / household member; notes: Othon took Iku-Itta's daughters as enforced-silent companions after his mutilation.; source_refs: ['067_The_Metabarons_3_p10']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-03.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Loyal to Othon's household",
+        "Has daughters who are part of Othon's domestic and sexual arrangements"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Iku-Tta",
+        "Iku-Itta"
+      ],
+      "appearances": [
+        "description: likely the hanged green-clad figure displayed before a gathered crowd in the ceremonial scene on p13; source_refs: ['102_The_Metabarons_4_p13']"
+      ],
+      "character_id": "iku-itta",
+      "image_sha256s": [
+        "14a13e289c63b7b72fa09f59ed2981cffba688e7d8a0b17d18c7f9f2196641bf"
+      ],
+      "important_actions": [
+        "action: Committed suicide; detail: Othon interpreted the death as ending a threat to Aghnar and used it to justify banishing tribe members from the fortress; source_refs: ['102_The_Metabarons_4_p13']"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "102_The_Metabarons_4_p13"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#008:iku-itta",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: faithful servant / former threat; notes: Othon believed Iku-Tta's suicide removed a danger to Aghnar",
+        "character: Iku-Tta's daughters; type: father; notes: his daughters seized Honorata and leapt from the tower"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [
+        "external/comics/meta-barons/102_The_Metabarons_4_p13.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "14a13e289c63b7b72fa09f59ed2981cffba688e7d8a0b17d18c7f9f2196641bf",
+          "page_id": "102_The_Metabarons_4_p13",
+          "source_image": "external/comics/meta-barons/102_The_Metabarons_4_p13.jpg"
+        }
+      ],
+      "traits": [
+        "Faithful servant or household associate of Othon",
+        "Father of two daughters connected to Othon's household",
+        "Regarded by Othon as a threat to infant Aghnar before or at the moment of his suicide"
+      ],
+      "voice_notes": [
+        "No direct speech on p13; this record preserves Othon's thought about Iku-Tta."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Committed suicide, according to Othon's internal thought on p13 [102_The_Metabarons_4_p13]",
+        "His hanged body is displayed publicly in a ceremonial or funerary context [102_The_Metabarons_4_p13]",
+        "Othon believed his death removed what Othon considered a threat to the infant [102_The_Metabarons_4_p13]",
+        "Othon banned tribe members from the fortress after the suicide and replaced household service with robots [102_The_Metabarons_4_p13]"
+      ]
+    },
+    {
+      "aliases": [
+        "Iku-Tta",
+        "Iku-Itta"
+      ],
+      "appearances": [
+        "description: green-clad faithful servant or household associate present near Othon when the tower summons arrives; source_refs: ['094_The_Metabarons_4_p05']"
+      ],
+      "character_id": "iku-itta",
+      "image_sha256s": [
+        "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4"
+      ],
+      "important_actions": [
+        "action: Reported the tower catastrophe to Othon; detail: named the attackers as his own two daughters; source_refs: ['094_The_Metabarons_4_p05']"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "094_The_Metabarons_4_p05"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-04.json#009:iku-itta",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; type: faithful servant / household associate; notes: Othon addresses him as Iku-Tta and demands direct facts",
+        "character: Iku-Tta's daughters; type: father; notes: reports that his daughters seized Lady Honorata and leapt from the tower with her"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-04.json",
+      "source_images": [
+        "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "b626abff4982a5398b3457a1986dcbdcc19b305d8190192df35cc64002d304b4",
+          "page_id": "094_The_Metabarons_4_p05",
+          "source_image": "external/comics/meta-barons/094_The_Metabarons_4_p05.jpg"
+        }
+      ],
+      "traits": [
+        "Faithful servant / household associate of Othon",
+        "Father of two daughters who attack Honorata",
+        "Speaks in abstract, ominous metaphors before reporting catastrophe"
+      ],
+      "voice_notes": [
+        "Abstract, metaphorical; frames impending catastrophe as the natural consequence of joy, then gives concrete facts when pressed."
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Present outdoors with Othon when the urgent tower summons arrives [094_The_Metabarons_4_p05]",
+        "Spoke ominously about joy naturally turning to despair before the explicit report of Honorata's seizure [094_The_Metabarons_4_p05]",
+        "Reported that his daughters had seized Lady Honorata and thrown themselves with her from Othon's tower [094_The_Metabarons_4_p05]"
+      ]
+    }
+  ]
+}

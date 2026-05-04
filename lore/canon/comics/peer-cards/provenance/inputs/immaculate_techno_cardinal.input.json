@@ -1,0 +1,151 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "350_The_Metabarons_13_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/350_The_Metabarons_13_p16.json",
+    "351_The_Metabarons_13_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/351_The_Metabarons_13_p17.json",
+    "352_The_Metabarons_13_p18-p19": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/352_The_Metabarons_13_p18-p19.json"
+  },
+  "peer_card_id": "immaculate_techno_cardinal",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "Immaculate_Techno_Cardinal",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "immaculate_techno_cardinal",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-13.json#008:immaculate_techno_cardinal"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['High-ranking figure in richly dressed technocratic delegation', \"Addressed as 'eminence' by subordinates\"]}"
+      ],
+      "character_id": "immaculate_techno_cardinal",
+      "image_sha256s": [
+        "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+        "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+        "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Knows bikramen is found only in this planetary system",
+        "Knows artificial epiphyte — foundation of anti-gravity technology — depends entirely on bikramen",
+        "Knows natural epiphyte reserves are dwindling, making this extraction strategically critical"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "350_The_Metabarons_13_p16",
+        "351_The_Metabarons_13_p17",
+        "352_The_Metabarons_13_p18-p19"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#008:immaculate_techno_cardinal",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Technobishops; type: leads them; they act as spokesmen and attendants",
+        "character: Don Nicanor Rosamel de Rokha; type: presents coercive ultimatum to him"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg",
+        "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg",
+        "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7b6728c5ce79a5eb15646cca87d4da082fd1ef45741bd16a765743eb56581fb7",
+          "page_id": "350_The_Metabarons_13_p16",
+          "source_image": "external/comics/meta-barons/350_The_Metabarons_13_p16.jpg"
+        },
+        {
+          "image_sha256": "0c9699352d12c79df2e20e75f9767ae70c9a00e276167a61a8a3946ed96bfa81",
+          "page_id": "351_The_Metabarons_13_p17",
+          "source_image": "external/comics/meta-barons/351_The_Metabarons_13_p17.jpg"
+        },
+        {
+          "image_sha256": "eb2796cb6429a8c6241a4139de9e29e72f533cd972ed56ba9ab77b212a27e3f1",
+          "page_id": "352_The_Metabarons_13_p18-p19",
+          "source_image": "external/comics/meta-barons/352_The_Metabarons_13_p18-p19.jpg"
+        }
+      ],
+      "traits": [
+        "Uses ritualistic, ideological language; frames colonial extraction as sacred pilgrimage and sacrifice",
+        "Contemptuous of the planet and its leadership",
+        "Aggressive — moves immediately from failed diplomacy to planetary bombardment",
+        "Appears physically unwell during audience; delegates key speech to Technobishops (p17)"
+      ],
+      "voice_notes": [
+        "Declares visiting the planet a sacred act in the name of the Holy Technocru… (p16)",
+        "Frames bikramen extraction as imperial necessity — technoscience and survival of the empire depend on it (p17)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Arrived at Philodendra aboard a Technoclergy battleship; protective shield activated around procession (p16)",
+        "Traveled to presidential palace with Technobishops and armed entourage (p17)",
+        "Framed the journey as a sacred pilgrimage and sacrifice in the name of the Holy Technocru… (partially legible) (p16)",
+        "Presented ultimatum: extract bikramen from the planetary system or the population must relocate (p17)",
+        "Appeared ill or coughing during audience; delegated speech to Technobishops (p17)",
+        "Returned to battleship after being expelled by President Nicanor; Philodendra bombarded immediately after (p18-p19)"
+      ]
+    }
+  ]
+}

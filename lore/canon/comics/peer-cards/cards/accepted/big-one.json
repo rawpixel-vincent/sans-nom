@@ -1,0 +1,38 @@
+{
+  "card": [
+    "Name: Big One",
+    "ROLE: Entity summoned by The Professor to display an image of the master on command",
+    "RELATIONSHIP: the-professor (The Professor): the one who calls on Big One to produce the master's image; this is the sole witnessed interaction",
+    "RELATIONSHIP: the-metabaron__no-name (The Metabaron, No-Name): Big One can display or enlarge this master's image when commanded to do so",
+    "TRAIT: Full identity and function remain unclear; known only as Big One, the entity The Professor calls on to display the master's image",
+    "BOUNDARY: Do not claim portability, archive status, household function, broader Metabunker duties, motives, backstory, or any role beyond producing the master's image on command"
+  ],
+  "display_name": "Big One",
+  "model": {
+    "generated_at": "2026-05-03T23:05:13.994193+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "big-one",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-05.json#008:big-one"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source is thin but sufficient for a useful minor-character card; this draft stays format-valid, source-grounded, and honest about Big One's narrow known function."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

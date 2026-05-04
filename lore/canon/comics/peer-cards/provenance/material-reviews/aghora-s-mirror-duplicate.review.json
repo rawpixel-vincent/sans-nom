@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin one-page actor, but the bundle supports a distinct speaking duplicate with its own argument, combat action, relationship to Aghora, and clear ontological boundary: physically identical but lacking Aghora's soul. A small peer card would not require inventing core traits."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "aghora-s-mirror-duplicate",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

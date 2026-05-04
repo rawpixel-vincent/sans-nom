@@ -1,0 +1,12 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Strong peer-card material: Othon is a named major dynasty founder with repeated active behavior across volumes, durable relationships, voice notes, tactics, grief, succession role, and Metabaronic tradition-setting actions.",
+    "Identity bundle already notes the underscore id as a duplicate staging artifact; keep the hyphenated peer_card_id as canonical."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "othon-von-salza",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

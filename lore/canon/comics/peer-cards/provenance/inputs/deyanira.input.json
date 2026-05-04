@@ -1,0 +1,269 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "406_The_Metabarons_16_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/406_The_Metabarons_16_ic1.json",
+    "413_The_Metabarons_16_p07": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/413_The_Metabarons_16_p07.json",
+    "419_The_Metabarons_16_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/419_The_Metabarons_16_p15.json",
+    "420_The_Metabarons_16_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/420_The_Metabarons_16_p16.json",
+    "421_The_Metabarons_16_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/421_The_Metabarons_16_p17.json",
+    "422_The_Metabarons_16_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/422_The_Metabarons_16_p18.json",
+    "423_The_Metabarons_16_p19": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/423_The_Metabarons_16_p19.json"
+  },
+  "peer_card_id": "deyanira",
+  "peer_identity": {
+    "arc_label": "Aghora's tarantuwolf companion—nursemaid, weapon, and only friend; dies of brain tumor",
+    "display_name": "Deyanira (Tarantuwolf)",
+    "honcho_notes": "Large spider-like or multi-limbed non-human creature. Female. Loyal and affectionate toward Aghora. Capable of extreme violence—killed imperial troops and devoured the Technopope alive. Can be calmed by direct physical contact from Aghora. Died of a severe terminal brain tumor. Final act was an affectionate lick. Remains ejected into space via Paleo-Viking funerary ritual. Communicates through growls, howls, and physical gestures only.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "deyanira",
+    "rationale": "All three records describe the same creature: the tarantuwolf Deyanira, tamed by Aghora at age five. Vol15 thin reference; vol16 full account including killing the Technopope and death; vol17 recap of the same events. Merge straightforward.",
+    "source_record_ids": [
+      "characters-volume-15.json#009:deyanira",
+      "characters-volume-16.json#004:deyanira",
+      "characters-volume-17.json#005:deyanira"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Deyanira"
+      ],
+      "appearances": [
+        "description: Addressed directly by Aghora during Golden Planet infiltration; appears to be a living or biomechanical mount ridden by Aghora along a towering structure; source_refs: ['403_The_Metabarons_15_p22']"
+      ],
+      "character_id": "deyanira",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#009:deyanira",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "Deyanira",
+        "the Tarantuwolf",
+        "tarant-wolf",
+        "tarantula-wolf"
+      ],
+      "appearances": [
+        "volume: 16; pages: ic1, p06, p07, p13-p14, p15, p16, p17, p18, p19"
+      ],
+      "character_id": "deyanira",
+      "image_sha256s": [
+        "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+        "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+        "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+        "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+        "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+        "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+        "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e"
+      ],
+      "important_actions": [
+        "Killing of the Technopope during Aghora's award ceremony [p16]",
+        "Final affectionate gesture triggering Aghora's first tear [p18]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "406_The_Metabarons_16_ic1",
+        "413_The_Metabarons_16_p07",
+        "419_The_Metabarons_16_p15",
+        "420_The_Metabarons_16_p16",
+        "421_The_Metabarons_16_p17",
+        "422_The_Metabarons_16_p18",
+        "423_The_Metabarons_16_p19"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#004:deyanira",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: companion and only friend; tamed and raised from age five; euthanized by Aghora after terminal diagnosis"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg",
+        "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg",
+        "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg",
+        "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg",
+        "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg",
+        "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg",
+        "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+          "page_id": "406_The_Metabarons_16_ic1",
+          "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+        },
+        {
+          "image_sha256": "2ad0a402ce9029cc148cb5a4f0d530653434e777dab33cafbd52afd01866628f",
+          "page_id": "413_The_Metabarons_16_p07",
+          "source_image": "external/comics/meta-barons/413_The_Metabarons_16_p07.jpg"
+        },
+        {
+          "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+          "page_id": "419_The_Metabarons_16_p15",
+          "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+        },
+        {
+          "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+          "page_id": "420_The_Metabarons_16_p16",
+          "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+        },
+        {
+          "image_sha256": "0528ba6cfe07e050be58aa7fc92f533cdbcc9f70fc9b21d15baf8ac28f8ba971",
+          "page_id": "421_The_Metabarons_16_p17",
+          "source_image": "external/comics/meta-barons/421_The_Metabarons_16_p17.jpg"
+        },
+        {
+          "image_sha256": "a185c3b0b035adfc136df2bb7253432eaa0423a32d65a34d6091f826e0157f1e",
+          "page_id": "422_The_Metabarons_16_p18",
+          "source_image": "external/comics/meta-barons/422_The_Metabarons_16_p18.jpg"
+        },
+        {
+          "image_sha256": "4fb08cfb6b7464ac4471376e8774570b4e44c126859646dd41b238096f312bc6",
+          "page_id": "423_The_Metabarons_16_p19",
+          "source_image": "external/comics/meta-barons/423_The_Metabarons_16_p19.jpg"
+        }
+      ],
+      "traits": [
+        "Large spider-like or multi-limbed non-human creature",
+        "Female (referred to as 'her' by Aghora) [p17]",
+        "Loyal and affectionate toward Aghora",
+        "Capable of extreme violence when enraged",
+        "Can howl and vocalize",
+        "Can be calmed and sedated through direct physical contact by Aghora [p17]",
+        "Physically strong enough to carry a person",
+        "Died of a severe terminal tumor [p18]"
+      ],
+      "voice_notes": [
+        "Communicates through growls, howls, and physical gestures only; not verbal",
+        "Final act was an affectionate lick directed at Aghora [p18]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Tamed by Aghora at age five and named Deyanira [ic1]",
+        "Present and addressed by Aghora during space battle approach [p07]",
+        "Rampaged during Aghora's pluri-galactic medallion ceremony; killed the Technopope [p16]",
+        "Subdued nonlethally by Aghora; soldiers stood down [p17]",
+        "Brought back to the Metabunker; diagnosed by Tonto with terminal tumor and near-zero bio-life [p18]",
+        "Gave Aghora a final affectionate lick before death [p18]",
+        "Euthanized by Aghora [p18]",
+        "Remains ejected into space via Paleo-Viking funerary ritual [p19]"
+      ]
+    },
+    {
+      "aliases": [
+        "Deyanira",
+        "the tarantuwolf"
+      ],
+      "appearances": [
+        "description: Companion beast of Aghora; described as a tarantuwolf. Not shown directly in volume 17; present only in recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "character_id": "deyanira",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Killed imperial troops attacking Aghora.; source_refs: ['427_The_Metabarons_17_ic1']",
+        "action: Killed the Technopope during the award ceremony.; source_refs: ['427_The_Metabarons_17_ic1']",
+        "action: Mercy-killed by Aghora after terminal brain tumor diagnosis; her death prompted Aghora's decision to create life.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "knowledge_boundaries": [
+        "Deceased before volume 17's main events; all facts are from recap only."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#005:deyanira",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; nature: Companion beast; killed by Aghora as a mercy killing; source_refs: ['427_The_Metabarons_17_ic1']",
+        "character: Tonto; nature: Tonto diagnosed Deyanira's fatal brain tumor; source_refs: ['427_The_Metabarons_17_ic1']",
+        "character: The Technopope; nature: Killed the Technopope at an award ceremony during an episode of savage fury; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Deadly companion beast prone to episodes of savage fury",
+        "Capable of destroying multiple armored imperial soldiers",
+        "Developed a fatal brain tumor prior to volume 17"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Destroyed imperial soldiers who attempted to rape Aghora.; source_refs: ['427_The_Metabarons_17_ic1']",
+        "fact: Killed the Technopope at an award ceremony when overtaken by savage fury.; source_refs: ['427_The_Metabarons_17_ic1']",
+        "fact: Diagnosed by Tonto with a brain tumor that would cause a painful death.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ]
+    }
+  ]
+}

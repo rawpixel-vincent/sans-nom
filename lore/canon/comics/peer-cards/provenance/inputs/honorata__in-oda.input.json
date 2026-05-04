@@ -1,0 +1,398 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "251_The_Metabarons_10_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/251_The_Metabarons_10_ic1.json",
+    "256_The_Metabarons_10_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/256_The_Metabarons_10_p05.json",
+    "262_The_Metabarons_10_p14": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/262_The_Metabarons_10_p14.json",
+    "263_The_Metabarons_10_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/263_The_Metabarons_10_p15.json",
+    "265_The_Metabarons_10_p17": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/265_The_Metabarons_10_p17.json",
+    "266_The_Metabarons_10_p18": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/266_The_Metabarons_10_p18.json"
+  },
+  "peer_card_id": "honorata__in-oda",
+  "peer_identity": {
+    "arc_label": "Honorata reincarnated inside Oda's body—merged identity raising Steelhead as warrior",
+    "display_name": "Honorata-within-Oda",
+    "honcho_notes": "Commands Steelhead to defend clan honor; publicly identifies as 'widow of Othon von Salza and mother of Aghnar von Salza.' Raises Steelhead as warrior capable of killing Aghnar. Accepts Aghnar's binary choice ('the Castakas must continue'). Voice of Oda's body but Honorata's will and doctrine. Ended via suicide mini-bomb with Aghnar in vol11 after Steelhead's treachery.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "honorata__in-oda",
+    "rationale": "Merges records from both character_ids 'honorata' and 'oda' because from vol09 onward the canonical description is 'Honorata's spirit within Oda's restored body'—these records describe the same composite entity. The vol09-10 'oda' records explicitly state Honorata supplanted Oda's identity. The vol11 'honorata' record describes her being mutilated and dying with Aghnar by mini-bomb as part of this merged body. Distinct from the living Honorata (active trainer) and the reborn Honorata (time-fissure strategist) because this persona's goal is raising Steelhead as warrior and she overrides the prior Aghnar/Oda pact against warrior succession.",
+    "source_record_ids": [
+      "characters-volume-09.json#001:honorata",
+      "characters-volume-09.json#002:oda",
+      "characters-volume-10.json#004:oda",
+      "characters-volume-10.json#005:honorata",
+      "characters-volume-11.json#007:honorata"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Honorata",
+        "Oda (body host post-reincarnation)",
+        "the mysterious savior"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['229_The_Metabarons_9_ic1', '245_The_Metabarons_9_p17', '246_The_Metabarons_9_p18-p19', '248_The_Metabarons_9_p21']"
+      ],
+      "character_id": "honorata",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Used Shabda-Oud time-acceleration on Okhar to survive, get her heart-bomb replaced, and build a planet-proof vessel; source_refs: ['229_The_Metabarons_9_ic1']",
+        "action: Reincarnated inside Oda's body to ensure their son would be raised as a Metabaron warrior, overriding the prior agreement between Aghnar and Oda; source_refs: ['229_The_Metabarons_9_ic1']",
+        "action: Presented Steelhead to the galactic assembly as champion of the human galaxy, wearing a holographic mask as disguise; source_refs: ['245_The_Metabarons_9_p17', '248_The_Metabarons_9_p21']"
+      ],
+      "knowledge_boundaries": [
+        "Her inner motivations beyond securing Metabaron dynastic succession are not elaborated in volume 9 pages",
+        "The exact nature of her spirit-transfer technique and how much of Oda's original personality survives are not explained in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#001:honorata",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Othon von Salza; relation: Widow; publicly identifies herself as his widow (245_The_Metabarons_9_p17)",
+        "character: Aghnar von Salza; relation: Adversary and co-parent; reincarnated into Oda to influence son's destiny; shot Aghnar's head off during mental struggle",
+        "character: Oda; relation: Reincarnated inside Oda's restored body; effectively merged with or supplanted Oda's identity",
+        "character: Steelhead; relation: Mother (via Oda's body); raised him to be warrior capable of killing Aghnar; publicly presents him as champion",
+        "character: Shabda-Oud; relation: Affiliated; possesses and exercises their powers of time-acceleration and psycho-surgical life restoration"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Commands Steelhead to 'give it roots' and defend clan honor before the assembly (247_The_Metabarons_9_p20, 246_The_Metabarons_9_p18-p19)",
+        "Calls Steelhead 'my son' directly in the public ceremony (246_The_Metabarons_9_p18-p19)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Used Shabda-Oud powers to accelerate time on Okhar; approximately twenty years passed for her while only minutes passed for Othon and Aghnar in space; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Expert robots replaced her heart-bomb and built a vessel able to survive a planet's nuclear disintegration during the time-acceleration period on Okhar; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Restored Oda to life using Shabda-Oud psycho-surgical science; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Reincarnated herself inside Oda's restored body; Oda's personality shifted during pregnancy, urging Aghnar to make their son the greatest warrior; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Fired the laser shot that blew off Aghnar's head during their mental struggle; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Vowed to raise her son to be capable of killing Aghnar, accepting the lethal challenge as renewal of Metabaron tradition; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Publicly identified herself as Oda and Honorata, widow of Othon von Salza and mother of Aghnar von Salza, in a formal assembly; source_refs: ['245_The_Metabarons_9_p17']",
+        "fact: Presented Steelhead as champion before the assembly while wearing a holographic mask; the disguise was detected in close-up; source_refs: ['245_The_Metabarons_9_p17']",
+        "fact: Addressed ruling majesties asking if they were convinced after Steelhead demonstrated the Golden Flower; source_refs: ['248_The_Metabarons_9_p21']"
+      ]
+    },
+    {
+      "aliases": [
+        "Oda",
+        "Oda von Salza (implied)",
+        "Oda (merged identity with Honorata post-reincarnation)"
+      ],
+      "appearances": [
+        "volume: 9; pages: ['229_The_Metabarons_9_ic1']"
+      ],
+      "character_id": "oda",
+      "image_sha256s": [],
+      "important_actions": [
+        "action: Her body became the vessel for Honorata's reincarnation, transforming the course of Metabaron succession; source_refs: ['229_The_Metabarons_9_ic1']"
+      ],
+      "knowledge_boundaries": [
+        "Whether any original Oda consciousness persists alongside Honorata's is not addressed in volume 9 pages",
+        "Oda's original motivations and full history before her death are not detailed in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-09.json#002:oda",
+      "record_index": 2,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar von Salza; relation: Partner; mother of his son; had a prior pact with him against raising their child as a Metabaron",
+        "character: Honorata; relation: Honorata reincarnated inside her restored body; her identity is effectively merged with or supplanted by Honorata",
+        "character: Steelhead; relation: Mother (body-host); bore him and raised him alongside Honorata's guiding spirit"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-09.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "During pregnancy (as Honorata-within-Oda): urges Aghnar not to miss the chance to make their son the greatest warrior in the universe (229_The_Metabarons_9_ic1)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Was dead prior to the events of volume 9; restored to life by Honorata using Shabda-Oud psycho-surgery; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Became pregnant with Aghnar's son after restoration; the child was confirmed male before birth; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Personality change during pregnancy attributed to Honorata's reincarnation inside her body; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Took the side of the unborn baby against Aghnar during the mental struggle between Aghnar and Honorata/Oda; source_refs: ['229_The_Metabarons_9_ic1']",
+        "fact: Fired the laser shot that blew off Aghnar's head (as Honorata-within-Oda); source_refs: ['229_The_Metabarons_9_ic1']"
+      ]
+    },
+    {
+      "aliases": [
+        "Oda",
+        "Oda-Honorada",
+        "Honoratza",
+        "Oda/Honoratza"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['ic1', 'p05', 'p14', 'p15', 'p17']"
+      ],
+      "character_id": "oda",
+      "image_sha256s": [
+        "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+        "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+        "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+        "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c"
+      ],
+      "important_actions": [
+        "Accompanied Aghnar into his metacraft for the formal duel [v10 p05]",
+        "Explicitly framed the father-killing as the fulfillment of Metabaron tradition [v10 p05]",
+        "Endured systematic dismemberment by the antagonist [v10 p15]",
+        "Condemned the son's dishonorable victory and declared the Metabarons clan lost to him [v10 p17]",
+        "Chose to depart with the son into death [v10 p17]"
+      ],
+      "knowledge_boundaries": [
+        "Knows the Metabaron succession tradition in detail [v10 p05]",
+        "Knows the importance of the hereditary line's continuation [v10 p14]",
+        "Aware of what constitutes honorable vs. dishonorable victory in the warrior code [v10 p17]"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "251_The_Metabarons_10_ic1",
+        "256_The_Metabarons_10_p05",
+        "262_The_Metabarons_10_p14",
+        "263_The_Metabarons_10_p15",
+        "265_The_Metabarons_10_p17"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#004:oda",
+      "record_index": 4,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: wife / companion; notes: Identified as Aghnar's wife; insisted on accompanying him in his metacraft for the duel [v10 p05, p14]",
+        "character: Honorata; type: vessel of; notes: Honorata's spirit is explicitly stated to be contained within Oda's body [v10 p14]",
+        "character: Unnamed cybernetic antagonist; type: captive / torture victim; notes: Seized and tortured as emotional leverage against Aghnar; all ten fingers severed [v10 p14, p15]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg",
+        "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg",
+        "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+        "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg",
+        "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "afb533ead8b205421100d624b66e8398072c2f930490722ae76897ec78290fe0",
+          "page_id": "251_The_Metabarons_10_ic1",
+          "source_image": "external/comics/meta-barons/251_The_Metabarons_10_ic1.jpg"
+        },
+        {
+          "image_sha256": "3d19a9cf0d0f04dfcd60d5a6b79cf338253f638f2b6d74dfe2344237c495da78",
+          "page_id": "256_The_Metabarons_10_p05",
+          "source_image": "external/comics/meta-barons/256_The_Metabarons_10_p05.jpg"
+        },
+        {
+          "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+          "page_id": "262_The_Metabarons_10_p14",
+          "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+        },
+        {
+          "image_sha256": "c49ecd4838e9a72ffe3ebd73beb131f4744eecd4096f075efb4823fd73d445b0",
+          "page_id": "263_The_Metabarons_10_p15",
+          "source_image": "external/comics/meta-barons/263_The_Metabarons_10_p15.jpg"
+        },
+        {
+          "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+          "page_id": "265_The_Metabarons_10_p17",
+          "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+        }
+      ],
+      "traits": [
+        "Strong moral conviction; refuses to accept victory obtained through dishonorable means [v10 p17]",
+        "Deeply devoted to the Metabaron warrior code [v10 p17]",
+        "Physically resilient despite extreme torture [v10 p15]",
+        "Wife of Aghnar and vessel of Honorata's spirit [v10 p14]",
+        "Emotionally volatile — can shift within a single scene from proud rage to fierce possessive devotion [v10 p17]",
+        "Prioritizes continuation of the family line over personal survival [v10 p14]"
+      ],
+      "voice_notes": [
+        "Speaks with moral authority and warrior conviction [v10 p17]",
+        "Urges continuation of lineage over personal survival [v10 p14]",
+        "Explosive and shifting: pride, then condemnation, then fierce attachment all within one confrontation [v10 p17]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Associated with the Techno-Techno ambassador reveal in the recap [v10 ic1]",
+        "Insisted on accompanying Aghnar aboard his metacraft for the formal duel [v10 p05]",
+        "Told Aghnar that killing his father fulfills the Metabaron tradition [v10 p05]",
+        "Seized by cybernetic antagonist and used as emotional leverage; antagonist invoked Honorata's spirit within her [v10 p14]",
+        "Had all ten fingers severed sequentially by the antagonist [v10 p15]",
+        "Urged continuation of the lineage over personal survival [v10 p14]",
+        "Declared that victory through treachery cost the winner her loyalty and the entire Metabarons clan [v10 p17]",
+        "Reversed course and declared she would depart with the son even into death [v10 p17]",
+        "Drifted into open space alongside an armored figure at the end of p17 [v10 p17]"
+      ]
+    },
+    {
+      "aliases": [
+        "Honorata"
+      ],
+      "appearances": [
+        "volume: 10; pages: ['p14', 'p17', 'p18']"
+      ],
+      "character_id": "honorata",
+      "image_sha256s": [
+        "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+        "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+        "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c"
+      ],
+      "important_actions": [
+        "Her spiritual presence in Oda's body is weaponized by the antagonist to psychologically break Aghnar [v10 p14]"
+      ],
+      "knowledge_boundaries": [
+        "No direct dialogue clearly attributed to Honorata separately from Oda in these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "262_The_Metabarons_10_p14",
+        "265_The_Metabarons_10_p17",
+        "266_The_Metabarons_10_p18"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-10.json#005:honorata",
+      "record_index": 5,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghnar; type: mother of; notes: Identified directly as Aghnar's mother [v10 p14]",
+        "character: Oda; type: spirit residing within; notes: Honorata's spirit resides inside Oda's body [v10 p14]",
+        "character: dying speaker on p18; type: former lover (of speaker's father); notes: A speaker before death conditionally forgives Honorata, framing her past actions as love for his father [v10 p18]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+      "source_images": [
+        "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg",
+        "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg",
+        "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "4fa9a7fe96ba8cf238ec0984d3b53c5832d2657ffa539244fc387dbdf13b2042",
+          "page_id": "262_The_Metabarons_10_p14",
+          "source_image": "external/comics/meta-barons/262_The_Metabarons_10_p14.jpg"
+        },
+        {
+          "image_sha256": "dd9953650b69d4429e50b533be309f82b7ecfc67220119ca0fda808d7c081f4c",
+          "page_id": "265_The_Metabarons_10_p17",
+          "source_image": "external/comics/meta-barons/265_The_Metabarons_10_p17.jpg"
+        },
+        {
+          "image_sha256": "694fb8a6622a993ca4345ba1e1e19dc2c608952058732d607e10ab940595478c",
+          "page_id": "266_The_Metabarons_10_p18",
+          "source_image": "external/comics/meta-barons/266_The_Metabarons_10_p18.jpg"
+        }
+      ],
+      "traits": [
+        "Present as a spirit within Oda's body [v10 p14]",
+        "Her past unspecified actions are framed as motivated by love for the speaker's father [v10 p18]"
+      ],
+      "voice_notes": [
+        "Voice not clearly distinguished from Oda's in these page summaries; may speak through Oda"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Her spirit is confirmed as present within Oda's body [v10 p14]",
+        "The cybernetic antagonist explicitly invokes her presence within Oda as leverage against Aghnar [v10 p14]",
+        "A dying speaker conditionally forgives her, framing past actions as stemming from love for his father [v10 p18]"
+      ]
+    },
+    {
+      "aliases": [
+        "Honorata",
+        "Oda",
+        "Oda/Honorata"
+      ],
+      "appearances": [
+        "description: Not visually described in detail; mentioned only in the recap summary.; source_refs: ['278_The_Metabarons_11_ic1']"
+      ],
+      "character_id": "honorata",
+      "image_sha256s": [],
+      "important_actions": [
+        "Was mutilated by Steelhead as a tactical move to break Aghnar's resolve (ic1)",
+        "Chose to rejoin Aghnar and detonated a mini-bomb in her body in a suicide pact (ic1)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#007:honorata",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Aghnar; nature: Companion; chose to rejoin him in a mutual suicide after Steelhead's mutilation; source_refs: ['278_The_Metabarons_11_ic1']",
+        "target: Steelhead; nature: Victim of grievous mutilation used as tactical leverage against Aghnar; source_refs: ['278_The_Metabarons_11_ic1']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Chose reunion with Aghnar in death over survival under Steelhead's control"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    }
+  ]
+}

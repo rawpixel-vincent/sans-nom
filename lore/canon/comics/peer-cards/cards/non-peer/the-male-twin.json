@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-04T02:31:07.701685+00:00",
+  "non_peer_reason": "Source record is an unnamed, voiceless birth/stasis hook whose value is contextual lore for Aghora's origin and Steelhead's intervention, not a usable peer persona.",
+  "peer_card_id": "the-male-twin",
+  "related_peer_ids": [
+    "aghora",
+    "steelhead__late",
+    "dona-vicenta"
+  ],
+  "source_record_ids": [
+    "characters-volume-16.json#003:the-male-twin"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Do not promote the duplicate-like identity-map entry `aghora-s-siamese-twin-brother-deceased` from this evidence; it appears to be the same non-peer lore hook rather than a distinct actor."
+    ],
+    "non_peer_reason": "Source record is an unnamed, voiceless birth/stasis hook whose value is contextual lore for Aghora's origin and Steelhead's intervention, not a usable peer persona.",
+    "peer_card_id": "the-male-twin",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "aghora",
+      "steelhead__late",
+      "dona-vicenta"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

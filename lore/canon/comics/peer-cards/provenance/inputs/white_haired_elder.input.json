@@ -1,0 +1,152 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "339_The_Metabarons_13_p05": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/339_The_Metabarons_13_p05.json",
+    "340_The_Metabarons_13_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/340_The_Metabarons_13_p06.json",
+    "342_The_Metabarons_13_p08": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/342_The_Metabarons_13_p08.json"
+  },
+  "peer_card_id": "white_haired_elder",
+  "peer_identity": {
+    "arc_label": "single extracted record",
+    "display_name": "White_Haired_Elder",
+    "honcho_notes": "Deterministic singleton peer; review during peer-card generation if the source proves too thin.",
+    "merge_policy": "single_record",
+    "peer_card_id": "white_haired_elder",
+    "rationale": "Only one extracted record uses this character_id, so no phase split is needed in the identity-map pass.",
+    "source_record_ids": [
+      "characters-volume-13.json#007:white_haired_elder"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [],
+      "appearances": [
+        "{'physical': ['Tall, white-haired, white-bearded older man in dark clothing (p06)', 'Remains outwardly passive under armed threat (p06)']}"
+      ],
+      "character_id": "white_haired_elder",
+      "image_sha256s": [
+        "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+        "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+        "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae"
+      ],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Knows the political mechanics of the Galactic Union's noble-rank vote",
+        "Knows the mental state of Vicenta's father",
+        "Has a larger mission or vow — its nature not explained on these pages"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "339_The_Metabarons_13_p05",
+        "340_The_Metabarons_13_p06",
+        "342_The_Metabarons_13_p08"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-13.json#007:white_haired_elder",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Dona Vicenta Gabriela de Rokha; type: protector and medical caretaker",
+        "character: Melmoth; type: engineers Melmoth's marriage and noble rank advancement",
+        "character: unnamed wife (referenced internally); type: owes duty and obedience to"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-13.json",
+      "source_images": [
+        "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg",
+        "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg",
+        "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "efbe85af7da986db609345d58b0930bc34a9a2105c848e5fd2fdf93b8ca03fae",
+          "page_id": "339_The_Metabarons_13_p05",
+          "source_image": "external/comics/meta-barons/339_The_Metabarons_13_p05.jpg"
+        },
+        {
+          "image_sha256": "c7aece01a9196bb31b91bfdfc30973efb9826dc80061b05d89bbfb88ff91c5b5",
+          "page_id": "340_The_Metabarons_13_p06",
+          "source_image": "external/comics/meta-barons/340_The_Metabarons_13_p06.jpg"
+        },
+        {
+          "image_sha256": "85c9e41eeda3b515175970ef38cd00511d62c513c9106f34c698d7370098538c",
+          "page_id": "342_The_Metabarons_13_p08",
+          "source_image": "external/comics/meta-barons/342_The_Metabarons_13_p08.jpg"
+        }
+      ],
+      "traits": [
+        "Protective of Vicenta; argues for defensive violence to protect her (p05)",
+        "Medically capable: cauterizes Vicenta's eye wounds (p08)",
+        "Politically astute: engineers the marriage proposal as the political solution (p08)",
+        "Frames passivity under armed threat as obedience to a wife and linked to a larger destined mission involving 'darkness' and future world-creation (p06)"
+      ],
+      "voice_notes": [
+        "States he is bound by duty to his wife and awaits future darkness to create a world (p06)",
+        "Argues the attacking crowd perceives Vicenta only through their leader's warped viewpoint (p05)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Urged Vicenta to use violence against attackers about to breach her chamber (p05)",
+        "Warned that Vicenta's father had lost his memory and was dangerously confusing familial feeling with sexual desire (p05)",
+        "Remained passive when soldiers cornered him at gunpoint; declared obedience to his wife; invoked future darkness and world-creation (p06)",
+        "Cauterized Vicenta's eye wounds after she was blinded (p08)",
+        "Proposed Vicenta marry Melmoth and cast a federation vote granting him a medallion of high nobility (p08)",
+        "Framed the marriage as requiring federation approval and as having exceptional political worth (p08)"
+      ]
+    }
+  ]
+}

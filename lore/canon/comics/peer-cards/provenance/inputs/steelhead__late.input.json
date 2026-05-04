@@ -1,0 +1,364 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "406_The_Metabarons_16_ic1": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/406_The_Metabarons_16_ic1.json"
+  },
+  "peer_card_id": "steelhead__late",
+  "peer_identity": {
+    "arc_label": "Steelhead re-emerged as pure warrior after killing the Krleza persona—all-Storlon body, defeats and loses to Aghora",
+    "display_name": "Steelhead (Post-Melmoth Warrior)",
+    "honcho_notes": "Declared 'there is no love, only the reality of war.' Replaced entire body with Storlon indestructible metal; removed his own heart to erase grief over Dona Vicenta. Cold, commanding, emotionally void. Administered brutal initiation rites to Aghora. Chose female twin Aghora over male heir, fracturing succession rule. Preserved Dona Vicenta in omni-cryoshroud. Eventually defeated by Aghora's freezing weapon and sealed in deep space.",
+    "merge_policy": "split_phase",
+    "peer_card_id": "steelhead__late",
+    "rationale": "The vol14 melmoth record describes someone who has killed the Krleza/Zaran internal persona and reverted to pure warrior identity—internally this is Steelhead, operating under the 'Melmoth' label. Vol15–17 records confirm this pure warrior phase: blue-faced, all-Storlon body, removed his own heart to erase grief. Fundamentally different from the in-Melmoth phase (contested composite) and from the pre-merger warrior (who sought love and had emotions). Using character_id 'melmoth' in vol14 for this record is a labeling artifact; the operational persona is Steelhead.",
+    "source_record_ids": [
+      "characters-volume-14.json#000:melmoth",
+      "characters-volume-15.json#001:steelhead",
+      "characters-volume-16.json#001:steelhead",
+      "characters-volume-17.json#006:steelhead"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "Source-thin named robot with only a one-line subordinate surgical-assistant role and no durable behavior, relationship, voice, or scene-usable boundary; a card would require invented traits.",
+      "related_peer_ids": [
+        "steelhead__late"
+      ],
+      "source_record": {
+        "aliases": [
+          "Robidiot"
+        ],
+        "appearances": [],
+        "character_id": "robidiot",
+        "important_actions": [],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "Source-thin named robot with only a one-line subordinate surgical-assistant role and no durable behavior, relationship, voice, or scene-usable boundary; a card would require invented traits.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-15.json#013:robidiot",
+        "related_peer_ids": [
+          "steelhead__late"
+        ],
+        "relationships": [],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+        "traits": [],
+        "voice_notes": [],
+        "volumes": [],
+        "witnessed_facts": []
+      }
+    },
+    {
+      "non_peer_reason": "Source record is an unnamed, voiceless birth/stasis hook whose value is contextual lore for Aghora's origin and Steelhead's intervention, not a usable peer persona.",
+      "related_peer_ids": [
+        "aghora",
+        "steelhead__late",
+        "dona-vicenta"
+      ],
+      "source_record": {
+        "aliases": [
+          "The Male Twin",
+          "Aghora's twin brother"
+        ],
+        "appearances": [
+          "volume: 16; pages: ic1 (backstory), p20 (stasis-chamber flashback)"
+        ],
+        "character_id": "the-male-twin",
+        "important_actions": [
+          "Posthumous: brain tissue in Aghora's head provided male cells for the first auto-conception via hypo-genetics [p20, p21]"
+        ],
+        "knowledge_boundaries": [],
+        "non_peer_reason": "Source record is an unnamed, voiceless birth/stasis hook whose value is contextual lore for Aghora's origin and Steelhead's intervention, not a usable peer persona.",
+        "page_ids": [
+          "406_The_Metabarons_16_ic1",
+          "424_The_Metabarons_16_p20"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-16.json#003:the-male-twin",
+        "related_peer_ids": [
+          "aghora",
+          "steelhead__late",
+          "dona-vicenta"
+        ],
+        "relationships": [
+          "character: Aghora; relation: twin sister who carries his brain; his brain tissue later used for her self-conception",
+          "character: Steelhead; relation: father who performed the transplant",
+          "character: Dona Vicenta; relation: mother"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+        "traits": [
+          "Brain transplanted into female twin's (Aghora's) body at or near birth",
+          "Body placed in stasis by Steelhead",
+          "Body decomposed immediately on removal from stasis"
+        ],
+        "voice_notes": [
+          "No direct speech; appears only in backstory narration and flashback"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Brain transplanted into female twin's body [ic1]",
+          "Male body placed and preserved in stasis [ic1]",
+          "Body decomposed immediately upon removal from stasis chamber, eliminating it as a source of male cells [p20]"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "Melmoth",
+        "Steelhead",
+        "Zaran"
+      ],
+      "appearances": [
+        "Heavily damaged form under a patterned veil, partly cybernetic, described as 'only what is left' of himself (vol.14 p01)",
+        "As Steelhead: bald metallic/cybernetic head, red-black clothing, armored pilot in black aircraft (vol.14 p02, p21)",
+        "Described in recap as having a split psyche visible since Dona Vicenta received cybernetic eyes (vol.14 ic1)"
+      ],
+      "character_id": "melmoth",
+      "image_sha256s": [],
+      "important_actions": [
+        "Killed Zaran persona to become pure warrior Steelhead (vol.14 ic1, p01)",
+        "Destroyed the family castle and seven fossil-like targets in a black aircraft (vol.14 p02)",
+        "Led multi-step political and military plan: abducted Amalek XII, persuaded Dona Vicenta to negotiate, announced Bikramen galaxy-wide (vol.14 p14, p15)",
+        "Triggered Technoguild succession crisis and siege of Philodendra through Amalek XII's abduction (vol.14 p14)",
+        "Brought dying Dona Vicenta to the Metabunker for emergency treatment (vol.14 p22)",
+        "Faced forced twin selection: Castaka male heir versus girl linked to Dona Vicenta's poet-lover (vol.14 p23, unresolved)"
+      ],
+      "knowledge_boundaries": [
+        "How the Castaka male line survives if his only child is a daughter is unresolved and deferred to the next episode (vol.14 p24)",
+        "Whether Steelhead is the same individual as the 'Supreme Metabaron' commanding Metacraft is stated as uncertain in the volume (open uncertainty)"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-14.json#000:melmoth",
+      "record_index": 0,
+      "related_peer_ids": [],
+      "relationships": [
+        "Married to Dona Vicenta Gabriela de Rokha (vol.14 p21, p22)",
+        "Father of twins in Dona Vicenta's womb: one boy (Castaka heir) attributed to him, one girl attributed to Dona Vicenta's poet-lover/Krleza (vol.14 p23)",
+        "Tonto and Lothar confirm his only actual child is a daughter, not a son (vol.14 p24)",
+        "Father-in-law Don Nicanor Rosamel de Rokha — deceased by vol.14 p01",
+        "Connected to the Castaka dynastic lineage (vol.14 p21, p23)",
+        "Reference to Keleza as a prior emotional teacher (vol.14 p21)"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-14.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Dual psyche: Steelhead is the warrior persona — pragmatic, hard, contemptuous of sentiment, battle-focused; Zaran is the poet persona — idealistic, despairing, prone to revulsion (vol.14 ic1, p01)",
+        "Declares himself 'only what is left' after transformation; frames war as reality and love as illusion (vol.14 p01)",
+        "Beneath the warrior exterior, emotionally invested in Dona Vicenta; begs her for affection; claims to possess a human heart despite metallic body (vol.14 p21)",
+        "Credits Keleza as the one who taught him how to love (vol.14 p21)"
+      ],
+      "voice_notes": [
+        "On love versus war: 'there is no love, only the reality of war' (vol.14 p01)",
+        "Dismisses young passenger's grief over the destroyed castle, listing cumulative losses and insisting battle matters more (vol.14 p02)",
+        "To Dona Vicenta: pleads for affection while conceding his body is metallic; invokes Keleza as his emotional teacher (vol.14 p21)",
+        "Steelhead associated with 'blood-written poems' and vengeance in dialogue (vol.14 p02)"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Don Nicanor Rosamel de Rokha killed during the castle assault (vol.14 p01)",
+        "Dona Vicenta's cybernetic eyes horrified his Zaran persona and fractured his psyche (vol.14 ic1)",
+        "Dona Vicenta contracted paleo-tuberculosis in the artificial environment (vol.14 p22)",
+        "Twin pregnancy discovered; mother too weak to deliver both children (vol.14 p23)",
+        "Steelhead abducted Amalek XII as part of a multi-step plan (vol.14 p14)"
+      ]
+    },
+    {
+      "aliases": [
+        "Steelhead"
+      ],
+      "appearances": [
+        "description: Blue-faced, armored adult male; later extensively cybernetic—flesh, bones, and organs replaced with Storlon flexible metal; visually distinguished by blue-faced armor; source_refs: ['391_The_Metabarons_15_p09', '396_The_Metabarons_15_p14', '398_The_Metabarons_15_p16']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "His eventual return and role in the master's eyebrow wound are anticipated but not yet depicted within volume 15"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#001:steelhead",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "{'wife': 'Dona Vicenta Gabriela de Rokha (placed in omni-cryoshroud after near-death; installed in Hall of Weapons)', 'daughter': 'Aghora (chosen over male twin; raised as warrior heir)', 'internal_split': \"Associated with poet Zaran Klezra—narration says he removed 'the part of himself' linked to Zaran before the Techno-Techno war\", 'source_refs': ['382_The_Metabarons_15_ic1', '389_The_Metabarons_15_p07']}"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [
+        "Cold, commanding; speaks calmly during combat; frames emotional vulnerability as weakness; dismisses sentimental reaction as 'mechanical malfunction'"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Defeated the Techno-Technos; nearly destroyed Philodendra",
+        "Abducted the TechnoPope and brought him to Philodendra",
+        "Publicized the value of bikramen to attract galaxy-wide fleets",
+        "Negotiated sale of Philodendra with Dona Vicenta's reluctant help; relocated the Troglosocialists to an artificial world",
+        "Chose the female twin (by Zaran) over the male twin (his own) at birth, fracturing the succession rule",
+        "Performed or led the surgical separation of the conjoined twins and the brain transplant into the girl",
+        "Secretly stored the boy's corpse in stasis",
+        "Placed Dona Vicenta in an omni-cryoshroud; installed her in the Hall of Weapons",
+        "Assigned a tarantuwolf as Aghora's nursemaid",
+        "Administered the slicer ordeal to Aghora at age seven; awarded bionic hand upon completion",
+        "Oversaw or directed Aghora's Khaliyuga executioner assignment",
+        "Conducted Aghora's gender-transformation rite; recognized her as male",
+        "Replaced his own body with Storlon metal; removed his heart to erase grief over Dona Vicenta",
+        "Fought a three-day sword duel with Aghora; survived a cut to his waist without effect",
+        "Was defeated by Aghora's freezing weapon; launched into deep space"
+      ]
+    },
+    {
+      "aliases": [
+        "Steelhead"
+      ],
+      "appearances": [
+        "volume: 16; pages: ic1 (backstory recap only; not present in current timeline)"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [
+        "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129"
+      ],
+      "important_actions": [
+        "Brain transplant between twins — foundational act of the volume's backstory [ic1]",
+        "Self-replacement of flesh with Storlon [ic1]",
+        "Preservation of Dona Vicenta in near-death state [ic1]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "406_The_Metabarons_16_ic1"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#001:steelhead",
+      "record_index": 1,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: chose her survival; raised her as male heir; sealed in stasis by Aghora",
+        "character: Dona Vicenta; relation: partner; preserved her near-dead and grieved her condition to the point of self-transformation",
+        "character: Male twin; relation: harvested and transplanted the male brain to preserve the Metabaron line",
+        "character: Deyanira (Tarantuwolf); relation: found the Tarantuwolf to nurse infant Aghora"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "6c139342727f4063b1b5ab817a317795e5037a6291d56ac0961c0f6fe9aa7129",
+          "page_id": "406_The_Metabarons_16_ic1",
+          "source_image": "external/comics/meta-barons/406_The_Metabarons_16_ic1.jpg"
+        }
+      ],
+      "traits": [
+        "Former Metabaron; Aghora's father",
+        "Replaced his own flesh with the indestructible metal Storlon out of grief over Dona Vicenta",
+        "Performed radical medical and bodily interventions on family members and himself",
+        "Prioritized preserving the Metabaron line while also saving the female child",
+        "Emotionally driven despite technical capability"
+      ],
+      "voice_notes": [
+        "Not directly voiced in volume 16; all information via recap narration [ic1]"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Chose to save the female twin despite Metabaron succession traditionally passing father to son [ic1]",
+        "Transplanted the male twin's brain into the female body; preserved the male body in stasis [ic1]",
+        "Kept Dona Vicenta in near-death preserved state after her pulmonary hemorrhage [ic1]",
+        "Found a Tarantuwolf to nurse Aghora [ic1]",
+        "Replaced his own flesh with Storlon metal out of grief [ic1]",
+        "Sealed in a stasis cocoon and ejected into deep space by Aghora [ic1]"
+      ]
+    },
+    {
+      "aliases": [
+        "Steelhead"
+      ],
+      "appearances": [
+        "description: Not physically described in these pages; mentioned only as Aghora's parent in the recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "character_id": "steelhead",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "No actions or traits are described in volume 17; referenced only to establish Aghora's parentage."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#006:steelhead",
+      "record_index": 6,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; nature: Parent; Aghora is identified as Steelhead's daughter; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": []
+    }
+  ]
+}

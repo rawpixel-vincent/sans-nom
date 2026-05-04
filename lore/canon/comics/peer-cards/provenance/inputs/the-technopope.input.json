@@ -1,0 +1,257 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {
+    "008_The_Metabarons_1_p06": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/008_The_Metabarons_1_p06.json",
+    "009_The_Metabarons_1_p07": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/009_The_Metabarons_1_p07.json",
+    "419_The_Metabarons_16_p15": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/419_The_Metabarons_16_p15.json",
+    "420_The_Metabarons_16_p16": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages/420_The_Metabarons_16_p16.json"
+  },
+  "peer_card_id": "the-technopope",
+  "peer_identity": {
+    "arc_label": "The Technopope — supreme techno-religious authority",
+    "display_name": "The Technopope",
+    "honcho_notes": "Merge: id-format variants plus spacing/OCR artifact. Three ids, one entity.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "the-technopope",
+    "rationale": "Three ids for the same entity: the-technopope and technopope differ only in the definite article; the_techno_pope (vol01 single-record, underscore format) is the same character under an old extraction id. Fuzzy pair 'techno pope' / 'technopope' (ratio 0.952) confirms OCR/spacing variant. the-technopope is the cleanest and most complete canonical form.",
+    "source_record_ids": [
+      "characters-volume-01.json#007:the_techno_pope",
+      "characters-volume-15.json#012:technopope",
+      "characters-volume-16.json#009:the-technopope",
+      "characters-volume-17.json#007:the-technopope"
+    ]
+  },
+  "related_non_peer_source_records": [],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Techno-Pope"
+      ],
+      "appearances": [
+        "page_id: 008_The_Metabarons_1_p06; note: referenced; planning a new temple-bank requiring vast marble",
+        "page_id: 009_The_Metabarons_1_p07; note: referenced; project scale escalates to requiring an entire mountain of marble"
+      ],
+      "character_id": "the_techno_pope",
+      "image_sha256s": [
+        "4bdc077212229f0393ecb7a42cb92df81e52a6b0cec155910db28efa26325350",
+        "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b"
+      ],
+      "important_actions": [
+        "page_id: 008_The_Metabarons_1_p06; action: commissions marble from Marmola for a new temple-bank, triggering the Guild ship's arrival"
+      ],
+      "knowledge_boundaries": [
+        "not present in person; known only through the ship crew's references"
+      ],
+      "non_peer_reason": "",
+      "page_ids": [
+        "008_The_Metabarons_1_p06",
+        "009_The_Metabarons_1_p07"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-01.json#007:the_techno_pope",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: imperial_merchants_guild; relation: employs or commissions them for marble acquisition"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-01.json",
+      "source_images": [
+        "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg",
+        "external/comics/meta-barons/009_The_Metabarons_1_p07.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "7d6d800c8223c9e5a9f696adf85b9656a0e534d4d7cedf802e7f71bd2000235b",
+          "page_id": "008_The_Metabarons_1_p06",
+          "source_image": "external/comics/meta-barons/008_The_Metabarons_1_p06.jpg"
+        },
+        {
+          "image_sha256": "4bdc077212229f0393ecb7a42cb92df81e52a6b0cec155910db28efa26325350",
+          "page_id": "009_The_Metabarons_1_p07",
+          "source_image": "external/comics/meta-barons/009_The_Metabarons_1_p07.jpg"
+        }
+      ],
+      "traits": [],
+      "voice_notes": [
+        "never speaks directly in this volume"
+      ],
+      "volumes": [],
+      "witnessed_facts": []
+    },
+    {
+      "aliases": [
+        "TechnoPope"
+      ],
+      "appearances": [],
+      "character_id": "technopope",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-15.json#012:technopope",
+      "record_index": 12,
+      "related_peer_ids": [],
+      "relationships": [],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-15.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Abducted from the Techno-Techno stronghold by Steelhead and brought to Philodendra"
+      ]
+    },
+    {
+      "aliases": [
+        "The Technopope"
+      ],
+      "appearances": [
+        "volume: 16; pages: p15, p16"
+      ],
+      "character_id": "the-technopope",
+      "image_sha256s": [
+        "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+        "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251"
+      ],
+      "important_actions": [
+        "Conferred the empire's highest honor on Aghora [p15]",
+        "Killed by Deyanira during the ceremony [p16]"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [
+        "419_The_Metabarons_16_p15",
+        "420_The_Metabarons_16_p16"
+      ],
+      "peer_candidate": true,
+      "record_id": "characters-volume-16.json#009:the-technopope",
+      "record_index": 9,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Aghora; relation: conferred the pluri-galactic medallion on Aghora [p15]",
+        "character: Deyanira (Tarantuwolf); relation: attacked and devoured alive by Deyanira during the ceremony [p16]"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-16.json",
+      "source_images": [
+        "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg",
+        "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+      ],
+      "source_refs": [
+        {
+          "image_sha256": "21def8b6a8e00b75887003cbe7f9076267ba96140967674650c67c83022758a7",
+          "page_id": "419_The_Metabarons_16_p15",
+          "source_image": "external/comics/meta-barons/419_The_Metabarons_16_p15.jpg"
+        },
+        {
+          "image_sha256": "9d6fa4976e84c44a290984c934091b2fb224d58b2a48b006807f660d1a955251",
+          "page_id": "420_The_Metabarons_16_p16",
+          "source_image": "external/comics/meta-barons/420_The_Metabarons_16_p16.jpg"
+        }
+      ],
+      "traits": [
+        "Highest visible religious authority in the imperial hierarchy",
+        "Central officiating figure in formal award ceremonies",
+        "Killed during Deyanira's rampage [p16]"
+      ],
+      "voice_notes": [
+        "No substantive dialogue captured in summaries beyond ceremonial context"
+      ],
+      "volumes": [],
+      "witnessed_facts": [
+        "Placed the pluri-galactic medallion around Aghora's neck before the galactic senate on the Golden Planet [p15]",
+        "Attacked and killed — apparently devoured alive — by Deyanira during the ceremony [p16]"
+      ]
+    },
+    {
+      "aliases": [
+        "The Technopope"
+      ],
+      "appearances": [
+        "description: Not physically described in volume 17; present only as a named death in the recap.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "character_id": "the-technopope",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "No further information provided in volume 17."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#007:the-technopope",
+      "record_index": 7,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: Deyanira; nature: Killed by Deyanira at an award ceremony; source_refs: ['427_The_Metabarons_17_ic1']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Sufficiently important to be named in the recap as a notable casualty"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Killed by Deyanira at the award ceremony when the tarantuwolf entered savage fury.; source_refs: ['427_The_Metabarons_17_ic1']"
+      ]
+    }
+  ]
+}

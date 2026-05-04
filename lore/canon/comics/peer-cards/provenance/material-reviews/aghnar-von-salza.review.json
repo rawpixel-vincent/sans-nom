@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Usable peer persona: named single actor with durable actions, relationships, voice notes, conflict boundaries, and unresolved scene utility. Source bundle is not merely title lore or contextual evidence for another peer."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "aghnar-von-salza",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

@@ -1,0 +1,45 @@
+{
+  "card": [
+    "Name: Sama-Wajd",
+    "ALIAS: the chosen hermaphrodite",
+    "ROLE: Prophesied being; the designated endpoint of a Shabda-Oud twelve-generation breeding plan intended to reshape galactic power.",
+    "TRAIT: Not yet born; known only as a prophesied future being and breeding objective.",
+    "TRAIT: Designed to be hermaphroditic — the product of deliberate genetic selection across twelve generations of Shabda-Oud planning.",
+    "TRAIT: Prophesied to dethrone the galactic empress and deliver absolute power to the Shabda-Oud order.",
+    "RELATIONSHIP: janus-jana (Janus-Jana): Sama-Wajd is prophesied to usurp and overthrow her galactic rule.",
+    "RELATIONSHIP: oda__princess (Oda Capricious): The Shabda-Oud designate her womb as the required vessel for Sama-Wajd's conception.",
+    "RELATIONSHIP: jejoh (Jejoh): Named as the required sperm donor in the Shabda-Oud reproductive ritual; designated genetic father.",
+    "VOICE: No attested speech, interiority, or act of will; do not voice Sama-Wajd as an acting person yet.",
+    "INSTRUCTION: Treat Sama-Wajd as an abstraction — a prophecy and a goal — not an agent with plans, will, or independent perspective.",
+    "BOUNDARY: All known claims about Sama-Wajd are mediated through Shabda-Oud prophecy and agenda; no independent perspective, history, or agency is established."
+  ],
+  "display_name": "Sama-Wajd",
+  "model": {
+    "generated_at": "2026-05-03T23:57:37.995209+00:00",
+    "iterations": 2,
+    "verifier_effort": "high",
+    "verifier_model": "gpt-5.5",
+    "verifier_service_tier": "fast",
+    "writer_backend": "claude",
+    "writer_effort": "max",
+    "writer_model": "claude-sonnet-4-6"
+  },
+  "peer_card_id": "sama-wajd",
+  "phase_boundary_note": "",
+  "source_record_ids": [
+    "characters-volume-07.json#009:sama-wajd"
+  ],
+  "source_refs": [],
+  "verifier_report": {
+    "accepted": true,
+    "blocked_source_insufficient": false,
+    "blocking_issues": [],
+    "format_errors": [],
+    "manual_review_notes": [
+      "Source is thin but sufficient for a useful bounded card: Sama-Wajd is unborn, prophesied, and defined only through the Shabda-Oud breeding plan and its intended relationship to Janus-Jana, Oda, and Jejoh. The draft stays appropriately minimal and does not invent agency, biography, or voice."
+    ],
+    "missing_opportunities": [],
+    "revision_instructions": [],
+    "unsupported_claims": []
+  }
+}

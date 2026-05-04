@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-04T01:14:04.139939+00:00",
+  "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+  "peer_card_id": "neocerth-empress",
+  "related_peer_ids": [
+    "the-empress__reigning",
+    "steelhead__warrior",
+    "don-nicanor__original"
+  ],
+  "source_record_ids": [
+    "characters-volume-10.json#010:neocerth-empress"
+  ],
+  "verifier_report": {
+    "blocking_issues": [],
+    "manual_review_notes": [
+      "Identity map already has the same durable role/action under the-empress__reigning: the Empress who appeals to Steelhead for help with the dimensional breach and offers the Supreme Metabaron title."
+    ],
+    "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+    "peer_card_id": "neocerth-empress",
+    "peer_card_material": false,
+    "related_peer_ids": [
+      "the-empress__reigning",
+      "steelhead__warrior",
+      "don-nicanor__original"
+    ],
+    "should_mark_non_peer_lore": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Thin singleton record, but it supports a distinct actor with executive authority, public action, relationship boundary to Dona Vicenta, and scene-usable crisis behavior."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "general-zoththo",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

@@ -345,6 +345,12 @@
     "knowledge_boundaries": [
       "Appears only in the recap on ic1; no confirmed further presence in this volume"
     ],
+    "non_peer_reason": "Recap-only title/office record with no distinct personal voice or scene behavior; its useful evidence is the TechnoCardinal/Technoclergy ultimatum already better supported by the fuller Immaculate Techno Cardinal and Don Nicanor clone records.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "immaculate_techno_cardinal",
+      "don-nicanor__clone"
+    ],
     "relationships": [
       "Represents the Techno-Technos faction (vol.14 ic1 recap)",
       "Issued ultimatum to Don Nicanor Rosamel de Rokha (vol.14 ic1 recap)"
@@ -407,6 +413,11 @@
     ],
     "knowledge_boundaries": [
       "Whether Metacraft is fully sentient or a sophisticated automated system is not stated in this volume"
+    ],
+    "non_peer_reason": "Metacraft is a voice-interfaced spacecraft/technology record, not a distinct peer persona; its usable evidence is craft capability and command context for the Supreme Metabaron and Tonto, and a card would require inventing sentience or traits beyond the source.",
+    "peer_candidate": false,
+    "related_peer_ids": [
+      "tonto"
     ],
     "relationships": [
       "Primary craft of the Metabaron/Steelhead (vol.14 p04-p05)",

@@ -1,0 +1,11 @@
+{
+  "blocking_issues": [],
+  "manual_review_notes": [
+    "Jejoh is thin, but the bundle supports a distinct single actor/entity: named deity figure, Shabda-Oud power source, external invulnerability/internal vulnerability boundary, active encounter behavior, and a concrete destruction event tied to Aghnar. No demotion needed unless the project wants to exclude non-speaking deity/monster peers categorically."
+  ],
+  "non_peer_reason": "",
+  "peer_card_id": "jejoh",
+  "peer_card_material": true,
+  "related_peer_ids": [],
+  "should_mark_non_peer_lore": false
+}

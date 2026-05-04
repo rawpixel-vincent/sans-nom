@@ -1,0 +1,264 @@
+{
+  "context_entrypoints": {
+    "card_seeding_docs": {
+      "description": "Project rules for actor card seeding and seed/evolution boundaries.",
+      "path": "/Users/vincent/dev/sans-nom/docs/architecture/actor-agents/card-seeding.md"
+    },
+    "cast_docs": {
+      "description": "Game-side cast overlays and actor notes.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast"
+    },
+    "characters": {
+      "description": "Per-volume extracted structured character records.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters"
+    },
+    "glossary": {
+      "description": "Project definitions, including peer card constraints.",
+      "path": "/Users/vincent/dev/sans-nom/docs/glossary.md"
+    },
+    "identity_map": {
+      "description": "Complete peer identity map; use this to resolve relationship targets to peer_card_id values.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json"
+    },
+    "link_matrix": {
+      "description": "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/links/matrix.md"
+    },
+    "lothar_cast_doc": {
+      "description": "Game-side Lothar notes; treat as design overlay, not exhaustive canon.",
+      "path": "/Users/vincent/dev/sans-nom/docs/mechanics/cast/lothar.md"
+    },
+    "narrator_card": {
+      "description": "Narrator peer card constraints and anti-council-mode policy.",
+      "path": "/Users/vincent/dev/sans-nom/lore/narrator/peer-card.md"
+    },
+    "pages": {
+      "description": "Page-level summaries keyed by source image page id.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/pages"
+    },
+    "peer_card_encoding_deliberation": {
+      "description": "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics.",
+      "path": "/Users/vincent/dev/sans-nom/council-deliberation/2026-05-04-072216.md"
+    },
+    "volumes": {
+      "description": "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/comics/volumes"
+    },
+    "wiki_lore": {
+      "description": "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON.",
+      "path": "/Users/vincent/dev/sans-nom/lore/canon/wiki/lore.md"
+    }
+  },
+  "context_entrypoints_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/context-entrypoints.json",
+  "identity_map_path": "/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/identity-map.json",
+  "lothar_acceptance_rubric": [],
+  "page_summary_paths": {},
+  "peer_card_id": "the-empress__reigning",
+  "peer_identity": {
+    "arc_label": "The Empress who appeals to Steelhead and is protected by Aghora—possibly Janus-Jana",
+    "display_name": "The Empress (reigning, Steelhead–Aghora era)",
+    "honcho_notes": "Rules the empire from the Golden Planet. Vulnerable without the Metabaron's protection—this dependency structures her relationship to the Castaka lineage. Appealed to Steelhead in exchange for his demand for the Supreme Metabaron title. In vol17 described as 'exhausted from battle and recent childbirth.' Target of assassination attempts.",
+    "merge_policy": "merged_same_persona",
+    "peer_card_id": "the-empress__reigning",
+    "rationale": "These two records both describe a reigning Empress from the Golden Planet in the Steelhead–Aghora era. Vol11 Empress appeals to Steelhead for help against dimensional vampires; vol17 Empress is protected by Aghora and is under psychic assault. The timeline and role are consistent—both are the political sovereign seeking Metabaron protection. Likely the same individual (possibly Janus-Jana herself, though not confirmed). Merging is safe; contradictory facts would only arise if they were demonstrably different rulers.",
+    "source_record_ids": [
+      "characters-volume-11.json#008:the-empress",
+      "characters-volume-17.json#013:the-empress"
+    ]
+  },
+  "related_non_peer_source_records": [
+    {
+      "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+      "related_peer_ids": [
+        "the-empress__reigning",
+        "steelhead__warrior",
+        "don-nicanor__original"
+      ],
+      "source_record": {
+        "aliases": [
+          "Neocerth Empress",
+          "neocerth empress of the galaxy",
+          "holographic imperial woman",
+          "the imperial couple (partial)"
+        ],
+        "appearances": [
+          "volume: 10; pages: ['p23']"
+        ],
+        "character_id": "neocerth-empress",
+        "important_actions": [
+          "Contacted Steelhead and set in motion the chain of events leading to the assassination of Don Nicanor Rosamel de Rokha [v10 p23]"
+        ],
+        "knowledge_boundaries": [
+          "Knows the interspace breach and its origin in the duel with Aghnar [v10 p23]",
+          "Knows the political mechanics of the noble medallion process [v10 p23]",
+          "Does not appear to anticipate or attempt to prevent Steelhead's choice of assassination to remove the obstacle"
+        ],
+        "non_peer_reason": "This is a duplicate title/alias-style singleton for the reigning Empress who appeals to Steelhead; the usable persona belongs on the existing Empress peer rather than a separate base card.",
+        "page_ids": [
+          "271_The_Metabarons_10_p23"
+        ],
+        "peer_candidate": false,
+        "record_id": "characters-volume-10.json#010:neocerth-empress",
+        "related_peer_ids": [
+          "the-empress__reigning",
+          "steelhead__warrior",
+          "don-nicanor__original"
+        ],
+        "relationships": [
+          "character: Steelhead; type: patron / client; notes: Contacted Steelhead to request help sealing the interspace breach in exchange for the title Supreme Metabaron and a high nobility medallion [v10 p23]",
+          "character: Don Nicanor Rosamel de Rokha; type: political obstacle named by her; notes: She identified him as the sole ambassador who would block unanimous consent [v10 p23]"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-10.json",
+        "traits": [
+          "Presents herself as the supreme galactic ruler facing a universe-level emergency [v10 p23]",
+          "Desperate; describes having suffered military losses and mass casualties before escaping [v10 p23]",
+          "Pragmatic negotiator: shifts quickly from moral appeals to transactional offers when altruism fails [v10 p23]",
+          "Uses holographic communication to contact distant parties [v10 p23]"
+        ],
+        "voice_notes": [
+          "Appeals first to friendship, duty, and survival; pivots to transactional offers when moral framing fails [v10 p23]",
+          "Projects authority as supreme ruler while clearly operating from a position of desperation [v10 p23]"
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "Contacted Steelhead via hologram with an urgent request for help [v10 p23]",
+          "Explained that the duel with Aghnar opened a reality breach releasing devourers from interspace threatening the universe [v10 p23]",
+          "Offered the title Supreme Metabaron and a high nobility medallion requiring unanimous planetary ambassador consent as reward [v10 p23]",
+          "Identified Don Nicanor Rosamel de Rokha as the one obstacle to unanimous consent [v10 p23]"
+        ]
+      }
+    },
+    {
+      "non_peer_reason": "Unnamed one-page prophecy claimant whose only durable value is contextual scene lore for the conspiracy against the Empress and the dark-haired warrior's dismissal; a base card would require inventing personality beyond the claim.",
+      "related_peer_ids": [
+        "the-dark-haired-female-warrior-unnamed",
+        "the-empress__reigning",
+        "aghora"
+      ],
+      "source_record": {
+        "aliases": [
+          "The Two-Headed Ape-Like Claimant (unnamed)"
+        ],
+        "appearances": [
+          "description: Hooded figure with two heads in an ape-like or simian form; body is described as a genetically modified prehistoric animal into which a spirit was transferred.; source_refs: ['431_The_Metabarons_17_p04']"
+        ],
+        "character_id": "the-two-headed-ape-like-claimant-unnamed",
+        "important_actions": [
+          "action: Volunteered as the prophesied androgyne replacement for the Empress at the conspiracy council.; source_refs: ['431_The_Metabarons_17_p04']"
+        ],
+        "knowledge_boundaries": [
+          "Name not given in volume 17.",
+          "The validity of its claim to the prophecy is disputed by another character and unconfirmed by the narrative."
+        ],
+        "non_peer_reason": "Unnamed one-page prophecy claimant whose only durable value is contextual scene lore for the conspiracy against the Empress and the dark-haired warrior's dismissal; a base card would require inventing personality beyond the claim.",
+        "page_ids": [],
+        "peer_candidate": false,
+        "record_id": "characters-volume-17.json#011:the-two-headed-ape-like-claimant-unnamed",
+        "related_peer_ids": [
+          "the-dark-haired-female-warrior-unnamed",
+          "the-empress__reigning",
+          "aghora"
+        ],
+        "relationships": [
+          "character: The Cybernetic Conspirators / Council of Elders; nature: Member or candidate presented by the council as a replacement for the Empress; source_refs: ['431_The_Metabarons_17_p04']",
+          "character: The Dark-Haired Female Warrior; nature: Dismissed by her; she ridicules the claim and redirects to the practical obstacle of the Metabaron; source_refs: ['431_The_Metabarons_17_p04']"
+        ],
+        "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+        "traits": [
+          "Believes itself destined to be the 'perfect androgyne' of prophecy",
+          "Claims legitimacy via spirit transfer and genetic modification",
+          "Member of a conspiracy council willing to discuss regicide against the Empress"
+        ],
+        "voice_notes": [
+          "Presents spirit-transfer and genetic modification as its credentials for ruling."
+        ],
+        "volumes": [],
+        "witnessed_facts": [
+          "fact: Claims a spirit was transferred into its genetically modified prehistoric animal body.; source_refs: ['431_The_Metabarons_17_p04']"
+        ]
+      }
+    }
+  ],
+  "related_peer_identities": [],
+  "related_peer_ids": [],
+  "source_records": [
+    {
+      "aliases": [
+        "The Empress",
+        "the Imperial Couple (with her consort, prior arc)"
+      ],
+      "appearances": [
+        "description: Not clearly depicted in surviving pages of this volume; referenced in recap and dialogue.; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']"
+      ],
+      "character_id": "the-empress",
+      "image_sha256s": [],
+      "important_actions": [
+        "Appealed to Steelhead for help against the vampiric entities invading through the dimensional breach (ic1)",
+        "Stationed Purple Endoguards around Dona Vicenta Gabriela de Rokha on Philodendra (p20)"
+      ],
+      "knowledge_boundaries": [],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-11.json#008:the-empress",
+      "record_index": 8,
+      "related_peer_ids": [],
+      "relationships": [
+        "target: Steelhead / Melmoth; nature: She appealed to him to defeat dimensional vampires; he demanded the Supreme Metabaron title in exchange; he later threatens to destroy the Golden Planet and its 'stinking empress'; source_refs: ['278_The_Metabarons_11_ic1', '282_The_Metabarons_11_p04']",
+        "target: Dona Vicenta Gabriela de Rokha; nature: The Empress stationed Purple Endoguards around Dona Vicenta on Philodendra; source_refs: ['297_The_Metabarons_11_p20']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-11.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Appealed to Steelhead for help when the imperial palace was overrun by vampiric entities",
+        "Rules the empire from the Golden Planet",
+        "Target of Steelhead's future threat after the failed investiture"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "Vampiric entities entered the Imperial Palace through a breach caused by Steelhead's cross-dimensional battle with Aghnar (ic1)"
+      ]
+    },
+    {
+      "aliases": [
+        "The Empress"
+      ],
+      "appearances": [
+        "description: Female leader; shown inside a translucent floating pod during the battle at the Golden Planet.; source_refs: ['442_The_Metabarons_17_p16']"
+      ],
+      "character_id": "the-empress",
+      "image_sha256s": [],
+      "important_actions": [],
+      "knowledge_boundaries": [
+        "Her name is not given in volume 17.",
+        "Her own dialogue is minimal or absent in these pages; described and spoken about rather than speaking."
+      ],
+      "non_peer_reason": "",
+      "page_ids": [],
+      "peer_candidate": true,
+      "record_id": "characters-volume-17.json#013:the-empress",
+      "record_index": 13,
+      "related_peer_ids": [],
+      "relationships": [
+        "character: The Metabaron (Aghora); nature: Protected by Aghora in the role of Metabaron; the Metabaron's absence is treated as a decisive vulnerability; source_refs: ['431_The_Metabarons_17_p04', '442_The_Metabarons_17_p16']",
+        "character: The Bald Defender (unnamed); nature: He intervenes on her behalf during the witch assault, invoking Bushitaka; source_refs: ['442_The_Metabarons_17_p16']"
+      ],
+      "source_file": "/Users/vincent/dev/sans-nom/lore/canon/comics/characters/characters-volume-17.json",
+      "source_images": [],
+      "source_refs": [],
+      "traits": [
+        "Ruler from the Golden Planet",
+        "Protected by the Metabaron as her designated guardian",
+        "Described as exhausted from battle and recent childbirth during the Golden Planet assault"
+      ],
+      "voice_notes": [],
+      "volumes": [],
+      "witnessed_facts": [
+        "fact: Targeted for assassination by the conspiracy council; seen as vulnerable with the Metabaron absent.; source_refs: ['431_The_Metabarons_17_p04']",
+        "fact: Under psychic assault by witches at the Golden Planet during the climactic battle.; source_refs: ['442_The_Metabarons_17_p16']"
+      ]
+    }
+  ]
+}
