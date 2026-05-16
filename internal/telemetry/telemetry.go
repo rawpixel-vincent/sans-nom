@@ -42,6 +42,17 @@ type TurnMetrics struct {
 	CardUpdateEvents int
 }
 
+type LoreSearchMetrics struct {
+	QuerySHA256 string
+	K           int
+	Latency     time.Duration
+	HitCount    int
+	TopScore    float64
+	Miss        bool
+	Filters     map[string]any
+	Error       string
+}
+
 func EmitTurn(ctx context.Context, sink Sink, m TurnMetrics) {
 	if sink == nil {
 		return
@@ -59,4 +70,25 @@ func EmitTurn(ctx context.Context, sink Sink, m TurnMetrics) {
 			"card_update_events": m.CardUpdateEvents,
 		},
 	})
+}
+
+func EmitLoreSearch(ctx context.Context, sink Sink, m LoreSearchMetrics) {
+	if sink == nil {
+		return
+	}
+	fields := map[string]any{
+		"query_sha256": m.QuerySHA256,
+		"k":            m.K,
+		"latency_ms":   m.Latency.Milliseconds(),
+		"hit_count":    m.HitCount,
+		"top_score":    m.TopScore,
+		"miss":         m.Miss,
+	}
+	for key, value := range m.Filters {
+		fields["filter_"+key] = value
+	}
+	if m.Error != "" {
+		fields["error"] = m.Error
+	}
+	sink.Emit(ctx, Event{Name: "lore.search", Fields: fields})
 }

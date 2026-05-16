@@ -5,9 +5,12 @@ import os
 from fastapi import Depends, FastAPI, Header, HTTPException
 
 from .honcho_ops import HonchoOps
+from .lore_search import LoreSearchService
 from .lore_ops import qdrant_url, voyage_api_key, voyage_model
 from .models import (
     CommitRequest,
+    LoreSearchRequest,
+    LoreSearchResponse,
     PeerCardPatch,
     RepresentationRequest,
     RepresentationResponse,
@@ -17,6 +20,7 @@ from .models import (
 
 app = FastAPI(title="Sans-Nom Phase 0 Bridge", version="0.1.0")
 ops = HonchoOps()
+lore_search = LoreSearchService()
 
 
 def authorize(authorization: str | None = Header(default=None)) -> None:
@@ -68,3 +72,10 @@ def patch_card(peer_id: str, workspace_id: str, patch: PeerCardPatch) -> dict[st
 def representation(req: RepresentationRequest) -> RepresentationResponse:
     return ops.representation(req)
 
+
+@app.post("/v1/lore/search", response_model=LoreSearchResponse, dependencies=[Depends(authorize)])
+def search_lore(req: LoreSearchRequest) -> LoreSearchResponse:
+    try:
+        return lore_search.search(req)
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc

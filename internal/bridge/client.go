@@ -49,6 +49,32 @@ type RepresentationResponse struct {
 	Representation string `json:"representation"`
 }
 
+type LoreSearchRequest struct {
+	Query       string   `json:"query"`
+	K           int      `json:"k,omitempty"`
+	Kind        []string `json:"kind,omitempty"`
+	PeerID      []string `json:"peer_id,omitempty"`
+	CharacterID []string `json:"character_id,omitempty"`
+	Volume      []int    `json:"volume,omitempty"`
+}
+
+type LoreSnippet struct {
+	DocID       string         `json:"doc_id"`
+	Text        string         `json:"text"`
+	SourcePath  string         `json:"source_path"`
+	Score       float64        `json:"score"`
+	Kind        string         `json:"kind"`
+	PageID      string         `json:"page_id,omitempty"`
+	PeerID      string         `json:"peer_id,omitempty"`
+	CharacterID string         `json:"character_id,omitempty"`
+	Volume      *int           `json:"volume,omitempty"`
+	Payload     map[string]any `json:"payload,omitempty"`
+}
+
+type LoreSearchResponse struct {
+	Snippets []LoreSnippet `json:"snippets"`
+}
+
 type Client struct {
 	BaseURL    string
 	Token      string
@@ -85,6 +111,12 @@ func (c Client) CommitScene(ctx context.Context, commit scene.Commit) error {
 	}
 	var out map[string]string
 	return c.do(ctx, http.MethodPost, "/v1/scene/commit", commit, &out)
+}
+
+func (c Client) LoreSearch(ctx context.Context, req LoreSearchRequest) (LoreSearchResponse, error) {
+	var out LoreSearchResponse
+	err := c.do(ctx, http.MethodPost, "/v1/lore/search", req, &out)
+	return out, err
 }
 
 func (c Client) do(ctx context.Context, method, path string, in any, out any) error {

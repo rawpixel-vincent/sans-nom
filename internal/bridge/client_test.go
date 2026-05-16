@@ -3,6 +3,7 @@ package bridge
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -58,5 +59,48 @@ func TestSceneContext(t *testing.T) {
 	}
 	if resp.Representations["tonto:sans-nom"] == "" {
 		t.Fatalf("missing representation: %#v", resp)
+	}
+}
+
+func TestLoreSearch(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/lore/search" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		if got := r.Header.Get("Authorization"); got != "Bearer token" {
+			t.Fatalf("unexpected authorization header %q", got)
+		}
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var req LoreSearchRequest
+		if err := json.Unmarshal(body, &req); err != nil {
+			t.Fatal(err)
+		}
+		if req.Query != "Lothar is Steelhead" || req.K != 5 || req.PeerID[0] != "lothar" {
+			t.Fatalf("unexpected request: %#v", req)
+		}
+		_ = json.NewEncoder(w).Encode(LoreSearchResponse{Snippets: []LoreSnippet{{
+			DocID:      "peer_card:lothar",
+			Text:       "Lothar is Steelhead.",
+			SourcePath: "lore/canon/comics/peer-cards/cards/accepted/lothar.json",
+			Score:      0.9,
+			Kind:       "peer_card",
+			PeerID:     "lothar",
+		}}})
+	}))
+	defer server.Close()
+
+	resp, err := NewClient(server.URL, "token").LoreSearch(context.Background(), LoreSearchRequest{
+		Query:  "Lothar is Steelhead",
+		K:      5,
+		PeerID: []string{"lothar"},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(resp.Snippets) != 1 || resp.Snippets[0].DocID != "peer_card:lothar" {
+		t.Fatalf("unexpected snippets: %#v", resp.Snippets)
 	}
 }

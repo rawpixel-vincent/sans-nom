@@ -12,6 +12,8 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
+	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
@@ -27,7 +29,17 @@ func main() {
 	freeText := flag.String("text", "", "free-text player input")
 	useClaude := flag.Bool("claude", false, "use claude -p Sonnet adapters instead of static local adapters")
 	refreshWriter := flag.Bool("refresh-writer", false, "run the Creative Writer asynchronously before rollout")
+	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
+	loreK := flag.Int("k", 5, "number of lore search results")
+	bridgeURL := flag.String("bridge-url", os.Getenv("SANS_NOM_BRIDGE_URL"), "bridge sidecar URL")
 	flag.Parse()
+
+	if *loreSearch != "" {
+		if err := runLoreSearch(context.Background(), *bridgeURL, *loreSearch, *loreK); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
 
 	packet, err := openPacket(*packetPath)
 	if err != nil {
@@ -87,6 +99,34 @@ func main() {
 		strings.Join(rollout.Commit.Witnesses, ","),
 		len(rollout.Commit.Events),
 	)
+}
+
+func runLoreSearch(ctx context.Context, bridgeURL string, query string, k int) error {
+	retriever := lore.BridgeRetriever{
+		Client: bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN")),
+	}
+	results, err := retriever.Search(ctx, query, k)
+	if err != nil {
+		return err
+	}
+	for _, result := range results {
+		fmt.Printf("%.3f %s %s\n", result.Score, result.ID, result.Source)
+		if text := preview(result.Text, 240); text != "" {
+			fmt.Printf("  %s\n", text)
+		}
+	}
+	return nil
+}
+
+func preview(text string, max int) string {
+	text = strings.Join(strings.Fields(text), " ")
+	if len(text) <= max {
+		return text
+	}
+	if max < 4 {
+		return text[:max]
+	}
+	return text[:max-3] + "..."
 }
 
 func claudeRunner() prompt.ClaudeRunner {

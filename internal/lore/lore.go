@@ -10,10 +10,16 @@ import (
 )
 
 type Snippet struct {
-	ID     string  `json:"id"`
-	Text   string  `json:"text"`
-	Source string  `json:"source"`
-	Score  float64 `json:"score"`
+	ID          string         `json:"id"`
+	Text        string         `json:"text"`
+	Source      string         `json:"source"`
+	Score       float64        `json:"score"`
+	Kind        string         `json:"kind,omitempty"`
+	PageID      string         `json:"page_id,omitempty"`
+	PeerID      string         `json:"peer_id,omitempty"`
+	CharacterID string         `json:"character_id,omitempty"`
+	Volume      *int           `json:"volume,omitempty"`
+	Payload     map[string]any `json:"payload,omitempty"`
 }
 
 type Retriever interface {

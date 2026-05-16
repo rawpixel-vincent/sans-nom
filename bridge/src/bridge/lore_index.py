@@ -648,10 +648,26 @@ def ensure_collection(
         client.create_collection(collection_name=collection, vectors_config=config)
 
 
-def query_points(client: Any, collection: str, vector: list[float], limit: int) -> list[Any]:
+def query_points(
+    client: Any,
+    collection: str,
+    vector: list[float],
+    limit: int,
+    query_filter: Any | None = None,
+) -> list[Any]:
     if hasattr(client, "search"):
-        return client.search(collection_name=collection, query_vector=vector, limit=limit)
-    return client.query_points(collection_name=collection, query=vector, limit=limit).points
+        return client.search(
+            collection_name=collection,
+            query_vector=vector,
+            query_filter=query_filter,
+            limit=limit,
+        )
+    return client.query_points(
+        collection_name=collection,
+        query=vector,
+        query_filter=query_filter,
+        limit=limit,
+    ).points
 
 
 def smoke_passes(smoke: SmokeQuery, haystacks: list[str]) -> bool:

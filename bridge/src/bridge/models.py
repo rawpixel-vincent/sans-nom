@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from typing import Any
+
+from pydantic import BaseModel, Field, field_validator
 
 
 class PlayerDecision(BaseModel):
@@ -74,17 +76,44 @@ class RepresentationResponse(BaseModel):
 
 
 class LoreSnippet(BaseModel):
-    id: str
+    doc_id: str
     text: str
-    source: str
+    source_path: str
     score: float = 0.0
+    kind: str
+    page_id: str | None = None
+    peer_id: str | None = None
+    character_id: str | None = None
+    volume: int | None = None
+    payload: dict[str, Any] = Field(default_factory=dict)
 
 
 class LoreSearchRequest(BaseModel):
     query: str
     k: int = 5
+    kind: list[str] = Field(default_factory=list)
+    peer_id: list[str] = Field(default_factory=list)
+    character_id: list[str] = Field(default_factory=list)
+    volume: list[int] = Field(default_factory=list)
+
+    @field_validator("kind", "peer_id", "character_id", mode="before")
+    @classmethod
+    def coerce_string_filter(cls, value: Any) -> list[str]:
+        if value is None:
+            return []
+        if isinstance(value, str):
+            return [value]
+        return value
+
+    @field_validator("volume", mode="before")
+    @classmethod
+    def coerce_volume_filter(cls, value: Any) -> list[int]:
+        if value is None:
+            return []
+        if isinstance(value, int):
+            return [value]
+        return value
 
 
 class LoreSearchResponse(BaseModel):
     snippets: list[LoreSnippet] = Field(default_factory=list)
-
