@@ -17,7 +17,6 @@ from typing import Any, Iterable
 from pydantic import BaseModel, Field, ValidationError
 
 from .env import load_project_env
-from .lore_ops import qdrant_url, voyage_api_key, voyage_model
 
 load_project_env()
 
@@ -204,7 +203,7 @@ def main(argv: list[str] | None = None) -> int:
         ingest_qdrant(paths, collection=args.collection, dry_run=args.dry_run)
         return 0
     if args.cmd == "smoke-search":
-        smoke_search(collection=args.collection)
+        smoke_search(root=root, collection=args.collection)
         return 0
     if args.cmd == "validate":
         validate_outputs(paths, strict=args.strict)
@@ -642,126 +641,24 @@ Input JSON:
 
 
 def ingest_qdrant(paths: Paths, collection: str, dry_run: bool) -> None:
-    docs = lore_documents(paths)
-    if dry_run:
-        print(f"would ingest {len(docs)} docs into {collection}")
-        return
-    key = voyage_api_key()
-    if not key:
-        raise RuntimeError("SANS_NOM_VOYAGE_API_KEY or VOYAGE_API_KEY is required")
+    from .lore_index import build_documents, ingest_index, write_index
 
-    import voyageai
-    from qdrant_client import QdrantClient
-    from qdrant_client.http.models import Distance, PointStruct, VectorParams
-
-    vo = voyageai.Client(api_key=key)
-    client = QdrantClient(url=qdrant_url(), check_compatibility=False)
-    batch_texts = [doc["text"] for doc in docs]
-    embeddings: list[list[float]] = []
-    batch_size = max(1, int(os.getenv("SANS_NOM_VOYAGE_BATCH_SIZE", "64")))
-    for start in range(0, len(batch_texts), batch_size):
-        batch = batch_texts[start:start + batch_size]
-        response = vo.embed(batch, model=voyage_model(), input_type="document")
-        embeddings.extend(response.embeddings)
-        print(f"embedded {len(embeddings)}/{len(batch_texts)} docs", flush=True)
-    size = len(embeddings[0]) if embeddings else 1024
-    client.recreate_collection(
-        collection_name=collection,
-        vectors_config=VectorParams(size=size, distance=Distance.COSINE),
-    )
-    points = [
-        PointStruct(id=idx, vector=vector, payload=doc)
-        for idx, (doc, vector) in enumerate(zip(docs, embeddings, strict=True))
-    ]
-    client.upsert(collection_name=collection, points=points)
-    print(f"ingested {len(points)} docs into {collection}")
+    index_dir = paths.root / "lore/canon/index"
+    docs = build_documents(paths.root, comics_dir=paths.output_dir)
+    write_index(paths.root, index_dir, docs, collection=collection)
+    ingest_index(index_dir=index_dir, collection=collection, replace=True, dry_run=dry_run)
 
 
-def smoke_search(collection: str) -> None:
-    key = voyage_api_key()
-    if not key:
-        raise RuntimeError("SANS_NOM_VOYAGE_API_KEY or VOYAGE_API_KEY is required")
-    import voyageai
-    from qdrant_client import QdrantClient
+def smoke_search(root: Path, collection: str) -> None:
+    from .lore_index import smoke_index
 
-    queries = [
-        "Tonto tells a story",
-        "Metabunker city-shaft",
-        "Aghora grief Steelhead",
-        "Honorata control tenderness",
-        "Bushitaka law",
-    ]
-    vo = voyageai.Client(api_key=key)
-    client = QdrantClient(url=qdrant_url(), check_compatibility=False)
-    for query in queries:
-        vector = vo.embed([query], model=voyage_model(), input_type="query").embeddings[0]
-        if hasattr(client, "search"):
-            hits = client.search(collection_name=collection, query_vector=vector, limit=5)
-        else:
-            hits = client.query_points(collection_name=collection, query=vector, limit=5).points
-        print(f"\n## {query}")
-        for hit in hits:
-            payload = hit.payload or {}
-            print(f"- {hit.score:.3f} {payload.get('id')} {payload.get('source')}")
+    smoke_index(index_dir=root / "lore/canon/index", collection=collection, strict=False)
 
 
 def lore_documents(paths: Paths) -> list[dict[str, Any]]:
-    docs: list[dict[str, Any]] = []
-    for page in load_pages(paths):
-        docs.append({
-            "id": page.page_id,
-            "kind": "comic_page",
-            "source": page.source_image,
-            "text": "\n".join([
-                page.visual_summary,
-                *page.plot_events,
-                *page.dialogue_meaning,
-                *page.lore_facts,
-                *page.character_facts,
-                *page.uncertainties,
-            ]),
-            "volume": page.volume,
-            "page_label": page.page_label,
-            "image_sha256": page.image_sha256,
-        })
-    for volume in load_volumes(paths):
-        docs.append({
-            "id": f"volume-{volume.volume:02d}",
-            "kind": "comic_volume",
-            "source": f"volume-{volume.volume:02d}",
-            "text": "\n".join([
-                *volume.chronology,
-                *volume.major_events,
-                *volume.recurring_motifs,
-                *volume.lore_laws,
-                *[f"{name}: {'; '.join(facts)}" for name, facts in volume.character_arcs.items()],
-                *volume.open_uncertainties,
-            ]),
-            "volume": volume.volume,
-        })
-    for path in sorted(paths.characters.glob("*.json")):
-        data = json.loads(path.read_text())
-        items = data if isinstance(data, list) else [data]
-        for item in items:
-            char = CharacterLore.model_validate(item)
-            docs.append({
-                "id": f"character-{char.character_id}",
-                "kind": "comic_character",
-                "source": path.as_posix(),
-                "text": "\n".join([
-                    char.character_id,
-                    *char.aliases,
-                    *char.appearances,
-                    *char.traits,
-                    *char.relationships,
-                    *char.witnessed_facts,
-                    *char.knowledge_boundaries,
-                    *char.important_actions,
-                    *char.voice_notes,
-                ]),
-                "character_id": char.character_id,
-            })
-    return [doc for doc in docs if doc["text"].strip()]
+    from .lore_index import build_documents
+
+    return [doc.qdrant_payload() for doc in build_documents(paths.root, comics_dir=paths.output_dir)]
 
 
 def validate_outputs(paths: Paths, strict: bool) -> None:
