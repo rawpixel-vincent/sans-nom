@@ -59,13 +59,23 @@ class HonchoOps:
 
         honcho = self._client(req.workspace_id)
         session = honcho.session(req.session_id)
-        context = session.context(
-            summary=True,
-            tokens=2000,
-            peer_target=req.player_peer_id,
-            peer_perspective="narrator",
-            search_query=req.search_query,
-        )
+        try:
+            context = session.context(
+                summary=True,
+                tokens=2000,
+                peer_target=req.player_peer_id,
+                peer_perspective="narrator",
+                search_query=req.search_query,
+            )
+        except Exception as exc:
+            if self._is_not_found(exc):
+                return SceneContextResponse(
+                    workspace_id=req.workspace_id,
+                    session_id=req.session_id,
+                    recent_scenes=[],
+                    representations={key: "" for key in req.representations},
+                )
+            raise
         recent = [getattr(msg, "content", "") for msg in getattr(context, "messages", [])]
         return SceneContextResponse(
             workspace_id=req.workspace_id,
@@ -107,7 +117,12 @@ class HonchoOps:
         if not self.live_enabled:
             return list(self._cards[key])
         peer = self._client(workspace_id).peer(peer_id)
-        return list(peer.get_card(target=target) or [])
+        try:
+            return list(peer.get_card(target=target) or [])
+        except Exception as exc:
+            if self._is_not_found(exc):
+                return []
+            raise
 
     def patch_card(self, workspace_id: str, peer_id: str, patch: PeerCardPatch) -> list[str]:
         current = [] if patch.replace else self.get_card(workspace_id, peer_id, patch.target)
@@ -127,11 +142,20 @@ class HonchoOps:
                 representation="",
             )
         peer = self._client(req.workspace_id).peer(req.observer)
-        context = peer.context(
-            target=req.observed,
-            search_query=req.search_query,
-            search_top_k=req.top_k,
-        )
+        try:
+            context = peer.context(
+                target=req.observed,
+                search_query=req.search_query,
+                search_top_k=req.top_k,
+            )
+        except Exception as exc:
+            if self._is_not_found(exc):
+                return RepresentationResponse(
+                    observer=req.observer,
+                    observed=req.observed,
+                    representation="",
+                )
+            raise
         return RepresentationResponse(
             observer=req.observer,
             observed=req.observed,
@@ -141,3 +165,7 @@ class HonchoOps:
     @staticmethod
     def _card_key(workspace_id: str, peer_id: str, target: str | None) -> str:
         return f"{workspace_id}:{peer_id}:{target or ''}"
+
+    @staticmethod
+    def _is_not_found(exc: Exception) -> bool:
+        return exc.__class__.__name__ == "NotFoundError"

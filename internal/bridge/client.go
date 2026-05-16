@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 
@@ -37,6 +38,7 @@ type PeerCardPatch struct {
 }
 
 type RepresentationRequest struct {
+	WorkspaceID string `json:"workspace_id"`
 	Observer    string `json:"observer"`
 	Observed    string `json:"observed"`
 	SearchQuery string `json:"search_query,omitempty"`
@@ -73,6 +75,12 @@ type LoreSnippet struct {
 
 type LoreSearchResponse struct {
 	Snippets []LoreSnippet `json:"snippets"`
+}
+
+type PeerCardResponse struct {
+	PeerID string   `json:"peer_id"`
+	Target string   `json:"target,omitempty"`
+	Facts  []string `json:"facts"`
 }
 
 type Client struct {
@@ -117,6 +125,26 @@ func (c Client) LoreSearch(ctx context.Context, req LoreSearchRequest) (LoreSear
 	var out LoreSearchResponse
 	err := c.do(ctx, http.MethodPost, "/v1/lore/search", req, &out)
 	return out, err
+}
+
+func (c Client) Representation(ctx context.Context, req RepresentationRequest) (RepresentationResponse, error) {
+	var out RepresentationResponse
+	err := c.do(ctx, http.MethodPost, "/v1/repr", req, &out)
+	return out, err
+}
+
+func (c Client) GetCard(ctx context.Context, workspaceID, peerID, target string) ([]string, error) {
+	values := url.Values{}
+	values.Set("workspace_id", workspaceID)
+	if target != "" {
+		values.Set("target", target)
+	}
+	path := "/v1/peer/" + url.PathEscape(peerID) + "/card?" + values.Encode()
+	var out PeerCardResponse
+	if err := c.do(ctx, http.MethodGet, path, nil, &out); err != nil {
+		return nil, err
+	}
+	return out.Facts, nil
 }
 
 func (c Client) do(ctx context.Context, method, path string, in any, out any) error {

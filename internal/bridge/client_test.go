@@ -104,3 +104,65 @@ func TestLoreSearch(t *testing.T) {
 		t.Fatalf("unexpected snippets: %#v", resp.Snippets)
 	}
 }
+
+func TestRepresentation(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/repr" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		var req RepresentationRequest
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			t.Fatal(err)
+		}
+		if req.WorkspaceID != "phase0-dev" || req.Observer != "tonto" || req.Observed != "sans-nom" || req.TopK != 3 {
+			t.Fatalf("unexpected request: %#v", req)
+		}
+		_ = json.NewEncoder(w).Encode(RepresentationResponse{
+			Observer:       "tonto",
+			Observed:       "sans-nom",
+			Representation: "careful child",
+		})
+	}))
+	defer server.Close()
+
+	resp, err := NewClient(server.URL, "").Representation(context.Background(), RepresentationRequest{
+		WorkspaceID: "phase0-dev",
+		Observer:    "tonto",
+		Observed:    "sans-nom",
+		TopK:        3,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.Representation != "careful child" {
+		t.Fatalf("unexpected representation: %#v", resp)
+	}
+}
+
+func TestGetCard(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/peer/lothar/card" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		if got := r.URL.Query().Get("workspace_id"); got != "phase0-dev" {
+			t.Fatalf("unexpected workspace_id %q", got)
+		}
+		if got := r.URL.Query().Get("target"); got != "sans-nom" {
+			t.Fatalf("unexpected target %q", got)
+		}
+		_ = json.NewEncoder(w).Encode(PeerCardResponse{
+			PeerID: "lothar",
+			Target: "sans-nom",
+			Facts:  []string{"Name: Lothar"},
+		})
+	}))
+	defer server.Close()
+
+	facts, err := NewClient(server.URL, "").GetCard(context.Background(), "phase0-dev", "lothar", "sans-nom")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(facts) != 1 || facts[0] != "Name: Lothar" {
+		t.Fatalf("unexpected facts: %#v", facts)
+	}
+}

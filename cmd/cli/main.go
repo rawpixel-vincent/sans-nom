@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -13,6 +14,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
+	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
@@ -32,6 +34,8 @@ func main() {
 	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
 	loreK := flag.Int("k", 5, "number of lore search results")
 	bridgeURL := flag.String("bridge-url", os.Getenv("SANS_NOM_BRIDGE_URL"), "bridge sidecar URL")
+	contextPreview := flag.String("context-preview", "", "preview assembled context: narrator or writer")
+	contextText := flag.Bool("context-text", false, "print model-ready context text instead of pretty JSON")
 	flag.Parse()
 
 	if *loreSearch != "" {
@@ -44,6 +48,20 @@ func main() {
 	packet, err := openPacket(*packetPath)
 	if err != nil {
 		log.Fatal(err)
+	}
+	cardStore, err := loadCardStore()
+	if err != nil {
+		log.Fatal(err)
+	}
+	decision := scene.PlayerDecision{
+		ChoiceID: *choiceID,
+		FreeText: *freeText,
+	}
+	if *contextPreview != "" {
+		if err := runContextPreview(context.Background(), *contextPreview, *contextText, *bridgeURL, packet, *nodeID, decision, cardStore); err != nil {
+			log.Fatal(err)
+		}
+		return
 	}
 	runner := claudeRunner()
 	if *refreshWriter {
@@ -61,7 +79,16 @@ func main() {
 		}
 		packet = result.Packet
 	}
-	registry, err := actorRegistry()
+	registry, err := actorRegistry(cardStore)
+	if err != nil {
+		log.Fatal(err)
+	}
+	assembler := contextAssembler(*bridgeURL, false, cardStore)
+	narratorContext, err := assembler.AssembleNarrator(context.Background(), contextbundle.BuildRequest{
+		Packet:   packet,
+		NodeID:   *nodeID,
+		Decision: decision,
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -81,7 +108,7 @@ func main() {
 	rollout, err := svc.Rollout(context.Background(), packet, *nodeID, scene.PlayerDecision{
 		ChoiceID: *choiceID,
 		FreeText: *freeText,
-	}, "phase0-cli")
+	}, narratorContext.RenderText())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -116,6 +143,66 @@ func runLoreSearch(ctx context.Context, bridgeURL string, query string, k int) e
 		}
 	}
 	return nil
+}
+
+func runContextPreview(
+	ctx context.Context,
+	role string,
+	asText bool,
+	bridgeURL string,
+	packet scene.StoryPacket,
+	nodeID string,
+	decision scene.PlayerDecision,
+	cardStore *contextbundle.LocalCardStore,
+) error {
+	assembler := contextAssembler(bridgeURL, true, cardStore)
+	req := contextbundle.BuildRequest{Packet: packet, NodeID: nodeID, Decision: decision}
+	switch role {
+	case "narrator":
+		context, err := assembler.AssembleNarrator(ctx, req)
+		if err != nil {
+			return err
+		}
+		if asText {
+			fmt.Println(context.RenderText())
+			return nil
+		}
+		return printPrettyJSON(context)
+	case "writer":
+		context, err := assembler.AssembleWriter(ctx, req)
+		if err != nil {
+			return err
+		}
+		if asText {
+			fmt.Println(context.RenderText())
+			return nil
+		}
+		return printPrettyJSON(context)
+	default:
+		return fmt.Errorf("unknown context preview role %q", role)
+	}
+}
+
+func printPrettyJSON(value any) error {
+	encoder := json.NewEncoder(os.Stdout)
+	encoder.SetIndent("", "  ")
+	return encoder.Encode(value)
+}
+
+func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.LocalCardStore) contextbundle.Assembler {
+	assembler := contextbundle.Assembler{
+		Cards: cardStore,
+		Options: contextbundle.Options{
+			RequireBridge: strict,
+			RequireLore:   strict,
+		},
+	}
+	if strict || bridgeURL != "" {
+		client := bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN"))
+		assembler.Bridge = client
+		assembler.Lore = lore.BridgeRetriever{Client: client}
+	}
+	return assembler
 }
 
 func preview(text string, max int) string {
@@ -186,10 +273,19 @@ func openPacket(path string) (scene.StoryPacket, error) {
 	return scene.DecodeStoryPacket(file)
 }
 
-func actorRegistry() (*actors.Registry, error) {
-	registry, err := actors.LoadCards(filepath.Join("lore", "actors"))
-	if err == nil && len(registry.IDs()) > 0 {
-		return registry, nil
+func loadCardStore() (*contextbundle.LocalCardStore, error) {
+	return contextbundle.LoadLocalCardStore(
+		filepath.Join("lore", "actors"),
+		filepath.Join("lore", "canon", "comics", "peer-cards", "cards", "accepted"),
+	)
+}
+
+func actorRegistry(cardStore *contextbundle.LocalCardStore) (*actors.Registry, error) {
+	if cardStore != nil {
+		registry, err := cardStore.Registry()
+		if err == nil && len(registry.IDs()) > 0 {
+			return registry, nil
+		}
 	}
 	return actors.NewRegistry([]actors.Actor{{
 		ID:          "tonto",

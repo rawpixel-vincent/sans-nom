@@ -1,0 +1,226 @@
+package contextbundle
+
+import (
+	"encoding/json"
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func (c NarratorContext) RenderText() string {
+	var b strings.Builder
+	writeSection(&b, "ROLE BOUNDARY")
+	fmt.Fprintf(&b, "You are the Narrator. Rewrite only the selected scene node into player-facing prose.\n")
+	fmt.Fprintf(&b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
+
+	writeSection(&b, "CURRENT SCENE STATE")
+	writeJSON(&b, c.SceneState)
+
+	writeSection(&b, "PLAYER DECISION")
+	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
+
+	writeSection(&b, "SELECTED NODE")
+	writeJSON(&b, c.SelectedNode)
+
+	writeActorContexts(&b, c.ActorContexts)
+	writeLoreGroups(&b, groupLoreByKind(c.LoreHits))
+
+	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
+	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
+	writeStringList(&b, "MEMORY AND WITNESS RULES", c.WitnessRules)
+	writeStringList(&b, "WARNINGS", c.Warnings)
+
+	return strings.TrimSpace(b.String())
+}
+
+func (c WriterContext) RenderText() string {
+	var b strings.Builder
+	writeSection(&b, "ROLE BOUNDARY")
+	fmt.Fprintf(&b, "You are the Creative Writer. Plan the next bounded packet; the packet tree is planning material, not canon.\n")
+	fmt.Fprintf(&b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
+
+	writeSection(&b, "CURRENT SCENE STATE")
+	writeJSON(&b, c.SceneState)
+
+	writeSection(&b, "LATEST ROLLOUT AND DECISION")
+	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
+
+	writeSection(&b, "SELECTED NODE")
+	fmt.Fprintln(&b, c.SelectedNodeID)
+
+	writeSection(&b, "CURRENT BOUNDED PACKET")
+	writeJSON(&b, c.Packet)
+
+	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
+	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
+	writeLoreGroups(&b, c.LoreByKind)
+	writeActorAvailability(&b, c.ActorCards)
+
+	writeSection(&b, "PLANNING CONSTRAINTS")
+	fmt.Fprintln(&b, "- Revise only the current bounded packet.")
+	fmt.Fprintln(&b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
+	fmt.Fprintln(&b, "- Use actor cards and directional representations as constraints, not as all-cast fanout instructions.")
+	fmt.Fprintln(&b, "- Do not infer council mechanics, resurrection roster assumptions, or global shared knowledge.")
+
+	writeStringList(&b, "WARNINGS", c.Warnings)
+
+	return strings.TrimSpace(b.String())
+}
+
+func writeSection(b *strings.Builder, title string) {
+	if b.Len() > 0 {
+		fmt.Fprintln(b)
+		fmt.Fprintln(b)
+	}
+	fmt.Fprintf(b, "## %s\n", title)
+}
+
+func writeJSON(b *strings.Builder, value any) {
+	data, err := json.MarshalIndent(value, "", "  ")
+	if err != nil {
+		fmt.Fprintf(b, "%v\n", value)
+		return
+	}
+	fmt.Fprintln(b, string(data))
+}
+
+func writeStringList(b *strings.Builder, title string, values []string) {
+	if len(values) == 0 {
+		return
+	}
+	writeSection(b, title)
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		fmt.Fprintf(b, "- %s\n", value)
+	}
+}
+
+func writeRepresentations(b *strings.Builder, title string, reps []Representation) {
+	if len(reps) == 0 {
+		return
+	}
+	reps = append([]Representation(nil), reps...)
+	sort.SliceStable(reps, func(i, j int) bool {
+		if reps[i].Observer == reps[j].Observer {
+			return reps[i].Observed < reps[j].Observed
+		}
+		return reps[i].Observer < reps[j].Observer
+	})
+	writeSection(b, title)
+	for _, rep := range reps {
+		fmt.Fprintf(b, "### %s -> %s\n%s\n", rep.Observer, rep.Observed, strings.TrimSpace(rep.Text))
+	}
+}
+
+func writeActorContexts(b *strings.Builder, actors []ActorContext) {
+	if len(actors) == 0 {
+		return
+	}
+	actors = append([]ActorContext(nil), actors...)
+	sort.SliceStable(actors, func(i, j int) bool {
+		if actors[i].ActorID == actors[j].ActorID {
+			return actors[i].Mode < actors[j].Mode
+		}
+		return actors[i].ActorID < actors[j].ActorID
+	})
+	writeSection(b, "ACTOR CONTEXTS")
+	for _, actor := range actors {
+		fmt.Fprintf(b, "### %s\n", actor.ActorID)
+		fmt.Fprintf(b, "mode: %s\n", actor.Mode)
+		if actor.Reason != "" {
+			fmt.Fprintf(b, "reason: %s\n", actor.Reason)
+		}
+		if len(actor.Targets) > 0 {
+			fmt.Fprintf(b, "targets: %s\n", strings.Join(actor.Targets, ", "))
+		}
+		fmt.Fprintf(b, "card_source: %s\n", actor.CardSource)
+		fmt.Fprintln(b, "card:")
+		for _, line := range strings.Split(actor.Card, "\n") {
+			line = strings.TrimSpace(line)
+			if line != "" {
+				fmt.Fprintf(b, "- %s\n", line)
+			}
+		}
+		writeInlineRepresentations(b, actor.Representations)
+		writeInlineLore(b, actor.LoreHits)
+		if len(actor.Warnings) > 0 {
+			fmt.Fprintln(b, "warnings:")
+			for _, warning := range actor.Warnings {
+				fmt.Fprintf(b, "- %s\n", warning)
+			}
+		}
+	}
+}
+
+func writeInlineRepresentations(b *strings.Builder, reps []Representation) {
+	if len(reps) == 0 {
+		return
+	}
+	reps = append([]Representation(nil), reps...)
+	sort.SliceStable(reps, func(i, j int) bool {
+		if reps[i].Observer == reps[j].Observer {
+			return reps[i].Observed < reps[j].Observed
+		}
+		return reps[i].Observer < reps[j].Observer
+	})
+	fmt.Fprintln(b, "representations:")
+	for _, rep := range reps {
+		fmt.Fprintf(b, "- %s -> %s: %s\n", rep.Observer, rep.Observed, strings.TrimSpace(rep.Text))
+	}
+}
+
+func writeInlineLore(b *strings.Builder, hits []LoreHit) {
+	if len(hits) == 0 {
+		return
+	}
+	hits = append([]LoreHit(nil), hits...)
+	sortLore(hits)
+	fmt.Fprintln(b, "scene-valid lore:")
+	for _, hit := range hits {
+		fmt.Fprintf(b, "- %.3f %s %s: %s\n", hit.Score, hit.ID, hit.Source, strings.TrimSpace(hit.Text))
+	}
+}
+
+func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
+	if len(byKind) == 0 {
+		return
+	}
+	kinds := make([]string, 0, len(byKind))
+	for kind := range byKind {
+		kinds = append(kinds, kind)
+	}
+	sort.Strings(kinds)
+	writeSection(b, "LORE REFERENCES")
+	for _, kind := range kinds {
+		hits := append([]LoreHit(nil), byKind[kind]...)
+		sortLore(hits)
+		fmt.Fprintf(b, "### %s\n", kind)
+		for _, hit := range hits {
+			fmt.Fprintf(b, "- %.3f %s %s\n", hit.Score, hit.ID, hit.Source)
+			if text := strings.TrimSpace(hit.Text); text != "" {
+				fmt.Fprintf(b, "  %s\n", text)
+			}
+		}
+	}
+}
+
+func writeActorAvailability(b *strings.Builder, cards []ActorCardAvailability) {
+	if len(cards) == 0 {
+		return
+	}
+	cards = append([]ActorCardAvailability(nil), cards...)
+	sort.SliceStable(cards, func(i, j int) bool {
+		return cards[i].ActorID < cards[j].ActorID
+	})
+	writeSection(b, "ACTOR CARD AVAILABILITY")
+	for _, card := range cards {
+		if card.Available {
+			fmt.Fprintf(b, "- %s: %s\n", card.ActorID, card.CardSource)
+		} else {
+			fmt.Fprintf(b, "- %s: unavailable\n", card.ActorID)
+		}
+	}
+}
