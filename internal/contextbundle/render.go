@@ -12,6 +12,7 @@ func (c NarratorContext) RenderText() string {
 	writeSection(&b, "ROLE BOUNDARY")
 	fmt.Fprintf(&b, "You are the Narrator. Rewrite only the selected scene node into player-facing prose.\n")
 	fmt.Fprintf(&b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
+	fmt.Fprintf(&b, "Lore references are creative influence only; do not import source-canon names, places, factions, or events as facts in the new story.\n")
 
 	writeSection(&b, "CURRENT SCENE STATE")
 	writeJSON(&b, c.SceneState)
@@ -30,7 +31,7 @@ func (c NarratorContext) RenderText() string {
 	writeStringList(&b, "MEMORY AND WITNESS RULES", c.WitnessRules)
 	writeStringList(&b, "WARNINGS", c.Warnings)
 
-	return strings.TrimSpace(b.String())
+	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
 }
 
 func (c WriterContext) RenderText() string {
@@ -38,6 +39,7 @@ func (c WriterContext) RenderText() string {
 	writeSection(&b, "ROLE BOUNDARY")
 	fmt.Fprintf(&b, "You are the Creative Writer. Plan the next bounded packet; the packet tree is planning material, not canon.\n")
 	fmt.Fprintf(&b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
+	fmt.Fprintf(&b, "Lore references encode SF-comics taste and passion; create new story content instead of copying source canon.\n")
 
 	writeSection(&b, "CURRENT SCENE STATE")
 	writeJSON(&b, c.SceneState)
@@ -54,17 +56,18 @@ func (c WriterContext) RenderText() string {
 	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
 	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
 	writeLoreGroups(&b, c.LoreByKind)
-	writeActorAvailability(&b, c.ActorCards)
+	writeActorManifest(&b, c.ActorManifest)
 
 	writeSection(&b, "PLANNING CONSTRAINTS")
 	fmt.Fprintln(&b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(&b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
-	fmt.Fprintln(&b, "- Use actor cards and directional representations as constraints, not as all-cast fanout instructions.")
+	fmt.Fprintln(&b, "- Use actor cards and directional representations only for original story actors explicitly present in the packet.")
+	fmt.Fprintln(&b, "- Treat lore references as influence material, not as candidate actor inventory or canon to reproduce.")
 	fmt.Fprintln(&b, "- Do not infer council mechanics, resurrection roster assumptions, or global shared knowledge.")
 
 	writeStringList(&b, "WARNINGS", c.Warnings)
 
-	return strings.TrimSpace(b.String())
+	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
 }
 
 func writeSection(b *strings.Builder, title string) {
@@ -193,7 +196,7 @@ func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
 		kinds = append(kinds, kind)
 	}
 	sort.Strings(kinds)
-	writeSection(b, "LORE REFERENCES")
+	writeSection(b, "CREATIVE INFLUENCE REFERENCES")
 	for _, kind := range kinds {
 		hits := append([]LoreHit(nil), byKind[kind]...)
 		sortLore(hits)
@@ -207,20 +210,44 @@ func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
 	}
 }
 
-func writeActorAvailability(b *strings.Builder, cards []ActorCardAvailability) {
-	if len(cards) == 0 {
+func writeActorManifest(b *strings.Builder, actors []ActorManifestItem) {
+	if len(actors) == 0 {
 		return
 	}
-	cards = append([]ActorCardAvailability(nil), cards...)
-	sort.SliceStable(cards, func(i, j int) bool {
-		return cards[i].ActorID < cards[j].ActorID
-	})
-	writeSection(b, "ACTOR CARD AVAILABILITY")
-	for _, card := range cards {
-		if card.Available {
-			fmt.Fprintf(b, "- %s: %s\n", card.ActorID, card.CardSource)
-		} else {
-			fmt.Fprintf(b, "- %s: unavailable\n", card.ActorID)
+	actors = append([]ActorManifestItem(nil), actors...)
+	sort.SliceStable(actors, func(i, j int) bool {
+		if actors[i].Explicit != actors[j].Explicit {
+			return actors[i].Explicit
 		}
+		return actors[i].PeerID < actors[j].PeerID
+	})
+	writeSection(b, "STORY ACTOR MANIFEST")
+	for _, actor := range actors {
+		marker := ""
+		if actor.Explicit {
+			marker = " explicit"
+		}
+		fmt.Fprintf(b, "- %s%s", actor.PeerID, marker)
+		if actor.DisplayName != "" {
+			fmt.Fprintf(b, " (%s)", actor.DisplayName)
+		}
+		if actor.Role != "" {
+			fmt.Fprintf(b, ": %s", actor.Role)
+		}
+		if actor.Reason != "" {
+			fmt.Fprintf(b, " [%s]", actor.Reason)
+		}
+		fmt.Fprintln(b)
 	}
+}
+
+func capRenderedText(text string, max int) string {
+	if max <= 0 || len(text) <= max {
+		return text
+	}
+	notice := "\n\n[context truncated at render cap]"
+	if max <= len(notice) {
+		return text[:max]
+	}
+	return strings.TrimSpace(text[:max-len(notice)]) + notice
 }

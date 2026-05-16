@@ -48,6 +48,73 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 	}
 }
 
+func TestWriterContextUsesCompactActorManifest(t *testing.T) {
+	cards := staticCards{"tonto": testCard("tonto")}
+	for _, id := range []string{"aghora", "lothar", "steelhead__late", "unrelated-one", "unrelated-two"} {
+		cards[id] = testCard(id)
+	}
+	assembler := testAssembler(cards)
+	assembler.Options.MaxActorManifestItems = 4
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: testPacket()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(ctx.ActorManifest) > 4 {
+		t.Fatalf("manifest was not capped: %#v", ctx.ActorManifest)
+	}
+	text := ctx.RenderText()
+	if strings.Contains(text, "unrelated-one") || strings.Contains(text, "unrelated-two") {
+		t.Fatalf("writer context included full inventory:\n%s", text)
+	}
+	if !strings.Contains(text, "tonto") {
+		t.Fatalf("writer context missed explicit actor:\n%s", text)
+	}
+}
+
+func TestWriterContextDoesNotPromoteLorePeersToActors(t *testing.T) {
+	assembler := testAssembler(staticCards{
+		"tonto":  testCard("tonto"),
+		"lothar": testCard("lothar"),
+	})
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "peer_card:lothar",
+		Text:   "Name: Lothar",
+		Source: "lothar.json",
+		Score:  0.9,
+		Kind:   "peer_card",
+		PeerID: "lothar",
+	}}}
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: testPacket()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := manifestIDs(ctx.ActorManifest); !reflect.DeepEqual(got, []string{"tonto"}) {
+		t.Fatalf("lore peer became an actor candidate: %#v", got)
+	}
+	if !strings.Contains(ctx.RenderText(), "CREATIVE INFLUENCE REFERENCES") {
+		t.Fatalf("lore should render as influence references:\n%s", ctx.RenderText())
+	}
+}
+
+func TestRenderedContextHonorsHardCap(t *testing.T) {
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "long",
+		Text:   strings.Repeat("lore ", 500),
+		Source: "long.json",
+		Score:  1,
+		Kind:   "wiki_lore",
+	}}}
+	assembler.Options.NarratorSoftCap = 900
+	ctx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{Packet: testPacket()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := len(ctx.RenderText()); got > 900 {
+		t.Fatalf("rendered context exceeded cap: %d", got)
+	}
+}
+
 func TestNoAllCastFanoutFromPresentActorsOrCardInventory(t *testing.T) {
 	packet := testPacket()
 	packet.ContextSnapshot.PresentActors = []string{"sans-nom", "tonto", "aghora", "lothar", "steelhead__late"}
@@ -305,6 +372,15 @@ func actorIDs(actors []ActorContext) []string {
 	ids := make([]string, 0, len(actors))
 	for _, actor := range actors {
 		ids = append(ids, actor.ActorID)
+	}
+	sort.Strings(ids)
+	return ids
+}
+
+func manifestIDs(actors []ActorManifestItem) []string {
+	ids := make([]string, 0, len(actors))
+	for _, actor := range actors {
+		ids = append(ids, actor.PeerID)
 	}
 	sort.Strings(ids)
 	return ids

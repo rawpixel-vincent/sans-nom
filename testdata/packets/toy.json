@@ -1,83 +1,90 @@
 {
-  "id": "phase0-toy-001",
-  "entry_node_id": "eastern-hall",
+  "id": "original-toy-001",
+  "entry_node_id": "glasswell-threshold",
   "context_snapshot": {
     "workspace_id": "phase0-dev",
-    "session_id": "compound-childhood",
-    "location": "Castaka compound",
-    "time": "childhood",
+    "session_id": "original-opening",
+    "location": "Glasswell underworks",
+    "time": "first bell after artificial dawn",
     "latest_narrator_prose": "",
-    "present_actors": ["sans-nom", "tonto"],
-    "representations": {
-      "tonto:sans-nom": "Sans-Nom has begun watching the eastern hall instead of asking about it."
-    }
+    "present_actors": [],
+    "representations": {}
   },
   "nodes": [
     {
-      "id": "eastern-hall",
-      "title": "The locked eastern hall",
+      "id": "glasswell-threshold",
+      "title": "The underworks begin to sing",
       "beats": [
         {
           "id": "beat-1",
-          "text": "Sans-Nom stops where the corridor narrows and the eastern hall begins to feel less like architecture than a held breath."
-        }
-      ],
-      "actor_needs": [
-        {
-          "actor_id": "tonto",
-          "mode": "present",
-          "reason": "Tonto is physically present and can react to the child's hesitation."
+          "text": "You stand beneath the Glasswell habitat where the coolant gutters hum like a choir, and the sealed maintenance iris begins answering a pulse no apprentice is supposed to hear."
         }
       ],
       "choices": [
         {
-          "id": "ask-tonto",
-          "label": "Ask Tonto what lies beyond the door",
-          "target_node_id": "tonto-story",
+          "id": "trace-pulse",
+          "label": "Trace the pulse through the coolant gutters",
+          "target_node_id": "trace-pulse",
           "player_intent": "question"
         },
         {
-          "id": "walk-away",
-          "label": "Walk away before anyone notices",
-          "target_node_id": "retreat",
-          "player_intent": "avoidance"
+          "id": "report-iris",
+          "label": "Report the waking iris to the shift matron",
+          "target_node_id": "report-iris",
+          "player_intent": "seek authority"
+        },
+        {
+          "id": "hide-toolmark",
+          "label": "Hide your toolmark before anyone sees it",
+          "target_node_id": "hide-toolmark",
+          "player_intent": "transgress"
         }
       ],
       "memory_intents": [
         {
-          "id": "hesitation",
-          "summary": "Sans-Nom hesitated at the eastern hall and did not yet cross into it.",
+          "id": "underworks-pulse",
+          "summary": "The player heard the sealed Glasswell iris answer an unauthorized pulse.",
           "policy": "rolled_out_canon",
-          "witnesses": ["sans-nom", "tonto"]
+          "witnesses": ["sans-nom"]
         }
       ],
-      "writer_notes": "Do not reveal Steelhead yet."
+      "writer_notes": "Keep the source lore as influence only; do not import canon names or events."
     },
     {
-      "id": "tonto-story",
-      "title": "Tonto begins too far back",
+      "id": "trace-pulse",
+      "title": "A path in the condensation",
       "beats": [
         {
           "id": "beat-1",
-          "text": "Tonto answers by beginning somewhere before Sans-Nom was born."
+          "text": "The pulse moves with the patience of a machine pretending to be alive, leaving bright mineral frost where your fingers nearly touch the pipe."
         }
       ],
       "choices": []
     },
     {
-      "id": "retreat",
-      "title": "The door remains behind him",
+      "id": "report-iris",
+      "title": "The rule has a human voice",
       "beats": [
         {
           "id": "beat-1",
-          "text": "Sans-Nom turns away, and the unopened door becomes heavier because it has not been touched."
+          "text": "The shift matron listens without surprise, then asks which part of the sound felt like a command and which part felt like an invitation."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "hide-toolmark",
+      "title": "A small lie gets warm",
+      "beats": [
+        {
+          "id": "beat-1",
+          "text": "Your toolmark darkens under your sleeve, warmed by the same pulse, and the hidden stain feels less like evidence than a choice you already made."
         }
       ],
       "choices": []
     }
   ],
   "revision_notes": [
-    "Bounded Phase 0 packet: three nodes, no all-cast fanout."
+    "Original toy packet: source lore is influence only, no literal canon import, no actor_needs yet."
   ]
 }
-

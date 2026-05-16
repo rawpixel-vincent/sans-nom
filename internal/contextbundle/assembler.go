@@ -23,6 +23,7 @@ func DefaultOptions() Options {
 		MaxRepresentationChars: 1000,
 		MaxActorCardFacts:      40,
 		MaxActorTargets:        3,
+		MaxActorManifestItems:  12,
 		NarratorSoftCap:        12000,
 		WriterSoftCap:          18000,
 	}
@@ -55,6 +56,7 @@ func (a Assembler) AssembleNarrator(ctx context.Context, req BuildRequest) (Narr
 	reps, repWarnings := representationsFromSceneContext(sceneCtx, opts)
 	warnings = append(warnings, repWarnings...)
 	nc := NarratorContext{
+		MaxRenderChars:  opts.NarratorSoftCap,
 		SceneState:      sceneState(req.Packet),
 		PlayerDecision:  req.Decision,
 		SelectedNode:    publicNode(node),
@@ -103,8 +105,9 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 	warnings = append(warnings, loreWarnings...)
 	reps, repWarnings := representationsFromSceneContext(sceneCtx, opts)
 	warnings = append(warnings, repWarnings...)
-	cards := a.actorAvailability()
+	manifest := a.actorManifest(req.Packet, node, opts)
 	wc := WriterContext{
+		MaxRenderChars:  opts.WriterSoftCap,
 		SceneState:      sceneState(req.Packet),
 		PlayerDecision:  req.Decision,
 		SelectedNodeID:  node.ID,
@@ -112,14 +115,14 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		RecentScenes:    trimStrings(sceneCtx.RecentScenes, opts.MaxRecentSceneChars, &warnings, "recent scene"),
 		Representations: reps,
 		LoreByKind:      groupLoreByKind(loreHits),
-		ActorCards:      cards,
+		ActorManifest:   manifest,
 		Warnings:        warnings,
 	}
 	wc.Summary = ContextBundleSummary{
 		Role:         "writer",
 		PacketID:     req.Packet.ID,
 		NodeID:       node.ID,
-		ActorCount:   len(cards),
+		ActorCount:   len(manifest),
 		LoreHitCount: len(loreHits),
 		Warnings:     wc.Warnings,
 	}
@@ -143,6 +146,7 @@ func (a Assembler) options() Options {
 	copyPositiveInt(&opts.MaxRepresentationChars, a.Options.MaxRepresentationChars)
 	copyPositiveInt(&opts.MaxActorCardFacts, a.Options.MaxActorCardFacts)
 	copyPositiveInt(&opts.MaxActorTargets, a.Options.MaxActorTargets)
+	copyPositiveInt(&opts.MaxActorManifestItems, a.Options.MaxActorManifestItems)
 	copyPositiveInt(&opts.NarratorSoftCap, a.Options.NarratorSoftCap)
 	copyPositiveInt(&opts.WriterSoftCap, a.Options.WriterSoftCap)
 	opts.RequireBridge = a.Options.RequireBridge
@@ -438,22 +442,6 @@ func splitRepresentationKey(key string, defaultObserved string) (string, string)
 		return parts[0], parts[1]
 	}
 	return "narrator", defaultObserved
-}
-
-func (a Assembler) actorAvailability() []ActorCardAvailability {
-	if a.Cards == nil {
-		return nil
-	}
-	var out []ActorCardAvailability
-	for _, id := range a.Cards.ActorIDs() {
-		card, ok := a.Cards.LocalCard(id)
-		out = append(out, ActorCardAvailability{
-			ActorID:    id,
-			Available:  ok,
-			CardSource: card.Source,
-		})
-	}
-	return out
 }
 
 func groupLoreByKind(hits []LoreHit) map[string][]LoreHit {

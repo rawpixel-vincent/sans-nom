@@ -14,7 +14,13 @@ import (
 )
 
 type Planner interface {
-	Plan(ctx context.Context, current scene.StoryPacket, latestDecision string) (scene.StoryPacket, error)
+	Plan(ctx context.Context, input Input) (scene.StoryPacket, error)
+}
+
+type Input struct {
+	Current        scene.StoryPacket
+	LatestDecision string
+	ContextText    string
 }
 
 type Service struct {
@@ -31,13 +37,16 @@ type Result struct {
 	Err    error
 }
 
-func (s Service) RefreshAsync(ctx context.Context, current scene.StoryPacket, latestDecision string) (*Job, error) {
+func (s Service) RefreshAsync(ctx context.Context, input Input) (*Job, error) {
 	if s.Planner == nil {
 		return nil, errors.New("writer planner is required")
 	}
 	job := &Job{done: make(chan Result, 1)}
 	go func() {
-		packet, err := s.Planner.Plan(ctx, current, latestDecision)
+		packet, err := s.Planner.Plan(ctx, input)
+		if err == nil {
+			err = packet.Validate()
+		}
 		job.done <- Result{Packet: packet, Err: err}
 		close(job.done)
 	}()
@@ -58,9 +67,12 @@ type StaticPlanner struct {
 	Err  error
 }
 
-func (p StaticPlanner) Plan(context.Context, scene.StoryPacket, string) (scene.StoryPacket, error) {
+func (p StaticPlanner) Plan(_ context.Context, input Input) (scene.StoryPacket, error) {
 	if p.Err != nil {
 		return scene.StoryPacket{}, p.Err
+	}
+	if p.Next.ID == "" {
+		return input.Current, input.Current.Validate()
 	}
 	return p.Next, p.Next.Validate()
 }
@@ -69,11 +81,19 @@ type ClaudePlanner struct {
 	Runner prompt.Runner
 }
 
-func (p ClaudePlanner) Plan(ctx context.Context, current scene.StoryPacket, latestDecision string) (scene.StoryPacket, error) {
+func (p ClaudePlanner) Plan(ctx context.Context, input Input) (scene.StoryPacket, error) {
 	if p.Runner == nil {
 		return scene.StoryPacket{}, errors.New("claude planner needs runner")
 	}
-	text, err := prompt.WriterPrompt(current, latestDecision)
+	contextText := input.ContextText
+	if contextText == "" {
+		data, err := json.MarshalIndent(input.Current, "", "  ")
+		if err != nil {
+			return scene.StoryPacket{}, err
+		}
+		contextText = string(data)
+	}
+	text, err := prompt.WriterPrompt(contextText, input.LatestDecision)
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}

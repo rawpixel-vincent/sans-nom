@@ -36,6 +36,7 @@ type Options struct {
 	MaxRepresentationChars int
 	MaxActorCardFacts      int
 	MaxActorTargets        int
+	MaxActorManifestItems  int
 	NarratorSoftCap        int
 	WriterSoftCap          int
 	RequireBridge          bool
@@ -107,6 +108,7 @@ type PublicSceneNode struct {
 
 type NarratorContext struct {
 	Summary         ContextBundleSummary `json:"summary"`
+	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
 	SceneState      SceneState           `json:"scene_state"`
 	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
 	SelectedNode    PublicSceneNode      `json:"selected_node"`
@@ -119,20 +121,24 @@ type NarratorContext struct {
 }
 
 type WriterContext struct {
-	Summary         ContextBundleSummary    `json:"summary"`
-	SceneState      SceneState              `json:"scene_state"`
-	PlayerDecision  scene.PlayerDecision    `json:"player_decision,omitempty"`
-	SelectedNodeID  string                  `json:"selected_node_id"`
-	Packet          scene.StoryPacket       `json:"packet"`
-	RecentScenes    []string                `json:"recent_scenes,omitempty"`
-	Representations []Representation        `json:"representations,omitempty"`
-	LoreByKind      map[string][]LoreHit    `json:"lore_by_kind,omitempty"`
-	ActorCards      []ActorCardAvailability `json:"actor_cards,omitempty"`
-	Warnings        []string                `json:"warnings,omitempty"`
+	Summary         ContextBundleSummary `json:"summary"`
+	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
+	SceneState      SceneState           `json:"scene_state"`
+	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
+	SelectedNodeID  string               `json:"selected_node_id"`
+	Packet          scene.StoryPacket    `json:"packet"`
+	RecentScenes    []string             `json:"recent_scenes,omitempty"`
+	Representations []Representation     `json:"representations,omitempty"`
+	LoreByKind      map[string][]LoreHit `json:"lore_by_kind,omitempty"`
+	ActorManifest   []ActorManifestItem  `json:"actor_manifest,omitempty"`
+	Warnings        []string             `json:"warnings,omitempty"`
 }
 
-type ActorCardAvailability struct {
-	ActorID    string `json:"actor_id"`
-	Available  bool   `json:"available"`
-	CardSource string `json:"card_source,omitempty"`
+type ActorManifestItem struct {
+	PeerID      string `json:"peer_id"`
+	DisplayName string `json:"display_name,omitempty"`
+	Role        string `json:"role,omitempty"`
+	Source      string `json:"source,omitempty"`
+	Reason      string `json:"reason,omitempty"`
+	Explicit    bool   `json:"explicit,omitempty"`
 }
