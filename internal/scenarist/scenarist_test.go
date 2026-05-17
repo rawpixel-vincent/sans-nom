@@ -29,6 +29,33 @@ func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
 	}
 }
 
+func TestScenaristPromptKeepsChoicesAsNonSchemaMaterial(t *testing.T) {
+	system := ScenaristSystemPrompt("", false)
+	for _, required := range []string{
+		"Do not write a StoryPacket",
+		"Do not invent schema target_node_id values",
+		"future placeholder node ids",
+	} {
+		if !strings.Contains(system, required) {
+			t.Fatalf("scenarist system prompt missing %q:\n%s", required, system)
+		}
+	}
+
+	query := ScenaristToolQuery("writer context", ToolRequest{
+		Topic:          "Branch pressure",
+		Request:        "Suggest choices.",
+		HardBoundaries: []string{"Original material only."},
+	})
+	for _, required := range []string{
+		"not as StoryPacket schema choices or target node ids",
+		"Write free-form creative material",
+	} {
+		if !strings.Contains(query, required) {
+			t.Fatalf("scenarist query missing %q:\n%s", required, query)
+		}
+	}
+}
+
 func TestProviderEnvMapsProviderPrefixedVariables(t *testing.T) {
 	dir := t.TempDir()
 	envPath := filepath.Join(dir, ".env")

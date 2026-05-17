@@ -1511,6 +1511,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				Fields: map[string]any{
 					"artifact_dir": filepath.ToSlash(failure.RunDir),
 				},
+				Detail: writerFailureDetails(failure),
 			})
 			if err := markStoryBlocked(cfg, state, failure); err != nil {
 				return err
@@ -1784,17 +1785,22 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 	if len(audioPath) > 0 {
 		turnAudioPath = audioPath[0]
 	}
+	nextDecision := scene.PlayerDecision{}
+	if state.HasPendingDecision() {
+		nextDecision = state.PendingDecision
+	}
 	record := story.TurnRecord{
-		StoryID:    state.StoryID,
-		PacketID:   rollout.Commit.PacketID,
-		NodeID:     rollout.Commit.NodeID,
-		Decision:   rollout.Commit.PlayerDecision,
-		Prose:      rollout.Draft.Prose,
-		Choices:    rollout.Node.Choices,
-		Commit:     rollout.Commit,
-		Committed:  committed,
-		NextNodeID: nextNodeID,
-		AudioPath:  filepath.ToSlash(turnAudioPath),
+		StoryID:      state.StoryID,
+		PacketID:     rollout.Commit.PacketID,
+		NodeID:       rollout.Commit.NodeID,
+		Decision:     rollout.Commit.PlayerDecision,
+		NextDecision: nextDecision,
+		Prose:        rollout.Draft.Prose,
+		Choices:      rollout.Node.Choices,
+		Commit:       rollout.Commit,
+		Committed:    committed,
+		NextNodeID:   nextNodeID,
+		AudioPath:    filepath.ToSlash(turnAudioPath),
 	}
 	nextState, err := cfg.Workspace.RecordTurn(*state, packet, record)
 	if err != nil {
@@ -1809,13 +1815,16 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"committed":     committed,
-			"next_node_id":  nextNodeID,
-			"choice_id":     rollout.Commit.PlayerDecision.ChoiceID,
-			"has_free_text": rollout.Commit.PlayerDecision.FreeText != "",
+			"committed":          committed,
+			"next_node_id":       nextNodeID,
+			"choice_id":          rollout.Commit.PlayerDecision.ChoiceID,
+			"has_free_text":      rollout.Commit.PlayerDecision.FreeText != "",
+			"next_choice_id":     nextDecision.ChoiceID,
+			"next_has_free_text": nextDecision.FreeText != "",
 		},
 		Detail: map[string]any{
-			"turn_record": record,
+			"turn_record":   record,
+			"next_decision": nextDecision,
 		},
 	})
 	return refreshStoryIndex(ctx, cfg, state, packet)
@@ -2007,6 +2016,23 @@ func writerFailure(err error, runID string, runDir string) writerRefreshFailure 
 		return failure
 	}
 	return writerRefreshFailure{Err: err, RunID: runID, RunDir: runDir}
+}
+
+func writerFailureDetails(failure writerRefreshFailure) map[string]any {
+	detail := map[string]any{
+		"error":        failure.Err.Error(),
+		"run_id":       failure.RunID,
+		"artifact_dir": filepath.ToSlash(failure.RunDir),
+	}
+	var missing *scene.MissingChoiceTargetError
+	if errors.As(failure.Err, &missing) {
+		detail["failure_kind"] = "missing_choice_target"
+		detail["source_node_id"] = missing.NodeID
+		detail["choice_id"] = missing.ChoiceID
+		detail["missing_target_node_id"] = missing.TargetNodeID
+		detail["known_node_ids"] = missing.KnownNodeIDs
+	}
+	return detail
 }
 
 func asWriterFailure(err error) (writerRefreshFailure, bool) {

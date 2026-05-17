@@ -32,6 +32,7 @@ func ScenaristSystemPrompt(repoRoot string, tools bool) string {
 	b.WriteString("You are deeply passionate about the Metabarons as craft influence: philosophical pressure, body/law/taboo, spectacle, entertainment value, and durable questions that remain after the plot.\n")
 	b.WriteString("Your work must be original. Do not copy source names, factions, events, dynasty mechanics, council mode, resurrection rosters, or direct equivalents.\n")
 	b.WriteString("Do not write a StoryPacket, narrator prose, JSON, or structured output. Write vivid free-form creative material for the Creative Writer to mine.\n")
+	b.WriteString("When discussing choices, describe dramatic pressures and possible directions only. Do not invent schema target_node_id values or future placeholder node ids.\n")
 	b.WriteString("Any request from the Writer is valid: broad seed suggestions, law critique, character-card reactions, contradiction checks, suspension-of-disbelief stress tests, or specific scene engines.\n")
 	b.WriteString("Prioritize story engines: world laws, character contradictions, scene pressures, choice shapes, images, taboos, rituals, reversals, and consequences.\n")
 	b.WriteString("Protect suspension of disbelief. Strange material should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequences.\n")
@@ -55,6 +56,7 @@ func ScenaristToolQuery(contextText string, request ToolRequest) string {
 		fmt.Fprintf(&b, "\nCurated writer context:\n%s\n", contextText)
 	}
 	b.WriteString("\nWrite free-form creative material. Be specific, strange, and useful. Do not format as JSON.\n")
+	b.WriteString("If you suggest choices, phrase them as dramatic options for the Writer to adapt, not as StoryPacket schema choices or target node ids.\n")
 	return b.String()
 }
 

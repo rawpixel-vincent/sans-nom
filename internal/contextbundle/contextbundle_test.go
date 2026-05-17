@@ -47,6 +47,9 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 			t.Fatalf("writer context missed %q:\n%s", required, text)
 		}
 	}
+	if !strings.Contains(text, "StoryPacket closure rule") || !strings.Contains(text, "future packet handoffs must be terminal nodes with revision_notes") {
+		t.Fatalf("writer context missed packet closure rule:\n%s", text)
+	}
 }
 
 func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T) {

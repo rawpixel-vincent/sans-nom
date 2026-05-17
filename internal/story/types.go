@@ -143,18 +143,19 @@ func PlayerDecisionEqual(a scene.PlayerDecision, b scene.PlayerDecision) bool {
 }
 
 type TurnRecord struct {
-	Turn       int                  `json:"turn"`
-	StoryID    string               `json:"story_id"`
-	PacketID   string               `json:"packet_id"`
-	NodeID     string               `json:"node_id"`
-	Decision   scene.PlayerDecision `json:"decision"`
-	Prose      string               `json:"prose"`
-	Choices    []scene.Choice       `json:"choices"`
-	Commit     scene.Commit         `json:"commit"`
-	Committed  bool                 `json:"committed"`
-	NextNodeID string               `json:"next_node_id,omitempty"`
-	AudioPath  string               `json:"audio_path,omitempty"`
-	CreatedAt  string               `json:"created_at"`
+	Turn         int                  `json:"turn"`
+	StoryID      string               `json:"story_id"`
+	PacketID     string               `json:"packet_id"`
+	NodeID       string               `json:"node_id"`
+	Decision     scene.PlayerDecision `json:"decision"`
+	NextDecision scene.PlayerDecision `json:"next_decision,omitempty"`
+	Prose        string               `json:"prose"`
+	Choices      []scene.Choice       `json:"choices"`
+	Commit       scene.Commit         `json:"commit"`
+	Committed    bool                 `json:"committed"`
+	NextNodeID   string               `json:"next_node_id,omitempty"`
+	AudioPath    string               `json:"audio_path,omitempty"`
+	CreatedAt    string               `json:"created_at"`
 }
 
 func ValidateBundle(bundle SeedBundle) error {

@@ -28,6 +28,24 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	}
 }
 
+func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
+	got, err := WriterPrompt("writer context", "choice_refuse_publicly")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, required := range []string{
+		"Every choice target_node_id must point to a scene node included in this same packet",
+		"node_future_*",
+		"terminal node with no choices and revision_notes",
+		"Scenarist material is inspiration only",
+		"validator-closed StoryPacket",
+	} {
+		if !strings.Contains(got, required) {
+			t.Fatalf("writer prompt missing %q:\n%s", required, got)
+		}
+	}
+}
+
 func TestSeedVerifierRejectsPlaceholderContinuationTargets(t *testing.T) {
 	got := SeedVerifierPrompt(`{"bible":{},"packet":{}}`, "seed context")
 	for _, required := range []string{

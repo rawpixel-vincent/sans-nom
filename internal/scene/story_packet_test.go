@@ -1,6 +1,11 @@
 package scene
 
-import "testing"
+import (
+	"errors"
+	"slices"
+	"strings"
+	"testing"
+)
 
 func TestStoryPacketValidationAndChoice(t *testing.T) {
 	packet := StoryPacket{
@@ -55,8 +60,37 @@ func TestStoryPacketRejectsMissingChoiceTarget(t *testing.T) {
 		}},
 	}
 
-	if err := packet.Validate(); err == nil {
+	err := packet.Validate()
+	if err == nil {
 		t.Fatal("expected missing target validation error")
+	}
+	var missing *MissingChoiceTargetError
+	if !errors.As(err, &missing) {
+		t.Fatalf("expected MissingChoiceTargetError, got %T: %v", err, err)
+	}
+	if missing.NodeID != "start" || missing.ChoiceID != "bad" || missing.TargetNodeID != "missing" {
+		t.Fatalf("unexpected missing target detail: %#v", missing)
+	}
+	if !slices.Contains(missing.KnownNodeIDs, "start") {
+		t.Fatalf("known node ids missing start: %#v", missing.KnownNodeIDs)
+	}
+	if !strings.Contains(err.Error(), "missing target node inside bounded packet") {
+		t.Fatalf("error should explain bounded packet closure: %v", err)
+	}
+}
+
+func TestStoryPacketAllowsTerminalHandoffWithRevisionNotes(t *testing.T) {
+	packet := StoryPacket{
+		ID:          "packet-1",
+		EntryNodeID: "handoff",
+		Nodes: []SceneNode{{
+			ID:            "handoff",
+			Beats:         []Beat{{Text: "The branch reaches the edge of this bounded packet."}},
+			RevisionNotes: []string{"Writer continuation is required after this branch."},
+		}},
+	}
+	if err := packet.Validate(); err != nil {
+		t.Fatalf("terminal handoff should validate: %v", err)
 	}
 }
 

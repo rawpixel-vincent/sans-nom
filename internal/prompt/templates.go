@@ -19,9 +19,12 @@ Rules:
 - Create new story material. Do not reuse Metabarons names, places, factions, dynasty events, family-tree roles, or direct equivalents.
 - Do not summon lore peers as actors. Actor needs must be explicit original story actors with available cards.
 - Plan the full decision structure for the current chunk, roughly 3-5 scene nodes.
+- Every choice target_node_id must point to a scene node included in this same packet. Do not use placeholder or future targets such as "node_future_*", "continue", "writer_continuation", or any missing handoff node.
+- If a branch should hand off to the next Writer refresh, make that branch a terminal node with no choices and revision_notes explaining the continuation requirement.
 - Protect suspension of disbelief: every law, taboo, technology, social reaction, character choice, and consequence must feel internally motivated by the created world.
 - If the call_scenarists tool is available, use it whenever free-form workshop help would improve the packet. The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes material to files, and returns only file paths.
 - You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
+- Scenarist material is inspiration only. Convert it into a validator-closed StoryPacket yourself; do not copy unresolved future branch labels into target_node_id.
 - The Narrator will write final prose later. Keep Writer material out of canon.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.

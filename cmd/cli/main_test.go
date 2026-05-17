@@ -331,6 +331,9 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	if err == nil {
 		t.Fatal("expected writer refresh failure")
 	}
+	if !strings.Contains(err.Error(), "missing target node inside bounded packet") {
+		t.Fatalf("expected bounded packet missing target error: %v", err)
+	}
 	if !strings.Contains(err.Error(), "artifacts:") {
 		t.Fatalf("expected artifact path in error: %v", err)
 	}
@@ -346,6 +349,36 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	}
 	if loaded.BlockedWriterRunPath == "" {
 		t.Fatalf("missing blocked run path: %#v", loaded)
+	}
+	turns, err := workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) != 1 {
+		t.Fatalf("turn count = %d", len(turns))
+	}
+	if turns[0].NextDecision.ChoiceID != "open" {
+		t.Fatalf("turn next decision = %#v", turns[0].NextDecision)
+	}
+	events, err := gamelog.Read(gamelog.NewWriter(workspace.Dir, state.StoryID).Path, gamelog.Filter{Event: "writer.refresh.failed"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("writer failure events = %#v", events)
+	}
+	if events[0].DetailPath == "" {
+		t.Fatalf("writer failure log missing detail: %#v", events[0])
+	}
+	detail, err := gamelog.NewWriter(workspace.Dir, state.StoryID).ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	detailText := string(mustJSON(t, detail))
+	for _, want := range []string{`"failure_kind":"missing_choice_target"`, `"choice_id":"dangling"`, `"missing_target_node_id":"missing"`, `"known_node_ids":["start"]`} {
+		if !strings.Contains(detailText, want) {
+			t.Fatalf("writer failure detail missing %s:\n%s", want, detailText)
+		}
 	}
 	for _, rel := range []string{
 		filepath.Join("model-runs", "writer", "turn-000001", "input.txt"),
@@ -486,6 +519,15 @@ func parseTraceEvents(t *testing.T, output string) ([]traceTurn, []traceDecision
 		t.Fatal(err)
 	}
 	return turns, decisions
+}
+
+func mustJSON(t *testing.T, value any) []byte {
+	t.Helper()
+	data, err := json.Marshal(value)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return data
 }
 
 func repoRootForTest(t *testing.T) string {

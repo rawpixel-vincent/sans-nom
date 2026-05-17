@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"slices"
+	"sort"
 	"strings"
 )
 
@@ -37,6 +38,17 @@ type StoryPacket struct {
 	RevisionNotes     []string          `json:"revision_notes,omitempty"`
 	InvalidationNotes []string          `json:"invalidation_notes,omitempty"`
 	Metadata          map[string]string `json:"metadata,omitempty"`
+}
+
+type MissingChoiceTargetError struct {
+	NodeID       string
+	ChoiceID     string
+	TargetNodeID string
+	KnownNodeIDs []string
+}
+
+func (e MissingChoiceTargetError) Error() string {
+	return fmt.Sprintf("missing target node inside bounded packet: scene node %q choice %q targets missing node %q", e.NodeID, e.ChoiceID, e.TargetNodeID)
 }
 
 type ContextSnapshot struct {
@@ -193,12 +205,26 @@ func (p StoryPacket) Validate() error {
 			}
 			if choice.TargetNodeID != "" {
 				if _, ok := nodeIDs[choice.TargetNodeID]; !ok {
-					return fmt.Errorf("scene node %q choice %q targets missing node %q", node.ID, choice.ID, choice.TargetNodeID)
+					return &MissingChoiceTargetError{
+						NodeID:       node.ID,
+						ChoiceID:     choice.ID,
+						TargetNodeID: choice.TargetNodeID,
+						KnownNodeIDs: sortedNodeIDs(nodeIDs),
+					}
 				}
 			}
 		}
 	}
 	return nil
+}
+
+func sortedNodeIDs(nodeIDs map[string]struct{}) []string {
+	out := make([]string, 0, len(nodeIDs))
+	for id := range nodeIDs {
+		out = append(out, id)
+	}
+	sort.Strings(out)
+	return out
 }
 
 func validateActorNeeds(node SceneNode) error {
