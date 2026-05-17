@@ -97,7 +97,10 @@ Create a durable StoryBible and opening StoryPacket for a new science-fantasy co
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
-- Scenarist material, when present in later phases, is free-form advisory material only; it is not canon, not final structure, and never a substitute for Writer authorship.
+- If the call_scenarists tool is available, use it as a workshop before final JSON when focused outside pressure would improve the seed: law stress tests, suspension-of-disbelief checks, character contradictions, story seed risks, or vivid scene engines.
+- The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes free-form material to files, and returns only file paths.
+- You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
+- Scenarist material is advisory material only; it is not canon, not final structure, and never a substitute for Writer authorship.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
 - Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
@@ -110,7 +113,9 @@ Rules:
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
 - The first entry node should be richer than later nodes: enough beats for a long opening that establishes world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 - Include 2-4 choices on the entry node and valid target_node_id values.
-- Each first-choice target node must either offer follow-up choices or include revision_notes that clearly say Writer continuation is required after that branch; do not make every opening branch a silent terminal leaf.
+- Every choice target_node_id must point to a scene node included in this same packet. Do not use placeholder targets such as "node_requires_continuation", "continue", "writer_continuation", or any missing handoff node.
+- Each first-choice target node must either offer follow-up choices whose target nodes are also included in this packet, or be a terminal handoff node with no choices and revision_notes that clearly say Writer continuation is required after that branch.
+- Do not make every opening branch a silent terminal leaf.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Use rolled_out_canon only for facts witnessed on the entry path; use planning_only for unrolled branch notes; use actor_private only with private_to_actor.
@@ -136,7 +141,9 @@ Reject if:
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with 3-5 nodes;
 - any choice targets a missing node;
-- every first-choice target node is terminal without follow-up choices or revision_notes requiring Writer continuation;
+- any choice uses a placeholder or sentinel target such as "node_requires_continuation", "continue", or "writer_continuation" instead of an included scene node;
+- any first-choice target node has follow-up choices whose target nodes are missing from this same packet;
+- every first-choice target node is terminal without revision_notes requiring Writer continuation;
 - any node has actor_needs; original actor peer cards are not available in this seed pass;
 - it uses any Metabarons canon name, place, faction, dynastic event, or direct equivalent as story content;
 - it uses council mechanics, all-cast fanout, resurrected dynasty roster assumptions, or canon from unused branches;

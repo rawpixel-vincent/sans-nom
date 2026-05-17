@@ -83,6 +83,11 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				Event:    "seed.writer.invalid",
 				Message:  err.Error(),
 				Fields:   map[string]any{"iteration": i + 1},
+				Detail: map[string]any{
+					"iteration":             i + 1,
+					"validation_error":      err.Error(),
+					"revision_instructions": previous.RevisionInstructions,
+				},
 			})
 			continue
 		}
@@ -94,6 +99,12 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				Event:    "seed.bundle.invalid",
 				Message:  err.Error(),
 				Fields:   map[string]any{"iteration": i + 1},
+				Detail: map[string]any{
+					"iteration":             i + 1,
+					"validation_error":      err.Error(),
+					"revision_instructions": previous.RevisionInstructions,
+					"bundle":                bundle,
+				},
 			})
 			continue
 		}
@@ -227,7 +238,8 @@ Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible i
 The StoryBible must contain at least one original gravity law inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
 The first entry node must be richer than later nodes. It should give the Narrator enough structure for a long classic opening: world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
-Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.`
+Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.
+Every choice target must be an included node in the same bounded packet. If a branch should hand off to Writer continuation, make that branch node terminal with revision_notes instead of adding a placeholder continuation choice.`
 }
 
 func DefaultBundle() story.SeedBundle {

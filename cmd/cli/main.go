@@ -508,6 +508,12 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 			Category: "story",
 			Event:    "story.seed.failed",
 			Message:  err.Error(),
+			Detail: map[string]any{
+				"error":        err.Error(),
+				"story_root":   opts.StoryRoot,
+				"bridge_url":   cfg.BridgeURL,
+				"seed_runtime": cfg,
+			},
 		})
 		return storyapp.StorySession{}, err
 	}

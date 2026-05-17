@@ -55,6 +55,19 @@ func TestValidateOriginalSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
 	}
 }
 
+func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
+	text := ContextText()
+	for _, required := range []string{
+		"Every choice target must be an included node",
+		"make that branch node terminal with revision_notes",
+		"placeholder continuation choice",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("seed context missing %q:\n%s", required, text)
+		}
+	}
+}
+
 func TestGenerateUsesVerifierRejection(t *testing.T) {
 	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {

@@ -16,10 +16,27 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	for _, required := range []string{
 		"own the StoryBible and StoryPacket",
 		"Do not delegate final story design",
-		"free-form advisory material only",
+		"If the call_scenarists tool is available",
+		"can run up to the provider-pool size in parallel",
+		"Scenarist material is advisory material only",
+		"Every choice target_node_id must point to a scene node included in this same packet",
+		"Do not use placeholder targets",
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("seed prompt missing %q:\n%s", required, got)
+		}
+	}
+}
+
+func TestSeedVerifierRejectsPlaceholderContinuationTargets(t *testing.T) {
+	got := SeedVerifierPrompt(`{"bible":{},"packet":{}}`, "seed context")
+	for _, required := range []string{
+		"any choice targets a missing node",
+		"any choice uses a placeholder or sentinel target",
+		"follow-up choices whose target nodes are missing",
+	} {
+		if !strings.Contains(got, required) {
+			t.Fatalf("seed verifier prompt missing %q:\n%s", required, got)
 		}
 	}
 }

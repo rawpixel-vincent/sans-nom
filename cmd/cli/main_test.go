@@ -14,6 +14,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
+	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/writer"
@@ -70,6 +71,24 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	}
 	if len(codex.ExtraTools) != 1 || codex.ExtraTools[0].Name != "call_scenarists" {
 		t.Fatalf("seed writer missing scenarist tool: %#v", codex.ExtraTools)
+	}
+}
+
+func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, 5)
+	claude, ok := planner.(writer.ClaudePlanner)
+	if !ok {
+		t.Fatalf("expected ClaudePlanner, got %T", planner)
+	}
+	codex, ok := claude.Runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", claude.Runner)
+	}
+	if !codex.LocalTools || codex.MaxToolRounds != 5 {
+		t.Fatalf("refresh writer runner missing local tools: %#v", codex)
+	}
+	if len(codex.ExtraTools) != 1 || codex.ExtraTools[0].Name != "call_scenarists" {
+		t.Fatalf("refresh writer missing scenarist tool: %#v", codex.ExtraTools)
 	}
 }
 
