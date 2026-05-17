@@ -7,6 +7,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException
 from .honcho_ops import HonchoOps
 from .lore_search import LoreSearchService
 from .lore_ops import qdrant_url, voyage_api_key, voyage_model
+from .story_index import ingest_story_index
 from .models import (
     CommitRequest,
     LoreSearchRequest,
@@ -16,6 +17,8 @@ from .models import (
     RepresentationResponse,
     SceneContextRequest,
     SceneContextResponse,
+    StoryIndexIngestRequest,
+    StoryIndexIngestResponse,
 )
 
 app = FastAPI(title="Sans-Nom Phase 0 Bridge", version="0.1.0")
@@ -77,5 +80,13 @@ def representation(req: RepresentationRequest) -> RepresentationResponse:
 def search_lore(req: LoreSearchRequest) -> LoreSearchResponse:
     try:
         return lore_search.search(req)
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.post("/v1/story/index/ingest", response_model=StoryIndexIngestResponse, dependencies=[Depends(authorize)])
+def story_index_ingest(req: StoryIndexIngestRequest) -> StoryIndexIngestResponse:
+    try:
+        return ingest_story_index(req)
     except Exception as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc

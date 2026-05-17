@@ -88,15 +88,20 @@ Return compact JSON:
 func SeedScenaristPrompt(contextText string) string {
 	return fmt.Sprintf(`You are the Scenarist for the first playable Sans-Nom CLI slice.
 
-Create an opening StoryPacket for a new science-fantasy comic story.
+Create a durable StoryBible and opening StoryPacket for a new science-fantasy comic story.
 
 Rules:
+- Return a top-level JSON object with "bible" and "packet".
+- The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
+- The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
+- Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
 - Return one StoryPacket with 3-5 scene nodes.
 - The Metabarons lore context is creative DNA: passion, taste, contradictions, taboos, relationship pressure, body/technology myth, witness-bound memory, and operatic SF-comics rhythm.
 - Do not literalize the source lore. Use new characters, new places, new factions, new conflicts, and new proper nouns.
 - Do not use Metabarons canon names, places, factions, dynasty events, council mechanics, all-cast fanout, resurrection-roster assumptions, or direct equivalents.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
+- The first entry node should be richer than later nodes: enough beats for a long opening that establishes world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 - Include 2-4 choices on the entry node and valid target_node_id values.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
@@ -105,28 +110,35 @@ Rules:
 Context:
 %s
 
-Return only JSON matching the StoryPacket shape.`, contextText)
+Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`, contextText)
 }
 
-func SeedVerifierPrompt(packetJSON string, contextText string) string {
+func SeedVerifierPrompt(bundleJSON string, contextText string) string {
 	return fmt.Sprintf(`You are the NerdVerifier for the first playable Sans-Nom CLI slice.
 
-Review the proposed opening StoryPacket against the original-story boundary.
+Review the proposed opening StoryBible plus StoryPacket against the original-story boundary.
 
 Reject if:
-- the JSON is not a valid StoryPacket with 3-5 nodes;
+- the JSON is not a valid top-level object with bible and packet;
+- the StoryBible lacks a strong original gravity law inspired by source-law structure;
+- the opening lacks world setup, player identity, player-world connection, active taboo/law, immediate pressure, or choices;
+- the proposed law is merely cruel instead of profound and binding;
+- the proposed law is copied literally from source canon instead of original story doctrine;
+- the StoryBible lacks resume metadata;
+- the packet is not a valid StoryPacket with 3-5 nodes;
 - any choice targets a missing node;
 - any node has actor_needs; original actor peer cards are not available in this seed pass;
 - it uses any Metabarons canon name, place, faction, dynastic event, or direct equivalent as story content;
 - it uses council mechanics, all-cast fanout, resurrected dynasty roster assumptions, or canon from unused branches;
-- it writes final polished prose instead of structural beats.
+- it writes final polished prose instead of structural beats;
+- it treats source lore as story canon instead of creative influence.
 
 Context:
 %s
 
-Proposed packet:
+Proposed bundle:
 %s
 
 Return strict JSON:
-{"accepted":true,"blocking_issues":[],"revision_instructions":""}`, contextText, packetJSON)
+{"accepted":true,"blocking_issues":[],"revision_instructions":""}`, contextText, bundleJSON)
 }

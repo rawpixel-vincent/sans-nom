@@ -81,12 +81,13 @@ def test_lore_search_route_success(monkeypatch) -> None:
     monkeypatch.setattr(main, "lore_search", fake)
     monkeypatch.delenv("SIDECAR_TOKEN", raising=False)
 
-    response = TestClient(main.app).post("/v1/lore/search", json={"query": "Lothar is Steelhead", "k": 50})
+    response = TestClient(main.app).post("/v1/lore/search", json={"collection": "story", "query": "Lothar is Steelhead", "k": 50})
 
     assert response.status_code == 200
     body = response.json()
     assert body["snippets"][0]["doc_id"] == "peer_card:lothar"
     assert fake.requests[0].k == 50
+    assert fake.requests[0].collection == "story"
 
 
 def test_lore_search_route_auth_rejection(monkeypatch) -> None:

@@ -89,6 +89,7 @@ class LoreSnippet(BaseModel):
 
 
 class LoreSearchRequest(BaseModel):
+    collection: str | None = None
     query: str
     k: int = 5
     kind: list[str] = Field(default_factory=list)
@@ -117,3 +118,38 @@ class LoreSearchRequest(BaseModel):
 
 class LoreSearchResponse(BaseModel):
     snippets: list[LoreSnippet] = Field(default_factory=list)
+
+
+class StoryIndexDocument(BaseModel):
+    doc_id: str
+    point_id: str
+    kind: str
+    source_path: str
+    source_sha256: str
+    text_sha256: str
+    text: str
+    story_id: str | None = None
+    packet_id: str | None = None
+    node_id: str | None = None
+    turn: int | None = None
+    heading: str | None = None
+    payload: dict[str, Any] = Field(default_factory=dict)
+
+    def qdrant_payload(self) -> dict[str, Any]:
+        data = self.model_dump(exclude_none=True)
+        payload = dict(data.pop("payload", {}))
+        payload.update(data)
+        return payload
+
+
+class StoryIndexIngestRequest(BaseModel):
+    collection: str
+    documents: list[StoryIndexDocument]
+    replace: bool = False
+    fake_embeddings: bool = False
+
+
+class StoryIndexIngestResponse(BaseModel):
+    collection: str
+    count: int
+    replaced: bool = False

@@ -145,6 +145,18 @@ func StoryPacketSchema() map[string]any {
 	}
 }
 
+func SeedBundleSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             []string{"bible", "packet"},
+		"properties": map[string]any{
+			"bible":  storyBibleSchema(),
+			"packet": StoryPacketSchema(),
+		},
+	}
+}
+
 func NarratorDraftSchema() map[string]any {
 	return map[string]any{
 		"type":                 "object",
@@ -162,6 +174,101 @@ func NarratorDraftSchema() map[string]any {
 			},
 		},
 	}
+}
+
+func storyBibleSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required": []string{
+			"story_id",
+			"title",
+			"premise",
+			"player_character",
+			"player_world_connection",
+			"world_basics",
+			"original_laws",
+			"factions",
+			"core_relationships",
+			"tone_doctrine",
+			"source_lore_influence_refs",
+			"forbidden_literal_canon_terms",
+			"first_turn_exposition",
+			"resume_summary",
+			"metadata",
+		},
+		"properties": map[string]any{
+			"story_id":                      map[string]any{"type": "string"},
+			"title":                         map[string]any{"type": "string"},
+			"premise":                       map[string]any{"type": "string"},
+			"player_character":              playerCharacterSchema(),
+			"player_world_connection":       map[string]any{"type": "string"},
+			"world_basics":                  stringArraySchema(3),
+			"original_laws":                 map[string]any{"type": "array", "minItems": 1, "items": originalLawSchema()},
+			"factions":                      map[string]any{"type": "array", "items": factionSchema()},
+			"core_relationships":            stringArraySchema(0),
+			"tone_doctrine":                 stringArraySchema(0),
+			"source_lore_influence_refs":    stringArraySchema(0),
+			"forbidden_literal_canon_terms": stringArraySchema(0),
+			"first_turn_exposition":         stringArraySchema(5),
+			"resume_summary":                map[string]any{"type": "string"},
+			"metadata":                      emptyObjectSchema(),
+		},
+	}
+}
+
+func playerCharacterSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             []string{"peer_id", "name", "description", "desire", "wound", "boundary"},
+		"properties": map[string]any{
+			"peer_id":     map[string]any{"type": "string"},
+			"name":        map[string]any{"type": "string"},
+			"description": map[string]any{"type": "string"},
+			"desire":      map[string]any{"type": "string"},
+			"wound":       map[string]any{"type": "string"},
+			"boundary":    map[string]any{"type": "string"},
+		},
+	}
+}
+
+func originalLawSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             []string{"id", "name", "description", "source_pattern", "enforcement", "why_profound", "not_merely_cruel"},
+		"properties": map[string]any{
+			"id":               map[string]any{"type": "string"},
+			"name":             map[string]any{"type": "string"},
+			"description":      map[string]any{"type": "string"},
+			"source_pattern":   map[string]any{"type": "string"},
+			"enforcement":      map[string]any{"type": "string"},
+			"why_profound":     map[string]any{"type": "string"},
+			"not_merely_cruel": map[string]any{"type": "string"},
+		},
+	}
+}
+
+func factionSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             []string{"id", "name", "description"},
+		"properties": map[string]any{
+			"id":          map[string]any{"type": "string"},
+			"name":        map[string]any{"type": "string"},
+			"description": map[string]any{"type": "string"},
+		},
+	}
+}
+
+func stringArraySchema(minItems int) map[string]any {
+	schema := map[string]any{"type": "array", "items": map[string]any{"type": "string"}}
+	if minItems > 0 {
+		schema["minItems"] = minItems
+	}
+	return schema
 }
 
 func ActorOutputSchema() map[string]any {

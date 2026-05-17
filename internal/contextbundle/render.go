@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
 func (c NarratorContext) RenderText() string {
@@ -13,6 +15,8 @@ func (c NarratorContext) RenderText() string {
 	fmt.Fprintf(&b, "You are the Narrator. Rewrite only the selected scene node into player-facing prose.\n")
 	fmt.Fprintf(&b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
 	fmt.Fprintf(&b, "Lore references are creative influence only; do not import source-canon names, places, factions, or events as facts in the new story.\n")
+
+	writeStoryBibleDoctrine(&b, c.StoryBible)
 
 	writeSection(&b, "CURRENT SCENE STATE")
 	writeJSON(&b, c.SceneState)
@@ -41,6 +45,8 @@ func (c WriterContext) RenderText() string {
 	fmt.Fprintf(&b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
 	fmt.Fprintf(&b, "Lore references encode SF-comics taste and passion; create new story content instead of copying source canon.\n")
 
+	writeStoryBibleDoctrine(&b, c.StoryBible)
+
 	writeSection(&b, "CURRENT SCENE STATE")
 	writeJSON(&b, c.SceneState)
 
@@ -68,6 +74,44 @@ func (c WriterContext) RenderText() string {
 	writeStringList(&b, "WARNINGS", c.Warnings)
 
 	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+}
+
+func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
+	if value == nil {
+		return
+	}
+	writeSection(b, "STORY BIBLE DOCTRINE")
+	fmt.Fprintf(b, "title: %s\n", value.Title)
+	fmt.Fprintf(b, "premise: %s\n", value.Premise)
+	fmt.Fprintf(b, "player: %s (%s)\n", value.PlayerCharacter.Name, value.PlayerCharacter.PeerID)
+	fmt.Fprintf(b, "player_world_connection: %s\n", value.PlayerWorldConnection)
+	for _, law := range value.OriginalLaws {
+		fmt.Fprintf(b, "law %s (%s): %s\n", law.ID, law.Name, law.Description)
+		fmt.Fprintf(b, "enforcement: %s\n", law.Enforcement)
+		fmt.Fprintf(b, "why_profound: %s\n", law.WhyProfound)
+		fmt.Fprintf(b, "not_merely_cruel: %s\n", law.NotMerelyCruel)
+	}
+	writeInlineList(b, "world_basics", value.WorldBasics)
+	writeInlineList(b, "tone_doctrine", value.ToneDoctrine)
+	writeInlineList(b, "first_turn_exposition", value.FirstTurnExposition)
+	if value.ResumeSummary != "" {
+		fmt.Fprintf(b, "resume_summary: %s\n", value.ResumeSummary)
+	}
+	if len(value.ForbiddenLiteralCanonTerms) > 0 {
+		fmt.Fprintf(b, "forbidden_literal_canon_terms: %s\n", strings.Join(value.ForbiddenLiteralCanonTerms, ", "))
+	}
+}
+
+func writeInlineList(b *strings.Builder, title string, values []string) {
+	if len(values) == 0 {
+		return
+	}
+	fmt.Fprintf(b, "%s:\n", title)
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			fmt.Fprintf(b, "- %s\n", strings.TrimSpace(value))
+		}
+	}
 }
 
 func writeSection(b *strings.Builder, title string) {

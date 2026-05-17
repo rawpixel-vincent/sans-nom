@@ -47,14 +47,15 @@ func TestBridgeRetrieverSearchMapsSnippets(t *testing.T) {
 	sink := &captureSink{}
 
 	results, err := BridgeRetriever{
-		Client:    client,
-		Telemetry: sink,
-		PeerID:    []string{"lothar"},
+		Client:     client,
+		Telemetry:  sink,
+		Collection: "sans_nom_story_test",
+		PeerID:     []string{"lothar"},
 	}.Search(context.Background(), "Lothar is Steelhead", 5)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if client.req.Query != "Lothar is Steelhead" || client.req.K != 5 || client.req.PeerID[0] != "lothar" {
+	if client.req.Collection != "sans_nom_story_test" || client.req.Query != "Lothar is Steelhead" || client.req.K != 5 || client.req.PeerID[0] != "lothar" {
 		t.Fatalf("unexpected request: %#v", client.req)
 	}
 	if len(results) != 1 || results[0].ID != "peer_card:lothar" || results[0].Source == "" {

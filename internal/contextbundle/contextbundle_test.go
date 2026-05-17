@@ -13,6 +13,7 @@ import (
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
+	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
 func TestNarratorContextExcludesUnusedBranchesAndWriterNotes(t *testing.T) {
@@ -45,6 +46,29 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 		if !strings.Contains(text, required) {
 			t.Fatalf("writer context missed %q:\n%s", required, text)
 		}
+	}
+}
+
+func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T) {
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "source-law",
+		Text:   "Source law pattern, not story canon.",
+		Source: "lore/canon/index/documents.jsonl",
+		Score:  1,
+		Kind:   "wiki_lore",
+	}}}
+	bible := testBible()
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: testPacket(), Bible: &bible})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	if !strings.Contains(text, "STORY BIBLE DOCTRINE") || !strings.Contains(text, "Law of Refusal") {
+		t.Fatalf("missing story bible doctrine:\n%s", text)
+	}
+	if !strings.Contains(text, "CREATIVE INFLUENCE REFERENCES") || !strings.Contains(text, "source-law") {
+		t.Fatalf("missing source lore influence section:\n%s", text)
 	}
 }
 
@@ -320,6 +344,35 @@ func testCard(actorID string) Card {
 		ActorID: actorID,
 		Text:    "Name: " + actorID,
 		Source:  "test:" + actorID,
+	}
+}
+
+func testBible() story.StoryBible {
+	return story.StoryBible{
+		StoryID: "phase0-dev",
+		Title:   "Test Story",
+		Premise: "A test premise.",
+		PlayerCharacter: story.PlayerCharacter{
+			PeerID:      "sans-nom",
+			Name:        "Rin",
+			Description: "A test player.",
+			Desire:      "To choose.",
+			Wound:       "Recorded as a function.",
+			Boundary:    "Will not disappear into function.",
+		},
+		PlayerWorldConnection: "Rin's body is recognized by the city.",
+		WorldBasics:           []string{"World one", "World two", "World three"},
+		OriginalLaws: []story.OriginalLaw{{
+			ID:             "refusal",
+			Name:           "Law of Refusal",
+			Description:    "The world records what a person refuses to become.",
+			SourcePattern:  "source structure only",
+			Enforcement:    "Public witnesses remember refusals as binding debt.",
+			WhyProfound:    "It protects identity from function.",
+			NotMerelyCruel: "It can shield the powerless from erased consent.",
+		}},
+		FirstTurnExposition: []string{"world", "player", "connection", "law", "pressure"},
+		ResumeSummary:       "Rin begins.",
 	}
 }
 

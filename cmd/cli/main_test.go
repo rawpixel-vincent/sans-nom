@@ -1,0 +1,216 @@
+package main
+
+import (
+	"bufio"
+	"context"
+	"encoding/json"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/scene"
+)
+
+func TestParseDecisionAcceptsNumericChoice(t *testing.T) {
+	node := scene.SceneNode{Choices: []scene.Choice{{
+		ID:           "first",
+		TargetNodeID: "first-node",
+	}, {
+		ID:           "second",
+		TargetNodeID: "second-node",
+	}}}
+	decision := parseDecision("2", node)
+	if decision.ChoiceID != "second" || decision.FreeText != "" {
+		t.Fatalf("unexpected decision: %#v", decision)
+	}
+}
+
+func TestStaticStorySeedWorkspaceResume(t *testing.T) {
+	repoRoot := repoRootForTest(t)
+	storyRoot := t.TempDir()
+	ctx, cancel := context.WithTimeout(context.Background(), 45*time.Second)
+	defer cancel()
+
+	cmd := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
+		"-seed-story",
+		"-story-id", "test-id",
+		"-story-root", storyRoot,
+		"-replace-story",
+		"-play",
+		"-model-backend", "static",
+		"-play-trace-jsonl",
+	)
+	cmd.Dir = repoRoot
+	cmd.Env = os.Environ()
+	cmd.Stdin = strings.NewReader("1\n")
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("static seed play failed: %v\n%s", err, output)
+	}
+	if !strings.Contains(string(output), `"event":"player_decision"`) {
+		t.Fatalf("missing decision trace:\n%s", output)
+	}
+	storyDir := filepath.Join(storyRoot, "test-id")
+	for _, rel := range []string{
+		"state.json",
+		"bible.json",
+		"turns.jsonl",
+		filepath.Join("index", "documents.jsonl"),
+		filepath.Join("index", "manifest.json"),
+	} {
+		if _, err := os.Stat(filepath.Join(storyDir, rel)); err != nil {
+			t.Fatalf("missing story file %s: %v\n%s", rel, err, output)
+		}
+	}
+
+	resume := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
+		"-story-id", "test-id",
+		"-story-root", storyRoot,
+		"-play",
+		"-model-backend", "static",
+		"-turns", "1",
+	)
+	resume.Dir = repoRoot
+	resume.Env = os.Environ()
+	resumeOutput, err := resume.CombinedOutput()
+	if err != nil {
+		t.Fatalf("static resume failed: %v\n%s", err, resumeOutput)
+	}
+	if !strings.Contains(string(resumeOutput), "--- Turn 1 ---") {
+		t.Fatalf("resume did not play a turn:\n%s", resumeOutput)
+	}
+}
+
+func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
+	if os.Getenv("SANS_NOM_E2E_LIVE") != "1" {
+		t.Skip("set SANS_NOM_E2E_LIVE=1 to run live Codex OAuth e2e")
+	}
+	repoRoot := repoRootForTest(t)
+	ctx, cancel := context.WithTimeout(context.Background(), 6*time.Minute)
+	defer cancel()
+
+	cmd := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
+		"-seed-story",
+		"-story-id", "live-e2e",
+		"-story-root", t.TempDir(),
+		"-replace-story",
+		"-play",
+		"-model-backend", "codex",
+		"-play-trace-jsonl",
+	)
+	cmd.Dir = repoRoot
+	cmd.Env = os.Environ()
+	cmd.Stdin = strings.NewReader("1\n")
+
+	output, err := cmd.CombinedOutput()
+	if ctx.Err() == context.DeadlineExceeded {
+		t.Fatalf("live e2e timed out:\n%s", output)
+	}
+	if err != nil {
+		t.Fatalf("live e2e failed: %v\n%s", err, output)
+	}
+	text := string(output)
+	if strings.Contains(text, "\nCommitted:") {
+		t.Fatalf("dry play should not commit without -commit:\n%s", text)
+	}
+
+	turns, decisions := parseTraceEvents(t, text)
+	if len(turns) < 2 {
+		t.Fatalf("expected at least two turn events, got %d:\n%s", len(turns), text)
+	}
+	if len(decisions) == 0 {
+		t.Fatalf("expected a player_decision event:\n%s", text)
+	}
+	if turns[0].ProseChars <= 0 {
+		t.Fatalf("turn 1 had no narrator prose: %#v", turns[0])
+	}
+	if turns[0].ChoiceCount <= 0 {
+		t.Fatalf("turn 1 had no choices: %#v", turns[0])
+	}
+	decision := decisions[0]
+	if decision.RawInput != "1" {
+		t.Fatalf("expected raw input 1, got %#v", decision)
+	}
+	if decision.ChoiceID == "" || decision.TargetNodeID == "" {
+		t.Fatalf("expected resolved choice and target: %#v", decision)
+	}
+	if turns[1].NodeID != decision.TargetNodeID {
+		t.Fatalf("turn 2 did not follow selected target: got %q want %q\n%s", turns[1].NodeID, decision.TargetNodeID, text)
+	}
+	if turns[1].Decision.ChoiceID != decision.ChoiceID {
+		t.Fatalf("turn 2 commit did not carry choice id: got %#v want %q", turns[1].Decision, decision.ChoiceID)
+	}
+}
+
+type traceTurn struct {
+	Event            string               `json:"event"`
+	Turn             int                  `json:"turn"`
+	PacketID         string               `json:"packet_id"`
+	NodeID           string               `json:"node_id"`
+	Decision         scene.PlayerDecision `json:"decision"`
+	ChoiceCount      int                  `json:"choice_count"`
+	ProseChars       int                  `json:"prose_chars"`
+	CommitEventCount int                  `json:"commit_event_count"`
+	Witnesses        []string             `json:"witnesses"`
+}
+
+type traceDecision struct {
+	Event        string `json:"event"`
+	RawInput     string `json:"raw_input"`
+	ChoiceID     string `json:"choice_id"`
+	TargetNodeID string `json:"target_node_id"`
+	FreeText     string `json:"free_text"`
+}
+
+func parseTraceEvents(t *testing.T, output string) ([]traceTurn, []traceDecision) {
+	t.Helper()
+	var turns []traceTurn
+	var decisions []traceDecision
+	scanner := bufio.NewScanner(strings.NewReader(output))
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if !strings.HasPrefix(line, "{") || !strings.Contains(line, `"event"`) {
+			continue
+		}
+		var head struct {
+			Event string `json:"event"`
+		}
+		if err := json.Unmarshal([]byte(line), &head); err != nil {
+			continue
+		}
+		switch head.Event {
+		case "turn":
+			var event traceTurn
+			if err := json.Unmarshal([]byte(line), &event); err != nil {
+				t.Fatalf("bad turn trace %q: %v", line, err)
+			}
+			turns = append(turns, event)
+		case "player_decision":
+			var event traceDecision
+			if err := json.Unmarshal([]byte(line), &event); err != nil {
+				t.Fatalf("bad decision trace %q: %v", line, err)
+			}
+			decisions = append(decisions, event)
+		}
+	}
+	if err := scanner.Err(); err != nil {
+		t.Fatal(err)
+	}
+	return turns, decisions
+}
+
+func repoRootForTest(t *testing.T) string {
+	t.Helper()
+	wd, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+	root := filepath.Clean(filepath.Join(wd, "..", ".."))
+	if _, err := os.Stat(filepath.Join(root, "go.mod")); err != nil {
+		t.Fatalf("resolve repo root from %s: %v", wd, err)
+	}
+	return root
+}

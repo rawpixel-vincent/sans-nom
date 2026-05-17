@@ -16,6 +16,7 @@ dependencies = [
 comic-lore = "bridge.comic_lore:main"
 lore-index = "bridge.lore_index:main"
 peer-cards = "bridge.peer_cards:main"
+story-index = "bridge.story_index:main"
 
 [dependency-groups]
 dev = [

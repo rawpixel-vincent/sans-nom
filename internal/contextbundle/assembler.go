@@ -10,6 +10,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
+	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
 func DefaultOptions() Options {
@@ -57,6 +58,7 @@ func (a Assembler) AssembleNarrator(ctx context.Context, req BuildRequest) (Narr
 	warnings = append(warnings, repWarnings...)
 	nc := NarratorContext{
 		MaxRenderChars:  opts.NarratorSoftCap,
+		StoryBible:      cloneBible(req.Bible),
 		SceneState:      sceneState(req.Packet),
 		PlayerDecision:  req.Decision,
 		SelectedNode:    publicNode(node),
@@ -108,6 +110,7 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 	manifest := a.actorManifest(req.Packet, node, opts)
 	wc := WriterContext{
 		MaxRenderChars:  opts.WriterSoftCap,
+		StoryBible:      cloneBible(req.Bible),
 		SceneState:      sceneState(req.Packet),
 		PlayerDecision:  req.Decision,
 		SelectedNodeID:  node.ID,
@@ -131,6 +134,28 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		wc.Summary.Warnings = wc.Warnings
 	}
 	return wc, nil
+}
+
+func cloneBible(bible *story.StoryBible) *story.StoryBible {
+	if bible == nil {
+		return nil
+	}
+	cloned := *bible
+	cloned.WorldBasics = append([]string(nil), bible.WorldBasics...)
+	cloned.OriginalLaws = append([]story.OriginalLaw(nil), bible.OriginalLaws...)
+	cloned.Factions = append([]story.Faction(nil), bible.Factions...)
+	cloned.CoreRelationships = append([]string(nil), bible.CoreRelationships...)
+	cloned.ToneDoctrine = append([]string(nil), bible.ToneDoctrine...)
+	cloned.SourceLoreInfluenceRefs = append([]string(nil), bible.SourceLoreInfluenceRefs...)
+	cloned.ForbiddenLiteralCanonTerms = append([]string(nil), bible.ForbiddenLiteralCanonTerms...)
+	cloned.FirstTurnExposition = append([]string(nil), bible.FirstTurnExposition...)
+	if bible.Metadata != nil {
+		cloned.Metadata = map[string]string{}
+		for key, value := range bible.Metadata {
+			cloned.Metadata[key] = value
+		}
+	}
+	return &cloned
 }
 
 func (a Assembler) options() Options {

@@ -55,13 +55,12 @@ func TestValidateOriginalSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
 }
 
 func TestGenerateUsesVerifierRejection(t *testing.T) {
-	packet := DefaultPacket()
-	rawPacket, err := jsonForTest(packet)
+	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {
 		t.Fatal(err)
 	}
 	service := Service{
-		Scenarist:     prompt.StaticRunner{Response: rawPacket},
+		Scenarist:     prompt.StaticRunner{Response: rawBundle},
 		Verifier:      prompt.StaticRunner{Response: `{"accepted":false,"blocking_issues":["too polished"],"revision_instructions":"make it structural"}`},
 		MaxIterations: 1,
 	}
@@ -72,7 +71,7 @@ func TestGenerateUsesVerifierRejection(t *testing.T) {
 	}
 }
 
-func jsonForTest(packet scene.StoryPacket) (string, error) {
-	data, err := json.Marshal(packet)
+func jsonForTest(value any) (string, error) {
+	data, err := json.Marshal(value)
 	return string(data), err
 }

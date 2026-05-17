@@ -6,6 +6,7 @@ import (
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
+	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
 type Bridge interface {
@@ -47,6 +48,7 @@ type BuildRequest struct {
 	Packet   scene.StoryPacket    `json:"packet"`
 	NodeID   string               `json:"node_id,omitempty"`
 	Decision scene.PlayerDecision `json:"player_decision,omitempty"`
+	Bible    *story.StoryBible    `json:"story_bible,omitempty"`
 }
 
 type ContextBundleSummary struct {
@@ -109,6 +111,7 @@ type PublicSceneNode struct {
 type NarratorContext struct {
 	Summary         ContextBundleSummary `json:"summary"`
 	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
+	StoryBible      *story.StoryBible    `json:"story_bible,omitempty"`
 	SceneState      SceneState           `json:"scene_state"`
 	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
 	SelectedNode    PublicSceneNode      `json:"selected_node"`
@@ -123,6 +126,7 @@ type NarratorContext struct {
 type WriterContext struct {
 	Summary         ContextBundleSummary `json:"summary"`
 	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
+	StoryBible      *story.StoryBible    `json:"story_bible,omitempty"`
 	SceneState      SceneState           `json:"scene_state"`
 	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
 	SelectedNodeID  string               `json:"selected_node_id"`

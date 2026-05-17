@@ -18,6 +18,7 @@ type BridgeSearchClient interface {
 type BridgeRetriever struct {
 	Client      BridgeSearchClient
 	Telemetry   telemetry.Sink
+	Collection  string
 	Kind        []string
 	PeerID      []string
 	CharacterID []string
@@ -30,6 +31,7 @@ func (r BridgeRetriever) Search(ctx context.Context, query string, k int) ([]Sni
 	}
 	start := time.Now()
 	req := bridgeclient.LoreSearchRequest{
+		Collection:  r.Collection,
 		Query:       query,
 		K:           k,
 		Kind:        r.Kind,
@@ -93,6 +95,9 @@ func (r BridgeRetriever) filters() map[string]any {
 	filters := map[string]any{}
 	if len(r.Kind) > 0 {
 		filters["kind"] = r.Kind
+	}
+	if r.Collection != "" {
+		filters["collection"] = r.Collection
 	}
 	if len(r.PeerID) > 0 {
 		filters["peer_id"] = r.PeerID

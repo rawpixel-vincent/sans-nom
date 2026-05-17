@@ -32,3 +32,15 @@ func TestCodexRunnerRequestBodyUsesPriorityAndSchema(t *testing.T) {
 		t.Fatalf("unexpected schema format: %#v", text["format"])
 	}
 }
+
+func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
+	schema := SeedBundleSchema()
+	props := schema["properties"].(map[string]any)
+	if props["bible"] == nil || props["packet"] == nil {
+		t.Fatalf("missing seed bundle schema properties: %#v", props)
+	}
+	required := schema["required"].([]string)
+	if len(required) != 2 || required[0] != "bible" || required[1] != "packet" {
+		t.Fatalf("unexpected required fields: %#v", required)
+	}
+}

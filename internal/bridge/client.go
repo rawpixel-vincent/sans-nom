@@ -52,6 +52,7 @@ type RepresentationResponse struct {
 }
 
 type LoreSearchRequest struct {
+	Collection  string   `json:"collection,omitempty"`
 	Query       string   `json:"query"`
 	K           int      `json:"k,omitempty"`
 	Kind        []string `json:"kind,omitempty"`
@@ -75,6 +76,35 @@ type LoreSnippet struct {
 
 type LoreSearchResponse struct {
 	Snippets []LoreSnippet `json:"snippets"`
+}
+
+type StoryIndexDocument struct {
+	DocID        string         `json:"doc_id"`
+	PointID      string         `json:"point_id"`
+	Kind         string         `json:"kind"`
+	SourcePath   string         `json:"source_path"`
+	SourceSHA256 string         `json:"source_sha256"`
+	TextSHA256   string         `json:"text_sha256"`
+	Text         string         `json:"text"`
+	StoryID      string         `json:"story_id,omitempty"`
+	PacketID     string         `json:"packet_id,omitempty"`
+	NodeID       string         `json:"node_id,omitempty"`
+	Turn         int            `json:"turn,omitempty"`
+	Heading      string         `json:"heading,omitempty"`
+	Payload      map[string]any `json:"payload,omitempty"`
+}
+
+type StoryIndexIngestRequest struct {
+	Collection     string               `json:"collection"`
+	Documents      []StoryIndexDocument `json:"documents"`
+	Replace        bool                 `json:"replace,omitempty"`
+	FakeEmbeddings bool                 `json:"fake_embeddings,omitempty"`
+}
+
+type StoryIndexIngestResponse struct {
+	Collection string `json:"collection"`
+	Count      int    `json:"count"`
+	Replaced   bool   `json:"replaced"`
 }
 
 type PeerCardResponse struct {
@@ -145,6 +175,23 @@ func (c Client) GetCard(ctx context.Context, workspaceID, peerID, target string)
 		return nil, err
 	}
 	return out.Facts, nil
+}
+
+func (c Client) PatchCard(ctx context.Context, workspaceID, peerID string, patch PeerCardPatch) ([]string, error) {
+	values := url.Values{}
+	values.Set("workspace_id", workspaceID)
+	path := "/v1/peer/" + url.PathEscape(peerID) + "/card?" + values.Encode()
+	var out PeerCardResponse
+	if err := c.do(ctx, http.MethodPatch, path, patch, &out); err != nil {
+		return nil, err
+	}
+	return out.Facts, nil
+}
+
+func (c Client) IngestStoryIndex(ctx context.Context, req StoryIndexIngestRequest) (StoryIndexIngestResponse, error) {
+	var out StoryIndexIngestResponse
+	err := c.do(ctx, http.MethodPost, "/v1/story/index/ingest", req, &out)
+	return out, err
 }
 
 func (c Client) do(ctx context.Context, method, path string, in any, out any) error {

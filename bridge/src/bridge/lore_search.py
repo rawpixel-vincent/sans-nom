@@ -34,7 +34,7 @@ class LoreSearchService:
         client = QdrantClient(url=qdrant_url(), check_compatibility=False)
         hits = query_points(
             client,
-            self.collection,
+            req.collection or self.collection,
             vector,
             limit=clamp_k(req.k),
             query_filter=build_filter(req),
