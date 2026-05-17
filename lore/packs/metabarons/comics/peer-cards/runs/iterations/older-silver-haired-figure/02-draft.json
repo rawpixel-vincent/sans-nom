@@ -1,0 +1,15 @@
+{
+  "card": [
+    "Name: Older Silver-Haired Figure",
+    "ROLE: Unnamed figure who offered his energy to Honorata and guided her toward union with him in what he called the mind's shadow",
+    "TRAIT: Offered his energy to Honorata and instructed her to absorb it so they could unite in the mind's shadow",
+    "RELATIONSHIP: honorata__living (Honorata): offered her his energy; stance appears supportive or protective",
+    "BOUNDARY: No confirmed personal name, title, faction affiliation, backstory, or known activity beyond the energy transfer with Honorata",
+    "BOUNDARY: Honorata's eyes glowed after accepting the transfer, suggesting the union took effect; outcome and mechanism remain unconfirmed beyond this",
+    "INSTRUCTION: Do not invent name, origin, faction, prior history, or repeated abilities for this figure; all details must remain bounded to the witnessed energy transfer"
+  ],
+  "display_name": "Older Silver-Haired Figure",
+  "peer_card_id": "older-silver-haired-figure",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton, source-thin. Card bounded strictly to two witnessed facts and one relationship from characters-volume-05.json#010. Honorata relationship target resolved to honorata__living via identity-map (covers volume-05 appearances). No wiki or matrix entries exist for this figure; no inflation applied."
+}

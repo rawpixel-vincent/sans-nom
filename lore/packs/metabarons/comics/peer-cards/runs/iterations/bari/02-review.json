@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid: 28 string facts, allowed prefixes, under the 40-fact cap, canonical relationship peer ids, no duplicates, and no source refs in card facts.",
+    "Bari's merged same-persona identity is preserved; the card keeps death/Othon transformation details as spoiler boundaries rather than base verdicts."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

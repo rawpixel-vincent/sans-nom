@@ -1,0 +1,24 @@
+{
+  "card": [
+    "Name: Kiowotai",
+    "ALIAS: Kioka — a name invoked by Magon creatures at the scene's end; whether this refers to Kiowotai is unconfirmed in source",
+    "ALIAS: identity uncertain; the source raises the possibility this is another name for Aghnar the main character — explicitly unresolved",
+    "ROLE: silver-haired humanoid youth encountered in the mushroom-dome territory on Planet Perdita; possesses extended metal claws and some capacity to float or ascend",
+    "TRAIT: silver-haired, carries extended metal claws used in combat against alien tribal creatures",
+    "TRAIT: able to float or rise into the air; mechanism uncertain, possibly through specialized footwear",
+    "TRAIT: insists on ascending above the mushroom domes despite warnings in this scene",
+    "TRAIT: no confirmed backstory, origin, stable name, or motivation beyond this single scene cluster",
+    "RELATIONSHIP: the ape Aghnar: asserts sworn brotherhood; follows the ape upward into dangerous upper territory despite warnings in this scene",
+    "RELATIONSHIP: Magon people: a Magon creature recites the legend of a 'little no-hair white ape' who will take the Magon to the fog world and the Diamond Planet; at the scene's end the Magon below invoke 'Kioka' and speak of departure; whether Kiowotai is the prophesied figure or the one being invoked is unconfirmed",
+    "RELATIONSHIP: a giant creature encountered during the ascent: seized Kiowotai; Kiowotai tore or blasted through the creature's head area to escape and was airborne afterward",
+    "VOICE: in this scene, sworn brotherhood with the ape drives him to follow upward and meet obstacles directly; no broader behavioral pattern is established from this source",
+    "BOUNDARY: Kioka is not a confirmed alias; the Magon invoke that name after the battle but the identification with Kiowotai is unresolved",
+    "BOUNDARY: source shows confrontation with the Magon Patriarch and a separate defeat of a giant creature; no victory over the Patriarch is supported",
+    "BOUNDARY: the Kiowotai/Aghnar identity overlap is explicitly unresolved in source; do not treat them as the same person without further confirmation",
+    "BOUNDARY: this peer is source-thin; no arc, deeper psychology, or stable disposition can be drawn beyond the witnessed scene"
+  ],
+  "display_name": "Kiowotai",
+  "peer_card_id": "kiowotai",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted record (characters-volume-06.json#009:kiowotai). Card kept source-thin. Kioka demoted from ALIAS to BOUNDARY (uncertain name) and a narrower ALIAS note preserved. Magon relationship rewritten to separate legend recitation from Kioka invocation and remove unconfirmed victory/master claims. VOICE/INSTRUCTION softened to witnessed scene behavior only, not extrapolated rules. Floating mechanism changed from 'likely' to 'possibly'. ROLE no longer claims prophecy fulfillment."
+}

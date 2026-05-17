@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a 33-item list of strings under the 40-fact cap, uses allowed prefixes, has no markdown/source refs in facts, and has no exact duplicates found.",
+    "The draft follows the merged zaran-krleza identity map entry while keeping Melmoth, Steelhead's warrior phase, and Steelhead's in-Melmoth component as relationship targets rather than merging them into Zaran."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

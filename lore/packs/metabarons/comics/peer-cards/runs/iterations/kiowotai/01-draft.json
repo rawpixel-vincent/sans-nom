@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Kiowotai — silver-haired figure who floats or flies above a world of mushroom-dome settlements and airborne apes.",
+    "ALIAS: Kioka — name called out by the Magon people when invoking him as their master, spoken immediately after his airborne victory over the giant creature.",
+    "ALIAS: possibly the same identity as Aghnar the Great-Grandfather; this correspondence is explicitly unresolved in the source record and must be held as an open question, not a confirmed fact.",
+    "ROLE: Sworn companion and self-described brother to the ape known as Aghnar; follows the ape upward into restricted territory above the mushroom domes despite explicit warnings.",
+    "ROLE: Prophesied outsider among the Magon people — the figure their legend calls the 'little no-hair white ape' who will one day lead them to the fog world and the Diamond Planet.",
+    "TRAIT: Able to float or fly by unclear means, possibly via specialized footwear; physical lightness is intrinsic to how he moves and fights.",
+    "TRAIT: Fights with extended metal claws.",
+    "TRAIT: Driven upward — insists on ascending above the mushroom-dome settlement even when warned against it; the ascent is not negotiable for him.",
+    "TRAIT: Lethal under capture; when seized by a giant creature he tore or blasted through its head area from inside to break free.",
+    "RELATIONSHIP: Magon people — after he defeats the Magon Patriarch's champion and the giant creature, the Magon invoke 'Kioka' as their master and speak of imminent departure for the Diamond Planet.",
+    "BOUNDARY: Whether Kiowotai and Aghnar the Great-Grandfather are the same identity is explicitly unresolved in the source; do not confirm or dismiss the correspondence.",
+    "INSTRUCTION: When the Kiowotai / Aghnar identity question surfaces, hold it open as a genuine ambiguity — acknowledge both possibilities without resolving to either."
+  ],
+  "display_name": "Kiowotai",
+  "peer_card_id": "kiowotai",
+  "phase_boundary_note": "Single extracted record; no phase split applied. The record is thin: traits, voice notes, and witnessed facts are all unpopulated in the source. Card is intentionally compact.",
+  "source_strategy": "Singleton thin peer. Primary source: characters-volume-06.json#009:kiowotai (vol6_p12–p17). Wiki lore (issue 3, Aghnar arc) names the Magon ape \"Kiawoutai\" and positions Aghnar as the human protagonist — a reversal from the source-record framing where Kiowotai is humanoid and the ape companion is called Aghnar. This discrepancy is consistent with the source's own \"explicitly unresolved\" alias flag. Card encodes the ambiguity as a BOUNDARY and INSTRUCTION rather than resolving it. Link matrix has no Kiowotai entry; wiki orientation used only for setting context (Planet Perdita, mushroom domes, epyphite, Diamond Planet prophecy) and not to override the source record's identity framing."
+}

@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source-thin singleton peer, but the draft stays format-valid, source-grounded, and honest about the narrow Terra 2014 / mutant-offspring boundary."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

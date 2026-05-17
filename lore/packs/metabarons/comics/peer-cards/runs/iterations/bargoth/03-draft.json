@@ -1,0 +1,17 @@
+{
+  "card": [
+    "Name: Bargoth",
+    "ROLE: Member of the raiding party involved in capturing Shazam",
+    "TRAIT: Received direct instructions during the horse extraction sequence",
+    "TRAIT: Handled the captured horse with synthetic mare essence present",
+    "TRAIT: Called out as missing during the combat sequence that followed the theft",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the same party",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the same party",
+    "RELATIONSHIP: tokkar (Tokkar): fellow raider in the same party",
+    "BOUNDARY: Bargoth is individually confirmed in the horse extraction sequence and the later missing-call; no further role or fate confirmed beyond these two moments"
+  ],
+  "display_name": "Bargoth",
+  "peer_card_id": "bargoth",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton — one extracted record, thin evidence; card bounded strictly to two confirmed moments: horse extraction and missing-call"
+}

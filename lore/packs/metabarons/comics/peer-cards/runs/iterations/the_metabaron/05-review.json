@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: a few facts still overstate the thin source bundle rather than preserving its uncertainty."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "Keep the strong source-bounded material already present: indirect knowledge only, absent/not directly heard, human with bionic ear/right-brain lobes, meta-warrior initiation mystery, Tonto and Lothar as servants, Othon as ancestor, and no later No-Name/full-arc imports."
+  ],
+  "revision_instructions": [
+    "Replace `mechanical fortress interior` with `mechanical or industrial interior` or omit the location from the ROLE fact.",
+    "Revise the Othon relationship to `lineage ancestor/great-great-grandfather` without `founding figure` or broader tradition claims.",
+    "Revise the narrative-weight VOICE fact to avoid motive: say the robots wait during his absence and Tonto's lineage narration begins from questions about his bionic body.",
+    "After those changes, the card should be stageable; do not expand it with later-volume or wiki-only Metabaron facts."
+  ],
+  "unsupported_claims": [
+    "`ROLE: ... mechanical fortress interior` exceeds the page summary, which only supports a mechanical/industrial interior, likely part of the Metabaron's base or ship.",
+    "`RELATIONSHIP: othon-von-salza... founding figure from whom the Metabaronic tradition descends` overstates the target bundle. The source supports Othon as lineage ancestor/great-great-grandfather; founding-status language should be removed unless sourced from the identity/map context explicitly allowed for this card.",
+    "`VOICE: ... the lineage story is told in his honor` assigns motive/ceremonial framing not supported by the source. The source supports that Tonto begins a story about the absent master because Lothar asks about the Metabaron's augmentations."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because several Honcho facts use source-facing/meta language inside the card instead of in-world boundaries.",
+    "Unconfirmed names are presented under `ALIAS:` while the fact text says the identification is unresolved; this weakens the identity boundary for Kiowotai/Kioka/Aghnar."
+  ],
+  "format_errors": [
+    "`card` is a list of 16 strings under the 40-fact cap with no duplicate facts.",
+    "Allowed prefixes appear otherwise valid, but the no source refs/source-meta contract is violated by facts containing phrases such as `unconfirmed in source`, `the source raises the possibility`, `single scene cluster`, `from this source`, `source shows`, and `source-thin`."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful Kiowotai card once the source-meta wording is removed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Move all source-record and source-thin commentary out of `card` facts and keep it in `source_strategy`. Rewrite boundaries in-world, e.g. `BOUNDARY: Kioka is not a confirmed personal name for him; the Magon invocation may refer to Kiowotai, Aghnar, or a perceived figure.`",
+    "Replace source-facing scene limits with in-world limits, e.g. `BOUNDARY: No confirmed origin, backstory, stable name, later activity, or deeper motive is established beyond the ascent and Magon confrontation.`",
+    "Demote uncertain alias material to `BOUNDARY:` unless the fact can state a confirmed name or alias without contradiction.",
+    "Keep the card small; do not add full Aghnar arc facts or wiki-only prophecy fulfillment."
+  ],
+  "unsupported_claims": []
+}

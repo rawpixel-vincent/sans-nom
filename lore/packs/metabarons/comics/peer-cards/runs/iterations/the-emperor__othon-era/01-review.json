@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship target is wrong for the Empress. The draft uses `the-empress__othon-era`, but the identity map entry for this era is `the-empress__mother-janus-jana`. Split/phase cards must point at the exact peer id."
+  ],
+  "format_errors": [
+    "Two card facts contain source-facing metadata, which violates the no source refs/source-meta rule: `BOUNDARY: Do not merge this Emperor with later or visually distinct holders of the Imperial title; this card only covers the Othon-era sterile Emperor named in the source records.` and `BOUNDARY: Do not expand him into a full Imperial biography beyond the Othon-era source bundle...`."
+  ],
+  "manual_review_notes": [
+    "The card is otherwise source-grounded and keeps the Othon-era Emperor distinct from later Emperor-title peers."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Change the Empress relationship target to `the-empress__mother-janus-jana`.",
+    "Rewrite source-facing boundaries into Honcho-native wording, e.g. `BOUNDARY: Do not merge this Emperor with later or visually distinct holders of the Imperial title; this identity is only the Othon-era sterile Emperor who fathered Janus-Jana and honored Othon.`",
+    "Replace `source bundle` wording with in-world limits, e.g. `BOUNDARY: Do not expand him into a full Imperial biography; his durable center here is sterility, co-rule, public appeal, trust in Othon, and personal gratitude.`"
+  ],
+  "unsupported_claims": []
+}

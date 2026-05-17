@@ -1,0 +1,15 @@
+{
+  "card": [
+    "Name: Tokkar",
+    "ROLE: Raider and operator of the marble disintegrator; his assigned function in the assault group was breaching the fortress entrance.",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the same assault group.",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the same assault group.",
+    "RELATIONSHIP: bargoth (Bargoth): fellow raider in the same assault group.",
+    "TRAIT: Named as absent or unaccounted for during later combat; no confirmed status after that point.",
+    "BOUNDARY: No recorded speech, stated motive, confirmed origin, employer, fate, or later history beyond the fortress breach and subsequent unresolved disappearance in later combat."
+  ],
+  "display_name": "Tokkar",
+  "peer_card_id": "tokkar",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton — one extracted record (volume 2, pages p18 and p22). Card sized to source; all claims bounded to witnessed appearances. Blocking issues fixed: source-facing language removed from BOUNDARY, breach/disintegrator material consolidated into single ROLE fact, later combat location kept non-specific per source."
+}

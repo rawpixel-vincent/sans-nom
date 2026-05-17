@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
@@ -20,46 +21,55 @@ const (
 )
 
 type Action struct {
-	Kind    ActionKind
-	StoryID string
+	Kind             ActionKind
+	StoryID          string
+	GroundLorePackID string
 }
 
 type ListStoriesFunc func(root string) ([]storyapp.StorySummary, error)
+type ListPacksFunc func(root string) ([]lorepack.Pack, error)
 
 type screen int
 
 const (
 	screenMain screen = iota
+	screenPack
 	screenResume
 )
 
 type Model struct {
 	root        string
 	listStories ListStoriesFunc
+	listPacks   ListPacksFunc
 	screen      screen
 	cursor      int
 	stories     []storyapp.StorySummary
+	packs       []lorepack.Pack
 	err         error
 	action      Action
 	width       int
 	height      int
 }
 
-func NewModel(root string, listStories ListStoriesFunc) Model {
+func NewModel(root string, listStories ListStoriesFunc, listPacks ListPacksFunc) Model {
 	if strings.TrimSpace(root) == "" {
 		root = story.DefaultRoot
 	}
 	if listStories == nil {
 		listStories = storyapp.ListStories
 	}
+	if listPacks == nil {
+		listPacks = lorepack.ListPacks
+	}
 	return Model{
 		root:        root,
 		listStories: listStories,
+		listPacks:   listPacks,
 	}
 }
 
-func Run(ctx context.Context, root string) (Action, error) {
-	program := tea.NewProgram(NewModel(root, nil), tea.WithAltScreen())
+func Run(ctx context.Context, root string, listPacks ListPacksFunc) (Action, error) {
+	program := tea.NewProgram(NewModel(root, nil, listPacks), tea.WithAltScreen())
 	if ctx != nil && ctx.Done() != nil {
 		go func() {
 			<-ctx.Done()
@@ -96,7 +106,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.action = Action{Kind: ActionExit}
 			return m, tea.Quit
 		case "esc":
-			if m.screen == screenResume {
+			if m.screen == screenResume || m.screen == screenPack {
 				m.screen = screenMain
 				m.cursor = 0
 				m.err = nil
@@ -128,6 +138,8 @@ func (m Model) View() string {
 	b.WriteString("  Runtime story launcher\n\n")
 	if m.screen == screenMain {
 		b.WriteString(m.viewMain())
+	} else if m.screen == screenPack {
+		b.WriteString(m.viewPacks())
 	} else {
 		b.WriteString(m.viewResume())
 	}
@@ -144,8 +156,12 @@ func (m Model) handleEnter() (tea.Model, tea.Cmd) {
 	case screenMain:
 		switch m.cursor {
 		case 0:
-			m.action = Action{Kind: ActionNewStory}
-			return m, tea.Quit
+			packs, err := m.listPacks(".")
+			m.packs = packs
+			m.err = err
+			m.screen = screenPack
+			m.cursor = 0
+			return m, nil
 		case 1:
 			stories, err := m.listStories(m.root)
 			m.stories = stories
@@ -157,6 +173,29 @@ func (m Model) handleEnter() (tea.Model, tea.Cmd) {
 			m.action = Action{Kind: ActionExit}
 			return m, tea.Quit
 		}
+	case screenPack:
+		if len(m.packs) == 0 {
+			if m.cursor == 0 {
+				m.screen = screenMain
+				m.cursor = 0
+				m.err = nil
+				return m, nil
+			}
+			m.action = Action{Kind: ActionExit}
+			return m, tea.Quit
+		}
+		if m.cursor < len(m.packs) {
+			m.action = Action{Kind: ActionNewStory, GroundLorePackID: m.packs[m.cursor].ID}
+			return m, tea.Quit
+		}
+		if m.cursor == len(m.packs) {
+			m.screen = screenMain
+			m.cursor = 0
+			m.err = nil
+			return m, nil
+		}
+		m.action = Action{Kind: ActionExit}
+		return m, tea.Quit
 	case screenResume:
 		if len(m.stories) == 0 {
 			if m.cursor == 0 {
@@ -188,10 +227,40 @@ func (m Model) itemCount() int {
 	if m.screen == screenMain {
 		return 3
 	}
+	if m.screen == screenPack {
+		if len(m.packs) == 0 {
+			return 2
+		}
+		return len(m.packs) + 2
+	}
 	if len(m.stories) == 0 {
 		return 2
 	}
 	return len(m.stories) + 2
+}
+
+func (m Model) viewPacks() string {
+	var b strings.Builder
+	b.WriteString("  Choose Ground Lore\n")
+	b.WriteString("  Source-influence pack for the new story.\n\n")
+	if m.err != nil {
+		b.WriteString("  Could not list lore packs: " + m.err.Error() + "\n\n")
+	}
+	if len(m.packs) == 0 {
+		b.WriteString(menuLine(m.cursor == 0, "Back", "Return to the main menu."))
+		b.WriteString(menuLine(m.cursor == 1, "Exit", "Close the launcher."))
+		return b.String()
+	}
+	for i, pack := range m.packs {
+		secondary := strings.TrimSpace(pack.Description)
+		if secondary == "" {
+			secondary = pack.Collection
+		}
+		b.WriteString(menuLine(m.cursor == i, pack.Label, secondary))
+	}
+	b.WriteString(menuLine(m.cursor == len(m.packs), "Back", "Return to the main menu."))
+	b.WriteString(menuLine(m.cursor == len(m.packs)+1, "Exit", "Close the launcher."))
+	return b.String()
 }
 
 func (m Model) viewMain() string {

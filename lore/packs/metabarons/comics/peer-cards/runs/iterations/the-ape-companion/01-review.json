@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship target for the healer/namer is wrong. The relevant volume-06 Aghnar phase is `aghnar__warrior`, not `aghnar-von-salza`, which is a later/single extracted volume-09 record. This violates split persona relationship targeting and imports a same-name peer from the wrong split.",
+    "The final `BOUNDARY` fact is source-facing: `Three pages of source evidence` and `card is sized...` refer to evidence/card construction rather than in-world knowledge."
+  ],
+  "format_errors": [
+    "Card is a list of 15 strings under the 40-fact cap with allowed prefixes and no duplicates found.",
+    "The `BOUNDARY` fact contains source-meta/source-reference language, violating the no source refs in facts contract."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded card once the wrong Aghnar peer target and source-facing boundary are fixed."
+  ],
+  "missing_opportunities": [
+    "Add an in-world boundary that prevents confusion between this peer, the ape companion named Aghnar, and the Metabaron Aghnar phase peers.",
+    "Keep the card thin but precise: the source supports the epyphite dart wound, synthesized green blood healing, naming, rational speech, hunger, brother bond with Kiowotai, and warning/guide role above the domes."
+  ],
+  "revision_instructions": [
+    "Change the healer/namer relationship to `RELATIONSHIP: aghnar__warrior (Aghnar): ...` if the card keeps that relationship, and avoid phrasing that implies `aghnar-von-salza` is the volume-06 healer.",
+    "Replace the source-facing boundary with in-world wording, e.g. `BOUNDARY: No known biography beyond the rescue, naming, departure, hunger, brother-bond with Kiowotai, and ascent above the mushroom domes.`",
+    "Narrow or delete motive/interiority claims: remove `accepted no ongoing obligation`, `prior silence was not ignorance`, `philosophical inquiry, not gratitude or request`, and `does not explain itself` unless rephrased as directly witnessed behavior.",
+    "If using `Magon`, phrase it cautiously as association with the Magon/ape society rather than a fully established species label unless the source bundle explicitly supports the classification."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Magon creature... solitary inhabitant...` overstates the bundle. The source supports an ape-like rational creature associated with the heights above the mushroom domes and later Magon context, but not solitary inhabitant status.",
+    "`TRAIT: prior silence was not ignorance` is an interpretive overreach; the source supports that speech after healing proved rationality, not the meaning of earlier silence.",
+    "`TRAIT: philosophical inquiry, not gratitude or request` overstates and partly conflicts with the page summary, which says the creature later expresses gratitude and asks whether it has been named.",
+    "`TRAIT: Immediate independence... accepted no ongoing obligation from the healing` assigns motive/obligation beyond the witnessed leap away after naming.",
+    "`VOICE: ... does not explain itself` is unsupported and conflicts with the source summary that the creature describes its throat, body, glands, and unsuitable ground-bound life."
+  ]
+}

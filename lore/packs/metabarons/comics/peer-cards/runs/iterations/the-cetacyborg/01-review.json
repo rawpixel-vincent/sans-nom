@@ -1,0 +1,35 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts exceed the single-record/volume-05 source boundary by importing broader Cetacyborg usage from later Shabda-Oud arcs or turning inferred function into certainty.",
+    "The Shabda-Oud relationship is not keyed to a peer_card_id. If retained, resolve to an identity-map peer such as shabda-oud-witches or shabda-oud-mother-superiors only when the source supports that target.",
+    "The card overstates agency and ontology boundaries by declaring the Cetacyborg entirely non-sentient and only a programmed weapons platform; the source establishes a servo-brain command node and no direct voice, but not full absence of will."
+  ],
+  "format_errors": [
+    "RELATIONSHIP target 'Shabda-Oud' is not a peer_card_id and does not follow the established relationship-target format used by staged cards."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful card if the draft stays narrow and avoids importing full Cetacyborg lore from later same-name/group appearances."
+  ],
+  "missing_opportunities": [
+    "The card could include an explicit BOUNDARY that its knowledge is thin and limited to the volume-05 Othon encounter plus the seven additional approaching units.",
+    "The supported core is strong enough: colossal bio-mechanical vessel/creature, direct assault resistance, corrosive interior, servo-brain command node, destroyed from within by Othon, and seven more detected approaching Okhar."
+  ],
+  "revision_instructions": [
+    "Remove later-arc guard-installation and generalized Shabda-Oud fleet claims unless the input bundle explicitly includes those records for this peer.",
+    "Replace absolute non-sentience language with source-bounded wording: no direct speech or individual motive is attested; it is presented as a hostile bio-mechanical vessel commanded by a servo-brain.",
+    "Resolve the Shabda-Oud relationship to the correct peer_card_id or omit it if the relationship cannot be grounded from the identity-map/input bundle.",
+    "Tighten exaggerated combat claims to source wording: resists heavy/direct assault; vulnerable via internal servo-brain attack in the Othon encounter."
+  ],
+  "unsupported_claims": [
+    "ROLE: 'programmed to destroy the planet Okhar' is stronger than the source; volume 05 supports an imminent hostile threat to Okhar, not explicit programming or planetary-destruction intent.",
+    "ROLE/RELATIONSHIP: 'deployed as a guard force/presence for Shabda-Oud installations' imports later/general Cetacyborg lore and is outside this peer identity's single extracted record.",
+    "TRAIT: 'repels all conventional missiles' is not precise; source supports resistance to heavy weapons/direct assault, with tri-H torpedoes used as the durability benchmark.",
+    "TRAIT: 'Internal chemistry generates acids severe enough to corrode organic tissue on contact' is over-specific; source supports corrosive internal/intestinal acids damaging Othon's lungs and the metacraft environment.",
+    "TRAIT: 'Operates in formations' is not directly supported; source supports one destroyed Cetacyborg plus seven additional Cetycoborgs detected approaching Okhar.",
+    "RELATIONSHIP: 'functions as a Shabda-Oud weapon system, not an independent actor' is an inference presented as fact.",
+    "BOUNDARY: 'No sentient voice, no negotiable will' is over-absolute; source only supports no attested speech/negotiation and command by servo-brain.",
+    "INSTRUCTION: 'the only viable defeat vector is internal assault on the servo-brain' should be scoped to the volume-05 encounter, not stated as universal operational truth."
+  ]
+}

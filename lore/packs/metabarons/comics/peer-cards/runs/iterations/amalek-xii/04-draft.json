@@ -1,0 +1,18 @@
+{
+  "card": [
+    "Name: Amalek XII",
+    "ALIAS: Supreme Technopope — holds techno-papal authority as head of the Technoguild",
+    "ALIAS: Aghlex XII — unresolved name attached to Amalek XII's office; do not treat it as a confirmed separate person",
+    "ROLE: Head of the Technoguild and its techno-papal hierarchy",
+    "ROLE: His sealed, doorless techno-temple on Techno Central Planet is the primary institutional seat of his office; defended by technopapal guardians, a giant technoscarab, and automated defenses; breached by Metacraft and the assault party",
+    "TRAIT: Described as one of the galaxy's most powerful and influential people",
+    "TRAIT: The Technoguild treats the papacy as an interchangeable office — Amalek XIII, XIV, and XV are already prepared within a numbered succession system",
+    "TRAIT: His abduction alone triggers a galaxy-wide succession crisis and the siege of Philodendra by thousands of technodestroyers; the institutional logic of replaceability and the institutional weight of his person exist in the same system without resolution",
+    "RELATIONSHIP: steelhead__late (Steelhead, Post-Melmoth Warrior): abducted by him and secured as a physical hostage in the ruins of the presidential palace on Philodendra as part of a multi-step plan",
+    "BOUNDARY: No direct speech, private motive, personal reaction, or clearly witnessed self-presentation is established; use office, temple, abduction, and institutional response as his limits"
+  ],
+  "display_name": "Amalek XII",
+  "peer_card_id": "amalek-xii",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton thin-source peer. Card constrained to sourced facts: office, temple, succession system, abduction, institutional response. Contradiction encoded between numbered replaceability and galaxy-scale mobilization triggered by his removal. Revision 04 applies the single fix from 03-review: fact 9 deleted in full — it duplicated the temple-defense/breach material already present in the ROLE fact, and overclaimed necessity with \"required\". No other changes; rest of card structure preserved per narrow change-list instruction."
+}

@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several card facts use source-facing language inside the Honcho card, violating the no source refs/source-meta rule: `no canonical name established in any source record`, `no source record resolves any of these`, and `single witnessed scene`/`one scene` framing should be rewritten as in-world boundaries.",
+    "The card over-interprets a source-thin singleton record instead of staying strictly bounded to the two witnessed facts and one relationship."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 13 strings under the 40-fact limit and has no duplicates, but source references/source-meta wording inside facts violates the card contract."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded minor-character card; do not ask the Writer to invent additional lore for importance."
+  ],
+  "missing_opportunities": [
+    "Keep the card minimal: name/alias, one role tied to the energy offer, one carefully bounded relationship to `honorata__living`, one or two boundaries, and instructions not to invent identity/origin/faction details."
+  ],
+  "revision_instructions": [
+    "Remove all source-facing phrases from card facts. Use in-world wording such as `BOUNDARY: No confirmed personal name, title, faction affiliation, backstory, or known activity beyond the energy transfer with Honorata`.",
+    "Replace generalized ability/expertise claims with one-event phrasing: `TRAIT: Offered his energy to Honorata and instructed her to absorb it so they could unite in the mind's shadow`.",
+    "Soften inferred outcomes and relationship stance: say the eye-glow suggests the transfer or union took effect; say his stance appears supportive, not definitively protective unless phrased as uncertain.",
+    "Delete or greatly narrow the voice/demeanor facts unless tied directly to the attested imperative instruction."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Can offer and transfer personal psychic energy to another at will` overstates control and repeatable ability; the record supports one offered energy transfer to Honorata, not a general at-will capability.",
+    "`TRAIT: Versed in the practice of the \"mind's shadow\" — a shared psychic interior through which two minds can unite` imports explanatory lore not present in the source bundle; the source only attests the phrase and intended union.",
+    "`TRAIT: Directive and assured in manner; speaks with the quiet authority of someone performing a known discipline` infers demeanor and expertise beyond the thin record.",
+    "`RELATIONSHIP: ... the transfer succeeded ... his stance toward her is supportive and protective` should soften success/protective certainty; the source says Honorata's glowing eyes suggest successful union and the relationship appears supportive or protective.",
+    "`VOICE: Terse and imperative; no ceremony around the act ... expects it to be followed` extrapolates a voice profile from a single instruction."
+  ]
+}

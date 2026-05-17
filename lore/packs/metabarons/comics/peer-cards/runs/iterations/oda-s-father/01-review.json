@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship facts for Oda and Aghnar do not point at canonical peer_card_id values. This source sits in a split-persona area: Oda should resolve to oda__princess, and Aghnar should resolve to aghnar__warrior.",
+    "Two BOUNDARY facts use source-facing metadata inside the Honcho card: `unknown from source` and `Entire source footprint is two pages of one scene`. Source/process framing belongs in source_strategy, not card facts."
+  ],
+  "format_errors": [
+    "Card is a list of 16 strings under the 40-fact cap with allowed prefixes and no duplicates.",
+    "No markdown detected.",
+    "Facts contain source-meta language, violating the no source refs/source refs in facts contract.",
+    "RELATIONSHIP entries use display names instead of resolved peer ids for known split peers."
+  ],
+  "manual_review_notes": [
+    "Source-thin minor character, but not source-insufficient: the bundle supports a compact card centered on the suitor contest, coercive authority, Oda relationship, Aghnar standoff, and strict knowledge boundaries."
+  ],
+  "missing_opportunities": [
+    "The source is thin but sufficient for a useful minor-character card; keep the card tight rather than expanding beyond the two-page standoff."
+  ],
+  "revision_instructions": [
+    "Rewrite relationships as `RELATIONSHIP: oda__princess (Oda Capricious (Princess)): ...` and `RELATIONSHIP: aghnar__warrior (Aghnar (Warrior/Avenger)): ...`.",
+    "Move page/source-footprint language into source_strategy only. Rephrase boundaries in-world, e.g. `BOUNDARY: No confirmed personal name; use King of Amadis or Oda's Father` and `BOUNDARY: No established reign history, political backstory, or motives beyond the suitor-contest standoff`.",
+    "Soften interior claims: replace `beloved kin` with `kin`, replace `insubordination rather than unusual virtue` with `treats refusal of royal reward as an offense requiring punishment`, and remove unsupported face/honor/political-calculation language."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Holds Oda simultaneously as beloved kin...` overstates `beloved`; the source supports father/kin, possession, and distress when she threatens suicide, but not a stable loving self-concept.",
+    "`TRAIT: Interprets Aghnar's refusal of the kingdom as insubordination rather than unusual virtue` is too interiorized; the source supports anger at the refusal and punitive escalation, not that he classifies it as insubordination.",
+    "`TRAIT: Backs down... authority, face, or honor` imports face/honor/political-calculation motives not established by the bundle."
+  ]
+}

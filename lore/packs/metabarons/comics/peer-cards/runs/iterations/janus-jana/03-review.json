@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Honcho contract passes: `card` is a 35-item list of strings, under the 40-fact cap, using observed allowed prefixes, with no markdown/source refs and no duplicates detected.",
+    "The card follows the merged Janus-Jana identity across embryo, sacred egg, assassination target, and reigning empress phases while preserving boundaries around other Empress title-holders and private motives.",
+    "Direct voice remains thin in the source bundle, but the draft handles that honestly through voice and boundary facts rather than inventing interiority."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because it promotes the unresolved Kiowotai/Aghnar correspondence into an `ALIAS` fact and uses source-facing wording inside Honcho facts.",
+    "Fact 3 and fact 11 refer to `source record`/`source`, violating the no source refs or source-meta rule for card facts."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 12 strings under the 40-fact limit and uses allowed prefixes, with no duplicates found.",
+    "Facts contain source-facing metadata: `explicitly unresolved in the source record` and `explicitly unresolved in the source`."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "Keep the Kiowotai/Aghnar issue as a `BOUNDARY` or `INSTRUCTION`, not as an alias.",
+    "Use source-thin, in-world wording for the uncertainty: no confirmed resolution of whether Kiowotai, Kioka, the ape called Aghnar, and Aghnar the main character are distinct or overlapping identities."
+  ],
+  "revision_instructions": [
+    "Remove the Aghnar correspondence from `ALIAS:` and rewrite it as an in-world `BOUNDARY:` without mentioning source records, e.g. `BOUNDARY: The Kiowotai/Kioka/Aghnar naming overlap is unresolved; do not merge this peer into Aghnar's wider biography or deny the ambiguity outright.`",
+    "Delete `physical lightness is intrinsic...` or reduce the trait to `TRAIT: Able to float or fly by unclear means, possibly through specialized footwear.`",
+    "Replace `Magon Patriarch's champion` with source-grounded wording such as `after the confrontation with the Magon Patriarch and the giant creature`.",
+    "Remove all `source`/`source record` wording from card facts; keep source strategy metadata outside the Honcho payload."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: possibly the same identity as Aghnar the Great-Grandfather` is too strong as an alias. The bundle supports an unresolved identity ambiguity, not an alias or merge with the Aghnar peer arc.",
+    "`physical lightness is intrinsic to how he moves and fights` overstates the source. The source only supports floating or flying by unclear means, possibly specialized footwear.",
+    "`after he defeats the Magon Patriarch's champion` is not supported by the provided source wording. The bundle supports confronting the Magon Patriarch and escaping/defeating a giant creature, but not that the giant creature is the Patriarch's champion."
+  ]
+}

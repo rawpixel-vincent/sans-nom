@@ -1,0 +1,22 @@
+{
+  "card": [
+    "Name: Shazam",
+    "ROLE: white horse gifted to Bari by Othon Von Salza; bonded companion on Okhar",
+    "TRAIT: specimen of a horse breed extinct for 20,000 years since the Sixth World War",
+    "TRAIT: recreated by imperial techno-scientists from the Imperial Palace genetic museum at a cost of 100 tons of gold",
+    "TRAIT: presence on Okhar described as a godsend during a gloomy season",
+    "TRAIT: vulnerable to synthetic mare essence; this vulnerability was exploited by armed raiders who stole him",
+    "TRAIT: the raiding expedition that stole him included Ulkran, Wulthor, Tokkar, and Bargoth, who used synthetic mare essence to take him",
+    "TRAIT: bonds and becomes docile when named and fed sugar by a person",
+    "TRAIT: bonded to Bari after Bari named him and fed him sugar",
+    "RELATIONSHIP: bari (Bari): bonded master; bond formed when Bari named him and fed him sugar",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): original acquirer who gifted him to Bari; after Othon was catastrophically wounded in the fog ambush, Shazam carried him home to the palace",
+    "VOICE: non-speaking animal; behavioral presence only; no interior voice, symbolic awareness, or knowledge of events beyond direct experience",
+    "INSTRUCTION: portray through animal behavior only — bonding responses, carrying, vulnerability to synthetic mare essence; no human interiority or symbolic reflection",
+    "BOUNDARY: no speech, self-awareness, symbolic interiority, or knowledge of household or lineage consequences; behavior is limited to bonding, vulnerability to synthetic mare essence, and carrying riders"
+  ],
+  "display_name": "Shazam",
+  "peer_card_id": "shazam",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton record from volume 2. Card bounded strictly to direct source facts: extinct breed, genetic museum recreation, cost, mare-essence vulnerability, sugar/name bonding with Bari, theft by named raiders, carrying wounded Othon home. Wiki lore consulted for orientation only; no full-arc lineage consequences or dynasty causality imported."
+}

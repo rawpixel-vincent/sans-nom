@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Two card facts use source-facing wording, so the Honcho payload is not ready to stage.",
+    "The Tonto relationship is too definitive about who rebukes Mega-Gul and extracts the concession despite the page summary marking the arguing robot's exact identity as unclear."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: tonto (Tonto): interlocutor in the source scene...` contains source-facing wording inside a card fact.",
+    "`BOUNDARY: Whether the pressure-extracted concession produced genuine model update or only surface compliance is not established in the source; do not resolve it` contains source-facing wording inside a card fact."
+  ],
+  "manual_review_notes": [
+    "Mega-Gul is a source-thin singleton; a compact card is appropriate once the source-facing wording and over-definitive Tonto attribution are fixed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace source-facing wording with Honcho-native phrasing, e.g. `RELATIONSHIP: tonto (Tonto): interlocutor in the exchange; Mega-Gul refuses the account, and a robot speaker's rebuke forces his concession` or omit Tonto if the writer cannot preserve the uncertainty cleanly.",
+    "Rewrite the boundary as in-world uncertainty, e.g. `BOUNDARY: Whether the pressure-extracted concession produced genuine model update or only surface compliance remains unresolved; do not decide it for him`.",
+    "Keep the compact contradiction/pressure-behavior shape; the source is thin but sufficient for a useful small card."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: tonto (Tonto): ... the party whose account Mega-Gul refuses and who extracts the concession through direct rebuke` overstates the relationship. The bundle supports Mega-Gul being corrected by another robot speaker, while the page summary says that speaker's exact identity is unclear."
+  ]
+}

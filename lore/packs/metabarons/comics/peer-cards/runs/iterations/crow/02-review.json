@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The revision is still not ready because at least one Honcho fact retains source-facing wording, and two other facts still frame absence through record/evidence language rather than in-world boundaries."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: The Armored Leader (unnamed)... no evidence of negotiation or refusal in source` explicitly references the source inside a card fact.",
+    "`TRAIT: Executes navigation orders without recorded dissent...` uses record/evidence framing inside a Honcho fact; rephrase as an in-world behavioral limit.",
+    "`VOICE: ... no recorded protest, no recorded hesitation...` still uses record/evidence framing, even though the final clause was improved."
+  ],
+  "manual_review_notes": [
+    "Crow remains a source-thin but viable singleton: the bundle supports a minimal card about ambiguous brain-like nature, subordinate navigation, dangerous-speed obedience, and unresolved interiority."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the relationship fact without `in source`, e.g. `relationship is hierarchically subordinate with no established negotiation or refusal`.",
+    "Replace `recorded dissent/protest/hesitation` with in-world boundary language such as `no established dissent, protest, hesitation, independent initiative, refusal, or negotiation`.",
+    "Keep the card small and do not add biography, motive, origin, or wiki/matrix lore; Crow is source-thin but usable once the source-facing wording is removed."
+  ],
+  "unsupported_claims": []
+}

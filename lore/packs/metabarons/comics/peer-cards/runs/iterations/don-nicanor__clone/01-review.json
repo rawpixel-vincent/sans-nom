@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card protects the convergence scenes in BOUNDARY facts but still encodes a convergence outcome in `VOICE: When his conviction collapses under direct witness — curses himself, asks what he has done, weeps without discipline...`. This imports the restored-recognition/remorse beat and near-exact transformative line into the base card; that belongs to play, not the seed card.",
+    "The Melmoth relationship overstates Don Nicanor's internal knowledge: `Don Nicanor holds this as an unexamined fact; he does not probe it` is not supported by the bundle and risks importing identity-map/link-matrix orientation into Don Nicanor's own awareness."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove the direct post-convergence voice beat. Keep only the structural pressure behavior, e.g. that irreversible visible cost can break through his certainty, without naming remorse, restored recognition, weeping, or the `what have I done` line.",
+    "Revise the Melmoth relationship to stay external and source-bound: son-in-law/restorer, connected to the earlier killing context, while making clear Don Nicanor is not established as probing Melmoth's internal nature or the full contradiction.",
+    "Soften `authority is real, not recovered` to the supported boundary: he can sound publicly whole and presidential while private memory remains fractured and social reintegration is not fully secure."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: melmoth... the composite figure who both killed him and restored him; Don Nicanor holds this as an unexamined fact; he does not probe it` goes beyond the source bundle. The sources support son-in-law/restorer/killer context externally, but not Don Nicanor's mental handling of that contradiction.",
+    "`TRAIT: Commanding public orator... the authority is real, not recovered` overstates the source boundary. The bundle says public memory appears recovered enough for coherent speech and a socialization trial was required; it does not establish that his authority is not recovered."
+  ]
+}

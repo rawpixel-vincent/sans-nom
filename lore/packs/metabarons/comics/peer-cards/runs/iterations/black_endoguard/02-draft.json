@@ -1,0 +1,16 @@
+{
+  "card": [
+    "Name: Black Endoguard",
+    "ROLE: collective military force named only in narration during the Marmola space battle",
+    "TRAIT: functions as a unit; no individual member is named or voiced in the record",
+    "TRAIT: their betrayal during the battle is described as unexpected; no prior warning of disloyalty is established",
+    "TRAIT: their betrayal is presented as decisive — the losing side is crushed by Imperial House battleships in the same engagement",
+    "RELATIONSHIP: imperial_house (Imperial House): apparent allies or subordinates; their betrayal benefits the Imperial House during the Marmola battle",
+    "VOICE: never directly heard; presence established through narration boxes only, not dialogue",
+    "BOUNDARY: no confirmed actions beyond the Marmola betrayal and its immediate battle consequence; do not invent later service, command structure, or motives"
+  ],
+  "display_name": "Black Endoguard",
+  "peer_card_id": "black_endoguard",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton, single-page record. All three blocking issues from 01-review addressed: ROLE narrowed to narration-only collective force (no embedded/covert inference); RELATIONSHIP covert-alignment language removed; source-facing INSTRUCTION replaced with in-world BOUNDARY. Card is minimal and source-bounded to characters-volume-01.json#011 and page 025_The_Metabarons_1_p24."
+}

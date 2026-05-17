@@ -80,7 +80,8 @@ func TestNewStoryUsesCallbacksAndReturnsSession(t *testing.T) {
 	session, err := NewStory(context.Background(), StoryActionOptions{
 		StoryID:              "new-one",
 		StoryRoot:            root,
-		GlobalLoreCollection: "global-test",
+		GroundLorePackID:     "metabarons",
+		GroundLoreCollection: "global-test",
 		GenerateSeedBundle: func(_ context.Context, _ StoryActionOptions) (story.SeedBundle, error) {
 			generated = true
 			return validBundleForStory("new-one", "New One"), nil
@@ -99,8 +100,8 @@ func TestNewStoryUsesCallbacksAndReturnsSession(t *testing.T) {
 	if !generated || !seeded {
 		t.Fatalf("callbacks generated=%v seeded=%v", generated, seeded)
 	}
-	if session.State.GlobalLoreCollection != "global-test" {
-		t.Fatalf("global collection = %q", session.State.GlobalLoreCollection)
+	if session.State.GroundLorePackID != "metabarons" || session.State.GroundLoreCollection != "global-test" {
+		t.Fatalf("ground lore = %q %q", session.State.GroundLorePackID, session.State.GroundLoreCollection)
 	}
 }
 

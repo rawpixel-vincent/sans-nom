@@ -11,6 +11,8 @@ import (
 
 const (
 	DefaultRoot                 = "data/stories"
+	DefaultGroundLorePackID     = "metabarons"
+	DefaultGroundLoreCollection = "sans_nom_lore_metabarons"
 	DefaultGlobalLoreCollection = "sans_nom_lore"
 )
 
@@ -67,7 +69,9 @@ type StoryState struct {
 	WorkspaceID          string               `json:"workspace_id"`
 	SessionID            string               `json:"session_id"`
 	StoryCollection      string               `json:"story_collection"`
-	GlobalLoreCollection string               `json:"global_lore_collection"`
+	GroundLorePackID     string               `json:"ground_lore_pack_id,omitempty"`
+	GroundLoreCollection string               `json:"ground_lore_collection,omitempty"`
+	GlobalLoreCollection string               `json:"global_lore_collection,omitempty"`
 	BiblePath            string               `json:"bible_path"`
 	CurrentPacketID      string               `json:"current_packet_id"`
 	CurrentPacketPath    string               `json:"current_packet_path"`
@@ -77,6 +81,22 @@ type StoryState struct {
 	LastNarratorProse    string               `json:"last_narrator_prose"`
 	CreatedAt            string               `json:"created_at"`
 	UpdatedAt            string               `json:"updated_at"`
+}
+
+func (s StoryState) SourceLorePackID() string {
+	if strings.TrimSpace(s.GroundLorePackID) != "" {
+		return s.GroundLorePackID
+	}
+	return DefaultGroundLorePackID
+}
+
+func (s StoryState) SourceLoreCollection() string {
+	for _, value := range []string{s.GroundLoreCollection, s.GlobalLoreCollection, DefaultGroundLoreCollection} {
+		if strings.TrimSpace(value) != "" {
+			return value
+		}
+	}
+	return DefaultGroundLoreCollection
 }
 
 type TurnRecord struct {

@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card still promotes `Kioka` to a firm `ALIAS` even though the bundle marks it as only possible/unresolved; this violates the requested knowledge boundary around Kiowotai/Kioka/Aghnar naming overlap.",
+    "The relationship to the ape companion is not resolved to the peer id and risks confusing the ape named Aghnar with Aghnar's wider split identities. Use `RELATIONSHIP: the-ape-companion (The Ape Companion): ...` or equivalent peer-id-targeted wording.",
+    "The ape-companion relationship claims Kiowotai fights through alien tribal creatures `at his side`; the source bundle supports brotherhood and ascent together, but not that the ape is present as a combat partner during the p15-p17 fight."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "Keep the source-thin boundary, but make it in-world and precise: no confirmed life, motive, or knowledge beyond the mushroom-dome ascent, Magon Patriarch confrontation, giant-creature reversal, and Magon prophecy context."
+  ],
+  "revision_instructions": [
+    "Replace the `ALIAS: Kioka...` fact with a `BOUNDARY:` or cautious wording that preserves unresolved identity, e.g. Kioka is a name invoked by the Magon in the same scene but not a confirmed stable alias.",
+    "Retarget the ape relationship to `the-ape-companion (The Ape Companion)` and remove the unsupported combat-at-his-side clause.",
+    "Keep the card concise and source-thin; do not import the later Aghnar/Magon full arc or wiki reversal into Kiowotai's biography."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: Kioka...` states a confirmed alias where the source says only possible invocation/identity.",
+    "`RELATIONSHIP: The Ape Aghnar ... fights through alien tribal creatures at his side` imports combat participation not supported by the provided Kiowotai source record."
+  ]
+}

@@ -26,8 +26,8 @@ IMAGE_RE = re.compile(
 )
 
 DEFAULT_IMAGE_DIR = Path("external/comics/meta-barons")
-DEFAULT_OUTPUT_DIR = Path("lore/canon/comics")
-DEFAULT_COLLECTION = "sans_nom_lore"
+DEFAULT_OUTPUT_DIR = Path("lore/packs/metabarons/comics")
+DEFAULT_COLLECTION = "sans_nom_lore_metabarons"
 
 
 class PageRef(BaseModel):
@@ -643,7 +643,7 @@ Input JSON:
 def ingest_qdrant(paths: Paths, collection: str, dry_run: bool) -> None:
     from .lore_index import build_documents, ingest_index, write_index
 
-    index_dir = paths.root / "lore/canon/index"
+    index_dir = paths.root / "lore/packs/metabarons/index"
     docs = build_documents(paths.root, comics_dir=paths.output_dir)
     write_index(paths.root, index_dir, docs, collection=collection)
     ingest_index(index_dir=index_dir, collection=collection, replace=True, dry_run=dry_run)
@@ -652,7 +652,7 @@ def ingest_qdrant(paths: Paths, collection: str, dry_run: bool) -> None:
 def smoke_search(root: Path, collection: str) -> None:
     from .lore_index import smoke_index
 
-    smoke_index(index_dir=root / "lore/canon/index", collection=collection, strict=False)
+    smoke_index(index_dir=root / "lore/packs/metabarons/index", collection=collection, strict=False)
 
 
 def lore_documents(paths: Paths) -> list[dict[str, Any]]:

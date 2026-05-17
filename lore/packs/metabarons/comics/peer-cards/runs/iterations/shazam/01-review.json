@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready because it imports later/full-arc lineage consequences into a thin Shazam animal peer card instead of staying inside the Shazam source boundary.",
+    "`BOUNDARY: Source records cover only volume 2 appearances...` is source-facing metadata inside a Honcho fact; card facts must be in-world and must not mention source records or volumes.",
+    "The draft uses wiki/orientation-level chronology to make Shazam responsible for later dynasty outcomes (`Bari's death`, `destroyed the Bari branch`, `obliterated Othon's reproductive future`, `preserved the biological possibility of dynastic continuation`). Those are not appropriate Shazam-card facts from the provided singleton record."
+  ],
+  "format_errors": [
+    "Card is a list of 14 strings under the 40-fact cap with allowed prefixes and no duplicate facts found.",
+    "One card fact contains source-facing metadata: `Source records cover only volume 2 appearances`."
+  ],
+  "missing_opportunities": [
+    "Use the source-supported animal details more cleanly: extinct white horse, recreated from the Imperial Palace genetic museum, cost 100 tons of gold, synthetic mare essence vulnerability, sugar/name bonding with Bari, theft by named raiders, carrying wounded Othon home.",
+    "Keep Shazam non-speaking and behavior-only without turning the horse into an interpreter of dynastic symbolism or later lineage causality."
+  ],
+  "revision_instructions": [
+    "Remove all source-facing language from card facts; replace the final boundary with in-world wording such as `BOUNDARY: no self-awareness, speech, symbolic interiority, or knowledge of later household and lineage consequences; behavior is limited to animal bonding, vulnerability to synthetic mare essence, and carrying riders`.",
+    "Replace full-arc consequence claims with local supported facts: the theft drew Bari and Othon into pursuit, Othon was catastrophically wounded in the fog battle, and Shazam carried Othon home.",
+    "Remove unsupported superlatives and lineage-causal framing (`most expensive`, `Bari branch`, `reproductive future`, `biological possibility of dynastic continuation`)."
+  ],
+  "unsupported_claims": [
+    "`the most expensive living gift in the early Metabaronic saga` is an unsupported superlative; the bundle supports the 100 tons of gold cost, not a comparative saga-wide ranking.",
+    "`theft of Shazam by raiders led directly to Bari's death` imports later Bari arc material beyond the provided Shazam record.",
+    "`theft ... obliterated Othon's reproductive future` overstates and conflicts with the broader volume-2 fact that Othon later fathers Bari Didi despite castration.",
+    "`this act of animal fidelity preserved the biological possibility of dynastic continuation` turns a supported action, carrying wounded Othon home, into a later-dynasty causal claim and projects fidelity beyond the bounded animal behavior."
+  ]
+}

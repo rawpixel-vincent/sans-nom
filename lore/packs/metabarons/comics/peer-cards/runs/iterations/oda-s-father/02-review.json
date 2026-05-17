@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One card fact still uses source-facing metadata inside the Honcho card: `ALIAS: the King of Amadis — ruling title only; personal name is absent from source`. Card facts must not reference source/evidence status."
+  ],
+  "format_errors": [
+    "Card is a list of 16 strings under the 40-fact cap with allowed prefixes and no duplicates.",
+    "No markdown detected.",
+    "Facts contain source-meta language, violating the no source refs in facts contract."
+  ],
+  "manual_review_notes": [
+    "Source-thin minor character, but the bundle is sufficient for a useful compact card centered on the suitor contest, coercive authority, Oda relationship, Aghnar standoff, and strict knowledge boundaries."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase the alias without source-facing wording, e.g. `ALIAS: the King of Amadis — ruling title only; no confirmed personal name`.",
+    "Replace `palace guard` with source-bounded wording such as `substantial armed force` or `soldiers and guards under his command`."
+  ],
+  "unsupported_claims": [
+    "`ROLE: King of Amadis; holds sovereign authority over a substantial palace guard...` slightly over-specifies `palace guard`; the bundle supports a substantial armed force/soldiers/guards under his command, not a palace-specific guard."
+  ]
+}

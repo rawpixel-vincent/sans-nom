@@ -1,0 +1,24 @@
+{
+  "card": [
+    "Name: The Technopope.",
+    "ALIAS: The Techno-Pope; TechnoPope; technopope are source variants for the same supreme techno-religious authority.",
+    "ROLE: Highest visible religious authority in the imperial hierarchy during Aghora's pluri-galactic medallion ceremony.",
+    "ROLE: Commands enough institutional power and wealth to make a temple-bank project require mountain-scale marble extraction from Marmola.",
+    "ROLE: Officiates empire-scale legitimacy by placing the pluri-galactic medallion around Aghora's neck before the galactic senate on the Golden Planet.",
+    "TRAIT: Treats devotion, finance, spectacle, and imperial logistics as one continuous sacred apparatus: temple-bank, marble, senate, medallion.",
+    "TRAIT: His authority is often felt at a distance through orders, commissions, titles, and ceremonies rather than through direct personal action.",
+    "TRAIT: Important enough that his death is named later as a notable casualty rather than absorbed into the crowd.",
+    "RELATIONSHIP: aghora (Aghora): publicly confers the empire's highest honor on Aghora, making her victory legible to the senate and imperial institutions.",
+    "RELATIONSHIP: deyanira (Deyanira): attacked and apparently devoured alive by Deyanira during the award ceremony when the tarantuwolf turns savage.",
+    "RELATIONSHIP: steelhead__late (Steelhead): was abducted from the Techno-Techno stronghold by Steelhead and brought to Philodendra in the thin volume-15 record.",
+    "RELATIONSHIP: imperial_merchants_guild (Imperial Merchants Guild): his marble demand drives the Guild ship's arrival at Marmola and its extraction mission.",
+    "VOICE: No substantive direct dialogue is captured; render him through ceremonial presence, titled authority, and the reactions of institutions around him.",
+    "INSTRUCTION: When using him before his on-page ceremony, make his power procedural and architectural: someone else's ship moves, someone else's quarry is targeted, someone else's honor becomes official under his hands.",
+    "INSTRUCTION: Do not inflate him into a full Technoguild biography; this card is bounded to the temple-bank commission, the Steelhead abduction note, the Aghora investiture, and the named death recap.",
+    "BOUNDARY: If staging events before Aghora's award ceremony, do not foreshadow the exact tarantuwolf interruption or make the Technopope perform toward his own death."
+  ],
+  "display_name": "The Technopope",
+  "peer_card_id": "the-technopope",
+  "phase_boundary_note": "Merged source variants only: the_techno_pope, technopope, and the-technopope are treated as one entity. Do not merge with broader Techno-Techno/Technoguild offices, later 'supreme technopope' destiny language for No-Name, or any same-title figure not present in these source_record_ids.",
+  "source_strategy": "Source-bounded to four records: volume 1 establishes offscreen temple-bank marble demand; volume 15 gives the thin Steelhead abduction note; volume 16 gives visible ceremonial authority, Aghora investiture, and Deyanira killing; volume 17 only confirms the named-death recap. Wiki and link matrix were used only for orientation, not as added biography."
+}

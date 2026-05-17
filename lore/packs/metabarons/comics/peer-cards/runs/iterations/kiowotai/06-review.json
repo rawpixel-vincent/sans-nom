@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready: several BOUNDARY facts use source-facing wording instead of Honcho-native facts.",
+    "The draft imports or sharpens identity language beyond the target record by saying `Aghnar the Great-Grandfather`; the input only supports an explicitly unresolved possible connection to a main-character Aghnar, and the identity map keeps Kiowotai separate from Aghnar splits and from the ape companion.",
+    "One trait adds an unsupported mechanism: `built-in lift mechanism` is not in the source bundle; only floating/hovering with possible specialized footwear is supported."
+  ],
+  "format_errors": [
+    "Facts 12-14 use source-facing terms such as `source`, `source alias`, and `source names`; card facts should not contain source refs or source-process language."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful Kiowotai card once the identity-boundary and source-facing wording issues are corrected."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase BOUNDARY facts in-world, e.g. `BOUNDARY: Kiowotai is a silver-haired humanoid distinct from the ape companion called Aghnar; do not merge those identities unless the story explicitly resolves the uncertainty.`",
+    "Replace the lift-mechanism trait with `TRAIT: Appears able to float or hover; the mechanism is unconfirmed, with specialized footwear only a possibility.`",
+    "Remove `Aghnar the Great-Grandfather`; if retaining the uncertainty, say only that a possible connection to another Aghnar remains unresolved and must not be asserted as fact.",
+    "Keep the compact source-thin shape; do not add later Magon/Aghnar arc material from wiki orientation or other split records."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Capable of floating or hovering, possibly via specialized footwear or a built-in lift mechanism.` Unsupported as written because the built-in lift mechanism is invented.",
+    "`BOUNDARY: A source alias suggests Kiowotai may be another name for Aghnar the Great-Grandfather...` Unsupported identity bleed; replace with a narrower unresolved-identity boundary without `Great-Grandfather` and without source-facing phrasing."
+  ]
+}

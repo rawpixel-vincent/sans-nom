@@ -21,9 +21,11 @@ from .lore_ops import qdrant_url, voyage_api_key, voyage_model
 
 load_project_env()
 
-DEFAULT_COLLECTION = "sans_nom_lore"
-DEFAULT_COMICS_DIR = Path("lore/canon/comics")
-DEFAULT_INDEX_DIR = Path("lore/canon/index")
+DEFAULT_PACK_ID = "metabarons"
+DEFAULT_PACKS_DIR = Path("lore/packs")
+DEFAULT_COLLECTION = "sans_nom_lore_metabarons"
+DEFAULT_COMICS_DIR = Path("lore/packs/metabarons/comics")
+DEFAULT_INDEX_DIR = Path("lore/packs/metabarons/index")
 MAX_MARKDOWN_CHARS = 6000
 
 
@@ -70,7 +72,20 @@ class SmokeQuery(BaseModel):
     expected_any: list[list[str]]
 
 
-SMOKE_QUERIES = [
+class LorePack(BaseModel):
+    id: str
+    label: str
+    description: str = ""
+    collection: str
+    embedding_model: str = "voyage-4"
+    artifact_roots: dict[str, str] = Field(default_factory=dict)
+    builder: str
+    smoke_queries: list[SmokeQuery] = Field(default_factory=list)
+    forbidden_literal_terms: list[str] = Field(default_factory=list)
+    status: str = "active"
+
+
+DEFAULT_SMOKE_QUERIES = [
     SmokeQuery(query="Tonto tells a story", expected_any=[["tonto", "story"], ["tonto", "narrat"]]),
     SmokeQuery(query="Metabunker city-shaft", expected_any=[["metabunker"], ["city-shaft"]]),
     SmokeQuery(query="Aghora grief Steelhead", expected_any=[["aghora", "steelhead"]]),
@@ -84,8 +99,9 @@ SMOKE_QUERIES = [
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="lore-index", description="Build and query Sans-Nom lore index.")
     parser.add_argument("--root", default=".", help="Repository root.")
-    parser.add_argument("--index-dir", default=str(DEFAULT_INDEX_DIR), help="Index artifact directory.")
-    parser.add_argument("--collection", default=DEFAULT_COLLECTION, help="Qdrant collection name.")
+    parser.add_argument("--pack", default=DEFAULT_PACK_ID, help="Ground lore pack id.")
+    parser.add_argument("--index-dir", default="", help="Index artifact directory; defaults to the pack index root.")
+    parser.add_argument("--collection", default="", help="Qdrant collection name; defaults to the pack collection.")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("build", help="Build documents.jsonl and manifest.json.")
@@ -105,11 +121,13 @@ def main(argv: list[str] | None = None) -> int:
 
     args = parser.parse_args(argv)
     root = Path(args.root).resolve()
-    index_dir = (root / args.index_dir).resolve()
+    pack = load_lore_pack(root, args.pack)
+    index_dir = resolve_index_dir(root, pack, args.index_dir)
+    collection = args.collection or pack.collection
 
     if args.cmd == "build":
-        docs = build_documents(root)
-        write_index(root, index_dir, docs, collection=args.collection)
+        docs = build_documents(root, pack=pack)
+        write_index(root, index_dir, docs, collection=collection, embedding_model=pack.embedding_model)
         print(f"wrote {len(docs)} lore index documents to {index_dir}")
         return 0
     if args.cmd == "validate":
@@ -124,21 +142,64 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "ingest":
         ingest_index(
             index_dir=index_dir,
-            collection=args.collection,
+            collection=collection,
             replace=args.replace,
             dry_run=args.dry_run,
             fake_embeddings=args.fake_embeddings,
+            embedding_model=pack.embedding_model,
         )
         return 0
     if args.cmd == "smoke":
-        failures = smoke_index(index_dir=index_dir, collection=args.collection, strict=args.strict)
+        failures = smoke_index(
+            index_dir=index_dir,
+            collection=collection,
+            strict=args.strict,
+            smoke_queries=pack.smoke_queries or DEFAULT_SMOKE_QUERIES,
+            embedding_model=pack.embedding_model,
+        )
         return 1 if failures and args.strict else 0
     raise AssertionError(args.cmd)
 
 
-def build_documents(root: Path, comics_dir: Path | None = None) -> list[IndexDocument]:
+def load_lore_pack(root: Path, pack_id: str) -> LorePack:
+    pack_id = (pack_id or DEFAULT_PACK_ID).strip()
+    path = root / DEFAULT_PACKS_DIR / pack_id / "lore-pack.json"
+    try:
+        pack = LorePack.model_validate_json(path.read_text())
+    except FileNotFoundError as exc:
+        raise SystemExit(f"lore pack {pack_id!r} not found at {path}") from exc
+    except ValidationError as exc:
+        raise SystemExit(f"invalid lore pack {path}: {exc}") from exc
+    if pack.id != pack_id:
+        raise SystemExit(f"lore pack id mismatch: requested {pack_id!r}, manifest has {pack.id!r}")
+    return pack
+
+
+def pack_root(root: Path, pack: LorePack) -> Path:
+    return (root / DEFAULT_PACKS_DIR / pack.id).resolve()
+
+
+def pack_artifact_path(root: Path, pack: LorePack, key: str, default: str) -> Path:
+    value = pack.artifact_roots.get(key) or default
+    return (pack_root(root, pack) / value).resolve()
+
+
+def resolve_index_dir(root: Path, pack: LorePack, override: str = "") -> Path:
+    if override:
+        return (root / override).resolve()
+    return pack_artifact_path(root, pack, "index", "index")
+
+
+def build_documents(root: Path, comics_dir: Path | None = None, pack: LorePack | None = None) -> list[IndexDocument]:
     root = root.resolve()
-    comics_dir = (comics_dir or root / DEFAULT_COMICS_DIR).resolve()
+    if pack is not None and pack.builder != "metabarons_comics":
+        raise ValueError(f"unsupported lore pack builder {pack.builder!r}")
+    comics_dir = (
+        comics_dir
+        or (pack_artifact_path(root, pack, "comics", "comics") if pack else root / DEFAULT_COMICS_DIR)
+    ).resolve()
+    wiki_path = pack_artifact_path(root, pack, "wiki", "wiki/lore.md") if pack else root / "lore/packs/metabarons/wiki/lore.md"
+    links_path = pack_artifact_path(root, pack, "links", "links/matrix.md") if pack else root / "lore/packs/metabarons/links/matrix.md"
     paths = Paths(root=root, output_dir=comics_dir)
     docs: list[IndexDocument] = []
 
@@ -202,8 +263,8 @@ def build_documents(root: Path, comics_dir: Path | None = None) -> list[IndexDoc
     docs.extend(build_character_documents(root, paths))
     docs.extend(build_peer_card_documents(root, comics_dir / "peer-cards"))
     docs.extend(build_identity_map_documents(root, comics_dir / "peer-cards" / "identity-map.json"))
-    docs.extend(build_markdown_documents(root, root / "lore/canon/wiki/lore.md", "wiki_lore"))
-    docs.extend(build_markdown_documents(root, root / "lore/canon/links/matrix.md", "link_matrix"))
+    docs.extend(build_markdown_documents(root, wiki_path, "wiki_lore"))
+    docs.extend(build_markdown_documents(root, links_path, "link_matrix"))
 
     docs = [doc for doc in docs if doc.text.strip()]
     docs.sort(key=lambda doc: doc.doc_id)
@@ -408,7 +469,7 @@ def make_document(
     )
 
 
-def write_index(root: Path, index_dir: Path, docs: list[IndexDocument], collection: str) -> None:
+def write_index(root: Path, index_dir: Path, docs: list[IndexDocument], collection: str, embedding_model: str | None = None) -> None:
     index_dir.mkdir(parents=True, exist_ok=True)
     documents_path = index_dir / "documents.jsonl"
     lines = [
@@ -417,11 +478,11 @@ def write_index(root: Path, index_dir: Path, docs: list[IndexDocument], collecti
     ]
     text = "".join(f"{line}\n" for line in lines)
     write_text_atomic(documents_path, text)
-    manifest = build_manifest(docs=docs, collection=collection)
+    manifest = build_manifest(docs=docs, collection=collection, embedding_model=embedding_model)
     write_json_atomic(index_dir / "manifest.json", manifest.model_dump())
 
 
-def build_manifest(docs: list[IndexDocument], collection: str) -> IndexManifest:
+def build_manifest(docs: list[IndexDocument], collection: str, embedding_model: str | None = None) -> IndexManifest:
     counts = Counter(doc.kind for doc in docs)
     sources: dict[str, str] = {}
     for doc in docs:
@@ -429,7 +490,7 @@ def build_manifest(docs: list[IndexDocument], collection: str) -> IndexManifest:
     return IndexManifest(
         generated_at=datetime.now(UTC).isoformat(),
         collection=collection,
-        embedding_model=voyage_model(),
+        embedding_model=embedding_model or voyage_model(),
         document_count=len(docs),
         counts_by_kind=dict(sorted(counts.items())),
         sources=[{"path": path, "sha256": sha} for path, sha in sorted(sources.items())],
@@ -539,13 +600,14 @@ def ingest_index(
     replace: bool,
     dry_run: bool = False,
     fake_embeddings: bool = False,
+    embedding_model: str | None = None,
 ) -> None:
     docs = read_index_documents(index_dir)
     if dry_run:
         print(f"would ingest {len(docs)} docs into {collection}")
         return
 
-    vectors = embed_documents([doc.text for doc in docs], fake=fake_embeddings)
+    vectors = embed_documents([doc.text for doc in docs], fake=fake_embeddings, embedding_model=embedding_model)
     if not vectors:
         raise RuntimeError("no lore documents to ingest")
 
@@ -570,7 +632,13 @@ def ingest_index(
     print(f"ingested {len(points)} docs into {collection}")
 
 
-def smoke_index(index_dir: Path, collection: str, strict: bool) -> int:
+def smoke_index(
+    index_dir: Path,
+    collection: str,
+    strict: bool,
+    smoke_queries: list[SmokeQuery] | None = None,
+    embedding_model: str | None = None,
+) -> int:
     if not (index_dir / "documents.jsonl").exists():
         raise RuntimeError(f"missing lore index documents at {index_dir / 'documents.jsonl'}")
     key = voyage_api_key()
@@ -583,8 +651,8 @@ def smoke_index(index_dir: Path, collection: str, strict: bool) -> int:
     vo = voyageai.Client(api_key=key)
     client = QdrantClient(url=qdrant_url(), check_compatibility=False)
     failures = 0
-    for smoke in SMOKE_QUERIES:
-        vector = vo.embed([smoke.query], model=voyage_model(), input_type="query").embeddings[0]
+    for smoke in smoke_queries or DEFAULT_SMOKE_QUERIES:
+        vector = vo.embed([smoke.query], model=embedding_model or voyage_model(), input_type="query").embeddings[0]
         hits = query_points(client, collection, vector, limit=5)
         print(f"\n## {smoke.query}")
         haystacks = []
@@ -603,7 +671,7 @@ def smoke_index(index_dir: Path, collection: str, strict: bool) -> int:
     return failures
 
 
-def embed_documents(texts: list[str], fake: bool = False) -> list[list[float]]:
+def embed_documents(texts: list[str], fake: bool = False, embedding_model: str | None = None) -> list[list[float]]:
     if fake:
         return [fake_embedding(text) for text in texts]
     key = voyage_api_key()
@@ -616,7 +684,7 @@ def embed_documents(texts: list[str], fake: bool = False) -> list[list[float]]:
     vectors: list[list[float]] = []
     for start in range(0, len(texts), batch_size):
         batch = texts[start:start + batch_size]
-        response = vo.embed(batch, model=voyage_model(), input_type="document")
+        response = vo.embed(batch, model=embedding_model or voyage_model(), input_type="document")
         vectors.extend(response.embeddings)
         print(f"embedded {len(vectors)}/{len(texts)} docs", flush=True)
     return vectors

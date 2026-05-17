@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because several interpretive VOICE/TRAIT/INSTRUCTION facts exceed the thin Jejoh source bundle and turn a brief deity/power-source encounter into a generalized persona."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Format is otherwise valid: card is a list of 15 strings, under the 40-fact cap, uses observed allowed prefixes, has no markdown, no source refs in facts, and no duplicates.",
+    "Source bundle is thin but sufficient for a useful Jejoh card; do not invent extra lore to make him feel more important."
+  ],
+  "missing_opportunities": [
+    "The card has the right basic shape for a source-bounded minor deity figure, but should lean harder on the supported internal organizing facts: Shabda-Oud worship/ritual authority, central psychic power-source role, external impenetrability, and inside-only vulnerability.",
+    "Because the bundle is thin, the card should include an in-world boundary that no personal motive, direct speech pattern, independent biography, or broader cosmology is established for Jejoh."
+  ],
+  "revision_instructions": [
+    "Remove or soften unsupported persona claims about Jejoh's posture, consumption as a general mode, domain logic, and voice.",
+    "Replace the VOICE fact with a boundary such as `BOUNDARY: No direct speech pattern, private motive, origin, or biography is established beyond godlike Shabda-Oud authority and the witnessed confrontation with Aghnar`.",
+    "Replace the instruction about being `never its target` with a source-grounded instruction such as `INSTRUCTION: Treat Jejoh as an externally impenetrable psychic power-source whose apparent invulnerability depends on the outside/inside distinction`.",
+    "Keep relationship targets as `shabda-oud-witches` and `aghnar__warrior`; those match the identity map for this split."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Acts as though no force from outside can reach or threaten him; his posture in every encounter is that of an entity for whom this question is already settled` overstates interior stance and `every encounter`; the bundle supports external impenetrability, not Jejoh's self-conception across encounters.",
+    "`TRAIT: His mode of engagement is consumption rather than confrontation; takes what enters his domain rather than deflecting or defending against it` generalizes from biting/devouring Aghnar's arm into a full behavioral mode and domain logic.",
+    "`VOICE: Does not explain, negotiate, or justify; his presence is the statement; speaks, if at all, as an entity that has never required a foundation for its authority` is not supported by voice notes or direct speech in the bundle.",
+    "`INSTRUCTION: Jejoh occupies the position of origin of force in every scene, never its target` is both unsupported and misleading: he is directly attacked and then destroyed by Aghnar's internal bomb trap in the source record."
+  ]
+}

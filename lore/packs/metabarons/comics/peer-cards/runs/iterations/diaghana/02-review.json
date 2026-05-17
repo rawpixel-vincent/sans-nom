@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because it introduces an unsupported Diaghana/Aghnar ambiguity and includes source-facing card language."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: lothar (Lothar): sole source through whom Diaghana exists in the record...` uses source/meta wording inside a Honcho fact. Card facts must not refer to records or sources."
+  ],
+  "manual_review_notes": [
+    "Source is extremely thin but can support a useful minor-character boundary card if it stays honest about the limits."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove the Diaghana/Aghnar ambiguity fact entirely. Keep Diaghana as the singleton peer identified by `peer_card_id: diaghana`.",
+    "Rewrite the relationship fact in in-world terms, e.g. `RELATIONSHIP: lothar (Lothar): Lothar is the only attested character preoccupied with why Diaghana wanted to become king of the apes and disturbed their ecological balance.`",
+    "Keep the card thin. Do not invent motive, biography, appearance, voice, faction, or later role beyond Lothar's unresolved question about ape kingship and ecological disruption."
+  ],
+  "unsupported_claims": [
+    "`BOUNDARY: Whether Diaghana is distinct from Aghnar or another name attached to the same events remains unresolved...` is not supported by the provided Diaghana source record. The identity map treats Diaghana as a singleton peer, and the source separates Diaghana from Aghnar as a mentioned figure versus a birthday time marker.",
+    "The Diaghana/Aghnar ambiguity risks importing wiki/full-arc Aghnar ape material into this separate peer card, overriding the target `peer_identity` boundary."
+  ]
+}

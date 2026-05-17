@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Contract passes: card is a list of 39 strings, under the 40-fact cap, uses allowed prefixes, has no duplicates, no markdown, and no source refs inside facts.",
+    "The draft follows the melmoth identity boundary: composite Melmoth only, relationship peer ids are aligned, and later post-composite Steelhead/reversion material is bounded rather than imported."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

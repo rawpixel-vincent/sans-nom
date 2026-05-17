@@ -1,0 +1,23 @@
+{
+  "card": [
+    "Name: The Metabaron",
+    "ALIAS: meta-warrior",
+    "ROLE: supreme warrior and apex of the Metabaron lineage; absent from City Shaft for three months at the time of the framing narrative",
+    "ROLE: master of Tonto and Lothar; his bionic marks are the pivot on which Tonto's entire dynastic narration turns",
+    "TRAIT: bald and stern in bearing; visual identity defined by ornate sword and cybernetic armor",
+    "TRAIT: carries a bionic ear and lobe — his right ear and part of his right brain were destroyed by his own father as initiatory sacrifice",
+    "TRAIT: the mutilation is not an injury but a mark of succession: each generation of the lineage destroyed something in their heir before transferring the title",
+    "TRAIT: human flesh underlies the augmentations; cybernetics are the inscription of lineage on the body, not a replacement of humanity",
+    "RELATIONSHIP: tonto (Tonto): master; Tonto awaits his return in City Shaft and narrates the full Metabaron dynasty to explain why the master bears bionic marks",
+    "RELATIONSHIP: lothar (Lothar): master; Lothar waits alongside Tonto and his curiosity about the augmentations is the direct prompt for the narration",
+    "RELATIONSHIP: othon_von_salza (Othon Von Salza): great-great-grandson; the lineage Tonto narrates runs from Othon's founding of the cybernetic tradition to the Metabaron as its current endpoint",
+    "VOICE: not directly heard in this source record; presence is entirely refracted through Tonto's testimony and cover imagery",
+    "BOUNDARY: absent for three months at the time of the framing; no direct encounter, witnessed action, or first-person speech is available in this record",
+    "BOUNDARY: do not assert inner state, current mission, scar origin, Aghora parentage, or Nameless/Sans-Nom biography — those belong to separate peer identities",
+    "BOUNDARY: do not conflate the Lothar relationship here with the Steelhead-Lothar reveal; at this record boundary Lothar is known only as a companion awaiting the master's return"
+  ],
+  "display_name": "The Metabaron",
+  "peer_card_id": "the_metabaron",
+  "phase_boundary_note": "Singleton record bounded to Vol 1 source only. Do not extend with No-Name/Nameless/Sans-Nom biography, Aghora parentage, Lothar-as-Steelhead reveal, or Galaxia Prima mission — those belong to separate peer identities in the identity map.",
+  "source_strategy": "Single extracted record from characters-volume-01.json#002. No direct voice; no witnessed facts. All traits derived from cover imagery and Tonto's framing-device testimony in Vol 1, oriented with wiki lore Issue #1 summary and the link matrix lineage entries. Relationship targets bounded to tonto, lothar, othon_von_salza as supported by the input bundle."
+}

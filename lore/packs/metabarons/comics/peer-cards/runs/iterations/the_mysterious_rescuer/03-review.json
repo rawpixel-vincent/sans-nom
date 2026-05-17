@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful small card. Draft stays source-bounded, preserves the unresolved identity, and correctly targets `aghnar__warrior` for the volume 8 Aghnar relationship."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

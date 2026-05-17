@@ -1,0 +1,16 @@
+{
+  "card": [
+    "Name: Diaghana",
+    "ROLE: sought kingship over the apes; associated with disruption of the ape population's ecological balance",
+    "TRAIT: known only through Lothar's preoccupation with the ape-kingship question; no motive, method, or outcome is attested beyond the aspiration and the disruption",
+    "RELATIONSHIP: lothar (Lothar): sole source through whom Diaghana exists in the record; Lothar dwells on why Diaghana wanted to be king of the apes and why he disrupted their ecological balance, without resolution",
+    "BOUNDARY: Known only through Lothar's fixation; no confirmed direct appearance, speech, motive, or activity beyond the ape-kingship question",
+    "BOUNDARY: Whether Diaghana is distinct from Aghnar or another name attached to the same events remains unresolved; do not collapse the ambiguity in play",
+    "INSTRUCTION: Do not expand Diaghana's role, history, or motives beyond what Lothar's question attests; the ape-kingship aspiration and ecological disruption are the full extent of what is known",
+    "VOICE: No direct speech, perspective, or presence attested; do not construct a voice for Diaghana"
+  ],
+  "display_name": "Diaghana",
+  "peer_card_id": "diaghana",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton thin-card strategy: single attested fact is Lothar's secondhand mention of Diaghana's ape-kingship ambition and ecological disruption. Card stays strictly bounded to that attestation. Diaghana/Aghnar ambiguity preserved as an in-world boundary fact using wording from the verifier's revision instructions. No Planet Perdita or mushroom-dome ecology framing imported. All source-facing language (page refs, \"source record\", \"source volume\", \"secondhand mention\" wording) removed and replaced with in-world equivalents."
+}

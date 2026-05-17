@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: it still contains source-facing wording inside a Honcho fact and a few facts overstate agency, population scope, or emotional motivation beyond the provided singleton volume 9 record."
+  ],
+  "format_errors": [
+    "Card is a list of 30 strings, under the 40-fact cap, with allowed prefixes and no exact duplicates found.",
+    "`BOUNDARY: His upbringing, training, and early life under Othon are not in this source record; do not import them` uses source-facing/process wording inside the card. Honcho facts should be in-world and should not refer to `source record`."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful Aghnar von Salza singleton card; blocked_source_insufficient remains false."
+  ],
+  "missing_opportunities": [
+    "Keep the corrected relationship targets: `othon-von-salza`, `oda__princess`, `honorata__in-oda`, `steelhead__warrior`, and `ulritch-the-red` all match the identity map for this singleton target.",
+    "Keep the useful boundaries around the unknown tentacled being, unresolved Steelhead duel, and unconfirmed Pthagurean acceptance."
+  ],
+  "revision_instructions": [
+    "Rewrite the decapitation trait passively, e.g. `TRAIT: Survived decapitation; his body was attached to a sustaining machine to continue living`.",
+    "Narrow the relocation trait to `Morga-the-Beautiful inhabitants` or `an entire displaced population`, avoiding `entire population` unless directly supported.",
+    "Remove the unsupported emotional inference from the pact instruction; keep only pact override, vow, and the boundary against inventing his private emotional register.",
+    "Rewrite the Othon early-life boundary without source-facing wording, e.g. `BOUNDARY: No confirmed upbringing, training, or early-life details under Othon; do not import them from other Aghnar phases`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Survived decapitation by attaching his body to a sustaining machine` implies Aghnar attached himself to the machine. The bundle supports only that his body was attached to a machine to continue living.",
+    "`TRAIT: Organized the relocation of the entire population of Morga-the-Beautiful to the Teflon satellite under imperial contract` overstates the source. The bundle supports relocation of Morga-the-Beautiful inhabitants / an entire displaced population, not necessarily the entire original population.",
+    "`INSTRUCTION: The pact with Oda that their son would not become a Metabaron was overridden by Honorata's reincarnation; treat this as an unresolved wound motivating his vow against Steelhead` adds unsupported psychological framing. The source supports pact override and the vow, but not `unresolved wound` as his motive."
+  ]
+}

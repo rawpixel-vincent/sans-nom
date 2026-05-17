@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card passes the Honcho contract: 31 string facts, under the 40-fact cap, allowed prefixes, no markdown/source refs, and no duplicate facts detected.",
+    "The draft stays aligned to the aghnar__late split identity and uses the correct relationship targets for Steelhead, Honorata-within-Oda, and Janus-Jana."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

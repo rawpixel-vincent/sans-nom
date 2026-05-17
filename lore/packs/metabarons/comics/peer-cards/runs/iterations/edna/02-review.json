@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close but not ready: it contains over-specific unsupported negatives about Edna's training/status and one source-facing voice fact inside the Honcho card.",
+    "Several facts overstate Edna's agency in the rescue debate. The source supports that she argued for saving Othon and that others endorsed that side; it does not support that her will personally prevailed against Castaka silence."
+  ],
+  "format_errors": [
+    "`VOICE: Her voice in her final confrontation reaches us only through others' retrospective accounts...` is source-facing/meta phrasing inside a card fact. Honcho facts should be in-world and should not describe how evidence reaches the reader."
+  ],
+  "missing_opportunities": [
+    "The card should include one or two INSTRUCTION facts for how to voice Edna, since the current VOICE entries describe her but do not give clear behavioral steering.",
+    "The rescue debate should preserve the source's nuance: Edna argues for Othon's life over secrecy, but the decision is collective and contested."
+  ],
+  "revision_instructions": [
+    "Replace unsupported training/status negatives with bounded wording such as: `BOUNDARY: no confirmed metabaronic craft, formal combat training, or later warrior doctrine beyond Castaka clan labor, armed defense, and honor-driven sacrifice`.",
+    "Rephrase the rescue relationship to say she publicly argued for Othon's rescue despite the secrecy risk, without claiming her will alone prevailed.",
+    "Remove `did not stop` unless directly supported by page text.",
+    "Replace the source-facing final-confrontation VOICE fact with an in-world boundary, e.g. `VOICE: In the final confrontation, do not invent quoted last words; her motive is known through the action itself: solitary, armed, honor-driven defiance`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Armed and combative when clan survival is at stake; her combativeness is honor-driven, not craft-trained — she is not a warrior-caste figure` is too strong. The source supports armed/combative and honor-driven sacrifice, but not lack of craft training or that she is outside the warrior caste.",
+    "`BOUNDARY: Do not project warrior-caste training or metabaronic craft onto her...not a trained martial skill` is safer than the trait but still asserts an absence the source does not establish. Narrow it to no confirmed metabaronic craft or combat training.",
+    "`RELATIONSHIP: othon-von-salza...this is the clearest example of your will prevailing against Castaka silence` overstates the council scene. Her position is influential, but the record says others supported it and a younger authority overruled Berard.",
+    "`TRAIT: ...Berard rebuked her for weeping at his own death and she did not stop` adds `did not stop`, which is not established by the source summary."
+  ]
+}

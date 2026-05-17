@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several Honcho facts are source-facing rather than in-world/base-card language: `sourced scenes` and `vol13 conflict` should not appear inside the card payload.",
+    "The Dona Vicenta relationship is not resolved to the identity-map peer id. If kept, it should target `dona-vicenta` rather than a bare character name.",
+    "The Dona Vicenta relationship overstates causality: the bundle supports her accusation of Steelhead's crimes and Steelhead's failed search for love, but not that her accusation named his lovelessness or drove the merger that created Melmoth."
+  ],
+  "format_errors": [
+    "Card is a list of 28 strings, under the 40-fact cap, with allowed prefixes and no duplicates found.",
+    "Fact 6 uses source-facing wording: `in the sourced scenes`.",
+    "Fact 27 uses source/volume-facing wording: `after the vol13 conflict`."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "The card otherwise preserves the split-phase identity well: Steelhead is an internal warrior component within Melmoth, not the pre-merger warrior or later post-Melmoth phase.",
+    "The card captures the supported contradiction: he sought love before the merger but now attacks romantic spectacle as weakness and demands combat control."
+  ],
+  "revision_instructions": [
+    "Rewrite source-facing facts in-world, e.g. replace `in the sourced scenes` with `in this phase` or `while inside Melmoth`.",
+    "Replace `after the vol13 conflict` with an in-world boundary such as `after this internal war` or remove the volume reference entirely.",
+    "Retarget the Dona Vicenta relationship as `RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): ...` if the relationship remains.",
+    "Narrow the Dona Vicenta relationship to supported facts: she accused Steelhead of killing her father, exterminating the Dylvaks, and destroying the Halerce tree; do not claim her accusation caused the merger or named his lovelessness.",
+    "Remove or rephrase `memory` unless tying it to a clearly supported pre-merger burden rather than a literal mode of presence."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: ... present as a voice, memory, circuitry, and contested bodily claim...` includes `memory`, which is not directly supported as a mode of presence for this in-Melmoth phase.",
+    "`RELATIONSHIP: Dona Vicenta: Her accusation names the crimes and lovelessness that drove Steelhead toward the merger...` goes beyond the provided records."
+  ]
+}

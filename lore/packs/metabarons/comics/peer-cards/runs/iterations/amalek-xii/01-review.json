@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft invents voice/personality for a source-thin peer with no confirmed in-person appearance and empty voice notes. Facts like `you do not explain your authority`, `he would not frame his captivity as a defeat`, and `His register is edict, not exchange` are not supported by the bundle.",
+    "The card exceeds the peer-material review boundary: Amalek XII is usable, but should stay constrained to office, hostage status, succession implications, sealed temple/guards, and explicit knowledge limits. It should not infer private beliefs, self-concept, or speaking style."
+  ],
+  "format_errors": [
+    "Card shape is otherwise valid: list of 16 strings, under 40 facts, accepted prefixes, no exact duplicates, and no markdown detected.",
+    "Fact 9 uses source/evidence-facing wording: `Never confirmed as present in any witnessed scene`. Recast as an in-world boundary rather than source-status language."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful card; do not block as source-insufficient."
+  ],
+  "missing_opportunities": [
+    "Use the thin-source note as a strength: preserve the contradiction between replaceable succession and massive mobilization, while marking his direct presence, voice, motives, and fate as unknown."
+  ],
+  "revision_instructions": [
+    "Remove all invented first-person/voice behavior and unsupported inner-state claims.",
+    "Keep only sourced facts: name/alias uncertainty, Supreme Technopope/head of Technoguild, sealed doorless temple on Techno Central Planet, guardians/technoscarab, Steelhead abduction, hostage location on Philodendra, succession crisis, Amalek XIII-XV readiness, and unresolved aftermath.",
+    "Rewrite source-meta boundaries into Honcho-native limits, e.g. `BOUNDARY: No direct speech, private motive, or personal reaction is established; treat his authority through office, temple, abduction, and institutional response only.`"
+  ],
+  "unsupported_claims": [
+    "`the institutional form of his divinity` is interpretive inflation beyond the extracted record's temple/office evidence.",
+    "`whatever specific continuity he believes he carries that no numbered successor can inherit` invents an inner belief not present in the source bundle.",
+    "`he would speak as if his removal from the temple were a temporary displacement of the office` invents pressure behavior and self-framing not supported by any witnessed speech.",
+    "`he does not negotiate because negotiation would require acknowledging the other party as a peer` invents a voice rule and political psychology."
+  ]
+}

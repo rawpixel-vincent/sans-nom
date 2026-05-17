@@ -1,0 +1,34 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready: it is source-thin but not fully boundary-honest. Several facts turn one courtship gag into stable psychology and voice beyond what the single General Amagho record supports."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 15 strings under the 40-fact limit, with no duplicate facts found.",
+    "Card uses allowed-looking prefixes, but one fact contains explicit source-facing wording: `in the source`. Honcho facts should not mention source/document status.",
+    "Several facts use source-meta framing such as `single courtship scene`; keep source-thin strategy in `source_strategy` or phrase boundaries in-world."
+  ],
+  "manual_review_notes": [
+    "Source bundle is sufficient for a useful small card; blocked_source_insufficient is not warranted."
+  ],
+  "missing_opportunities": [
+    "The card should preserve the very small but useful supported shape: flamboyant wealthy suitor, owner of Tazzum mines, claimed defeat of Androkla-5 emperor, offered an intestine-rose, publicly rejected by Oda, then knocked away mid-presentation.",
+    "The Oda relationship target `oda__princess` is correct for this split persona and should be retained."
+  ],
+  "revision_instructions": [
+    "Remove or soften unsupported interiority: do not claim total self-delusion, lifelong refusal immunity, or genuine inability to perceive grotesquerie.",
+    "Rewrite source-facing boundaries in-world, e.g. `BOUNDARY: No confirmed later role, recovery, motive, or knowledge of Aghnar's lineage is established beyond the failed courtship presentation.`",
+    "Replace `Galactic military general` with narrower wording such as `Titled general and wealthy suitor...`.",
+    "Keep the card small; this is a source-thin minor character and does not need invented depth to feel important."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Galactic military general...` adds `Galactic` beyond the provided record; the source supports General Amagho as a titled suitor who claims a conquest, not a defined galactic military office.",
+    "`TRAIT: Does not perceive his grotesque offerings as grotesque... total and unexamined` overstates interior psychology from a single theatrical offering.",
+    "`VOICE: Speaks in the register of a magnate who has never been refused...` is not supported; the record shows wealth and public rejection, not a lifetime of never being refused.",
+    "`VOICE: ...he genuinely cannot see it` asserts internal perception not established by the source.",
+    "`INSTRUCTION: ...never tenderness` and `every declaration of feeling doubles as a boast about conquest` overgeneralize from one presentation.",
+    "`BOUNDARY: ...he does not recover in the source` is source-facing and also implies a continuity fact beyond the page rather than a bounded absence of later attestation.",
+    "`BOUNDARY: ...he never learned he was competing against a dynasty` asserts a negative knowledge state that is not witnessed; safer wording should limit him to no established knowledge of Oda, Aghnar, or Metabaronic matters."
+  ]
+}

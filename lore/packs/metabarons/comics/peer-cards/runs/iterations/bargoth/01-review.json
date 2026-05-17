@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready because it turns record absences into biography and imports over-specific facts about other raiders into Bargoth's own card."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "Add a concise voice or instruction fact if the card is meant to be actor-usable despite thin evidence, bounded to ground-level raider behavior during the extraction."
+  ],
+  "revision_instructions": [
+    "Replace the `joined at the horse capture phase` claim with a boundary such as `BOUNDARY: Individually confirmed during the Shazam extraction and later missing-call sequence; no separate role confirmed in the initial breach beyond membership in the raiding party`.",
+    "Narrow the hierarchy trait to the supported fact: `TRAIT: Receives and follows direct tactical instructions during the horse extraction`.",
+    "Simplify relationships to fellow-raider facts using peer ids without importing each peer's separate action: `RELATIONSHIP: ulkran (Ulkran): fellow raider in the Shazam theft expedition`, and likewise for Wulthor and Tokkar."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Joined at the horse capture phase — not recorded during the initial fog approach or fortress breach` is not supported. Bargoth is only individually recorded on p19 and p22, but the source does not establish that he joined later; volume/page context frames the named raiders as one expedition.",
+    "`TRAIT: Received direct instructions...not a planner — operates under orders within the raiding hierarchy` overstates the evidence. The source supports that Bargoth was instructed during the horse capture sequence, but not a stable hierarchy or that he was not a planner.",
+    "The relationship lines for Ulkran, Wulthor, and Tokkar include their specific p18 actions rather than Bargoth-bounded relationship facts. Those details are supported for those peers, but they are not established as Bargoth's witnessed knowledge and make his thin card lean on other peer records."
+  ]
+}

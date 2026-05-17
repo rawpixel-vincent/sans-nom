@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is ready to stage: 37 string facts, under the 40-fact cap, allowed prefixes, no duplicates, no markdown/source refs in facts, source-grounded, and aligned to the aghnar__warrior split-phase identity."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

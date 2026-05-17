@@ -6,6 +6,19 @@ export type StorySummary = {
   updated_at: string;
   created_at: string;
   path: string;
+  ground_lore_pack_id: string;
+  ground_lore_collection: string;
+};
+
+export type LorePack = {
+  id: string;
+  label: string;
+  description: string;
+  collection: string;
+  embedding_model: string;
+  artifact_roots: Record<string, string>;
+  builder: string;
+  status: string;
 };
 
 export type AdminStatus = {
@@ -30,6 +43,7 @@ export type StoryDetail = {
   turns: Record<string, unknown>[];
   turn_count: number;
   paths: Record<string, string>;
+  ground_lore_pack?: LorePack;
 };
 
 export type LogEvent = {
@@ -83,6 +97,18 @@ export async function getStatus(): Promise<AdminStatus> {
 export async function listStories(): Promise<StorySummary[]> {
   const data = await request<{ stories: StorySummary[] }>('/admin/api/stories');
   return data.stories;
+}
+
+export async function listLorePacks(): Promise<LorePack[]> {
+  const data = await request<{ packs: LorePack[] }>('/admin/api/lore-packs');
+  return data.packs;
+}
+
+export async function createStory(groundLorePackID: string): Promise<{ story_id: string; summary: StorySummary }> {
+  return request<{ story_id: string; summary: StorySummary }>('/admin/api/stories', {
+    method: 'POST',
+    body: JSON.stringify({ ground_lore_pack_id: groundLorePackID })
+  });
 }
 
 export async function getStory(storyId: string): Promise<StoryDetail> {

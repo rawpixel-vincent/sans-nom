@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Contract passes: card is a list of 34 strings, uses accepted prefixes, stays under the 40-fact cap, has no source refs or markdown in facts, and has no duplicates found. The card follows the honorata__in-oda split identity, preserves Oda-consciousness uncertainty, avoids final-outcome verdicts, and points relationship ids at the appropriate peers."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

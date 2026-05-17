@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because several RELATIONSHIP facts use invalid or collapsed peer ids instead of identity-map peer_card_id values, and one relationship promotes a non-peer technology record as if it were a peer target.",
+    "The Lothar boundary imports unsupported spoiler language about a hidden identity/final implications. The Tonto source bundle supports companion/audience/coercive Master Lothar dynamics, not that formulation.",
+    "The trait using \"Every problem has a solution\" preserves a source line as an operating sentence; paraphrase this into behavior rather than storing the exact line as a base Honcho fact."
+  ],
+  "format_errors": [
+    "RELATIONSHIP target `the-metabaron` is not a valid identity-map peer_card_id; use the appropriate split id, likely `the-metabaron__no-name` for the frame-narrative master.",
+    "RELATIONSHIP target `aghnar` is not a valid split-phase peer id; the described household retainer/surgical/tactical-assistant relationship points to `aghnar__warrior`, not a collapsed Aghnar id.",
+    "RELATIONSHIP target `honorata` is not a valid split-phase peer id; the psycho-surgical work and isolation companion material points to `honorata__reborn`.",
+    "RELATIONSHIP target `steelhead` collapses split Steelhead/Melmoth phases; split or narrow it to the correct id, such as `steelhead__warrior` for pre-Melmoth service and `steelhead__in-melmoth` for Melmoth-era material.",
+    "RELATIONSHIP target `metacraft` refers to a related non-peer technology record. Do not encode it as a peer relationship target."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful Tonto card. The draft is strong on depth and not generic sci-fi flattening, but it needs relationship-id and spoiler-boundary cleanup before staging."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace invalid relationship targets with exact identity-map peer_card_id values and split phase-specific relationships instead of using collapsed names.",
+    "Remove or rewrite the Lothar boundary so it only preserves supported sequencing: early Lothar as companion/audience/rival, later coercive Master Lothar dynamics earned in sequence.",
+    "Paraphrase the exact motto into a durable pressure behavior, e.g. Tonto looks for technical workarounds even when robotic law forbids the obvious route.",
+    "Keep the current depth around loyalty, rebellion, robot dignity, technical competence, vulnerability, and sardonic narration; those parts are source-grounded and worth preserving."
+  ],
+  "unsupported_claims": [
+    "BOUNDARY: Do not disclose the hidden identity or final implications attached to Lothar too early; Tonto's early relationship to Lothar should play as robot banter, rivalry, and coerced narration."
+  ]
+}

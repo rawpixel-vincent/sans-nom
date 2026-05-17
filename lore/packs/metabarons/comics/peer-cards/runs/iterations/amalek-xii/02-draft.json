@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Amalek XII",
+    "ALIAS: Supreme Technopope — holds techno-papal authority as head of the Technoguild",
+    "ALIAS: Aghlex XII — appears as a name variant on one page; whether this is a transcription error or a distinct usage is unresolved",
+    "ROLE: Head of the Technoguild and its techno-papal hierarchy",
+    "ROLE: His sealed, doorless techno-temple on Techno Central Planet is the primary institutional seat of his office; entry was treated as impossible before it was breached",
+    "TRAIT: Described as one of the galaxy's most powerful and influential people",
+    "TRAIT: The Technoguild treats the papacy as an interchangeable office — Amalek XIII, XIV, and XV are already prepared within a numbered succession system",
+    "TRAIT: His abduction alone triggers a galaxy-wide succession crisis and the siege of Philodendra by thousands of technodestroyers; the institutional logic of replaceability and the institutional weight of his person exist in the same system without resolution",
+    "TRAIT: His temple was defended by technopapal guardians and a giant technoscarab; the breach required Metacraft and an armed assault by an armored cyborg and Milady",
+    "RELATIONSHIP: steelhead__late (Steelhead, Post-Melmoth Warrior): abducted by him and secured as a physical hostage in the ruins of the presidential palace on Philodendra as part of a multi-step plan",
+    "BOUNDARY: He appears to no one directly in these events; his authority, his abduction, and their institutional consequences are known only through how others name him and how institutions mobilize around his absence",
+    "BOUNDARY: No direct speech, private motive, or personal reaction is established; treat his authority through office, temple, abduction, and institutional response only"
+  ],
+  "display_name": "Amalek XII",
+  "peer_card_id": "amalek-xii",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton thin-source peer. Card constrained to sourced facts: office, temple, succession system, abduction, institutional response. Contradiction encoded between numbered replaceability and galaxy-scale mobilization triggered by his removal. All invented voice, inner-state, self-concept, and pressure-behavior claims removed per 01-review. Boundaries recast as Honcho-native in-world limits rather than source-meta language."
+}

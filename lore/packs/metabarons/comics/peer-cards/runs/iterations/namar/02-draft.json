@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Namar",
+    "ALIAS: pirate commander",
+    "ROLE: Pirate commander operating a counterfeit planet, a spacecraft-carrier disguised as a planetary body.",
+    "TRAIT: Commands a force of 100,000 Ostrov-class armored mini-fighters deployable from the counterfeit planet.",
+    "TRAIT: Uses the counterfeit planet as a mobile staging platform for large-scale fleet ambushes.",
+    "RELATIONSHIP: the-emperor__othon-era (The Emperor, Othon's era): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation.",
+    "RELATIONSHIP: the-empress__mother-janus-jana (The Empress, Janus-Jana's mother): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation.",
+    "RELATIONSHIP: janus-jana (Janus-Jana): transported aboard the Mother-Coach during Namar's ambush; no personal exchange or confirmed knowledge relationship is established.",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): enemy who destroys Namar's fleet and mega-carrier with FB3 bombs and a tri-H torpedo stratagem, forcing the counterfeit planet's surrender.",
+    "BOUNDARY: No established direct dialogue or personal register; do not invent a speaking style beyond terse pirate command when speech is unavoidable.",
+    "BOUNDARY: No established physical description, personal history, or political allegiance beyond the Harp constellation engagement.",
+    "BOUNDARY: No confirmed aftermath past the counterfeit planet's surrender; do not extend Namar's story beyond the Harp constellation engagement."
+  ],
+  "display_name": "Namar",
+  "peer_card_id": "namar",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton thin card. All facts bounded to vol.3 p14–p15 and p23 witnessed events. Relationship peer IDs resolved via identity-map (othon-era emperor/empress split confirmed). No wiki-level or matrix relationships added; link matrix used only for orientation."
+}

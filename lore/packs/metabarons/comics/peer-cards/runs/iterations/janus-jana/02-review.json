@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship targets are not stage-ready against the identity map. `RELATIONSHIP: Aghnar von Salza (aghnar): ...` uses a non-peer/same-name catchall instead of the relevant mapped peer ids; the vol10 break with the Empire points to `aghnar__late`, while the vol9 contract-only record is `aghnar-von-salza`.",
+    "`RELATIONSHIP: Steelhead: accepted as humanity's champion...` omits the split-phase peer id; this should point to `steelhead__warrior` for the v10 champion phase.",
+    "Several other relationships omit available peer ids, weakening Honcho targeting: The Oiders should point to `the-oiders`, Sama-Wajd to `sama-wajd`, and General Thato to `general-thato`."
+  ],
+  "format_errors": [
+    "Card is a list of 35 strings, within the 40-fact cap, with allowed prefixes and no exact duplicates detected.",
+    "No markdown or explicit source refs are present inside the card facts.",
+    "Relationship facts for known mapped peers need correct `peer_card_id` targeting before staging."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful Janus-Jana card. The draft preserves the merged Janus-Jana identity and its public/ceremonial pressure well; the remaining blockers are target-id correctness and one over-personalized combat inference."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace the Aghnar relationship with phase-correct targets, separating `aghnar-von-salza` for the vol9 contract/threat-to-Janus-Jana material from `aghnar__late` for the vol10 renunciation, guard-killing, and conventional-weapons crisis.",
+    "Add mapped ids to relationship facts where available: `the-oiders`, `sama-wajd`, `general-thato`, and `steelhead__warrior`.",
+    "Rephrase the personal-outfight line to stay inside the source boundary, e.g. `acceptance of champions when the Empire cannot answer Aghnar with conventional force`."
+  ],
+  "unsupported_claims": [
+    "`INSTRUCTION: ... champions she cannot personally outfight` overstates a personal combat limitation. The source supports that the Empire lacks a conventional weapon against Aghnar and accepts Steelhead as champion, not that Janus-Jana personally cannot outfight him."
+  ]
+}

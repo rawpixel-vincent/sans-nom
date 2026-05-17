@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because several Honcho facts contain source-facing/source-meta wording inside the card. Honcho facts must be in-world and cannot refer to records, source sequence, or source-bound ambiguity."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: oda__princess ... the record does not establish ...` uses source-facing wording inside a Honcho fact.",
+    "`INSTRUCTION: ... unless source sequence exposes uncertainty` refers to source sequencing inside a Honcho fact.",
+    "`BOUNDARY: ... beyond the source-bound ambiguity` uses source-meta language inside a Honcho fact."
+  ],
+  "manual_review_notes": [
+    "Contract otherwise looks close: 34 string facts, under the 40-fact cap, allowed prefixes, no duplicates found, and relationship ids appear aligned with the split identity map. The card preserves the Honorata-within-Oda phase boundary and has the needed refusal/pressure shape."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the Oda relationship as an in-world uncertainty, e.g. Oda's remaining consciousness and consent remain unresolved beneath or alongside Honorata's occupying will, without mentioning records.",
+    "Rewrite the Oda-body instruction without `source sequence`, keeping only the playable uncertainty around host identity and Honorata's governing doctrine.",
+    "Rewrite the Oda-consciousness boundary without `source-bound`; preserve the limits on not inventing cohabitation, consent, or total erasure."
+  ],
+  "unsupported_claims": []
+}

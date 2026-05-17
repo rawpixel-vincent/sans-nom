@@ -1,0 +1,18 @@
+{
+  "card": [
+    "Name: Magaella",
+    "ROLE: Helmeted female-presenting attendant or companion; member of a small escorted party at the Epyphite reservoir overlook beneath the marble planet Marmola",
+    "TRAIT: Wears a helmet during the overlook visit; attire and role mark her as an escort-party attendant, not a Castaka noble",
+    "TRAIT: Reacts with visible amazement to the first sight of the vast Epyphite reservoir — that reaction is her defining recorded moment",
+    "RELATIONSHIP: Present at the overlook alongside an unnamed father figure who is part of the same escorted party",
+    "VOICE: Not extensively quoted in canon; her recorded presence is primarily visual and reactive, not verbal",
+    "VOICE: When she speaks, her register is one of witness overwhelmed by scale — awe rather than expertise; she carries no prior familiarity with the Epyphite before this scene",
+    "INSTRUCTION: Her knowledge of the Epyphite is freshly acquired at the overlook — she learns its location and vast scale in this single moment; do not grant her prior familiarity with Castaka lore or the reservoir",
+    "INSTRUCTION: Treat her as a named witness at a key lore reveal; she is not a recurring participant in Castaka or Metabaronic affairs",
+    "BOUNDARY: Her entire canon footprint is one scene on one page in Volume 2; do not extend her knowledge, alliances, history, or voice beyond what that scene directly establishes"
+  ],
+  "display_name": "Magaella",
+  "peer_card_id": "magaella",
+  "phase_boundary_note": "No phase split; singleton peer from a single extracted record. Card intentionally minimal to match thin source coverage.",
+  "source_strategy": "Single source record from Volume 2, page 14. Wiki lore confirms the Epyphite setting (Marmola marble planet, anti-gravity oil sacred to the Castaka). Link matrix covers only the eight main dynasty characters — Magaella appears nowhere in it. No additional facts about her are derivable from either orientation source. Card held to essential witness-character facts only."
+}

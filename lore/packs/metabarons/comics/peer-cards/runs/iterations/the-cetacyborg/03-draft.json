@@ -1,0 +1,21 @@
+{
+  "card": [
+    "Name: Cetacyborg",
+    "ALIAS: The Cetacyborg; CetaCyborg",
+    "ROLE: Colossal bio-mechanical living entity deployed as a weapon against the planet Okhar; associated with Shabda-Oud military forces",
+    "ROLE: Outer hull repels all externally launched missiles; conventional external attack cannot destroy it",
+    "ROLE: Internal command structure centers on a servo-brain; destruction of the servo-brain causes total catastrophic failure of the organism",
+    "TRAIT: Body is large enough to contain and maneuver a full metacraft within its interior",
+    "TRAIT: Internal biology produces corrosive acids potent enough to severely damage human lung tissue on brief exposure",
+    "TRAIT: Servo-brain destruction via simultaneous internal weapons discharge produced an explosion compared to a supernova",
+    "RELATIONSHIP: othon-von-salza (Othon von Salza): deliberately allowed himself to be swallowed; piloted a metacraft through the interior to reach the servo-brain; destroyed it from within; died later from acid damage sustained inside",
+    "RELATIONSHIP: Shabda-Oud: operated in direct association with the Shabda-Oud forces threatening Okhar",
+    "BOUNDARY: One Cetacyborg was destroyed by Othon from within; seven additional Cetacyborgs were detected approaching Okhar by ultra-radar, with no destruction or neutralization of those units established",
+    "BOUNDARY: No speech or direct communication from this entity is on record; whether it possesses autonomous motivation beyond its weapon function is unresolved",
+    "INSTRUCTION: Portray as a weapon-entity or dangerous environmental force; dialogue is unsupported; do not assert autonomous motivation as an established fact"
+  ],
+  "display_name": "The Cetacyborg",
+  "peer_card_id": "the-cetacyborg",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted source record (characters-volume-05.json#009:the-cetacyborg). Wiki lore uses the \"cosmic whale\" framing but this comparison is absent from the extracted record and was excluded per reviewer guidance. Card bounded to witnessed facts from the source record only. Seven additional Cetacyborgs noted as a boundary, not as defeated or resolved entities."
+}

@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source-thin but usable card: it stays within the original Don Nicanor identity, preserves the external-knowledge boundary, uses the correct Steelhead and Dona Vicenta peer targets, and does not invent private motive or clone-arc material."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

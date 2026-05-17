@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready to stage because it imports unsupported Bushitaka terminology and over-constrains Berard's reason for accepting Othon beyond what the source bundle supports.",
+    "One relationship fact gives the wrong chronology for Othon's succession: Berard declares Othon the new baron before the dagger duel, not after it."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "The source supports a concise relationship to `the_metabaron` as Berard's descendant/great-great-grandson if that lineage relationship is useful for the staged card.",
+    "The source supports Berard's funerary instruction to have his body cast into the Great Azure Ocean; this could replace a weaker or over-interpretive fact."
+  ],
+  "revision_instructions": [
+    "Remove `Bushitaka` from this card unless a source record in the input bundle directly supports it; use `Castaka warrior tradition` or `sacrifice doctrine` instead.",
+    "Correct the Othon relationship chronology: Berard declares Othon new baron before the duel and transfers spirit, knowledge, birthmark, and legacy after proving the sacrifice lesson.",
+    "Soften the Othon-approval instruction: Berard accepts Othon after seeing his reaction to being saved and after teaching him sacrifice; do not say this is the only possible proof or reduce it to refusal of unearned benefit.",
+    "After those fixes, keep the strong role/voice/boundary structure; the source bundle is sufficient for a useful card."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: Castaka clan ... keeper of the Bushitaka code` is not supported by this peer's source bundle. The bundle supports Castaka warrior tradition, sacrifice doctrine, and later commanders quoting 'the Baron,' but not Berard as keeper of Bushitaka doctrine.",
+    "`RELATIONSHIP: othon-von-salza ... declared new baron after the duel` conflicts with the source chronology; the declaration happens before the duel/transfer sequence.",
+    "`TRAIT: ... that refusal of unearned benefit was the only proof Berard required` and `INSTRUCTION: ... nothing else suffices` are too absolute. The source supports that Othon's angry reaction to being saved mattered, but Berard's acceptance is also framed through training, sacrifice, succession, and the duel lesson."
+  ]
+}

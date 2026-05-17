@@ -4,18 +4,21 @@
   import FileTable from "./lib/FileTable.svelte";
   import Panel from "./lib/Panel.svelte";
   import {
+    createStory,
     getFile,
     getIndex,
     getLogs,
     getModelRuns,
     getStatus,
     getStory,
+    listLorePacks,
     listStories,
     runControl,
     type AdminStatus,
     type FileInfo,
     type IndexResponse,
     type LogEvent,
+    type LorePack,
     type StoryDetail,
     type StorySummary,
   } from "./lib/api";
@@ -39,6 +42,8 @@
 
   let status: AdminStatus | null = null;
   let stories: StorySummary[] = [];
+  let lorePacks: LorePack[] = [];
+  let newStoryPackID = "metabarons";
   let selectedStoryId = "";
   let detail: StoryDetail | null = null;
   let logs: LogEvent[] = [];
@@ -76,6 +81,10 @@
   async function refreshAll() {
     await withBusy(async () => {
       status = await getStatus();
+      lorePacks = await listLorePacks();
+      if (!lorePacks.some((pack) => pack.id === newStoryPackID)) {
+        newStoryPackID = lorePacks[0]?.id ?? "metabarons";
+      }
       stories = await listStories();
       if (!selectedStoryId && stories?.length > 0) {
         selectedStoryId = stories[0].story_id;
@@ -176,6 +185,22 @@
     });
   }
 
+  async function newStory() {
+    const pack = lorePacks.find((item) => item.id === newStoryPackID);
+    if (!pack) {
+      error = "Select a ground lore pack first.";
+      return;
+    }
+    await withBusy(async () => {
+      const result = await createStory(pack.id);
+      status = await getStatus();
+      stories = await listStories();
+      selectedStoryId = result.story_id;
+      await loadStory(selectedStoryId);
+      notice = `new story: ${result.story_id}`;
+    });
+  }
+
   async function withBusy(fn: () => Promise<void>) {
     busy = true;
     error = "";
@@ -237,6 +262,26 @@
 
   <main class="grid min-h-[calc(100vh-57px)] grid-cols-[320px_1fr]">
     <aside class="border-r border-slate-300 bg-slate-50 p-3">
+      <div class="mb-4 rounded border border-slate-300 bg-white p-3">
+        <div class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
+          New Story
+        </div>
+        <div class="flex gap-2">
+          <select class="input min-w-0 flex-1" bind:value={newStoryPackID}>
+            {#each lorePacks as pack}
+              <option value={pack.id}>{pack.label}</option>
+            {/each}
+          </select>
+          <button class="btn" disabled={busy || lorePacks.length === 0} on:click={() => newStory()}>
+            Create
+          </button>
+        </div>
+        {#if lorePacks.length > 0}
+          <p class="mt-2 text-xs leading-relaxed text-slate-500">
+            {lorePacks.find((pack) => pack.id === newStoryPackID)?.description ?? ""}
+          </p>
+        {/if}
+      </div>
       <div class="mb-3 flex items-center justify-between">
         <h2 class="text-sm font-semibold uppercase text-slate-600">Stories</h2>
         <span class="text-xs text-slate-500">{stories?.length ?? 0}</span>
@@ -253,6 +298,9 @@
             >
             <span class="block text-xs text-slate-500"
               >turn {story.latest_turn} - {story.story_id}</span
+            >
+            <span class="block text-xs text-slate-500"
+              >{story.ground_lore_pack_id || "legacy"} - {story.ground_lore_collection}</span
             >
             <span class="block text-xs text-slate-400">{story.updated_at}</span>
           </button>
@@ -461,10 +509,15 @@
             </Panel>
             <Panel title="Collections">
               <pre class="json">{pretty({
-                  global_lore_collection: detail.state.global_lore_collection,
+                  ground_lore_pack_id: detail.state.ground_lore_pack_id ?? detail.summary.ground_lore_pack_id,
+                  ground_lore_collection: detail.state.ground_lore_collection ?? detail.summary.ground_lore_collection,
+                  compatibility_global_lore_collection: detail.state.global_lore_collection,
                   story_collection: detail.state.story_collection,
                   bridge_url: status?.bridge_url,
                 })}</pre>
+            </Panel>
+            <Panel title="Ground Lore Pack">
+              <pre class="json">{pretty(detail.ground_lore_pack ?? {})}</pre>
             </Panel>
           </div>
         {:else if activeTab === "control"}

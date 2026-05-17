@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source-thin singleton, but the one page supports a useful card: material-identity argument, persuasion-as-weapon, soul/body boundary, instability, and relationship to aghora are all grounded. Card is format-valid and appropriately bounded."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

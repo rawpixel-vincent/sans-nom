@@ -32,16 +32,16 @@ lore-ingest:
 	uv run --project bridge comic-lore --root . ingest-qdrant
 
 lore-index-build:
-	uv run --project bridge lore-index --root . build
+	uv run --project bridge lore-index --root . --pack metabarons build
 
 lore-index-validate:
-	uv run --project bridge lore-index --root . validate --strict
+	uv run --project bridge lore-index --root . --pack metabarons validate --strict
 
 lore-index-ingest:
-	uv run --project bridge lore-index --root . ingest --replace
+	uv run --project bridge lore-index --root . --pack metabarons ingest --replace
 
 lore-index-smoke:
-	uv run --project bridge lore-index --root . smoke --strict
+	uv run --project bridge lore-index --root . --pack metabarons smoke --strict
 
 peer-identity-map:
 	uv run --project bridge peer-cards --root . identity-map

@@ -1,0 +1,18 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is structurally valid and source-thin but usable; however one voice fact resolves a partially legible sacred-order name into an unsupported exact label."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The card otherwise respects the singleton identity boundary, stays under 40 facts, uses allowed fact prefixes, has no duplicates, and is appropriately scaled to a thin but sufficient three-page source bundle."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Revise the first VOICE fact to avoid resolving the partially legible sacred-order name. Use a safer formulation such as: `VOICE: Declares visiting Philodendra a sacred act and sacrifice in the name of his holy technocratic faith or order`."
+  ],
+  "unsupported_claims": [
+    "`VOICE: Declares visiting Philodendra a sacred act and sacrifice in the name of the Holy Technoclergy order` overstates the source. The bundle only supports a sacred pilgrimage/sacrifice in the name of a partially legible `Holy Technocru...` term, not the exact phrase `Holy Technoclergy order`."
+  ]
+}

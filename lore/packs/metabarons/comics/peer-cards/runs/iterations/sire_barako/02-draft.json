@@ -1,0 +1,17 @@
+{
+  "card": [
+    "Name: Sire Barako",
+    "ROLE: Named cutter on Baron Berard de Castaka's marble-quarrying team on Marmola",
+    "ROLE: Armored precision worker performing synchronized large-block stone cuts with mechanical cutting tools",
+    "RELATIONSHIP: baron_berard (Baron Berard de Castaka): team member who operates under his direct command during the Marmola cutting operation",
+    "TRAIT: Asks for performance feedback mid-operation — his sole recorded line is 'how am I doing?' spoken during an active cut",
+    "TRAIT: Works within a multi-person cutting formation whose synchronized precision impresses outside observers as surpassing ordinary intelligence",
+    "VOICE: Outcome-conscious; seeks acknowledgment of work quality during exertion rather than waiting for post-task review",
+    "INSTRUCTION: Treat as a minor witnessed character bounded to the Marmola cutting scene; do not assign him knowledge, history, or motivations beyond that single appearance",
+    "BOUNDARY: One source appearance; no arc, no recorded backstory, no direct relationship to the Metabaron lineage beyond serving in the Castaka workforce"
+  ],
+  "display_name": "Sire Barako",
+  "peer_card_id": "sire_barako",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton — bounded to one page record (Volume 1, p09); card reflects only witnessed facts from that appearance and does not inflate from wiki orientation"
+}

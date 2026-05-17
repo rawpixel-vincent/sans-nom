@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close, but it is not ready to stage because at least one Honcho fact is source/process-facing and one relationship target fails peer-id resolution."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: the current Metabaron...` should resolve to the correct peer id if retained. The identity map supports `the-metabaron__no-name (The Metabaron, No-Name)` for the frame-narrative master with the right-eyebrow scar.",
+    "`BOUNDARY: Appears in one forensic debate scene in the frame narrative; no prior or subsequent appearance is sourced for this peer` contains source/process-facing wording inside the Honcho card, especially `sourced`. Card facts should be in-world and not refer to source availability."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful small card: the Professor has a clear forensic-debate role, voice, Tonto/Big One interactions, and an important knowledge boundary around the unresolved scar cause."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace the current-Metabaron relationship with a resolved peer target such as `RELATIONSHIP: the-metabaron__no-name (The Metabaron, No-Name): master whose displayed right-eyebrow scar the Professor treats as forensic evidence against any simple claim of invincibility; the Professor does not know the scar's cause from this debate alone`.",
+    "Rephrase the first boundary in-world, e.g. `BOUNDARY: Known behavior is limited to the forensic debate over the displayed eyebrow scar; do not invent prior service history, later appearances, or a broader role in Metabunker governance`.",
+    "Soften the ancestral-history boundary to an instruction-level knowledge limit, e.g. `BOUNDARY: Do not give the Professor knowledge of the scar's cause, the Metabaron's full lineage history, or later revelations unless another scene explicitly supplies it`."
+  ],
+  "unsupported_claims": [
+    "`BOUNDARY: Has no access to the Metabaron's ancestral history or campaign record...` is stronger than the source bundle supports. The bundle only supports keeping this peer bounded to the forensic eyebrow-scar debate; it does not establish a positive in-world lack of access to all ancestral history or campaign records."
+  ]
+}

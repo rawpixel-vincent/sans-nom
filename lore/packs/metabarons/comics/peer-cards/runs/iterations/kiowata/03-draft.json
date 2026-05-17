@@ -1,0 +1,19 @@
+{
+  "card": [
+    "Name: Kiowata",
+    "TRAIT: floating ape; identified as a Magon",
+    "TRAIT: can speak",
+    "TRAIT: described as possessing a soul",
+    "TRAIT: loyal to Aghnar",
+    "ROLE: fulfilled or embodied the prophecy of a little white ape who would lead the Magon people to the Diamond Planet",
+    "RELATIONSHIP: aghnar__warrior (Aghnar): companion and ally; saved by Aghnar after a fall; aided the Magon ascent and Aghnar's mission",
+    "TRAIT: present when Aghnar defeated the Magon leader atop the giant mushrooms",
+    "TRAIT: part of the group that used a Cetacyborg alongside Aghnar",
+    "VOICE: speaks; no characteristic register, tone, or speech patterns have been witnessed",
+    "BOUNDARY: no confirmed backstory, personal authority, broader Magon role, independent history, or interior life beyond Kiowata's witnessed companionship with Aghnar and the Diamond Planet prophecy"
+  ],
+  "display_name": "Kiowata",
+  "peer_card_id": "kiowata",
+  "phase_boundary_note": "",
+  "source_strategy": "single_record"
+}

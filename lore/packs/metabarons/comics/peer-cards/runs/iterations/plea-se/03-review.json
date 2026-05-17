@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Honcho contract passes: card is a list of 22 strings, under the 40-fact cap, with accepted prefixes, no markdown/source refs, and no duplicates.",
+    "Source is thin but sufficient: the card stays bounded to Plea-Se's lineage-keeper role, household maintenance, refusal to accept the master's death, pressure behavior toward Tonto, and programming override.",
+    "Relationship targets `tonto` and `the-metabaron__no-name` align with the volume-12 frame-narrative identity context."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

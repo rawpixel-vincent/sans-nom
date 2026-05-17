@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a list of 36 strings, under the 40-fact cap, with allowed prefixes, no source refs in facts, and no duplicates found.",
+    "Draft follows the honorata__reborn split-phase identity, keeps Oda-body and nightly-appearance uncertainty bounded, and uses relationships that point to the appropriate peer ids."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

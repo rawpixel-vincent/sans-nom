@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card facts include source-facing volume labels, especially `vol-17`, inside Honcho facts. The card is otherwise close, but facts must not carry source refs or extraction labels."
+  ],
+  "format_errors": [
+    "Items 16, 22, 23, 29, 31, and 34 use `vol-17` inside card facts. Replace with in-world phase wording such as `four-survivor remnant phase` or `later remnant phase`."
+  ],
+  "manual_review_notes": [
+    "Source bundle is sufficient and the draft is substantively source-grounded. No need to inflate the group beyond the four merged source records."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove `vol-17` from all card facts while preserving the phase boundary: Sama-Wajd breeding plan belongs to the Aghnar-era order, while the four-survivor remnant is governed by survival, revenge on the Metabaron, and galactic domination.",
+    "Keep the current relationship split targets: `aghnar__child`, `aghnar__warrior`, `jejoh`, `oda__princess`, `sama-wajd`, `aghora`, and `zombra` are appropriate for the cited facts.",
+    "Keep the Mother Superior boundary; this card correctly stays scoped to ordinary witches, priestesses, reverend mothers, Elders, and the four-survivor remnant rather than importing the separate Mother Superior peer."
+  ],
+  "unsupported_claims": []
+}

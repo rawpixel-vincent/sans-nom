@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because two BOUNDARY facts use source-facing meta language: `source window`. Honcho facts must be in-world and cannot refer to source boundaries directly.",
+    "The draft includes exact or near-exact scene phrasing as reusable voice material, especially `little tadpole`; this should be paraphrased into behavior or cadence rather than seeded as a line to replay.",
+    "Several facts overstate or add interpretation beyond the supplied Aghora bundle; these need tightening before acceptance."
+  ],
+  "format_errors": [
+    "Card is a list of 35 strings with allowed prefixes and no duplicates.",
+    "Facts contain source-facing wording in card entries: `outside the source window` and `the source window ends`. This violates the no source refs/source-meta-in-facts contract."
+  ],
+  "manual_review_notes": [
+    "The source bundle is rich enough for a useful Aghora card; blocked_source_insufficient is false."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the final BOUNDARY facts in in-world terms, e.g. do not carry her beyond Flos, the birth, or No-Name's later trials, without saying `source window`.",
+    "Paraphrase quoted labor/naming voice details into reusable behavior: brief tenderness under physical pressure, invocation of protection, and destiny-as-settlement, without preserving exact lines.",
+    "Correct unsupported overclaims: singularize the imperial negotiation, move mini-bomb implantation to years of weaponizing surgery, remove `whole lineage compressed`, and state Lothar's combustion as his condition rather than Aghora's appraisal.",
+    "Keep the current depth around refusal to be only an instrument of destruction; that part is source-supported and should remain."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: The Father-Mother ... the whole lineage compressed into one body` is an unsupported interpretive verdict. The bundle supports self-conception and both-parent status, not that the whole lineage is compressed into her body.",
+    "`ROLE: ... negotiates price and terms directly with emperors` overstates the source. The bundle supports direct negotiation with the Emperor/Imperial Court, not plural emperors as a durable pattern.",
+    "`TRAIT: ... Oko mini-bombs implanted during initiation` has unsupported timing. The bundle supports Oko mini-bombs and other weapons implanted over several years, not specifically during the initiation rite.",
+    "`RELATIONSHIP: lothar ... she does not register it as a condition of her own; his desire is a problem in him` is not established from Aghora's side. The bundle supports Lothar's lust and combustion, not Aghora's perception of it."
+  ]
+}

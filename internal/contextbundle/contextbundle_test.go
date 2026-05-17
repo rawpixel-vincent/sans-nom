@@ -54,7 +54,7 @@ func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
 		ID:     "source-law",
 		Text:   "Source law pattern, not story canon.",
-		Source: "lore/canon/index/documents.jsonl",
+		Source: "lore/packs/metabarons/index/documents.jsonl",
 		Score:  1,
 		Kind:   "wiki_lore",
 	}}}

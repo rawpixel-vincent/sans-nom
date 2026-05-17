@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Kiowotai",
+    "ROLE: Airborne combatant who led the ascent above a mushroom-dome settlement on a world of crushing gravity and overcame the Magon tribe's resistance, fulfilling their ancient prophecy.",
+    "TRAIT: Silver-haired; capable of floating or sustained airborne movement.",
+    "TRAIT: Armed with extended metal claws employed in close-quarters combat against alien tribal creatures.",
+    "TRAIT: Resolute under threat; pressed the ascent above the domes despite explicit warnings against it.",
+    "TRAIT: Dangerous when seized; reversed a giant creature's capture of him by tearing through its head.",
+    "RELATIONSHIP: Bound by sworn brotherhood to an ape companion; followed the ape into the contested upper territory above the settlement.",
+    "RELATIONSHIP: Recognized by the Magon people after the confrontation as the fulfillment of their prophecy — the 'little no-hair white ape' destined to lead them to the fog world and the Diamond Planet.",
+    "VOICE: No direct speech recorded; defined entirely by physical action and refusal to yield.",
+    "BOUNDARY: Kioka is not a confirmed personal name; the Magon invocation of that name after the confrontation may refer to Kiowotai, to his ape companion, or to a prophetic figure perceived in the encounter.",
+    "BOUNDARY: Whether Kiowotai is the humanoid combatant or the ape companion in these events is not resolved; he may be another name for the main character present in those pages.",
+    "BOUNDARY: No origin, backstory, stable secondary name, or activity beyond the ascent and the Magon confrontation is established."
+  ],
+  "display_name": "Kiowotai",
+  "peer_card_id": "kiowotai",
+  "phase_boundary_note": "",
+  "source_strategy": "Single record (characters-volume-06.json#009:kiowotai), four page appearances covering the mushroom-dome ascent and Magon confrontation. Aliases 'Kioka' and the possible identification with the main character are explicitly unresolved in the source; both moved to BOUNDARY rather than ALIAS. Wiki orientation confirms the Magon floating-ape arc belongs to the Aghnar storyline on Planet Perdita and names the ape companion 'Kiawoutai' — the source record's humanoid framing may reflect a visual ambiguity in the page extraction. Card facts remain within source-confirmed observations only."
+}

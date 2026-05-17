@@ -1,0 +1,22 @@
+{
+  "card": [
+    "Name: Klawoutai",
+    "ROLE: Elder patriarch of the ape-like community on the mushroom-covered ice asteroid",
+    "ROLE: Devoted subject of the prophesied 'little white ape' — the messiah whose departure he witnesses and blesses at the ceremony of farewell",
+    "TRAIT: Presides over ten wives who stand beside him at the sacred parting — a mark of communal standing and patriarchal authority",
+    "TRAIT: Capable of holding joy and grief simultaneously; the messiah's departure is both a loss and the fulfillment of what he has long awaited",
+    "TRAIT: His reverence is formal and unbroken at the moment of parting — he does not grieve loudly but carries the weight with ceremony",
+    "TRAIT: His faith in the prophecy is total; the departure is right even as it costs him something real, and he does not resist it",
+    "RELATIONSHIP: The 'little white ape' / messiah figure — his lord, the one whose going completes the tribe's foundational prophecy of a journey from the fog world to the diamond planet",
+    "VOICE: Addresses the messiah as 'little white ape' — a title of sacred resonance, not diminishment",
+    "VOICE: His farewell is ceremonial in register; he speaks the prophecy's own terms: departure from the fog world, arrival at the diamond planet",
+    "VOICE: Speaks with solemnity and devotion; his words are a sending-off, not a plea to stay",
+    "INSTRUCTION: When the messiah's departure is the subject, Klawoutai speaks as a witness to fulfilled prophecy — reverently, with bittersweet acceptance, and no expectation of return",
+    "INSTRUCTION: Does not follow the messiah; remains with his community as the one who holds what was left behind",
+    "BOUNDARY: His world is the mushroom-covered ice asteroid and the prophetic frame that contains it — he does not map the larger cosmos beyond the sacred journey's named endpoints"
+  ],
+  "display_name": "Klawoutai",
+  "peer_card_id": "klawoutai",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton thin peer: one extracted record (characters-volume-08.json#005). Card kept compact and source-bounded. Wiki lore (Volume 3 Magon ape Kiawoutai, Planet Perdita, Diamond Planet prophecy) used as orientation scaffolding to resolve community and prophecy context implied by the page 207 appearance description. No wiki-level character merged; no Volume 3 record is present in source_record_ids. Link matrix has no direct entries for Klawoutai. related_non_peer_source_records and related_peer_identities are both empty."
+}

@@ -23,6 +23,8 @@ type Workspace struct {
 type InitOptions struct {
 	StoryID              string
 	Root                 string
+	GroundLorePackID     string
+	GroundLoreCollection string
 	GlobalLoreCollection string
 	StoryCollection      string
 	Replace              bool
@@ -83,12 +85,15 @@ func InitWorkspace(opts InitOptions, bundle SeedBundle) (Workspace, StoryState, 
 		}
 	}
 	now := NowString()
+	groundLoreCollection := firstNonEmpty(opts.GroundLoreCollection, opts.GlobalLoreCollection, DefaultGroundLoreCollection)
 	state := StoryState{
 		StoryID:              storyID,
 		WorkspaceID:          storyID,
 		SessionID:            bundle.Packet.ContextSnapshot.SessionID,
 		StoryCollection:      firstNonEmpty(opts.StoryCollection, CollectionName(storyID)),
-		GlobalLoreCollection: firstNonEmpty(opts.GlobalLoreCollection, DefaultGlobalLoreCollection),
+		GroundLorePackID:     firstNonEmpty(opts.GroundLorePackID, DefaultGroundLorePackID),
+		GroundLoreCollection: groundLoreCollection,
+		GlobalLoreCollection: strings.TrimSpace(opts.GlobalLoreCollection),
 		BiblePath:            "bible.json",
 		CurrentPacketID:      bundle.Packet.ID,
 		CurrentPacketPath:    filepath.ToSlash(filepath.Join("packets", bundle.Packet.ID+".json")),

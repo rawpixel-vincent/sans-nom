@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft inflates a source-thin singleton into a fuller authority figure instead of staying inside the one-page evidence boundary.",
+    "The draft uses wiki/adjacent Magon prophecy orientation too assertively, risking import of same-name/near-name peer lore despite `peer_identity` containing only `characters-volume-08.json#005:klawoutai`."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "The card should explicitly preserve the source uncertainty that the exact visual identity of the `little white ape` is unclear from this page alone.",
+    "A stronger source-thin card would keep only the supported facts: name, ice asteroid with giant mushrooms and ape-like figures, ten wives, farewell to his messiah, mixed joy and sadness, prophecy language from fog world to diamond planet, and limited knowledge boundary."
+  ],
+  "revision_instructions": [
+    "Rewrite compactly using only the Volume 8 Klawoutai source record and page 207 summary.",
+    "Remove authority/elder/patriarch/ritual claims unless directly supported by the input bundle.",
+    "Do not use wiki Kiawoutai/Magon arc material to make Klawoutai more important or resolve identity beyond the target `peer_identity`.",
+    "Keep the boundary honest: Klawoutai has one thin witnessed farewell scene, and the little white ape's exact identity is unclear from this page alone."
+  ],
+  "unsupported_claims": [
+    "`Elder patriarch of the ape-like community` is not supported by the source bundle; Klawoutai is only confirmed as a male figure with ten wives present at the farewell.",
+    "`Presides over ten wives`, `communal standing`, and `patriarchal authority` overread the ten-wives fact.",
+    "`blesses at the ceremony of farewell`, `sacred parting`, `formal and unbroken`, `does not grieve loudly`, `faith is total`, `does not resist`, and `no expectation of return` are invented behavioral/ritual details.",
+    "`tribe's foundational prophecy` and `his lord` go beyond the extracted record, which only supports messiah/devotee language and a prophecy tied to the little white ape.",
+    "`remains with his community as the one who holds what was left behind` is not witnessed or extracted.",
+    "`title of sacred resonance, not diminishment` is interpretive embellishment beyond the source."
+  ]
+}

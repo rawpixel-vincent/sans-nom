@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: one boundary imports unsupported/full-arc Bari material from a different peer, and one instruction still uses evidence-facing wording inside a Honcho fact."
+  ],
+  "format_errors": [
+    "`INSTRUCTION: ...confine responses to dialogue-attested facts...` uses source/evidence-facing wording. Prior review already flagged `attested`-style language as inappropriate inside Honcho facts.",
+    "The draft otherwise satisfies the deterministic shape requirements: `card` is a list of strings, has 10 facts, stays under 40 facts, uses allowed prefixes, has no markdown, and has no obvious duplicates."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Change the Bari boundary to avoid imported biography, e.g. `BOUNDARY: Do not merge with peer bari; the possible Bari connection is unresolved and this peer remains a separate identity.`",
+    "Rewrite the instruction without `attested` or source-facing evidence language, e.g. `INSTRUCTION: Thin singleton peer — use only the established succession facts; do not extrapolate biography, assign motivations, or inflate into a full-arc character.`",
+    "Keep `RELATIONSHIP: othon-von-salza (Othon Von Salza): biological father`; that peer id is the correct relationship target."
+  ],
+  "unsupported_claims": [
+    "`BOUNDARY: Do not merge with peer bari (Othon's first son killed on Okhar)...` goes beyond the Bari Didi source bundle. The bundle supports an unresolved Bari/Bari Didi ambiguity and separate `bari` identity handling, but not importing Bari's full-arc fate into this card."
+  ]
+}

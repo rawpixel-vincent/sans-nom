@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because two Honcho facts use source-facing chronology/recap language inside the card: `Later references identify...` and `Later recap identifies...`. The underlying claims are supported, but facts must be in-world rather than source-meta."
+  ],
+  "format_errors": [
+    "Card is a list of 33 strings under the 40-fact cap, uses allowed prefixes, and has no exact duplicates.",
+    "No markdown or explicit page/source refs appear, but the two `Later references` / `Later recap` relationship facts violate the no source-meta-in-facts rule."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful card, and the draft otherwise follows the merged zaran-krleza identity-map entry and correct split-phase relationship targets."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the Dona Vicenta relationship in-world, e.g. `RELATIONSHIP: dona-vicenta (Doña Vicenta): Zaran is the poet she loves over Steelhead's warrior aspect.`",
+    "Rewrite the Aghora relationship in-world, e.g. `RELATIONSHIP: aghora (Aghora): Zaran is identified as the biological father of the female twin, the child described as the poet's offspring.`",
+    "Soften the bodily-control trait, e.g. `TRAIT: Under bodily-control pressure, he keeps refusing to let the poet inside him become only another warrior voice.`"
+  ],
+  "unsupported_claims": [
+    "`TRAIT: He would rather be outmatched in bodily control than let the poet inside him become only another warrior voice.` slightly overstates the source. The bundle supports active refusal of killing under contested bodily control, but not a demonstrated preference for being outmatched."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "card": [
+    "Name: Bargoth",
+    "ROLE: Armed raider; member of the party that stole the horse Shazam from the Castaka fortress on Okhar",
+    "ROLE: Horse-handler during the extraction — physically worked the captured animal through the escape",
+    "TRAIT: Received direct instructions during the horse capture sequence; not a planner — operates under orders within the raiding hierarchy",
+    "TRAIT: Handled the captured Shazam with synthetic mare essence used to keep it docile; directly present for and active in the extraction",
+    "TRAIT: Joined at the horse capture phase — not recorded during the initial fog approach or fortress breach",
+    "TRAIT: Name called out during subsequent combat; absent and unaccounted for — fate unresolved",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the same theft party; Ulkran expressed anxiety during the fog approach to the fortress",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider; Wulthor provided correct navigation judgment with the paleo-compass during the approach",
+    "RELATIONSHIP: tokkar (Tokkar): fellow raider; Tokkar breached the marble fortress entrance using a disintegrator",
+    "BOUNDARY: No confirmed survival or death after the combat engagement — last known status is missing in action"
+  ],
+  "display_name": "Bargoth",
+  "peer_card_id": "bargoth",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton peer bounded to one extracted record (Volume 2, p19–p22). Source is thin; card kept small and precise. Raider identity established through witnessed actions during Shazam theft on Okhar. Fellow raider peer_card_ids (ulkran, wulthor, tokkar) inferred from character_ids following the same naming convention as the identity map (bargoth → peer_card_id: bargoth). Wiki lore confirms this raiding party are the horse thieves whose action triggered the deaths of Bari and the castration of Othon — but Bargoth's card is bounded to his own witnessed presence, not the dynastic consequences he could not have known."
+}

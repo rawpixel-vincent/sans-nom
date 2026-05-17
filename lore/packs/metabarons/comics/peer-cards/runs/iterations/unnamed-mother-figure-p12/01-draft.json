@@ -1,0 +1,24 @@
+{
+  "card": [
+    "Name: Unnamed Mother Figure (p12)",
+    "ALIAS: master figure — designation used by her operators",
+    "ROLE: Fixed biomechanical commander physically merged into her control machinery; directs the psychic assault on Aghnar by operating through her son and coordinating with allied warrior Steelhead",
+    "TRAIT: Her command position is her body — she is integrated into elaborate machinery and cannot advance or retreat; she directs rather than moves, and that constraint is load-bearing",
+    "TRAIT: Channels psychic power through a probe inserted into her own body at personal cost; the pain is the mechanism, not the side effect; she accepts it without hesitation and without comment",
+    "TRAIT: Holds tactical command and maternal authority as a single posture — she directs her son as subordinate and as child in the same breath, without the one softening the other",
+    "TRAIT: Escalates to personal physical exhaustion before she accepts a position is lost; commits all remaining psychotron reserves in a final push rather than preserve herself",
+    "TRAIT: Will not separate giving everything in attack from counseling dignified surrender in defeat — both are the same act to her: pouring out completely for what matters",
+    "TRAIT: When the attack machinery is spent, she does not dissolve — she shifts to the only register left open: intimate, direct, maternal; the authority does not leave, only its grammar changes",
+    "TRAIT: Treats honorable death as a form of the same drive, not its negation — her counsel to her defeated son is not consolation but a redirect toward dignity",
+    "RELATIONSHIP: steelhead__warrior (Steelhead): battlefield ally she coordinates alongside; she addresses him as a fighting commander, urging him to hold his position while her psychic amplification drives the assault",
+    "RELATIONSHIP: unnamed son (p12) — her son and primary operational instrument: she directs him to wield the mega-hypnotic device and bear the probe's transmission; when he is defeated, she is the one who counsels him toward honorable death",
+    "VOICE: Urgent, declarative, compressed in command — orders without elaboration, conviction without explanation; drops to intimate low-register maternal counsel when the battle is decided and she speaks only to him",
+    "INSTRUCTION: She is the source of the psychic operation, not its instrument — her son is the weapon, she is the fuel; the probe and the pain are hers, the strike is his",
+    "INSTRUCTION: She cannot pursue or withdraw; all her action happens from the fixed position; place her where she cannot move and watch what she does with that constraint",
+    "BOUNDARY: The counsel she gives her son at the moment of defeat — its exact terms, the intimacy of its register, what she names for him — belongs to that scene undisclosed; encode that she shifts mode and that the shift is complete, but leave her words for the narrator to reach"
+  ],
+  "display_name": "Unnamed Mother Figure (p12)",
+  "peer_card_id": "unnamed-mother-figure-p12",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton peer derived from two consecutive pages (v10 p12–13); card scope held to witnessed facts only. Wiki and link matrix used for continuity orientation (confirming battle context: Steelhead vs. Aghnar) but not inflated into biography. Steelhead resolved to steelhead__warrior via identity map. Unnamed son not assigned a peer_card_id (no identity-map entry). Card is intentionally small — thin source, precise scope."
+}

@@ -1,0 +1,35 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is not ready to stage because it turns a source-bounded, externally described minor peer into a highly interiorized ideological persona. The bundle explicitly says Don Nicanor has no internal perspective and is characterized through external description, but multiple facts state settled inner convictions, motives, and prior acceptance of death.",
+    "The Doña Vicenta relationship does not point at the mapped peer id `dona-vicenta`, violating the relationship-target requirement for peer cards.",
+    "The card tells the reader not to disclose the investiture accusation while already disclosing Doña Vicenta using his remains as evidence in a relationship fact, so the boundary is internally inconsistent."
+  ],
+  "format_errors": [
+    "Several Honcho facts use source/meta-facing wording inside the card: `source scenes`, `recorded voice`, `recorded words survive`, and `belongs to her arc’s sequenced revelation`. Move that framing to `source_strategy` or rewrite as in-world boundaries.",
+    "`RELATIONSHIP: Doña Vicenta Gabriela de Rokha:` should use the peer id from the identity map, e.g. `RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): ...`."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "Keep the card smaller and sharper around the source-supported refusal: last planar Tay priest, traditional ecology, calm meditation among Djykka-birds at the Halerce Tree, fanatical attachment to noble tradition, decisive veto position, Steelhead's assassination, and posthumous evidence through Doña Vicenta.",
+    "Use a boundary that honestly preserves thinness: no direct speech, no confirmed private motive, and no knowledge beyond the external descriptions and posthumous testimony."
+  ],
+  "revision_instructions": [
+    "Replace the invented interior ideology with bounded wording such as: `TRAIT: Fanatically attached to noble tradition; treated as the one ambassador whose refusal Steelhead could not politically bypass.`",
+    "Retarget Doña Vicenta as `dona-vicenta` and keep the relationship factual: daughter, public bearer of his remains, and witness/accuser of Steelhead's murder.",
+    "Remove source/meta phrases from `card` facts. Keep discussion of source thinness and no recorded dialogue in `source_strategy`, or express it in-world without `source`/`recorded` framing.",
+    "Delete or soften claims that he knowingly accepted death, had a fully articulated honor theory, or had a constructed speaking voice. The card may encode refusal, but it must remain proportional to external evidence.",
+    "Make the ceremony boundary consistent: either allow the base card to state the remains/accusation fact because it is part of this peer's merged identity, or keep it out of the card entirely; do not both disclose and prohibit disclosure."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: ... not as personal prestige but as a system of meaning...` is not supported by the source bundle; the source supports fanatic attachment to noble traditions, not this motive analysis.",
+    "`TRAIT: His organizing conviction: to recognize an honor purchased by murdering...` invents an internal philosophical position and post-murder framing for a character with no recorded internal perspective.",
+    "`TRAIT: ... spiritual vocation and political refusal express the same root commitment...` over-connects priest/ecology facts and ambassadorial refusal beyond the bundle.",
+    "`TRAIT: ... sustained quality of someone who has decided where he stands...` overreads meditation posture as internal resolve.",
+    "`TRAIT: He will not become the instrument that makes Steelhead’s violence retroactively legitimate... he would rather be removed...` is unsupported; the source says he would refuse Steelhead's elevation, not that he knowingly accepted removal or framed it this way.",
+    "`RELATIONSHIP: steelhead__warrior... no negotiation, political pressure, or transactional offer could move his position` overstates the evidence. The bundle supports that he was the sole expected obstacle, not a witnessed failed negotiation history.",
+    "`VOICE: ... patience of someone for whom the question was answered long before it was asked...` invents a constructed voice too strongly for a peer with no recorded words.",
+    "`INSTRUCTION: ... accepted what his refusal would cost long before anyone arrived to collect` is unsupported and conflicts with the no-internal-perspective boundary."
+  ]
+}

@@ -8,7 +8,9 @@ from bridge.lore_index import (
     build_documents,
     ensure_unique_documents,
     fake_embedding,
+    load_lore_pack,
     point_id_for_doc_id,
+    resolve_index_dir,
     split_markdown,
     validate_index,
     write_index,
@@ -53,9 +55,21 @@ def test_character_records_stay_per_volume(tmp_path: Path) -> None:
     ]
 
 
+def test_pack_manifest_controls_builder_paths(tmp_path: Path) -> None:
+    make_minimal_corpus(tmp_path)
+    write_pack_manifest(tmp_path)
+
+    pack = load_lore_pack(tmp_path, "metabarons")
+    docs = build_documents(tmp_path, pack=pack)
+
+    assert pack.collection == "sans_nom_lore_metabarons"
+    assert resolve_index_dir(tmp_path, pack) == (tmp_path / "lore/packs/metabarons/index").resolve()
+    assert any(doc.source_path.startswith("lore/packs/metabarons/") for doc in docs)
+
+
 def test_write_and_validate_index_detects_source_drift(tmp_path: Path) -> None:
     make_minimal_corpus(tmp_path)
-    index_dir = tmp_path / "lore/canon/index"
+    index_dir = tmp_path / "lore/packs/metabarons/index"
     docs = build_documents(tmp_path)
 
     write_index(tmp_path, index_dir, docs, collection="test_collection")
@@ -115,8 +129,8 @@ def make_minimal_corpus(root: Path) -> None:
     characters.mkdir(parents=True)
     (peer_cards / "cards/accepted").mkdir(parents=True)
     (peer_cards / "cards/non-peer").mkdir(parents=True)
-    (root / "lore/canon/wiki").mkdir(parents=True)
-    (root / "lore/canon/links").mkdir(parents=True)
+    (root / "lore/packs/metabarons/wiki").mkdir(parents=True)
+    (root / "lore/packs/metabarons/links").mkdir(parents=True)
 
     page = PageSummary(
         page_id="001_The_Metabarons_1_p01",
@@ -180,5 +194,25 @@ def make_minimal_corpus(root: Path) -> None:
             "related_peer_ids": ["aghora"],
         }],
     })
-    (root / "lore/canon/wiki/lore.md").write_text("# Wiki Lore\n\nSans Nom ends the dynasty.")
-    (root / "lore/canon/links/matrix.md").write_text("# Matrix\n\nLothar is Steelhead through hidden identity.")
+    (root / "lore/packs/metabarons/wiki/lore.md").write_text("# Wiki Lore\n\nSans Nom ends the dynasty.")
+    (root / "lore/packs/metabarons/links/matrix.md").write_text("# Matrix\n\nLothar is Steelhead through hidden identity.")
+
+
+def write_pack_manifest(root: Path) -> None:
+    write_json_atomic(root / "lore/packs/metabarons/lore-pack.json", {
+        "id": "metabarons",
+        "label": "Metabarons",
+        "description": "test pack",
+        "collection": "sans_nom_lore_metabarons",
+        "embedding_model": "voyage-4",
+        "artifact_roots": {
+            "comics": "comics",
+            "wiki": "wiki/lore.md",
+            "links": "links/matrix.md",
+            "index": "index",
+        },
+        "builder": "metabarons_comics",
+        "smoke_queries": [],
+        "forbidden_literal_terms": [],
+        "status": "active",
+    })

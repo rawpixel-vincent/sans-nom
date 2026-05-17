@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: several facts use source-facing metadata inside Honcho facts, and a few over-specific claims exceed the provided Edna bundle."
+  ],
+  "format_errors": [
+    "`VOICE: Not directly quoted in surviving vol 2 pages...` contains source-facing volume/page metadata inside a card fact.",
+    "`BOUNDARY: Canon is bounded to vol 1 and vol 2 of The Metabarons...` is source-facing canon/volume metadata inside a card fact.",
+    "All card facts use allowed prefixes and the card is a list of 26 strings under the 40-fact cap; no duplicate facts found."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove source-facing references to `vol 1`, `vol 2`, `surviving pages`, and `Canon` from card facts. Rephrase as in-world boundaries, e.g. Edna dies during Marmola's fall and has no knowledge after that death.",
+    "Narrow the transfer fact to `family legacy/spirit transfer` unless the writer can cite support for Edna witnessing a birthmark transfer in the provided bundle.",
+    "Narrow the invasion fact to Edna being present during the battle over Marmola and walking alone to confront the invading force; drop `fleet arrived` and `immediately after Berard's death`.",
+    "Narrow Bari's relationship fact to sonship and Bari's later desire to die as she did, unless the Edna bundle explicitly supports `survived Marmola's fall`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Witnessed Baron Berard transfer the Castaka family legacy and birthmark to Othon...` overstates the Edna bundle. The bundle supports witnessing the family legacy/spirit transfer and Berard's death, but not `birthmark` as Edna-witnessed knowledge.",
+    "`TRAIT: Was present when the galactic invasion fleet arrived over Marmola immediately after Berard's death` is too specific. The bundle supports presence during the battle over Marmola and an invading force, but not the exact fleet arrival moment or timing immediately after Berard's death.",
+    "`RELATIONSHIP: bari... he survived Marmola's fall...` imports Bari arc detail not present in the Edna source bundle. The Edna bundle supports that Bari is her son and later declared he wanted to die as she did."
+  ]
+}

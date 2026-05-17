@@ -1,0 +1,65 @@
+{
+  "id": "metabarons",
+  "label": "Metabarons",
+  "description": "Metabarons canon encoded as source-influence lore for original Sans-Nom stories: body law, dynasty pressure, taboo, refusal, spectacle, and philosophical consequence without copying canon.",
+  "collection": "sans_nom_lore_metabarons",
+  "embedding_model": "voyage-4",
+  "artifact_roots": {
+    "comics": "comics",
+    "wiki": "wiki/lore.md",
+    "links": "links/matrix.md",
+    "index": "index"
+  },
+  "builder": "metabarons_comics",
+  "smoke_queries": [
+    {
+      "query": "Tonto tells a story",
+      "expected_any": [["tonto", "story"], ["tonto", "narrat"]]
+    },
+    {
+      "query": "Metabunker city-shaft",
+      "expected_any": [["metabunker"], ["city-shaft"]]
+    },
+    {
+      "query": "Aghora grief Steelhead",
+      "expected_any": [["aghora", "steelhead"]]
+    },
+    {
+      "query": "Honorata control tenderness",
+      "expected_any": [["honorata"]]
+    },
+    {
+      "query": "Bushitaka law",
+      "expected_any": [["bushitaka"]]
+    },
+    {
+      "query": "Lothar is Steelhead",
+      "expected_any": [["lothar", "steelhead"]]
+    },
+    {
+      "query": "Sans Nom ends the dynasty",
+      "expected_any": [["sans-nom", "dynasty"], ["ended", "dynasty"]]
+    }
+  ],
+  "forbidden_literal_terms": [
+    "aghora",
+    "aghnar",
+    "bushitaka",
+    "castaka",
+    "council of castaka",
+    "epyphite",
+    "honorata",
+    "lothar",
+    "meta-baron",
+    "metabaron",
+    "metabunker",
+    "oda",
+    "othon",
+    "roundtable",
+    "shabda-oud",
+    "steelhead",
+    "tonto",
+    "vicenta"
+  ],
+  "status": "active"
+}

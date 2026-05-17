@@ -1,0 +1,18 @@
+{
+  "card": [
+    "Name: Oda Capricious",
+    "ROLE: Noblewoman of extraordinary beauty whose hand is pursued by Aghnar Von Salza; known in source only through holovid projection and the accounts of male observers",
+    "TRAIT: Described as extraordinarily beautiful; her projected image alone is sufficient to captivate those who witness it",
+    "TRAIT: Has rejected all suitors from many solar systems, humiliating each claimant without exception",
+    "TRAIT: Set a single marriage condition — a blue rose — applied universally to all who seek her hand",
+    "RELATIONSHIP: aghnar-von-salza (Aghnar Von Salza): object of his consuming fixation; Aghnar resolved to pursue her after first encountering her holovid image",
+    "TRAIT: Central figure in a Shabda-Oud prophecy: her union with Aghnar's bloodline is foretold to produce a supreme hermaphroditic being",
+    "TRAIT: The prophesied child of that union is foreseen as capable of dethroning the reigning Janus-Jana",
+    "BOUNDARY: Source covers only two pages; she never appears in person — all known facts are mediated through holovid imagery and observer narration in a spacecraft cockpit",
+    "VOICE: No direct speech in source; do not attribute interior thought, explicit intent, or knowledge beyond what her marriage condition and pattern of rejection imply"
+  ],
+  "display_name": "Oda Capricious",
+  "peer_card_id": "oda-capricious",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton: one extracted record (characters-volume-06.json #007), vol6 p23-24. Card bounded to holovid appearances and prophecy context. Link matrix and wiki used only to resolve aghnar-von-salza and janus-jana peer IDs from character names explicitly named in source relationships. No cross-identity merge. Thin peer — 10 facts only."
+}

@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts overstate uncertain source material for a source-thin singleton peer. The card is close, but not ready to stage until certainty is reduced and unsupported victory/voice claims are narrowed."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful Honcho card if the draft stays honest about the Kioka/Aghnar uncertainty and avoids importing Aghnar's wider arc."
+  ],
+  "missing_opportunities": [
+    "The card should preserve the useful thin-boundary work already present: no confirmed backstory, motive, origin, stable Kioka alias, or Aghnar identity overlap."
+  ],
+  "revision_instructions": [
+    "Change footwear wording to `possibly through specialized footwear` or remove the mechanism.",
+    "Replace the Magon relationship with a narrower fact: the Magon legend concerns a little no-hair white ape who will take the Magon to the fog world and Diamond Planet; Kiowotai is linked to that scene, but Kioka/master identification remains uncertain.",
+    "Remove `victory over the Magon Patriarch`; use `confronted the Magon Patriarch` and separately `defeated a giant creature` if needed.",
+    "Soften VOICE/INSTRUCTION into witnessed behavior only, e.g. sworn brotherhood drives him to follow the ape upward despite warnings and meet danger directly in this scene."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Can float or rise into the air, likely through specialized footwear` upgrades `possibly via specialized footwear` to `likely`; keep the footwear mechanism uncertain.",
+    "`RELATIONSHIP: Magon people... after Kiowotai's victory over the Magon Patriarch...` is not supported by this peer's source record, which says Kiowotai confronted the Magon Patriarch and defeated a giant creature, not that he defeated the Patriarch.",
+    "`RELATIONSHIP: Magon people... the Magon invoke him as their master` overstates the Kioka/Kiowotai identification. The source says Magon invoke `Kioka`; the draft correctly flags Kioka as uncertain elsewhere, so this relationship must not treat the invocation as confirmed Kiowotai-directed worship.",
+    "`VOICE: Frames sworn brotherhood... direct confrontation as the only acceptable response` and `INSTRUCTION: ... direct confrontation as preferred approaches over retreat or caution` infer a stable persona from very few actions and overstate `despite warnings` into a general behavioral rule."
+  ]
+}

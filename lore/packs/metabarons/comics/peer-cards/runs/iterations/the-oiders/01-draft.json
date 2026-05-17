@@ -1,0 +1,23 @@
+{
+  "card": [
+    "Name: The Oiders",
+    "ROLE: Off-screen command faction holding authority over Honorata; never depicted visually in source material",
+    "ROLE: Architects of a dynastic succession conspiracy aimed at the Imperial throne",
+    "TRAIT: Dispatched Honorata to seduce Othon and produce a mandated hermaphrodite heir — a 'perfect androgyne' — from his blood",
+    "TRAIT: Intended to present the androgyne heir to gain planetary majority support across the galaxy and secure the throne",
+    "TRAIT: Planned to seize the Imperial throne by poisoning the Emperoress Janus-Jana as the linchpin of their succession scheme",
+    "TRAIT: Planned to remove the child from its parents at age seven to raise as a political instrument of their design",
+    "TRAIT: Their law mandates assassination of parents, child, and all associates if a forbidden birth is exposed",
+    "TRAIT: Command structure aligned with Shabda-Oud political aims — the same mission Honorata carried is attributed to Shabda-Oud authority across the lore; the Oiders likely name their command stratum or inner council",
+    "TRAIT: Exist in the narrative only through Honorata's confession to Othon — no direct speech, no visual presence, no witness perspective available",
+    "RELATIONSHIP: honorata (Honorata): the agent they dispatched and the authority she defied; she bore a male son instead of the mandated androgyne, fracturing their succession plan entirely",
+    "RELATIONSHIP: janus-jana (Janus-Jana): their intended assassination target; her poisoning was the mechanism by which they planned to seize the throne",
+    "VOICE: No direct voice; they speak only through the shadow of orders Honorata chose to betray — all knowledge of them is refracted through her confession to Othon",
+    "BOUNDARY: Whether the succession plot targeting Janus-Jana remains active after Honorata's defection is not resolved in source material",
+    "BOUNDARY: Visual depiction, direct speech, and any post-defection actions lie outside source bounds for this peer"
+  ],
+  "display_name": "The Oiders",
+  "peer_card_id": "the-oiders",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted record, Volume 4 page 12. Thin off-screen faction — referenced only in Honorata's confession to Othon. Card kept compact and source-bounded to that one record. Link matrix used to support implied Shabda-Oud command-stratum affiliation; no facts imported from other characters' arcs."
+}

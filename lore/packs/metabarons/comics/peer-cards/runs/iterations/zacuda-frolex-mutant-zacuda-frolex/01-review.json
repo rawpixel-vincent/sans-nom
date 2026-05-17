@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One card fact contains source-facing metadata: `BOUNDARY: source coverage is confined to three pages (vol.3 p01–p03)...`. Honcho card facts must be in-world and must not cite pages, volumes, or source coverage.",
+    "The draft imports downstream wiki/context facts into the peer card: cyber-cops assaulting the Metabunker and forced use of the Metabaron's bio-electrogram are outside the provided Zacuda Frolex source record boundary. The card should stop at the mutant reactivating the attack program and bringing three proto-nuclear units online."
+  ],
+  "format_errors": [
+    "Card is a list of 17 strings under the 40-fact cap with no duplicate facts found.",
+    "Allowed prefixes appear otherwise valid, but the source-facing boundary violates the no source refs in facts contract."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful minor catalyst card once the source-facing and downstream-orientation overreach is removed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the source-facing boundary in-world, e.g. `BOUNDARY: no established life before entering Terra 2014 and no established fate after the mutant's crash; do not invent motive, speech, culture, or later awareness.`",
+    "Remove cyber-cop assault and bio-electrogram consequences from card facts. Keep them, if needed, only in `source_strategy` as contextual orientation, not as Honcho facts for this peer.",
+    "Replace `non-sentient` with a source-grounded phrase such as `non-speaking biological catalyst` or `biological catalyst with no shown speech or strategic understanding`.",
+    "Keep the card compact and source-thin: original enters Terra 2014 through ventilation, dies in Police Central after laying one egg; egg mutates from machine shocks; mutant navigates to controls, crashes into control banks, reactivates attack program, and brings three proto-nuclear units online."
+  ],
+  "unsupported_claims": [
+    "`ROLE: non-sentient biological catalyst` asserts non-sentience; the source supports no speech or known awareness, but does not establish non-sentience.",
+    "`Police Central's ambient discharge was sufficient...` embellishes the supported fact that machine electrical shocks mutated the egg.",
+    "`its entire significance lies in downstream consequences for others — ... cyber-cop assault, the forced use of the Metabaron's bio-electrogram` exceeds the peer's source boundary and uses orientation lore as card content."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One fact overstates Deyanira's internal psychology beyond the source boundary: `Does not experience her violence and her affection as separate drives...she has no graduated register between them`. The source supports observed behavioral contrast, not a claim about how she experiences drives or that she has no other register.",
+    "The violence line ambiguously conflates separate events: `destroyed armored soldiers and devoured the Technopope alive during a public ceremony` reads as if the armored-soldier killing happened during the ceremony. The bundle supports destroyed imperial troops attacking Aghora, and separately devoured the Technopope during the award ceremony."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source bundle is sufficient for a useful card, and the draft is otherwise close: 18 string facts, under the 40-fact cap, observed allowed prefixes, no duplicate facts, and no explicit page/source refs inside facts."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the internal-psychology TRAIT as source-visible behavior or play guidance, e.g. Deyanira's witnessed range runs from savage fury to physical affection, and neither should be reduced to a single motive.",
+    "Separate the two violence facts: one for imperial troops attacking Aghora, one for the Technopope killed during the award ceremony.",
+    "Keep the current nonverbal, terminal-tumor, Aghora-contact calming, euthanasia, and Aghora/Tonto relationship structure; those are source-grounded."
+  ],
+  "unsupported_claims": [
+    "`Does not experience her violence and her affection as separate drives` is not directly knowable from a non-verbal creature's source record.",
+    "`she has no graduated register between them` generalizes beyond the witnessed scenes.",
+    "`destroyed armored soldiers ... during a public ceremony` is not cleanly supported as phrased; soldier killing and the Technopope ceremony should remain distinct."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is not ready because it inflates a one-scene, source-thin character into unsupported psychology and authority theory.",
+    "Two BOUNDARY facts use source-facing language inside the Honcho payload; card facts must be in-world and must not mention source status."
+  ],
+  "format_errors": [
+    "Fact 9 says `not established in source`; source-facing metadata is not allowed inside Honcho facts.",
+    "Fact 10 says `unresolved in source`; source-facing metadata is not allowed inside Honcho facts."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful minor-character card if kept honest and bounded."
+  ],
+  "missing_opportunities": [
+    "The relationship to Dona Vicenta should use the resolved peer id from the identity map, e.g. `RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): ...`.",
+    "Because the source is thin, the card should stay smaller and more literal instead of adding pressure behavior or refusal-shape unsupported by the bundle."
+  ],
+  "revision_instructions": [
+    "Keep only source-grounded facts: name, acting presidency during Dona Vicenta's hospitalization for paleo-tuberculosis, public address during petro-morph attacks, self-presentation as courageous/stabilizing leader, and uncertainty around succession circumstances.",
+    "Rewrite boundaries in-world, for example: `BOUNDARY: No confirmed prior office, formal succession right, inner-circle standing, personal motive, or political history beyond the public assumption of authority during Dona Vicenta's incapacitation.`",
+    "Remove claims about cynicism, durable conviction, immediacy, substitutional authority, and detailed voice unless directly supported by the input bundle.",
+    "Resolve Dona Vicenta as `dona-vicenta` in the relationship fact."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: When institutional authority falters, moves immediately to the ceremonial platform — fills the visible vacuum before addressing its cause.` The source supports a public address from a ceremonial platform, not immediacy or this causal/strategic sequencing.",
+    "`TRAIT: His authority is substitutional — it derives from the vacancy he fills, not from an independent mandate or prior position of record.` The source only says he took over when Dona Vicenta was medically incapacitated; succession basis and prior position are explicitly unknown.",
+    "`VOICE: Speaks in the register of governmental reassurance — measured declarations of stability rather than tactical detail or admission of ongoing threat.` The source has no voice_notes and only supports public reassurance/stability in broad terms; `measured` and the contrast against tactical detail/admission overreach.",
+    "`INSTRUCTION: His performance of authority is not cynical — he believes that standing on the ceremonial platform and declaring stability IS the leadership act. That conviction is durable, not compensatory.` This invents inner belief and sincerity beyond the record."
+  ]
+}

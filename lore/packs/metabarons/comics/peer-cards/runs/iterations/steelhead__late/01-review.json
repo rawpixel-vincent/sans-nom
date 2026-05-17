@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several card facts use meta/source-facing language inside the Honcho payload, including `this card`, `records`, `input`, `source records`, `wiki-level`, and `source-bounded phase`. Card facts must be in-world durable facts, not verifier/writer instructions about the source bundle.",
+    "The draft imports later/wiki-level material into a BOUNDARY fact: `Lothar, memory erasure, or post-stasis return`. Even as a negative instruction, this exposes out-of-scope lore not supported by the target phase source records.",
+    "Relationship facts for the poet component do not use the resolved peer id and blur names: `Zaran/Krleza` and `Keleza/Krleza` should be resolved to the identity-map peer `zaran-krleza` if retained, with uncertainty handled cleanly rather than as slash labels."
+  ],
+  "format_errors": [
+    "Card is a list of strings and has 34 facts, within the max-40 limit.",
+    "Allowed prefixes are otherwise respected.",
+    "No exact duplicate facts found.",
+    "Source-facing/meta wording appears in card facts, which violates the no source refs/source-boundary leakage requirement."
+  ],
+  "manual_review_notes": [
+    "The card has strong source-grounded shape overall: it preserves Steelhead's late-phase refusal of vulnerability, grief-to-engineering behavior, Aghora succession contradiction, Dona Vicenta wound, and split-phase boundaries. It should be stageable after cleaning the source/meta leakage and unsupported alias material."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite meta boundaries into in-world constraints. For example, replace `unless that input explicitly includes those source records` with a direct phase boundary such as `BOUNDARY: Keep this Steelhead distinct from the earlier love-seeking warrior, the contested Melmoth composite, and any identity after deep-space stasis.`",
+    "Remove the `wiki-level revelations about Lothar, memory erasure, or post-stasis return` fact entirely, or reduce it to a source-bounded phase boundary without naming out-of-scope revelations.",
+    "Remove unsupported `Tête d'Acier` unless the source bundle is expanded to include it.",
+    "Resolve poet-component relationships with the canonical peer id `zaran-krleza` if the relationship remains; avoid `Keleza/Krleza` slash-label ambiguity."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: Tête d'Acier and Steelhead...` is not supported by the supplied source records or peer_identity aliases, which list Melmoth, Steelhead, and Zaran/Krleza-related labels but not Tête d'Acier.",
+    "`BOUNDARY: Do not import later wiki-level revelations about Lothar, memory erasure, or post-stasis return...` relies on out-of-bundle later lore and should not appear in the card."
+  ]
+}

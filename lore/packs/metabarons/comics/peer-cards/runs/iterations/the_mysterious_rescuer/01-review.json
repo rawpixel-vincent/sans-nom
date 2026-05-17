@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because multiple Honcho facts use source-facing/source-meta wording inside card entries.",
+    "Card also overstates the thin source by implying a pre-existing relationship and outcome knowledge that the source bundle does not establish."
+  ],
+  "format_errors": [
+    "Card is a list of 18 strings and is under the 40-fact cap with no duplicates found.",
+    "Allowed prefixes otherwise appear valid for this corpus, but source-facing wording violates the no source refs/source-meta rule.",
+    "`BOUNDARY: This character's identity is unresolved in source material; never assert or confirm who they are` uses `source material` inside a Honcho fact.",
+    "`BOUNDARY: Source covers a single scene ...` explicitly refers to source coverage inside a Honcho fact."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful small card; do not expand it with wiki lore or resolved identity speculation."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries as in-world constraints, e.g. `BOUNDARY: Identity remains unresolved; never assert or confirm who this figure is` and `BOUNDARY: Known actions are limited to the space-battle rescue, direct name recognition of Aghnar, and the psychic-union invitation; do not add backstory, motives, or later activity`.",
+    "Replace the unsupported pre-existing-relationship instruction with the attested boundary: the rescuer speaks with apparent familiarity that shocks Aghnar, but the reason for that familiarity remains unresolved.",
+    "Delete or narrow the `already knows the outcome` and `no hesitation` language unless tied directly to the attested rapid enemy destruction and direct address.",
+    "Keep the relationship target `aghnar__warrior`; it matches the identity-map entry for the volume 8 Aghnar record."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: the Mysterious Rescuer` is not one of the supplied aliases; use `Unknown Rescuer` and/or the attested descriptive alias unless the project treats the peer id as an allowable label.",
+    "`INSTRUCTION: ... speak as one who already knows the outcome` is not supported by the source record, which only establishes rescue, name recognition, and an invitation to psychic/mental union.",
+    "`INSTRUCTION: ... carries the weight of a relationship that predates this scene` overstates the relationship. The source supports apparent personal familiarity/intimacy, not proof of a prior relationship.",
+    "`TRAIT: Acts with certainty and purpose ... no hesitation` is an interpretive gloss; narrow it to the attested rapid combat intervention and direct psychic invitation."
+  ]
+}

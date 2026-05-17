@@ -2,13 +2,13 @@
 
 How the narrative designer iterates on the Narrator's voice without redeploying the server. This was missing from the original draft; specified here.
 
-## The Narrator card lives in a file, not a config
+## Narrator role doctrine
 
-Path: `lore/narrator/peer-card.md` in the repo. Plain markdown. Edited by the narrative designer in any editor.
+The old root `lore/narrator/` markdown card has been removed. Narrator doctrine is assembled from runtime prompts, the active Story Bible, witness rules, and seeded Honcho role cards.
 
 ## Hot reload in dev
 
-The Go server watches `lore/` for file changes. When `narrator/peer-card.md` changes:
+The Go server watches story state and pack/index artifacts that affect context assembly. When a runtime prompt or seeded role card changes:
 
 - The Narrator's prompt assembly picks up the new card on the *next* turn.
 - In-flight turns finish with the old card (no mid-turn switching).
@@ -35,7 +35,7 @@ Lore corpus changes (new comic page transcripts, new character card edits) also 
 
 ## Actor card iteration
 
-Same pattern. Actor cards live at `lore/actors/<name>.md`. File watcher reloads. The seed is loaded from these files; in-Honcho evolution is a separate channel — editing the seed file does *not* retroactively change a workspace's evolved actor representation. To re-seed an actor in an existing workspace, use the seed-honcho script (see [repo structure](../repo-structure.md)).
+Actor cards live in accepted peer-card artifacts under the selected lore pack, for example `lore/packs/<pack_id>/comics/peer-cards/cards/accepted/<peer_id>.json`. In-Honcho evolution is a separate channel; editing a base artifact does not retroactively change a workspace's evolved actor representation.
 
 ## What this enables
 

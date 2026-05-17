@@ -1,0 +1,36 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft imports wiki/adjacent-arc material to expand a source-thin singleton, especially the Kiawoutai spelling and epyphite-injection origin, instead of staying within `peer_identity` for `kiowata`.",
+    "The card blurs boundaries with the separate `kiowotai` peer and wider Magon/Perdita material; the input identity map gives `kiowata` only `characters-volume-07.json#004:kiowata` and no related peer ids.",
+    "Several voice and psychology facts are invented from tone rather than sourced; the source record has no voice notes and only minimal traits/actions."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded minor-character card; blocked_source_insufficient should remain false."
+  ],
+  "missing_opportunities": [
+    "The useful supported card can be compact: name, floating Magon ape, speaks, described as having a soul, linked to the little-white-ape Diamond Planet prophecy, loyal companion/ally of Aghnar, saved by Aghnar after a fall, present for Aghnar defeating the Magon leader, and part of the group using a Cetacyborg.",
+    "The card should include an honest boundary that Kiowata has no established broader backstory, personal authority, or voice register beyond the recap facts."
+  ],
+  "revision_instructions": [
+    "Remove the Kiawoutai alias unless the input bundle explicitly maps it to `kiowata`; do not merge with `kiowotai`.",
+    "Remove the epyphite injection, ordinary-ape-beforehand, recent-transformation, and newly-sentient psychology claims.",
+    "Rewrite VOICE as a boundary such as no established speaking register, rather than inventing wonder or directness.",
+    "Keep the Aghnar relationship target as `aghnar__warrior`, but limit it to saved Kiowata after a fall, companion/ally, aided the Magon ascent/mission, and witnessed Aghnar defeat the Magon leader.",
+    "Keep the card source-thin and underexpanded; do not add Perdita ecology unless phrased only as minimal context directly supported by the bundled Kiowata record."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: Kiawoutai` is not in the Kiowata source record and risks importing same-name/near-name material from outside this peer identity.",
+    "`native to Planet Perdita`, detailed Perdita ecology, and `levitation is biological` are not established by the Kiowata source record as card facts for this peer.",
+    "`Speech and soul were granted by an epyphite injection administered by Aghnar` is wiki-only for this bundle; the record supports only that Kiowata can speak and is described as possessing a soul.",
+    "`before that moment, Kiowata was an ordinary Magon ape` and `the transformation is recent, total, and defines everything after` are unsupported biography/psychology.",
+    "`Newly sentient` with `disorientation and wonder` is invented; no source voice or interiority supports it.",
+    "`Loyal to Aghnar without calculation` and `rescue and transformation precede reason` overstate the simple supported fact that Kiowata is loyal to Aghnar and was saved by him.",
+    "`fought alongside Aghnar against the Magon leader` overstates the source, which says Kiowata was present when Aghnar defeated the leader and aided the ascent/mission.",
+    "Both VOICE facts are unsupported because the source record contains no voice notes or quoted speech pattern.",
+    "The INSTRUCTION to describe the transformation as birth rather than rescue is unsupported and depends on the unsupported epyphite-transformation claim.",
+    "`present for the decisive acts of Aghnar's time on Perdita` is too broad for the thin Kiowata record."
+  ]
+}

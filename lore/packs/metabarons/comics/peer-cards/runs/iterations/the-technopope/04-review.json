@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Honcho contract passes: 17 string facts, under the 40-fact cap, observed allowed prefixes, no markdown/source refs, and no duplicate facts detected.",
+    "Source bundle is thin but sufficient; the card stays bounded to institutional authority, marble requisition, abduction, ceremony, public death, and sequencing boundaries without inventing private theology or inner life.",
+    "Relationship targets align with the identity map where peer ids exist; Imperial Merchants Guild is correctly left as a faction/group name rather than an unresolved peer id."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

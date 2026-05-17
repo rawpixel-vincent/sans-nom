@@ -1,0 +1,14 @@
+{
+  "card": [
+    "Name: Big One",
+    "ROLE: Entity summoned by The Professor to display an image of the master on command",
+    "RELATIONSHIP: the-professor (The Professor): the one who calls on Big One to produce the master's image; this is the sole witnessed interaction",
+    "RELATIONSHIP: the-metabaron__no-name (The Metabaron, No-Name): Big One can display or enlarge this master's image when commanded to do so",
+    "TRAIT: Full identity and function remain unclear; known only as Big One, the entity The Professor calls on to display the master's image",
+    "BOUNDARY: Do not claim portability, archive status, household function, broader Metabunker duties, motives, backstory, or any role beyond producing the master's image on command"
+  ],
+  "display_name": "Big One",
+  "peer_card_id": "big-one",
+  "phase_boundary_note": "",
+  "source_strategy": "Thin singleton bounded to two source-supported relationships. Blocking issues from 01-review resolved: Metabaron target corrected to the-metabaron__no-name; TRAIT rephrased in-world with no source-facing language; archive/household overstatements removed; card kept minimal per verifier instructions."
+}

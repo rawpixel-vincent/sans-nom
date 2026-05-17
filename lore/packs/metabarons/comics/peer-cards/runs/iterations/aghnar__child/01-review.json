@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid: list of 36 strings, under the 40-fact cap, allowed prefixes, no duplicates, no markdown, and no source references inside card facts.",
+    "Split-phase boundary follows `aghnar__child` and does not import adult Aghnar arcs beyond explicit exclusion boundaries."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

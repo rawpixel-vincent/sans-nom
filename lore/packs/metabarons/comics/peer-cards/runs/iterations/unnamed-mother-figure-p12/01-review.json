@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source bundle is thin but sufficient: the card stays under 40 facts, uses allowed prefixes, avoids source refs in Honcho facts, preserves the singleton identity, and does not inflate the character into broader wiki lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

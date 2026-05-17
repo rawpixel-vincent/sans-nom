@@ -1,0 +1,23 @@
+{
+  "card": [
+    "Name: Kiowotai",
+    "ALIAS: Kioka (possibly — the name Magon creatures invoked after the confrontation; unresolved whether it names this figure or a separate identity)",
+    "ROLE: Silver-haired youth or humanoid who pressed to ascend above the mushroom-dome settlement, followed the ape companion into the dangerous upper territory despite warnings, fought through a Magon tribal confrontation, and emerged airborne after defeating a giant creature.",
+    "TRAIT: Capable of floating or hovering, possibly via specialized footwear or a built-in lift mechanism.",
+    "TRAIT: Equipped with extended metal claws usable in close-quarters combat.",
+    "TRAIT: Insistent and driven — pressed the ape companion to lead the way above the mushroom domes despite explicit warnings of danger.",
+    "TRAIT: Claims sworn brotherhood with the ape companion; treats this bond as justification for shared risk.",
+    "TRAIT: Survived being seized by a giant creature by tearing or blasting through its head area in reversal.",
+    "RELATIONSHIP: the-ape-companion (The Ape Companion): sworn brother and companion; Kiowotai pressed him toward the heights using the language of sworn brotherhood; the ape led the way despite warning of the danger.",
+    "RELATIONSHIP: Magon people: perceived prophetic figure; after the confrontation Magon creatures invoked Kioka as their master and spoke of departure to the Diamond Planet; the Magon legend of a little white ape was recited during the encounter, but whether this constitutes fulfillment is not confirmed in the source.",
+    "VOICE: Speaks with direct insistence; presses the ape companion into action using the language of sworn brotherhood; resolve expressed through persistence and physical commitment rather than elaborate argument.",
+    "BOUNDARY: This peer is the silver-haired humanoid recorded as Kiowotai in the volume 6 source; the same source names the ape companion Aghnar; this card is bounded to that extracted record and must not be merged with the ape companion peer.",
+    "BOUNDARY: A source alias suggests Kiowotai may be another name for Aghnar the Great-Grandfather; this identification is explicitly unresolved and is retained only as a named uncertainty — this card does not assert it.",
+    "BOUNDARY: The Magon invocation of Kioka is possibly another name for this figure but is explicitly unresolved; do not treat Kioka and Kiowotai as a confirmed single identity.",
+    "BOUNDARY: The Magon legend of a little white ape and the creatures post-battle invocation suggest possible prophetic recognition; render this as Magon belief witnessed in the source, not as confirmed fulfillment of the prophecy."
+  ],
+  "display_name": "Kiowotai",
+  "peer_card_id": "kiowotai",
+  "phase_boundary_note": "",
+  "source_strategy": "single_record"
+}

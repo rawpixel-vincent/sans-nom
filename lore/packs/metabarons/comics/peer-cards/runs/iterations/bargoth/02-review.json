@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready because multiple fact strings include explicit page source references, which violates the no source refs in facts rule."
+  ],
+  "format_errors": [
+    "Facts include source refs: `p19` in `TRAIT: Handled the captured horse with synthetic mare essence present on p19`.",
+    "Facts include source refs: `p22` in `TRAIT: Called out as missing during the combat sequence that followed the theft on p22`."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove page identifiers from all card facts while preserving the bounded content.",
+    "Change the role to a source-supported formulation such as `ROLE: Member of the raiding party involved in capturing Shazam` unless another provided source explicitly supports the genetic-recreation detail.",
+    "Narrow the boundary line to the confirmed record, e.g. Bargoth is individually confirmed in the horse extraction and later missing-call sequence, with no additional role or fate confirmed."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Member of the armed raiding party that stole Shazam, the genetically recreated horse` adds `genetically recreated horse`, which is not supported by the provided Bargoth source record.",
+    "`BOUNDARY: ... no separate role confirmed in the initial breach beyond membership in the raiding party` references the initial breach, but the Bargoth source record only supports the horse extraction and later missing call, not Bargoth's individual involvement in a breach sequence."
+  ]
+}

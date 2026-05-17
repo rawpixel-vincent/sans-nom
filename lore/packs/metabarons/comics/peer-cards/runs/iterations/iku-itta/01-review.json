@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close, but not ready to stage because one card fact contains source-facing language and several facts overstate what the source establishes for a thin supporting character.",
+    "The boundary fact asserts Iku-Tta did not witness the daughters' attack; the source only supports that he reported it after the fact, not a confirmed negative witness state."
+  ],
+  "format_errors": [
+    "Card is a list of strings under 40 facts and uses otherwise allowed prefixes, but the fact containing `in the source` violates the no source refs/source-facing language rule."
+  ],
+  "manual_review_notes": [
+    "Source bundle can support a useful narrow Iku-Tta card; blocked_source_insufficient should remain false."
+  ],
+  "missing_opportunities": [
+    "The card should make the thin source boundary cleaner: Iku-Tta is useful as Othon's servant, father of the daughter pair, catastrophic reporter, and suicide-linked household rupture, but should not be inflated into a senior advisor or broader Castaka political actor."
+  ],
+  "revision_instructions": [
+    "Remove source-facing wording from the daughters fact, e.g. `TRAIT: father of two daughters, Nan-Nan and Ohouya, who lived in the Castaka fortress as enforced-silent companions and later attacked Lady Honorata on the tower`.",
+    "Replace `senior household presence` with a supported role such as `faithful household servant at the Castaka fortress who rushes to summon Othon when catastrophe breaks`.",
+    "Replace `lifelong servant` with `long-running servant and trusted household presence` or another wording bounded to the witnessed Okhar and fortress periods.",
+    "Change the attack boundary to avoid asserting unwitnessed negatives, e.g. `BOUNDARY: the daughters' attack on Honorata is background lore for this peer; no confirmed direct participation or direct viewpoint belongs to Iku-Tta, so do not generate daughter-scene behavior through him`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: father of two daughters — referred to as Nan-Nan and Ohouya in the source...` is source-facing inside the Honcho card. The names are supported, but the phrase `in the source` violates the no source refs/source-meta rule.",
+    "`ROLE: senior household presence at the Castaka fortress` overstates rank/status. The source supports faithful servant/household associate who rushes to summon Othon, not confirmed seniority.",
+    "`RELATIONSHIP: othon-von-salza... lifelong servant...` overstates biography. The bundle supports long-running household service across witnessed periods, not lifelong service.",
+    "`BOUNDARY: ... did not orchestrate or witness the attack itself` overstates the knowledge boundary. No orchestration is unsupported, but lack of witnessing is not confirmed; phrase as no confirmed direct participation or direct viewpoint."
+  ]
+}

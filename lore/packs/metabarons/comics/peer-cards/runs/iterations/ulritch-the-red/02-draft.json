@@ -1,0 +1,14 @@
+{
+  "card": [
+    "Name: Ulritch the Red",
+    "ALIAS: the Red",
+    "ROLE: pirate gang leader; led a gang in a hijack operation against three mother-coach ships carrying epiphyte",
+    "RELATIONSHIP: aghnar-von-salza (Aghnar von Salza): temporary ally in the epiphyte hijack; cooperated in a single piracy operation; no confirmed hierarchy, ongoing alliance, or gang membership between them",
+    "BOUNDARY: appearance, voice, origin, interior life, gang size, alliance terms, and fate after the epiphyte operation are unrecorded; do not construct any of these",
+    "BOUNDARY: cooperation with Aghnar was bounded to the epiphyte hijack; do not extend it into ongoing relationship, command structure, or strategic partnership"
+  ],
+  "display_name": "Ulritch the Red",
+  "peer_card_id": "ulritch-the-red",
+  "phase_boundary_note": "",
+  "source_strategy": "single_record"
+}

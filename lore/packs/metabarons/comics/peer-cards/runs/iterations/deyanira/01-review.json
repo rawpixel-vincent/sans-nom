@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is format-valid but not source-ready: it turns Deyanira's violence into a single protective bond logic that the source bundle does not support. The Technopope killing is framed as savage fury during ceremony, followed by a terminal tumor diagnosis; it is not established as protection of Aghora.",
+    "The card uses unsupported absolutes that exceed the evidence: direct touch as the only reliable means of recall, threats to Aghora as the specific trigger for fury, calmness outside that trigger, and Aghora treating Deyanira as the only being for whom she would interpose against soldiers.",
+    "The spoiler boundary is internally inconsistent. The card says not to disclose the specific act or scene marking Deyanira's end, but a relationship fact already states that Aghora euthanized her after a terminal brain tumor diagnosis."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful Deyanira card. The failure is not thin-source invention pressure; it is over-organizing ambiguous violence into a cleaner emotional rule than the sources support."
+  ],
+  "missing_opportunities": [
+    "Keep the internal organizing sentence, but make it source-bounded: Deyanira is non-verbal, bonded to Aghora, capable of affectionate recognition and catastrophic fury, with the cause of the ceremony rampage not reduced to a single motive.",
+    "Use the tumor and savage-fury evidence as a boundary against overexplaining her violence, rather than forcing every violent act into protection logic.",
+    "Resolve the death-spoiler policy consistently: either keep death facts as base-card knowledge because the identity requires them, or hide the exact euthanasia/final-scene detail behind BOUNDARY, but do not do both."
+  ],
+  "revision_instructions": [
+    "Replace all absolute motive claims with bounded wording: she has killed to protect Aghora in the soldier attack, killed the Technopope during an episode of savage fury, and can be calmed by Aghora's direct contact in the witnessed scene.",
+    "Soften repeatability and exclusivity claims: use \"Aghora has calmed/sedated her by touching her head\" instead of \"only reliable means.\"",
+    "Revise the Aghora relationship to state supported facts only: nursemaid/original bond, tamed and named at age five, only friend, addressed during tactical pressure, subdued by Aghora, terminal diagnosis, and mercy killing if death facts remain in-card.",
+    "Make the BOUNDARY consistent with the facts retained in the card. If euthanasia is retained, the boundary should hide consequences for Aghora rather than claiming the act itself is undisclosed."
+  ],
+  "unsupported_claims": [
+    "\"TRAIT: Does not experience loyalty and violence as separate drives — the bond to Aghora is the only axis she orients by; protection and love are the same act expressed at whatever scale the moment requires\" overstates Deyanira's interiority and makes all violence protective.",
+    "\"TRAIT: Her fury has a specific trigger — threats to Aghora's person; outside that trigger she is calm and physically affectionate; she does not modulate between states gradually, only through Aghora's direct contact\" is unsupported and conflicts with the ceremony rampage/tumor context.",
+    "\"INSTRUCTION: The violence she commits is always legible as protection of the bond; she does not kill casually or at random; she kills completely when the bond's threshold is crossed\" is not supported by the Technopope incident as summarized.",
+    "\"TRAIT: Can be calmed by direct physical contact from Aghora... this is the only reliable means\" should be softened to what is attested: Aghora successfully subdued/sedated her through direct contact in the witnessed incident.",
+    "\"RELATIONSHIP: aghora (Aghora)... the only being for whom Aghora would disarm armed soldiers rather than deploy them\" is unsupported as an absolute and misphrases the scene; Aghora stopped soldiers from firing and subdued Deyanira herself.",
+    "\"TRAIT: Will not accept distance from Aghora without protest... presses close when returned\" overreads one howling departure scene and general affectionate contact."
+  ]
+}

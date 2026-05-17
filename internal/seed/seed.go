@@ -125,11 +125,11 @@ func containsForbidden(text string, banned string) bool {
 
 func ContextText() string {
 	return `First playable vertical slice: original science-fantasy comic story.
-The Metabarons lore index is creative DNA for the writer and narrator: passion, pressure, contradiction, taboo, body/technology myth, witness-bound memory, and operatic SF-comics taste.
+The selected ground-lore pack is creative DNA for the writer and narrator: passion, pressure, contradiction, taboo, body/technology myth, witness-bound memory, and operatic SF-comics taste.
 Do not literalize that source lore. The generated story must use new characters, new places, new factions, new conflicts, and new proper nouns.
-Do not use Metabarons canon names, places, factions, dynastic events, council mechanics, all-cast fanout, or resurrection-roster assumptions.
+Do not use source canon names, places, factions, dynastic events, council mechanics, all-cast fanout, or resurrection-roster assumptions.
 Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible is binding doctrine for this generated story, separate from source-lore influence.
-The StoryBible must contain at least one original gravity law inspired by deep source structures like Bushitaka law: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
+The StoryBible must contain at least one original gravity law inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
 The first entry node must be richer than later nodes. It should give the Narrator enough structure for a long classic opening: world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
 Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.`

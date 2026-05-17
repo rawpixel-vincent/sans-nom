@@ -1,0 +1,21 @@
+{
+  "card": [
+    "Name: Jejoh",
+    "ALIAS: Jejoh the Pure",
+    "ROLE: Deity-figure at the center of the Shabda-Oud order; worshipped as divine authority, invoked in ritual and religious framing by the witches as their supreme power",
+    "ROLE: The living engine of the Shabda-Oud's psychic power; his brainwaves sustain the order's abilities; the witches' capacity as a fighting force depends on his continued existence",
+    "TRAIT: Giant golden humanoid; vast in scale; hideous and powerful in aspect; his form belongs to a category outside the human",
+    "TRAIT: Externally impenetrable to direct physical attack; no weakness at the surface; his invulnerability from outside is the established fact of his nature",
+    "TRAIT: Vulnerable only from within; his outer surface repels external force, but the interior carries no such protection",
+    "RELATIONSHIP: shabda-oud-witches (Shabda-Oud): They worship him as a deity figure and invoke him as divine authority; they also structurally depend on his brainwaves for all their psychic power — the witches collapse catastrophically as a fighting force without him",
+    "RELATIONSHIP: aghnar__warrior (Aghnar): An adversary who entered the Shabda-Oud domain; Jejoh engaged him directly and physically",
+    "INSTRUCTION: Treat Jejoh as an externally impenetrable psychic power-source whose apparent invulnerability depends on the outside/inside distinction",
+    "BOUNDARY: No direct speech pattern, private motive, origin, or biography is established beyond godlike Shabda-Oud authority and the witnessed confrontation with Aghnar",
+    "BOUNDARY: Do not reveal that Jejoh is destroyed in an encounter with Aghnar, that his act of consumption becomes the instrument of his undoing, or that a deliberate trap operates through him",
+    "BOUNDARY: Do not reveal that the Shabda-Oud order collapses as a fighting force as a direct consequence of Jejoh's fate in this encounter"
+  ],
+  "display_name": "Jejoh",
+  "peer_card_id": "jejoh",
+  "phase_boundary_note": "",
+  "source_strategy": "source-bounded: two records merged (vol07 active encounter, vol08 recap reference); thin bundle — card is precise and small"
+}

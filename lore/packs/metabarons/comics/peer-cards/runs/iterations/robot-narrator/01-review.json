@@ -1,0 +1,19 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready because one uncertain p11 action is promoted into a capability fact for this peer."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Singleton source-thin peer with a useful bounded card once the uncertain healing capability is softened. No need to invent additional lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the p11 healing material as a boundary or possible-action note without asserting capability, e.g. `BOUNDARY: The ape-healing and naming may involve this robot in humanoid form or may belong to Aghnar; do not treat the healing compound or naming as confirmed Robot Narrator actions.`",
+    "Keep relationships targeted as drafted: `othon-von-salza`, `aghnar-von-salza`, and `lothar` are the right identity-map ids for this source split."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Possesses medical synthesis capability; possibly produced the green healing compound...` overstates the p11 uncertainty. The source only supports that the ape was healed with synthesized green blood and that the silver-haired healer may be the robot narrator in humanoid form or may be Aghnar himself. It does not support a confirmed Robot Narrator medical synthesis capability."
+  ]
+}

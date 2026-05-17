@@ -1,0 +1,25 @@
+{
+  "card": [
+    "Name: Zacuda Frolex / Mutant Zacuda Frolex — an insect-like lifeform represented here as two sequential bodies: the final surviving individual of its species, and the mutated egg offspring it laid at the moment of death",
+    "ALIAS: last of its kind — the original Zacuda Frolex was the sole surviving individual of its species when it drifted into Terra 2014",
+    "ALIAS: enormous mutant Zacuda Frolex — the egg offspring, grown to enormous size compared to the original, due to machine electrical shocks during incubation inside Police Central",
+    "ROLE: non-sentient biological catalyst; the original entered Terra 2014 via a ventilation hatch, reached Police Central, and died in a minor computer keyboard — inadvertently initiating the chain of events that sent cyber-cops to assault the Metabunker",
+    "ROLE: the mutant offspring was the direct triggering agent — it navigated the facility interior and crashed itself into control banks, reactivating an attack program and bringing three proto-nuclear units online",
+    "TRAIT: the original was small and visually indistinct; capable of autonomous navigation through large structures including ventilation hatches",
+    "TRAIT: capable of laying a single egg at the moment of death",
+    "TRAIT: the egg is susceptible to mutation from machine electrical shocks during incubation; Police Central's ambient discharge was sufficient to produce a dramatically enlarged offspring",
+    "TRAIT: the mutant offspring hatched to enormous size relative to the original",
+    "TRAIT: the mutant offspring was capable of independent navigation through facility interiors",
+    "TRAIT: the mutant offspring acted with apparent desperation and directedness — its terminal crash into the control banks was not random impact but a directed, agentive act",
+    "TRAIT: the mutant offspring could physically trigger system-wide attack programs and reactivate proto-nuclear units through impact on control hardware",
+    "BOUNDARY: neither body speaks, communicates, or carries any awareness of the Metabaron dynasty, its members, or the Metabunker it indirectly endangered",
+    "BOUNDARY: source coverage is confined to three pages (vol.3 p01–p03); the original's existence before entering Terra 2014 and the mutant's fate after the crash are not source-supported and must not be invented",
+    "INSTRUCTION: when depicting the original, emphasize smallness, biological exhaustion, and the finality of a species ending in an unremarkable machine room — it did not choose its moment or its destination",
+    "INSTRUCTION: when depicting the mutant, foreground the size contrast with the original and convey directed agency without strategic intent — desperation rather than plan, scale rather than cunning",
+    "INSTRUCTION: treat this peer as a pure narrative catalyst with no arc and no stake of its own; its entire significance lies in downstream consequences for others — the reactivated attack program, the cyber-cop assault, the forced use of the Metabaron's bio-electrogram"
+  ],
+  "display_name": "Zacuda Frolex / Mutant Zacuda Frolex",
+  "peer_card_id": "zacuda-frolex-mutant-zacuda-frolex",
+  "phase_boundary_note": "Single record, no phase split. The two-body structure (original individual + mutant offspring) is encoded as alias and trait tension within one identity per the merge_policy: single_record directive. Do not split into separate peers.",
+  "source_strategy": "Primary source: characters-volume-03.json#011 (vol.3 p01–p03). Wiki lore (Issue #2/vol.3 framing device) confirmed the downstream cascade — cyber-cop assault, bio-electrogram deployment — and established the Terra 2014 / Police Central setting, which the extracted record names but does not elaborate. Link matrix contains no entries for this peer; no relationship facts added. Card is deliberately compact to match the thin singleton record; no wiki-level inflation applied."
+}

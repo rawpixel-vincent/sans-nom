@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Canon identity-reveal handling is not ready: one card fact reverses the scar/imprisonment sequence, which is central to Lothar's rubric.",
+    "Several traits convert source uncertainty or emotional contradiction into settled mechanical diagnosis, crossing source knowledge boundaries."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Correct fact 17 to preserve the reveal: Lothar does not know he is Steelhead; Steelhead caused Nameless/No-Name's eyebrow scar, and Nameless/No-Name later erased Steelhead's memory and fit him into armor as Lothar.",
+    "Soften facts 14 and 18: keep combustion as a techno-synapse/system malfunction, keep loss of faith as disputed, and describe despair/hatred as contradictions to his anti-romantic doctrine rather than diagnosed malfunctions.",
+    "Change the service wording from successive Metabarons to the frame-narrative Metabaron/No-Name or the Metabunker master."
+  ],
+  "unsupported_claims": [
+    "Fact 17 says the Metabaron's scar was made on Lothar's own body by the man who imprisoned him. The source says Steelhead/Lothar gave Nameless/No-Name the eyebrow scar, then Nameless erased Steelhead's memory and armored him as Lothar.",
+    "Facts 14 and 18 imply Lothar's despair, loss of faith, and hatred are categorized or registered as malfunctions/system failures. The source supports that framing for the lust combustion, but suicidal despair is presented as despair, loss-of-faith causality is disputed, and hatred is explicitly claimed as an emotion.",
+    "Fact 4 says Lothar serves successive Metabarons. The supplied identity entry and records support service to the frame-narrative Metabaron/No-Name; serving multiple successive Metabarons as Lothar is not established."
+  ]
+}

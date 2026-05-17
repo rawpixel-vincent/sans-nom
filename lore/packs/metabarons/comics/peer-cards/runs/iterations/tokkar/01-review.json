@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready because multiple facts step outside the source-bounded Honcho fact style: it includes source-facing language and unsupported crew/voice elaboration."
+  ],
+  "format_errors": [
+    "Card facts contain source references/source-facing language: \"p22\" and \"source confirms\" appear in a TRAIT item. Honcho facts must not cite pages or refer to the source as source.",
+    "The first relationship item says \"same operation\" and all three say \"same four-man assault crew\"; aside from the unsupported four-person claim, this repeats the same relationship wording three times more than needed."
+  ],
+  "missing_opportunities": [
+    "Tokkar's strongest supported specificity is that he is the marble disintegrator operator responsible for opening the fortress entrance; preserve that as the central trait.",
+    "A better boundary would state in-world uncertainty without source language: his fate is not established after he is reported missing in combat."
+  ],
+  "revision_instructions": [
+    "Remove page/source references from card facts: replace \"called out as missing during combat on p22; source confirms neither death nor survival\" with an in-world version such as \"reported missing during combat; no confirmed death, survival, or later history.\"",
+    "Replace \"four-man assault crew\" with \"same raiding party\" or \"same Shazam theft expedition\" for Ulkran, Wulthor, and Bargoth.",
+    "Replace the unsupported VOICE item with a boundary or instruction grounded in absence of voice evidence, such as \"VOICE: no direct speech is established; portray him through terse operational presence around the breach equipment.\""
+  ],
+  "unsupported_claims": [
+    "\"same four-man assault crew\" is too specific. The source supports Tokkar as a fellow raider with Ulkran, Wulthor, and Bargoth in the Shazam theft expedition, but page context also mentions several unnamed armored expedition members, so a strict four-person crew should not be asserted.",
+    "\"VOICE: Practical and equipment-focused; speaks in terms of crew roles, breach status, and field conditions — not strategy or motive\" is not supported by Tokkar's source record, which has no voice notes and no witnessed speech attributed to him. This should be reframed as no direct voice evidence, or as an instruction for sparse operational portrayal rather than a claimed speaking style."
+  ]
+}

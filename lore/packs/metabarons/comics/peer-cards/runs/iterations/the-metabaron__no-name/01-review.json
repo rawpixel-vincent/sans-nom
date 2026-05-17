@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a list of 32 strings, stays under the 40-fact cap, uses recognized prefixes, has no markdown/source refs in facts, and has no obvious duplicates.",
+    "Identity handling matches the supplied peer_identity for the bald scarred frame-narrative Metabaron and does not import the full later No-Name biography or scar-origin reveal. Relationship targets use the correct peer ids."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Two card facts use source-facing/meta language instead of Honcho-native in-world boundaries: `BOUNDARY: thin volume-1 singleton...` and `...the source record explicitly flags this as a knowledge boundary`. Card facts must not refer to volume/source-record status."
+  ],
+  "format_errors": [
+    "Card is a list of 18 strings with allowed prefixes and no duplicates, but the two BOUNDARY facts contain source/meta references, violating the no source refs in facts contract."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace source-meta boundaries with in-world wording, e.g. `BOUNDARY: known only as an absent master, cover figure, and object of Tonto's description; do not supply later biography, dynastic endgame identity, current mission, or private motives.`",
+    "Revise the absence/location wording to avoid unsupported specificity: use `absent during the robots' framing conversation; current whereabouts unknown` rather than `absent from his base`.",
+    "Soften the role fact to avoid invented waiting behavior, e.g. `ROLE: absent master of Tonto and Lothar; his bionic augmentations prompt the robots' framing conversation and Tonto's lineage narration.`"
+  ],
+  "unsupported_claims": [
+    "`TRAIT: absent from his base...` overstates the bundle. The page supports that he is absent during the framing conversation, while the location is only a likely mechanical/industrial base or ship.",
+    "`ROLE: ...two servant robots who wait for his return...` is slightly stronger than the source. The bundle supports servant/master relationships and his absence motivating narration, but not a stated act of waiting for return."
+  ]
+}

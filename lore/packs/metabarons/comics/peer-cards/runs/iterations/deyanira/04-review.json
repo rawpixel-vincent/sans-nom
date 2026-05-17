@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid, source-grounded, and follows the deyanira identity-map entry. It preserves the violence/affection contradiction, keeps Aghora-side consequences behind a boundary, and uses the correct peer ids for Aghora and Tonto."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

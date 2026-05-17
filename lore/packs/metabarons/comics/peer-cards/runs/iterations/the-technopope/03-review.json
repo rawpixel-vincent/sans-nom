@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because at least one Honcho fact uses source-facing language inside the card."
+  ],
+  "format_errors": [
+    "`INSTRUCTION: Do not inflate him into a private theologian or strategist; the source supports office, ceremony, extraction power, abduction, and public death more than inner life.` violates the no source refs/source-meta rule inside card facts.",
+    "Card otherwise passes deterministic format checks: `card` is a 17-item list of strings, under the 40-fact cap, uses observed allowed prefixes, and has no obvious duplicates."
+  ],
+  "manual_review_notes": [
+    "Source bundle is thin but sufficient for a useful bounded card about institutional authority, marble requisition, abduction, public investiture, and death-sequencing boundaries."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the source-facing instruction in in-world terms, e.g. `INSTRUCTION: Keep him to office, ceremony, extraction power, abduction, and public death; do not invent private theology, strategy, or inner life.`",
+    "Soften or remove `Often functions...`; use a bounded sequence fact such as `TRAIT: Early presence is mediated through commissions, merchants, and institutional projects before later ceremony evidence shows him in person.`"
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Often functions through commissions, envoys, and institutions before appearing as a person.` overstates frequency from a very thin bundle; the source supports that early references are mediated and later records show ceremony/abduction evidence, not an established habitual pattern."
+  ]
+}

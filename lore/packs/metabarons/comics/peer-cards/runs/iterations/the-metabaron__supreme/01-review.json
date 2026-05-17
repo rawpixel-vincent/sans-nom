@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close, but it is not ready to stage because one BOUNDARY fact uses source-facing language and two peer relationships do not use the required peer_card_id targets.",
+    "The Metacraft relationship imports capabilities not present in the provided target source bundle, despite the draft claiming it is source-bounded only to characters-volume-14.json#003:the-metabaron."
+  ],
+  "format_errors": [
+    "`BOUNDARY: Do not merge this peer with Steelhead, Melmoth, Petro, or the later current Metabaron; the source explicitly leaves the identity unresolved.` violates the no source refs/source-facing language rule for card facts.",
+    "`RELATIONSHIP: Milady:` should point at the resolved identity-map peer id while preserving uncertainty, likely `dona-vicenta (Dona Vicenta Gabriela de Rokha / Milady, probable)`.",
+    "`RELATIONSHIP: Amalek XII:` should use the peer id `amalek-xii (Amalek XII)`."
+  ],
+  "manual_review_notes": [
+    "Card has 25 facts, no duplicates, and otherwise uses the expected prefixes. The core characterization is source-grounded and avoids wiki lineage import; rejection is for staging-contract cleanup, not for a failed concept."
+  ],
+  "missing_opportunities": [
+    "The identity boundary is useful, but should be rewritten as Honcho-native/in-world behavior: keep the figure split from Steelhead, Melmoth, Petro, and the later Metabaron because this card only covers the unresolved Supreme Metabaron operating in the Steelhead-era temple assault.",
+    "For Metacraft, either restrict the fact to capabilities attested in this target bundle or explicitly ground those craft details in an allowed related non-peer source before staging."
+  ],
+  "revision_instructions": [
+    "Replace the source-facing BOUNDARY with an in-world boundary that preserves split_uncertain identity without mentioning `source` or `volume`.",
+    "Change peer relationships to identity-map ids: `tonto`, `dona-vicenta` with probable-Milady wording, and `amalek-xii`.",
+    "Remove or soften unsupported Metacraft details to the target record's attested facts: commanded craft, speed/maneuverability, about-turn, temple breach/landing, and tactical use of size/turning-radius advantage."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: Metacraft: ... relies on its speed, shields, inter-space jumps, and tight maneuvering` goes beyond the provided target source record. The target record supports command, speed/maneuverability, the about-turn, and temple breach/landing, but not Metacraft shields or inter-space jumps within this bundle."
+  ]
+}

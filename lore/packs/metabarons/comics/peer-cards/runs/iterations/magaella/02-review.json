@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready because several card facts contain source-facing/source-reference language, which violates the Honcho card contract."
+  ],
+  "format_errors": [
+    "`ROLE: ... during the revelation scene in volume 2` includes a source reference inside a card fact.",
+    "`BOUNDARY: Do not assign her a noble rank, political role, or named family affiliation — the source establishes her only as...` explicitly references the source inside a card fact.",
+    "`BOUNDARY: Do not extend her knowledge, influence, or arc beyond the single overlook scene witnessed in volume 2` includes source-reference wording inside a card fact."
+  ],
+  "missing_opportunities": [
+    "The useful supported core is present: Magaella as a named helmeted witness at the Epyphite reservoir overlook, amazed by the sight, with knowledge bounded to the location and scale learned there."
+  ],
+  "revision_instructions": [
+    "Remove all source-facing phrasing from card facts, especially `source establishes` and `volume 2`.",
+    "Rephrase the role in-world, e.g. `ROLE: Helmeted female-presenting attendant or companion present at the Epyphite reservoir overlook beneath the marble planet during the revelation scene`.",
+    "Rephrase the rank/family boundary in-world, e.g. `BOUNDARY: No confirmed noble rank, political role, named family affiliation, backstory, or authority beyond helmeted attendant or companion at the overlook`.",
+    "Rephrase the scene boundary without source refs, e.g. `BOUNDARY: Do not extend her knowledge, influence, or arc beyond the Epyphite overlook revelation she witnesses`."
+  ],
+  "unsupported_claims": []
+}

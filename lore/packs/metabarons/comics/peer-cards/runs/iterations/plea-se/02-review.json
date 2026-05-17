@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close, but `TRAIT: The master is not dead — therefore...` states the master's survival as a fact before a later boundary says not to resolve it. The source supports Plea-Se's refusal to believe the master is dead, not the master's objective status.",
+    "`RELATIONSHIP: tonto... has physically overridden Tonto's programming` adds an unsupported physical component. The source supports Plea-Se seizing/overriding Tonto's programming, not a physical override."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Honcho contract validation passes locally: list of strings, 22 facts, accepted prefixes, under 40 facts, no exact duplicates, and no source refs in facts.",
+    "Relationship targets `tonto` and `the-metabaron__no-name` align with the identity-map context for the volume-12 frame narrative."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase the organizing sentence to something like `Plea-Se treats the master as not dead; therefore every act of maintenance is readiness, not mourning...` so the unresolved master-status boundary remains intact.",
+    "Remove `physically` from the Tonto relationship and keep the claim to seized/overridden programming.",
+    "Keep the rest of the bounded refusal/household/lineage structure; the source is thin but sufficient for this shape of card."
+  ],
+  "unsupported_claims": [
+    "`The master is not dead` should be framed as Plea-Se's operating premise or refusal, not as settled external fact.",
+    "`physically overridden Tonto's programming` is unsupported; use programming control/override language only."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is not source-bounded to the target peer_identity. It imports later/full-frame Metabaron material while the target is only the thin volume-1 singleton record with cover imagery and page-2 third-person description.",
+    "The Othon relationship points at the wrong peer id. The identity map resolves Othon to `othon-von-salza`, not `othon_von_salza`.",
+    "The Othon relationship wording is directionally wrong or at least ambiguous: for this card, Othon should be framed as ancestor/great-great-grandfather, not as `great-great-grandson`.",
+    "Several high-specificity claims exceed the source bundle and should be removed or softened rather than protected by later BOUNDARY lines."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "The useful supported thin-card material is enough: cover visual presence, human/flesh-and-blood distinction, bionic ear/right-brain lobes, meta-warrior initiation as a mystery hook, Tonto's admiration/loyalty, Lothar's curiosity, and strict indirect-knowledge boundaries.",
+    "The card should explicitly preserve that the Metabaron is not directly heard and is only mentioned on story pages, with current motives/location unknown."
+  ],
+  "revision_instructions": [
+    "Revise as a thin-source card for `the_metabaron` only; do not import No-Name, current-Metabaron, later frame-master, or full dynastic facts.",
+    "Replace `othon_von_salza` with identity-map peer id `othon-von-salza`, and phrase the relationship from this card's perspective as ancestor/great-great-grandfather or lineage ancestor.",
+    "Remove unsupported specifics: `last known bearer`, `City Shaft`, exact `three months`, father-inflicted augmentation, every-generation mutilation, and full dynastic arc/complete history claims.",
+    "Keep the strongest supported facts and boundaries: known indirectly through Tonto and cover imagery, human with bionic augmentations, meta-warrior initiation mystery, master of Tonto and Lothar, no direct voice/current motives."
+  ],
+  "unsupported_claims": [
+    "`last known bearer of the Metabaronic title` is not supported by the target source record and risks importing the later No-Name/frame-narrative Metabaron identity.",
+    "`City Shaft` is not supported by the source bundle; the page summary only gives an uncertain mechanical/industrial interior.",
+    "`three months absent` is not supported by the provided summaries or source record; the source only supports that he is absent for a precisely measured period / absent during the framing conversation.",
+    "`his own father inflicted` the bionic ear/right-brain lobe is not supported by the target bundle; page 2 supports only that the augmentations relate to meta-warrior initiation.",
+    "`deliberate mutilation that runs through every generation of the caste` is broader lineage lore not supported by this singleton record.",
+    "`Tonto ... narrating the dynasty's complete history` and `full dynastic arc` are not supported by this target bundle; page 2 supports the beginning of an origin/background story about the Metabaron.",
+    "`founding acts ... descend through five generations to him` overstates what this card can carry from the relationship note."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is ready to stage: 34 string facts, allowed prefixes, no markdown/source refs/duplicates, source-grounded, and correctly bounded to Princess Oda before/around the Honorata-within-Oda phase split."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

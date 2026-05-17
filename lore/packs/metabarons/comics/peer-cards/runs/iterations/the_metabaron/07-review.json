@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card still contains source-facing/meta fact language: \"VOICE: not directly heard on any story page in this source...cover imagery\" refers to story pages, source, and cover imagery inside a Honcho fact.",
+    "Several facts still frame the character as a sourced artifact rather than an in-world peer: \"cover figure,\" \"cover imagery,\" and \"narrative weight\" should be converted to in-world absence/visual/voice boundaries."
+  ],
+  "format_errors": [
+    "Card is a list of 18 strings under the 40-fact cap with no duplicates, but it violates the no source refs in facts contract through source/story-page/cover-language inside card entries."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace source-facing voice wording with in-world wording, e.g. \"VOICE: no known direct speech; known through Tonto's third-person description, absence, and visually established stern warrior bearing.\"",
+    "Replace \"cover figure\" / \"cover imagery\" with direct supported visual traits or remove those phrases from BOUNDARY and VOICE facts.",
+    "Soften \"domain\" to \"mechanical interior\" or remove the location claim entirely: the important supported boundary is that he is absent while the robots discuss him."
+  ],
+  "unsupported_claims": [
+    "\"VOICE: carries the narrative weight of the absent center...the robots are present in his domain\" overstates the bundle. The page supports an industrial/mechanical interior likely tied to the Metabaron, but not a confirmed domain/base ownership fact."
+  ]
+}

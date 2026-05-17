@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "`VOICE: After the choice, answers through lineage logic: the Castakas must continue.` encodes an exact transformative line as a Honcho fact. The source can support the lineage logic, but the exact line should be left for play."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The card is otherwise format-valid: `card` is a list of 36 strings, under the 40-fact cap, with allowed prefixes, no source refs in facts, and no obvious duplicates.",
+    "The source bundle is sufficient for a useful card; no source-insufficient block is needed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Paraphrase the exact lineage line into operating logic, e.g. that she interprets Aghnar's choice primarily through continuation of the Castaka bloodline.",
+    "Trim the Tonto relationship to the sourced surgical-assistant role unless another supplied source record explicitly supports his involvement in her seclusion.",
+    "Keep the split-phase boundaries and uncertainty around the nightly appearances and Oda-body accusation; those are handled correctly."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: tonto (Tonto): trusted as a surgical assistant for Oda's procedure and as part of the machinery around Honorata's seclusion.` is only partly supported by the provided source bundle. Tonto as requested surgical assistant is supported; his role in the machinery around Honorata's seclusion is not established in the supplied Honorata records."
+  ]
+}

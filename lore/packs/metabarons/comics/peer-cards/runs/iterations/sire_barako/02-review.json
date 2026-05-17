@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "RELATIONSHIP target uses `baron_berard`, an extracted character id. The identity map canonical peer id for that merged persona is `baron-berard-of-castaka`; relationship facts must point at peer_card_id values.",
+    "Card facts include source-facing metadata: `sole recorded line`, `One source appearance`, and `source appearance`. Honcho facts should be in-world boundaries, with source/record metadata kept in `source_strategy`."
+  ],
+  "format_errors": [
+    "No structural JSON error: `card` is a list of strings and stays under 40 facts.",
+    "Allowed prefixes appear valid, but the source-facing boundary/voice wording violates the no source refs in facts contract."
+  ],
+  "missing_opportunities": [
+    "The card is otherwise appropriately small and bounded; the source can support a useful minor-character card."
+  ],
+  "revision_instructions": [
+    "Change the relationship fact to target `baron-berard-of-castaka (Baron Berard of Castaka)` rather than `baron_berard`.",
+    "Rewrite source-facing card facts in-world, e.g. replace `sole recorded line` with `asks for performance feedback mid-operation` and replace `One source appearance` with `bounded to the Marmola cutting operation; no established backstory, later life, or dynasty knowledge`.",
+    "Keep source/page/record details only in `source_strategy`, not in `card` entries."
+  ],
+  "unsupported_claims": []
+}

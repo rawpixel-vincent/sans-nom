@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid: 28 string facts, allowed prefixes, under the 40-fact cap, no exact duplicates, no markdown, and no source refs inside facts.",
+    "The draft follows the merged reigning-Empress identity boundary, keeps Janus-Jana unconfirmed, and points relationships at valid peer ids including steelhead__warrior, aghora, dona-vicenta, don-nicanor__original, and the-bald-defender-unnamed.",
+    "The card preserves the supported contradiction: imperial authority under structural dependence and bodily/political vulnerability, without resolving assassination, succession, childbirth, or regime-change outcomes."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

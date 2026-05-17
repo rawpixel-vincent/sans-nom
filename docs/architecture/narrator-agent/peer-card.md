@@ -43,11 +43,11 @@ INSTRUCTION: If I notice a scene could exist in any science-fiction property wit
 
 ## Interpretation prompt
 
-The free-text interpretation prompt is part of this card's bundle — it lives in the same `lore/narrator/peer-card.md` file as a separate section, not a separate config. When editing the card file, you will see both the TRAIT/INSTRUCTION entries and the interpretation prompt. Edits to the prompt follow the same review path (regression corpus pass before committing). See [interpretation-prompt.md](../../mechanics/input/interpretation-prompt.md) for the design rationale.
+The free-text interpretation prompt is part of the runtime narrator prompt bundle, not a root lore markdown card. Edits to this prompt follow the same review path (regression corpus pass before committing). See [interpretation-prompt.md](../../mechanics/input/interpretation-prompt.md) for the design rationale.
 
 ## Card maintenance
 
-- The card lives at `lore/narrator/peer-card.md` in the repo. See [dev-loop-ergonomics.md](dev-loop-ergonomics.md).
+- Narrator role facts are seeded from runtime story initialization and Honcho role cards. See [dev-loop-ergonomics.md](dev-loop-ergonomics.md).
 - Edits are reviewed by the narrative designer; changes require a passing run of the regression scene corpus. See [Phase 0 deliverables](../../phases/phase-0-preproduction/deliverables.md).
 - Drift defense reads the card every turn. If the card is wrong, drift defense cannot save the game. The card is the foundation.
 - Phase 0 target: 15–25 entries (current v1 draft is at 19). Leave room for iteration; do not hit the 40-fact cap pre-launch.

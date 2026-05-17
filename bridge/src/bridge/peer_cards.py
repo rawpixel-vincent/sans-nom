@@ -35,8 +35,8 @@ def env_int(name: str, default: int) -> int:
         raise ValueError(f"{name} must be an integer, got {value!r}") from exc
 
 
-DEFAULT_COMICS_DIR = Path("lore/canon/comics")
-DEFAULT_PEER_CARDS_DIR = Path("lore/canon/comics/peer-cards")
+DEFAULT_COMICS_DIR = Path("lore/packs/metabarons/comics")
+DEFAULT_PEER_CARDS_DIR = Path("lore/packs/metabarons/comics/peer-cards")
 DEFAULT_IDENTITY_MODEL = "claude-sonnet-4-6"
 DEFAULT_IDENTITY_EFFORT = "low"
 DEFAULT_CARD_WRITER_BACKEND = "claude"
@@ -1431,18 +1431,17 @@ def build_context_entrypoints(root: Path, comics_dir: Path, peer_cards_dir: Path
         return ContextEntrypoint(path=path.as_posix(), description=description)
 
     return {
-        "wiki_lore": entry(root / "lore/canon/wiki/lore.md", "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON."),
+        "wiki_lore": entry(root / "lore/packs/metabarons/wiki/lore.md", "High-level Jodoverse wiki lore overview. First-read orientation before digging into extracted character, volume, and page JSON."),
         "identity_map": entry(identity_map_path(peer_cards_dir), "Complete peer identity map; use this to resolve relationship targets to peer_card_id values."),
         "characters": entry(comics_dir / "characters", "Per-volume extracted structured character records."),
         "volumes": entry(comics_dir / "volumes", "Reconciled volume summaries with chronology, motifs, lore laws, and uncertainties."),
         "pages": entry(comics_dir / "pages", "Page-level summaries keyed by source image page id."),
-        "link_matrix": entry(root / "lore/canon/links/matrix.md", "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON."),
+        "link_matrix": entry(root / "lore/packs/metabarons/links/matrix.md", "Wiki-shaped directional relationship matrix. Use to resolve implied lineage and relationship facts that may be fragmented in extracted JSON."),
         "peer_card_encoding_deliberation": entry(root / "council-deliberation/2026-05-04-072216.md", "Project-side peer-card writing policy: how to encode durable contradiction, spoiler boundaries, and omitted verdicts. Use as design guidance, not as canon or council mechanics."),
         "cast_docs": entry(root / "docs/mechanics/cast", "Game-side cast overlays and actor notes."),
         "lothar_cast_doc": entry(root / "docs/mechanics/cast/lothar.md", "Game-side Lothar notes; treat as design overlay, not exhaustive canon."),
         "card_seeding_docs": entry(root / "docs/architecture/actor-agents/card-seeding.md", "Project rules for actor card seeding and seed/evolution boundaries."),
         "glossary": entry(root / "docs/glossary.md", "Project definitions, including peer card constraints."),
-        "narrator_card": entry(root / "lore/narrator/peer-card.md", "Narrator peer card constraints and anti-council-mode policy."),
     }
 
 
@@ -1858,6 +1857,7 @@ def validate_card_contract(card: list[str]) -> list[str]:
         "page_id",
         "image_sha",
         "lore/canon",
+        "lore/packs",
         "external/comics",
         ".json",
         ".jpg",

@@ -60,7 +60,7 @@ def test_select_entries_limits_by_volume() -> None:
 
 
 def test_lore_documents_from_page(tmp_path: Path) -> None:
-    paths = Paths(root=tmp_path, output_dir=tmp_path / "lore/canon/comics")
+    paths = Paths(root=tmp_path, output_dir=tmp_path / "lore/packs/metabarons/comics")
     page = PageSummary(
         page_id="001_The_Metabarons_1_p01",
         volume=1,
@@ -85,7 +85,7 @@ def test_lore_documents_from_page(tmp_path: Path) -> None:
 
 
 def test_validate_outputs_accepts_character_array(tmp_path: Path) -> None:
-    paths = Paths(root=tmp_path, output_dir=tmp_path / "lore/canon/comics")
+    paths = Paths(root=tmp_path, output_dir=tmp_path / "lore/packs/metabarons/comics")
     char_dir = paths.characters
     char_dir.mkdir(parents=True)
     (char_dir / "characters.json").write_text(

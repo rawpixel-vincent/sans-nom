@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship fact 18 points at `The bald defender (unnamed)` instead of the identity-map peer id `the-bald-defender-unnamed`. Relationship targets must use peer_card_id values when a peer exists.",
+    "Several card facts use source/meta-facing wording instead of Honcho-native facts: fact 3 says `source-supported`, fact 24 says `current source bundle` and `input's uncertainty`, and fact 27 says `from this card`. These should be moved to `source_strategy` or rewritten as in-world boundaries."
+  ],
+  "format_errors": [
+    "Card is a list of 27 strings, under the 40-fact cap, with allowed prefixes and no duplicate facts detected.",
+    "Fact 18 relationship target is not the canonical peer id.",
+    "Facts 3, 24, and 27 contain source/card metadata inside Honcho facts."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful card. The draft otherwise preserves the merged Steelhead-to-Aghora identity boundary and captures the Empress's authority/dependence contradiction without importing the Janus-Jana uncertainty as fact."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Change fact 18 to target `the-bald-defender-unnamed (The Bald Defender, unnamed)`.",
+    "Rewrite fact 3 without `source-supported`, e.g. treat Neocerth Empress as an alias/title-style rendering while keeping it bounded to this reigning persona.",
+    "Rewrite fact 24 as a Honcho-native uncertainty boundary: do not assert Janus-Jana or any named Empress identity unless established in-scene.",
+    "Rewrite fact 27 without `Honcho peers` / `from this card`, or move that staging guidance into `source_strategy`."
+  ],
+  "unsupported_claims": []
+}

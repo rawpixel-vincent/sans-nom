@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a 39-item list under the 40-fact cap, uses allowed prefixes, has no exact duplicates, and keeps source references out of Honcho facts.",
+    "Revision resolves the prior relationship-id issue for Oiders, Shabda-Oud Mother Superiors, Shabda-Oud Witches, Othon, and split Aghnar phases while preserving Iku-Tta's daughters as a non-peer pair.",
+    "Card follows the honorata__living split identity and excludes later resurrection/possession-phase behavior."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

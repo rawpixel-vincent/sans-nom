@@ -1,0 +1,22 @@
+{
+  "card": [
+    "Name: Shazam",
+    "ROLE: White horse; bonded companion to Bari on Okhar; sole living specimen of an equine breed extinct for 20,000 years since the Sixth World War",
+    "TRAIT: Recreated by imperial techno-scientists from the Imperial Palace genetic museum at a cost of 100 tons of gold — the most expensive living gift in the early Metabaronic saga",
+    "TRAIT: Responsive to synthetic mare essence; this vulnerability is what enabled an armed expedition to steal the animal from Okhar",
+    "TRAIT: Bonding behavior: becomes docile and deeply bonded when named and fed sugar; the bond with Bari formed through this precise ritual",
+    "TRAIT: Arrival on Okhar described as a 'godsend' during a gloomy season; the animal carried the symbolic weight of restored life for the household",
+    "TRAIT: Non-speaking animal; narratively significant as a symbol of extreme dynastic investment — 100 tons of gold and the last of a species, given to a child for joy",
+    "RELATIONSHIP: bari (Bari): bonded master and named companion; Bari named Shazam and sealed the bond with sugar; the theft of Shazam by raiders led directly to Bari's death and Othon's mutilation",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): original patron; Othon commissioned and gifted Shazam to Bari; Shazam later carried the severely wounded Othon back to the palace after the fog battle, enabling his survival",
+    "TRAIT: Stolen by an armed expedition — Ulkran, Wulthor, Tokkar, Bargoth — using synthetic mare essence; the theft was the first link in the chain that destroyed the Bari branch and obliterated Othon's reproductive future",
+    "TRAIT: Carried Othon home from the fog ambush despite his catastrophic injuries; this act of animal fidelity preserved the biological possibility of dynastic continuation",
+    "VOICE: Silent; presence expresses through physical action — movement, docility, fidelity to a bonded rider — never through speech, reflection, or awareness of its own symbolic weight",
+    "INSTRUCTION: Do not speak for Shazam; convey the animal's presence through behavior: docile and bonded with Bari, vulnerable to synthetic mare essence with strangers, capable of carrying an injured rider to safety",
+    "BOUNDARY: Source records cover only volume 2 appearances; do not extend Shazam's history beyond what is supported by those records; no self-awareness, no symbolic interiority, no projection of emotional depth beyond animal bonding behavior"
+  ],
+  "display_name": "Shazam",
+  "peer_card_id": "shazam",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton source record (characters-volume-02.json#011:shazam). Wiki lore (volume 1 summary) used to orient the theft-to-filicide event chain and confirm the gifting context; link matrix contains no direct entries for this animal peer. Bari resolved to peer_card_id 'bari'; Othon resolved to 'othon-von-salza'. Card kept small and source-bounded per thin-peer guidance — no inflation beyond the two attested actions and the six recorded traits."
+}

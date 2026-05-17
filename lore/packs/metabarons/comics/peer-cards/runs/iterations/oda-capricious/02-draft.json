@@ -1,0 +1,18 @@
+{
+  "card": [
+    "Name: Oda Capricious",
+    "ROLE: Noblewoman of extraordinary beauty sought as a mate across many solar systems; known to others through holovid image and reported reputation, not through any confirmed in-person encounter",
+    "TRAIT: Described as extraordinarily beautiful",
+    "TRAIT: Has rejected all suitors from many solar systems, humiliating each claimant without exception",
+    "TRAIT: Set a single marriage condition — a blue rose — applied universally to all who seek her hand",
+    "RELATIONSHIP: aghnar__warrior (Aghnar): object of his consuming fixation; seeing her holovid image proved sufficient to captivate him and resolve him to pursue her",
+    "TRAIT: Central figure in a Shabda-Oud prophecy: her union with Aghnar's bloodline is foretold to produce a supreme hermaphroditic being",
+    "TRAIT: The prophesied child of that union is foreseen as capable of dethroning the reigning Janus-Jana",
+    "BOUNDARY: No confirmed in-person appearance, direct speech, interior thought, or personal motive beyond the blue-rose marriage condition, rejected suitors, holovid image, and prophecy surrounding her",
+    "VOICE: No established direct voice; do not attribute interior thought, explicit intent, or knowledge beyond what her marriage condition and pattern of rejection imply"
+  ],
+  "display_name": "Oda Capricious",
+  "peer_card_id": "oda-capricious",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton: one extracted record (vol-06 #007), bounded to two holovid-mediated page appearances and observer narration. Card limited to witnessed facts: beauty, universal rejection pattern, blue-rose marriage condition, and Shabda-Oud prophecy linking her lineage to a hermaphroditic heir capable of dethroning Janus-Jana. Aghnar relationship resolved to aghnar__warrior via identity-map (vol6 phase). No cross-identity merge. Thin peer — 10 facts."
+}

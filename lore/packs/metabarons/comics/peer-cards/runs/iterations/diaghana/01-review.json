@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because multiple Honcho facts contain source-facing references or source-meta wording: `vol6_p18`, `single secondhand mention`, `source record`, and `source volume`.",
+    "The Diaghana source is useful but very thin; the card should stay centered on the attested Lothar question about ape kingship/ecological disruption and the unresolved Diaghana/Aghnar ambiguity, without dressing it up as a fuller biography."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 7 strings under the 40-fact limit and has no duplicates.",
+    "Allowed prefixes appear valid, but several facts violate the no source refs/source-meta rule."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "Keep the useful thin-card boundary, but express it in-world: no confirmed direct appearance, speech, motive, or activity beyond Lothar's fixation on the ape-kingship question.",
+    "Preserve the Diaghana/Aghnar ambiguity as an in-world boundary without mentioning `source volume` or `source`."
+  ],
+  "revision_instructions": [
+    "Remove `vol6_p18` from the Lothar relationship fact.",
+    "Replace `single secondhand mention by Lothar; Diaghana is never depicted, quoted, or witnessed directly in any source record` with in-world wording such as `BOUNDARY: Known only through Lothar's fixation; no confirmed direct appearance, speech, motive, or activity beyond the ape-kingship question`.",
+    "Replace `explicitly unresolved in the source volume` with wording such as `BOUNDARY: Whether Diaghana is distinct from Aghnar or another name attached to the same events remains unresolved; do not collapse the ambiguity in play`.",
+    "Narrow the role/trait language to the directly attested facts: Diaghana sought kingship over the apes and is associated with ecological disruption; avoid unsupported motive or dominance mechanics."
+  ],
+  "unsupported_claims": [
+    "`ROLE: sought kingship over the ape population on Planet Perdita; aspired to rule the floating apes of the mushroom-dome ecology` imports broader volume/ecology framing into Diaghana's own role. The Diaghana record supports only that Lothar says Diaghana wanted to be king of the apes and disrupted their ecological balance.",
+    "`TRAIT: disrupted the ecological balance ... through his bid for dominance` slightly over-explains causality. The source supports kingship ambition and ecological disruption, but not that the disruption happened specifically through a bid for dominance."
+  ]
+}

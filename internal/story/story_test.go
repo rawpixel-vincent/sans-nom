@@ -40,7 +40,8 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 	ws, state, err := InitWorkspace(InitOptions{
 		StoryID:              "Test Story",
 		Root:                 root,
-		GlobalLoreCollection: "global",
+		GroundLorePackID:     "metabarons",
+		GroundLoreCollection: "ground-test",
 		Replace:              true,
 	}, validBundle())
 	if err != nil {
@@ -71,6 +72,9 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 	}
 	if loadedState.StoryID != "test-story" || packet.ID != "packet-1" {
 		t.Fatalf("unexpected resume state: %#v packet=%s", loadedState, packet.ID)
+	}
+	if loadedState.SourceLorePackID() != "metabarons" || loadedState.SourceLoreCollection() != "ground-test" {
+		t.Fatalf("unexpected source lore: %#v", loadedState)
 	}
 
 	docs, err := loadedWS.ReadIndexDocuments()

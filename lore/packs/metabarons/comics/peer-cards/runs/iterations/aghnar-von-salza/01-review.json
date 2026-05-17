@@ -1,0 +1,34 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is not ready because it imports full-arc Aghnar biography from other same-name split peers instead of staying inside the target peer_identity: `aghnar-von-salza`, a singleton record for `characters-volume-09.json#000:aghnar-von-salza`.",
+    "The draft's `source_strategy` claims no wiki-only facts were introduced, but multiple card facts are not supported by the provided input bundle."
+  ],
+  "format_errors": [
+    "Card is a list of 31 strings, under the 40-fact cap, with allowed prefixes and no exact duplicates found.",
+    "Two card facts contain source-facing language inside Honcho facts: `outcome unresolved within source records` and `source records end at cliffhanger`. Rewrite as in-world boundaries without source/process wording."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful card; blocked_source_insufficient should remain false."
+  ],
+  "missing_opportunities": [
+    "Keep the useful supported volume 9 material, but narrow the Pthagurean item to `offered a massive kublar contract` unless acceptance is supported in this bundle.",
+    "Preserve the source boundaries already present: unknown tentacled being, unresolved Steelhead duel, and Oda pact overridden by Honorata's reincarnation scheme."
+  ],
+  "revision_instructions": [
+    "Revise the card strictly to the singleton volume 9 record for `aghnar-von-salza`; do not import Aghnar child, warrior/avenger, or late-mercenary facts from `aghnar__child`, `aghnar__warrior`, or `aghnar__late`.",
+    "Remove or rewrite unsupported full-biography claims: brutal Othon training, Othon demanding his death as final test, accepted genocide contract, imperial succession recognition, love/grief framing, and asserted non-hatred toward Steelhead.",
+    "Rewrite source-facing boundaries in-world, e.g. `BOUNDARY: The duel with Steelhead has no known outcome; do not resolve or imply its result.`",
+    "Relationship peer ids used in the draft appear resolvable, but relationship content must be narrowed to what the input record supports."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: the Metabaron — self-claimed title; not recognized by imperial hereditary succession` adds the unsupported claim that imperial hereditary succession did not recognize him.",
+    "`ROLE: Third-generation Metabaron of the Castaka dynasty` is not established by the provided volume 9 singleton record; the source supports son of Othon and self-claimed new Metabaron, not this generational framing.",
+    "`TRAIT: Interrupted mid-suicide-attempt ... accepted their contract to exterminate all living things in the Empire` oversteps the source. The input only says Pthagurean ambassadors interrupted him with a massive kublar offer.",
+    "`RELATIONSHIP: othon-von-salza ... was trained brutally by Othon, who demanded his own death as the final test` imports earlier Aghnar arc material not present in this singleton record.",
+    "`RELATIONSHIP: oda__princess ... the woman he loved` and the instruction about `his grief for Oda` are not supported by the input bundle, which establishes partner/pact/child but not this emotional register.",
+    "`RELATIONSHIP: steelhead__warrior ... not from hatred of Steelhead but to cancel Honorata's design` and the matching instruction are stronger than the source supports; the input supports a vow to duel Steelhead to destroy Honorata's influence, not Aghnar's inner motive toward Steelhead.",
+    "`VOICE: ... controlled fury` is not directly supported by the provided voice notes."
+  ]
+}

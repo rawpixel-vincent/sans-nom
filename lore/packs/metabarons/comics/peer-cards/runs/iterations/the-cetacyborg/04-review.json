@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is format-valid but not ready: it still overstates source-thin ontology and agency by saying the Cetacyborg functions entirely as a weapon-organism.",
+    "The card reintroduces generic sci-fi flattening with `Engineered weapon-entity of cosmic scale`; the bundle supports a colossal living/bio-mechanical vessel or organic-mechanical body, not engineered origin or cosmic-scale ontology.",
+    "The defeat mechanics are phrased as universal doctrine rather than bounded source knowledge; keep the servo-brain vulnerability and external resistance tied to the witnessed Othon encounter or volume-05 wording."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source remains thin but sufficient for a compact card once the over-absolute weapon/agency language is softened."
+  ],
+  "missing_opportunities": [
+    "Restore a narrow boundary that one Cetacyborg was destroyed by Othon from within and seven additional Cetycoborgs were detected approaching Okhar, with no further outcome established for those units."
+  ],
+  "revision_instructions": [
+    "Replace `Engineered weapon-entity of cosmic scale` with `colossal living bio-mechanical vessel` or `colossal organic-mechanical body`.",
+    "Rephrase the durability/servo-brain fact to source-bounded wording, e.g. exterior/direct assault resistance is known in the Othon encounter and the internal servo-brain is the established critical vulnerability there.",
+    "Rewrite the final boundary as: `BOUNDARY: No known speech or direct communication; no individual motive or autonomous will is established beyond its hostile servo-brain-commanded function.`",
+    "Keep `othon-von-salza` as the relationship target; the Shabda-Oud association is acceptable as a non-peer ROLE fact unless a resolved peer relationship is explicitly supported."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Engineered weapon-entity of cosmic scale...` adds unsupported engineered origin and broad cosmic-scale framing; use source-grounded `colossal living bio-mechanical vessel` wording instead.",
+    "`ROLE: External attack on the outer hull is insufficient to destroy it; effective destruction requires...` should be scoped to the known encounter/source law wording, not presented as an unbounded universal rule.",
+    "`BOUNDARY: ...it functions entirely as a weapon-organism` overstates what is known. The source supports no known speech/direct communication and hostile weapon/vessel presentation, but not full absence of will or non-weapon function."
+  ]
+}

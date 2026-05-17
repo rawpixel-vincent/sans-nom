@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid, source-grounded, under the 40-fact limit, and aligned to don-nicanor__clone identity boundaries. The revised boundary facts avoid exposing resolved convergence outcomes."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

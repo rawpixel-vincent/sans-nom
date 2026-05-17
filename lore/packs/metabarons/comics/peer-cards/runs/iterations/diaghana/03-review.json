@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready because one role fact overstates causality and one boundary uses evidence-facing `unattested` wording inside a Honcho fact."
+  ],
+  "format_errors": [
+    "Card is a list of 5 strings under the 40-fact cap with no duplicates found.",
+    "Allowed prefixes are used, but `unattested` is source/evidence-facing wording inside a card fact."
+  ],
+  "manual_review_notes": [
+    "The source is extremely thin but sufficient for a useful minor-character boundary card once the wording issues are corrected. Relationship target `lothar` matches the identity map."
+  ],
+  "missing_opportunities": [
+    "Keep the card thin and source-bounded; no need to add lore or inflate Diaghana's importance."
+  ],
+  "revision_instructions": [
+    "Rewrite the role to avoid causal overstatement, e.g. `ROLE: Figure associated with two unresolved facts in Lothar's mind: wanting to become king of the apes and disturbing their ecological balance.`",
+    "Replace `unattested` with Honcho-native wording, e.g. `BOUNDARY: No established motive, origin, appearance, or fate; known only through Lothar's unresolved preoccupation.`"
+  ],
+  "unsupported_claims": [
+    "`ROLE: A figure who sought to become king of an ape population and in doing so disturbed their ecological balance.` implies the kingship attempt caused the ecological disruption. The source only supports that Lothar wonders why Diaghana wanted to be king of the apes and why he disturbed their ecological balance."
+  ]
+}

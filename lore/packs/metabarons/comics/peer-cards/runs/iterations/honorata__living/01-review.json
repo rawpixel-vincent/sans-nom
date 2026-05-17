@@ -1,0 +1,17 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship targets do not consistently use resolved peer ids from the identity map. `RELATIONSHIP: The Oiders:` should target `the-oiders`; `RELATIONSHIP: Mother Superior of the Shabda-Oud:` should target `shabda-oud-mother-superiors`; `RELATIONSHIP: Shabda-Oud superiors:` should be resolved or split against the appropriate Shabda-Oud peer id rather than left as a loose label."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The draft otherwise follows the living Honorata split identity, avoids later resurrection/possession facts, preserves her refusal and pressure behavior, and is source-grounded."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Revise the unresolved relationship prefixes in-place so the card stays at 40 facts or fewer.",
+    "Keep `Iku-Tta's daughters` as a non-peer relationship unless the identity map provides a peer card; the source bundle explicitly marks them as a related non-peer pair."
+  ],
+  "unsupported_claims": []
+}

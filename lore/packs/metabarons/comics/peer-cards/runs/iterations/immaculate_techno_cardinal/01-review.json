@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Two Honcho card facts contain explicit source-facing language, so the card is not ready to stage: `VOICE: ... designation partially legible in source` and `BOUNDARY: ... not present in the source`."
+  ],
+  "format_errors": [
+    "Card is a list of 15 strings, under the 40-fact cap, uses recognized prefixes, and has no obvious duplicates.",
+    "No markdown formatting detected.",
+    "Fails the no source refs/source-facing language rule because card facts mention `source` directly."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful card: arrival, sacred-imperial extraction logic, ultimatum, delegation through Technobishops, and immediate bombardment are all available without importing broader wiki lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase source-facing facts in-world. For example, replace `designation partially legible in source` with `the exact final word of the holy designation is uncertain` or omit that clause.",
+    "Replace the boundary with in-world wording such as `BOUNDARY: No known fate after the Philodendran bombardment; do not extend beyond arrival, ultimatum, expulsion, and immediate attack`.",
+    "Soften `Highest-ranking` to `High-ranking` or `eminent Technoclergy authority leading the Philodendra delegation`.",
+    "Keep the strong coercive-pressure shape, but remove unsupported certainty about secret motives or predecision; frame the diplomacy as coercive ritual backed by already-present force."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Highest-ranking Technoclergy authority...` overstates the record. The bundle supports high-ranking, eminent, and leading this delegation, but not highest-ranking in the Technoclergy overall.",
+    "`TRAIT: ... delegates the ultimatum's formal delivery to Technobishops rather than concede weakness openly` adds a motive for delegation that is not established; the record supports illness/coughing and delegation, not the reason.",
+    "`TRAIT: ... bombardment begins immediately, not as escalation but as the pre-decided conclusion of a formality that was never persuasion` is stronger than the source. The bundle supports coercive diplomacy backed by force and immediate bombardment after refusal, but not definite predecision.",
+    "`INSTRUCTION: When the body fails... the mission outlasts the body` extrapolates beyond the thin record; keep the supported point that illness does not stop the ultimatum and authority can be delegated through Technobishops."
+  ]
+}

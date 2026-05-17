@@ -1,0 +1,19 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship targets are not resolved to peer ids where the source names resolvable peers. `RELATIONSHIP: General Thato and imperial authority...` should use `general-thato (General Thato)` if retained; `RELATIONSHIP: The Metabaron (Aghnar)...` should point to the volume-09 identity `aghnar-von-salza (Aghnar von Salza)` to avoid ambiguity with other Metabaron/Aghnar splits."
+  ],
+  "format_errors": [
+    "Fact 14 is source-facing: `not supported by the source scenes` references card/source construction inside a Honcho fact. Replace with in-world boundary wording."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful small card; no lore inflation is needed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Resolve the two relationship facts to the correct peer ids: `general-thato` and `aghnar-von-salza`.",
+    "Rewrite the scope instruction without source-meta language, e.g. `INSTRUCTION: Keep their authority bounded to the Pthagurean invasion council crisis; do not give them broader imperial advisory history or powers.`"
+  ],
+  "unsupported_claims": []
+}

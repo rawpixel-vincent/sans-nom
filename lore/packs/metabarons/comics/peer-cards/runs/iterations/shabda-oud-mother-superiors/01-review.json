@@ -1,0 +1,35 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft imports wiki-only/full-arc details into the Honcho facts, especially the Aghnar infiltration framing and the Mother Superior being obliterated.",
+    "At least one relationship does not resolve to the right peer id: `RELATIONSHIP: Shabda-Oud witches and sisters` should target `shabda-oud-witches` if retained.",
+    "Several facts overstate the office beyond the source boundary, turning a thin hierarchy role into a generalized Shabda-Oud command/contract institution."
+  ],
+  "format_errors": [
+    "Card is a list of 21 strings, under the 40-fact cap, with no exact duplicates found.",
+    "The fact `Name: ... represented across documented appearances ...` uses source/process-facing wording inside the Honcho card.",
+    "The fact `BOUNDARY: Restrict assertions ... directly witnessed in source` contains an explicit source reference inside the Honcho card."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful group-role card, but the current draft is not ready to stage because it exceeds source boundaries."
+  ],
+  "missing_opportunities": [
+    "The source supports a useful card without embellishment: cautious vessel approach, hidden weapons, alpha-plus intuition, psychically secured interrogation, demand for the seven-year-undelivered child, threat to Honorata and Okhar, arrival in a Cetacyborg with two assassins, and telepathic combat with Aghnar.",
+    "The Shabda-Oud witches/sisters relationship can be grounded cleanly through `shabda-oud-witches` without importing broader order lore."
+  ],
+  "revision_instructions": [
+    "Remove wiki-derived outcome claims, especially obliteration and infiltration details, unless supported by the extracted bundle being used for this card.",
+    "Rewrite overbroad institutional facts to the narrower supported office: high-ranking Mother Superior authority, delegation leadership, tactical caution, interrogation, and psychic combat.",
+    "Replace source-facing card wording with in-world boundaries, e.g. avoid `documented appearances` and `directly witnessed in source`.",
+    "Resolve the Shabda-Oud witches/sisters relationship to `shabda-oud-witches` or omit it if relationship ids are limited to direct source peers.",
+    "Keep `aghnar__warrior` as the relationship target, but state only that the Mother Superior engaged him in telepathic combat while Honorata's power was linked to his."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Supreme commander of all Shabda-Oud witches and sisters; the order's collective authority is channeled through this office` is stronger than the bundle supports. The source supports Mother Superior authority/leadership, not all collective authority being channeled through the office.",
+    "`ROLE: Institutional collector of the Shabda-Oud's standing contracts with outside powers` is generalized beyond the specific supported demand for Honorata to account for the promised hermaphrodite child.",
+    "`RELATIONSHIP: aghnar__warrior ... during his infiltration of the Shabda-Oud order` is not supported by the target source records in this bundle; it appears imported from wiki/full-arc orientation.",
+    "`RELATIONSHIP: aghnar__warrior ... was obliterated when Honorata linked her power to his` is not supported by the extracted source records, which only support a telepathic duel with Honorata's power linked to Aghnar's.",
+    "`phase_boundary_note` and `source_strategy` rely on wiki corroboration for the duel outcome; the staged card should not use wiki lore to add unsupported finality to this peer."
+  ]
+}

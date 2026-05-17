@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because one Honcho fact contains source-facing language: `BOUNDARY: ... established in the source record`. Card facts must be in-world and must not mention source records, pages, bundles, or extraction metadata.",
+    "The card pads a very thin record with near-duplicate breach/disintegrator facts. `ROLE`, the first `TRAIT`, and the third `TRAIT` all restate the same operational function instead of adding distinct usable characterization.",
+    "The combat/missing boundary is slightly mislocated: the source supports a later combat/missing-call boundary, but not clearly `combat at the fortress`."
+  ],
+  "format_errors": [
+    "Source-facing phrase inside card fact: `source record`.",
+    "Semantic duplication across multiple breach/disintegrator facts."
+  ],
+  "missing_opportunities": [
+    "Use the p22/missing-call fact as its own narrow boundary: Tokkar is named with the raiders and later status is unresolved; do not assert death, escape, capture, motive, employer, or later history.",
+    "Trim to fewer, sharper facts rather than inflating the card; this source can support a useful small card."
+  ],
+  "revision_instructions": [
+    "Replace the final boundary with in-world wording, e.g. `BOUNDARY: No confirmed origin, employer, motive, fate, or later history beyond the fortress breach and later unresolved combat disappearance.`",
+    "Consolidate the repeated disintegrator/breach material into one `ROLE` or one `TRAIT`.",
+    "Change `combat at the fortress` to `later combat` or `the later fight` unless a cited source explicitly locates that combat at the fortress.",
+    "Keep relationship targets as `ulkran`, `wulthor`, and `bargoth`; those peer ids are correct."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Whereabouts during and after combat at the fortress are unconfirmed` overstates the location. Keep the uncertainty, but do not place the later combat at the fortress unless the source explicitly does so.",
+    "`INSTRUCTION: ... terse operational presence` is a reasonable fallback, but it should be framed as an absence-of-voice boundary rather than an invented manner if kept."
+  ]
+}

@@ -4,19 +4,29 @@ import (
 	"testing"
 
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
 
-func TestMainMenuEnterNewStoryReturnsCreateAction(t *testing.T) {
-	model := press(NewModel("", nil), tea.KeyMsg{Type: tea.KeyEnter})
+func TestMainMenuEnterNewStoryOpensPackPicker(t *testing.T) {
+	model := press(NewModel("", nil, testPacks), tea.KeyMsg{Type: tea.KeyEnter})
 
-	if model.action.Kind != ActionNewStory {
-		t.Fatalf("action = %#v, want new story", model.action)
+	if model.screen != screenPack {
+		t.Fatalf("screen = %v, want pack picker", model.screen)
+	}
+}
+
+func TestPackSelectionReturnsCreateAction(t *testing.T) {
+	model := press(NewModel("", nil, testPacks), tea.KeyMsg{Type: tea.KeyEnter})
+	model = press(model, tea.KeyMsg{Type: tea.KeyEnter})
+
+	if model.action.Kind != ActionNewStory || model.action.GroundLorePackID != "metabarons" {
+		t.Fatalf("action = %#v, want new story with metabarons", model.action)
 	}
 }
 
 func TestMainMenuEnterExitReturnsExitAction(t *testing.T) {
-	model := NewModel("", nil)
+	model := NewModel("", nil, nil)
 	model = press(model, tea.KeyMsg{Type: tea.KeyDown})
 	model = press(model, tea.KeyMsg{Type: tea.KeyDown})
 	model = press(model, tea.KeyMsg{Type: tea.KeyEnter})
@@ -37,7 +47,7 @@ func TestResumeSelectionReturnsStoryID(t *testing.T) {
 			LatestTurn: 3,
 			UpdatedAt:  "2026-01-01T00:00:00Z",
 		}}, nil
-	})
+	}, nil)
 
 	model = press(model, tea.KeyMsg{Type: tea.KeyDown})
 	model = press(model, tea.KeyMsg{Type: tea.KeyEnter})
@@ -54,7 +64,7 @@ func TestResumeSelectionReturnsStoryID(t *testing.T) {
 func TestEmptyResumeListSupportsBackAndExit(t *testing.T) {
 	model := NewModel("root", func(string) ([]storyapp.StorySummary, error) {
 		return nil, nil
-	})
+	}, nil)
 
 	model = press(model, tea.KeyMsg{Type: tea.KeyDown})
 	model = press(model, tea.KeyMsg{Type: tea.KeyEnter})
@@ -78,4 +88,14 @@ func TestEmptyResumeListSupportsBackAndExit(t *testing.T) {
 func press(model Model, msg tea.KeyMsg) Model {
 	next, _ := model.Update(msg)
 	return next.(Model)
+}
+
+func testPacks(string) ([]lorepack.Pack, error) {
+	return []lorepack.Pack{{
+		ID:          "metabarons",
+		Label:       "Metabarons",
+		Description: "body law and dynasty pressure",
+		Collection:  "sans_nom_lore_metabarons",
+		Status:      "active",
+	}}, nil
 }

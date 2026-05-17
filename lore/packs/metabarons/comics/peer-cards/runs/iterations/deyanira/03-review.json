@@ -1,0 +1,18 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One Honcho fact still contains source-facing language: `the ceremony rampage has no named trigger in the source record`. Card facts must not mention source records or source status."
+  ],
+  "format_errors": [
+    "No source refs/source-meta in facts: violated by `source record` in an INSTRUCTION fact."
+  ],
+  "manual_review_notes": [
+    "Source bundle is sufficient. The draft otherwise stays under 40 facts, is a list of strings, uses observed allowed prefixes, has no duplicates, keeps Deyanira's identity boundary, and points relationships at valid peer ids `aghora` and `tonto`."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the source-facing phrase in-world, e.g. `the ceremony rampage has no confirmed trigger; do not reduce all her violence to protection of the bond`."
+  ],
+  "unsupported_claims": []
+}

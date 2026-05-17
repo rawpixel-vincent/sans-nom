@@ -57,7 +57,7 @@ def test_snippet_preview_does_not_duplicate_full_text_payload() -> None:
         payload = {
             "doc_id": "comic_page:one",
             "text": "x" * 3000,
-            "source_path": "lore/canon/comics/pages/one.json",
+            "source_path": "lore/packs/metabarons/comics/pages/one.json",
             "kind": "comic_page",
         }
 
@@ -72,7 +72,7 @@ def test_lore_search_route_success(monkeypatch) -> None:
         LoreSnippet(
             doc_id="peer_card:lothar",
             text="Lothar is Steelhead.",
-            source_path="lore/canon/comics/peer-cards/cards/accepted/lothar.json",
+            source_path="lore/packs/metabarons/comics/peer-cards/cards/accepted/lothar.json",
             score=0.9,
             kind="peer_card",
             peer_id="lothar",

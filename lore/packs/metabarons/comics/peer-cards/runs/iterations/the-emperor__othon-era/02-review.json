@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid, under the 40-fact cap, source-bounded to the Othon-era Emperor identity, and correctly avoids merging him with later Emperor-title peers. Relationship targets match the identity map."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

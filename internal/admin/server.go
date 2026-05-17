@@ -18,18 +18,26 @@ import (
 
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
 
 type RefreshWriterFunc func(ctx context.Context, storyID string) error
+type NewStoryFunc func(ctx context.Context, groundLorePackID string) (storyapp.StorySession, error)
+
+type Callbacks struct {
+	RefreshWriter RefreshWriterFunc
+	NewStory      NewStoryFunc
+}
 
 type Server struct {
-	StoryRoot     string
-	Bridge        bridgeclient.Client
-	FrontendDir   string
-	DevServerURL  string
-	RefreshWriter RefreshWriterFunc
+	StoryRoot    string
+	PackRoot     string
+	Bridge       bridgeclient.Client
+	FrontendDir  string
+	DevServerURL string
+	Callbacks    Callbacks
 }
 
 type controlRequest struct {
@@ -40,13 +48,14 @@ type controlRequest struct {
 }
 
 type storyDetail struct {
-	Summary   storyapp.StorySummary `json:"summary"`
-	State     story.StoryState      `json:"state"`
-	Bible     story.StoryBible      `json:"bible"`
-	Packet    any                   `json:"packet"`
-	Turns     []story.TurnRecord    `json:"turns"`
-	TurnCount int                   `json:"turn_count"`
-	Paths     map[string]string     `json:"paths"`
+	Summary        storyapp.StorySummary `json:"summary"`
+	State          story.StoryState      `json:"state"`
+	Bible          story.StoryBible      `json:"bible"`
+	Packet         any                   `json:"packet"`
+	Turns          []story.TurnRecord    `json:"turns"`
+	TurnCount      int                   `json:"turn_count"`
+	Paths          map[string]string     `json:"paths"`
+	GroundLorePack *lorepack.Pack        `json:"ground_lore_pack,omitempty"`
 }
 
 type fileInfo struct {
@@ -60,7 +69,11 @@ type fileInfo struct {
 
 var errBadControlRequest = errors.New("bad control request")
 
-func NewServer(storyRoot string, bridge bridgeclient.Client, frontendDir string, refresh RefreshWriterFunc) *Server {
+type createStoryRequest struct {
+	GroundLorePackID string `json:"ground_lore_pack_id"`
+}
+
+func NewServer(storyRoot string, bridge bridgeclient.Client, frontendDir string, callbacks Callbacks) *Server {
 	if strings.TrimSpace(storyRoot) == "" {
 		storyRoot = story.DefaultRoot
 	}
@@ -68,11 +81,12 @@ func NewServer(storyRoot string, bridge bridgeclient.Client, frontendDir string,
 		frontendDir = filepath.Join("admin", "dist")
 	}
 	return &Server{
-		StoryRoot:     storyRoot,
-		Bridge:        bridge,
-		FrontendDir:   frontendDir,
-		DevServerURL:  os.Getenv("SANS_NOM_ADMIN_DEV_SERVER"),
-		RefreshWriter: refresh,
+		StoryRoot:    storyRoot,
+		PackRoot:     findPackRoot(),
+		Bridge:       bridge,
+		FrontendDir:  frontendDir,
+		DevServerURL: os.Getenv("SANS_NOM_ADMIN_DEV_SERVER"),
+		Callbacks:    callbacks,
 	}
 }
 
@@ -88,6 +102,10 @@ func (s *Server) serveAPI(w http.ResponseWriter, r *http.Request) {
 	path := strings.Trim(strings.TrimPrefix(r.URL.Path, "/admin/api/"), "/")
 	if path == "status" {
 		s.handleStatus(w, r)
+		return
+	}
+	if path == "lore-packs" {
+		s.handleLorePacks(w, r)
 		return
 	}
 	if path == "stories" {
@@ -121,16 +139,53 @@ func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) handleStories(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		summaries, err := storyapp.ListStories(s.StoryRoot)
+		if err != nil {
+			writeError(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+		writeJSON(w, map[string]any{"stories": summaries})
+	case http.MethodPost:
+		s.handleCreateStory(w, r)
+	default:
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+	}
+}
+
+func (s *Server) handleLorePacks(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
 		return
 	}
-	summaries, err := storyapp.ListStories(s.StoryRoot)
+	packs, err := lorepack.ListPacks(s.PackRoot)
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	writeJSON(w, map[string]any{"stories": summaries})
+	writeJSON(w, map[string]any{"packs": packs})
+}
+
+func (s *Server) handleCreateStory(w http.ResponseWriter, r *http.Request) {
+	if s.Callbacks.NewStory == nil {
+		writeError(w, http.StatusInternalServerError, "new story is not configured")
+		return
+	}
+	var req createStoryRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil && !errors.Is(err, io.EOF) {
+		writeError(w, http.StatusBadRequest, "invalid JSON body")
+		return
+	}
+	session, err := s.Callbacks.NewStory(r.Context(), req.GroundLorePackID)
+	if err != nil {
+		writeError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	writeJSON(w, map[string]any{
+		"story_id": session.State.StoryID,
+		"summary":  storySummaryFromSession(session),
+	})
 }
 
 func (s *Server) handleStoryPath(w http.ResponseWriter, r *http.Request, parts []string) {
@@ -179,16 +234,8 @@ func (s *Server) handleStoryDetail(w http.ResponseWriter, r *http.Request, story
 	if turns == nil {
 		turns = []story.TurnRecord{}
 	}
-	writeJSON(w, storyDetail{
-		Summary: storyapp.StorySummary{
-			StoryID:    session.State.StoryID,
-			Title:      session.Bible.Title,
-			Label:      firstNonEmpty(session.Bible.Title, session.State.StoryID),
-			LatestTurn: session.State.LatestTurn,
-			UpdatedAt:  session.State.UpdatedAt,
-			CreatedAt:  session.State.CreatedAt,
-			Path:       filepath.Clean(session.Workspace.Dir),
-		},
+	detail := storyDetail{
+		Summary:   storySummaryFromSession(session),
 		State:     session.State,
 		Bible:     session.Bible,
 		Packet:    session.Packet,
@@ -203,7 +250,11 @@ func (s *Server) handleStoryDetail(w http.ResponseWriter, r *http.Request, story
 			"logs":      "logs/events.jsonl",
 			"modelRuns": "model-runs",
 		},
-	})
+	}
+	if pack, err := lorepack.GetPack(s.PackRoot, session.State.SourceLorePackID()); err == nil {
+		detail.GroundLorePack = &pack
+	}
+	writeJSON(w, detail)
 }
 
 func (s *Server) handleStoryFile(w http.ResponseWriter, r *http.Request, storyID string) {
@@ -396,10 +447,10 @@ func (s *Server) recommitTurn(ctx context.Context, storyID string, turn int) err
 }
 
 func (s *Server) refreshWriter(ctx context.Context, storyID string) error {
-	if s.RefreshWriter == nil {
+	if s.Callbacks.RefreshWriter == nil {
 		return errors.New("writer refresh is not configured")
 	}
-	return s.RefreshWriter(ctx, storyID)
+	return s.Callbacks.RefreshWriter(ctx, storyID)
 }
 
 func (s *Server) deleteStory(ctx context.Context, storyID string, confirmation string) (map[string]any, error) {
@@ -448,6 +499,20 @@ func (s *Server) logControl(storyID string, event string, level string, message 
 		Message:  message,
 		Fields:   fields,
 	})
+}
+
+func storySummaryFromSession(session storyapp.StorySession) storyapp.StorySummary {
+	return storyapp.StorySummary{
+		StoryID:              session.State.StoryID,
+		Title:                session.Bible.Title,
+		Label:                firstNonEmpty(session.Bible.Title, session.State.StoryID),
+		LatestTurn:           session.State.LatestTurn,
+		UpdatedAt:            session.State.UpdatedAt,
+		CreatedAt:            session.State.CreatedAt,
+		Path:                 filepath.Clean(session.Workspace.Dir),
+		GroundLorePackID:     session.State.SourceLorePackID(),
+		GroundLoreCollection: session.State.SourceLoreCollection(),
+	}
 }
 
 func bridgeStoryDocs(docs []story.IndexDocument) []bridgeclient.StoryIndexDocument {
@@ -609,4 +674,21 @@ func firstNonEmpty(values ...string) string {
 		}
 	}
 	return ""
+}
+
+func findPackRoot() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		return "."
+	}
+	for {
+		if _, err := os.Stat(filepath.Join(wd, "lore", "packs")); err == nil {
+			return wd
+		}
+		parent := filepath.Dir(wd)
+		if parent == wd {
+			return "."
+		}
+		wd = parent
+	}
 }

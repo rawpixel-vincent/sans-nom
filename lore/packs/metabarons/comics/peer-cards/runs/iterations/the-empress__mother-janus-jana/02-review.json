@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source-thin minor imperial figure, but the card stays within the supplied split identity, uses correct relationship peer ids, and marks the knowledge boundary around Honorata/Oiders rather than inventing inner life."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

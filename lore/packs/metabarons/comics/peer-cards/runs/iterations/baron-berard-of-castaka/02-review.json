@@ -1,0 +1,16 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready to stage because one boundary fact adds an unsupported location/fate claim beyond the source bundle."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Revise the Great Azure Ocean boundary to the supported in-world fact only, e.g. `BOUNDARY: Instructed that his body be cast into the Great Azure Ocean after death; his end is chosen and final.`",
+    "After that correction, keep the current structure: the card is within the 40-fact cap, uses allowed prefixes, has no source refs in card facts, and follows the merged Berard identity rather than importing a wrong split persona."
+  ],
+  "unsupported_claims": [
+    "`BOUNDARY: Instructed that his body be cast into the Great Azure Ocean — his end is chosen and final; he does not remain on Marmola` overreaches. The source supports the funerary instruction to cast his body into the Great Azure Ocean, but does not support `he does not remain on Marmola`."
+  ]
+}

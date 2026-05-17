@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: it includes near-exact transformation/self-definition wording and a few over-specific details imported from adjacent Steelhead/Zaran context rather than the Melmoth source bundle."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Contract otherwise passes: `card` is a list of 39 strings, under the 40-fact cap, uses observed allowed prefixes, has no exact duplicates, and contains no page/source refs inside facts.",
+    "The identity-map boundary is mostly followed: this is composite Melmoth, not post-Melmoth Steelhead, and the relationship targets use the relevant peer ids."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Paraphrase `VOICE: Describes himself as complete: a union of poet and warrior.` and soften `ROLE: ... complete union...`; do not encode the transformation line as a Honcho fact.",
+    "Remove `to clear a political obstacle` from Don Nicanor's relationship unless the card is explicitly sourced to the pre-fusion Steelhead assassination record; for this card, say only that Melmoth's prior Steelhead self murdered Vicenta's father.",
+    "Narrow the Zaran relationship to the supported Melmoth frame: poet component, head/language/emotional capacity, and internal conflict with Steelhead over what the single body means.",
+    "If keeping the consent/safety point, phrase it as a pressure behavior rather than a final judgment: his romantic hunger can become possessive and physically forceful when rejected."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: don-nicanor__original... murdered Vicenta's father to clear a political obstacle` imports the assassination motive from pre-fusion Steelhead context/wiki-level arc material. The Melmoth bundle supports that his prior self murdered Vicenta's father, but not this motive as a Melmoth-card fact.",
+    "`RELATIONSHIP: zaran-krleza... whose values recoil from slaughter and mechanical ugliness` overstates the Melmoth bundle. It supports Krleza/Zaran as poet/emotional component and romantic counterpressure, but not a full moral profile about slaughter.",
+    "`RELATIONSHIP: dona-vicenta... override her safety, consent, and horror` is directionally supported by forceful desire and Vicenta's horror, but too compressed and over-specific as a relationship fact. Narrow it to directly supported behavior: his desire can become possessive, physically forceful, and indifferent to the beloved's rejection."
+  ]
+}

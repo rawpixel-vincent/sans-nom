@@ -1,0 +1,7 @@
+{"accepted_existing": 20, "event": "batch_start", "partials_first": [], "pending": 93, "ts": "2026-05-03T21:58:06.827818+00:00", "workers": 2}
+{"event": "start", "peer_id": "iko-itta", "ts": "2026-05-03T21:58:06.832260+00:00"}
+{"event": "start", "peer_id": "ik-uta", "ts": "2026-05-03T21:58:06.834874+00:00"}
+{"elapsed_seconds": 252.1, "event": "done", "peer_id": "ik-uta", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/ik-uta/card.json\n", "ts": "2026-05-03T22:02:18.981105+00:00"}
+{"event": "start", "peer_id": "mother-superior", "ts": "2026-05-03T22:02:18.981569+00:00"}
+{"elapsed_seconds": 532.4, "event": "done", "peer_id": "iko-itta", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/iko-itta/card.json\n", "ts": "2026-05-03T22:06:59.212184+00:00"}
+{"event": "start", "peer_id": "the-current-metabaron", "ts": "2026-05-03T22:06:59.212652+00:00"}

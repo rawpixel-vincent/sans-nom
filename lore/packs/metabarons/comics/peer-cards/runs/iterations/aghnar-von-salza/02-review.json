@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready: relationship targets do not consistently follow the identity map for split/merged personas.",
+    "One card fact still uses source-facing language inside the Honcho card."
+  ],
+  "format_errors": [
+    "Card is a list of 31 strings, under the 40-fact cap, with allowed prefixes and no exact duplicates found.",
+    "`INSTRUCTION: His vow to duel Steelhead targets Honorata's influence; the source does not establish his inner emotional register toward Steelhead beyond this stated intent` contains source-facing/process language inside a Honcho fact."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful Aghnar von Salza singleton card; blocked_source_insufficient should remain false."
+  ],
+  "missing_opportunities": [
+    "Keep the current boundary set for the unknown tentacled being, unresolved Steelhead duel, and unaccepted Pthagurean offer; these are useful and source-grounded."
+  ],
+  "revision_instructions": [
+    "Change the Honorata relationship target to `honorata__in-oda (Honorata-within-Oda)` and keep the relationship focused on reincarnation inside Oda, pact override, and Aghnar's vow.",
+    "Remove or retarget the Empress relationship. If retained as a peer relationship, use `janus-jana` only with explicit uncertainty in the wording; otherwise keep the contract as a non-peer role/trait without a peer id.",
+    "Rewrite the Steelhead instruction without source-facing wording, e.g. `INSTRUCTION: His vow to duel Steelhead is aimed at Honorata's influence; do not add certainty about his private emotional register toward Steelhead beyond that vow.`",
+    "Prefer `roughly twenty years` over `over twenty years` for the Anasirma decline fact to match the bundle's uncertainty."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: honorata (Honorata)` ignores the Honorata split. The supported target for the volume 9 reincarnated-in-Oda antagonist is `honorata__in-oda`, not unsplit `honorata`.",
+    "`RELATIONSHIP: the-empress (The Empress)` uses a peer id not present in the identity map. The volume 9 bundle supports an Empress contract and separately notes Janus-Jana is possibly that Empress, but not confirmed; do not invent `the-empress` as a target peer id."
+  ]
+}

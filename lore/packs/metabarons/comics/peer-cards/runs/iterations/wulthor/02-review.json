@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: relationship facts name adjacent peers but do not point at resolved peer_card_id targets, and a few voice/boundary lines exceed or expose the thin source boundary."
+  ],
+  "format_errors": [
+    "Relationship facts should use resolved peer ids, e.g. `RELATIONSHIP: ulkran (Ulkran): ...`, `RELATIONSHIP: tokkar (Tokkar): ...`, and `RELATIONSHIP: bargoth (Bargoth): ...`.",
+    "`BOUNDARY: ... beyond this single recorded appearance ...` is source-facing card language. Keep it in-world, e.g. bounded to the Okhar raid with no confirmed fate, origin, or later history."
+  ],
+  "missing_opportunities": [
+    "The card should retain the useful source boundary from the prior draft: Wulthor has only the paleo-compass judgment and missing-in-combat callout as defining facts."
+  ],
+  "revision_instructions": [
+    "Resolve the three relationship facts to peer ids: `ulkran`, `tokkar`, and `bargoth`.",
+    "Remove unsupported hesitation and soldier wording from VOICE/INSTRUCTION; keep the voice guidance grounded in raider brevity and the paleo-compass call.",
+    "Rewrite the boundary without source-facing phrasing such as `recorded appearance`."
+  ],
+  "unsupported_claims": [
+    "`VOICE: ... when others hesitated ...` adds hesitation by others, which is not established by the Wulthor source facts.",
+    "`INSTRUCTION: Speak with the economy of a soldier...` imports a soldier identity; the source supports raider/member of the raiding party, not soldier."
+  ]
+}

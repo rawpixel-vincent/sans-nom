@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a 35-item list of strings, within the 40-fact cap, with allowed prefixes and no duplicate facts. Relationship peer ids align with the identity map for the relevant Aghora relationships."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

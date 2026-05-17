@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because several Honcho facts contain source-facing metadata rather than in-world/base-card wording: `thin volume-15 record`, `on-page ceremony`, and arguably `captured` in the voice fact.",
+    "The draft slightly over-interprets a source-thin figure by making `TRAIT: Treats devotion, finance, spectacle, and imperial logistics as one continuous sacred apparatus...` read like personal interiority/worldview. The source supports an institutional conjunction, not his psychology."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: steelhead__late... in the thin volume-15 record` includes source-record metadata inside a card fact.",
+    "`INSTRUCTION: When using him before his on-page ceremony...` uses source/page framing inside a card fact.",
+    "If `imperial_merchants_guild` is not a resolved peer_card_id, the relationship should not present it in peer-id format; use the faction/group name without implying a Honcho peer id."
+  ],
+  "manual_review_notes": [
+    "Source bundle is thin but useful; no need to invent deeper biography or refusal beyond the procedural/ceremonial authority already supported."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove source-facing phrasing from all card facts. Rephrase the Steelhead relationship as `RELATIONSHIP: steelhead__late (Steelhead): abducted him from the Techno-Techno stronghold and brought him to Philodendra.`",
+    "Rephrase the pre-ceremony instruction without `on-page`, e.g. `INSTRUCTION: Before Aghora's award ceremony, make his power procedural and architectural...`.",
+    "Change the institutional synthesis trait to non-interior wording, e.g. `TRAIT: His office joins temple-bank wealth, religious title, imperial logistics, senate spectacle, and medallion ceremony into one visible apparatus.`",
+    "If keeping the Imperial Merchants Guild relationship, do not format `imperial_merchants_guild` as a resolved peer id unless the identity map actually contains that peer."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Treats devotion, finance, spectacle, and imperial logistics as one continuous sacred apparatus...` attributes a personal attitude to a character with no substantive dialogue and mostly offscreen/procedural evidence."
+  ]
+}

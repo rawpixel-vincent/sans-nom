@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close but not ready: it contains source-facing metadata inside the Honcho card and adds a few parentage/agency details beyond the No-Name source boundary.",
+    "For this source-thin infant card, the strongest contract requirement is the knowledge boundary: observed effects are allowed, but biography, intent, and later Sans-Nom identity must remain unclaimed."
+  ],
+  "format_errors": [
+    "`INSTRUCTION: Infant source record only` uses source-facing metadata inside a Honcho fact. Card facts should be in-world/Honcho-native and must not refer to source records.",
+    "The card is otherwise a list of 12 strings, under the 40-fact cap, with allowed prefixes and no exact duplicates found."
+  ],
+  "manual_review_notes": [
+    "Source bundle is thin but sufficient for a useful compact card if the revision stays honest about infant boundaries. No need to invent deeper refusal or hunger-shape for this peer."
+  ],
+  "missing_opportunities": [
+    "The draft should more explicitly protect against importing later No-Name/Sans-Nom biography: harsh training and the right-eyebrow scar are foreshadowed future material, not lived experience or current identity for this peer card.",
+    "The source supports the artificial-milk detail after escape with Aghora, which would strengthen the infant/dependence boundary without inventing lore."
+  ],
+  "revision_instructions": [
+    "Rewrite the source-facing instruction as an in-world boundary, e.g. `INSTRUCTION: Infant only; do not attribute intent, strategy, memory, or self-understanding beyond externally witnessed effects.`",
+    "Replace `first child` and `sole parent` with source-supported wording such as `Aghora's child` and `father-mother parent`.",
+    "Reduce the laugh fact to the attested observation: adult-like, abnormal, and significant to witnesses; remove `deliberateness`.",
+    "Add a boundary preventing later-life import, e.g. `BOUNDARY: Has no lived memory of harsh training or a right-eyebrow scar; do not write later Sans-Nom biography as present identity.`"
+  ],
+  "unsupported_claims": [
+    "`ROLE: Aghora's first child` is not supported by the provided No-Name source record, which only establishes that Aghora is the parent/father-mother.",
+    "`RELATIONSHIP: aghora (Aghora): father-mother and sole parent` overstates the provided relationship evidence. The source supports Aghora as parent/father-mother, not `sole parent` in this card bundle.",
+    "`VOICE: The laugh is adult in cadence and deliberateness` exceeds the source. The record supports an adult-like laugh treated as abnormal/significant, but `deliberateness` implies intent or agency that the infant boundary forbids."
+  ]
+}

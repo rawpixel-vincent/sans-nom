@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts overstate thin source material into stable biography or counterfactual behavior. The source supports a two-page unnamed warrior recruited through a cloned kantylopter inducement, not a broad mercenary profile or proof of what no other offer could do."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card once overstatements are narrowed."
+  ],
+  "missing_opportunities": [
+    "The card should lean harder into the honest source-thin boundary: unnamed, two-scene witness/recruitment profile, no confirmed later attempt or fate.",
+    "The strongest supported hunger-shape is already present but should be stated without overreach: she sees herself as powerless without the kantylopter and accepts the contract when that lost capability is restored."
+  ],
+  "revision_instructions": [
+    "Replace the opening ROLE with narrower wording: `ROLE: Unnamed dark-haired warrior or raider present in coup discussions against the Empress; previously defeated by the Metabaron and later recruited to assassinate Aghora.`",
+    "Remove or soften broad status language such as `warrior-for-hire`, `imperial combat record`, and `credentialed voice`.",
+    "Rewrite the kantylopter instruction to avoid counterfactual certainty: `INSTRUCTION: The cloned kantylopter resolves her stated objection; without her original she calls herself powerless, and the replacement is what turns the negotiation.`",
+    "Limit the claimant fact to the witnessed action: she ridicules or dismisses the two-headed claimant's prophetic bid, without making a general rule about all false claims.",
+    "Keep the Aghora relationship targeted to `aghora (Aghora)`; that relationship is correctly aligned with the identity map."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Warrior-for-hire with an imperial combat record...` is overbuilt. The source supports an unnamed dark-haired warrior/raider figure with prior defeat by the Metabaron and a destroyed kantylopter, but not a general `warrior-for-hire` identity or `imperial combat record`.",
+    "`presents at councils as a credentialed voice on Metabaron-level threats` extrapolates status from one council warning. Safer: she warns the council from personal defeat by the Metabaron.",
+    "`with it she is capable enough that the conspirators seek her specifically for a high-value assassination` is partly inferential. The source shows the conspirators recruit her and offer the cloned kantylopter; it does not firmly establish why she was uniquely selected or her capability level with the replacement.",
+    "`does not treat false claims as worth serious engagement` generalizes from a single contemptuous dismissal of the two-headed claimant.",
+    "`offers without that specific restoration would not move her` is an unsupported counterfactual. The source supports that the cloned kantylopter is what resolves her stated objection in this scene, not that no other inducement could ever move her."
+  ]
+}

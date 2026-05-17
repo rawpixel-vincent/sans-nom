@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because several Honcho facts contain source-facing language instead of in-world boundaries.",
+    "Relationship facts do not consistently target resolved peer ids from the identity map; Oda should be `oda__princess`, and Jejoh should be `jejoh`."
+  ],
+  "format_errors": [
+    "Facts contain forbidden source refs/source-meta wording: `source volume`, `source`, `source record`, and `this peer exists solely...` in source-boundary framing.",
+    "Card is a list of 13 strings under the 40-fact cap and no duplicate facts were found.",
+    "Prefixes appear allowed, including `Name:`, `ALIAS:`, `ROLE:`, `TRAIT:`, `RELATIONSHIP:`, `VOICE:`, `INSTRUCTION:`, and `BOUNDARY:`."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minimal card: Sama-Wajd is an unborn prophesied hermaphrodite, the endpoint of the Shabda-Oud breeding plan, linked to Janus-Jana, Oda Capricious, and Jejoh. Do not ask the writer to inflate importance or invent agency."
+  ],
+  "missing_opportunities": [
+    "Use the identity-map peer ids in relationships: `RELATIONSHIP: janus-jana (Janus-Jana): ...`, `RELATIONSHIP: oda__princess (Oda Capricious): ...`, and `RELATIONSHIP: jejoh (Jejoh): ...`.",
+    "Keep the card thin; the bundle supports a useful minimal card without inventing biography, voice, agency, or later arc material."
+  ],
+  "revision_instructions": [
+    "Rewrite source-facing facts as in-world boundaries. For example, replace `Unborn within the source volume` with `Not yet born; known only as a prophesied future being and breeding objective.`",
+    "Replace `VOICE: Unborn and hypothetical within the source...` with in-world wording such as `VOICE: No attested speech, interiority, or act of will; do not voice Sama-Wajd as an acting person yet.`",
+    "Replace `BOUNDARY: ... source record` with `BOUNDARY: All known claims about Sama-Wajd are mediated through Shabda-Oud prophecy and agenda; no independent perspective, history, or agency is established.`",
+    "Retarget relationship lines to resolved peer ids, especially `oda__princess` for the intended genetic mother and `jejoh` for the intended genetic father/sperm donor."
+  ],
+  "unsupported_claims": []
+}

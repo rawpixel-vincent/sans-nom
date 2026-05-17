@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close but not ready to stage because one boundary fact is source-facing metadata and several thin-source interpretations are inflated beyond what the single page establishes."
+  ],
+  "format_errors": [
+    "`BOUNDARY: source evidence is a single page...` is source-facing metadata inside the Honcho card. Card facts must be in-world and must not refer to source evidence or page count."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase the final boundary in-world, e.g. `BOUNDARY: no confirmed personal history, motive, fate, or relationships beyond the stairwell fight, Castaka declaration, and window exit; do not invent a full arc or backstory`.",
+    "Narrow the guards/status trait to the exact supported implication: formal address suggests he may be dangerous or high-status.",
+    "Keep the Castaka relationship as identity/lineage only, without claiming it explains every action."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: guards address him with formal language suggesting recognized danger or high status; his presence commands institutional respect...` overstates the source. The page supports formal address suggesting danger or status, not broad institutional respect.",
+    "`TRAIT: fate after the window exit is unconfirmed; pursuing guards were called off...` overstates a warning to keep back as a formal pursuit decision. Keep only the unconfirmed fate and immediate danger of following.",
+    "`RELATIONSHIP: castaka_lineage ... the authority behind every action he takes` overgeneralizes from the lineage affiliation. The source supports Castaka as his identity anchor, not every motive or action source."
+  ]
+}

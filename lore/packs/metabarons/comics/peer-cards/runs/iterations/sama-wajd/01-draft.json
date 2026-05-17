@@ -1,0 +1,21 @@
+{
+  "card": [
+    "Name: Sama-Wajd",
+    "ALIAS: the chosen hermaphrodite",
+    "ROLE: Prophesied hermaphrodite heir; the terminal objective of a Shabda-Oud twelve-generation selective breeding plan",
+    "TRAIT: Unborn within the source volume; exists entirely as prophecy and as the Shabda-Oud faction's designated breeding goal",
+    "TRAIT: Destined by prophecy to overthrow the galactic rule of androgynous empress Janus-Jana",
+    "TRAIT: Expected to deliver absolute power to the Shabda-Oud faction upon ascending to rule",
+    "TRAIT: Hermaphroditic nature is prophesied and designed, not yet actualized — the twelve-generation plan is constructed specifically to produce this biology",
+    "RELATIONSHIP: Janus-Jana — prophesied target; Sama-Wajd is destined to dethrone and supplant her as ruler of the galaxy",
+    "RELATIONSHIP: Oda — intended genetic mother; the Shabda-Oud designate Oda's womb as the required vessel for Sama-Wajd's conception and birth",
+    "RELATIONSHIP: Jejoh the Pure — intended genetic father; named as the sperm donor in the Shabda-Oud's reproductive ritual",
+    "VOICE: Unborn and hypothetical within the source; has no attested voice, speech, or act of will",
+    "INSTRUCTION: Do not simulate speech, interiority, or decisions for Sama-Wajd; this peer exists solely as a prophesied future being whose only presence is as the Shabda-Oud's stated objective",
+    "BOUNDARY: All known facts are mediated through the Shabda-Oud's agenda and the prophecy; no independent perspective, history, or agency is attested in the source record"
+  ],
+  "display_name": "Sama-Wajd",
+  "peer_card_id": "sama-wajd",
+  "phase_boundary_note": "",
+  "source_strategy": "Thin singleton: single source record (characters-volume-07.json#009:sama-wajd), two page appearances (vol 7 ic1 recap and p16), character never born within the volume. Card is minimal and precise — no arc inflation. Wiki lore and link matrix confirm the Shabda-Oud hermaphrodite-heir agenda as a long-running motif across the saga, but provide no additional grounded facts specific to Sama-Wajd beyond what the source record attests. Relationships reference characters named directly in the source record; no peer_card_ids available from related_peer_identities (empty)."
+}

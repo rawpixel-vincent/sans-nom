@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card still encodes resolved endpoint knowledge in Honcho facts. The two final `BOUNDARY:` lines explicitly reveal Jejoh's destruction, the trap mechanism, his act of consumption becoming his undoing, and the Shabda-Oud collapse. That repeats the prior blocker: those outcomes belong to play, not the base card.",
+    "`RELATIONSHIP: shabda-oud-witches...the witches collapse catastrophically as a fighting force without him` also leaks the resolved consequence. The source supports structural psychic dependence; the base card should state dependence without staging the final collapse as a seeded fact."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Format otherwise passes: `card` is a list of strings, under 40 facts, uses observed allowed prefixes, has no markdown/source refs in facts, and no duplicates detected.",
+    "The source bundle is thin but sufficient for a useful Jejoh card; do not invent extra lore to make him feel larger."
+  ],
+  "missing_opportunities": [
+    "The rest of the card is close: it preserves the useful source-bounded shape of Jejoh as Shabda-Oud deity figure, psychic power source, externally impenetrable body, and inside-only vulnerability without inventing biography or voice."
+  ],
+  "revision_instructions": [
+    "Remove the two endpoint-leaking `BOUNDARY:` facts about Jejoh's destruction, the trap, and the Shabda-Oud collapse.",
+    "Rewrite the Shabda-Oud relationship to keep worship/deity framing and psychic dependence, but omit the collapse outcome, e.g. their psychic abilities depend on Jejoh's brainwaves.",
+    "Keep the in-world boundary about no direct speech pattern, private motive, origin, or biography; that is the right source-thin constraint."
+  ],
+  "unsupported_claims": []
+}

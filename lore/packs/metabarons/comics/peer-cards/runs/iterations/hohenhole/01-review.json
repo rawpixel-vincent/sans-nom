@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Two card facts use source-facing/source-record language, which violates the Honcho contract prohibition on source refs inside facts: `VOICE: In the surviving northern-assault record...` and `BOUNDARY: ...in the bounded source records...`."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful minor-character card; no need to invent additional biography or inner life. The draft is under 40 facts, uses strings, has no duplicates detected, and otherwise stays close to the merged identity map."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing facts into in-world boundaries, e.g. `VOICE: No direct northern-assault speech is established; play him through orders received, assigned pressure, and battlefield presence rather than invented speeches.`",
+    "Rewrite the fate boundary without source-record language, e.g. `BOUNDARY: After Othon searches the northern battlefield for him, Hohenhole's outcome remains unconfirmed; do not declare him dead, rescued, absent by choice, or restored.`",
+    "Soften competence/trust inferences to source-bounded wording: he is distracted during stone-cutting, redirected to focus, later assigned the northern attack vector with half the men, and tasked with close engagement.",
+    "Remove or source-bound the Konrath southern-command clause unless that fact is explicitly included in the allowed source bundle for this card."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Can be competent inside disciplined group work...` overstates the thin vol01 record. The bundle supports that he was part of the stone-cutting team and needed redirection, not a direct competence judgment.",
+    "`INSTRUCTION: ...the same man entrusted with a precision task is later trusted with half a battle line` adds interpretive weight. The later command assignment is supported, but `entrusted with a precision task` should be softened to the witnessed stone-cutting task.",
+    "`RELATIONSHIP: konrath... Konrath leads the southern attack...` is not supported by the provided Hohenhole source records; the bundle supports Konrath as twin and Hohenhole as northern commander."
+  ]
+}

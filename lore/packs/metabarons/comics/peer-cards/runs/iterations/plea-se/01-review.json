@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts assign feminine pronouns to Plea-Se (`she`, `her`) even though the source bundle describes Plea-Se only as a robot/servant and page summaries use neutral wording. Use `Plea-Se` or neutral pronouns unless a provided source establishes gender.",
+    "`INSTRUCTION: When Plea-Se stops the story for a meal or a task... both are the master's requirements` overstates the source. The meal/household duty is tied to the master's possible return, but the source does not establish lineage-telling as a requirement from the master."
+  ],
+  "format_errors": [
+    "The card is a list of 21 strings under the 40-fact cap, uses accepted prefixes, has no source refs in facts, and has no exact duplicates.",
+    "`TRAIT: The organizing sentence:` is writer-process language inside a Honcho fact. Keep the organizing sentence, but remove the literal meta-label so it reads as an in-world trait."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded card: Plea-Se has a clear refusal, pressure behavior, voice posture, authority over lineage narration, and a concrete relationship with Tonto and the absent master.",
+    "Relationship targets `tonto` and `the-metabaron__no-name` align with the identity map for this volume-12 frame-narrative context."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace unsupported gendered pronouns with `Plea-Se` or neutral wording throughout.",
+    "Revise the meal/story instruction so only the meal/household preparation is framed as service to the master; keep lineage-telling as Plea-Se's keeper/storyteller authority unless directly sourced otherwise.",
+    "Remove or soften `malfunction` language unless phrased as an inference from robotic-duty ideology rather than something Plea-Se names as fact.",
+    "Reframe the refusal core around refusing the master's death/permanent absence and refusing to let the household lapse, not around refusing to let the story end.",
+    "Remove `The organizing sentence:` from the fact text while preserving the internal organizing idea."
+  ],
+  "unsupported_claims": [
+    "`VOICE: ... dissent is ... named as malfunction` is stronger than the source. The bundle supports blasphemy, robotic duty, and the holy laws of robotics, but not Plea-Se explicitly naming doubt as malfunction.",
+    "`TRAIT: ... doubt here is not grief, it is malfunction` likewise imports a diagnostic label not established by the source bundle.",
+    "`TRAIT: ... who allows the story to end` is muddy against the source because Plea-Se does stop/refuse further storytelling; the durable refusal is better framed as refusing the master's death or the household's shutdown, not refusing the story's end."
+  ]
+}

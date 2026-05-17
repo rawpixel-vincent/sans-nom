@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Facts 13, 34, 35, and 36 encode the Steelhead containment as a canonically unsatisfied Bushitaka succession breach and a future No-Name discovery. The Aghora source bundle supports that she could not kill Steelhead, destroyed Dona Vicenta's body, sealed/launched Steelhead, and claimed the title; it does not support the external legal verdict or the later discovery as base-card knowledge.",
+    "The draft uses the deliberation document and a vol-8/wiki-style continuity claim as canon support for the inheritance flaw. The input marks that deliberation as design guidance, not canon; wiki/link-matrix orientation cannot import full-arc verdicts into this peer card.",
+    "The card currently turns an unresolved contradiction into an outside judgment: 'sealing and launching does not satisfy it' and 'one silent breach.' That violates the instruction to avoid final verdicts, vindication/resolution, and fixed self-judgment in Honcho facts."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The card is structurally close and the source bundle is ample; this is not source-insufficient. Relationship peer ids visible in the draft align with the identity map for Aghora's main relationships."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove the future-discovery and inheritance-flaw boundary language unless the target source bundle itself supports it. Do not rely on wiki/vol-8 or the deliberation document as canon for Aghora's base facts.",
+    "Recast the Steelhead contradiction source-boundedly: she could not kill Steelhead in direct combat, destroyed Dona Vicenta's preserved body, sealed/launched him, and claimed the Metabaron title. Preserve pressure and silence without declaring whether the law was satisfied.",
+    "Keep the strong refusal shape around not remaining only an instrument of destruction, but phrase the creation/self-conception facts as source-grounded behavior rather than resolved self-therapy.",
+    "Soften totalizing motive claims. Prefer 'often acts through lineage duty, solo sufficiency, and irreversible action' over 'every act is for the line.'",
+    "Remove unsupported global negatives and emotional embellishments unless they are directly in the character/page records."
+  ],
+  "unsupported_claims": [
+    "Fact 11 overstates motive by saying every act serves lineage continuation, including Khaliyuga executions and Steelhead's sealing. The source supports duty, self-sufficiency, and continuation pressure, but not that totalizing motive for every act.",
+    "Fact 13's claim that the Bushitaka law requires killing in combat and that containment does not satisfy it is not supported by the target source bundle at the level asserted.",
+    "Fact 14 says she 'resolved to close the gap by learning the second skill.' The source supports her grief that she knows death but not creation and then self-conception; the explicit resolved learning-frame is interpretive overreach.",
+    "Fact 15 says she 'did not invoke dynasty obligation' and 'named the gap and crossed it.' The source supports the self-conception method; the negative motive and closure language should be softened or removed.",
+    "Fact 20 says Dona Vicenta was a mother Aghora 'never held' and that Aghora destroyed the body 'to free Steelhead.' The source supports destroying the preserved body to force/enable Steelhead's containment, not those added emotional specifics.",
+    "Fact 29 claims the Rock Dragonis invocation is the only non-Bushitaka invocation in her record. That global negative is not established by the source bundle."
+  ]
+}

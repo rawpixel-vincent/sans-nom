@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: one trait makes an unsupported inference from the helmet, and the VOICE fact still uses source-facing quotation/narrative-function language instead of a clean in-world voice boundary."
+  ],
+  "format_errors": [
+    "`VOICE: Not extensively quoted; her presence as a named witness marks the Epyphite reservoir revelation as a witnessed event` is source-facing/meta wording. A Honcho card fact should state the usable voice boundary in-world, such as no established speaking register beyond visual amazement and witness presence."
+  ],
+  "missing_opportunities": [
+    "The supported core is otherwise present: Magaella as a named helmeted attendant or companion at the Epyphite reservoir overlook, amazed by the sight, with knowledge bounded to the reservoir's location and scale as learned there."
+  ],
+  "revision_instructions": [
+    "Replace the helmet-purpose inference with a narrower supported trait: `TRAIT: Wears a helmet during the Epyphite reservoir overlook; no rank, authority, or helmet function is confirmed` or simply `TRAIT: Helmeted female-presenting attendant or companion at the overlook` if not already covered by ROLE.",
+    "Rephrase the VOICE fact without quotation/source-meta language: `VOICE: No established speaking register; express her through visual amazement, posture, and witness reaction rather than expertise or command`.",
+    "Keep the existing BOUNDARY facts; they correctly prevent noble rank, political role, expanded arc, and knowledge beyond the Epyphite overlook revelation."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Helmeted appearance suggests functional or protective dress rather than ceremonial status` is unsupported. The source supports that Magaella is helmeted and female-presenting, but not the purpose of the helmet or a functional/protective versus ceremonial distinction."
+  ]
+}

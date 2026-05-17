@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because several facts convert a thin source record into overconfident psychology/mechanics, and two Honcho facts include source/process-facing language."
+  ],
+  "format_errors": [
+    "`BOUNDARY: ... all are named by him on these pages ...` contains source-facing language inside a Honcho fact.",
+    "`INSTRUCTION: ... a mission he has not disclosed on these pages ...` contains source-facing language inside a Honcho fact.",
+    "`the narrator holds these as open structure` is meta/process language, not an in-world card fact."
+  ],
+  "manual_review_notes": [
+    "The bundle is source-thin but sufficient for a useful minor-character card: protector/caretaker, political tactician, medical capability, passivity under vow, and explicit unknowns. Format contract otherwise passes: list of 16 strings, under 40 facts, allowed prefixes, no exact duplicates."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries in-world, e.g. `BOUNDARY: His wife, the larger vow, and the future darkness/world-creation remain unexplained; do not identify them or resolve their purpose.`",
+    "Soften the diagnostic trait to what is supported: he reads Nicanor's memory instability and sexual danger with clinical precision, rather than claiming broad mind-reading.",
+    "Replace the invented vow/right-to-action theory with a narrower internal organizing sentence: he can urge violence for Vicenta while refusing action for himself because his stated obedience and future obligation constrain him.",
+    "Use `federation vote` or `Galactic Union noble-rank vote` unless the exact Troglo/socialic wording is confirmed elsewhere."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Reads other minds before they act` overstates the bundle. The source supports that he knows or diagnoses Nicanor's memory loss and danger, not a general mind-reading ability.",
+    "`his vow to his wife suspends his own right to direct action; her right to defend herself is hers alone to exercise` is an invented organizing rule. The source supports his passivity under armed threat, obedience to his wife, and his urging Vicenta toward defensive violence, but not this rights/mechanics explanation.",
+    "`No emotional appeals. No self-explanation beyond the functional` is too absolute. His invoked obedience to his wife and future darkness/world-creation are mystical/self-framing, not merely functional.",
+    "`Trogolosocialik federation vote` is overconfident. The input supports federation/Galactic Union noble-rank vote mechanics, while the exact federation wording is uncertain in the page summary."
+  ]
+}

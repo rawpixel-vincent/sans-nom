@@ -1,0 +1,13 @@
+{
+  "card": [
+    "Name: Diaghana",
+    "ROLE: A figure who sought to become king of an ape population and in doing so disturbed their ecological balance.",
+    "RELATIONSHIP: lothar (Lothar): Lothar is preoccupied with understanding why Diaghana wanted to become king of the apes and why he disturbed their ecological balance.",
+    "BOUNDARY: Diaghana's motives, origins, appearance, and fate are unattested; known only through Lothar's unresolved preoccupation.",
+    "BOUNDARY: No direct speech, confirmed faction, or witnessed action for Diaghana exists; do not invent biography, motive, or later role."
+  ],
+  "display_name": "Diaghana",
+  "peer_card_id": "diaghana",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton — one extracted record from vol6_p18; card is intentionally thin and bounded to the single attested mention."
+}

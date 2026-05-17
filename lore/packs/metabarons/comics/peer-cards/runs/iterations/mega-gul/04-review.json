@@ -1,0 +1,19 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because it contains two semantically duplicate TRAIT facts describing the same rejection of Aghora's pregnancy due to Mega-Gul's masculine-warrior model of Aghora."
+  ],
+  "format_errors": [
+    "Duplicate facts: `TRAIT: Initially rejects Aghora's pregnancy as impossible because it contradicts his model of Aghora as masculine warrior` and `TRAIT: Rejected the account of Aghora's pregnancy as impossible because it contradicted his established model of Aghora as a symbol of masculinity and the galaxy's greatest warrior` encode the same fact."
+  ],
+  "manual_review_notes": [
+    "Mega-Gul is a source-thin singleton. Apart from the semantic duplicate, the draft is bounded, uses the correct peer identity, and does not import wiki/full-arc lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Collapse the two rejection traits into one source-grounded TRAIT, preferably preserving the richer page-supported phrasing: `TRAIT: Initially rejects Aghora's pregnancy as impossible because it contradicts his model of Aghora as the galaxy's greatest warrior and a symbol of masculinity`.",
+    "Keep the compact source-thin boundary; the bundle is sufficient for a useful minor-character card and should not be expanded with invented backstory, broader motives, or later role."
+  ],
+  "unsupported_claims": []
+}

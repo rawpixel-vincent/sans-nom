@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The Aghnar relationship points at `aghnar-von-salza`, but the source events named in the fact belong to split-phase Aghnar peers. Use `aghnar__child` for the volume-5 Hall of Arms/Okhar encounter and `aghnar__warrior` for the volume-7/8 infiltrator, revenge, and Jejoh-destruction material.",
+    "The card overstates mission continuity across eras. The volume-7 sources support the twelve-generation Sama-Wajd breeding program, but the volume-17 survivor group is framed around survival, revenge on the Metabaron, freeing Zombra, and galactic domination; the draft incorrectly makes the Sama-Wajd plan the sole governing purpose for every era."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful merged group-role card; the draft is close on structure and prefix contract, but the relationship targeting and cross-era mission overreach prevent staging."
+  ],
+  "missing_opportunities": [
+    "Add or preserve the explicit knowledge boundary that only one witch survives at the end of volume 7 and that cetacyborg-weakness knowledge is held by that survivor alone.",
+    "Add an in-world boundary for the volume-17 remnant: their larger plan beyond the immediate Zombra/galactic-domination operation is not detailed, so do not infer full continuity with the earlier Sama-Wajd program.",
+    "Consider folding the prior near-annihilation by the Metabaron into the `aghora` relationship if that peer id is the intended target for the volume-17 Metabaron reference."
+  ],
+  "revision_instructions": [
+    "Split the Aghnar relationship into correctly targeted phase relationships or remove the relationship until the peer id can be resolved: `aghnar__child` for the child encounter, `aghnar__warrior` for infiltration/revenge/Jejoh.",
+    "Narrow the Sama-Wajd mission language to the volume-7 order, and write the volume-17 four-survivor remnant as revenge/covert-operation/galactic-domination driven without claiming the same breeding mission continues.",
+    "Remove `biological reconstruction of captives` unless a source record for this peer explicitly supports it; keep only psycho-surgical science and heart-bomb association as bounded traits.",
+    "Replace `psy-cloak` with source-supported disguise wording, or omit the mechanism.",
+    "Add the missing survivor/cetacyborg-weakness and volume-17 plan-boundary facts if space allows."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Possess advanced psycho-surgical science; capabilities include heart-bomb implantation in targets and biological reconstruction of captives` overreaches. The source bundle supports advanced psycho-surgical science and association with heart-bombs, but not this group biologically reconstructing captives as a general capability.",
+    "`TRAIT: After near-annihilation by the Metabaron... pursuing the same multigenerational mission` is unsupported and conflicts with the volume-17 boundary that their larger plan beyond immediate events is not detailed.",
+    "`RELATIONSHIP: aghnar-von-salza... using a psy-cloak` imports detail not present in this card's source bundle; the provided source supports disguise as a priestess, not the specific psy-cloak mechanism.",
+    "`INSTRUCTION: Treat the twelve-generation plan as the order's sole governing purpose; every action... serves that plan` overgeneralizes volume-7 facts across the merged group-role card and should be narrowed."
+  ]
+}

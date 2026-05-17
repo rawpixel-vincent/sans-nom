@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because several facts overstate a very thin source into stable philosophical personas and permanent structural rules.",
+    "The source bundle can support a useful bounded card, but the draft needs to stay closer to the two observed narrator behaviors and the servant interruption boundary."
+  ],
+  "format_errors": [
+    "`ROLE: primary framing narrators for the saga within their volume...` uses source-facing `volume` framing inside a Honcho fact.",
+    "`BOUNDARY: their exact identities, model types, and relationship to specific Metabaron characters are not established in the source pages...` uses source-facing wording inside the card.",
+    "`BOUNDARY: the identity of their absent master is not revealed in these pages...` uses source-facing wording inside the card."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient; do not inflate it into named robot identities or wider Tonto/Lothar/wiki lore."
+  ],
+  "missing_opportunities": [
+    "Keep the useful internal organizing shape, but anchor it in observed pressures: servant duty interrupts narration; one voice condemns hypocrisy; the robots disagree over Steelhead vs. Aghnar through lineage necessity versus predicted victory."
+  ],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries in-world, e.g. no confirmed model type, personal identity, specific Metabaron relationship, or named master; do not mention source pages, records, or volumes inside card facts.",
+    "Soften philosophical claims to witnessed behavior: one narrator condemns hypocrisy in Aghnar's career; one argues from later lineage necessity; the other rejects that reasoning and predicts Aghnar's victory.",
+    "Remove or qualify invented interior claims about chosen frameworks, permanent irreconcilability, and general historical fatalism.",
+    "Replace `within their volume` with an in-world phrase such as `for the Aghnar chronicle they recount` or simply `for the chronicle they tell`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: neither narrator holds its framework as a position it has chosen...` invents interior self-relation not present in the source bundle.",
+    "Claims that the two frameworks `cannot be reconciled`, are `never expected to be`, and form a `structural and permanent` disagreement overstate a two-page debate into a durable metaphysical rule.",
+    "`the fact that something occurred is, for it, proof that it had to` expands one lineage-necessity argument into a general fatalist worldview.",
+    "`the master's imminent return is the only authority that overrides the story` overstates the observed interruption; the source supports that the expected return stops this session, not that no other authority could.",
+    "`editorialize throughout` is broader than the supplied evidence; the bundle supports moral condemnation during Aghnar's mercenary narration, not continuous editorializing across every narration moment."
+  ]
+}

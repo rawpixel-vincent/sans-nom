@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship target for Honorata uses `honorata`, but the identity map target is `honorata__living`. Split/phase peer relationships must point at the exact peer_card_id.",
+    "The Shabda-Oud/Oiders command-stratum claim is not sufficiently supported by the source bundle and should not be kept as a card fact."
+  ],
+  "format_errors": [
+    "Several facts use source-facing/meta wording inside the Honcho card: `source material`, `source bounds`, and `source perspective available`. Card facts should be Honcho-native/in-world boundaries without source refs or source-process language."
+  ],
+  "manual_review_notes": [
+    "Source is thin but usable: an off-screen political faction can be staged if the card stays compact, exact about Honorata and Janus-Jana, and honest about post-defection unknowns."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `RELATIONSHIP: honorata` with `RELATIONSHIP: honorata__living (Honorata, Living Priestess): ...`.",
+    "Delete the Shabda-Oud/Oiders command-stratum trait unless it can be restated only as the supported fact that the Oiders held authority over Honorata, a Shabda-Oud priestess.",
+    "Rewrite source-meta boundaries into in-world wording, e.g. `BOUNDARY: No confirmed visual appearance, direct speech, or actions after Honorata's defection.`",
+    "Soften the Honorata relationship to say she defied their order by bearing a son instead of the mandated androgyne; do not claim the entire succession plan was conclusively ended."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Command structure aligned with Shabda-Oud political aims ... the Oiders likely name their command stratum or inner council` speculates from broader lore/link-matrix orientation and goes beyond the single Oiders source record.",
+    "`RELATIONSHIP: honorata ... fracturing their succession plan entirely` is stronger than the source boundary. The source supports defiance and a failed mandated birth, but not the full later operational state of the succession plan."
+  ]
+}

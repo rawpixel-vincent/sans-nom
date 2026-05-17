@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready: it contains unsupported facts beyond the provided Cetacyborg source record and has a relationship target that is not a resolved peer_card_id.",
+    "The source bundle is thin but sufficient for a useful bounded card; the draft needs tighter source boundaries, not invented importance."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: Shabda-Oud:` does not use a peer_card_id. If this is intended as a peer relationship, target the resolved peer id such as `shabda-oud-witches`; otherwise keep Shabda-Oud as a non-peer affiliation/association fact under ROLE or BOUNDARY.",
+    "`BOUNDARY: No speech or direct communication from this entity is on record...` uses source/evidence-facing wording. Rewrite as Honcho-native wording such as `No known speech or direct communication...`.",
+    "Card is a list of 13 strings under the 40-fact cap, uses otherwise allowed prefixes, and has no duplicates found."
+  ],
+  "manual_review_notes": [
+    "Minor source-thin entity: a compact card is appropriate. Do not expand it with full Othon arc facts or wiki-style Cetacyborg lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove Othon's later death from the Cetacyborg relationship unless the provided Cetacyborg bundle explicitly supports it; keep only severe lung damage from the internal acids.",
+    "Soften external durability to the witnessed encounter, avoiding universal `all missiles` / `cannot destroy it` claims unless directly sourced.",
+    "Replace `brief exposure` with source-grounded wording: internal acids severely corroded Othon's lungs during his passage through the entity.",
+    "Fix the Shabda-Oud relationship target: use a valid peer_card_id if creating a relationship, or recast it as a non-peer affiliation fact.",
+    "Rewrite `on record` into in-world/Honcho-native boundary language."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: othon-von-salza ... died later from acid damage sustained inside` is not supported by the Cetacyborg source record, which only says its internal acids severely corroded Othon's lungs.",
+    "`ROLE: Outer hull repels all externally launched missiles; conventional external attack cannot destroy it` overstates the provided source. The bundle supports external/direct attack resistance only if grounded in the extracted encounter, not a universal `all externally launched missiles` claim.",
+    "`TRAIT: Internal biology produces corrosive acids potent enough to severely damage human lung tissue on brief exposure` adds `brief exposure`; the source supports severe lung corrosion from internal acids, not timing.",
+    "`ROLE: ... deployed as a weapon against the planet Okhar` is stronger than the source wording. The record supports association with Shabda-Oud forces threatening Okhar and hostile weapon-entity framing, but not explicit deployment intent as a settled fact."
+  ]
+}

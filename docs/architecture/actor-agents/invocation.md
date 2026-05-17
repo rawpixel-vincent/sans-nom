@@ -6,7 +6,7 @@ How the Narrator calls an actor agent during a turn. Step 4 of the [authoring lo
 
 The Narrator provides each invoked actor with:
 
-1. **The actor's lore card** — loaded from `lore/actors/<name>.md` at server start (or hot-reload — see [dev-loop-ergonomics](../narrator-agent/dev-loop-ergonomics.md)).
+1. **The actor's lore card** — loaded from accepted peer-card artifacts in the selected lore pack, for example `lore/packs/<pack_id>/comics/peer-cards/cards/accepted/<peer_id>.json`.
 2. **The actor's directional representations** of every other character present in the scene — fetched from Honcho per-call. For a scene with Aghora and Sans-Nom present, Aghora's actor receives Aghora's representation of Sans-Nom (and Aghora's representation of Steelhead if Steelhead is contextually relevant — the Narrator decides what's relevant).
 3. **The scene-setup prompt** — the Narrator's authored description of where the actor is, what just happened, and what the actor is being asked to output. Bounded format: typically 1–3 sentences of context plus a request for "interior reaction (3 sentences) + dialogue (1–3 sentences)" or similar.
 

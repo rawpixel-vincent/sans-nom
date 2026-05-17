@@ -69,5 +69,5 @@ Phase 0 deliverable: a `scripts/init.sh` that:
 
 1. Verifies Go 1.22+ and `uv` are installed.
 2. Initializes the Go module and Python venv.
-3. Symlinks `external/references/council of castaka/metabarons/` into `lore/actors/` (so the cards are the source of truth, not duplicated).
+3. Builds or validates the selected `lore/packs/<pack_id>/` index and seeds Honcho from accepted peer-card artifacts.
 4. Runs `seed-honcho` against a fresh workspace to verify end-to-end.

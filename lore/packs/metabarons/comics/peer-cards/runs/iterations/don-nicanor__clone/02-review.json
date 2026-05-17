@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close, but not ready: at least one Honcho fact uses source-facing wording, and two boundary facts still reveal protected convergence outcomes."
+  ],
+  "format_errors": [
+    "`RELATIONSHIP: melmoth... the source records do not establish...` violates the no source refs/source-facing language rule inside card facts."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace the Melmoth relationship with in-world boundary language, e.g. that Melmoth is his son-in-law and restorer, while Don Nicanor's understanding of the killing/restoration contradiction is unestablished.",
+    "Soften the public voice fact to what is witnessed: he presents as formal, ideological, and presidential; do not assert how he experiences recovery unless framed as unestablished.",
+    "Rewrite the two BOUNDARY facts so they protect convergence without naming restored recognition, extracted consent, the specific sacrifices, or resolved outcomes. Keep only the durable pressure pattern: visible irreversible cost can break through his certainty."
+  ],
+  "unsupported_claims": [
+    "`VOICE: Public register... does not sound recovered because he does not experience himself as recovering` asserts Don Nicanor's self-understanding. The bundle supports public coherence alongside private memory fracture, but not his internal experience of recovery.",
+    "`BOUNDARY: The specific act and its logic by which private recognition is restored...` encodes the restored-recognition outcome as a Honcho fact, even while trying to protect the scene.",
+    "`BOUNDARY: The specific sacrifice that extracted consent from him...` encodes the later consent outcome as a Honcho fact; that resolved beat should remain for play."
+  ]
+}

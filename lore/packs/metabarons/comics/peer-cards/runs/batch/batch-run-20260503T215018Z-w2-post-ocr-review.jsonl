@@ -1,0 +1,5 @@
+{"accepted_existing": 19, "event": "batch_start", "partials_first": ["the-oiders"], "pending": 94, "ts": "2026-05-03T21:50:18.567588+00:00", "workers": 2}
+{"event": "start", "peer_id": "the-oiders", "ts": "2026-05-03T21:50:18.568386+00:00"}
+{"event": "start", "peer_id": "iko-itta", "ts": "2026-05-03T21:50:18.568448+00:00"}
+{"elapsed_seconds": 154.3, "event": "done", "peer_id": "the-oiders", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/the-oiders/card.json\n", "ts": "2026-05-03T21:52:52.873026+00:00"}
+{"event": "start", "peer_id": "ik-uta", "ts": "2026-05-03T21:52:52.875828+00:00"}

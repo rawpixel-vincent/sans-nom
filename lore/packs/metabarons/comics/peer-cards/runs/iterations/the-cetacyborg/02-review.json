@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because several Honcho facts use evidence/source-meta framing instead of in-world card facts.",
+    "Card includes at least one unsupported/wiki-derived embellishment for this source bundle: `resembling a cosmic whale` is not supported by the provided extracted Cetacyborg record."
+  ],
+  "format_errors": [
+    "Card is a list of strings under 40 facts with no duplicates found, but several facts contain source/evidence-facing wording: `attested`, `recorded encounter`, `confirmed defeat method`, and `This peer record is bounded...`.",
+    "`BOUNDARY: This peer record...` is Honcho/source metadata inside a card fact, violating the no source refs/source-meta rule."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful minor-entity card once the source-meta wording and wiki-derived whale comparison are removed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `resembling a cosmic whale` with source-grounded wording such as `colossal living bio-mechanical vessel` or `colossal organic-mechanical body`.",
+    "Rewrite evidence-facing boundaries as in-world operational constraints. For example: `BOUNDARY: The Cetacyborg has no known speech or negotiation behavior; its known command structure centers on the servo-brain.`",
+    "Replace `This peer record is bounded...` with an in-world boundary such as: `BOUNDARY: One Cetacyborg was destroyed by Othon from within; seven additional Cetycoborgs were later detected approaching Okhar, with no destruction or neutralization established here.`",
+    "Avoid `attested`, `confirmed`, and `peer record` in card facts; keep source-boundary explanations in `source_strategy` only."
+  ],
+  "unsupported_claims": [
+    "`ROLE: ...resembling a cosmic whale...` appears imported from wiki orientation rather than the provided source record; the extracted source supports a colossal bio-mechanical/living vessel, not the whale comparison.",
+    "`no individual speech or personal volition is attested` overreaches. The bundle supports no recorded speech/voice notes and a servo-brain command node, but it does not establish absence of personal volition as an in-world fact.",
+    "`do not portray this entity as capable of dialogue or autonomous motivation` should be softened: dialogue is unsupported, but autonomous motivation is not definitively resolved by the source bundle."
+  ]
+}

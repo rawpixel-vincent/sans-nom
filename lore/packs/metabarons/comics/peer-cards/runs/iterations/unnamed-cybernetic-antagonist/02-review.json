@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready because two BOUNDARY facts contain source-facing language inside the Honcho card. Facts must be in-world and must not mention the source, source bundle, or two-page scene."
+  ],
+  "format_errors": [
+    "Card is a list of 20 strings under the 40-fact limit, uses otherwise allowed prefixes, and has no duplicates found.",
+    "BOUNDARY: The origin of his machine state is not established in the source; do not invent prior allegiance, organizational membership, or biography beyond the two-page scene. This violates the no source refs/source-meta rule.",
+    "BOUNDARY: His accusation that his humanity was taken is raw feeling in the source... This violates the no source refs/source-meta rule."
+  ],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful card once the two source-facing BOUNDARY facts are corrected."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the machine-origin boundary in-world, for example: BOUNDARY: No confirmed origin for his machine state, prior allegiance, organization, or biography beyond the hostage-torture confrontation.",
+    "Rewrite the accusation boundary without source-facing language or verdict language, for example: BOUNDARY: His claim that his humanity was taken is an active grievance, not proven history; keep both the wound-shape and the uncertainty intact.",
+    "Keep the compact source-grounded shape otherwise; the draft has fixed the major overbuilt doctrine issues from the previous review."
+  ],
+  "unsupported_claims": [
+    "BOUNDARY: His accusation that his humanity was taken is raw feeling in the source, however distorted its target; do not reduce him to pure tactical function. This both uses source-facing language and implies a verdict on the accusation's distortion that the bundle does not establish."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid: 36 list-string facts, under the 40-fact cap, using the observed allowed prefixes with no duplicate facts or source references inside the card facts.",
+    "Source handling is appropriately bounded for a merged group-role card: it keeps the ordinary witches/priestesses separate from Mother Superior, splits Aghnar relationship targets correctly, and distinguishes the Aghnar-era Sama-Wajd program from the later four-survivor remnant phase."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

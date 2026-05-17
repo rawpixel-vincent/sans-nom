@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts overstate thin source boundaries for a singleton card based only on a cover image and one framing-dialogue page."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "The useful source-supported fact that the robots distinguish ordinary prostheses from the Metabaron's more significant cranial and brain modifications could be retained without expanding into later biography.",
+    "The card can lean more cleanly into the indirection: human master, absent catalyst, admired bionic body, unpredictable meta-warrior, no direct speech."
+  ],
+  "revision_instructions": [
+    "Remove or soften unsupported unknown-location claims; use `current actions and motives are unconfirmed` instead.",
+    "Change `not a birth condition or accident` to `not a birth condition; Tonto links them to meta-warrior initiation` or equivalent.",
+    "Change the cover-derived visual trait to preserve ambiguity around cybernetic versus armored/equipment components.",
+    "After those edits, keep the Othon relationship pointed at canonical peer id `othon-von-salza`; that part is correct."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: absent when his servants speak of him; current whereabouts unknown to them` is not supported. The source supports that he is absent during the conversation, but not that Tonto and Lothar do not know where he is.",
+    "`INSTRUCTION: ... his current motives, location, and actions during the absence are unknown...` overstates unknown location. Keep the boundary to unshown/unconfirmed current actions and motives unless the source states they lack location knowledge.",
+    "`TRAIT: bionic augmentations are products of the meta-warrior initiation tradition, not a birth condition or accident` adds `not ... accident`. The page supports not born that way and linked to initiation; it does not separately establish accident/non-accident framing.",
+    "`TRAIT: ... cybernetic components visible at shoulder and arm` is too certain from the cover page, whose summary leaves the visible parts ambiguous as cybernetic, armored, or equipment. Rephrase as mechanical/cybernetic-or-armored visual components."
+  ]
+}

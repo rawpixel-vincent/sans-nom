@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"context"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -13,6 +14,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/seed"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
+	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
 
 func TestAdminListsStoriesAndReadsDetail(t *testing.T) {
@@ -21,7 +23,7 @@ func TestAdminListsStoriesAndReadsDetail(t *testing.T) {
 	if err := gamelog.NewWriter(ws.Dir, state.StoryID).Append(gamelog.Event{Category: "story", Event: "story.created"}); err != nil {
 		t.Fatal(err)
 	}
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
 	defer server.Close()
 
 	var stories struct {
@@ -37,12 +39,63 @@ func TestAdminListsStoriesAndReadsDetail(t *testing.T) {
 	if detail.State.StoryID != state.StoryID || detail.Bible.Title == "" || detail.Packet == nil || detail.Turns == nil {
 		t.Fatalf("unexpected detail: %#v", detail)
 	}
+	if detail.Summary.GroundLorePackID != "metabarons" || detail.GroundLorePack == nil {
+		t.Fatalf("missing ground lore pack in detail: %#v", detail.Summary)
+	}
+}
+
+func TestAdminListsLorePacks(t *testing.T) {
+	server := httptest.NewServer(NewServer(t.TempDir(), bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Packs []map[string]any `json:"packs"`
+	}
+	getJSON(t, server.URL+"/admin/api/lore-packs", &resp)
+	if len(resp.Packs) == 0 || resp.Packs[0]["id"] != "metabarons" {
+		t.Fatalf("unexpected lore packs: %#v", resp)
+	}
+}
+
+func TestAdminCreateStoryUsesSelectedPack(t *testing.T) {
+	root := t.TempDir()
+	var gotPackID string
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{
+		NewStory: func(_ context.Context, packID string) (storyapp.StorySession, error) {
+			gotPackID = packID
+			ws, state, err := story.InitWorkspace(story.InitOptions{
+				StoryID:              "created-story",
+				Root:                 root,
+				GroundLorePackID:     packID,
+				GroundLoreCollection: story.DefaultGroundLoreCollection,
+				Replace:              true,
+			}, seed.DefaultBundle())
+			if err != nil {
+				return storyapp.StorySession{}, err
+			}
+			return storyapp.ResumeStory(context.Background(), state.StoryID, storyapp.StoryActionOptions{StoryRoot: ws.Root})
+		},
+	}))
+	defer server.Close()
+
+	resp, err := http.Post(server.URL+"/admin/api/stories", "application/json", strings.NewReader(`{"ground_lore_pack_id":"metabarons"}`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		t.Fatalf("expected 200, got %s: %s", resp.Status, body)
+	}
+	if gotPackID != "metabarons" {
+		t.Fatalf("pack id = %q", gotPackID)
+	}
 }
 
 func TestAdminRejectsPathTraversal(t *testing.T) {
 	root := t.TempDir()
 	_, state := createAdminStory(t, root)
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
 	defer server.Close()
 
 	resp, err := http.Get(server.URL + "/admin/api/stories/" + state.StoryID + "/file?path=../state.json")
@@ -58,7 +111,7 @@ func TestAdminRejectsPathTraversal(t *testing.T) {
 func TestAdminControlRequiresConfirmation(t *testing.T) {
 	root := t.TempDir()
 	_, state := createAdminStory(t, root)
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
 	defer server.Close()
 
 	resp, err := http.Post(server.URL+"/admin/api/stories/"+state.StoryID+"/control/rebuild-index", "application/json", strings.NewReader(`{"confirm":false}`))
@@ -74,7 +127,7 @@ func TestAdminControlRequiresConfirmation(t *testing.T) {
 func TestAdminRebuildIndexEmitsControlLog(t *testing.T) {
 	root := t.TempDir()
 	ws, state := createAdminStory(t, root)
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
 	defer server.Close()
 
 	resp, err := http.Post(server.URL+"/admin/api/stories/"+state.StoryID+"/control/rebuild-index", "application/json", strings.NewReader(`{"confirm":true}`))
@@ -97,7 +150,7 @@ func TestAdminRebuildIndexEmitsControlLog(t *testing.T) {
 func TestAdminDeleteStoryRequiresTypedConfirmation(t *testing.T) {
 	root := t.TempDir()
 	_, state := createAdminStory(t, root)
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
 	defer server.Close()
 
 	resp, err := http.Post(server.URL+"/admin/api/stories/"+state.StoryID+"/control/delete-story", "application/json", strings.NewReader(`{"confirm":true,"story_id_confirmation":"wrong"}`))
@@ -134,7 +187,7 @@ func TestAdminDeleteStoryRemovesLocalAndExternal(t *testing.T) {
 		})
 	}))
 	defer bridgeServer.Close()
-	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient(bridgeServer.URL, ""), "", nil))
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient(bridgeServer.URL, ""), "", Callbacks{}))
 	defer server.Close()
 
 	resp, err := http.Post(server.URL+"/admin/api/stories/"+state.StoryID+"/control/delete-story", "application/json", strings.NewReader(`{"confirm":true,"story_id_confirmation":"admin-story"}`))
@@ -159,7 +212,8 @@ func createAdminStory(t *testing.T, root string) (story.Workspace, story.StorySt
 	ws, state, err := story.InitWorkspace(story.InitOptions{
 		StoryID:              "admin-story",
 		Root:                 root,
-		GlobalLoreCollection: story.DefaultGlobalLoreCollection,
+		GroundLorePackID:     "metabarons",
+		GroundLoreCollection: story.DefaultGroundLoreCollection,
 		Replace:              true,
 	}, seed.DefaultBundle())
 	if err != nil {

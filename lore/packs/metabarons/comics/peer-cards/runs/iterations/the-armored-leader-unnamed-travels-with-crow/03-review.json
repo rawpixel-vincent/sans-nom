@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One Honcho fact contains source-facing metadata: BOUNDARY uses \"source record explicitly identifies him,\" which violates the no source refs/source-meta rule inside card facts.",
+    "The ROLE fact overstates the Crow relationship by saying destruction, navigation, and tactical orders are issued through Crow. The bundle supports the destruction order, and separately supports navigation/tactical orders to Crow."
+  ],
+  "format_errors": [
+    "Card is a list of 14 strings under the 40-fact cap with no duplicates, but one fact uses source-facing metadata inside the card text."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful source-bounded card."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the final boundary without source-meta wording, e.g. \"BOUNDARY: Do not merge him with any same-title, armored, imperial, or Metabaron-lineage figure unless he is directly named as that person.\"",
+    "Rewrite the ROLE fact to keep the orders separate, e.g. \"ROLE: Commands from a shipboard military position, ordering Flos destroyed and giving Crow navigation and tactical orders.\""
+  ],
+  "unsupported_claims": [
+    "ROLE: Commands from the shipboard position of a military leader, issuing destruction, navigation, and tactical orders through Crow."
+  ]
+}

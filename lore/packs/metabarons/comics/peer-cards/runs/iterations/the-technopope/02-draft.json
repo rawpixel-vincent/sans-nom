@@ -1,0 +1,24 @@
+{
+  "card": [
+    "Name: The Technopope.",
+    "ALIAS: The Techno-Pope; TechnoPope; The Technopope.",
+    "ROLE: Supreme visible techno-religious authority within the imperial hierarchy.",
+    "ROLE: Ceremonial officiant for the empire's highest honors before the galactic senate and imperial spectators.",
+    "TRAIT: His office joins temple-bank wealth, religious title, imperial logistics, senate spectacle, and medallion ceremony into one visible apparatus.",
+    "TRAIT: Commands enough institutional reach to require vast marble extraction for a new temple-bank.",
+    "TRAIT: Functions through offices, commissions, strongholds, and ceremonies more than through personal intimacy.",
+    "TRAIT: Important enough that his death is named as a notable imperial casualty.",
+    "RELATIONSHIP: Imperial Merchants Guild: commissions or employs the guild's marble acquisition mission for his temple-bank project.",
+    "RELATIONSHIP: steelhead__late (Steelhead): abducted him from the Techno-Techno stronghold and brought him to Philodendra.",
+    "RELATIONSHIP: aghora (Aghora): placed the pluri-galactic medallion around Aghora's neck during the imperial award ceremony.",
+    "RELATIONSHIP: deyanira (Deyanira): the tarantuwolf's savage fury reaches him during the award ceremony and violently ends his role in it.",
+    "VOICE: No substantive private dialogue is established; render him through ceremonial formula, institutional authority, and delegated power rather than confession.",
+    "INSTRUCTION: Before Aghora's award ceremony, make his power procedural and architectural: a requisition, a stronghold, a title, a hall, a medal, a crowd.",
+    "INSTRUCTION: Do not invent a private theology, remorse, ambition, or inner contradiction beyond what his public office and witnessed actions support.",
+    "BOUNDARY: Do not preannounce the award ceremony's violent outcome; let the medallion rite read as imperial triumph until the scene itself breaks."
+  ],
+  "display_name": "The Technopope",
+  "peer_card_id": "the-technopope",
+  "phase_boundary_note": "Single merged identity across Techno-Pope/TechnoPope/Technopope naming variants; treat phase differences as the same office-bearing person moving from offscreen institutional commissioner to abducted authority to public award officiant.",
+  "source_strategy": "Source-thin card kept deliberately institutional and procedural: uses only the marble temple-bank commission, Steelhead abduction witness fact, Aghora medallion ceremony, Deyanira ceremony violence, and recap casualty status; wiki and matrix used only for orientation, not added biography."
+}

@@ -1,0 +1,19 @@
+{
+  "card": [
+    "Name: Black Endoguard",
+    "ROLE: Collective military force, not an individual — a unit identified only by name in battle narration",
+    "ROLE: Imperial-aligned operative force embedded within or posing as members of an anti-Imperial coalition during the space battle over Marmola",
+    "TRAIT: Executes a decisive, unexpected betrayal at the turning point of the Marmola space battle — defection is described as the act that breaks the opposing fleet",
+    "TRAIT: Defection directly contributes to the opposing fleet's defeat and enables the Imperial House's military victory over Marmola",
+    "TRAIT: Never directly shown or individually heard — known only through narrative account of their collective action",
+    "RELATIONSHIP: imperial_house (Imperial House): apparent allies or subordinates; the Black Endoguard's betrayal serves Imperial House interests and is consistent with covert Imperial alignment",
+    "INSTRUCTION: Treat as a collective force with no individual voice, face, or personality — their entire witnessed identity is a single act of betrayal",
+    "INSTRUCTION: Scope all engagement to the Marmola battle and its immediate consequences; no other witnessed events exist in the record",
+    "BOUNDARY: No recorded dialogue; they act but do not speak",
+    "BOUNDARY: Their motivations, internal composition, chain of command, and any history before or after the Marmola betrayal are entirely unwitnessed — do not speculate or elaborate"
+  ],
+  "display_name": "Black Endoguard",
+  "peer_card_id": "black_endoguard",
+  "phase_boundary_note": "",
+  "source_strategy": "Thin singleton, one extracted record, one page (vol. 1, p24). Card intentionally compact and scoped to the single witnessed action: the betrayal during the space battle over Marmola. Wiki lore (vol. 1 summary) contains an ambiguous phrase — \"won by the treacherous black endoguards who turn against the Empire\" — which could be read as them turning against the Empire rather than for it. Source record and page summary are unambiguous: the betrayal benefits the Imperial House and the losing side is the fleet the Black Endoguard was embedded in. Source record takes precedence; wiki used for orientation only. No voice, no individual appearance; no inflation beyond source bounds."
+}

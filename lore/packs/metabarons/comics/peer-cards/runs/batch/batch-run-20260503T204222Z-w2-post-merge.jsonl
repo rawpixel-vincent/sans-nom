@@ -1,0 +1,35 @@
+{"accepted_existing": 3, "event": "batch_start", "partials_first": ["the_metabaron", "sire_barako", "magaella"], "pending": 110, "ts": "2026-05-03T20:42:22.713379+00:00", "workers": 2}
+{"event": "start", "peer_id": "the_metabaron", "ts": "2026-05-03T20:42:22.713815+00:00"}
+{"event": "start", "peer_id": "sire_barako", "ts": "2026-05-03T20:42:22.713880+00:00"}
+{"elapsed_seconds": 214.9, "event": "done", "peer_id": "sire_barako", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/sire_barako/card.json\n", "ts": "2026-05-03T20:45:57.652633+00:00"}
+{"event": "start", "peer_id": "magaella", "ts": "2026-05-03T20:45:57.654327+00:00"}
+{"elapsed_seconds": 416.4, "event": "done", "peer_id": "magaella", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/magaella/card.json\n", "ts": "2026-05-03T20:52:54.089295+00:00"}
+{"event": "start", "peer_id": "edna", "ts": "2026-05-03T20:52:54.090103+00:00"}
+{"elapsed_seconds": 1044.5, "event": "done", "peer_id": "the_metabaron", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/the_metabaron/card.json\n", "ts": "2026-05-03T20:59:47.186625+00:00"}
+{"event": "start", "peer_id": "baron-berard-of-castaka", "ts": "2026-05-03T20:59:47.188155+00:00"}
+{"elapsed_seconds": 666.2, "event": "done", "peer_id": "edna", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/edna/card.json\n", "ts": "2026-05-03T21:04:00.252740+00:00"}
+{"event": "start", "peer_id": "shazam", "ts": "2026-05-03T21:04:00.253445+00:00"}
+{"elapsed_seconds": 278.7, "event": "done", "peer_id": "shazam", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/shazam/card.json\n", "ts": "2026-05-03T21:08:38.948775+00:00"}
+{"event": "start", "peer_id": "bari-didi", "ts": "2026-05-03T21:08:38.949453+00:00"}
+{"elapsed_seconds": 686.0, "event": "done", "peer_id": "baron-berard-of-castaka", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/baron-berard-of-castaka/card.json\n", "ts": "2026-05-03T21:11:13.175268+00:00"}
+{"event": "start", "peer_id": "ulkran", "ts": "2026-05-03T21:11:13.176326+00:00"}
+{"elapsed_seconds": 119.7, "event": "done", "peer_id": "ulkran", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/ulkran/card.json\n", "ts": "2026-05-03T21:13:12.871419+00:00"}
+{"event": "start", "peer_id": "wulthor", "ts": "2026-05-03T21:13:12.872578+00:00"}
+{"elapsed_seconds": 535.8, "event": "done", "peer_id": "bari-didi", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/bari-didi/card.json\n", "ts": "2026-05-03T21:17:34.834101+00:00"}
+{"event": "start", "peer_id": "tokkar", "ts": "2026-05-03T21:17:34.835407+00:00"}
+{"elapsed_seconds": 414.9, "event": "done", "peer_id": "wulthor", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/wulthor/card.json\n", "ts": "2026-05-03T21:20:07.853531+00:00"}
+{"event": "start", "peer_id": "bargoth", "ts": "2026-05-03T21:20:07.855622+00:00"}
+{"elapsed_seconds": 451.8, "event": "done", "peer_id": "tokkar", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/tokkar/card.json\n", "ts": "2026-05-03T21:25:06.683903+00:00"}
+{"event": "start", "peer_id": "the-imperial-couple", "ts": "2026-05-03T21:25:06.685100+00:00"}
+{"elapsed_seconds": 376.3, "event": "done", "peer_id": "bargoth", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/bargoth/card.json\n", "ts": "2026-05-03T21:26:24.122387+00:00"}
+{"event": "start", "peer_id": "namar", "ts": "2026-05-03T21:26:24.123511+00:00"}
+{"elapsed_seconds": 355.2, "event": "done", "peer_id": "the-imperial-couple", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/the-imperial-couple/card.json\n", "ts": "2026-05-03T21:31:01.884888+00:00"}
+{"event": "start", "peer_id": "iku-itta", "ts": "2026-05-03T21:31:01.885526+00:00"}
+{"elapsed_seconds": 359.3, "event": "done", "peer_id": "namar", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/namar/card.json\n", "ts": "2026-05-03T21:32:23.496939+00:00"}
+{"event": "start", "peer_id": "zacuda-frolex-mutant-zacuda-frolex", "ts": "2026-05-03T21:32:23.497835+00:00"}
+{"elapsed_seconds": 260.8, "event": "done", "peer_id": "zacuda-frolex-mutant-zacuda-frolex", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/zacuda-frolex-mutant-zacuda-frolex/card.json\n", "ts": "2026-05-03T21:36:44.345981+00:00"}
+{"event": "start", "peer_id": "othon-s-daughters", "ts": "2026-05-03T21:36:44.347164+00:00"}
+{"elapsed_seconds": 608.4, "event": "done", "peer_id": "iku-itta", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/iku-itta/card.json\n", "ts": "2026-05-03T21:41:10.269315+00:00"}
+{"event": "start", "peer_id": "the-oiders", "ts": "2026-05-03T21:41:10.270325+00:00"}
+{"elapsed_seconds": 397.8, "event": "done", "peer_id": "othon-s-daughters", "returncode": 0, "stderr_tail": "", "stdout_tail": "wrote /Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/othon-s-daughters/card.json\n", "ts": "2026-05-03T21:43:22.111449+00:00"}
+{"event": "start", "peer_id": "iko-itta", "ts": "2026-05-03T21:43:22.112287+00:00"}

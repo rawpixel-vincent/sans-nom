@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The boundary fact `Do not reveal or steer toward the exact final mutual self-destruction with Aghnar` still encodes the resolved final outcome and pairing as a base-card fact. That culmination must be sequenced through play; keep only a non-final pressure shape such as refusal to capitulate under dishonorable leverage."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Contract shape otherwise passes: card is a list of strings, under 40 facts, uses accepted prefixes, has no markdown/source refs in facts, and has no obvious duplicate facts. The draft also follows the honorata__in-oda split identity and points relationship ids at the correct peer ids."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace the final-outcome boundary with a spoiler-safe boundary that does not name mutual self-destruction with Aghnar.",
+    "Rephrase the host-body contradiction in source-bound terms: Honorata's will acts through Oda's restored body, while Oda's remaining consciousness and consent remain unresolved.",
+    "Narrow dishonor language to treachery, dishonorable leverage, mutilation, and violation of the warrior code."
+  ],
+  "unsupported_claims": [
+    "`psychic domination` and `bodily trespass` are overdetermined moral/mechanical labels for Oda's uncertain host state. The source supports Honorata's spirit/will occupying or supplanting Oda's restored body, while explicitly leaving the mechanics and surviving Oda-consciousness uncertain.",
+    "`victory won by treachery, blackmail, or cowardice` stretches beyond the source. Treachery, dishonorable leverage, and mutilation-as-pressure are supported; cowardice and blackmail should be removed or narrowed."
+  ]
+}

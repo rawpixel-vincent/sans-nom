@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is a 30-item list under the 40-fact cap, uses allowed prefixes, has no exact duplicates, and keeps source-boundary facts in-world.",
+    "Relationship targets match the identity map for this singleton peer: othon-von-salza, oda__princess, honorata__in-oda, steelhead__warrior, and ulritch-the-red.",
+    "The source bundle is sufficient for a useful Aghnar von Salza card; the draft stays within the singleton volume 9 record and preserves unresolved boundaries around the tentacled being, the Pthagurean offer, and the Steelhead duel."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

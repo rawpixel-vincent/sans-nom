@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because it imports too much outcome knowledge into the base Honcho facts. `RELATIONSHIP: aghnar__warrior...engineered it as the mechanism of Jejoh's destruction`, `Jejoh's certainty was the precondition the trap required`, and the `BOUNDARY` fact about his destruction/devouring all steer toward the resolved ending rather than preserving it for play.",
+    "The Shabda-Oud relationship overcorrects the source: `not worshippers but structurally dependent extensions` contradicts or flattens the source support that they treat/invoke Jejoh as godlike religious authority while also depending on his brainwaves.",
+    "Several interior psychology facts exceed the source boundary. The bundle supports godlike treatment, invulnerability, consumption of Aghnar's arm, and baiting; it does not directly support `encountered no force`, `constitutionally unable to experience himself as mortal`, or the fully articulated philosophy that `there is nothing that enters him — only what he takes`. These can be softened into playable pressure behavior, but not stated as hard biography."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful Jejoh card; the problem is overstatement and endpoint leakage, not source insufficiency."
+  ],
+  "missing_opportunities": [
+    "The card should keep Jejoh's useful internal shape, but in source-bounded terms: godlike certainty, external invulnerability, consumption as pressure behavior, and vulnerability only from within, without announcing the trap or final destruction."
+  ],
+  "revision_instructions": [
+    "Remove or rewrite facts that state Jejoh's destruction, Aghnar's trap mechanism, or devouring as his undoing. Keep the ending out of the base card.",
+    "Rewrite `RELATIONSHIP: shabda-oud-witches` to include both worship/deity framing and structural psychic dependence; do not deny that they function as worshippers or religious subordinates.",
+    "Soften unsupported interior claims into Honcho-playable tendencies: `acts as though no outside force can touch him` is safer than fixed claims about his full self-knowledge or entire past experience.",
+    "Remove `psychic attack` from the invulnerability fact unless a source in the bundle explicitly supports it.",
+    "Keep relationship ids as `shabda-oud-witches` and `aghnar__warrior`; those match the identity map for this split."
+  ],
+  "unsupported_claims": [
+    "`direct physical and psychic attack cannot breach his surface` adds psychic-attack immunity; the provided records support direct physical attacks/external impenetrability, not a separate psychic-attack claim.",
+    "`the order's power, coherence, and fighting capacity are entirely an expression of his continued existence` is slightly overstated. The source supports psychic power and catastrophic fighting-force collapse, but `coherence` should be avoided unless grounded elsewhere.",
+    "`not worshippers but structurally dependent extensions` is unsupported and conflicts with the religious/deity framing in the source bundle."
+  ]
+}

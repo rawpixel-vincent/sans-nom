@@ -72,7 +72,7 @@ func TestBuildSeedContextDoesNotInjectStaticFixture(t *testing.T) {
 	retriever := &seedContextRetriever{hits: []lore.Snippet{{
 		ID:     "wiki_lore:bushitaka",
 		Kind:   "wiki_lore",
-		Source: "lore/canon/wiki/lore.md",
+		Source: "lore/packs/metabarons/wiki/lore.md",
 		Score:  0.9,
 		Text:   "A binding law works when the world reacts through belief, consequence, and social pressure.",
 	}}}

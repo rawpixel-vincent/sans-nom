@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several Honcho facts use source-facing metadata instead of in-world card language: `VOICE: No direct dialogue is captured in the surviving source bundle`, `INSTRUCTION: Keep Janus-Jana source-bounded... source records`, and `BOUNDARY: ... current source records`. This violates the no source refs/source-meta rule for facts.",
+    "`RELATIONSHIP: Othon... later continuity treats Janus-Jana as the same entity who becomes Emperoress` is source/continuity-facing phrasing inside a card fact. The identity merge is correct, but the fact should be phrased from the character/world state rather than as continuity commentary."
+  ],
+  "format_errors": [
+    "Card is a list of 23 strings, under the 40-fact cap, with allowed prefixes and no duplicates. The blocking format issue is source-meta wording inside card facts."
+  ],
+  "manual_review_notes": [
+    "The source bundle can support a useful card. The draft otherwise respects the merged Janus-Jana identity and correctly handles her as source-thin in direct voice but significant as imperial authority and political pressure."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing facts into in-world boundaries, e.g. `VOICE: No direct speech is established; play her through command context, ceremonial presence, and what others risk around her.`",
+    "Rewrite the source-boundary instruction without `source records`, e.g. `INSTRUCTION: Keep Janus-Jana bounded to the sacred androgyne/empress identity; do not import other Empress figures, private motives, or unsignaled later biography.`",
+    "Rewrite the Othon relationship without continuity-meta, e.g. `RELATIONSHIP: Othon: stole the sacred egg during its guarded transport in her imperial-heir phase.`"
+  ],
+  "unsupported_claims": []
+}

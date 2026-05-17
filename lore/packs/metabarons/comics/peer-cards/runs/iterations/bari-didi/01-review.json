@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because it uses source-facing/source-reference language inside Honcho facts instead of in-world card facts.",
+    "The Bari ambiguity is encoded as an ALIAS, which risks merging or overriding the identity-map split between peer `bari-didi` and the separate peer `bari`."
+  ],
+  "format_errors": [
+    "Facts include source-facing wording or source refs: `Volume 2`, `source volume`, `source does not confirm`, and `attested`. Honcho card facts should not carry source refs or extraction-facing language.",
+    "The draft otherwise satisfies the deterministic shape requirements: `card` is a list of strings, has 10 facts, uses allowed prefixes, has no markdown, and no obvious duplicates."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove the `ALIAS: Bari` fact or convert it to a `BOUNDARY` that says the Bari connection is unresolved and must not be merged with peer `bari`.",
+    "Rewrite source-facing facts into in-world boundaries, e.g. no confirmed visual presence, direct speech, independent agency, birth circumstances, personal history, or current status.",
+    "Keep the `RELATIONSHIP: othon-von-salza` fact; that peer id is the correct relationship target for Othon."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: Bari — possibly identical to the Castaka heir Bari named in earlier lineage; ambiguity is unresolved in the source volume` promotes an unresolved ambiguity into an alias. The source supports uncertainty, not a confirmed alias."
+  ]
+}

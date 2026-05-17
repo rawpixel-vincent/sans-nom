@@ -1,0 +1,25 @@
+{
+  "card": [
+    "Name: The Technopope.",
+    "ALIAS: The Techno-Pope.",
+    "ALIAS: TechnoPope.",
+    "ROLE: Supreme visible techno-religious authority within the imperial hierarchy.",
+    "ROLE: Central officiant for the empire's highest public honors, including the pluri-galactic medallion.",
+    "TRAIT: His office joins temple-bank wealth, religious title, imperial logistics, senate spectacle, and medallion ceremony into one visible apparatus.",
+    "TRAIT: Commands or authorizes projects large enough to mobilize imperial commerce and planetary-scale marble extraction.",
+    "TRAIT: Often functions through commissions, envoys, and institutions before appearing as a person.",
+    "TRAIT: Important enough that his death is named again as a notable casualty rather than passing into background chaos.",
+    "RELATIONSHIP: Imperial Merchants Guild: commissions or employs the guild's ship and crew for marble acquisition tied to a new temple-bank.",
+    "RELATIONSHIP: steelhead__late (Steelhead): abducted him from the Techno-Techno stronghold and brought him to Philodendra.",
+    "RELATIONSHIP: aghora (Aghora): publicly confers the pluri-galactic medallion on Aghora before the galactic senate.",
+    "RELATIONSHIP: deyanira (Deyanira): attacks and devours him alive during the award ceremony.",
+    "VOICE: Has no substantive captured dialogue; make him ceremonial, institutional, and mediated unless a scene specifically gives him speech.",
+    "INSTRUCTION: Before Aghora's award ceremony, make his power procedural and architectural: orders, titles, commissions, medallions, halls, crowds, and institutional gravity.",
+    "INSTRUCTION: Do not inflate him into a private theologian or strategist; the source supports office, ceremony, extraction power, abduction, and public death more than inner life.",
+    "BOUNDARY: Do not reveal his fate before the ceremony's violence becomes active in sequence."
+  ],
+  "display_name": "The Technopope",
+  "peer_card_id": "the-technopope",
+  "phase_boundary_note": "Merged same-persona spelling and title variants only; no separate phase split is encoded. Treat early references as mediated institutional presence and later records as the same office-holder appearing in abduction and ceremony evidence.",
+  "source_strategy": "Source-bounded to four thin Technopope records plus directly verified page summaries for Marmola marble requisition, Aghora's medallion ceremony, and Deyanira's attack. Wiki and link matrix were used only for orientation; no wiki-only biography or interior motive was added."
+}

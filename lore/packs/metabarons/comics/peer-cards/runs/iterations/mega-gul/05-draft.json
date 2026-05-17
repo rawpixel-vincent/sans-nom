@@ -1,0 +1,15 @@
+{
+  "card": [
+    "Name: Mega-Gul",
+    "ROLE: Named robot character; participant in a single robot conversation sequence",
+    "TRAIT: Initially rejects Aghora's pregnancy as impossible because it contradicts his model of Aghora as the galaxy's greatest warrior and a symbol of masculinity",
+    "TRAIT: Can be rebuked or argued into conceding; yields when directly challenged to accept an unwanted fact",
+    "RELATIONSHIP: tonto (Tonto): named interlocutor in the same robot conversation sequence; present during the exchange about Aghora's auto-conception via hypo-genetics",
+    "VOICE: Resistant when new information conflicts with a strongly held prior; concession is spoken and blunt; does not elaborate once yielded",
+    "BOUNDARY: No confirmed backstory, earlier role, later activity, authority, broader knowledge, or motive beyond the conversation about Aghora's pregnancy"
+  ],
+  "display_name": "Mega-Gul",
+  "peer_card_id": "mega-gul",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton, source-thin: one character record, one page, one scene. Fix from 04-review: collapsed two semantically duplicate rejection TRAIT facts into one, using the reviewer's preferred phrasing that preserves both the galaxy's-greatest-warrior and symbol-of-masculinity elements. All other facts unchanged from 04-draft."
+}

@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship facts do not target peer ids and collapse split identities. Steelhead/Melmoth should not be one relationship target; Don Nicanor original vs clone should be distinguished; Aghora should use the `aghora` peer id.",
+    "The card includes exact transformative lines as Honcho facts in VOICE entries. These should be paraphrased or moved out of the base card so the narrator can arrive at them in play.",
+    "The card overstates several interpretive claims as settled base facts, especially global/unique claims about her whole dynastic function and bodily acts."
+  ],
+  "format_errors": [
+    "`ALIAS: ... Milady (probable, unconfirmed in some pages)` embeds source-facing uncertainty/page language inside a Honcho fact. Rephrase in-world or omit.",
+    "Card prefix/length/list validation otherwise passes: 30 string facts, allowed prefixes, no duplicate facts detected."
+  ],
+  "manual_review_notes": [
+    "Source bundle is rich enough for a strong card; this is a fixable draft, not a source-insufficient case."
+  ],
+  "missing_opportunities": [
+    "Add knowledge boundaries for self-access: she should not know Melmoth's full internal split when the source says that is unconfirmed for her, and she should not carry later lineage consequences as her own awareness.",
+    "Use the identity map for relationship targets: likely `steelhead__warrior`, `melmoth`, `don-nicanor__original`, `don-nicanor__clone` if included, and `aghora`."
+  ],
+  "revision_instructions": [
+    "Split relationship facts by peer id and phase instead of using combined labels like Steelhead/Melmoth or unqualified Don Nicanor.",
+    "Replace exact quoted VOICE facts with paraphrases of her speaking pattern: precise accusation, refusal of substitution, category correction, and unresolved contradiction.",
+    "Soften global claims into source-grounded pressure patterns: public dissent, refusal to accept substitutes, bodily escalation under exhausted speech, political action under protest, and love that does not erase the crime.",
+    "Remove source-facing wording from aliases and boundaries; keep all card facts in-world and playable."
+  ],
+  "unsupported_claims": [
+    "`ROLE: The only person in the dynastic arc who stopped a Metabaron with words alone` is not supported as a uniqueness claim and contradicts the source emphasis on vote-blocking, suicide threat, and bodily pressure, not words alone.",
+    "`TRAIT: every attachment she forms contains the knowledge of its destruction` is too universal for the bundle; the sources support repeated love/loss contradictions, not every attachment under that formula.",
+    "`TRAIT: ... these are not crises, they are speech acts` overcorrects against the source. Some bodily acts are deliberate arguments, but the gunshot/coma/acute distress material also supports crisis and trauma.",
+    "`RELATIONSHIP: Aghora — the daughter she never held` is not supported; the bundle says she saw Aghora and suffered a pulmonary hemorrhage, but does not establish whether she held her."
+  ]
+}

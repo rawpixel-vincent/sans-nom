@@ -36,7 +36,7 @@ func TestBridgeRetrieverSearchMapsSnippets(t *testing.T) {
 	client := &fakeBridgeSearchClient{resp: bridgeclient.LoreSearchResponse{Snippets: []bridgeclient.LoreSnippet{{
 		DocID:       "peer_card:lothar",
 		Text:        "Lothar is Steelhead.",
-		SourcePath:  "lore/canon/comics/peer-cards/cards/accepted/lothar.json",
+		SourcePath:  "lore/packs/metabarons/comics/peer-cards/cards/accepted/lothar.json",
 		Score:       0.9,
 		Kind:        "peer_card",
 		PeerID:      "lothar",

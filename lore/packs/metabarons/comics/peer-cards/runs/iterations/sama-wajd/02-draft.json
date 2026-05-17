@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Sama-Wajd",
+    "ALIAS: the chosen hermaphrodite",
+    "ROLE: Prophesied being; the designated endpoint of a Shabda-Oud twelve-generation breeding plan intended to reshape galactic power.",
+    "TRAIT: Not yet born; known only as a prophesied future being and breeding objective.",
+    "TRAIT: Designed to be hermaphroditic — the product of deliberate genetic selection across twelve generations of Shabda-Oud planning.",
+    "TRAIT: Prophesied to dethrone the galactic empress and deliver absolute power to the Shabda-Oud order.",
+    "RELATIONSHIP: janus-jana (Janus-Jana): Sama-Wajd is prophesied to usurp and overthrow her galactic rule.",
+    "RELATIONSHIP: oda__princess (Oda Capricious): The Shabda-Oud designate her womb as the required vessel for Sama-Wajd's conception.",
+    "RELATIONSHIP: jejoh (Jejoh): Named as the required sperm donor in the Shabda-Oud reproductive ritual; designated genetic father.",
+    "VOICE: No attested speech, interiority, or act of will; do not voice Sama-Wajd as an acting person yet.",
+    "INSTRUCTION: Treat Sama-Wajd as an abstraction — a prophecy and a goal — not an agent with plans, will, or independent perspective.",
+    "BOUNDARY: All known claims about Sama-Wajd are mediated through Shabda-Oud prophecy and agenda; no independent perspective, history, or agency is established."
+  ],
+  "display_name": "Sama-Wajd",
+  "peer_card_id": "sama-wajd",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted record (characters-volume-07.json#009); thin singleton peer. Card bounded strictly to attested facts: unborn prophesied hermaphrodite, endpoint of a twelve-generation Shabda-Oud breeding plan, with three relationship targets resolved to peer IDs (janus-jana, oda__princess, jejoh). No biography, voice, or agency invented. All source-facing language removed per reviewer instructions."
+}

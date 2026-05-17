@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: it overstates Magaella's social status, prior knowledge, and voice beyond the single extracted record/page support."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "The card could preserve the strongest supported material by keeping her as a named, helmeted witness at the Epyphite reservoir overlook and tightening the knowledge boundary to location/scale only."
+  ],
+  "revision_instructions": [
+    "Remove the unsupported `not a Castaka noble` claim or rephrase to the supported `helmeted female-presenting attendant or companion`.",
+    "Replace the speculative voice fact with a narrower boundary: no recorded dialogue/voice beyond visual amazement and witness function.",
+    "Change the prior-knowledge instruction to: `do not grant her prior knowledge of the Epyphite's location or scale before the overlook`.",
+    "Avoid exact party-size language unless directly sourced."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Wears a helmet during the overlook visit; attire and role mark her as an escort-party attendant, not a Castaka noble` is unsupported. The source supports helmeted female-presenting attendant or companion; it does not establish that she is not a Castaka noble.",
+    "`VOICE: When she speaks...` is unsupported because the source says she is not extensively quoted and is mainly a named visual/reactive witness; no speaking register is established.",
+    "`she carries no prior familiarity with the Epyphite before this scene` overstates the knowledge boundary. The source supports that she gains knowledge of the Epyphite's location and scale during p14, not that she had no prior familiarity of any kind.",
+    "`ROLE: ...member of a small escorted party...` slightly over-specifies the party size. The source only says she is part of the same escorted party as an unnamed father figure."
+  ]
+}

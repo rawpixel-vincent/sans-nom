@@ -26,6 +26,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
@@ -50,7 +51,7 @@ func main() {
 	seedOutput := flag.String("seed-output", "", "optional path for generated seed bundle output")
 	storyID := flag.String("story-id", "", "create or resume a durable story id")
 	storyRoot := flag.String("story-root", story.DefaultRoot, "root directory for durable story state")
-	globalLoreCollection := flag.String("global-lore-collection", story.DefaultGlobalLoreCollection, "global source-lore Qdrant collection")
+	groundLorePackID := flag.String("ground-lore-pack", lorepack.DefaultPackID(), "ground lore pack used for new stories and source-lore search")
 	storyCollection := flag.String("story-collection", "", "story Qdrant collection; defaults from story id")
 	replaceStory := flag.Bool("replace-story", false, "replace an existing durable story directory and seed collection")
 	writerScenarists := flag.Int("writer-scenarists", -1, "optional max call_scenarists requests per tool call; 0 disables; default is provider count")
@@ -72,9 +73,22 @@ func main() {
 	contextText := flag.Bool("context-text", false, "print model-ready context text instead of pretty JSON")
 	flag.Parse()
 	packetExplicit := flagPassed("packet")
+	groundPack, err := lorepack.GetPack(repoRoot(), *groundLorePackID)
+	if err != nil {
+		log.Fatal(err)
+	}
+	groundLoreCollection := groundPack.Collection
+	backend := resolveBackend(*modelBackend, *useClaude)
+	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
 
 	if *loreSearch != "" {
-		if err := runLoreSearch(context.Background(), *bridgeURL, *globalLoreCollection, *loreSearch, *loreK); err != nil {
+		loreBridgeURL := firstNonEmpty(resolvedBridgeURL, bridgeclient.NewClient("", "").BaseURL)
+		stopBridge, err := ensureBridge(context.Background(), "codex", loreBridgeURL)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer stopBridge()
+		if err := runLoreSearch(context.Background(), loreBridgeURL, groundLoreCollection, *loreSearch, *loreK); err != nil {
 			log.Fatal(err)
 		}
 		return
@@ -84,8 +98,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	backend := resolveBackend(*modelBackend, *useClaude)
-	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
 	if *adminMode {
 		if err := runAdmin(context.Background(), adminConfig{
 			Addr:                *adminAddr,
@@ -93,7 +105,8 @@ func main() {
 			BridgeURL:           resolvedBridgeURL,
 			Backend:             backend,
 			CardStore:           cardStore,
-			GlobalCollection:    *globalLoreCollection,
+			GroundLorePackID:    groundPack.ID,
+			GlobalCollection:    groundLoreCollection,
 			StoryCollection:     *storyCollection,
 			ScenaristProvider:   *scenaristProvider,
 			ScenaristModel:      *scenaristModel,
@@ -115,7 +128,8 @@ func main() {
 			BridgeURL:           resolvedBridgeURL,
 			CardStore:           cardStore,
 			StoryRoot:           *storyRoot,
-			GlobalCollection:    *globalLoreCollection,
+			GroundLorePackID:    groundPack.ID,
+			GlobalCollection:    groundLoreCollection,
 			StoryCollection:     *storyCollection,
 			ScenaristProvider:   *scenaristProvider,
 			ScenaristModel:      *scenaristModel,
@@ -150,7 +164,8 @@ func main() {
 		session, err := newStorySession(context.Background(), storyapp.StoryActionOptions{
 			StoryID:              *storyID,
 			StoryRoot:            *storyRoot,
-			GlobalLoreCollection: *globalLoreCollection,
+			GroundLorePackID:     groundPack.ID,
+			GroundLoreCollection: groundLoreCollection,
 			StoryCollection:      *storyCollection,
 			ReplaceStory:         *replaceStory,
 		}, backend, resolvedBridgeURL)
@@ -215,7 +230,7 @@ func main() {
 			Workspace:           workspace,
 			State:               state,
 			Bible:               bible,
-			GlobalCollection:    *globalLoreCollection,
+			GlobalCollection:    sourceLoreCollection(state, groundLoreCollection),
 			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
 			InitialDecision:     decision,
 			Turns:               *turns,
@@ -235,7 +250,7 @@ func main() {
 		return
 	}
 	if *contextPreview != "" {
-		if err := runContextPreview(context.Background(), *contextPreview, *contextText, resolvedBridgeURL, packet, *nodeID, decision, bible, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection), cardStore); err != nil {
+		if err := runContextPreview(context.Background(), *contextPreview, *contextText, resolvedBridgeURL, packet, *nodeID, decision, bible, sourceLoreCollection(state, groundLoreCollection), resolvedStoryCollection(state, *storyCollection), cardStore); err != nil {
 			log.Fatal(err)
 		}
 		return
@@ -245,7 +260,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	assembler := contextAssembler(resolvedBridgeURL, false, cardStore, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection), nil)
+	assembler := contextAssembler(resolvedBridgeURL, false, cardStore, sourceLoreCollection(state, groundLoreCollection), resolvedStoryCollection(state, *storyCollection), nil)
 	narratorContext, err := assembler.AssembleNarrator(context.Background(), contextbundle.BuildRequest{
 		Packet:   packet,
 		NodeID:   *nodeID,
@@ -331,6 +346,7 @@ type launcherConfig struct {
 	BridgeURL           string
 	CardStore           *contextbundle.LocalCardStore
 	StoryRoot           string
+	GroundLorePackID    string
 	GlobalCollection    string
 	StoryCollection     string
 	WriterScenarists    int
@@ -349,6 +365,7 @@ type adminConfig struct {
 	BridgeURL           string
 	Backend             string
 	CardStore           *contextbundle.LocalCardStore
+	GroundLorePackID    string
 	GlobalCollection    string
 	StoryCollection     string
 	WriterScenarists    int
@@ -372,15 +389,25 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 	}
 	defer stopBridge()
 
-	action, err := clitui.Run(ctx, cfg.StoryRoot)
+	action, err := clitui.Run(ctx, cfg.StoryRoot, lorepack.ListPacks)
 	if err != nil {
 		return err
 	}
 	switch action.Kind {
 	case clitui.ActionNewStory:
+		packID := firstNonEmpty(action.GroundLorePackID, cfg.GroundLorePackID, lorepack.DefaultPackID())
+		pack, err := lorepack.GetPack(repoRoot(), packID)
+		if err != nil {
+			return err
+		}
+		groundCollection := cfg.GlobalCollection
+		if groundCollection == "" || pack.ID != cfg.GroundLorePackID {
+			groundCollection = pack.Collection
+		}
 		session, err := newStorySession(ctx, storyapp.StoryActionOptions{
 			StoryRoot:            cfg.StoryRoot,
-			GlobalLoreCollection: cfg.GlobalCollection,
+			GroundLorePackID:     pack.ID,
+			GroundLoreCollection: groundCollection,
 			StoryCollection:      cfg.StoryCollection,
 		}, cfg.Backend, cfg.BridgeURL)
 		if err != nil {
@@ -402,7 +429,7 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 
 func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string) (storyapp.StorySession, error) {
 	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
-		return generateSeedBundle(ctx, backend, bridgeURL, action.GlobalLoreCollection)
+		return generateSeedBundle(ctx, backend, bridgeURL, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection))
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
 		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle, storyLogger(&session.Workspace, &session.State))
@@ -432,9 +459,11 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 		PacketID: session.Packet.ID,
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
-			"title":            session.Bible.Title,
-			"backend":          backend,
-			"story_collection": session.State.StoryCollection,
+			"title":                  session.Bible.Title,
+			"backend":                backend,
+			"ground_lore_pack_id":    session.State.SourceLorePackID(),
+			"ground_lore_collection": session.State.SourceLoreCollection(),
+			"story_collection":       session.State.StoryCollection,
 		},
 	})
 	return session, nil
@@ -447,40 +476,54 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 	}
 	defer stopBridge()
 	bridge := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
-	server := admin.NewServer(cfg.StoryRoot, bridge, filepath.Join("admin", "dist"), func(ctx context.Context, storyID string) error {
-		session, err := storyapp.ResumeStory(ctx, storyID, storyapp.StoryActionOptions{StoryRoot: cfg.StoryRoot})
-		if err != nil {
-			return err
-		}
-		workspace := session.Workspace
-		state := session.State
-		bible := session.Bible
-		refreshCfg := playConfig{
-			Packet:              session.Packet,
-			NodeID:              session.NodeID,
-			Backend:             cfg.Backend,
-			BridgeURL:           cfg.BridgeURL,
-			CardStore:           cfg.CardStore,
-			Workspace:           &workspace,
-			State:               &state,
-			Bible:               &bible,
-			GlobalCollection:    firstNonEmpty(state.GlobalLoreCollection, cfg.GlobalCollection),
-			StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
-			InitialDecision:     state.LastDecision,
-			RefreshWrite:        true,
-			WriterScenarists:    cfg.WriterScenarists,
-			ScenaristProvider:   cfg.ScenaristProvider,
-			ScenaristModel:      cfg.ScenaristModel,
-			ScenaristTools:      cfg.ScenaristTools,
-			ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-			ScenaristRounds:     cfg.ScenaristRounds,
-			Logger:              storyLogger(&workspace, &state),
-		}
-		next, err := refreshPacket(ctx, session.Packet, session.NodeID, state.LastDecision, refreshCfg)
-		if err != nil {
-			return err
-		}
-		return saveCurrentStoryPacket(ctx, refreshCfg, &state, next, entryNodeID(next))
+	server := admin.NewServer(cfg.StoryRoot, bridge, filepath.Join("admin", "dist"), admin.Callbacks{
+		RefreshWriter: func(ctx context.Context, storyID string) error {
+			session, err := storyapp.ResumeStory(ctx, storyID, storyapp.StoryActionOptions{StoryRoot: cfg.StoryRoot})
+			if err != nil {
+				return err
+			}
+			workspace := session.Workspace
+			state := session.State
+			bible := session.Bible
+			refreshCfg := playConfig{
+				Packet:              session.Packet,
+				NodeID:              session.NodeID,
+				Backend:             cfg.Backend,
+				BridgeURL:           cfg.BridgeURL,
+				CardStore:           cfg.CardStore,
+				Workspace:           &workspace,
+				State:               &state,
+				Bible:               &bible,
+				GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
+				StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
+				InitialDecision:     state.LastDecision,
+				RefreshWrite:        true,
+				WriterScenarists:    cfg.WriterScenarists,
+				ScenaristProvider:   cfg.ScenaristProvider,
+				ScenaristModel:      cfg.ScenaristModel,
+				ScenaristTools:      cfg.ScenaristTools,
+				ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+				ScenaristRounds:     cfg.ScenaristRounds,
+				Logger:              storyLogger(&workspace, &state),
+			}
+			next, err := refreshPacket(ctx, session.Packet, session.NodeID, state.LastDecision, refreshCfg)
+			if err != nil {
+				return err
+			}
+			return saveCurrentStoryPacket(ctx, refreshCfg, &state, next, entryNodeID(next))
+		},
+		NewStory: func(ctx context.Context, packID string) (storyapp.StorySession, error) {
+			pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, cfg.GroundLorePackID, lorepack.DefaultPackID()))
+			if err != nil {
+				return storyapp.StorySession{}, err
+			}
+			return newStorySession(ctx, storyapp.StoryActionOptions{
+				StoryRoot:            cfg.StoryRoot,
+				GroundLorePackID:     pack.ID,
+				GroundLoreCollection: firstNonEmpty(pack.Collection, cfg.GlobalCollection),
+				StoryCollection:      cfg.StoryCollection,
+			}, cfg.Backend, cfg.BridgeURL)
+		},
 	})
 	fmt.Printf("Admin UI: http://%s/admin\n", cfg.Addr)
 	return http.ListenAndServe(cfg.Addr, server)
@@ -632,10 +675,6 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	workspace := session.Workspace
 	state := session.State
 	bible := session.Bible
-	globalCollection := cfg.GlobalCollection
-	if state.GlobalLoreCollection != "" {
-		globalCollection = state.GlobalLoreCollection
-	}
 	return playConfig{
 		Packet:              session.Packet,
 		NodeID:              session.NodeID,
@@ -645,7 +684,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		Workspace:           &workspace,
 		State:               &state,
 		Bible:               &bible,
-		GlobalCollection:    globalCollection,
+		GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
 		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
 		Commit:              cfg.Commit,
 		RefreshWrite:        cfg.RefreshWrite,
@@ -675,7 +714,7 @@ const seedInfluenceQuery = "original science fantasy story seed gravity law tabo
 
 func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever {
 	if globalCollection == "" {
-		globalCollection = story.DefaultGlobalLoreCollection
+		globalCollection = story.DefaultGroundLoreCollection
 	}
 	return lore.BridgeRetriever{
 		Client:     bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN")),
@@ -786,7 +825,7 @@ func seedPeerCards(bible story.StoryBible) map[string][]string {
 	}
 	baseBoundaries := []string{
 		"BOUNDARY: Source lore is influence material, not story canon.",
-		"BOUNDARY: Do not import Metabarons canon names, places, factions, or events into the generated story.",
+		"BOUNDARY: Do not import source canon names, places, factions, or events into the generated story.",
 	}
 	narrator := []string{
 		"Name: narrator",
@@ -1262,6 +1301,15 @@ func resolvedStoryCollection(state *story.StoryState, fallback string) string {
 	return ""
 }
 
+func sourceLoreCollection(state *story.StoryState, fallback string) string {
+	if state != nil {
+		if collection := state.SourceLoreCollection(); collection != "" {
+			return collection
+		}
+	}
+	return firstNonEmpty(fallback, story.DefaultGroundLoreCollection)
+}
+
 func storyLogger(workspace *story.Workspace, state *story.StoryState) *gamelog.Writer {
 	if workspace == nil || state == nil {
 		return nil
@@ -1376,7 +1424,7 @@ func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.Lo
 		assembler.Bridge = client
 		var retrievers []lore.Retriever
 		if globalCollection == "" {
-			globalCollection = story.DefaultGlobalLoreCollection
+			globalCollection = story.DefaultGroundLoreCollection
 		}
 		retrievers = append(retrievers, lore.BridgeRetriever{Client: client, Collection: globalCollection, Telemetry: logger})
 		if storyCollection != "" && storyCollection != globalCollection {
@@ -1693,8 +1741,8 @@ func openPacket(path string) (scene.StoryPacket, error) {
 
 func loadCardStore() (*contextbundle.LocalCardStore, error) {
 	return contextbundle.LoadLocalCardStore(
-		filepath.Join("lore", "actors"),
-		filepath.Join("lore", "canon", "comics", "peer-cards", "cards", "accepted"),
+		"",
+		filepath.Join("lore", "packs", "metabarons", "comics", "peer-cards", "cards", "accepted"),
 	)
 }
 

@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is ready to stage: 33 string facts, under the 40-fact cap, observed allowed prefixes, no markdown/source refs in facts, and no duplicates detected.",
+    "The split-phase identity is preserved: Steelhead is framed as the warrior component inside Melmoth, with boundaries against pre-merger independent Steelhead, later resolved Steelhead, and full Melmoth synthesis."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

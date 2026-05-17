@@ -1,0 +1,33 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card uses wiki orientation to destabilize the target identity: the target peer_identity is the single extracted Kiowotai record, but the draft says Kiowotai may be the ape companion. That risks overriding the identity-map entry and importing the same-name Kiawoutai/Kiowotai ambiguity into the wrong peer.",
+    "The ROLE and Magon relationship overstate the prophecy resolution. The source supports that Magon creatures recognize or invoke a Kioka/white-ape prophetic figure, but the draft states Kiowotai fulfilled the prophecy as settled fact while also admitting Kioka is ambiguous.",
+    "The VOICE fact is both source-facing and contradicted by page summaries: Kiowotai has dialogue/actions framed through speech on p12-p13 and p15, so 'No direct speech recorded' and 'defined entirely by physical action' are not ready for staging."
+  ],
+  "format_errors": [
+    "VOICE: No direct speech recorded; defined entirely by physical action and refusal to yield. This is source/meta wording inside a Honcho fact and should be rewritten or removed.",
+    "Relationship facts do not use resolved peer ids where one is available. The ape companion relationship should target the relevant peer id, likely the-ape-companion, if retained."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card if the draft stays honest about the identity ambiguity and avoids using wiki lore to reassign the peer."
+  ],
+  "missing_opportunities": [
+    "Use the thin but concrete source material: curious and insistent about the heights above the domes, sworn brotherhood with the ape companion, floating or lift-assisted movement, clawed combat, and survival after being seized by the giant creature.",
+    "Keep the Kioka/Kiowotai/Kiawoutai ambiguity as a boundary without making this peer possibly become the separate ape-companion peer."
+  ],
+  "revision_instructions": [
+    "Revise the identity boundary to respect peer_identity: Kiowotai is the silver-haired youth/humanoid record for this card; only the name Kioka and possible broader identification with Aghnar should remain uncertain if phrased carefully.",
+    "Replace the opening ROLE with source-grounded wording such as: ROLE: Silver-haired youth or humanoid who pressed to ascend above the mushroom domes, followed the ape companion into dangerous upper territory, and fought through the Magon confrontation.",
+    "Soften the Magon relationship to perceived or possible prophetic recognition, and preserve that Kioka is not conclusively resolved.",
+    "Remove 'world of crushing gravity', 'ancient prophecy', and 'led the ascent' unless supported directly by this source bundle.",
+    "Replace the VOICE fact with a bounded voice/action fact supported by pages, or omit voice entirely if the card cannot make a stable voice claim."
+  ],
+  "unsupported_claims": [
+    "'led the ascent' is wrong or overstated; the source says Kiowotai followed the ape companion upward after pressing to know what lay above the domes.",
+    "'world of crushing gravity' is not supported by the Kiowotai source record supplied for the card and reads like imported wiki context rather than a peer-card fact.",
+    "'fulfilling their ancient prophecy' is too certain; the source supports a Magon legend and ambiguous post-fight invocation, not a fully resolved fulfillment by this peer.",
+    "'Whether Kiowotai is the humanoid combatant or the ape companion' conflicts with the identity-map target, which identifies this peer as the extracted Kiowotai record and keeps the ape companion as a separate record."
+  ]
+}

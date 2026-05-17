@@ -1,0 +1,18 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "One visual detail overstates the source boundary, so the card is not quite ready to stage."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded card: the draft appropriately keeps him to one chamber confrontation, pressure behavior, ant-robot spy exposure, court rejection, and unknown identity/history."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Revise the visual trait to preserve uncertainty, e.g. `TRAIT: bald; dressed in dark clothing or armor; arrives by descending from the dome ceiling on a giant spider-like mount or machine`."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: bald; dark armor; arrives by descending from the dome ceiling on a giant spider-like mount` states `dark armor` as certain. The page summary only supports `dark clothing or armor`, and the extracted character record only guarantees baldness plus the spider-like mount/machine."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship target is wrong for the source phase: `RELATIONSHIP: aghnar-von-salza ...` should point to `aghnar__warrior`, because the identity map assigns volume 6 Aghnar to the Warrior/Avenger split-phase peer, while `aghnar-von-salza` is a separate volume 9 singleton.",
+    "Several card facts are source-facing rather than in-world Honcho facts, including `known in source only`, `Source covers only two pages`, and `No direct speech in source`."
+  ],
+  "format_errors": [
+    "Card is a list of strings and under 40 facts, but it violates the no source refs/source-facing metadata rule in multiple facts.",
+    "No duplicate facts detected and prefixes appear otherwise valid."
+  ],
+  "manual_review_notes": [
+    "Source bundle is thin but usable; do not require expansion beyond the two witnessed/mediated appearances and prophecy context."
+  ],
+  "missing_opportunities": [
+    "For a source-thin character, the card is appropriately short and mostly bounded; after fixing source-facing wording and the Aghnar peer id, it likely does not need invented additional lore."
+  ],
+  "revision_instructions": [
+    "Change the Aghnar relationship peer id to `aghnar__warrior`.",
+    "Rephrase source-facing boundaries in-world, e.g. `BOUNDARY: No confirmed in-person appearance, direct speech, interior thought, or personal motive beyond the blue-rose marriage condition, rejected suitors, holovid image, and prophecy surrounding her`.",
+    "Replace `known in source only through...` and `No direct speech in source` with in-world phrasing such as `known to observers through holovid image and reported reputation` and `No established direct voice`.",
+    "Soften the holovid effect claim to Aghnar specifically rather than all viewers."
+  ],
+  "unsupported_claims": [
+    "`her projected image alone is sufficient to captivate those who witness it` overgeneralizes from Aghnar's fixation; the bundle supports Aghnar being captivated after seeing her holovid, not a universal effect on all viewers."
+  ]
+}

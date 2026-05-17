@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close, but several facts are source/process-facing rather than Honcho-ready in-world facts.",
+    "One boundary imports broader Magon prophecy context beyond the target record and turns it into an overconfident cultural interpretation."
+  ],
+  "format_errors": [
+    "Card facts contain source-facing/source-reference language: `source record`, `attested`, and `what the source directly supports`.",
+    "Honcho facts must be in-world card entries with no source refs or draft/process language."
+  ],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful minor-character card; blocked_source_insufficient should remain false."
+  ],
+  "missing_opportunities": [
+    "Keep the card thin and direct: name/title, Patriarch role, day of red light ritual, dominance over rival chiefs, large armored appearance, approximate 30,000-year lifespan, and strict unknowns around personal name, voice, motive, and biography."
+  ],
+  "revision_instructions": [
+    "Remove all source-facing phrases from facts; use in-world wording such as `BOUNDARY: No known personal name, direct speech, interior motive, or biography beyond the ritual-combat role and approximate lifespan.`",
+    "Replace the overconfident challenge/prophecy language with a narrower fact: `TRAIT: Followers expect the Patriarch to defeat every rival chief on the day of red light.`",
+    "Delete or heavily soften the prophecy boundary. If retained at all, keep it outside the Patriarch's personal knowledge unless the bundle directly supports that he knows or accepts it.",
+    "Do not add invented biography or importance; this is a valid source-thin minor-character card once the unsupported and source-facing wording is removed."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: expected to always win the ritual combat; no successful challenge against this Patriarch is attested in the source record` is not stage-ready: the broader volume context says Aghnar defeats the Magon leader/Patriarch, and the source-record phrasing cannot remain in the card.",
+    "`BOUNDARY: Magon lore includes a prophecy that an outside figure will defeat the Patriarch and lead the Magon onward; the culture has a framework for absorbing such a defeat` overstates the prophecy and infers a cultural framework not directly supported by the target source bundle."
+  ]
+}

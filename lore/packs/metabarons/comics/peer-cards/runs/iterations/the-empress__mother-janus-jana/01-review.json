@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card facts contain source-facing language, which violates the no source refs/source-meta in Honcho facts rule."
+  ],
+  "format_errors": [
+    "`TRAIT: Her scale is galactic, but her surviving record is fragmentary; she is known by decisions and offices more than by intimate speech.` uses source/evidence-facing wording inside the card.",
+    "`VOICE: Not directly quoted at length in the surviving source bundle; avoid inventing a florid personal speaking style.` explicitly refers to the source bundle inside a card fact.",
+    "`BOUNDARY: Do not reveal or assert the extent of her knowledge of the Oiders' succession plot involving Honorata; the source leaves that unresolved.` explicitly refers to source status inside a card fact.",
+    "Contract otherwise passes: `card` is a list of 23 strings, under the 40-fact cap, uses observed allowed prefixes, and has no exact duplicates."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful compact card about Janus-Jana's mother, Othon-era co-rule, and the Honorata reward dispatch. Relationship peer ids align with the identity map."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rephrase source-facing facts into in-world boundaries, e.g. `BOUNDARY: No established private voice, intimate speech pattern, or personal confession; keep her public presence formal and sovereign.`",
+    "Rephrase the Oiders/Honorata uncertainty without source-meta wording, e.g. `BOUNDARY: Her knowledge of the Oiders' succession plan involving Honorata remains unresolved; do not decide it for her.`",
+    "Soften or remove the dynastic-continuity trait unless grounded as public imperial stakes rather than her private belief."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Treats dynastic continuity as a public necessity, not a private household matter.` overstates interior/political motive from a thin record. The source supports imperial reproductive crisis and public governance, but not this exact stance as her personal trait."
+  ]
+}

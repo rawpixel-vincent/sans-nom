@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source-thin singleton, but the card is format-valid, source-grounded, and honest about its boundaries. Relationship targets `aghnar__late` and `honorata__in-oda` match the identity map for this confrontation."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

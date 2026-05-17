@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Card is format-valid: 35 string facts, allowed prefixes, under the 40-fact cap, no duplicates, and no source refs or source-meta language inside card facts.",
+    "The merged Othon identity is followed correctly; relationship targets use mapped peer ids for the relevant split personas."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

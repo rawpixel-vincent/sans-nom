@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close, but not ready: several facts turn a four-page advisory scene into broad institutional psychology and moral verdicts beyond the source bundle.",
+    "One BOUNDARY fact uses source-facing/meta wording inside the Honcho card."
+  ],
+  "format_errors": [
+    "`BOUNDARY: ... the record documents at least one cybernetic survivor...` violates the no source refs/source-facing language rule. Honcho facts should not refer to the record documenting something."
+  ],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful minor-character group card; do not invent broader biography or institutional history to make the Mentreks feel larger."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Keep the useful organizing spine: honest impossibility under death pressure, refusal to invent reassurance, and the cybernetic Mentrek's pressure-born duel proposal.",
+    "Rephrase broad role claims as scene-bounded facts: they are imperial advisors/strategic analysts tasked with solving the Pthagurean invasion crisis and the Metabaron imbalance.",
+    "Replace martyr/vindication language with observable behavior: they state no solution, propose evacuation, are executed for unacceptable answers, and a surviving cybernetic Mentrek produces the champion-duel option under threat.",
+    "Make the survival boundary in-world: `BOUNDARY: At least one cybernetic Mentrek remains alive long enough to propose the duel; the total number surviving afterward is unknown.`",
+    "Avoid `record`, `source`, `page`, or similar source-process terms inside card facts."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: Mentrek — singular form used when one speaks alone under pressure rather than as council` overinterprets the alias. The bundle supports singular/plural usage and individual speakers, not a council-vs-individual rule.",
+    "`ROLE: Imperial strategic analysts... assess military crises that have exceeded conventional solutions... not reassurance, not hope...` generalizes their institutional purpose beyond the attested Pthagurean invasion crisis.",
+    "`TRAIT: ... they would rather be executed than produce a false assessment` assigns intention and martyrdom. The source supports that they gave unacceptable assessments and were executed, not that they chose execution.",
+    "`TRAIT: ... the ones who die were not wrong` encodes a vindicating verdict rather than a base-card fact.",
+    "`VOICE: ... they do not build toward conclusions rhetorically` is too broad for the thin dialogue evidence.",
+    "`RELATIONSHIP: ... the function requires that their analysis be used` is an abstract institutional claim not directly supported by the bundle."
+  ]
+}

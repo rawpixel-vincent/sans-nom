@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because multiple facts use source-facing metadata inside Honcho card text, despite the source-thin content otherwise being usable."
+  ],
+  "format_errors": [
+    "`VOICE: no established speaking register; source record contains no voice notes or quoted speech patterns` includes source-record metadata inside a card fact.",
+    "`BOUNDARY: no confirmed backstory, personal authority, independent history, or interior life beyond these source-bounded facts` uses source-facing wording inside a card fact.",
+    "`BOUNDARY: source is a thin singleton recap record; do not expand with wiki-level lore, epyphite-transformation biography, or near-name character material` is explicitly source-facing and references wiki/source strategy rather than in-world boundaries."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful bounded minor-character card; `blocked_source_insufficient` should remain false."
+  ],
+  "missing_opportunities": [
+    "The draft successfully removed the prior unsupported transformation and near-name imports; preserve that restraint in the next pass.",
+    "The thin-source boundary can be kept, but should be phrased in-world: no confirmed backstory, personal authority, independent history, broader Magon role, or established speaking style beyond Kiowata's witnessed companionship with Aghnar and the Diamond Planet prophecy."
+  ],
+  "revision_instructions": [
+    "Rewrite source-facing VOICE and BOUNDARY items into in-world constraints with no mentions of source records, recap records, wiki lore, or source-bounded facts.",
+    "Keep the `aghnar__warrior` relationship target; it matches the identity-map phase for Aghnar in the Kiowata-supported material.",
+    "Do not add new lore to compensate for the thin source. Keep the card compact and bounded."
+  ],
+  "unsupported_claims": []
+}

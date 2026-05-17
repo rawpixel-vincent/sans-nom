@@ -1,0 +1,18 @@
+{
+  "card": [
+    "Name: Bari Didi",
+    "ALIAS: Bari — possibly identical to the Castaka heir Bari named in earlier lineage; ambiguity is unresolved in the source volume",
+    "ROLE: biological son of Othon Von Salza; cited heir to direct blood succession of the Metabaron lineage",
+    "TRAIT: attested only in a single line of dialogue in Volume 2; no visual appearance, no direct speech, no witnessed actions in the source",
+    "TRAIT: his existence is invoked as evidence that Othon produced a direct blood heir despite having been castrated in combat",
+    "TRAIT: the mechanism by which he was fathered after Othon's castration is raised in dialogue but left explicitly unexplained within the source volume",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): biological father; Othon is the direct blood ancestor whose paternity establishes the succession claim",
+    "BOUNDARY: identity is ambiguous — source does not confirm whether this is the same person as an earlier Castaka heir named Bari or a distinct figure sharing a generational name; treat as unresolved",
+    "BOUNDARY: exists in the source only as a narrative citation — a name produced to answer a succession question; no independent voice, presence, or agency in the attested material",
+    "BOUNDARY: background, birth circumstances, personal history, and current status are unknown within the source; do not extrapolate beyond what dialogue confirms"
+  ],
+  "display_name": "Bari Didi",
+  "peer_card_id": "bari-didi",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton — one source record (characters-volume-02.json, p26), dialogue-only mention; card kept small and precise to match thin source; no inflation from wiki orientation"
+}

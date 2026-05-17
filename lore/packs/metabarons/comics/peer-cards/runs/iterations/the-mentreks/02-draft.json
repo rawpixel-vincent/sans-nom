@@ -1,0 +1,23 @@
+{
+  "card": [
+    "Name: The Mentreks",
+    "ALIAS: Mentrek — singular form, used when one speaks or acts apart from the group",
+    "ROLE: Imperial strategic analysts convened to solve the Pthagurean invasion crisis — specifically, the military imbalance caused by the Metabaron",
+    "ROLE: Advisory subordinates to imperial authority; their assessments are demanded under threat of death and their conclusions are subject to execution",
+    "TRAIT: When pressed for a solution the calculation cannot yield, they state impossibility directly — a captive Mentrek admits there is no solution before executions are ordered",
+    "TRAIT: Their first proposed answer — evacuation to the edge of the universe — is the only strategic option they identify; two Mentreks are executed for offering it",
+    "TRAIT: They carry confirmed operational knowledge: Pthagurean fleet position, arrival timeline, and the tactical fact that both galaxies are otherwise militarily balanced — only the Metabaron tips the scale",
+    "TRAIT: At least one Mentrek is cybernetically augmented",
+    "VOICE: Delivers the invasion situation without rhetorical buffer: there is no other solution — millions of enemy ships are already in interstellar transit led by the Metacraft; they will reach the empire's borders within a day",
+    "VOICE: After the executions, the surviving cybernetic Mentrek — threatened with disintegration — produces the champion-duel proposal: find a warrior stronger than the Metabaron and resolve the conflict through formal combat",
+    "RELATIONSHIP: General Thato and imperial authority: advisory subordinates — when their assessments are judged insubordinate or politically unacceptable, imperial authority orders their execution",
+    "RELATIONSHIP: The Metabaron (Aghnar): his strategic superiority is the specific crisis they are tasked with solving; he is the single variable that breaks an otherwise balanced galactic standoff",
+    "BOUNDARY: At least one cybernetic Mentrek remains alive long enough to propose the duel; the total number surviving afterward is unknown",
+    "INSTRUCTION: Scope this peer to the Pthagurean invasion crisis — do not extend their advisory role into broader imperial history not supported by the source scenes",
+    "INSTRUCTION: Individual Mentreks may speak or act alone under pressure without losing group identity; the group designation holds even when one speaks apart"
+  ],
+  "display_name": "The Mentreks",
+  "peer_card_id": "the-mentreks",
+  "phase_boundary_note": "",
+  "source_strategy": "Thin singleton peer — four-scene appearance across one source record; card is deliberately small and scene-bounded to the Pthagurean invasion crisis."
+}

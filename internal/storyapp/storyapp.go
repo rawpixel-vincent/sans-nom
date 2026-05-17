@@ -20,6 +20,8 @@ type SeedExternalFunc func(context.Context, StorySession, story.SeedBundle) erro
 type StoryActionOptions struct {
 	StoryID              string
 	StoryRoot            string
+	GroundLorePackID     string
+	GroundLoreCollection string
 	GlobalLoreCollection string
 	StoryCollection      string
 	ReplaceStory         bool
@@ -38,13 +40,15 @@ type StorySession struct {
 }
 
 type StorySummary struct {
-	StoryID    string `json:"story_id"`
-	Title      string `json:"title"`
-	Label      string `json:"label"`
-	LatestTurn int    `json:"latest_turn"`
-	UpdatedAt  string `json:"updated_at"`
-	CreatedAt  string `json:"created_at"`
-	Path       string `json:"path"`
+	StoryID              string `json:"story_id"`
+	Title                string `json:"title"`
+	Label                string `json:"label"`
+	LatestTurn           int    `json:"latest_turn"`
+	UpdatedAt            string `json:"updated_at"`
+	CreatedAt            string `json:"created_at"`
+	Path                 string `json:"path"`
+	GroundLorePackID     string `json:"ground_lore_pack_id"`
+	GroundLoreCollection string `json:"ground_lore_collection"`
 }
 
 func (s StorySummary) SecondaryText() string {
@@ -52,7 +56,7 @@ func (s StorySummary) SecondaryText() string {
 	if updated == "" {
 		updated = "unknown"
 	}
-	return fmt.Sprintf("%s  turn %d  updated %s", s.StoryID, s.LatestTurn, updated)
+	return fmt.Sprintf("%s  %s  turn %d  updated %s", s.StoryID, firstNonEmpty(s.GroundLorePackID, "legacy"), s.LatestTurn, updated)
 }
 
 func NewStory(ctx context.Context, opts StoryActionOptions) (StorySession, error) {
@@ -66,7 +70,9 @@ func NewStory(ctx context.Context, opts StoryActionOptions) (StorySession, error
 	ws, state, err := story.InitWorkspace(story.InitOptions{
 		StoryID:              opts.StoryID,
 		Root:                 opts.StoryRoot,
-		GlobalLoreCollection: firstNonEmpty(opts.GlobalLoreCollection, story.DefaultGlobalLoreCollection),
+		GroundLorePackID:     firstNonEmpty(opts.GroundLorePackID, story.DefaultGroundLorePackID),
+		GroundLoreCollection: firstNonEmpty(opts.GroundLoreCollection, opts.GlobalLoreCollection, story.DefaultGroundLoreCollection),
+		GlobalLoreCollection: strings.TrimSpace(opts.GlobalLoreCollection),
 		StoryCollection:      opts.StoryCollection,
 		Replace:              opts.ReplaceStory,
 	}, bundle)
@@ -122,13 +128,15 @@ func ListStories(root string) ([]StorySummary, error) {
 			label = state.StoryID
 		}
 		summaries = append(summaries, StorySummary{
-			StoryID:    state.StoryID,
-			Title:      bible.Title,
-			Label:      label,
-			LatestTurn: state.LatestTurn,
-			UpdatedAt:  state.UpdatedAt,
-			CreatedAt:  state.CreatedAt,
-			Path:       filepath.Clean(ws.Dir),
+			StoryID:              state.StoryID,
+			Title:                bible.Title,
+			Label:                label,
+			LatestTurn:           state.LatestTurn,
+			UpdatedAt:            state.UpdatedAt,
+			CreatedAt:            state.CreatedAt,
+			Path:                 filepath.Clean(ws.Dir),
+			GroundLorePackID:     state.SourceLorePackID(),
+			GroundLoreCollection: state.SourceLoreCollection(),
 		})
 	}
 	sort.SliceStable(summaries, func(i, j int) bool {

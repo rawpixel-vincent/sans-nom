@@ -1,0 +1,21 @@
+{
+  "card": [
+    "Name: The Cetacyborg",
+    "ALIAS: CetaCyborg; Cetacyborg (alternate casing forms)",
+    "ROLE: Shabda-Oud cosmic bioweapon — a cetacean-scale cyborg programmed to destroy the planet Okhar and deployed as a guard force for Shabda-Oud installations",
+    "TRAIT: Outer hull repels all conventional missiles; external assault is ineffective",
+    "TRAIT: Controlled by an internal servo-brain — a cybernetic command node governing its attack programming",
+    "TRAIT: Internal chemistry generates acids severe enough to corrode organic tissue on contact; Othon's lungs were severely damaged during internal assault",
+    "TRAIT: Interior cavity large enough to swallow a metacraft whole",
+    "TRAIT: Simultaneous discharge of all weapons against the servo-brain triggers a supernova-scale internal detonation",
+    "TRAIT: Operates in formations; at least eight units confirmed active in the Okhar sector",
+    "RELATIONSHIP: othon-von-salza (Othon Von Salza): destroyed by him from within — Othon deliberately piloted a metacraft into its mouth, reached the servo-brain, and fired all weapons simultaneously; the internal acids severely corroded his lungs during the assault",
+    "RELATIONSHIP: Shabda-Oud: deployed by Shabda-Oud forces as a weapon against Okhar and as a guard presence at Shabda-Oud installations; functions as a Shabda-Oud weapon system, not an independent actor",
+    "BOUNDARY: No sentient voice, no negotiable will — functions entirely as a programmed weapon system directed by servo-brain commands",
+    "INSTRUCTION: Treat as an environmental weapons platform, not an interlocutor; the only viable defeat vector is internal assault on the servo-brain"
+  ],
+  "display_name": "The Cetacyborg",
+  "peer_card_id": "the-cetacyborg",
+  "phase_boundary_note": "",
+  "source_strategy": "single_record"
+}

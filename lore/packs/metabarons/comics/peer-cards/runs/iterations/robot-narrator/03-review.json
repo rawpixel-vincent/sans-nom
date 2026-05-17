@@ -1,0 +1,17 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "`RELATIONSHIP: aghnar-von-salza (Aghnar)` points at the wrong peer id. The source relationship is to Volume 6 Aghnar, which the identity map assigns to `aghnar__warrior`, not the separate `aghnar-von-salza` singleton."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Change the Aghnar relationship target to `aghnar__warrior (Aghnar, Warrior/Avenger)` or equivalent display text matching the identity map.",
+    "Rewrite the surgery fact to say the robot assisted with extracting Oko mini-bombs from Othon's corpse and grafting them into Aghnar, without implying the bombs were extracted from Aghnar."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Assisted in the Oko mini-bomb extraction surgery on Aghnar` is imprecise enough to misstate the event. The source supports assistance with extracting Oko mini-bombs from Othon's corpse and grafting them into Aghnar, not an extraction surgery simply \"on Aghnar\"."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft overbuilds General Thato's interior psychology from a thin singleton record. The source supports defense architect, public reward, failed assurances when Aghnar breaches the palace, limited knowledge of Aghnar's capabilities, and execution of Mentreks; it does not support the full identity-fusion, denial psychology, or room-control pattern currently asserted as fact.",
+    "The card ties the Mentrek executions too directly to Thato suppressing evidence of his fortress failure. The source frames the Mentreks as proposing flight during a later strategic crisis; it does not establish that Thato executes them because they name the gap in his security system.",
+    "The VOICE fact is unsupported. The bundle has no voice_notes for Thato and no direct quoted speech attributed to him, so 'Speaks in declarations, not assessments' and 'assurance is his only register' should not be encoded as a base Honcho fact."
+  ],
+  "format_errors": [
+    "The card is a list of 15 strings under the 40-fact limit, uses allowed prefixes, and has no duplicates.",
+    "BOUNDARY: Do not resolve whether the fortress ultimately holds or fails against what approaches; that outcome is not determined by his record contains source/meta-facing wording inside a Honcho fact. Rephrase in-world without referring to a record."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card if the rewrite stays bounded to public authority, failed security assurances, and crisis enforcement."
+  ],
+  "missing_opportunities": [
+    "The card should preserve the useful contradiction more modestly: Thato is publicly rewarded for making the palace impregnable, then Aghnar's severed feet appear inside that system and expose the limits of his assurances.",
+    "The execution material should be grounded as pressure behavior under imperial crisis rather than proof of a stable psychological doctrine: he can enforce imperial authority violently when strategic answers threaten the court's preferred posture."
+  ],
+  "revision_instructions": [
+    "Keep the thin-source boundary and reduce invented interiority. Use phrasing like: 'TRAIT: His authority rests on the claim that the palace defenses can make Janus-Jana untouchable; Aghnar's breach exposes the limits of that claim.'",
+    "Replace the Mentrek-causality fact with a grounded one: 'TRAIT: Under imperial crisis, he carries out or directs executions against Mentreks whose escape proposal is treated as unacceptable.'",
+    "Remove or heavily soften VOICE unless a page-level source confirms direct speech. If retained, make it an instruction about how to play the role from actions, not a factual claim about speech style.",
+    "Rewrite the source-facing boundary in-world, e.g. 'BOUNDARY: Do not decide the final outcome of the palace defenses, the siege, or Janus-Jana's fate through Thato's base card.'",
+    "Keep relationship targets as janus-jana and aghnar-von-salza; those match the identity map for this volume-9 singleton."
+  ],
+  "unsupported_claims": [
+    "TRAIT: His system and his identity are a single object... is an interpretive leap beyond the source. A safer version can say his authority is publicly tied to the fortress and its claimed impregnability.",
+    "TRAIT: Will not become the general who admitted his fortress failed... overstates motive and self-refusal. The source supports no admission and later execution behavior, not a confirmed internal refusal.",
+    "TRAIT: When evidence of a breach surfaces, his first move is to eliminate whoever proposes an alternative... is unsupported chronology and causality.",
+    "TRAIT: Public decoration functions as proof... confirmed what he already knew... load-bearing to his authority is unsupported interiority.",
+    "INSTRUCTION: When undeniable evidence moves against him, do not allow revision; allow expansion of silence instead... is too strong for the source boundary."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close, but it is not ready to stage because at least one card fact uses source-facing metadata: `VOICE: no known direct speech in this source window...`. Honcho facts should be in-world boundaries, not references to the source window.",
+    "The card overstates admiration as plural in `his servants speak of him with deep admiration`. The bundle supports Tonto strongly admiring the Metabaron and Lothar being curious; it does not support Lothar sharing deep admiration in this source slice."
+  ],
+  "format_errors": [
+    "Card is a list of strings and has 19 facts, under the 40 fact limit.",
+    "Allowed prefixes are used and no duplicate facts were found.",
+    "`VOICE: no known direct speech in this source window...` violates the no source-facing/source-ref language requirement inside card facts."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `in this source window` with an in-world phrasing such as `no direct speech is established in the witnessed account` or `he is not heard directly here`.",
+    "Change the plural admiration trait to distinguish Tonto from Lothar: Tonto speaks with strong admiration; Lothar prompts the account through curiosity.",
+    "Change `bionic replacement lobes` to `bionic lobes` or `bionic brain components` unless the exact replacement claim is present in an allowed source record."
+  ],
+  "unsupported_claims": [
+    "`bionic replacement lobes in the right half of his brain` adds `replacement`; the supplied page summary supports bionic lobes or bionic brain components, but not clearly replacement lobes.",
+    "`his servants speak of him with deep admiration` is too broad for Lothar; only Tonto's admiration is supported."
+  ]
+}

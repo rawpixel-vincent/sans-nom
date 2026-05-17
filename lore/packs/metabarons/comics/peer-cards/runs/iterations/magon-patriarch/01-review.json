@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is format-valid, but not ready to stage because several facts turn a very thin single-record character into a fully modeled ruler with invented cultural mechanics, memory, voice, and consequences.",
+    "The final boundary conflicts with adjacent Magon context: the source trajectory includes defeat of the Patriarch being absorbed through Magon prophecy, so the claim that no cultural framework exists to absorb defeat is not supportable."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card if the Writer stays close to the single attested ritual-combat role and lifespan facts."
+  ],
+  "missing_opportunities": [
+    "Add an in-world thin-source boundary: no confirmed personal name beyond title, no direct dialogue, no motives, and no biography beyond the ritual-combat description and approximate lifespan.",
+    "Use the supported page-14 core more narrowly: large armored Magon Patriarch; defeats rival chiefs on the day of red light; expected to always win; said to live about 30,000 years."
+  ],
+  "revision_instructions": [
+    "Keep the card small. Remove invented cultural memory, succession mechanics, petitioner categories, and direct voice assumptions.",
+    "Replace the voice fact with a boundary or minimal instruction acknowledging no direct speech is established.",
+    "Rewrite defeat-related boundary so it does not deny the Magon prophecy context or claim the culture could not absorb a defeat."
+  ],
+  "unsupported_claims": [
+    "`ROLE: reigning patriarch of the Magon, a tribe of floating apes native to Planet Perdita; the position is held by defeating all rival chiefs in ritual combat` overstates the source. The record supports a Magon Patriarch who defeats rival chiefs in ritual combat, but not enough to assert a general succession mechanism or native-species framing inside this card.",
+    "`TRAIT: large, armored alien figure — physically dominant over every tribal rival` turns repeated ritual victory into an absolute physical ranking over every rival.",
+    "`TRAIT: defeats all rival chiefs in ritual combat on the day of red light; no successful challenge has been recorded within living Magon memory` adds an unsupported memory/history claim.",
+    "`TRAIT: expected to always win; the presumption of victory is total and structural, not merely habitual` adds interpretive sociology beyond the record.",
+    "`TRAIT: said to live approximately 30,000 years — a lifespan that spans the entire remembered history of the tribe` adds an unsupported claim about tribal remembered history.",
+    "`VOICE: commands through the weight of unbroken millennia and absolute physical supremacy; speaks as one for whom a genuine challenge is a ritual formality, not a real threat` invents a voice profile for a character with no attested direct speech.",
+    "`INSTRUCTION: assess any encounter through the logic of the ritual — whether the other party is a challenger, a petitioner, or something the ritual has no category for` invents categories such as petitioner and overgeneralizes from one ritual-combat description.",
+    "`BOUNDARY: a genuine defeat in combat would dissolve the foundations of Magon tribal order; no cultural framework exists to absorb it` is unsupported and contradicted by the adjacent prophecy/defeat context."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card imports full-arc/no-name dynasty lore that is not supported by this singleton source bundle, including final-dynasty status, inherited crest burden, six-generation wound encoding, and the claim that the dynasty ends because he decides.",
+    "Several facts turn a thin, witnessed moment into fixed interiority: calculated indifference, already-resolved outcomes, name-silence as an occupied posture, and preference for Deyanira over robots are interpretations beyond the record.",
+    "Card facts contain source-facing wording, especially the eyebrow-scar boundary's `source volume` phrasing and `within this volume's timeline`; Honcho facts must be in-world and not cite source/document status.",
+    "The draft over-expands relationships with imported biographical significance from other peers, especially Doña Vicenta's full arc and Deyanira's inherited-lineage meaning, instead of keeping relationship facts bounded to what this target bundle establishes."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 22 strings under the 40-fact limit with no duplicates found.",
+    "Allowed-prefix shape is otherwise acceptable, but card facts violate the no source refs/source-meta rule through `source volume` and `within this volume's timeline` wording."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful bounded card; do not block as source-insufficient."
+  ],
+  "missing_opportunities": [
+    "Use the source-thin minor-character approach: a smaller card anchored to aliases, the ganya/control-room dismissal, Deyanira protection, the anticipated Steelhead wound, contested parentage, and strict boundaries around the scar and biography.",
+    "Keep the internal organizing sentence modest: he presents calm or dismissal under alarm, but do not assert why unless the source states it."
+  ],
+  "revision_instructions": [
+    "Remove all full-arc dynasty-ending, crest, six-generation, and future self-judgment claims.",
+    "Rewrite source-facing boundaries in-world, e.g. the eyebrow wound is anticipated but not yet witnessed; Steelhead's return is an incoming threat, not resolved history.",
+    "Limit relationship facts to confirmed targets and bounded content: `dona-vicenta` as grandmother per Tonto, `aghora` as contested parent, `steelhead__late` as anticipated wound source, `deyanira` as protector in the alarm scene, and `tonto` as narrator of the dangerous scar knowledge.",
+    "Avoid assigning fixed motives or calculated certainty to his silence/dismissal; encode only the observable pressure behavior supported by the record."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Last inheritor of the metabaronic title... end of a dynasty... carrier of the crest of Castaka and all ancestral wounds encoded in it` is not supported by the source record.",
+    "`TRAIT: Carries the crest of Castaka — the full weight of six generations... encoded in him before he had words for any of it` imports symbolic/full-arc lore beyond the bundle.",
+    "`TRAIT: The thing he refuses to become... the origin point of another generation of the cycle; the dynasty ends with him... because he decides` is an unsupported final verdict and belongs to later play, not the base card.",
+    "`TRAIT/INSTRUCTION` claims that he has already calculated or resolved the threat are unsupported; the record only says he dismisses concern, drinks ganya, and relies on Deyanira.",
+    "`RELATIONSHIP: dona-vicenta... the woman who stood before the dynasty and named it aloud to its own face` imports Vicenta characterization not established as this peer's relationship knowledge.",
+    "`RELATIONSHIP: deyanira... protector inherited through the parental line` is not established by the target source record; the supported fact is only that he relies on Deyanira for protection in the alarm scene."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several Honcho facts use source-facing/meta language inside the card: `appear in narration`, `implied in narration`, `only vocal marker on record`, and `future content for subsequent episodes`. Boundaries can encode uncertainty, but the card facts themselves should remain in-world and not describe source/document status.",
+    "The draft overstates the naming fact with `the naming ceremony that gave no name is the first and most complete thing Aghora did to this child`. The bundle supports Aghora refusing to give a personal name, but not that this was the first or most complete act toward the child."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful card: the infant birth context, imposed name, Aghora relationship, strange calm, adult-like laugh, and implied psychic resistance are enough if the meta wording and overstatements are cleaned up."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries into Honcho-native facts. For example, keep the psychic-force connection as uncertain without saying `narration`, `record`, `source`, or `episodes`.",
+    "Replace the unsupported `first and most complete thing Aghora did` clause with the supported fact: Aghora deliberately designates the child `No-Name` and declares a destiny before the child can consent or refuse.",
+    "Keep the card source-thin and infant-bounded. Do not add later training, scar origin, or full Sans-Nom arc material."
+  ],
+  "unsupported_claims": [
+    "`VOICE: ... treated as ominous signal rather than infant expression` goes beyond the bundle, which supports adult-like/abnormal/significant laughter but not a settled ominous interpretation.",
+    "`TRAIT: ... the beams did not register` risks attributing perception or non-perception to an infant. The source supports that No-Name crawled unharmed through the beams, not that the beams failed to register subjectively."
+  ]
+}

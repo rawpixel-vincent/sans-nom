@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close, but it is not ready to stage because it over-infers covert/embedded status from a very thin source record and includes one source-facing card fact."
+  ],
+  "format_errors": [
+    "`INSTRUCTION: ... no other witnessed events exist in the record` is source-facing meta language inside the Honcho card. Rephrase as an in-world boundary without referring to the record."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace the speculative embedded/posing role with a narrower version: `ROLE: collective military force named only in narration during the Marmola space battle`.",
+    "Keep the Imperial House relationship but remove covert language: `RELATIONSHIP: imperial_house (Imperial House): apparent allies or subordinates; their betrayal benefits the Imperial House during the Marmola battle`.",
+    "Rephrase the record-facing instruction to something like: `BOUNDARY: no confirmed actions beyond the Marmola betrayal and its immediate battle consequence; do not invent later service, command structure, or motives`."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Imperial-aligned operative force embedded within or posing as members of an anti-Imperial coalition...` overstates the bundle. The source supports an unexpected betrayal that benefits the Imperial House; it does not establish that the Black Endoguard were operatives, embedded agents, posing as coalition members, or that the betrayed side was an anti-Imperial coalition.",
+    "`RELATIONSHIP: imperial_house (Imperial House): ... is consistent with covert Imperial alignment` is too speculative. The source supports apparent alliance/subordination or benefit to Imperial House interests, not covert alignment as a confirmed characterization."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The current-Metabaron relationship targets `the_metabaron`, which is the volume-01 singleton peer, not the frame-narrative scarred master involved in the volume-05 eyebrow-scar debate. This should target `the-metabaron__no-name`.",
+    "One card fact uses source-facing wording: `even within the source the character's identity and function are marked as unclear`. Honcho facts must be in-world and must not refer to the source itself."
+  ],
+  "format_errors": [
+    "Card facts include source-facing reference language in the TRAIT about what the source marks as unclear."
+  ],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful minor-character card once the wrong Metabaron peer target and source-facing wording are fixed."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `RELATIONSHIP: the_metabaron (The Metabaron)` with `RELATIONSHIP: the-metabaron__no-name (The Metabaron, No-Name)` and keep the relationship bounded to the displayed scar-image debate.",
+    "Rephrase the ambiguous-identity trait without source-facing language, e.g. `TRAIT: Full identity and function remain unclear; known only as Big One, the entity The Professor calls on to display the master's image`.",
+    "Soften archive/household claims to the directly supported action: display, project, or enlarge the master's image on command.",
+    "Keep the card thin; do not invent voice, motives, backstory, or broader Metabunker duties."
+  ],
+  "unsupported_claims": [
+    "`functions as a portable visual archive of his physical appearance for the household` overstates the source. The bundle supports only that Big One holds or can project/display the master's image when called by The Professor; it does not establish portability, archive status, or a household function.",
+    "`stored visual record` is plausible but stronger than the source wording. Prefer `can display or enlarge the master's image on command` unless a page summary explicitly supports storage."
+  ]
+}

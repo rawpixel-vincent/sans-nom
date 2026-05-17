@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because several Honcho facts use source-facing language inside the card: `attested direct speech`, `canonical facts`, `source records`, `source does not support`, and `confirmed close-up`. Card facts must be in-world and must not refer to evidence, records, source support, or canon metadata.",
+    "One relationship target is not a valid single peer id: `the-emperor__othon-era / the-empress__mother-janus-jana`. Relationship facts should point at actual peer_card_id values, preferably as separate relationship lines for the Othon-era Emperor and Janus-Jana's mother Empress.",
+    "The draft over-infers voice and temperament from a narration-only character. `cold authority`, `warlord`, and `planetary-scale force is a routine instrument` are generic sci-fi characterization not supported by direct speech or behavior beyond the single fleet deployment.",
+    "The Janus-Jana relationship risks implying personal knowledge or intent. The source supports that the Mother-Coach was transporting the perfect androgyne/Janus-Jana, but not that Namar knew, cared about, or specifically targeted Janus-Jana as a person."
+  ],
+  "format_errors": [
+    "Card shape is otherwise valid: `card` is a list of strings, has 14 facts, stays under 40 facts, uses recognized prefixes, has no markdown, and has no obvious exact duplicates.",
+    "Source/evidence-facing phrases appear inside card facts: `attested`, `canonical`, `source records`, `source does not support`, and `confirmed close-up`.",
+    "Composite relationship id `the-emperor__othon-era / the-empress__mother-janus-jana` is not a peer_card_id."
+  ],
+  "missing_opportunities": [
+    "The source can support a useful thin card: Namar is a pirate commander associated with a counterfeit planet, 100,000 Ostrov-class fighters, the Harp constellation ambush, defeat by Othon's FB3/tri-H stratagem, and a strict no-dialogue/no-physical-description boundary.",
+    "Use in-world boundaries instead of extraction language, e.g. no established personal history, motive, political allegiance, direct dialogue, physical description, or later aftermath beyond the Harp constellation engagement."
+  ],
+  "revision_instructions": [
+    "Replace the source-facing voice fact with a boundary such as: `BOUNDARY: No established direct dialogue or personal register; do not invent a speaking style beyond terse pirate command when speech is unavoidable.`",
+    "Replace `ROLE: Pirate warlord...` with `ROLE: Pirate commander operating a counterfeit planet, a spacecraft-carrier disguised as a planetary body.`",
+    "Split the Imperial Couple relationship into valid peer ids: `RELATIONSHIP: the-emperor__othon-era (The Emperor, Othon's era): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation` and `RELATIONSHIP: the-empress__mother-janus-jana (The Empress, Janus-Jana's mother): enemy whose Mother-Coach convoy Namar attacks in the Harp constellation`.",
+    "Keep `RELATIONSHIP: othon-von-salza (Othon Von Salza)` as the correct peer id, but phrase the defeat as Othon destroying Namar's fleet/mega-carrier and forcing the counterfeit planet's surrender.",
+    "Rephrase the Janus-Jana relationship to avoid motive inference: `RELATIONSHIP: janus-jana (Janus-Jana): transported aboard the Mother-Coach during Namar's ambush; no personal exchange or confirmed knowledge relationship is established.`",
+    "Rewrite boundaries without `source`, `record`, `canonical`, `attested`, or page/evidence language."
+  ],
+  "unsupported_claims": [
+    "`VOICE: ... cold authority of a warlord for whom planetary-scale force is a routine instrument` is unsupported. The bundle supports no direct speech and a large-scale pirate attack, not Namar's personal register or habitual attitude toward force.",
+    "`RELATIONSHIP: janus-jana ... the true cargo at stake` should be narrowed. It is safe to say the attacked convoy was transporting Janus-Jana/the perfect androgyne; do not imply a personal relationship, motive, or knowledge state.",
+    "`ROLE: Pirate warlord` is inflated beyond the source label `pirate commander`; use the supported role unless a source explicitly establishes warlord status."
+  ]
+}

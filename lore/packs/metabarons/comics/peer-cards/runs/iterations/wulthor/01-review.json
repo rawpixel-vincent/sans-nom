@@ -1,0 +1,15 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because it imports an unsupported chronology label into the ROLE fact."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove `during the Honorata period` from the ROLE fact. A supported replacement is: `ROLE: Raider — member of the armed party that used a paleo-compass and marble disintegrator to reach the marble fortress on Okhar, operating alongside Ulkran, Tokkar, and Bargoth`."
+  ],
+  "unsupported_claims": [
+    "`ROLE: Raider — member of an armed expedition during the Honorata period...` is unsupported and appears wrong for this source bundle. Wulthor belongs to the Volume 2 Okhar/Shazam theft sequence around Othon and Bari, not the later Honorata material."
+  ]
+}

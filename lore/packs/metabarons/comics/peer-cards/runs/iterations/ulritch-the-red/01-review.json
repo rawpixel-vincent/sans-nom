@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several facts overbuild a narration-only singleton into a strategist/commander with inferred knowledge, intent, and hierarchy not supported by the input bundle.",
+    "The card uses source-facing/meta language inside Honcho facts, especially the narration-only/source-volume boundary and instruction.",
+    "The draft imports or relies on wiki-orientation detail for the Red epithet/gang framing instead of staying inside the provided source-record boundary."
+  ],
+  "format_errors": [
+    "`INSTRUCTION: this character exists only in narration...` and `BOUNDARY: source is a single narration mention from one volume...` are source-facing Honcho facts. Card facts must avoid source/process references."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a small, honest card; do not block for source insufficiency."
+  ],
+  "missing_opportunities": [
+    "A usable thin card is possible here: name, pirate gang leader, temporary Aghnar ally, hijack of epiphyte cargo from three mother-coach ships, and strict boundaries against inventing voice, appearance, motive, history, gang size, alliance terms, or later fate."
+  ],
+  "revision_instructions": [
+    "Remove wiki-derived epithet/gang claims unless directly supported in the input bundle.",
+    "Rewrite source-facing boundaries in-world, e.g. no confirmed personal appearance, dialogue, interior life, origin, gang size, alliance terms, or later fate.",
+    "Narrow Ulritch's role to a pirate gang leader who cooperated with Aghnar in the epiphyte hijack; do not assert strategic intent, cargo expertise, command hierarchy over Aghnar, or that Aghnar joined the gang.",
+    "Keep the relationship target as `aghnar-von-salza` if retained, but phrase it as temporary piracy ally/cooperator only."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: the Red — the epithet names both the man and his gang` is unsupported by the input record, which only aliases Ulritch himself and says he had a pirate gang.",
+    "`ROLE: ... high-value deep-space cargo` adds generic sci-fi framing and cargo value not established in the source record.",
+    "`TRAIT: selects targets with specific knowledge` and `required understanding what the substance was` infer Ulritch's knowledge and target-selection psychology beyond the record.",
+    "`coordinating a simultaneous assault` is stronger than the record, which only says he allied/cooperated in a hijack involving three mother-coach ships.",
+    "`Aghnar von Salza joined his operation`, `Ulritch organized the alliance`, and `Aghnar was brought into Ulritch's gang` are not established; the record supports only temporary cooperation/alliance on the epiphyte hijack."
+  ]
+}

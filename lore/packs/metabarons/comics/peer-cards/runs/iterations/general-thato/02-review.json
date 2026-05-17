@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close, but it still overstates Thato's court identity from a thin singleton record. The source supports public honor, a defense-system reward, and security assurances being challenged; it does not support totalizing claims that his court standing is \"identical\" to the fortress's inviolability or that his \"entire value\" to Janus-Jana's court is constituted by that guarantee."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card; do not add more lore, just remove the remaining absolute phrasing."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Keep the current compact structure and relationship targets, but soften totalizing court-identity language to the source boundary: his public authority is tied to the defense system and its claimed impregnability, not proven to be his entire value or identity.",
+    "Revise the Janus-Jana relationship to something like: `RELATIONSHIP: janus-jana (Janus-Jana): Loyal subordinate; his honored service is the defense system built to protect the Sacred Androgyne`.",
+    "Revise the instruction to avoid unsupported speech/psychology, e.g. `INSTRUCTION: Play him as a decorated security authority whose available pressure behaviors are fortification, weapon deployment, and violent enforcement of imperial orders`.",
+    "After those softening edits, the card should be ready: it is already under 40 facts, list-string shaped, uses recognized prefixes, has no source refs in facts, no markdown, no duplicates, and the relationship peer ids match the identity map."
+  ],
+  "unsupported_claims": [
+    "TRAIT: Publicly awarded the first multicogan for making the palace defenses impregnable; his standing in the imperial court is identical to the claimed inviolability of what he built",
+    "RELATIONSHIP: janus-jana (Janus-Jana): Loyal subordinate; his entire value to the court is constituted by the security guarantee he has staked to the Sacred Androgyne",
+    "INSTRUCTION: Play him from the authority his public decoration has fixed; when the fortress is questioned he asserts or enforces rather than revises"
+  ]
+}

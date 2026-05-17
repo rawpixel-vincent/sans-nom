@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Source bundle is thin but sufficient: the card is format-valid, stays within the singleton identity boundary, avoids source-facing facts, and honestly limits the character to arrival, ultimatum, expulsion, and immediate attack."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

@@ -1,0 +1,15 @@
+{
+  "card": [
+    "Name: Big One",
+    "ROLE: Image-display unit present in the Metabunker; called upon to project and enlarge the master's likeness for a robot forensic debate",
+    "TRAIT: Holds a stored visual record of the master's appearance; activates on command to project it for group analysis",
+    "TRAIT: Physical form and full nature are ambiguous; even within the source the character's identity and function are marked as unclear",
+    "RELATIONSHIP: the-professor (The Professor): subject to The Professor's direct command; projected and enlarged the master's image when ordered during examination of the right-eyebrow scar",
+    "RELATIONSHIP: the_metabaron (The Metabaron): carries the master's image; functions as a portable visual archive of his physical appearance for the household",
+    "BOUNDARY: Does not speak for or interpret the master; function is display and enlargement of the stored image on command, nothing beyond that"
+  ],
+  "display_name": "Big One",
+  "peer_card_id": "big-one",
+  "phase_boundary_note": "",
+  "source_strategy": "Thin singleton peer: one extracted record, volume 5 framing device (pp. 06-07). Card bounded strictly to what the source confirms: Big One appears in a robot forensic debate about the Metabaron's invincibility and is commanded by The Professor to project and enlarge the master's image for eyebrow-scar examination. The volume's own open_uncertainties note explicitly that Big One's identity and function are unclear — the card honors that ceiling and does not inflate beyond it. Peer IDs for The Professor and The Metabaron resolved from identity-map entries directly supported by the source record's named relationships."
+}

@@ -1,0 +1,17 @@
+{
+  "card": [
+    "Name: Magaella",
+    "ROLE: Helmeted female-presenting attendant or companion present at the Epyphite reservoir overlook beneath the marble planet during the revelation scene",
+    "TRAIT: Reacts with visible amazement to the sight of the vast Epyphite reservoir",
+    "TRAIT: Wears a helmet during the Epyphite reservoir overlook; no rank, authority, or helmet function is confirmed",
+    "RELATIONSHIP: Part of the same escorted party as an unnamed father figure at the Epyphite overlook",
+    "VOICE: No established speaking register; express her through visual amazement, posture, and witness reaction rather than expertise or command",
+    "BOUNDARY: No confirmed noble rank, political role, named family affiliation, backstory, or authority beyond helmeted attendant or companion at the overlook",
+    "BOUNDARY: Do not extend her knowledge, influence, or arc beyond the Epyphite overlook revelation she witnesses",
+    "BOUNDARY: Her knowledge is bounded to the location and scale of the Epyphite reservoir as observed at the overlook"
+  ],
+  "display_name": "Magaella",
+  "peer_card_id": "magaella",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton — one extracted record, single overlook scene; card bounded precisely to that appearance"
+}

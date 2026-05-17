@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready: several facts overstate interior psychology and repeatable behavior from a single-page appearance.",
+    "Honcho fact text includes source-facing/source-meta wording, which violates the no source refs/source-meta rule inside card facts."
+  ],
+  "format_errors": [
+    "Card is a list of 18 strings under the 40-fact limit with allowed prefixes and no duplicates.",
+    "Facts contain source-facing wording: `not established in the source`, `in the source`, and `this single scene contains` should not appear in Honcho card facts."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "The source-supported accusation that the court considers him deceitful should be preserved as the court's accusation, not as an omniscient verdict.",
+    "The card can keep a useful hunger/refusal shape, but it should be phrased as witnessed pressure behavior: he rejects exclusion during crisis, claims capability after the fleet failed, and treats dismissal as something to contest."
+  ],
+  "revision_instructions": [
+    "Rewrite BOUNDARY facts in-world: no confirmed true name, origin, lineage, prior history, or contents of the exposed secret are known; do not invent them.",
+    "Replace overextended interior philosophy with tighter witnessed facts: he condemns surrender, demands why he was not summoned after the fleet failed, and presents capability as his claim to recognition.",
+    "Remove unsupported repeatable/habitual claims about always entering on his own terms, combat use of ant-robots, and leaving only under compulsion unless directly grounded.",
+    "Keep the ant-robot betrayal as leverage, but state only that one of his ant-robots was turned as a spy and revealed an unspecified secret."
+  ],
+  "unsupported_claims": [
+    "`deploys ant-robots as personal intelligence and combat instruments` is unsupported; the bundle only establishes possession/association and that one ant-robot was an Imperial spy.",
+    "`the entrance is deliberate spectacle, not emergency access; he arrives on his own terms or not at all` overreads motive and habitual behavior.",
+    "`the title belongs to whoever can do the work` and the court forfeiting authority are too abstract and assert a philosophy not directly established.",
+    "`structural conviction, not wounded pride` asserts an internal distinction the source does not support.",
+    "`he may not fully know is gone` is not supported and is awkward against the scene, where the court tells him about the spy ant-robot.",
+    "`will not quietly exit... leaves only under compulsion` overstates the witnessed expulsion; the source supports being dismissed/cast out, not the exact manner of exit.",
+    "`does not experience this scene as defeat` asserts private self-judgment beyond the bundle."
+  ]
+}

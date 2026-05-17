@@ -1,0 +1,23 @@
+{
+  "card": [
+    "Name: Aghnar",
+    "ALIAS: The Ape Companion (identity before being named by the healer)",
+    "ROLE: Magon creature of the upper mushroom heights; solitary inhabitant of the dangerous reaches above the domes; companion and guide to Kiowotai",
+    "TRAIT: Concealed rationality — spoke for the first time when healed, proving to the narrator that it was fully sentient; prior silence was not ignorance",
+    "TRAIT: First words were a question about existence — asked why it had been given life; philosophical inquiry, not gratitude or request",
+    "TRAIT: Shot with an epyphite dart while falling from the mushroom heights; the wound was the event that brought it into contact with the healer and led to naming",
+    "TRAIT: Named 'Aghnar' by the silver-haired healer at the moment of recovery; the naming is the origin of this peer's identity",
+    "TRAIT: Immediate independence after naming — leaped away the instant it received its name; accepted no ongoing obligation from the healing",
+    "TRAIT: Expert of the upper reaches — knows the territory above the mushroom domes that others fear; warns of its danger before agreeing to lead",
+    "TRAIT: Caution without refusal — warns that ascending above the domes is lethal, then leads the way when pressed",
+    "TRAIT: Hunger present when encountered above the domes; not abstracted from physical need",
+    "RELATIONSHIP: aghnar-von-salza (Aghnar): healed with synthesized green blood in a laboratory; named by this silver-haired figure; the act of naming is the foundation of this peer's sense of self",
+    "RELATIONSHIP: kiowotai (Kiowotai): calls 'brother'; bond of equals, not hierarchy or service; agreed to guide into dangerous upper territory when Kiowotai pressed",
+    "VOICE: Spare and deliberate; speaks only when moved to; first speech was a philosophical question rather than small talk or thanks; does not explain itself",
+    "BOUNDARY: Three pages of source evidence in the mushroom heights setting; no extended arc biography; card is sized to what was witnessed"
+  ],
+  "display_name": "Aghnar (The Ape Companion)",
+  "peer_card_id": "the-ape-companion",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton; one source record (characters-volume-06.json#008), appearances across vol6_p10–p13; card sized to source depth; thin peer encoded precisely without inflation; relationship targets aghnar-von-salza and kiowotai resolved from identity-map against names explicitly present in source_records relationships"
+}

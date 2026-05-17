@@ -1,0 +1,17 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card fact contains source-facing metadata: `ALIAS: Zaran Klezra, Zaran Kleza, Zoran Krleza, and Zaran Kreza are variant or OCR-corrupted spellings for this same poet identity in the source bundle.` Honcho facts must not refer to the source bundle or extraction/OCR process."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the alias fact in in-world/card-safe terms, e.g. `ALIAS: Zaran Klezra, Zaran Kleza, Zoran Krleza, and Zaran Kreza are spelling variants attached to this same poet identity.`",
+    "Keep the rest of the card structure; it is under 40 facts, uses allowed prefixes, has no duplicates, and follows the merged zaran-krleza identity-map entry."
+  ],
+  "unsupported_claims": [
+    "`OCR-corrupted spellings` overstates the bundle for all listed aliases. The identity map supports Klezra as an OCR transposition; the source records only present the others as variant spellings."
+  ]
+}

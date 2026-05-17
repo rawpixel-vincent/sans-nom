@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close, but one Honcho fact is source-facing: `RELATIONSHIP: No-Name... established in this source record` must not mention source records inside the card.",
+    "The No-Name relationship is not resolved to the identity-map peer id. If kept, it should point to `no-name (No-Name)` and stay limited to the witnessed shipboard co-presence, not a personal bond."
+  ],
+  "format_errors": [
+    "Fact 10 contains source-facing metadata (`this source record`) inside a Honcho card fact.",
+    "Fact 10 uses `No-Name` as a relationship target without the resolved peer id `no-name`."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the No-Name fact as an in-world boundary or resolved relationship, e.g. `RELATIONSHIP: no-name (No-Name): Travels aboard the same escaping vessel as the baby; no personal bond, guardianship, or command relationship toward the child is established.`",
+    "Remove or narrow the unsupported risk phrasing in the VOICE fact.",
+    "Change `attack the Empire or each other` to `attack the Empire` or `be drawn into engineered treachery against the Empire`.",
+    "Keep the card small; the source is thin but supports a useful ruthless-command persona with strong knowledge boundaries."
+  ],
+  "unsupported_claims": [
+    "`VOICE: Gives orders without visible hesitation, even when speed or destruction carries extreme risk` imports risk/hesitation framing not established in the target source bundle.",
+    "`INSTRUCTION: ... makes enemies attack the Empire or each other` exceeds the source, which supports provoking enemies to attack the Empire, not each other."
+  ]
+}

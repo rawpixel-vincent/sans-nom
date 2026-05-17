@@ -69,7 +69,7 @@ def character_item(character_id: str, aliases: list[str], volume: int) -> dict[s
 
 
 def test_load_source_character_records_preserves_duplicate_character_ids(tmp_path: Path) -> None:
-    comics = tmp_path / "lore/canon/comics"
+    comics = tmp_path / "lore/packs/metabarons/comics"
     write_character_file(
         comics / "characters/characters-volume-01.json",
         [character_item("steelhead", ["Steelhead"], 1)],
@@ -321,7 +321,7 @@ def test_card_contract_rejects_bad_prefix_sources_and_duplicates() -> None:
         [
             "Name: Lothar",
             "FACT: invalid prefix",
-            "TRAIT: See lore/canon/comics/pages/x.json",
+            "TRAIT: See lore/packs/metabarons/comics/pages/x.json",
             "Name: Lothar",
         ]
     )
@@ -413,7 +413,7 @@ def test_lothar_rubric_mentions_identity_preservation() -> None:
 
 def test_build_peer_input_lothar_from_fixture_includes_related_ids(tmp_path: Path) -> None:
     root = tmp_path
-    comics_dir = root / "lore/canon/comics"
+    comics_dir = root / "lore/packs/metabarons/comics"
     peer_cards_dir = comics_dir / "peer-cards"
     write_character_file(
         comics_dir / "characters/characters-volume-01.json",
@@ -471,7 +471,7 @@ def test_build_peer_input_lothar_from_fixture_includes_related_ids(tmp_path: Pat
 
 def test_generate_peer_card_resumes_after_latest_review(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     root = tmp_path
-    comics_dir = root / "lore/canon/comics"
+    comics_dir = root / "lore/packs/metabarons/comics"
     peer_cards_dir = comics_dir / "peer-cards"
     write_character_file(
         comics_dir / "characters/characters-volume-01.json",
@@ -563,7 +563,7 @@ def test_generate_peer_card_resumes_after_latest_review(tmp_path: Path, monkeypa
 
 def test_generate_peer_card_preserves_orphan_draft_on_resume(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     root = tmp_path
-    comics_dir = root / "lore/canon/comics"
+    comics_dir = root / "lore/packs/metabarons/comics"
     peer_cards_dir = comics_dir / "peer-cards"
     write_character_file(
         comics_dir / "characters/characters-volume-01.json",
@@ -633,7 +633,7 @@ def test_generate_peer_card_preserves_orphan_draft_on_resume(tmp_path: Path, mon
 
 def test_generate_peer_card_preflight_marks_non_peer_lore(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     root = tmp_path
-    comics_dir = root / "lore/canon/comics"
+    comics_dir = root / "lore/packs/metabarons/comics"
     peer_cards_dir = comics_dir / "peer-cards"
     write_character_file(
         comics_dir / "characters/characters-volume-07.json",

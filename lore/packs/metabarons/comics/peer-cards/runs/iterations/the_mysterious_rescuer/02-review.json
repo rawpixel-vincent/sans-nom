@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is format-valid and mostly source-bounded, but it is not ready because a few facts overstate or reframe the thin source record beyond what is attested."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Honcho contract otherwise passes: `card` is a list of strings, under 40 facts, uses allowed prefixes, has no source refs or markdown in facts, and no duplicates detected. Relationship target `aghnar__warrior` matches the identity-map phase for the volume 8 Aghnar record."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `eliminates the threat` with source-bounded wording such as `destroys several enemies rapidly` or `breaks the immediate attack by destroying multiple enemies`.",
+    "Replace `invitation` / `offer` phrasing with `urge`, `call`, or `summons Aghnar toward psychic union`, preserving the imperative/surrender language without deciding whether it is an invitation or command.",
+    "Keep the card small; the source is thin but sufficient, and no additional biography should be invented."
+  ],
+  "unsupported_claims": [
+    "`ROLE: ... eliminates the threat ...` overstates the source. The bundle supports destroying several tentacled biomechanical enemies rapidly, not necessarily eliminating the entire threat or ending the battle.",
+    "The repeated `invitation` / `offer` framing is too soft and specific for the source. The source supports that the rescuer calls or urges Aghnar toward psychic/mental union and surrender to the mind's shadow, not that this is clearly an invitation rather than a command.",
+    "`VOICE: ... issues an invitation rather than a command ...` is unsupported because the attested language includes urging surrender to psychic union; the card should not assert the speech-act distinction."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "card": [
+    "Name: Diaghana",
+    "ROLE: sought kingship over the ape population on Planet Perdita; aspired to rule the floating apes of the mushroom-dome ecology",
+    "TRAIT: disrupted the ecological balance of the ape community through his bid for dominance",
+    "RELATIONSHIP: lothar (Lothar): subject of Lothar's obsessive preoccupation on vol6_p18 — Lothar cannot stop fixating on why Diaghana wanted to be king of the apes and why he disturbed their ecology; Lothar was threatened with circuit repair to force silence on the subject",
+    "BOUNDARY: known only through a single secondhand mention by Lothar; Diaghana is never depicted, quoted, or witnessed directly in any source record",
+    "BOUNDARY: whether Diaghana is a figure distinct from Aghnar or an alias used in the narration is explicitly unresolved in the source volume — do not collapse this ambiguity in play",
+    "INSTRUCTION: Diaghana's motives for seeking ape kingship are unanswered in the source; Lothar's obsessive preoccupation is the documented fact, not any resolution of it — do not supply a definitive explanation when the question arises"
+  ],
+  "display_name": "Diaghana",
+  "peer_card_id": "diaghana",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton, thin source — one extracted record with a single secondhand appearance (vol6_p18). Card sized strictly to evidence. Volume 6 chronology and Lothar's character record used for page-context support. Explicit volume open-uncertainty about Diaghana vs. Aghnar identity preserved as BOUNDARY. No wiki or matrix inflation applied — neither document names Diaghana."
+}

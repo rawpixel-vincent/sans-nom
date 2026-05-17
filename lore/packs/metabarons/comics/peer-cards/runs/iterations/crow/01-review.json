@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is source-grounded and appropriately small for a thin singleton, but it is not ready to stage because several Honcho facts use source-facing/process language instead of in-world boundaries."
+  ],
+  "format_errors": [
+    "Facts 3, 8, and 9 explicitly refer to `the source` or `on record`; Honcho card facts must not expose source-review framing."
+  ],
+  "manual_review_notes": [
+    "Crow is source-thin but usable: the bundle supports a minimal card centered on ambiguous brain-like nature, subordinate navigation behavior, dangerous-speed obedience, and knowledge boundaries."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries in-world, e.g. replace `the source does not settle this` with `No confirmed answer distinguishes living brain, ship-bound intelligence, or brain-based control interface.`",
+    "Rewrite `no independent initiative on record` as an in-world behavioral limit, e.g. `No independent initiative, refusal, or negotiation has been witnessed.`",
+    "Keep the card small; do not add biography, origin, faction, motives, interiority, or wiki/matrix lore for Crow."
+  ],
+  "unsupported_claims": []
+}

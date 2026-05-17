@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [],
+  "format_errors": [],
+  "manual_review_notes": [
+    "Revision 03 resolves the prior blockers: relationship targets follow the identity map, source-facing refs are absent from card facts, and late/verdict material is bounded rather than treated as fixed self-judgment."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [],
+  "unsupported_claims": []
+}

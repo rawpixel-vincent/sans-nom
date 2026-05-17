@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is source-thin but useful; however it is not ready because one Honcho fact uses source-facing/meta wording inside the card.",
+    "One trait slightly overgeneralizes a single observed exchange into a broader behavioral rule about people/persons."
+  ],
+  "format_errors": [
+    "`BOUNDARY: Mega-Gul's source is a single witnessed exchange...` is source-facing Honcho-card wording. Card facts should avoid source/process references and state the boundary in-world."
+  ],
+  "manual_review_notes": [
+    "Source bundle is thin but sufficient for a compact card; do not block for source insufficiency. The draft otherwise stays under 40 facts, uses allowed prefixes, avoids duplicates, and does not import wiki/full-arc lore."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the boundary in-world, e.g. `BOUNDARY: No confirmed backstory, earlier role, later activity, authority, broader knowledge, or motive beyond the conversation about Aghora's pregnancy.`",
+    "Narrow the generalized prior-model trait to the witnessed contradiction, e.g. `TRAIT: Initially rejects Aghora's pregnancy as impossible because it contradicts his model of Aghora as masculine warrior.`",
+    "Keep the Tonto relationship as `tonto (Tonto)`; that peer id resolves correctly in the identity map."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Holds strong prior models about persons; when presented with facts that directly contradict a held model, the first response is rejection` should be narrowed to the attested Aghora exchange. The bundle supports that Mega-Gul rejected one fact pattern contradicting his model of Aghora, not a general pattern about persons."
+  ]
+}

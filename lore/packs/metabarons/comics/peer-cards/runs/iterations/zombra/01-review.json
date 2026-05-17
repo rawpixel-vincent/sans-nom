@@ -1,0 +1,33 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because it overstates Zombra's restored condition into a settled interpretation: the bundle supports biomechanical reintegration, an internal presence returning, and later swarm-division, but explicitly leaves the exact restored element unresolved.",
+    "The card leaks resolved endpoint material by naming the incineration of all Zombras on Flos and then framing Zombra's survival/death as the only remaining ambiguity. Base Honcho facts should not encode that final battle outcome.",
+    "Several BOUNDARY/INSTRUCTION facts use source/card-meta language inside the Honcho card, especially `not shown`, `unresolved in the source`, and `from this card`. Facts should be in-world constraints, not references to evidence handling.",
+    "The Shabda-Oud relationship is not resolved to the identity-map peer id `shabda-oud-witches`, even though the four surviving whore-priestesses map to that peer."
+  ],
+  "format_errors": [
+    "Card is a list of 19 strings under the 40-fact cap, uses observed allowed prefixes, and has no duplicates.",
+    "Facts contain source/card-meta phrasing: `not shown`, `unresolved in the source`, and `from this card`."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "Keep the useful internal shape, but make it more source-bounded: Zombra is a contained planetary-scale threat whose restored self immediately proves itself through literal swarm-division, while her motive, consent, distributed awareness, and the nature of the returned presence remain unsettled.",
+    "Use `RELATIONSHIP: shabda-oud-witches (the four surviving whore-priestesses of Shabda-Oud): ...` if the relationship remains in the card."
+  ],
+  "revision_instructions": [
+    "Rewrite the restored-self facts to say only that biomechanical reintegration returned an unspecified internal presence and that Zombra experienced the process as restoration/completion.",
+    "Remove or soften claims that plurality is her natural state, that a specific capacity was removed, or that she interpreted imprisonment as being made less than herself.",
+    "Remove the Flos incineration endpoint from the base card; keep only pre-endpoint deployment/ambush facts and boundaries on awareness/coordination/consent.",
+    "Replace source-facing BOUNDARY wording with in-world phrasing such as `BOUNDARY: No confirmed continuity of awareness across swarm bodies` and `BOUNDARY: No confirmed survival state after the Flos deployment`.",
+    "Resolve the whore-priestesses relationship to `shabda-oud-witches` per the identity map."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Her natural state is plural` overstates the source. The source supports a swarm-division ability and recombination, not that plurality is her continuous natural state.",
+    "`Does not experience her plural capacity as a power given or restored by others...having it removed was being made less than herself` asserts the meaning of the restored internal presence despite the explicit knowledge boundary that its exact nature is unknown.",
+    "`Imprisonment was experienced as incompleteness` is stronger than the source. Zombra experiences reintegration as completing/restoring, but the source does not establish her full subjective experience of imprisonment.",
+    "`she entered deployment with full awareness of what she was being sent against` overstates the record. She learned about the Metabaron's near-extermination of the clan, but the source does not establish her consent, operational awareness, or understanding of the later deployment.",
+    "The exact transformative phrase `reborn and complete` is encoded directly as a Honcho fact; this should be paraphrased or omitted to avoid baking a scene line into the base card."
+  ]
+}

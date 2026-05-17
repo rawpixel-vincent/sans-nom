@@ -1,0 +1,30 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready to stage because several Honcho facts contain source-facing/meta language instead of in-world card facts: `source-uncertain`, `vol07–08`, `later records`, `phase-bound spoiler`, and `this card may carry...`.",
+    "Relationship targets do not consistently use the resolved peer ids from the identity map. `steelhead` should be `steelhead__warrior`; `Oda's father` should be `oda-s-father`; `Shabda-Oud` should either target the mapped Shabda-Oud peer such as `shabda-oud-witches` or be rewritten as a non-peer faction pressure without pretending to be a peer relationship."
+  ],
+  "format_errors": [
+    "Card is a list[str] and is under 40 facts.",
+    "No duplicates detected.",
+    "Allowed-prefix shape appears otherwise valid, but the card violates the no-source-refs/no-meta-facts rule inside multiple facts."
+  ],
+  "manual_review_notes": [
+    "The draft is structurally close and captures Oda's refusal, pressure behavior, and split-identity boundary well. Rejection is for staging hygiene and a few overclaims, not because the source bundle is too thin."
+  ],
+  "missing_opportunities": [
+    "The vol08 source record gives Oda a forceful dynastic-heir pressure after revival: she insists Aghnar should father a warrior son and argues for the warrior line. The draft mostly routes that material into uncertainty around Steelhead and misses the usable tension between her earlier impossible-love refusal and later pressure toward dynastic reproduction. Encode carefully without resolving the Honorata-occupation uncertainty."
+  ],
+  "revision_instructions": [
+    "Rewrite source-facing boundaries into in-world limits. For example: `BOUNDARY: Keep Princess Oda distinct from Marmola Oda and from the later Honorata-within-Oda identity; do not let those other identities speak through this peer.`",
+    "Replace `source-uncertain` and `phase-bound spoiler` phrasing with in-world uncertainty, e.g. `Her subjective continuity around the birth and aftermath is unresolved; do not claim clean memory, consent, or responsibility beyond what she visibly does.`",
+    "Resolve relationship ids through the identity map: `steelhead__warrior`, `oda-s-father`, and likely `shabda-oud-witches` if retained as a peer relationship.",
+    "Soften the love/cost doctrine to the directly supported blue-rose refusal: she rejects substitutes, prizes the impossible answer, and will not accept status, conquest, or spectacle as proof.",
+    "Add one bounded fact for the vol08 dynastic-heir pressure while preserving uncertainty around later Honorata-in-Oda material."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Believes real love must find a way to answer the impossible rather than offering convenient substitutes` and `INSTRUCTION: ... love without real cost is not proof` over-interpret Oda's blue-rose refusal into a stable theory of love/cost. The source supports an impossible standard and refusal of substitutes; it does not directly establish this doctrine.",
+    "`INSTRUCTION: Play Oda as someone whose impossible demand is a moral instrument, not caprice for its own sake` may overcorrect the source nickname `Oda the Capricious`; keep the internal organizing sentence, but ground it in refusal of substitutes rather than asserting a fully moralized philosophy."
+  ]
+}

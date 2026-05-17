@@ -1,0 +1,38 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is not ready to stage because it imports material across split-phase boundaries, especially Aghnar child-formation facts and uncertain Kiowotai/Kioka material, into the `aghnar__warrior` card.",
+    "The card encodes exact transformative lines as `VOICE` facts. Those lines should be paraphrased into durable voice/pressure behavior, not stored verbatim as base Honcho facts.",
+    "Several facts use link-matrix or external relationship framing to add meaning that is not supported by the Aghnar vol06-vol08 source bundle, most notably Oda knowingly accepting the blue-rose illusion.",
+    "The refusal around not fathering a Metabaron is overstated as an unbreakable final verdict; the source supports a present-tense avowed refusal and pressure behavior, not a guaranteed promise that cannot break."
+  ],
+  "format_errors": [
+    "Fact 2 contains source-facing wording: `unresolved in the source`. Card facts must be in-world and must not reference source/process language.",
+    "Facts 28-30 store exact quoted lines as Honcho facts. Replace with paraphrased voice patterns and behavioral constraints."
+  ],
+  "manual_review_notes": [
+    "The source bundle is sufficient for a useful card, and the draft is under the 40-fact cap with no duplicate facts detected."
+  ],
+  "missing_opportunities": [
+    "Separate Honorata relationship targeting more carefully: `honorata__living` fits the mourned mother/revenge wound, but any vol08 survival/choice material should point to or boundary around `honorata__reborn` rather than collapsing all Honorata phases into the living-priestess relation.",
+    "Keep the strong internal organizing sentence, but recast it as source-bounded hunger-shape: revenge is finite, ordinary family life is the imagined exit, and that exit is under pressure, not guaranteed.",
+    "Rewrite the anti-Metabaron-heir refusal as an avowed refusal and pressure behavior without declaring final success, final failure, or the later vow content."
+  ],
+  "revision_instructions": [
+    "Remove child-phase facts unless they are explicitly repeated by the vol06-vol08 warrior source bundle; do not use `aghnar__child` formation material to enrich this card.",
+    "Demote Kiowotai/Kioka material to an in-world uncertainty boundary, or omit it unless narrowly needed; do not list them as aliases for Aghnar.",
+    "Remove source-facing wording from all card facts.",
+    "Replace exact `VOICE` quotations with paraphrases such as his voice becoming emotionally absolute around revenge/family, spiritually separating flesh from will under injury, and maintaining secrecy until vengeance is complete.",
+    "Remove the unsupported claim that Oda knowingly accepted an illusion; keep only the supported psychic blue-rose manifestation/winning of the test unless a primary source record in the bundle supports more.",
+    "Revise the refusal facts so they encode his desire not to father a merciless warrior and his ordinary-family exit dream without making an unbreakable prophecy or preloading the later transformation."
+  ],
+  "unsupported_claims": [
+    "`Name: ... built from birth as the instrument of a revenge he did not choose and could not refuse` imports child-phase framing and asserts inner necessity not established by the vol06-vol08 source records.",
+    "`TRAIT: The thing he will not do... This is the one promise he will not break under maximum pressure` is too absolute and conflicts with the vol08 pressure trajectory, where the ordinary-family vow remains unresolved and later transforms under crisis.",
+    "`TRAIT: Cybernetically augmented: prosthetic metal feet earned by allowing a crushing machine to destroy them in childhood...` belongs to `aghnar__child`, not this split-phase peer.",
+    "`ALIAS: Kiowotai / Kioka` should not promote unresolved Magon naming into aliases for Aghnar; the identity overlap is explicitly uncertain and there are separate peer identities for nearby Magon/Kiowotai material.",
+    "`TRAIT: On Perdita... defeated the Magon Patriarch and fulfilled their prophecy` overstates uncertain Kiowotai/Kioka/Aghnar material and flattens Magon belief into confirmed biography.",
+    "`Oda accepted it knowing it was not real` and `blue-rose illusion she accepted knowing` are not supported by the Aghnar source records in the bundle; they appear to come from relationship/link-matrix orientation and should not be imported as base biography."
+  ]
+}

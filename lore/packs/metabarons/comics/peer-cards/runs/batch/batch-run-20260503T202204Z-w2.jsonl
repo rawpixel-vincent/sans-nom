@@ -1,0 +1,3 @@
+{"detail": "workers=2 pending=117 log=/Users/vincent/dev/sans-nom/lore/canon/comics/peer-cards/staging/batch-run-20260503T202204Z-w2.jsonl", "event": "batch_start", "ts": "2026-05-03T20:22:04.006083+00:00"}
+{"event": "start", "peer_id": "the_metabaron", "ts": "2026-05-03T20:22:04.006987+00:00"}
+{"event": "start", "peer_id": "baron_berard", "ts": "2026-05-03T20:22:04.007105+00:00"}

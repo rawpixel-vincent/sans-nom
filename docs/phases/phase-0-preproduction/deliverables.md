@@ -4,7 +4,7 @@ Concrete artifacts produced in Phase 0. Each is a file or set of files that a te
 
 ## Narrator artifacts
 
-- `lore/narrator/peer-card.md` — Narrator peer card v1, with TRAIT and INSTRUCTION entries. See [peer-card.md](../../architecture/narrator-agent/peer-card.md) for the v1 draft.
+- Narrator role doctrine now comes from runtime prompts, the Story Bible, and seeded Honcho cards. The former root `lore/narrator/` markdown card was removed.
 - `testdata/scenes/` — **the regression corpus**: 20 hand-authored test scenes, each with:
   - The player input (free-text or chosen option) that produced the scene.
   - The reference Narrator output (what a passing run should produce, in tone and content).
@@ -14,9 +14,7 @@ Concrete artifacts produced in Phase 0. Each is a file or set of files that a te
 
 ## Actor artifacts
 
-- `lore/actors/aghora.md`, `lore/actors/honorata.md`, ... — 8 canonical character cards adapted for game use. Some characters need a *young* version for early-phase relevance (e.g., young Steelhead for stories Tonto tells; the Council version is post-everything).
-- `lore/actors/tonto.md` — written from scratch, drawing on comic narration sequences and the Council `council_summoning_prompts.md`.
-- `lore/actors/lothar.md` — written from scratch.
+- Actor cards now come from accepted peer-card artifacts under `lore/packs/<pack_id>/comics/peer-cards/cards/accepted/`. The former root `lore/actors/` markdown overrides were removed.
 - `lore/relations/` — directional relationship matrix, loaded from the Council of Castaka `relations/` directory verbatim (the dynasty's refraction matrix is already written).
 
 ## Engineering artifacts
@@ -31,7 +29,7 @@ Concrete artifacts produced in Phase 0. Each is a file or set of files that a te
 
 - `lore/canon/comics/` — extracted text from the 446 comic pages. Page-batched OCR via Claude vision; manually reviewed for canonical-quote accuracy. See [lore-retrieval.md](../../architecture/lore-retrieval.md).
 - A populated vector store (Qdrant or pgvector — Phase 0 picks). The `seed-honcho` script's setup phase loads the corpus once.
-- **Edna lore research** — `lore/actors/edna-research.md`. The narrative designer searches the 446 comic transcripts for Edna appearances and assembles a minimum of 10 canonical observations: her voice, her relationship to Tonto, her era in the dynasty's timeline, any specific scenes or dialogue attributed to her. This file is the seed material for the Tonto-of-Edna verification below. **This deliverable is a prerequisite for the Tonto-of-Edna verification** — it must be complete before the verification script can be seeded and run.
+- **Edna lore research** — source facts live in the selected lore pack's character/page/peer-card artifacts. The old root actor research path was removed.
 
 ## Verification artifacts
 

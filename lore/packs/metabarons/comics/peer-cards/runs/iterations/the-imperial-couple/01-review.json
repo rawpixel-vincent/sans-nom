@@ -1,0 +1,28 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is close but not ready to stage because several facts add unsupported interpretation beyond the singleton source record.",
+    "One card fact is source-meta rather than Honcho-native: `TRAIT: Neither member of the Couple is named in this record`."
+  ],
+  "format_errors": [
+    "Card is a list of strings and is under 40 facts.",
+    "Allowed prefix usage is otherwise acceptable.",
+    "No duplicate facts detected.",
+    "Remove source-facing wording from card facts: `in this record` should become a Honcho-native boundary such as `Neither member is named; do not invent personal names.`"
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Keep the singleton identity `the-imperial-couple`; relationship peer ids `othon-von-salza` and `bari` are correct.",
+    "Replace unsupported role/voice interpretations with narrower facts grounded in the source: imperial rulers with authority to grant territory/revenue, younger ambition versus elder caution, strategic-but-geographically-incomplete Epyphite knowledge.",
+    "Simplify Shazam to the supported gift fact unless the input bundle is expanded with sourced Shazam details.",
+    "Rewrite source-meta boundaries into in-world/Honcho-native constraints and then resubmit."
+  ],
+  "unsupported_claims": [
+    "`ROLE: ... dual sovereigns who govern with shared authority and present decisions as one voice` is not supported. The source supports rulers/Imperial Couple, but not governance mechanics or a unified public decision style.",
+    "`TRAIT: Gave Bari the horse Shazam — extinct for 20,000 years, genetically recreated by Imperial scientists ...` imports Shazam lore not present in the provided source bundle for this peer. The supported fact is only that Shazam was given to Bari at Othon's request.",
+    "`VOICE: Their joint voice carries an internal tension ... consensus forms, but not instantly` overstates the source. The source supports younger ambition and elder caution, not a deliberative consensus process.",
+    "`RELATIONSHIP: othon-von-salza ... newly honored vassal` adds status language not supported by the source record. The supported relationship is negotiating counterpart, publicly honored, and granted Okhar plus Epyphite revenue share.",
+    "`RELATIONSHIP: bari ... gesture signals goodwill toward the Castaka line` is an interpretive motive not established by the source. The source supports that Bari received Shazam as a gift at Othon's request."
+  ]
+}

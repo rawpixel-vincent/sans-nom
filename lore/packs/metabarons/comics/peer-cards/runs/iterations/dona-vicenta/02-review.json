@@ -1,0 +1,24 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is format-valid but not ready: several facts conflate separate source events or state late/resolved outcomes too directly for the base Honcho card."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [
+    "The draft has the right organizing depth around irreplaceability, bodily argument, refusal to be reduced to function, and love/crime simultaneity; preserve that structure while correcting the overclaims."
+  ],
+  "revision_instructions": [
+    "Separate the eye sacrifice from the fingernail sacrifice and attach each to the supported purpose.",
+    "Reword the Steelhead confrontation as public accusation/refusal that catalyzed his search for love, without claiming she explicitly named incapacity unless a cited source in the bundle supports it.",
+    "Reword the Zaran/Aghora childbirth relation so the daughter, not Zaran's mere existence, is the stated survival reason.",
+    "Remove resolved late-body-destruction language from the Aghora relationship fact or make it a spoiler/knowledge boundary."
+  ],
+  "unsupported_claims": [
+    "`RELATIONSHIP: don-nicanor__clone... she gave him her own eye with her fingernails to restore his paternal recognition` conflates two separate source facts. The eye restores paternal recognition; the fingernail sacrifice is separately reported as securing permission for her marriage.",
+    "`ROLE/RELATIONSHIP` language that she specifically `named Steelhead's incapacity for love in public` is stronger than the supplied Doña Vicenta records. The bundle supports public denunciation, dissent, suicide threat, and that her denunciation catalyzed his quest toward love, not that she named that incapacity as such.",
+    "`RELATIONSHIP: zaran-krleza... the one whose existence gave her a reason to survive childbirth` overstates the source. The bundle says the girl twin, attributed to the poet-lover, would give her strength/will to live.",
+    "`RELATIONSHIP: aghora... Aghora destroyed what remained of her preserved body years later` encodes a resolved late endpoint as a base relationship fact; this should be omitted or converted into a boundary rather than staged as playable card knowledge."
+  ]
+}

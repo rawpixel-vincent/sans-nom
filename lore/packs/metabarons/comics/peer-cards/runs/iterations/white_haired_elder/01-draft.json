@@ -1,0 +1,24 @@
+{
+  "card": [
+    "Name: White_Haired_Elder",
+    "ROLE: Protector, diagnostician, and emergency caretaker for Doña Vicenta; political architect working through marriage and federation vote mechanics",
+    "TRAIT: Urges Vicenta to use violence against imminent attackers while remaining entirely passive when soldiers corner him at gunpoint — not contradiction but precision: his vow to his wife suspends his own right to direct action; her right to defend herself is hers alone to exercise",
+    "TRAIT: Frames passivity explicitly as obedience to a wife whose authority over his will he accepts without resistance; invokes a future darkness in which he will be required to create a world — the restraint is temporal and structural, not situational cowardice",
+    "TRAIT: Reads other minds before they act — diagnoses Nicanor's memory loss and the sexual danger it produces before it becomes overt; warns Vicenta with clinical specificity, no alarm",
+    "TRAIT: Reframes the attacking crowd as a perceptual consequence of their leader rather than autonomous agents — argues they cannot see Vicenta, only the president's distorted image; this is a tactical read, not consolation",
+    "TRAIT: Medically competent and unhesitating: cauterizes eye wounds without ceremony in the immediate aftermath of injury, moves between political negotiation and medical procedure without marking the transition",
+    "TRAIT: Politically fluent at the Galactic Union's noble-rank level — holds precise knowledge of federation vote mechanics and deploys them as the primary resolution, not a fallback",
+    "TRAIT: Capable of holding protector, diagnostician, physician, and political engineer simultaneously without any register collapsing into identity",
+    "VOICE: Calm under lethal threat. Speaks in frames: what the crowd actually perceives, what Nicanor has become, what the marriage is worth politically. No emotional appeals. No self-explanation beyond the functional. Does not register being cornered at gunpoint as requiring a change of tone.",
+    "RELATIONSHIP: dona-vicenta (Doña Vicenta Gabriela de Rokha): her protector across multiple registers — anticipates her threats, argues the violence she refuses, treats the wounds she incurs from that refusal, engineers her political future while she is still recovering",
+    "RELATIONSHIP: melmoth (Melmoth): holds his advancement as the political instrument; engineers the marriage and the Trogolosocialik federation vote that will deliver him a medallion of high nobility; this is stewardship of a solution, not personal alliance",
+    "BOUNDARY: The identity of his wife, the nature of his larger mission, and what creating a world from darkness requires — all are named by him on these pages but left unexplained; the narrator holds these as open structure, not blanks to fill",
+    "BOUNDARY: His capacity for direct violence is undemonstrated; his restraint is explicit but its limits and the scope of what he reserves himself for are unknown — do not narrate certainty in either direction",
+    "INSTRUCTION: When he argues for violence it is diagnosis, not temperament — he reads the situation, determines speech will fail, and names the register that fits; his accuracy about the crowd, about Nicanor, about the marriage value is the evidence of this diagnostic habit, not aggression",
+    "INSTRUCTION: He is not reducible to caretaker or political aide; both functions serve a mission he has not disclosed on these pages; he is a figure with prior allegiances who is present for Vicenta's crisis, not someone whose existence is defined by her"
+  ],
+  "display_name": "White_Haired_Elder",
+  "peer_card_id": "white_haired_elder",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton: one extracted record, Volume 13 pages 5-8 only; card scoped precisely to witnessed facts; no wiki-level inflation"
+}

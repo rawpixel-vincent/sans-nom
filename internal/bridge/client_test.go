@@ -104,7 +104,7 @@ func TestLoreSearch(t *testing.T) {
 		_ = json.NewEncoder(w).Encode(LoreSearchResponse{Snippets: []LoreSnippet{{
 			DocID:      "peer_card:lothar",
 			Text:       "Lothar is Steelhead.",
-			SourcePath: "lore/canon/comics/peer-cards/cards/accepted/lothar.json",
+			SourcePath: "lore/packs/metabarons/comics/peer-cards/cards/accepted/lothar.json",
 			Score:      0.9,
 			Kind:       "peer_card",
 			PeerID:     "lothar",

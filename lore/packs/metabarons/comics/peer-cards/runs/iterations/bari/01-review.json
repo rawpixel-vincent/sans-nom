@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Relationship targets do not follow the identity-map canonical peer ids. The draft uses `othon_von_salza`, `lady_edna`, `baron_berard`, and `iku_tta`; canonical ids are `othon-von-salza`, `edna`, `baron-berard-of-castaka`, and `iku-itta`. This must be fixed before staging."
+  ],
+  "format_errors": [
+    "Several `RELATIONSHIP:` facts use non-canonical peer ids, which violates the split/merged identity contract for peer-card relationships."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Replace `RELATIONSHIP: othon_von_salza` with `RELATIONSHIP: othon-von-salza`.",
+    "Replace `RELATIONSHIP: lady_edna` with `RELATIONSHIP: edna`.",
+    "Replace `RELATIONSHIP: baron_berard` with `RELATIONSHIP: baron-berard-of-castaka`.",
+    "Replace `RELATIONSHIP: iku_tta` with `RELATIONSHIP: iku-itta`.",
+    "Keep the current source-bounded Bari identity and spoiler boundaries; no additional biography is needed."
+  ],
+  "unsupported_claims": []
+}

@@ -1,0 +1,22 @@
+{
+  "card": [
+    "Name: The Cetacyborg",
+    "ALIAS: CetaCyborg",
+    "ALIAS: Cetacyborg",
+    "ROLE: Colossal bio-mechanical entity resembling a cosmic whale; posed an imminent hostile threat to the planet Okhar in the recorded encounter.",
+    "ROLE: Directed internally by a servo-brain command node; no individual speech or personal volition is attested.",
+    "TRAIT: Outer hull resists direct weapons assault; external bombardment was not a viable attack vector in the recorded encounter.",
+    "TRAIT: Interior environment contains corrosive acids; passage through the creature's interior severely damaged Othon's lungs.",
+    "TRAIT: Scale sufficient to swallow a piloted metacraft whole.",
+    "TRAIT: Destruction of the internal servo-brain by simultaneous weapons discharge produced an explosion described as comparable to a supernova.",
+    "RELATIONSHIP: othon-von-salza (Othon von Salza): Othon deliberately allowed himself to be swallowed, piloted his metacraft to the servo-brain node, and destroyed it with simultaneous weapons fire; he suffered severe lung damage from the creature's internal corrosive acids in the process.",
+    "RELATIONSHIP: shabda-oud-witches (Shabda-Oud Witches): associated with the Shabda-Oud forces that threatened Okhar during this encounter.",
+    "INSTRUCTION: In the recorded encounter, external assault failed against this creature; the only confirmed defeat method was internal — entering the creature and destroying the servo-brain from within.",
+    "BOUNDARY: No speech, negotiation, or individual will is attested; do not portray this entity as capable of dialogue or autonomous motivation beyond its recorded hostile approach to Okhar.",
+    "BOUNDARY: This peer record is bounded to one confirmed destroyed unit; seven additional units were detected by ultra-radar approaching Okhar at the close of the encounter, but their subsequent actions and fates are not attested in this record."
+  ],
+  "display_name": "The Cetacyborg",
+  "peer_card_id": "the-cetacyborg",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted record from characters-volume-05.json. Bounded to the Othon encounter and seven-unit detection. Wiki lore used for orientation only; no later-arc Cetacyborg guard-installation or fleet-deployment facts imported. Shabda-Oud relationship resolved to shabda-oud-witches via identity-map, grounded in the source record's direct association claim. Non-sentience softened to source-bounded wording: no attested speech or individual volition."
+}

@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The card is not ready because it uses the unsplit link-matrix Aghnar orientation to add a late-phase death-orientation that is not supported by the provided vol10-vol11 source records. The source supports aging, coldness, mercenary work, the genocide contract, honor-code outrage, emotional leverage through Oda/Honorata, and choosing mini-bomb death over capitulation; it does not support that he had been seeking an adequate death for years.",
+    "Several interpretive facts present Aghnar's inner state as settled biography rather than bounded inference, especially around accepting aging, wanting a worthy death, and how his coldness relates to surviving warmth."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Remove the link-matrix-derived death-seeking/adequate-death layer. Keep the supported refusal: he will not capitulate under dishonorable emotional leverage and chooses mutual self-destruction instead.",
+    "Change `Self-described` to source-safe wording such as `Described as emotionally colder than...`, and avoid explaining the cold as hidden surviving warmth unless directly grounded in the late-phase sources.",
+    "Recast interior claims about aging, contract acceptance, and Janus-Jana as behavior-grounded facts: aging observed, contract accepted knowingly for payment, imperial service publicly renounced.",
+    "Keep the current split-phase boundaries and relationship peer ids; `steelhead__warrior`, `honorata__in-oda`, and `janus-jana` are the right targets."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Self-described as 'colder than a Venusian salmon's blood'...` is inaccurate as written: the bundle says he is described that way, not self-described. The added claim that warmth survives after expendable attachments were stripped away is not supported by the late-phase bundle.",
+    "`TRAIT: Aging; surveyed his own deterioration... and found it acceptable...` overstates the source. The bundle supports that he noticed his deterioration, not that he found it acceptable or that only a worthy death-contract mattered.",
+    "`TRAIT: Accepted the Pthagurean genocide contract... not under deception, not out of desperation, but out of readiness` is too interior. The source supports knowledge of the contract's extermination scope and acceptance for payment, not his absence of desperation or a readiness psychology.",
+    "`TRAIT: Has been moving toward an adequate death for years...` imports the link-matrix/full-arc death reading and encodes a final self-judgment. It should be removed or reduced to the supported fact that he chose mutual mini-bomb death over capitulation under leverage.",
+    "`INSTRUCTION: His death-orientation is not despair... waiting for an adequate occasion...` repeats the unsupported death-orientation and should not be in the base card.",
+    "`RELATIONSHIP: janus-jana... a formal end of contract, not a betrayal in his register` states his internal register beyond the source. The source supports public renunciation and killing guards, not his own category of betrayal."
+  ]
+}

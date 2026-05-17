@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft overbuilds a two-page source into several fixed internal doctrines that are not supported by the bundle. The source supports machine-identity, honor-code rejection, outward blame for lost humanity, and methodical torture; it does not support the stronger psychology that the antagonist would destroy their last human remnant before admitting diminishment.",
+    "The card uses exact or exact-like transformative lines and invented quoted internal framing inside facts. Base Honcho facts should paraphrase these pressures rather than encode lines like `'you took my humanity'` or the invented `'I am a machine, machines optimize for victory...'` frame.",
+    "Several facts turn source-bounded ambiguity into asserted biography or doctrine, especially around prior allegiance, the origin of the machine state, and repeated doctrine."
+  ],
+  "format_errors": [],
+  "manual_review_notes": [
+    "The source is thin but sufficient for a useful compact card. This is not blocked for source insufficiency."
+  ],
+  "missing_opportunities": [
+    "Use the supported internal organizing pressure more tightly: machine self-declaration plus rejection of warrior honor plus outward blame for lost humanity. That gives depth without inventing a full origin or final self-verdict.",
+    "Keep the boundary around machine-origin and grievance legitimacy, but phrase it in-world and without `source` or `play` language inside the card fact."
+  ],
+  "revision_instructions": [
+    "Reduce the card to source-backed facts: gold-faced cybernetic/biomechanical form, rejection of warrior honor, use of Oda/Honorata as leverage against Aghnar, sequential torture/counting, parentless machine self-description, and targeted blame for lost humanity.",
+    "Replace exact quotes and invented first-person doctrine with paraphrase.",
+    "Soften `bio-rat` and `traitor` aliases to external epithets from Aghnar, without claiming the antagonist's prior allegiance or self-understanding beyond what is shown.",
+    "Replace the unsupported refusal with a narrower one such as refusing warrior honor as binding and making the captive bear the blame for his lost humanity.",
+    "Relationship targets `aghnar__late` and `honorata__in-oda` are appropriate; keep them, but avoid overclaiming beyond the hostage leverage and torture scene."
+  ],
+  "unsupported_claims": [
+    "`ALIAS: traitor — ... implies prior code or allegiance violated; the antagonist would deny ever owing any code at all` over-infers prior allegiance and a self-denial position. The source supports that Aghnar calls him traitor and that he rejects warrior honor, not that his history includes a violated allegiance.",
+    "`ROLE: Cybernetic operative...` implies an operative role or organization that is not established. The source supports a cybernetic antagonist/torturer, not an operative function.",
+    "`TRAIT: ... victory justifies any weapon is stated doctrine, argued and repeated` overstates repetition. The source supports a direct rejection of honor and victory-by-any-method logic, not repeated doctrine.",
+    "`TRAIT: Will not accept that the machine-state is loss — would destroy the last human remnant in themselves before conceding diminishment` is invented psychology. The source says he is fixated on lost humanity and blames the captive, which is not the same as refusing to accept loss.",
+    "`INSTRUCTION: ... machines optimize for victory...` imports generic machine-optimization framing that flattens the antagonist into sci-fi logic rather than the source's more specific pressure: no parents, no honor obligation, victory by any means, and accusatory grief over lost humanity."
+  ]
+}

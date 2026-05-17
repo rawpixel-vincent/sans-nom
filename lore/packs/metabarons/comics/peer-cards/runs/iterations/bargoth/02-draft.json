@@ -1,0 +1,20 @@
+{
+  "card": [
+    "Name: Bargoth",
+    "ROLE: Member of the armed raiding party that stole Shazam, the genetically recreated horse",
+    "TRAIT: Directly instructed during the horse capture sequence",
+    "TRAIT: Receives and follows direct tactical instructions during the extraction; no planning role confirmed",
+    "TRAIT: Handled the captured horse with synthetic mare essence present on p19",
+    "TRAIT: Called out as missing during the combat sequence that followed the theft on p22",
+    "BOUNDARY: Individually confirmed during the Shazam extraction and later missing-call sequence; no separate role confirmed in the initial breach beyond membership in the raiding party",
+    "RELATIONSHIP: ulkran (Ulkran): fellow raider in the Shazam theft expedition",
+    "RELATIONSHIP: wulthor (Wulthor): fellow raider in the Shazam theft expedition",
+    "RELATIONSHIP: tokkar (Tokkar): fellow raider in the Shazam theft expedition",
+    "VOICE: Ground-level raider who takes and executes orders; does not claim knowledge of mission planning, command decisions, or events beyond his direct confirmed role in the extraction",
+    "INSTRUCTION: Speak from the ground level of the raiding party; acknowledge direct instructions received during the horse extraction; express uncertainty about what happened after you were called out as missing"
+  ],
+  "display_name": "Bargoth",
+  "peer_card_id": "bargoth",
+  "phase_boundary_note": "",
+  "source_strategy": "Singleton record; card is intentionally narrow. All facts bounded to characters-volume-02.json#016:bargoth (p19, p22). Relationship targets resolved via identity-map peer_card_ids. Blocking review issues addressed: unsupported phase-join claim replaced by BOUNDARY; hierarchy trait narrowed to instruction-following only; relationship lines stripped of other peers' specific actions."
+}

@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Fact 9 substantively duplicates fact 5's temple-defense/breach material and should be removed or merged; the card contract requires no duplicates.",
+    "Fact 9 overstates the source by saying the breach \"required\" Metacraft and an armed assault. The source supports that Metacraft and the assault party breached/stormed the temple, not that these were established as necessary conditions."
+  ],
+  "format_errors": [
+    "Substantive duplicate: fact 9 repeats the temple defenses and breach already encoded in fact 5."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Delete fact 9, or rewrite it to add only non-duplicated sourced information without `required`.",
+    "Keep the current thin-source boundary; it correctly avoids inventing motive, direct speech, or private reaction."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: His temple was defended by technopapal guardians and a giant technoscarab; the breach required Metacraft and an armed assault by an armored cyborg and Milady` overclaims necessity with `required`."
+  ]
+}

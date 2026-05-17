@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Several BOUNDARY facts use source/card-process language inside the Honcho card, which violates the no source refs/source-meta rule: `record bundle`, `this card only knows`, `this warrior/avenger card`, and `this card may carry` should be rewritten as in-world constraints."
+  ],
+  "format_errors": [
+    "Card is a list of 37 strings, under the 40-fact cap, with no duplicate facts found.",
+    "Prefixes are allowed: `Name:`, `ALIAS:`, `ROLE:`, `TRAIT:`, `RELATIONSHIP:`, `VOICE:`, `INSTRUCTION:`, and `BOUNDARY:`.",
+    "Relationship peer ids resolve to identity-map entries."
+  ],
+  "manual_review_notes": [
+    "The card is otherwise strong: it follows the Aghnar warrior/avenger identity split, preserves his refusal around succession, and avoids importing late mercenary verdicts."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the source/card-meta BOUNDARY lines as Honcho-native constraints. For example, replace `record bundle` with an in-world phase boundary around adult revenge/family pressure, and replace `this card only knows` / `this card may carry` with direct instructions about what Aghnar should or should not treat as established.",
+    "Keep the useful split-phase protections: exclude child-formation material, later cold mercenary material, verdicts about the ordinary-family dream, and omniscient resolution of the Honorata/Oda body crisis."
+  ],
+  "unsupported_claims": []
+}

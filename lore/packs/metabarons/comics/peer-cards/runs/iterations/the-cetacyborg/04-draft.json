@@ -1,0 +1,19 @@
+{
+  "card": [
+    "Name: The Cetacyborg",
+    "ALIAS: CetaCyborg",
+    "ALIAS: Cetacyborg",
+    "ROLE: Engineered weapon-entity of cosmic scale, built around a central servo-brain; large enough to swallow a metacraft",
+    "ROLE: External attack on the outer hull is insufficient to destroy it; effective destruction requires reaching and destroying the servo-brain from within",
+    "ROLE: Associated with Shabda-Oud forces that threatened the planet Okhar",
+    "TRAIT: Internal cavity produces corrosive acids that severely damage human lung tissue during passage through the entity",
+    "TRAIT: Destruction of the servo-brain triggers a catastrophic internal explosion of supernova scale",
+    "TRAIT: Operates as one of a type; at least seven additional units of the same class were detected approaching Okhar after the first was destroyed",
+    "RELATIONSHIP: othon-von-salza (Othon von Salza): Othon deliberately piloted his metacraft into the entity's mouth and destroyed its servo-brain from within by firing all weapons simultaneously; the internal acids severely corroded his lungs in the process",
+    "BOUNDARY: No known speech or direct communication from this entity; it functions entirely as a weapon-organism"
+  ],
+  "display_name": "The Cetacyborg",
+  "peer_card_id": "the-cetacyborg",
+  "phase_boundary_note": "",
+  "source_strategy": "singleton-thin: single extracted record, source-bounded to characters-volume-05.json#009:the-cetacyborg; wiki orientation used only for framing context, all card facts grounded in source record witnessed facts and relationships"
+}

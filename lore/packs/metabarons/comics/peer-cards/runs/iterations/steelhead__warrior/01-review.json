@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not stage-ready because it exceeds the Honcho cap and includes base-card facts that leak resolved love-verdict material instead of preserving it for play.",
+    "The source bundle is sufficient for a useful Steelhead (Warrior Heir) card; this is a revision issue, not source insufficiency."
+  ],
+  "format_errors": [
+    "card has 41 facts; max is 40",
+    "Card is a list of strings and otherwise appears to use allowed prefixes, with no duplicate facts and no explicit source refs in facts."
+  ],
+  "manual_review_notes": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Cut at least one fact to bring the card to 40 facts or fewer.",
+    "Rewrite the love-capacity and final boundary language so it preserves Steelhead's hunger, ignorance, volatility, and quest without deciding whether rage becomes love or whether the quest is vindicated.",
+    "Remove the unsupported sacred-tree/vaporization phrasing or replace it with source-grounded behavior: Golden Flower display, library destruction, assassination shot, or destruction of obstacles.",
+    "Keep the current split-phase boundary and relationship peer ids; those align with `steelhead__warrior` and the identity map."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Has capacity for love with no architecture to hold it...` goes beyond the bundle's safer boundary. The sources support that Steelhead wants love, is accused of being unable to feel it, admits he does not know how to love, and seeks a teacher; they should not lock in a verdict that he has the capacity for love.",
+    "`BOUNDARY: Keep the specific moment where rage becomes unmistakable love sequenced...` encodes a resolved interpretive outcome that belongs in play, not in the base Honcho facts.",
+    "`INSTRUCTION: ...how to vaporize a sacred tree...` is not supported by the provided page/source summaries. The bundle supports firing a Cerebrak IK-8 at the supreme Troglosocialik president among birds/at the Halerce Tree, not that Steelhead vaporizes a sacred tree."
+  ]
+}

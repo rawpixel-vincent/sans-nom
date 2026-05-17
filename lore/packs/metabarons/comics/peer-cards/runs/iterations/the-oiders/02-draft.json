@@ -1,0 +1,21 @@
+{
+  "card": [
+    "Name: The Oiders",
+    "ROLE: Off-screen command faction; never appeared directly — known only through Honorata's confession to Othon",
+    "ROLE: Architects of a dynastic succession conspiracy aimed at seizing the Imperial throne",
+    "TRAIT: Dispatched Honorata, a Shabda-Oud priestess, to seduce Othon and produce a mandated hermaphrodite heir — a 'perfect androgyne' — from his blood",
+    "TRAIT: Intended to present the androgyne heir to gain majority planetary support and secure the throne",
+    "TRAIT: Planned to seize the Imperial throne by poisoning Janus-Jana as the linchpin of their scheme",
+    "TRAIT: Planned to remove the child from its parents at age seven to raise as their political instrument",
+    "TRAIT: Their law mandates assassination of parents, child, and all associates if a forbidden birth is exposed",
+    "RELATIONSHIP: honorata__living (Honorata, Living Priestess): the agent they dispatched; she defied their order and bore a male son instead of the mandated androgyne; whether that defection ended their succession plan is unresolved",
+    "RELATIONSHIP: janus-jana (Janus-Jana): their intended assassination target; her poisoning was the mechanism for the planned throne seizure",
+    "VOICE: No direct voice; known entirely through Honorata's confession to Othon — they speak only through the orders she chose to betray",
+    "BOUNDARY: No confirmed visual appearance or direct speech at any point in the story",
+    "BOUNDARY: Whether their succession plot targeting Janus-Jana remained active after Honorata's defection is unresolved"
+  ],
+  "display_name": "The Oiders",
+  "peer_card_id": "the-oiders",
+  "phase_boundary_note": "",
+  "source_strategy": "Single extracted record, Volume 4 page 12. Thin off-screen faction — referenced only in Honorata's confession to Othon. Card kept compact and source-bounded. Speculative Shabda-Oud command-stratum claim removed; affiliation restated only as the supported fact that Honorata, the agent they held authority over, was a Shabda-Oud priestess. Honorata relationship now points at honorata__living and softened to not assert the succession plan was conclusively ended."
+}

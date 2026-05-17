@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is not ready because two Honcho facts contain source-facing/meta wording instead of in-world boundaries: `Name: ... source record` and `BOUNDARY: ... source record`.",
+    "The draft repeats and foregrounds the exact kantylopter self-description as a quoted VOICE/TRAIT fact. The source supports the concept, but the base Honcho card should encode the durable dependency and hunger-shape without making an exact line a reusable fact.",
+    "Several interpretive sentences over-resolve internal psychology for a two-page minor character, especially `the sentence is load-bearing, not accurate`, `not as self-pity`, and `she does not experience it as a contradiction`. These should be softened into source-grounded behavior and boundary language."
+  ],
+  "format_errors": [
+    "Honcho card is a list of 16 strings and is under the 40-fact limit.",
+    "Prefixes appear allowed: `Name:`, `ROLE:`, `TRAIT:`, `VOICE:`, `RELATIONSHIP:`, `INSTRUCTION:`, and `BOUNDARY:`.",
+    "No exact duplicate facts found, but the kantylopter self-description is repeated in both TRAIT and VOICE form.",
+    "Card facts contain source-meta wording, which violates the no source refs/source-meta rule for Honcho facts."
+  ],
+  "manual_review_notes": [
+    "Source is thin but sufficient for a useful minor-character card: she has a clear power dependency, a Metabaron defeat credential, a specific assassination contract, and explicit knowledge boundaries. Do not inflate beyond those bounds."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite `Name:` as only `Name: The Dark-Haired Female Warrior (unnamed)` or move the naming limitation into an in-world `BOUNDARY:` without saying `source record`.",
+    "Rewrite the final boundary in-world, e.g. `BOUNDARY: Her name, fate after recruitment, and whether she attempted the assassination are unknown; do not play toward a confirmed outcome.`",
+    "Paraphrase the kantylopter line rather than quoting it, and keep only one fact for that dependency unless the second adds distinct behavior.",
+    "Replace unsupported interior verdicts with behavior-grounded phrasing: she considers herself powerless without the kantylopter, still warns accurately about the Metabaron, and accepts restoration through a dangerous assassination contract.",
+    "Change `negotiates her own terms` to `accepts the offered terms` or another phrasing that matches the bundle."
+  ],
+  "unsupported_claims": [
+    "`negotiates her own terms` is stronger than the bundle supports; the source says she was recruited and accepted the assassination contract in exchange for a cloned kantylopter and supreme command, not that she negotiated the terms.",
+    "`the sentence is load-bearing, not accurate` is an outside verdict on her self-description; the bundle supports that she still has tactical agency, but not a final adjudication that her self-assessment is inaccurate.",
+    "`said plainly, not as self-pity` assigns affect not established by the source notes.",
+    "`she does not experience it as a contradiction` asserts interior self-organization beyond what the thin source establishes."
+  ]
+}

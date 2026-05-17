@@ -1,0 +1,23 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Card is close but not ready: one alias fact uses source-meta wording, and one boundary fact converts non-depiction in the extracted source into an unsupported in-world claim."
+  ],
+  "format_errors": [
+    "`ALIAS: Aghlex XII — appears as a name variant on one page; whether this is a transcription error...` contains source-facing/source-meta language inside a Honcho fact (`one page`, `transcription error`)."
+  ],
+  "manual_review_notes": [
+    "The source bundle is thin but sufficient for a useful card if the draft keeps the uncertainty and non-depiction boundaries precise."
+  ],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Rewrite the Aghlex alias in in-world uncertainty terms, e.g. `ALIAS: Aghlex XII — unresolved name attached to Amalek XII's office; do not treat it as a confirmed separate person.`",
+    "Narrow the temple role to sourced language: sealed, doorless, defended by technopapal guardians, technoscarab, and automated defenses; breached by Metacraft and the assault party.",
+    "Replace `He appears to no one directly...` with a source-bound but non-overstated boundary such as `BOUNDARY: No direct speech, private motive, personal reaction, or clearly witnessed self-presentation is established; use office, temple, abduction, and institutional response as his limits.`"
+  ],
+  "unsupported_claims": [
+    "`ROLE: His sealed, doorless techno-temple... entry was treated as impossible before it was breached` goes beyond the provided bundle. The source supports sealed/doorless, defended, and breached, but not that entry was explicitly treated as impossible.",
+    "`BOUNDARY: He appears to no one directly in these events...` overstates the boundary. The bundle says he is not clearly depicted in person on confirmed pages; it does not establish that no character encounters him directly, especially since he is summoned, abducted, and secured as a hostage."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "Identity-map violation: the draft writes an adult Nameless/Sans-Nom frame-master card, but the input peer_identity is the singleton the_metabaron record from characters-volume-01#002 only. The identity map has separate peer ids for No-Name / frame-master variants, especially the-metabaron__no-name.",
+    "The draft ignores the source boundary that this peer is absent from the framing page and not directly heard; it assigns extensive later biography, direct voice, mission, motives, and inner-state boundaries outside this input record.",
+    "Relationship targeting is contaminated by the wrong identity: aghora and steelhead__late/Lothar-as-Steelhead belong to No-Name/Sans-Nom material, not this singleton vol1 the_metabaron card."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [
+    "The source can support a concise useful card: Name, meta-warrior alias, bald/stern cover figure, ornate sword, cybernetic/armored visual elements, bionic ear/right-brain augmentations, human flesh-and-blood origin beneath augmentations, unpredictable nature, Tonto/Lothar master relationship, Othon great-great-grandson lineage, and explicit absence/not-directly-heard boundaries.",
+    "Use boundary facts to preserve knowledge limits: do not reveal scar origin, No-Name identity, Aghora parentage, Lothar-Steelhead reveal, or later mission unless the target peer changes to the proper No-Name/frame-master identity."
+  ],
+  "revision_instructions": [
+    "Rewrite from the input peer_identity only: peer_card_id the_metabaron, display_name The Metabaron, merge_policy single_record, source_record_ids characters-volume-01.json#002:the_metabaron.",
+    "Do not merge this card with separate identity-map entries such as the-metabaron__no-name, no-name, the-no-name-metabaron, the-current-metabaron, or the_current_metabaron.",
+    "Limit relationships to ids supported by this input: tonto, lothar, and othon_von_salza. Omit aghora and steelhead__late unless the staging target changes.",
+    "Replace later-biography and direct-voice claims with source-bounded traits and boundaries; do not force the card to 40 facts."
+  ],
+  "unsupported_claims": [
+    "Facts 2, 4, 7-16, 19-20, 22-25, and 27-40 import Nameless/Sans-Nom biography, scar lore, Aghora patricide, Castaka crest, weapons quest, Galaxia Prima mission, and Lothar-Steelhead reveal that are not supported for peer_card_id the_metabaron in the input bundle.",
+    "Fact 7 conflicts with the issue-1 orientation for this target: the setup says the Metabaron's father destroyed his ear/brain as initiation; naming Aghora as the actor is a later No-Name-specific assertion.",
+    "Facts 27-29 infer direct voice and emotional style even though the input voice_notes say he is not directly heard in this volume."
+  ]
+}

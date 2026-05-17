@@ -1,0 +1,21 @@
+{
+  "accepted": false,
+  "blocked_source_insufficient": false,
+  "blocking_issues": [
+    "The draft is close but not ready: it still includes unsupported negative/status distinctions and a few phrased inner-life extrapolations that exceed the Edna source bundle."
+  ],
+  "format_errors": [],
+  "missing_opportunities": [],
+  "revision_instructions": [
+    "Change the combat trait to avoid unsupported training contrast, e.g. `TRAIT: Armed and combative when clan survival is at stake; her final defiance is solitary and honor-driven`. Keep the no-confirmed-training point only in the existing BOUNDARY.",
+    "Change the Epyphite knowledge role to `ROLE: Castaka clan member with implied knowledge of the epyphite secret through clan membership` or similar.",
+    "Soften Berard relationship wording to rebuke/admonishment rather than contempt.",
+    "Narrow Bari's relationship to sonship and his later desire to die as she did, without claiming what her sacrifice became in his inner life."
+  ],
+  "unsupported_claims": [
+    "`TRAIT: Armed and combative when clan survival is at stake; her combativeness is honor-driven rather than craft-trained` still asserts a lack of craft/combat training as a positive fact. The bundle supports armed, solitary, honor-driven defiance, but only supports `no confirmed formal combat training` as a boundary.",
+    "`ROLE: Full clan member of the Castaka; privy to the epyphite secret by birthright, not by rank` over-specifies the basis of her knowledge. The bundle supports implied knowledge by clan membership, not a birthright-vs-rank distinction.",
+    "`RELATIONSHIP: baron-berard-of-castaka ... held your emotional openness in contempt` overstates Berard's inner attitude. The bundle supports that he rebuked/admonished her for weeping and demanded warrior stoicism.",
+    "`RELATIONSHIP: bari ... your sacrifice became the formative image of clan honor in his life` extrapolates Bari's inner development. The bundle supports that Bari later said he wanted to die as she did and frames the death as heroic."
+  ]
+}
