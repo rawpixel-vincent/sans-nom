@@ -153,6 +153,7 @@ type TurnRecord struct {
 	Commit     scene.Commit         `json:"commit"`
 	Committed  bool                 `json:"committed"`
 	NextNodeID string               `json:"next_node_id,omitempty"`
+	AudioPath  string               `json:"audio_path,omitempty"`
 	CreatedAt  string               `json:"created_at"`
 }
 

@@ -34,6 +34,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/seed"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
+	ttsclient "github.com/rawpixel-vincent/sans-nom/internal/tts"
 	"github.com/rawpixel-vincent/sans-nom/internal/writer"
 )
 
@@ -64,6 +65,12 @@ func main() {
 	noCommit := flag.Bool("no-commit", false, "do not commit witnessed scene canon to Honcho during play")
 	turns := flag.Int("turns", 0, "number of automated play turns; 0 reads interactively")
 	playTraceJSONL := flag.Bool("play-trace-jsonl", false, "emit machine-readable JSONL trace events during play")
+	readTurnTTS := flag.Bool("tts", envBool("SANS_NOM_TTS"), "synthesize each narrator turn to WAV with Xiaomi Mimo TTS")
+	ttsEndpoint := flag.String("tts-endpoint", firstNonEmpty(os.Getenv("SANS_NOM_TTS_ENDPOINT"), ttsclient.DefaultMimoEndpoint), "Mimo TTS chat completions endpoint")
+	ttsModel := flag.String("tts-model", firstNonEmpty(os.Getenv("SANS_NOM_TTS_MODEL"), ttsclient.DefaultMimoModel), "Mimo TTS model")
+	ttsVoice := flag.String("tts-voice", firstNonEmpty(os.Getenv("SANS_NOM_TTS_VOICE"), ttsclient.DefaultMimoVoice), "Mimo TTS voice")
+	ttsInstruction := flag.String("tts-instruction", firstNonEmpty(os.Getenv("SANS_NOM_TTS_INSTRUCTION"), ttsclient.DefaultNarratorPrompt), "TTS voice instruction")
+	ttsOutputDir := flag.String("tts-output-dir", os.Getenv("SANS_NOM_TTS_OUTPUT_DIR"), "optional TTS output directory; defaults to the story audio directory")
 	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
 	loreK := flag.Int("k", 5, "number of lore search results")
 	bridgeURL := flag.String("bridge-url", os.Getenv("SANS_NOM_BRIDGE_URL"), "bridge sidecar URL")
@@ -123,6 +130,7 @@ func main() {
 	commitMode := !*noCommit
 	playRefreshWriter := !*noWriterRefresh
 	if noArgs {
+		ttsCfg := playTTSConfigFromFlags(*readTurnTTS, *ttsEndpoint, *ttsModel, *ttsVoice, *ttsInstruction, *ttsOutputDir)
 		if err := runLauncher(context.Background(), launcherConfig{
 			Backend:             backend,
 			BridgeURL:           resolvedBridgeURL,
@@ -139,6 +147,7 @@ func main() {
 			RefreshWrite:        true,
 			Commit:              commitMode,
 			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
+			TTS:                 ttsCfg,
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -230,6 +239,7 @@ func main() {
 		FreeText: *freeText,
 	}
 	if playMode {
+		ttsCfg := playTTSConfigFromFlags(*readTurnTTS, *ttsEndpoint, *ttsModel, *ttsVoice, *ttsInstruction, *ttsOutputDir)
 		if err := runPlay(context.Background(), playConfig{
 			Packet:              packet,
 			NodeID:              *nodeID,
@@ -253,6 +263,7 @@ func main() {
 			ScenaristOutputRoot: *scenaristOutputRoot,
 			ScenaristRounds:     *writerScenaristRounds,
 			Logger:              storyLogger(workspace, state),
+			TTS:                 ttsCfg,
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -366,6 +377,7 @@ type launcherConfig struct {
 	ScenaristRounds     int
 	RefreshWrite        bool
 	Commit              bool
+	TTS                 playTTSConfig
 }
 
 type adminConfig struct {
@@ -394,6 +406,16 @@ type seedRuntimeConfig struct {
 	ScenaristTools      bool
 	ScenaristOutputRoot string
 	ScenaristRounds     int
+}
+
+type playTTSConfig struct {
+	Enabled     bool
+	Endpoint    string
+	Model       string
+	Voice       string
+	Instruction string
+	OutputDir   string
+	APIKey      string
 }
 
 type flagBridgeConfig struct {
@@ -807,6 +829,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
 		ScenaristRounds:     cfg.ScenaristRounds,
 		Logger:              storyLogger(&workspace, &state),
+		TTS:                 cfg.TTS,
 	}
 }
 
@@ -1250,6 +1273,7 @@ type playConfig struct {
 	ScenaristRounds     int
 	Logger              *gamelog.Writer
 	WriterPlanner       writer.Planner
+	TTS                 playTTSConfig
 }
 
 type writerRefreshFailure struct {
@@ -1333,6 +1357,13 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				fmt.Printf("- %s: %s\n", choice.ID, choice.Label)
 			}
 		}
+		turnAudioPath, err := synthesizeTurnAudio(ctx, cfg, state, turn, rollout)
+		if err != nil {
+			return err
+		}
+		if turnAudioPath != "" {
+			fmt.Printf("\nAudio saved: %s\n", filepath.ToSlash(turnAudioPath))
+		}
 		if cfg.Commit {
 			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
 			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
@@ -1391,13 +1422,13 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			}
 		}
 		if totalTurns > 0 && turn == totalTurns {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			break
 		}
 		if len(rollout.Node.Choices) == 0 && !cfg.RefreshWrite {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			fmt.Println("\nNo choices available; play loop stopped.")
@@ -1451,7 +1482,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 						"artifact_dir": filepath.ToSlash(runDir),
 					},
 				})
-				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit); err != nil {
+				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit, turnAudioPath); err != nil {
 					return err
 				}
 				if err := saveCurrentStoryPacket(ctx, cfg, state, next, nextNodeID); err != nil {
@@ -1484,7 +1515,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			if err := markStoryBlocked(cfg, state, failure); err != nil {
 				return err
 			}
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			if cfg.TraceJSONL {
@@ -1496,7 +1527,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		}
 		if choice, err := rollout.Node.Choice(nextDecision.ChoiceID); err == nil && choice.TargetNodeID != "" {
 			nextNodeID = choice.TargetNodeID
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			nodeID = nextNodeID
@@ -1507,7 +1538,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				}
 			}
 		} else if nextDecision.FreeText != "" && !cfg.RefreshWrite {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			if cfg.TraceJSONL {
@@ -1518,7 +1549,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			fmt.Println("\nFree text needs Writer refresh enabled to create the next packet; play loop stopped.")
 			break
 		} else if len(rollout.Node.Choices) == 0 {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			fmt.Println("\nNo choices available; play loop stopped.")
@@ -1558,6 +1589,138 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker},
 		Renderer: renderer,
 	}.Rollout(ctx, packet, nodeID, decision, narratorContext.RenderText())
+}
+
+func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.StoryState, loopTurn int, rollout narrator.Rollout) (string, error) {
+	if !cfg.TTS.Enabled {
+		return "", nil
+	}
+	text := strings.TrimSpace(rollout.Draft.Prose)
+	if text == "" {
+		return "", nil
+	}
+	outputPath := ttsOutputPath(cfg, state, loopTurn)
+	client := ttsclient.MimoClient{
+		Endpoint:    cfg.TTS.Endpoint,
+		APIKey:      firstNonEmpty(cfg.TTS.APIKey, os.Getenv("SANS_NOM_TTS_API_KEY"), os.Getenv("SANS_NOM_MIMO_TTS_API_KEY"), os.Getenv("XIAOMI__ANTHROPIC_AUTH_TOKEN")),
+		Model:       cfg.TTS.Model,
+		Voice:       cfg.TTS.Voice,
+		Format:      ttsclient.DefaultAudioFormat,
+		Instruction: cfg.TTS.Instruction,
+	}
+	request := client.RequestPayload(text)
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "model",
+		Event:    "tts.turn.request",
+		Message:  "turn tts request prepared",
+		Turn:     currentStoryTurnNumber(state, loopTurn),
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Fields: map[string]any{
+			"model":       request.Model,
+			"voice":       request.Audio.Voice,
+			"format":      request.Audio.Format,
+			"text_chars":  len([]rune(text)),
+			"output_path": filepath.ToSlash(outputPath),
+		},
+		Detail: map[string]any{
+			"request":     request,
+			"endpoint":    firstNonEmpty(cfg.TTS.Endpoint, ttsclient.DefaultMimoEndpoint),
+			"output_path": filepath.ToSlash(outputPath),
+		},
+	})
+	result, err := client.Synthesize(ctx, text)
+	if err != nil {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "model",
+			Event:    "tts.turn.failed",
+			Message:  err.Error(),
+			Turn:     currentStoryTurnNumber(state, loopTurn),
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Detail: map[string]any{
+				"request":     request,
+				"endpoint":    firstNonEmpty(cfg.TTS.Endpoint, ttsclient.DefaultMimoEndpoint),
+				"output_path": filepath.ToSlash(outputPath),
+				"error":       err.Error(),
+			},
+		})
+		return "", err
+	}
+	if err := writeBinaryAtomic(outputPath, result.Audio); err != nil {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "model",
+			Event:    "tts.turn.failed",
+			Message:  err.Error(),
+			Turn:     currentStoryTurnNumber(state, loopTurn),
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Detail: map[string]any{
+				"request":     request,
+				"output_path": filepath.ToSlash(outputPath),
+				"error":       err.Error(),
+				"phase":       "write_audio_file",
+			},
+		})
+		return "", err
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "model",
+		Event:    "tts.turn.completed",
+		Message:  "turn tts audio written",
+		Turn:     currentStoryTurnNumber(state, loopTurn),
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Fields: map[string]any{
+			"model":              request.Model,
+			"voice":              request.Audio.Voice,
+			"format":             request.Audio.Format,
+			"audio_bytes":        len(result.Audio),
+			"audio_base64_chars": result.AudioBase64Chars,
+			"output_path":        filepath.ToSlash(outputPath),
+		},
+		Detail: map[string]any{
+			"request":            request,
+			"output_path":        filepath.ToSlash(outputPath),
+			"audio_bytes":        len(result.Audio),
+			"audio_base64_chars": result.AudioBase64Chars,
+		},
+	})
+	return outputPath, nil
+}
+
+func ttsOutputPath(cfg playConfig, state *story.StoryState, loopTurn int) string {
+	outputDir := strings.TrimSpace(cfg.TTS.OutputDir)
+	if outputDir == "" && cfg.Workspace != nil {
+		outputDir = filepath.Join(cfg.Workspace.Dir, "audio")
+	}
+	if outputDir == "" {
+		outputDir = filepath.Join("tmp", "tts")
+	}
+	return filepath.Join(outputDir, fmt.Sprintf("turn-%06d.wav", currentStoryTurnNumber(state, loopTurn)))
+}
+
+func currentStoryTurnNumber(state *story.StoryState, loopTurn int) int {
+	if state != nil {
+		return state.LatestTurn + 1
+	}
+	if loopTurn <= 0 {
+		return 1
+	}
+	return loopTurn
+}
+
+func writeBinaryAtomic(path string, data []byte) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	tmp := path + ".tmp"
+	if err := os.WriteFile(tmp, data, 0o644); err != nil {
+		return err
+	}
+	return os.Rename(tmp, path)
 }
 
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
@@ -1613,9 +1776,13 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	return result.Packet, nil
 }
 
-func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, committed bool) error {
+func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, committed bool, audioPath ...string) error {
 	if cfg.Workspace == nil || state == nil || cfg.Bible == nil {
 		return nil
+	}
+	turnAudioPath := ""
+	if len(audioPath) > 0 {
+		turnAudioPath = audioPath[0]
 	}
 	record := story.TurnRecord{
 		StoryID:    state.StoryID,
@@ -1627,6 +1794,7 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 		Commit:     rollout.Commit,
 		Committed:  committed,
 		NextNodeID: nextNodeID,
+		AudioPath:  filepath.ToSlash(turnAudioPath),
 	}
 	nextState, err := cfg.Workspace.RecordTurn(*state, packet, record)
 	if err != nil {
@@ -2205,6 +2373,17 @@ func resolveWriterScenaristCount(value int, backend string, writerRefreshEnabled
 		return scenarist.MaxToolRequests
 	}
 	return 0
+}
+
+func playTTSConfigFromFlags(enabled bool, endpoint string, model string, voice string, instruction string, outputDir string) playTTSConfig {
+	return playTTSConfig{
+		Enabled:     enabled,
+		Endpoint:    firstNonEmpty(endpoint, ttsclient.DefaultMimoEndpoint),
+		Model:       firstNonEmpty(model, ttsclient.DefaultMimoModel),
+		Voice:       firstNonEmpty(voice, ttsclient.DefaultMimoVoice),
+		Instruction: firstNonEmpty(instruction, ttsclient.DefaultNarratorPrompt),
+		OutputDir:   outputDir,
+	}
 }
 
 func envBool(name string) bool {

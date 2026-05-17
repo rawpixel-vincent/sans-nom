@@ -3,8 +3,11 @@ package main
 import (
 	"bufio"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -12,7 +15,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
@@ -99,6 +104,60 @@ func TestBridgeDialFailureDetectsConnectionRefused(t *testing.T) {
 	}
 	if bridgeDialFailure(errors.New("sidecar POST /v1/story/index/ingest: 500 qdrant schema mismatch")) {
 		t.Fatal("unexpectedly treated backend error as dial failure")
+	}
+}
+
+func TestSynthesizeTurnAudioWritesWAVAndLogs(t *testing.T) {
+	audio := []byte("RIFF fake wav")
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Header.Get("api-key") != "secret" {
+			t.Fatalf("missing api key")
+		}
+		_ = json.NewEncoder(w).Encode(map[string]any{
+			"choices": []map[string]any{{
+				"message": map[string]any{
+					"audio": map[string]any{"data": base64.StdEncoding.EncodeToString(audio)},
+				},
+			}},
+		})
+	}))
+	defer server.Close()
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	outDir := t.TempDir()
+	path, err := synthesizeTurnAudio(context.Background(), playConfig{
+		Logger: logger,
+		TTS: playTTSConfig{
+			Enabled:   true,
+			Endpoint:  server.URL,
+			APIKey:    "secret",
+			OutputDir: outDir,
+		},
+	}, nil, 1, narrator.Rollout{
+		Draft: narrator.Draft{Prose: "Read this turn."},
+		Commit: scene.Commit{
+			PacketID: "packet-1",
+			NodeID:   "node-1",
+		},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if filepath.Base(path) != "turn-000001.wav" {
+		t.Fatalf("path = %s", path)
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(data) != string(audio) {
+		t.Fatalf("audio = %q", data)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "tts.turn.completed"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 || events[0].DetailPath == "" {
+		t.Fatalf("missing tts completed detail: %#v", events)
 	}
 }
 
