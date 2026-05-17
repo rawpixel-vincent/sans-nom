@@ -15,10 +15,12 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
+	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
+	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/seed"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
@@ -42,6 +44,12 @@ func main() {
 	globalLoreCollection := flag.String("global-lore-collection", story.DefaultGlobalLoreCollection, "global source-lore Qdrant collection")
 	storyCollection := flag.String("story-collection", "", "story Qdrant collection; defaults from story id")
 	replaceStory := flag.Bool("replace-story", false, "replace an existing durable story directory and seed collection")
+	writerScenarists := flag.Int("writer-scenarists", -1, "optional max call_scenarists requests per tool call; 0 disables; default is provider count")
+	scenaristProvider := flag.String("scenarist-provider", defaultScenaristProviderPool(), "Claude-compatible scenarist provider pool, comma-separated, for example ZAI,MINIMAX")
+	scenaristModel := flag.String("scenarist-model", os.Getenv("SANS_NOM_SCENARIST_MODEL"), "Claude-compatible scenarist model override")
+	scenaristTools := flag.Bool("scenarist-tools", envBool("SANS_NOM_SCENARIST_TOOLS"), "allow Scenarists read-only lore tools")
+	scenaristOutputRoot := flag.String("scenarist-output-root", "", "optional root for Scenarist material output")
+	writerScenaristRounds := flag.Int("writer-scenarist-rounds", envInt("SANS_NOM_WRITER_SCENARIST_ROUNDS", 24), "maximum Writer tool rounds while refreshing; 0 uses the 24-round safety cap")
 	playMode := flag.Bool("play", false, "run a small CLI play loop")
 	commitMode := flag.Bool("commit", false, "commit prepared scene canon to Honcho during -play")
 	turns := flag.Int("turns", 0, "number of automated play turns; 0 reads interactively in -play")
@@ -120,21 +128,27 @@ func main() {
 	}
 	if *playMode {
 		if err := runPlay(context.Background(), playConfig{
-			Packet:           packet,
-			NodeID:           *nodeID,
-			Backend:          backend,
-			BridgeURL:        resolvedBridgeURL,
-			CardStore:        cardStore,
-			Workspace:        workspace,
-			State:            state,
-			Bible:            bible,
-			GlobalCollection: *globalLoreCollection,
-			StoryCollection:  resolvedStoryCollection(state, *storyCollection),
-			InitialDecision:  decision,
-			Turns:            *turns,
-			Commit:           *commitMode,
-			RefreshWrite:     *refreshWriter,
-			TraceJSONL:       *playTraceJSONL,
+			Packet:              packet,
+			NodeID:              *nodeID,
+			Backend:             backend,
+			BridgeURL:           resolvedBridgeURL,
+			CardStore:           cardStore,
+			Workspace:           workspace,
+			State:               state,
+			Bible:               bible,
+			GlobalCollection:    *globalLoreCollection,
+			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
+			InitialDecision:     decision,
+			Turns:               *turns,
+			Commit:              *commitMode,
+			RefreshWrite:        *refreshWriter,
+			TraceJSONL:          *playTraceJSONL,
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, *refreshWriter),
+			ScenaristProvider:   *scenaristProvider,
+			ScenaristModel:      *scenaristModel,
+			ScenaristTools:      *scenaristTools,
+			ScenaristOutputRoot: *scenaristOutputRoot,
+			ScenaristRounds:     *writerScenaristRounds,
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -146,36 +160,28 @@ func main() {
 		}
 		return
 	}
-	runner := claudeRunner()
 	if *refreshWriter {
-		assembler := contextAssembler(resolvedBridgeURL, resolvedBridgeURL != "", cardStore, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection))
-		writerContext, err := assembler.AssembleWriter(context.Background(), contextbundle.BuildRequest{
-			Packet:   packet,
-			NodeID:   *nodeID,
-			Decision: decision,
-			Bible:    bible,
+		packet, err = refreshPacket(context.Background(), packet, *nodeID, decision, playConfig{
+			Backend:             backend,
+			BridgeURL:           resolvedBridgeURL,
+			CardStore:           cardStore,
+			Workspace:           workspace,
+			State:               state,
+			Bible:               bible,
+			GlobalCollection:    *globalLoreCollection,
+			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, *refreshWriter),
+			ScenaristProvider:   *scenaristProvider,
+			ScenaristModel:      *scenaristModel,
+			ScenaristTools:      *scenaristTools,
+			ScenaristOutputRoot: *scenaristOutputRoot,
+			ScenaristRounds:     *writerScenaristRounds,
 		})
 		if err != nil {
 			log.Fatal(err)
 		}
-		job, err := writer.Service{
-			Planner: writerPlanner(backend, runner),
-		}.RefreshAsync(context.Background(), writer.Input{
-			Current:        packet,
-			LatestDecision: decisionText(*choiceID, *freeText),
-			ContextText:    writerContext.RenderText(),
-		})
-		if err != nil {
-			log.Fatal(err)
-		}
-		ctx, cancel := context.WithTimeout(context.Background(), writer.DefaultAwaitTimeout())
-		defer cancel()
-		result := job.Await(ctx)
-		if result.Err != nil {
-			log.Fatal(result.Err)
-		}
-		packet = result.Packet
 	}
+	runner := claudeRunner()
 	registry, err := actorRegistry(cardStore)
 	if err != nil {
 		log.Fatal(err)
@@ -478,21 +484,27 @@ func runContextPreview(
 }
 
 type playConfig struct {
-	Packet           scene.StoryPacket
-	NodeID           string
-	Backend          string
-	BridgeURL        string
-	CardStore        *contextbundle.LocalCardStore
-	Workspace        *story.Workspace
-	State            *story.StoryState
-	Bible            *story.StoryBible
-	GlobalCollection string
-	StoryCollection  string
-	InitialDecision  scene.PlayerDecision
-	Turns            int
-	Commit           bool
-	RefreshWrite     bool
-	TraceJSONL       bool
+	Packet              scene.StoryPacket
+	NodeID              string
+	Backend             string
+	BridgeURL           string
+	CardStore           *contextbundle.LocalCardStore
+	Workspace           *story.Workspace
+	State               *story.StoryState
+	Bible               *story.StoryBible
+	GlobalCollection    string
+	StoryCollection     string
+	InitialDecision     scene.PlayerDecision
+	Turns               int
+	Commit              bool
+	RefreshWrite        bool
+	TraceJSONL          bool
+	WriterScenarists    int
+	ScenaristProvider   string
+	ScenaristModel      string
+	ScenaristTools      bool
+	ScenaristOutputRoot string
+	ScenaristRounds     int
 }
 
 func runPlay(ctx context.Context, cfg playConfig) error {
@@ -575,7 +587,9 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		}
 		nextNodeID := ""
 		if cfg.RefreshWrite {
-			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, cfg)
+			refreshCfg := cfg
+			refreshCfg.State = state
+			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, refreshCfg)
 			if err == nil {
 				nextNodeID = entryNodeID(next)
 				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit); err != nil {
@@ -663,7 +677,12 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 }
 
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
+	outputDir := scenaristOutputDir(cfg)
+	scenaristEnabled := cfg.WriterScenarists != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg)) > 0
 	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection)
+	if scenaristEnabled {
+		assembler.Options.WriterLoreK = 4
+	}
 	writerContext, err := assembler.AssembleWriter(ctx, contextbundle.BuildRequest{
 		Packet:   packet,
 		NodeID:   nodeID,
@@ -674,7 +693,20 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		return scene.StoryPacket{}, err
 	}
 	runner := claudeRunner()
-	job, err := writer.Service{Planner: writerPlanner(cfg.Backend, runner)}.RefreshAsync(ctx, writer.Input{
+	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir)
+	if err != nil {
+		return scene.StoryPacket{}, err
+	}
+	if toolRunner != nil && cfg.Backend == "claude" {
+		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
+	}
+	planner := writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, cfg.ScenaristRounds)
+	if toolRunner != nil {
+		if err := os.MkdirAll(outputDir, 0o755); err != nil {
+			return scene.StoryPacket{}, err
+		}
+	}
+	job, err := writer.Service{Planner: planner}.RefreshAsync(ctx, writer.Input{
 		Current:        packet,
 		LatestDecision: decisionText(decision.ChoiceID, decision.FreeText),
 		ContextText:    writerContext.RenderText(),
@@ -917,14 +949,19 @@ func runtimeBridgeURL(backend string, bridgeURL string) string {
 	return bridgeclient.NewClient("", "").BaseURL
 }
 
-func writerPlanner(backend string, claude prompt.ClaudeRunner) writer.Planner {
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, maxToolRounds int) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
 	case "claude":
+		if materialDir != "" {
+			claude.PermissionMode = "dontAsk"
+			claude.AllowedTools = []string{"Read", "LS", "Grep"}
+			claude.AddDirs = append(claude.AddDirs, materialDir)
+		}
 		return writer.ClaudePlanner{Runner: claude}
 	default:
-		return writer.ClaudePlanner{Runner: codexRunner("StoryPacket", prompt.StoryPacketSchema())}
+		return writer.ClaudePlanner{Runner: codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, maxToolRounds)}
 	}
 }
 
@@ -951,6 +988,22 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 	}
 }
 
+func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, materialDir string, scenaristTool *scenarist.ToolRunner, maxToolRounds int) prompt.CodexRunner {
+	runner := codexRunner(schemaName, schema)
+	if strings.TrimSpace(materialDir) != "" || scenaristTool != nil {
+		runner.LocalTools = true
+		runner.ToolRoot = repoRoot()
+		if maxToolRounds <= 0 {
+			maxToolRounds = 24
+		}
+		runner.MaxToolRounds = maxToolRounds
+		if scenaristTool != nil {
+			runner.ExtraTools = []codexoauth.LocalTool{scenaristTool.LocalTool()}
+		}
+	}
+	return runner
+}
+
 func claudeRunner() prompt.ClaudeRunner {
 	model := os.Getenv("SANS_NOM_MODEL")
 	if model == "" {
@@ -966,6 +1019,125 @@ func claudeRunner() prompt.ClaudeRunner {
 		WorkDir: ".",
 		Timeout: 3 * time.Minute,
 	}
+}
+
+func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (*scenarist.ToolRunner, error) {
+	if cfg.WriterScenarists == 0 || strings.TrimSpace(outputDir) == "" {
+		return nil, nil
+	}
+	runners := scenaristProviderRunners(cfg)
+	if len(runners) == 0 {
+		return nil, nil
+	}
+	maxParallel := len(runners)
+	if cfg.WriterScenarists > 0 && cfg.WriterScenarists < maxParallel {
+		maxParallel = cfg.WriterScenarists
+	}
+	return &scenarist.ToolRunner{
+		Runner:      &scenarist.ProviderPoolRunner{Runners: runners},
+		OutputDir:   outputDir,
+		RepoRoot:    repoRoot(),
+		ContextText: contextText,
+		Tools:       cfg.ScenaristTools,
+		MaxParallel: maxParallel,
+	}, nil
+}
+
+func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {
+	names := scenarist.ProviderNames(cfg.ScenaristProvider)
+	names = scenarist.UsableProviders(names, cfg.ScenaristModel, scenarist.DefaultEnvFiles("."), os.Environ())
+	runners := make([]scenarist.ProviderRunner, 0, len(names))
+	for _, name := range names {
+		runners = append(runners, scenarist.ProviderRunner{
+			Provider: name,
+			Model:    cfg.ScenaristModel,
+			WorkDir:  ".",
+			EnvFiles: scenarist.DefaultEnvFiles("."),
+			Tools:    cfg.ScenaristTools,
+			AddDirs:  scenaristAddDirs(cfg),
+			Timeout:  5 * time.Minute,
+		})
+	}
+	return runners
+}
+
+func scenaristAddDirs(cfg playConfig) []string {
+	dirs := []string{"lore"}
+	if cfg.Workspace != nil {
+		dirs = append(dirs, cfg.Workspace.Dir)
+	}
+	return dirs
+}
+
+func scenaristOutputDir(cfg playConfig) string {
+	root := strings.TrimSpace(cfg.ScenaristOutputRoot)
+	if root != "" {
+		return filepath.Join(root, scenaristTurnSegment(cfg))
+	}
+	if cfg.Workspace == nil {
+		return ""
+	}
+	return filepath.Join(cfg.Workspace.ModelRunsDir(), "scenarists", scenaristTurnSegment(cfg))
+}
+
+func scenaristTurnSegment(cfg playConfig) string {
+	turn := 1
+	if cfg.State != nil && cfg.State.LatestTurn >= 0 {
+		turn = cfg.State.LatestTurn + 1
+	}
+	return fmt.Sprintf("turn-%06d", turn)
+}
+
+func resolveWriterScenaristCount(value int, backend string, refreshWriter bool) int {
+	if value >= 0 {
+		if value > scenarist.MaxToolRequests {
+			return scenarist.MaxToolRequests
+		}
+		return value
+	}
+	if refreshWriter && backend != "static" {
+		return scenarist.MaxToolRequests
+	}
+	return 0
+}
+
+func envBool(name string) bool {
+	switch strings.ToLower(strings.TrimSpace(os.Getenv(name))) {
+	case "1", "true", "yes", "on":
+		return true
+	default:
+		return false
+	}
+}
+
+func envInt(name string, fallback int) int {
+	value := strings.TrimSpace(os.Getenv(name))
+	if value == "" {
+		return fallback
+	}
+	parsed, err := strconv.Atoi(value)
+	if err != nil {
+		return fallback
+	}
+	return parsed
+}
+
+func defaultScenaristProviderPool() string {
+	if value := strings.TrimSpace(os.Getenv("SANS_NOM_SCENARIST_PROVIDERS")); value != "" {
+		return value
+	}
+	if value := strings.TrimSpace(os.Getenv("SANS_NOM_SCENARIST_PROVIDER")); value != "" {
+		return value
+	}
+	return strings.Join(scenarist.DefaultProviderNames(), ",")
+}
+
+func repoRoot() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		return "."
+	}
+	return wd
 }
 
 func decisionText(choiceID string, freeText string) string {

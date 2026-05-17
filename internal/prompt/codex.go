@@ -15,16 +15,25 @@ type CodexClient interface {
 	Create(ctx context.Context, body map[string]any) (map[string]any, error)
 }
 
+type LocalToolCodexClient interface {
+	CodexClient
+	CreateWithLocalTools(ctx context.Context, body map[string]any, opts codexoauth.LocalToolOptions) (map[string]any, error)
+}
+
 type CodexRunner struct {
-	Client       CodexClient
-	Model        string
-	Effort       string
-	ServiceTier  string
-	AuthPath     string
-	SystemPrompt string
-	Timeout      time.Duration
-	SchemaName   string
-	Schema       map[string]any
+	Client        CodexClient
+	Model         string
+	Effort        string
+	ServiceTier   string
+	AuthPath      string
+	SystemPrompt  string
+	Timeout       time.Duration
+	SchemaName    string
+	Schema        map[string]any
+	LocalTools    bool
+	ToolRoot      string
+	MaxToolRounds int
+	ExtraTools    []codexoauth.LocalTool
 }
 
 func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
@@ -52,8 +61,17 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	}
 	var resp map[string]any
 	var err error
+	body := r.RequestBody(text)
 	for attempt := 0; attempt < 2; attempt++ {
-		resp, err = client.Create(ctx, r.RequestBody(text))
+		if r.LocalTools {
+			toolClient, ok := client.(LocalToolCodexClient)
+			if !ok {
+				return "", errors.New("codex runner local tools require a client with CreateWithLocalTools")
+			}
+			resp, err = toolClient.CreateWithLocalTools(ctx, body, r.localToolOptions())
+		} else {
+			resp, err = client.Create(ctx, body)
+		}
 		if err == nil || !retryableCodexError(err) {
 			break
 		}
@@ -97,6 +115,18 @@ func (r CodexRunner) RequestBody(text string) map[string]any {
 		}
 	}
 	return body
+}
+
+func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {
+	root := r.ToolRoot
+	if strings.TrimSpace(root) == "" {
+		root = "."
+	}
+	return codexoauth.LocalToolOptions{
+		Root:       root,
+		MaxRounds:  r.MaxToolRounds,
+		ExtraTools: r.ExtraTools,
+	}
 }
 
 func (r CodexRunner) model() string {

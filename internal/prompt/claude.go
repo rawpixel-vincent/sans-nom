@@ -24,10 +24,15 @@ func (r StaticRunner) Run(context.Context, string) (string, error) {
 }
 
 type ClaudeRunner struct {
-	Model   string
-	Effort  string
-	WorkDir string
-	Timeout time.Duration
+	Model          string
+	Effort         string
+	WorkDir        string
+	Timeout        time.Duration
+	Bare           bool
+	SystemPrompt   string
+	PermissionMode string
+	AllowedTools   []string
+	AddDirs        []string
 }
 
 func (r ClaudeRunner) Run(ctx context.Context, text string) (string, error) {
@@ -50,12 +55,30 @@ func (r ClaudeRunner) Run(ctx context.Context, text string) (string, error) {
 	ctx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
 
-	cmd := exec.CommandContext(ctx, "claude",
-		"--model", model,
+	args := []string{"--model", model}
+	if r.Bare {
+		args = append([]string{"--bare"}, args...)
+	}
+	if strings.TrimSpace(r.SystemPrompt) != "" {
+		args = append(args, "--system-prompt", r.SystemPrompt)
+	}
+	args = append(args,
 		"-p", text,
 		"--output-format", "text",
 		"--effort", effort,
 	)
+	if strings.TrimSpace(r.PermissionMode) != "" {
+		args = append(args, "--permission-mode", r.PermissionMode)
+	}
+	if len(r.AllowedTools) > 0 {
+		args = append(args, "--tools", strings.Join(r.AllowedTools, ","))
+	}
+	for _, dir := range r.AddDirs {
+		if strings.TrimSpace(dir) != "" {
+			args = append(args, "--add-dir", dir)
+		}
+	}
+	cmd := exec.CommandContext(ctx, "claude", args...)
 	if r.WorkDir != "" {
 		cmd.Dir = r.WorkDir
 	}

@@ -34,8 +34,16 @@ var readOnlyCommands = map[string]bool{
 // LocalToolOptions enables a minimal local shell-like tool loop for models
 // called directly through the Codex backend.
 type LocalToolOptions struct {
-	Root      string
-	MaxRounds int
+	Root       string
+	MaxRounds  int
+	ExtraTools []LocalTool
+}
+
+type LocalTool struct {
+	Name        string
+	Description string
+	Parameters  map[string]any
+	Handler     func(ctx context.Context, root string, arguments string) (any, error)
 }
 
 type functionCall struct {
@@ -58,7 +66,8 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	}
 
 	current := cloneMap(body)
-	current["tools"] = appendTools(current["tools"], localToolDefinitions())
+	current["tools"] = appendTools(current["tools"], localToolDefinitions(opts.ExtraTools))
+	extraTools := extraToolHandlers(opts.ExtraTools)
 
 	for round := 0; round < maxRounds; round++ {
 		response, err := c.Create(ctx, current)
@@ -73,7 +82,7 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		input := inputItems(current["input"])
 		input = append(input, functionCallInputItems(calls)...)
 		for _, call := range calls {
-			result := executeLocalTool(ctx, root, call)
+			result := executeLocalTool(ctx, root, call, extraTools)
 			input = append(input, map[string]any{
 				"type":    "function_call_output",
 				"call_id": call.CallID,
@@ -85,8 +94,8 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	return nil, fmt.Errorf("model exceeded %d local tool rounds", maxRounds)
 }
 
-func localToolDefinitions() []any {
-	return []any{
+func localToolDefinitions(extra []LocalTool) []any {
+	tools := []any{
 		map[string]any{
 			"type":        "function",
 			"name":        "exec_command",
@@ -124,6 +133,29 @@ func localToolDefinitions() []any {
 			},
 		},
 	}
+	for _, tool := range extra {
+		if strings.TrimSpace(tool.Name) == "" || tool.Handler == nil {
+			continue
+		}
+		tools = append(tools, map[string]any{
+			"type":        "function",
+			"name":        tool.Name,
+			"description": tool.Description,
+			"parameters":  tool.Parameters,
+		})
+	}
+	return tools
+}
+
+func extraToolHandlers(extra []LocalTool) map[string]LocalTool {
+	out := map[string]LocalTool{}
+	for _, tool := range extra {
+		if strings.TrimSpace(tool.Name) == "" || tool.Handler == nil {
+			continue
+		}
+		out[tool.Name] = tool
+	}
+	return out
 }
 
 func appendTools(existing any, added []any) []any {
@@ -192,14 +224,19 @@ func functionCallInputItems(calls []functionCall) []any {
 	return items
 }
 
-func executeLocalTool(ctx context.Context, root string, call functionCall) string {
+func executeLocalTool(ctx context.Context, root string, call functionCall, extraTools map[string]LocalTool) string {
 	var output any
 	var err error
 	switch call.Name {
 	case "exec_command":
 		output, err = toolExecCommand(ctx, root, call.Arguments)
 	default:
-		err = fmt.Errorf("unknown tool %q", call.Name)
+		tool, ok := extraTools[call.Name]
+		if !ok {
+			err = fmt.Errorf("unknown tool %q", call.Name)
+			break
+		}
+		output, err = tool.Handler(ctx, root, call.Arguments)
 	}
 	if err != nil {
 		output = map[string]any{"ok": false, "error": err.Error()}

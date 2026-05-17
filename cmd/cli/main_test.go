@@ -28,6 +28,21 @@ func TestParseDecisionAcceptsNumericChoice(t *testing.T) {
 	}
 }
 
+func TestResolveWriterScenaristCount(t *testing.T) {
+	if got := resolveWriterScenaristCount(-1, "codex", true); got != 24 {
+		t.Fatalf("default live refresh scenarists = %d", got)
+	}
+	if got := resolveWriterScenaristCount(-1, "static", true); got != 0 {
+		t.Fatalf("static scenarists = %d", got)
+	}
+	if got := resolveWriterScenaristCount(99, "codex", true); got != 24 {
+		t.Fatalf("clamped scenarists = %d", got)
+	}
+	if got := resolveWriterScenaristCount(0, "codex", true); got != 0 {
+		t.Fatalf("explicit zero scenarists = %d", got)
+	}
+}
+
 func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	repoRoot := repoRootForTest(t)
 	storyRoot := t.TempDir()

@@ -1,6 +1,12 @@
 package prompt
 
-import "testing"
+import (
+	"context"
+	"errors"
+	"testing"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
+)
 
 func TestCodexRunnerRequestBodyUsesPriorityAndSchema(t *testing.T) {
 	runner := CodexRunner{
@@ -43,4 +49,54 @@ func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
 	if len(required) != 2 || required[0] != "bible" || required[1] != "packet" {
 		t.Fatalf("unexpected required fields: %#v", required)
 	}
+}
+
+func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
+	client := &fakeLocalToolClient{}
+	runner := CodexRunner{
+		Client:        client,
+		Model:         "gpt-5.5",
+		Effort:        "medium",
+		ServiceTier:   "priority",
+		LocalTools:    true,
+		ToolRoot:      "/tmp/materials",
+		MaxToolRounds: 7,
+		ExtraTools: []codexoauth.LocalTool{{
+			Name:        "custom_tool",
+			Description: "custom",
+			Parameters:  map[string]any{"type": "object"},
+		}},
+	}
+
+	out, err := runner.Run(context.Background(), "read the manifest")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != "ok" {
+		t.Fatalf("output = %q", out)
+	}
+	if client.opts.Root != "/tmp/materials" || client.opts.MaxRounds != 7 {
+		t.Fatalf("unexpected local tool opts: %#v", client.opts)
+	}
+	if len(client.opts.ExtraTools) != 1 || client.opts.ExtraTools[0].Name != "custom_tool" {
+		t.Fatalf("unexpected extra tools: %#v", client.opts.ExtraTools)
+	}
+	if client.body["model"] != "gpt-5.5" {
+		t.Fatalf("missing request body: %#v", client.body)
+	}
+}
+
+type fakeLocalToolClient struct {
+	body map[string]any
+	opts codexoauth.LocalToolOptions
+}
+
+func (c *fakeLocalToolClient) Create(context.Context, map[string]any) (map[string]any, error) {
+	return nil, errors.New("plain create should not be called")
+}
+
+func (c *fakeLocalToolClient) CreateWithLocalTools(_ context.Context, body map[string]any, opts codexoauth.LocalToolOptions) (map[string]any, error) {
+	c.body = body
+	c.opts = opts
+	return map[string]any{"output_text": "ok"}, nil
 }

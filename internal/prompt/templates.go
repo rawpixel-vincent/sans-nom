@@ -19,6 +19,9 @@ Rules:
 - Create new story material. Do not reuse Metabarons names, places, factions, dynasty events, family-tree roles, or direct equivalents.
 - Do not summon lore peers as actors. Actor needs must be explicit original story actors with available cards.
 - Plan the full decision structure for the current chunk, roughly 3-5 scene nodes.
+- Protect suspension of disbelief: every law, taboo, technology, social reaction, character choice, and consequence must feel internally motivated by the created world.
+- If the call_scenarists tool is available, use it whenever free-form workshop help would improve the packet. The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes material to files, and returns only file paths.
+- You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
 - The Narrator will write final prose later. Keep Writer material out of canon.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
@@ -68,6 +71,7 @@ Rules:
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
 - Treat lore references as influence and genre memory only. Do not import Metabarons canon names, places, factions, or events into the player-facing prose.
+- Preserve suspension of disbelief: make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface only dialogue/actions that should be witnessed in this scene.
 - End with the available choices, preserving their ids and labels.
 
@@ -95,6 +99,7 @@ Rules:
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
 - Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
+- Protect suspension of disbelief by making each strange law or technology legible through social practice, cost, taboo, and consequence.
 - Return one StoryPacket with 3-5 scene nodes.
 - The Metabarons lore context is creative DNA: passion, taste, contradictions, taboos, relationship pressure, body/technology myth, witness-bound memory, and operatic SF-comics rhythm.
 - Do not literalize the source lore. Use new characters, new places, new factions, new conflicts, and new proper nouns.
@@ -124,6 +129,7 @@ Reject if:
 - the opening lacks world setup, player identity, player-world connection, active taboo/law, immediate pressure, or choices;
 - the proposed law is merely cruel instead of profound and binding;
 - the proposed law is copied literally from source canon instead of original story doctrine;
+- the world, law, technology, or character behavior damages suspension of disbelief because it lacks internal cause, social enforcement, cost, or consequence;
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with 3-5 nodes;
 - any choice targets a missing node;
