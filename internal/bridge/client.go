@@ -133,7 +133,7 @@ func NewClient(baseURL, token string) Client {
 }
 
 func (c Client) Health(ctx context.Context) error {
-	var out map[string]string
+	var out map[string]any
 	return c.do(ctx, http.MethodGet, "/v1/health", nil, &out)
 }
 

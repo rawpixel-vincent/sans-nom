@@ -4,10 +4,14 @@ import (
 	"bufio"
 	"context"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"log"
+	"net"
+	"net/url"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -15,6 +19,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
+	"github.com/rawpixel-vincent/sans-nom/internal/clitui"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
@@ -24,11 +29,13 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/seed"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
+	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 	"github.com/rawpixel-vincent/sans-nom/internal/writer"
 )
 
 func main() {
 	loadDotEnv(".env")
+	noArgs := len(os.Args) == 1
 
 	packetPath := flag.String("packet", "testdata/packets/toy.json", "StoryPacket JSON path")
 	nodeID := flag.String("node", "", "node id to roll out; defaults to packet entry node")
@@ -74,47 +81,65 @@ func main() {
 	}
 	backend := resolveBackend(*modelBackend, *useClaude)
 	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
+	if noArgs {
+		if err := runLauncher(context.Background(), launcherConfig{
+			Backend:             backend,
+			BridgeURL:           resolvedBridgeURL,
+			CardStore:           cardStore,
+			StoryRoot:           *storyRoot,
+			GlobalCollection:    *globalLoreCollection,
+			StoryCollection:     *storyCollection,
+			ScenaristProvider:   *scenaristProvider,
+			ScenaristModel:      *scenaristModel,
+			ScenaristTools:      *scenaristTools,
+			ScenaristOutputRoot: *scenaristOutputRoot,
+			ScenaristRounds:     *writerScenaristRounds,
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, false),
+		}); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
 
 	var packet scene.StoryPacket
 	var bible *story.StoryBible
 	var workspace *story.Workspace
 	var state *story.StoryState
 	if *seedStory {
-		ws, st, bundle, err := seedStoryWorkspace(context.Background(), backend, resolvedBridgeURL, *storyID, *storyRoot, *globalLoreCollection, *storyCollection, *replaceStory, cardStore)
+		session, err := newStorySession(context.Background(), storyapp.StoryActionOptions{
+			StoryID:              *storyID,
+			StoryRoot:            *storyRoot,
+			GlobalLoreCollection: *globalLoreCollection,
+			StoryCollection:      *storyCollection,
+			ReplaceStory:         *replaceStory,
+		}, backend, resolvedBridgeURL, cardStore)
 		if err != nil {
 			log.Fatal(err)
 		}
-		workspace = &ws
-		state = &st
-		bible = &bundle.Bible
-		packet = bundle.Packet
+		workspace = &session.Workspace
+		state = &session.State
+		bible = &session.Bible
+		packet = session.Packet
 		if !*playMode {
-			if err := printSeedBundle(bundle, *seedOutput); err != nil {
+			if err := printSeedBundle(session.Bundle, *seedOutput); err != nil {
 				log.Fatal(err)
 			}
 			return
 		}
 		if *nodeID == "" {
-			*nodeID = st.CurrentNodeID
+			*nodeID = session.NodeID
 		}
 	} else if *storyID != "" {
-		ws, st, err := story.LoadWorkspace(*storyRoot, *storyID)
+		session, err := storyapp.ResumeStory(context.Background(), *storyID, storyapp.StoryActionOptions{StoryRoot: *storyRoot})
 		if err != nil {
 			log.Fatal(err)
 		}
-		loadedBible, err := ws.LoadBible()
-		if err != nil {
-			log.Fatal(err)
-		}
-		packet, err = ws.LoadPacket(st)
-		if err != nil {
-			log.Fatal(err)
-		}
-		workspace = &ws
-		state = &st
-		bible = &loadedBible
+		workspace = &session.Workspace
+		state = &session.State
+		bible = &session.Bible
+		packet = session.Packet
 		if *nodeID == "" {
-			*nodeID = st.CurrentNodeID
+			*nodeID = session.NodeID
 		}
 	} else {
 		packet, err = openPacket(*packetPath)
@@ -267,38 +292,223 @@ func printSeedBundle(bundle story.SeedBundle, outputPath string) error {
 	return err
 }
 
-func seedStoryWorkspace(
-	ctx context.Context,
-	backend string,
-	bridgeURL string,
-	storyID string,
-	storyRoot string,
-	globalCollection string,
-	storyCollection string,
-	replace bool,
-	cardStore *contextbundle.LocalCardStore,
-) (story.Workspace, story.StoryState, story.SeedBundle, error) {
-	bundle, err := generateSeedBundle(ctx, backend, bridgeURL, globalCollection, "", cardStore)
+type launcherConfig struct {
+	Backend             string
+	BridgeURL           string
+	CardStore           *contextbundle.LocalCardStore
+	StoryRoot           string
+	GlobalCollection    string
+	StoryCollection     string
+	WriterScenarists    int
+	ScenaristProvider   string
+	ScenaristModel      string
+	ScenaristTools      bool
+	ScenaristOutputRoot string
+	ScenaristRounds     int
+}
+
+func runLauncher(ctx context.Context, cfg launcherConfig) error {
+	stopBridge, err := ensureLauncherBridge(ctx, cfg)
 	if err != nil {
-		return story.Workspace{}, story.StoryState{}, story.SeedBundle{}, err
+		return err
 	}
-	ws, state, err := story.InitWorkspace(story.InitOptions{
-		StoryID:              storyID,
-		Root:                 storyRoot,
-		GlobalLoreCollection: globalCollection,
-		StoryCollection:      storyCollection,
-		Replace:              replace,
-	}, bundle)
+	defer stopBridge()
+
+	action, err := clitui.Run(ctx, cfg.StoryRoot)
 	if err != nil {
-		return story.Workspace{}, story.StoryState{}, story.SeedBundle{}, err
+		return err
 	}
-	bundle.Bible.StoryID = state.StoryID
-	bundle.Packet.ContextSnapshot.WorkspaceID = state.WorkspaceID
-	bundle.Packet.ContextSnapshot.SessionID = state.SessionID
-	if err := maybeSeedExternalStory(ctx, backend, bridgeURL, ws, state, bundle); err != nil {
-		return story.Workspace{}, story.StoryState{}, story.SeedBundle{}, err
+	switch action.Kind {
+	case clitui.ActionNewStory:
+		session, err := newStorySession(ctx, storyapp.StoryActionOptions{
+			StoryRoot:            cfg.StoryRoot,
+			GlobalLoreCollection: cfg.GlobalCollection,
+			StoryCollection:      cfg.StoryCollection,
+		}, cfg.Backend, cfg.BridgeURL, cfg.CardStore)
+		if err != nil {
+			return err
+		}
+		return runPlay(ctx, playConfigFromSession(session, cfg))
+	case clitui.ActionResumeStory:
+		session, err := storyapp.ResumeStory(ctx, action.StoryID, storyapp.StoryActionOptions{StoryRoot: cfg.StoryRoot})
+		if err != nil {
+			return err
+		}
+		return runPlay(ctx, playConfigFromSession(session, cfg))
+	case clitui.ActionExit, clitui.ActionNone:
+		return nil
+	default:
+		return fmt.Errorf("unknown launcher action %d", action.Kind)
 	}
-	return ws, state, bundle, nil
+}
+
+func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string, cardStore *contextbundle.LocalCardStore) (storyapp.StorySession, error) {
+	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
+		return generateSeedBundle(ctx, backend, bridgeURL, action.GlobalLoreCollection, "", cardStore)
+	}
+	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
+		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle)
+	}
+	return storyapp.NewStory(ctx, opts)
+}
+
+func ensureLauncherBridge(ctx context.Context, cfg launcherConfig) (func(), error) {
+	if cfg.Backend == "static" {
+		return func() {}, nil
+	}
+	client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+	if err := bridgeHealth(ctx, client, 500*time.Millisecond); err == nil {
+		return func() {}, nil
+	} else if !bridgeDialFailure(err) {
+		return nil, fmt.Errorf("bridge health check failed at %s: %w", client.BaseURL, err)
+	}
+
+	host, port, err := bridgeListenAddress(client.BaseURL)
+	if err != nil {
+		return nil, err
+	}
+	logPath := filepath.Join("tmp", "bridge-sidecar.log")
+	if err := os.MkdirAll(filepath.Dir(logPath), 0o755); err != nil {
+		return nil, err
+	}
+	logFile, err := os.OpenFile(logPath, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o644)
+	if err != nil {
+		return nil, err
+	}
+	cmd := exec.Command("uv", "run", "--project", "bridge", "uvicorn", "bridge.main:app", "--host", host, "--port", port)
+	cmd.Dir = repoRoot()
+	cmd.Env = os.Environ()
+	cmd.Stdout = logFile
+	cmd.Stderr = logFile
+	if err := cmd.Start(); err != nil {
+		_ = logFile.Close()
+		return nil, fmt.Errorf("start bridge sidecar: %w", err)
+	}
+	done := make(chan error, 1)
+	go func() {
+		done <- cmd.Wait()
+		_ = logFile.Close()
+	}()
+
+	stop := func() {
+		if cmd.Process == nil {
+			return
+		}
+		_ = cmd.Process.Signal(os.Interrupt)
+		select {
+		case <-done:
+		case <-time.After(2 * time.Second):
+			_ = cmd.Process.Kill()
+			<-done
+		}
+	}
+
+	deadline := time.Now().Add(15 * time.Second)
+	var lastErr error
+	for time.Now().Before(deadline) {
+		select {
+		case err := <-done:
+			return nil, fmt.Errorf("bridge sidecar exited during startup: %w; see %s%s", err, logPath, logTail(logPath))
+		default:
+		}
+		if err := bridgeHealth(ctx, client, time.Second); err == nil {
+			return stop, nil
+		} else {
+			lastErr = err
+		}
+		time.Sleep(150 * time.Millisecond)
+	}
+	stop()
+	return nil, fmt.Errorf("bridge sidecar did not become healthy at %s: %w; see %s%s", client.BaseURL, lastErr, logPath, logTail(logPath))
+}
+
+func bridgeHealth(ctx context.Context, client bridgeclient.Client, timeout time.Duration) error {
+	healthCtx, cancel := context.WithTimeout(ctx, timeout)
+	defer cancel()
+	return client.Health(healthCtx)
+}
+
+func bridgeListenAddress(rawURL string) (string, string, error) {
+	parsed, err := url.Parse(rawURL)
+	if err != nil {
+		return "", "", err
+	}
+	host := parsed.Hostname()
+	if host == "" {
+		host = "127.0.0.1"
+	}
+	if !localBridgeHost(host) {
+		return "", "", fmt.Errorf("bridge unavailable at %s and auto-start only supports localhost bridge URLs", rawURL)
+	}
+	port := parsed.Port()
+	if port == "" {
+		switch parsed.Scheme {
+		case "https":
+			port = "443"
+		default:
+			port = "80"
+		}
+	}
+	return host, port, nil
+}
+
+func localBridgeHost(host string) bool {
+	host = strings.Trim(host, "[]")
+	return host == "127.0.0.1" || host == "localhost" || host == "::1"
+}
+
+func bridgeDialFailure(err error) bool {
+	if err == nil {
+		return false
+	}
+	var opErr *net.OpError
+	if errors.As(err, &opErr) {
+		return true
+	}
+	text := strings.ToLower(err.Error())
+	return strings.Contains(text, "connect: connection refused") ||
+		strings.Contains(text, "connection refused") ||
+		strings.Contains(text, "no such host") ||
+		strings.Contains(text, "dial tcp")
+}
+
+func logTail(path string) string {
+	data, err := os.ReadFile(path)
+	if err != nil || len(data) == 0 {
+		return ""
+	}
+	if len(data) > 2000 {
+		data = data[len(data)-2000:]
+	}
+	return "\n\n" + strings.TrimSpace(string(data))
+}
+
+func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) playConfig {
+	workspace := session.Workspace
+	state := session.State
+	bible := session.Bible
+	globalCollection := cfg.GlobalCollection
+	if state.GlobalLoreCollection != "" {
+		globalCollection = state.GlobalLoreCollection
+	}
+	return playConfig{
+		Packet:              session.Packet,
+		NodeID:              session.NodeID,
+		Backend:             cfg.Backend,
+		BridgeURL:           cfg.BridgeURL,
+		CardStore:           cfg.CardStore,
+		Workspace:           &workspace,
+		State:               &state,
+		Bible:               &bible,
+		GlobalCollection:    globalCollection,
+		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
+		WriterScenarists:    cfg.WriterScenarists,
+		ScenaristProvider:   cfg.ScenaristProvider,
+		ScenaristModel:      cfg.ScenaristModel,
+		ScenaristTools:      cfg.ScenaristTools,
+		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+		ScenaristRounds:     cfg.ScenaristRounds,
+	}
 }
 
 func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string, storyCollection string, cardStore *contextbundle.LocalCardStore) (story.SeedBundle, error) {
@@ -1005,17 +1215,9 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, mat
 }
 
 func claudeRunner() prompt.ClaudeRunner {
-	model := os.Getenv("SANS_NOM_MODEL")
-	if model == "" {
-		model = "sonnet"
-	}
-	effort := os.Getenv("SANS_NOM_MODEL_EFFORT")
-	if effort == "" {
-		effort = "medium"
-	}
 	return prompt.ClaudeRunner{
-		Model:   model,
-		Effort:  effort,
+		Model:   "sonnet",
+		Effort:  "medium",
 		WorkDir: ".",
 		Timeout: 3 * time.Minute,
 	}

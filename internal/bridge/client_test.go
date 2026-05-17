@@ -36,6 +36,26 @@ func TestCommitSceneRejectsPlanningArtifactBeforeHTTP(t *testing.T) {
 	}
 }
 
+func TestHealthAcceptsMixedValuePayload(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/health" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		_ = json.NewEncoder(w).Encode(map[string]any{
+			"status":            "ok",
+			"honcho_live":       false,
+			"voyage_configured": true,
+			"voyage_model":      "voyage-4",
+			"qdrant_url":        "http://127.0.0.1:6333",
+		})
+	}))
+	defer server.Close()
+
+	if err := NewClient(server.URL, "").Health(context.Background()); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestSceneContext(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/v1/scene/context" {

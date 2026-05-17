@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"encoding/json"
+	"errors"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -40,6 +41,29 @@ func TestResolveWriterScenaristCount(t *testing.T) {
 	}
 	if got := resolveWriterScenaristCount(0, "codex", true); got != 0 {
 		t.Fatalf("explicit zero scenarists = %d", got)
+	}
+}
+
+func TestBridgeDialFailureDetectsConnectionRefused(t *testing.T) {
+	err := errors.New(`seed story collection "x": Post "http://127.0.0.1:8787/v1/story/index/ingest": dial tcp 127.0.0.1:8787: connect: connection refused`)
+	if !bridgeDialFailure(err) {
+		t.Fatal("expected connection-refused bridge error to be startup eligible")
+	}
+	if bridgeDialFailure(errors.New("sidecar POST /v1/story/index/ingest: 500 qdrant schema mismatch")) {
+		t.Fatal("unexpectedly treated backend error as dial failure")
+	}
+}
+
+func TestBridgeListenAddressOnlySupportsLocalhost(t *testing.T) {
+	host, port, err := bridgeListenAddress("http://127.0.0.1:8787")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if host != "127.0.0.1" || port != "8787" {
+		t.Fatalf("unexpected listen address %s:%s", host, port)
+	}
+	if _, _, err := bridgeListenAddress("https://example.com:8787"); err == nil {
+		t.Fatal("expected remote bridge URL to reject auto-start")
 	}
 }
 

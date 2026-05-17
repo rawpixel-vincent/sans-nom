@@ -90,17 +90,9 @@ func main() {
 }
 
 func claudeRunner() prompt.ClaudeRunner {
-	model := os.Getenv("SANS_NOM_MODEL")
-	if model == "" {
-		model = "sonnet"
-	}
-	effort := os.Getenv("SANS_NOM_MODEL_EFFORT")
-	if effort == "" {
-		effort = "medium"
-	}
 	return prompt.ClaudeRunner{
-		Model:   model,
-		Effort:  effort,
+		Model:   "sonnet",
+		Effort:  "medium",
 		WorkDir: ".",
 		Timeout: 3 * time.Minute,
 	}
