@@ -37,6 +37,25 @@ def ingest_story_index(req: StoryIndexIngestRequest) -> StoryIndexIngestResponse
     return StoryIndexIngestResponse(collection=req.collection, count=len(points), replaced=req.replace)
 
 
+def delete_story_collection(collection: str) -> bool:
+    from qdrant_client import QdrantClient
+
+    client = QdrantClient(url=qdrant_url(), check_compatibility=False)
+    exists = False
+    if hasattr(client, "collection_exists"):
+        exists = bool(client.collection_exists(collection_name=collection))
+    else:
+        try:
+            client.get_collection(collection_name=collection)
+            exists = True
+        except Exception:
+            exists = False
+    if not exists:
+        return False
+    client.delete_collection(collection_name=collection)
+    return True
+
+
 def read_story_documents(path: Path) -> list[StoryIndexDocument]:
     docs = []
     for line_no, line in enumerate(path.read_text().splitlines(), start=1):

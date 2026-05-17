@@ -12,6 +12,7 @@ import (
 	"sync"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 )
 
 type ToolRunner struct {
@@ -21,6 +22,7 @@ type ToolRunner struct {
 	ContextText string
 	Tools       bool
 	MaxParallel int
+	Logger      *gamelog.Writer
 
 	mu     sync.Mutex
 	nextID int
@@ -73,6 +75,16 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	if err := os.MkdirAll(callDir, 0o755); err != nil {
 		return nil, err
 	}
+	r.log(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.call.started",
+		Message:  "writer requested scenarist material",
+		Fields: map[string]any{
+			"request_count": len(payload.Requests),
+			"max_parallel":  maxParallel,
+			"call_dir":      filepath.ToSlash(callDir),
+		},
+	})
 
 	materials := make([]Material, len(payload.Requests))
 	errs := make([]error, len(payload.Requests))
@@ -114,6 +126,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	wg.Wait()
 	for _, err := range errs {
 		if err != nil {
+			r.log(gamelog.Event{Level: gamelog.LevelError, Category: "scenarist", Event: "scenarist.call.failed", Message: err.Error(), Fields: map[string]any{"call_dir": filepath.ToSlash(callDir)}})
 			return nil, err
 		}
 	}
@@ -122,8 +135,19 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	})
 	manifest := Manifest{Root: filepath.ToSlash(callDir), Materials: materials}
 	if err := writeJSONAtomic(filepath.Join(callDir, "manifest.json"), manifest); err != nil {
+		r.log(gamelog.Event{Level: gamelog.LevelError, Category: "scenarist", Event: "scenarist.call.failed", Message: err.Error(), Fields: map[string]any{"call_dir": filepath.ToSlash(callDir)}})
 		return nil, err
 	}
+	r.log(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.call.completed",
+		Message:  "scenarist material written",
+		Fields: map[string]any{
+			"request_count":  len(payload.Requests),
+			"material_count": len(materials),
+			"call_dir":       filepath.ToSlash(callDir),
+		},
+	})
 	return map[string]any{
 		"ok":           true,
 		"root":         filepath.ToSlash(callDir),
@@ -131,6 +155,13 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		"materials":    materials,
 		"note":         "Scenarist material is planning-only. Read returned files selectively; do not copy wholesale or commit as canon.",
 	}, nil
+}
+
+func (r *ToolRunner) log(event gamelog.Event) {
+	if r == nil || r.Logger == nil {
+		return
+	}
+	_ = r.Logger.Append(event)
 }
 
 func (r *ToolRunner) nextCallID() string {

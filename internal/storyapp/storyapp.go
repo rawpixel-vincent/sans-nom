@@ -38,13 +38,13 @@ type StorySession struct {
 }
 
 type StorySummary struct {
-	StoryID    string
-	Title      string
-	Label      string
-	LatestTurn int
-	UpdatedAt  string
-	CreatedAt  string
-	Path       string
+	StoryID    string `json:"story_id"`
+	Title      string `json:"title"`
+	Label      string `json:"label"`
+	LatestTurn int    `json:"latest_turn"`
+	UpdatedAt  string `json:"updated_at"`
+	CreatedAt  string `json:"created_at"`
+	Path       string `json:"path"`
 }
 
 func (s StorySummary) SecondaryText() string {

@@ -263,3 +263,38 @@ func TestIngestStoryIndex(t *testing.T) {
 		t.Fatalf("unexpected response: %#v", resp)
 	}
 }
+
+func TestDeleteStory(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/story/delete" || r.Method != http.MethodPost {
+			t.Fatalf("unexpected request %s %s", r.Method, r.URL.Path)
+		}
+		var req StoryDeleteRequest
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			t.Fatal(err)
+		}
+		if req.WorkspaceID != "story-1" || req.Collection != "sans_nom_story_story_1" {
+			t.Fatalf("unexpected delete request: %#v", req)
+		}
+		_ = json.NewEncoder(w).Encode(StoryDeleteResponse{
+			WorkspaceID:             req.WorkspaceID,
+			Collection:              req.Collection,
+			QdrantCollectionDeleted: true,
+			HonchoWorkspaceDeleted:  true,
+			HonchoSessionsDeleted:   2,
+			HonchoLive:              true,
+		})
+	}))
+	defer server.Close()
+
+	resp, err := NewClient(server.URL, "").DeleteStory(context.Background(), StoryDeleteRequest{
+		WorkspaceID: "story-1",
+		Collection:  "sans_nom_story_story_1",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !resp.QdrantCollectionDeleted || !resp.HonchoWorkspaceDeleted || resp.HonchoSessionsDeleted != 2 {
+		t.Fatalf("unexpected response: %#v", resp)
+	}
+}

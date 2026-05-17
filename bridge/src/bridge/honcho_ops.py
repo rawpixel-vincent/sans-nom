@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 from collections import defaultdict
 from typing import Any
 
@@ -15,6 +16,8 @@ from .models import (
 )
 
 load_project_env()
+
+PEER_ID_RE = re.compile(r"[^a-z0-9_-]+")
 
 
 class HonchoOps:
@@ -94,20 +97,27 @@ class HonchoOps:
 
         honcho = self._client(req.workspace_id)
         session = honcho.session(req.session_id)
-        peer_ids = set(req.witnesses)
-        peer_ids.update(event.peer_id for event in req.events)
+        peer_ids = {honcho_peer_id(event.peer_id) for event in req.events}
         peers = [honcho.peer(peer_id) for peer_id in sorted(peer_ids)]
-        session.add_peers([(peer, SessionPeerConfig(observe_others=True)) for peer in peers])
+        if peers:
+            session.add_peers([(peer, SessionPeerConfig(observe_others=True)) for peer in peers])
 
         messages = []
         for event in req.events:
-            peer = honcho.peer(event.peer_id)
-            messages.append(peer.message(event.content, metadata={
+            peer_id = honcho_peer_id(event.peer_id)
+            witness_peer_ids = [honcho_peer_id(witness) for witness in event.witnesses]
+            metadata: dict[str, Any] = {
                 "packet_id": req.packet_id,
                 "node_id": req.node_id,
                 "source": event.source,
-                "witnesses": event.witnesses,
-            }))
+                "witnesses": witness_peer_ids,
+            }
+            if peer_id != event.peer_id:
+                metadata["raw_peer_id"] = event.peer_id
+            if witness_peer_ids != event.witnesses:
+                metadata["witness_labels"] = event.witnesses
+            peer = honcho.peer(peer_id)
+            messages.append(peer.message(event.content, metadata=metadata))
         if messages:
             session.add_messages(messages)
         return {"status": "committed"}
@@ -133,6 +143,27 @@ class HonchoOps:
             peer = self._client(workspace_id).peer(peer_id)
             peer.set_card(updated, target=patch.target)
         return updated
+
+    def delete_workspace(self, workspace_id: str) -> tuple[bool, int]:
+        prefix = f"{workspace_id}:"
+        for key in list(self._cards):
+            if key.startswith(prefix):
+                del self._cards[key]
+        self._messages.pop("main", None)
+        if not self.live_enabled:
+            return False, 0
+        try:
+            honcho = self._client(workspace_id)
+            sessions_deleted = 0
+            for session in honcho.sessions():
+                session.delete()
+                sessions_deleted += 1
+            honcho.delete_workspace(workspace_id)
+        except Exception as exc:
+            if self._is_not_found(exc):
+                return False, 0
+            raise
+        return True, sessions_deleted
 
     def representation(self, req: RepresentationRequest) -> RepresentationResponse:
         if not self.live_enabled:
@@ -169,3 +200,8 @@ class HonchoOps:
     @staticmethod
     def _is_not_found(exc: Exception) -> bool:
         return exc.__class__.__name__ == "NotFoundError"
+
+
+def honcho_peer_id(value: str) -> str:
+    peer_id = PEER_ID_RE.sub("-", str(value).strip().lower()).strip("-_")
+    return peer_id or "unknown-peer"

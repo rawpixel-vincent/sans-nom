@@ -76,6 +76,7 @@ func InitWorkspace(opts InitOptions, bundle SeedBundle) (Workspace, StoryState, 
 		ws.PacketsDir(),
 		ws.ModelRunsDir(),
 		ws.IndexDir(),
+		ws.LogsDir(),
 	} {
 		if err := os.MkdirAll(dir, 0o755); err != nil {
 			return Workspace{}, StoryState{}, err
@@ -141,6 +142,10 @@ func (w Workspace) ModelRunsDir() string {
 
 func (w Workspace) IndexDir() string {
 	return filepath.Join(w.Dir, "index")
+}
+
+func (w Workspace) LogsDir() string {
+	return filepath.Join(w.Dir, "logs")
 }
 
 func (w Workspace) SaveBible(bible StoryBible) error {

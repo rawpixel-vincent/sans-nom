@@ -107,6 +107,28 @@ type StoryIndexIngestResponse struct {
 	Replaced   bool   `json:"replaced"`
 }
 
+type StoryDeleteRequest struct {
+	WorkspaceID string `json:"workspace_id"`
+	Collection  string `json:"collection"`
+}
+
+type StoryDeleteResponse struct {
+	WorkspaceID             string `json:"workspace_id"`
+	Collection              string `json:"collection"`
+	QdrantCollectionDeleted bool   `json:"qdrant_collection_deleted"`
+	HonchoWorkspaceDeleted  bool   `json:"honcho_workspace_deleted"`
+	HonchoSessionsDeleted   int    `json:"honcho_sessions_deleted"`
+	HonchoLive              bool   `json:"honcho_live"`
+}
+
+type HealthResponse struct {
+	Status           string `json:"status"`
+	HonchoLive       bool   `json:"honcho_live"`
+	VoyageConfigured bool   `json:"voyage_configured"`
+	VoyageModel      string `json:"voyage_model"`
+	QdrantURL        string `json:"qdrant_url"`
+}
+
 type PeerCardResponse struct {
 	PeerID string   `json:"peer_id"`
 	Target string   `json:"target,omitempty"`
@@ -133,8 +155,14 @@ func NewClient(baseURL, token string) Client {
 }
 
 func (c Client) Health(ctx context.Context) error {
-	var out map[string]any
-	return c.do(ctx, http.MethodGet, "/v1/health", nil, &out)
+	_, err := c.HealthInfo(ctx)
+	return err
+}
+
+func (c Client) HealthInfo(ctx context.Context) (HealthResponse, error) {
+	var out HealthResponse
+	err := c.do(ctx, http.MethodGet, "/v1/health", nil, &out)
+	return out, err
 }
 
 func (c Client) SceneContext(ctx context.Context, req SceneContextRequest) (SceneContextResponse, error) {
@@ -191,6 +219,12 @@ func (c Client) PatchCard(ctx context.Context, workspaceID, peerID string, patch
 func (c Client) IngestStoryIndex(ctx context.Context, req StoryIndexIngestRequest) (StoryIndexIngestResponse, error) {
 	var out StoryIndexIngestResponse
 	err := c.do(ctx, http.MethodPost, "/v1/story/index/ingest", req, &out)
+	return out, err
+}
+
+func (c Client) DeleteStory(ctx context.Context, req StoryDeleteRequest) (StoryDeleteResponse, error) {
+	var out StoryDeleteResponse
+	err := c.do(ctx, http.MethodPost, "/v1/story/delete", req, &out)
 	return out, err
 }
 

@@ -33,6 +33,8 @@ bridge/.pytest_cache/
 __pycache__/
 *.py[cod]
 qdrant_storage/
+admin/node_modules/
+admin/dist/
 
 # generated / local runtime state
 *.log

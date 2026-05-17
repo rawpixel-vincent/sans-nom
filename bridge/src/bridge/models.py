@@ -153,3 +153,17 @@ class StoryIndexIngestResponse(BaseModel):
     collection: str
     count: int
     replaced: bool = False
+
+
+class StoryDeleteRequest(BaseModel):
+    workspace_id: str
+    collection: str
+
+
+class StoryDeleteResponse(BaseModel):
+    workspace_id: str
+    collection: str
+    qdrant_collection_deleted: bool = False
+    honcho_workspace_deleted: bool = False
+    honcho_sessions_deleted: int = 0
+    honcho_live: bool = False

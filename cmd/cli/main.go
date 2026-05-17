@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"net/http"
 	"net/url"
 	"os"
 	"os/exec"
@@ -18,10 +19,12 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	"github.com/rawpixel-vincent/sans-nom/internal/admin"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/clitui"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
@@ -63,6 +66,8 @@ func main() {
 	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
 	loreK := flag.Int("k", 5, "number of lore search results")
 	bridgeURL := flag.String("bridge-url", os.Getenv("SANS_NOM_BRIDGE_URL"), "bridge sidecar URL")
+	adminMode := flag.Bool("admin", false, "start the local admin web UI and do not enter the game loop")
+	adminAddr := flag.String("admin-addr", "127.0.0.1:8790", "local admin web UI listen address")
 	contextPreview := flag.String("context-preview", "", "preview assembled context: narrator or writer")
 	contextText := flag.Bool("context-text", false, "print model-ready context text instead of pretty JSON")
 	flag.Parse()
@@ -81,6 +86,26 @@ func main() {
 	}
 	backend := resolveBackend(*modelBackend, *useClaude)
 	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
+	if *adminMode {
+		if err := runAdmin(context.Background(), adminConfig{
+			Addr:                *adminAddr,
+			StoryRoot:           *storyRoot,
+			BridgeURL:           resolvedBridgeURL,
+			Backend:             backend,
+			CardStore:           cardStore,
+			GlobalCollection:    *globalLoreCollection,
+			StoryCollection:     *storyCollection,
+			ScenaristProvider:   *scenaristProvider,
+			ScenaristModel:      *scenaristModel,
+			ScenaristTools:      *scenaristTools,
+			ScenaristOutputRoot: *scenaristOutputRoot,
+			ScenaristRounds:     *writerScenaristRounds,
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
+		}); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
 	playMode := !*noPlay && *contextPreview == ""
 	commitMode := !*noCommit
 	playRefreshWriter := !*noWriterRefresh
@@ -203,6 +228,7 @@ func main() {
 			ScenaristTools:      *scenaristTools,
 			ScenaristOutputRoot: *scenaristOutputRoot,
 			ScenaristRounds:     *writerScenaristRounds,
+			Logger:              storyLogger(workspace, state),
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -219,7 +245,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	assembler := contextAssembler(resolvedBridgeURL, false, cardStore, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection))
+	assembler := contextAssembler(resolvedBridgeURL, false, cardStore, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection), nil)
 	narratorContext, err := assembler.AssembleNarrator(context.Background(), contextbundle.BuildRequest{
 		Packet:   packet,
 		NodeID:   *nodeID,
@@ -317,6 +343,22 @@ type launcherConfig struct {
 	Commit              bool
 }
 
+type adminConfig struct {
+	Addr                string
+	StoryRoot           string
+	BridgeURL           string
+	Backend             string
+	CardStore           *contextbundle.LocalCardStore
+	GlobalCollection    string
+	StoryCollection     string
+	WriterScenarists    int
+	ScenaristProvider   string
+	ScenaristModel      string
+	ScenaristTools      bool
+	ScenaristOutputRoot string
+	ScenaristRounds     int
+}
+
 type flagBridgeConfig struct {
 	Backend   string
 	BridgeURL string
@@ -363,9 +405,85 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 		return generateSeedBundle(ctx, backend, bridgeURL, action.GlobalLoreCollection)
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
-		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle)
+		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle, storyLogger(&session.Workspace, &session.State))
 	}
-	return storyapp.NewStory(ctx, opts)
+	session, err := storyapp.NewStory(ctx, opts)
+	if err != nil {
+		return storyapp.StorySession{}, err
+	}
+	logger := storyLogger(&session.Workspace, &session.State)
+	logEvent(logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.seed.generated",
+		Message:  "story bible and opening packet generated",
+		PacketID: session.Packet.ID,
+		NodeID:   session.NodeID,
+		Fields: map[string]any{
+			"title":      session.Bible.Title,
+			"backend":    backend,
+			"law_count":  len(session.Bible.OriginalLaws),
+			"node_count": len(session.Packet.Nodes),
+		},
+	})
+	logEvent(logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.created",
+		Message:  "story workspace created",
+		PacketID: session.Packet.ID,
+		NodeID:   session.NodeID,
+		Fields: map[string]any{
+			"title":            session.Bible.Title,
+			"backend":          backend,
+			"story_collection": session.State.StoryCollection,
+		},
+	})
+	return session, nil
+}
+
+func runAdmin(ctx context.Context, cfg adminConfig) error {
+	stopBridge, err := ensureBridge(ctx, cfg.Backend, cfg.BridgeURL)
+	if err != nil {
+		return err
+	}
+	defer stopBridge()
+	bridge := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+	server := admin.NewServer(cfg.StoryRoot, bridge, filepath.Join("admin", "dist"), func(ctx context.Context, storyID string) error {
+		session, err := storyapp.ResumeStory(ctx, storyID, storyapp.StoryActionOptions{StoryRoot: cfg.StoryRoot})
+		if err != nil {
+			return err
+		}
+		workspace := session.Workspace
+		state := session.State
+		bible := session.Bible
+		refreshCfg := playConfig{
+			Packet:              session.Packet,
+			NodeID:              session.NodeID,
+			Backend:             cfg.Backend,
+			BridgeURL:           cfg.BridgeURL,
+			CardStore:           cfg.CardStore,
+			Workspace:           &workspace,
+			State:               &state,
+			Bible:               &bible,
+			GlobalCollection:    firstNonEmpty(state.GlobalLoreCollection, cfg.GlobalCollection),
+			StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
+			InitialDecision:     state.LastDecision,
+			RefreshWrite:        true,
+			WriterScenarists:    cfg.WriterScenarists,
+			ScenaristProvider:   cfg.ScenaristProvider,
+			ScenaristModel:      cfg.ScenaristModel,
+			ScenaristTools:      cfg.ScenaristTools,
+			ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+			ScenaristRounds:     cfg.ScenaristRounds,
+			Logger:              storyLogger(&workspace, &state),
+		}
+		next, err := refreshPacket(ctx, session.Packet, session.NodeID, state.LastDecision, refreshCfg)
+		if err != nil {
+			return err
+		}
+		return saveCurrentStoryPacket(ctx, refreshCfg, &state, next, entryNodeID(next))
+	})
+	fmt.Printf("Admin UI: http://%s/admin\n", cfg.Addr)
+	return http.ListenAndServe(cfg.Addr, server)
 }
 
 func ensureFlagBridge(ctx context.Context, cfg flagBridgeConfig) (func(), error) {
@@ -537,6 +655,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		ScenaristTools:      cfg.ScenaristTools,
 		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
 		ScenaristRounds:     cfg.ScenaristRounds,
+		Logger:              storyLogger(&workspace, &state),
 	}
 }
 
@@ -610,7 +729,7 @@ func seedRunner(backend string, scenarist bool) prompt.Runner {
 	}
 }
 
-func maybeSeedExternalStory(ctx context.Context, backend string, bridgeURL string, ws story.Workspace, state story.StoryState, bundle story.SeedBundle) error {
+func maybeSeedExternalStory(ctx context.Context, backend string, bridgeURL string, ws story.Workspace, state story.StoryState, bundle story.SeedBundle, logger *gamelog.Writer) error {
 	if backend == "static" {
 		return nil
 	}
@@ -624,12 +743,16 @@ func maybeSeedExternalStory(ctx context.Context, backend string, bridgeURL strin
 		Documents:  bridgeStoryDocs(docs),
 		Replace:    true,
 	}); err != nil {
+		logEvent(logger, gamelog.Event{Level: gamelog.LevelError, Category: "qdrant", Event: "story.seed.index.failed", Message: err.Error(), Fields: map[string]any{"collection": state.StoryCollection}})
 		return fmt.Errorf("seed story collection %q: %w", state.StoryCollection, err)
 	}
+	logEvent(logger, gamelog.Event{Category: "qdrant", Event: "story.seed.index.ingested", Message: "seed story index ingested", Fields: map[string]any{"collection": state.StoryCollection, "document_count": len(docs)}})
 	for peerID, facts := range seedPeerCards(bundle.Bible) {
 		if _, err := client.PatchCard(ctx, state.WorkspaceID, peerID, bridgeclient.PeerCardPatch{Facts: facts, Replace: true}); err != nil {
+			logEvent(logger, gamelog.Event{Level: gamelog.LevelError, Category: "honcho", Event: "story.seed.card.failed", Message: err.Error(), Fields: map[string]any{"peer_id": peerID}})
 			return fmt.Errorf("seed Honcho card %q: %w", peerID, err)
 		}
+		logEvent(logger, gamelog.Event{Category: "honcho", Event: "story.seed.card.seeded", Message: "base Honcho peer card seeded", Fields: map[string]any{"peer_id": peerID, "fact_count": len(facts)}})
 	}
 	return nil
 }
@@ -733,7 +856,7 @@ func runContextPreview(
 	storyCollection string,
 	cardStore *contextbundle.LocalCardStore,
 ) error {
-	assembler := contextAssembler(bridgeURL, bridgeURL != "", cardStore, globalCollection, storyCollection)
+	assembler := contextAssembler(bridgeURL, bridgeURL != "", cardStore, globalCollection, storyCollection, nil)
 	req := contextbundle.BuildRequest{Packet: packet, NodeID: nodeID, Decision: decision, Bible: bible}
 	switch role {
 	case "narrator":
@@ -783,6 +906,7 @@ type playConfig struct {
 	ScenaristTools      bool
 	ScenaristOutputRoot string
 	ScenaristRounds     int
+	Logger              *gamelog.Writer
 }
 
 func runPlay(ctx context.Context, cfg playConfig) error {
@@ -794,13 +918,44 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		copied := *cfg.State
 		state = &copied
 	}
+	if cfg.Logger == nil {
+		cfg.Logger = storyLogger(cfg.Workspace, state)
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.play.started",
+		Message:  "play loop started",
+		PacketID: packet.ID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"backend":        cfg.Backend,
+			"commit":         cfg.Commit,
+			"refresh_writer": cfg.RefreshWrite,
+			"turn_limit":     cfg.Turns,
+		},
+	})
 	reader := bufio.NewReader(os.Stdin)
 	totalTurns := cfg.Turns
 	for turn := 1; totalTurns <= 0 || turn <= totalTurns; turn++ {
 		rollout, err := rolloutOnce(ctx, packet, nodeID, decision, cfg)
 		if err != nil {
+			logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "narrator", Event: "narrator.rollout.failed", Message: err.Error(), PacketID: packet.ID, NodeID: nodeID})
 			return err
 		}
+		logEvent(cfg.Logger, gamelog.Event{
+			Category: "narrator",
+			Event:    "narrator.rollout.completed",
+			Message:  "narrator rollout completed",
+			Turn:     turn,
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Fields: map[string]any{
+				"choice_count":       len(rollout.Draft.Choices),
+				"prose_chars":        len([]rune(rollout.Draft.Prose)),
+				"commit_event_count": len(rollout.Commit.Events),
+				"witness_count":      len(rollout.Commit.Witnesses),
+			},
+		})
 		fmt.Printf("\n--- Turn %d ---\n\n%s\n", turn, rollout.Draft.Prose)
 		if len(rollout.Draft.Choices) > 0 {
 			fmt.Println("\nChoices:")
@@ -811,8 +966,10 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		if cfg.Commit {
 			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
 			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+				logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "honcho", Event: "honcho.commit.failed", Message: err.Error(), Turn: turn, PacketID: rollout.Commit.PacketID, NodeID: rollout.Commit.NodeID})
 				return err
 			}
+			logEvent(cfg.Logger, gamelog.Event{Category: "honcho", Event: "honcho.commit.completed", Message: "witnessed canon committed", Turn: turn, PacketID: rollout.Commit.PacketID, NodeID: rollout.Commit.NodeID})
 			fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
 		} else {
 			fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
@@ -867,9 +1024,11 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		if cfg.RefreshWrite {
 			refreshCfg := cfg
 			refreshCfg.State = state
+			logEvent(cfg.Logger, gamelog.Event{Category: "writer", Event: "writer.refresh.started", Message: "writer refresh started", Turn: turn, PacketID: packet.ID, NodeID: nodeID})
 			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, refreshCfg)
 			if err == nil {
 				nextNodeID = entryNodeID(next)
+				logEvent(cfg.Logger, gamelog.Event{Category: "writer", Event: "writer.refresh.completed", Message: "writer refresh completed", Turn: turn, PacketID: next.ID, NodeID: nextNodeID})
 				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit); err != nil {
 					return err
 				}
@@ -886,6 +1045,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				}
 				continue
 			}
+			logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "writer", Event: "writer.refresh.failed", Message: err.Error(), Turn: turn, PacketID: packet.ID, NodeID: nodeID})
 			fmt.Fprintf(os.Stderr, "writer refresh failed, continuing current packet: %v\n", err)
 		}
 		if choice, err := rollout.Node.Choice(nextDecision.ChoiceID); err == nil && choice.TargetNodeID != "" {
@@ -927,7 +1087,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	if err != nil {
 		return narrator.Rollout{}, err
 	}
-	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection)
+	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
 	narratorContext, err := assembler.AssembleNarrator(ctx, contextbundle.BuildRequest{
 		Packet:   packet,
 		NodeID:   nodeID,
@@ -957,7 +1117,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
 	outputDir := scenaristOutputDir(cfg)
 	scenaristEnabled := cfg.WriterScenarists != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg)) > 0
-	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection)
+	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
 	if scenaristEnabled {
 		assembler.Options.WriterLoreK = 4
 	}
@@ -1018,6 +1178,20 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 		return err
 	}
 	*state = nextState
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "memory",
+		Event:    "story.turn.persisted",
+		Message:  "turn persisted to local story workspace",
+		Turn:     nextState.LatestTurn,
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Fields: map[string]any{
+			"committed":     committed,
+			"next_node_id":  nextNodeID,
+			"choice_id":     rollout.Commit.PlayerDecision.ChoiceID,
+			"has_free_text": rollout.Commit.PlayerDecision.FreeText != "",
+		},
+	})
 	return refreshStoryIndex(ctx, cfg, state, packet)
 }
 
@@ -1034,6 +1208,7 @@ func saveCurrentStoryPacket(ctx context.Context, cfg playConfig, state *story.St
 	if err := cfg.Workspace.SaveState(*state); err != nil {
 		return err
 	}
+	logEvent(cfg.Logger, gamelog.Event{Category: "story", Event: "story.packet.saved", Message: "current story packet saved", PacketID: packet.ID, NodeID: nodeID})
 	return refreshStoryIndex(ctx, cfg, state, packet)
 }
 
@@ -1049,6 +1224,7 @@ func refreshStoryIndex(ctx context.Context, cfg playConfig, state *story.StorySt
 	if err := cfg.Workspace.WriteIndex(docs, state.StoryCollection); err != nil {
 		return err
 	}
+	logEvent(cfg.Logger, gamelog.Event{Category: "memory", Event: "story.index.rebuilt", Message: "local story index rebuilt", Fields: map[string]any{"document_count": len(docs), "collection": state.StoryCollection}})
 	if cfg.Backend == "static" {
 		return nil
 	}
@@ -1059,8 +1235,10 @@ func refreshStoryIndex(ctx context.Context, cfg playConfig, state *story.StorySt
 		Replace:    false,
 	})
 	if err != nil {
+		logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "qdrant", Event: "story.index.ingest.failed", Message: err.Error(), Fields: map[string]any{"collection": state.StoryCollection}})
 		return fmt.Errorf("refresh story collection %q: %w", state.StoryCollection, err)
 	}
+	logEvent(cfg.Logger, gamelog.Event{Category: "qdrant", Event: "story.index.ingested", Message: "story index ingested", Fields: map[string]any{"collection": state.StoryCollection, "document_count": len(docs)}})
 	return nil
 }
 
@@ -1080,6 +1258,29 @@ func resolvedStoryCollection(state *story.StoryState, fallback string) string {
 	}
 	if state != nil && state.StoryCollection != "" {
 		return state.StoryCollection
+	}
+	return ""
+}
+
+func storyLogger(workspace *story.Workspace, state *story.StoryState) *gamelog.Writer {
+	if workspace == nil || state == nil {
+		return nil
+	}
+	return gamelog.NewWriter(workspace.Dir, state.StoryID)
+}
+
+func logEvent(logger *gamelog.Writer, event gamelog.Event) {
+	if logger == nil {
+		return
+	}
+	_ = logger.Append(event)
+}
+
+func firstNonEmpty(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return value
+		}
 	}
 	return ""
 }
@@ -1162,7 +1363,7 @@ func printPrettyJSON(value any) error {
 	return encoder.Encode(value)
 }
 
-func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.LocalCardStore, globalCollection string, storyCollection string) contextbundle.Assembler {
+func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.LocalCardStore, globalCollection string, storyCollection string, logger *gamelog.Writer) contextbundle.Assembler {
 	assembler := contextbundle.Assembler{
 		Cards: cardStore,
 		Options: contextbundle.Options{
@@ -1177,9 +1378,9 @@ func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.Lo
 		if globalCollection == "" {
 			globalCollection = story.DefaultGlobalLoreCollection
 		}
-		retrievers = append(retrievers, lore.BridgeRetriever{Client: client, Collection: globalCollection})
+		retrievers = append(retrievers, lore.BridgeRetriever{Client: client, Collection: globalCollection, Telemetry: logger})
 		if storyCollection != "" && storyCollection != globalCollection {
-			retrievers = append(retrievers, lore.BridgeRetriever{Client: client, Collection: storyCollection})
+			retrievers = append(retrievers, lore.BridgeRetriever{Client: client, Collection: storyCollection, Telemetry: logger})
 		}
 		if len(retrievers) == 1 {
 			assembler.Lore = retrievers[0]
@@ -1349,6 +1550,7 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (
 		ContextText: contextText,
 		Tools:       cfg.ScenaristTools,
 		MaxParallel: maxParallel,
+		Logger:      cfg.Logger,
 	}, nil
 }
 

@@ -1,0 +1,137 @@
+export type StorySummary = {
+  story_id: string;
+  title: string;
+  label: string;
+  latest_turn: number;
+  updated_at: string;
+  created_at: string;
+  path: string;
+};
+
+export type AdminStatus = {
+  bridge_url: string;
+  ok: boolean;
+  error: string;
+  story_root: string;
+  health: {
+    status?: string;
+    honcho_live?: boolean;
+    voyage_configured?: boolean;
+    voyage_model?: string;
+    qdrant_url?: string;
+  };
+};
+
+export type StoryDetail = {
+  summary: StorySummary;
+  state: Record<string, unknown>;
+  bible: Record<string, unknown>;
+  packet: Record<string, unknown>;
+  turns: Record<string, unknown>[];
+  turn_count: number;
+  paths: Record<string, string>;
+};
+
+export type LogEvent = {
+  time: string;
+  level: string;
+  category: string;
+  event: string;
+  story_id?: string;
+  turn?: number;
+  packet_id?: string;
+  node_id?: string;
+  run_id?: string;
+  message?: string;
+  fields?: Record<string, unknown>;
+};
+
+export type FileInfo = {
+  path: string;
+  name: string;
+  size: number;
+  mod_time: string;
+  is_dir: boolean;
+  category?: string;
+};
+
+export type IndexResponse = {
+  collection: string;
+  manifest: Record<string, unknown> | null;
+  documents: Record<string, unknown>[];
+};
+
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(path, {
+    ...init,
+    headers: {
+      'content-type': 'application/json',
+      ...(init?.headers ?? {})
+    }
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(body || `${res.status} ${res.statusText}`);
+  }
+  return (await res.json()) as T;
+}
+
+export async function getStatus(): Promise<AdminStatus> {
+  return request<AdminStatus>('/admin/api/status');
+}
+
+export async function listStories(): Promise<StorySummary[]> {
+  const data = await request<{ stories: StorySummary[] }>('/admin/api/stories');
+  return data.stories;
+}
+
+export async function getStory(storyId: string): Promise<StoryDetail> {
+  return request<StoryDetail>(`/admin/api/stories/${encodeURIComponent(storyId)}`);
+}
+
+export async function getLogs(
+  storyId: string,
+  filters: { category?: string; level?: string; tail?: number }
+): Promise<{ events: LogEvent[]; categories: string[] }> {
+  const params = new URLSearchParams();
+  if (filters.category) params.set('category', filters.category);
+  if (filters.level) params.set('level', filters.level);
+  if (filters.tail) params.set('tail', String(filters.tail));
+  return request<{ events: LogEvent[]; categories: string[] }>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/logs?${params.toString()}`
+  );
+}
+
+export async function getModelRuns(storyId: string): Promise<FileInfo[]> {
+  const data = await request<{ files: FileInfo[] }>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/model-runs`
+  );
+  return data.files;
+}
+
+export async function getIndex(storyId: string): Promise<IndexResponse> {
+  return request<IndexResponse>(`/admin/api/stories/${encodeURIComponent(storyId)}/index`);
+}
+
+export async function getFile(storyId: string, path: string): Promise<string> {
+  const params = new URLSearchParams({ path });
+  const res = await fetch(`/admin/api/stories/${encodeURIComponent(storyId)}/file?${params}`);
+  if (!res.ok) {
+    throw new Error(await res.text());
+  }
+  return await res.text();
+}
+
+export async function runControl(
+  storyId: string,
+  action: string,
+  body: Record<string, unknown> = {}
+): Promise<Record<string, unknown>> {
+  return request<Record<string, unknown>>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/control/${action}`,
+    {
+      method: 'POST',
+      body: JSON.stringify({ confirm: true, ...body })
+    }
+  );
+}

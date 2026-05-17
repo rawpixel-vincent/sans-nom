@@ -7,7 +7,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException
 from .honcho_ops import HonchoOps
 from .lore_search import LoreSearchService
 from .lore_ops import qdrant_url, voyage_api_key, voyage_model
-from .story_index import ingest_story_index
+from .story_index import delete_story_collection, ingest_story_index
 from .models import (
     CommitRequest,
     LoreSearchRequest,
@@ -19,6 +19,8 @@ from .models import (
     SceneContextResponse,
     StoryIndexIngestRequest,
     StoryIndexIngestResponse,
+    StoryDeleteRequest,
+    StoryDeleteResponse,
 )
 
 app = FastAPI(title="Sans-Nom Phase 0 Bridge", version="0.1.0")
@@ -58,7 +60,10 @@ def scene_commit(req: CommitRequest) -> dict[str, str]:
             raise HTTPException(status_code=422, detail=f"forbidden commit source: {event.source}")
         if not event.witnesses:
             raise HTTPException(status_code=422, detail="canon events require witnesses")
-    return ops.commit_scene(req)
+    try:
+        return ops.commit_scene(req)
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
 
 @app.get("/v1/peer/{peer_id}/card", dependencies=[Depends(authorize)])
@@ -88,5 +93,22 @@ def search_lore(req: LoreSearchRequest) -> LoreSearchResponse:
 def story_index_ingest(req: StoryIndexIngestRequest) -> StoryIndexIngestResponse:
     try:
         return ingest_story_index(req)
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.post("/v1/story/delete", response_model=StoryDeleteResponse, dependencies=[Depends(authorize)])
+def story_delete(req: StoryDeleteRequest) -> StoryDeleteResponse:
+    try:
+        qdrant_deleted = delete_story_collection(req.collection)
+        honcho_deleted, sessions_deleted = ops.delete_workspace(req.workspace_id)
+        return StoryDeleteResponse(
+            workspace_id=req.workspace_id,
+            collection=req.collection,
+            qdrant_collection_deleted=qdrant_deleted,
+            honcho_workspace_deleted=honcho_deleted,
+            honcho_sessions_deleted=sessions_deleted,
+            honcho_live=ops.live_enabled,
+        )
     except Exception as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
