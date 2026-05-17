@@ -38,10 +38,15 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		maxIterations = 2
 	}
 	var previous Review
+	var previousRaw string
 	for i := 0; i < maxIterations; i++ {
 		promptText := contextText
 		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
-			promptText += "\n\nPrevious verifier review:\n" + reviewText(previous)
+			promptText += "\n\nPrevious Writer attempt failed validation. Continue from this attempt and revise it; do not start a new story seed from scratch. Preserve the same story, bible, player character, and packet structure unless directly required by the error.\n"
+			promptText += "\nValidation/review feedback:\n" + reviewText(previous)
+			if strings.TrimSpace(previousRaw) != "" {
+				promptText += "\n\nPrevious raw Writer output to patch:\n" + previousRaw
+			}
 		}
 		writerPrompt := prompt.SeedWriterPrompt(promptText)
 		s.log(gamelog.Event{
@@ -76,6 +81,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		})
 		bundle, err := parseBundle(raw)
 		if err != nil {
+			previousRaw = raw
 			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Return only valid JSON with top-level bible and packet."}
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
@@ -92,6 +98,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			continue
 		}
 		if err := story.ValidateBundle(bundle); err != nil {
+			previousRaw = raw
 			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create an original StoryBible plus opening StoryPacket. Keep source lore as influence only."}
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
@@ -169,6 +176,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			return bundle, nil
 		}
 		previous = review
+		previousRaw = string(bundleJSON)
 	}
 	return story.SeedBundle{}, fmt.Errorf("seed story rejected: %s", reviewText(previous))
 }
@@ -421,7 +429,7 @@ func parseBundle(raw string) (story.SeedBundle, error) {
 	if err := dec.Decode(&bundle); err != nil {
 		return story.SeedBundle{}, fmt.Errorf("parse seed bundle: %w", err)
 	}
-	return bundle, story.ValidateBundle(bundle)
+	return bundle, nil
 }
 
 func parsePacket(raw string) (scene.StoryPacket, error) {

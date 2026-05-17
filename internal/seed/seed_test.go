@@ -85,6 +85,47 @@ func TestGenerateUsesVerifierRejection(t *testing.T) {
 	}
 }
 
+func TestGenerateRetryPatchesPreviousWriterOutput(t *testing.T) {
+	invalid := DefaultBundle()
+	invalid.Packet.Nodes[1].Choices = []scene.Choice{{
+		ID:           "choice_missing",
+		Label:        "Bad continuation.",
+		TargetNodeID: "node_missing_handoff",
+		PlayerIntent: "break validation",
+	}}
+	rawInvalid, err := jsonForTest(invalid)
+	if err != nil {
+		t.Fatal(err)
+	}
+	rawValid, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	runner := &sequenceRunner{responses: []string{rawInvalid, rawValid}}
+	service := Service{
+		Writer:        runner,
+		MaxIterations: 2,
+	}
+
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	if len(runner.prompts) != 2 {
+		t.Fatalf("prompt count = %d", len(runner.prompts))
+	}
+	retry := runner.prompts[1]
+	for _, required := range []string{
+		"Continue from this attempt and revise it; do not start a new story seed from scratch",
+		"node_missing_handoff",
+		"Previous raw Writer output to patch",
+		"choice_missing",
+	} {
+		if !strings.Contains(retry, required) {
+			t.Fatalf("retry prompt missing %q:\n%s", required, retry)
+		}
+	}
+}
+
 func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {
@@ -119,4 +160,18 @@ func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 func jsonForTest(value any) (string, error) {
 	data, err := json.Marshal(value)
 	return string(data), err
+}
+
+type sequenceRunner struct {
+	responses []string
+	prompts   []string
+}
+
+func (r *sequenceRunner) Run(_ context.Context, prompt string) (string, error) {
+	r.prompts = append(r.prompts, prompt)
+	index := len(r.prompts) - 1
+	if index >= len(r.responses) {
+		index = len(r.responses) - 1
+	}
+	return r.responses[index], nil
 }
