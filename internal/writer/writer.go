@@ -111,5 +111,5 @@ func (p ClaudePlanner) Plan(ctx context.Context, input Input) (scene.StoryPacket
 }
 
 func DefaultAwaitTimeout() time.Duration {
-	return 45 * time.Second
+	return 15 * time.Minute
 }

@@ -12,6 +12,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
@@ -67,6 +68,76 @@ func TestBridgeListenAddressOnlySupportsLocalhost(t *testing.T) {
 	}
 }
 
+func TestBuildSeedContextDoesNotInjectStaticFixture(t *testing.T) {
+	retriever := &seedContextRetriever{hits: []lore.Snippet{{
+		ID:     "wiki_lore:bushitaka",
+		Kind:   "wiki_lore",
+		Source: "lore/canon/wiki/lore.md",
+		Score:  0.9,
+		Text:   "A binding law works when the world reacts through belief, consequence, and social pressure.",
+	}}}
+
+	text := buildSeedContext(context.Background(), retriever)
+	for _, forbidden := range []string{
+		"Ila Venn",
+		"Glasswell",
+		"Veyr Tidemarket",
+		"Mourning Lantern",
+		"Law of Living Collateral",
+	} {
+		if strings.Contains(text, forbidden) {
+			t.Fatalf("live seed context leaked static fixture term %q:\n%s", forbidden, text)
+		}
+	}
+	if !strings.Contains(text, "A binding law works") {
+		t.Fatalf("expected source-lore influence snippet in seed context:\n%s", text)
+	}
+	if retriever.query != seedInfluenceQuery || retriever.k != 8 {
+		t.Fatalf("unexpected retrieval request query=%q k=%d", retriever.query, retriever.k)
+	}
+}
+
+func TestValidatePacketSourceForBackendRequiresExplicitLivePacket(t *testing.T) {
+	err := validatePacketSourceForBackend("codex", false, "testdata/packets/toy.json")
+	if err == nil {
+		t.Fatal("expected live backend to reject implicit packet")
+	}
+	if !strings.Contains(err.Error(), "testdata is never selected by default") {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if err := validatePacketSourceForBackend("codex", true, "testdata/packets/toy.json"); err != nil {
+		t.Fatalf("explicit packet should be allowed: %v", err)
+	}
+	if err := validatePacketSourceForBackend("static", false, "testdata/packets/toy.json"); err != nil {
+		t.Fatalf("static backend should allow implicit test packet: %v", err)
+	}
+	if err := validatePacketSourceForBackend("static", true, ""); err == nil {
+		t.Fatal("expected empty packet path to fail")
+	}
+}
+
+func TestShouldCreateStoryDefaultsToLiveStory(t *testing.T) {
+	root := t.TempDir()
+	if !shouldCreateStory("", "", root, false) {
+		t.Fatal("expected missing story source to create a live story")
+	}
+	if shouldCreateStory("", "testdata/packets/toy.json", root, false) {
+		t.Fatal("explicit packet should not create a story")
+	}
+	if !shouldCreateStory("new-id", "", root, false) {
+		t.Fatal("missing story id should create a story")
+	}
+	if err := os.MkdirAll(filepath.Join(root, "existing-id"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if shouldCreateStory("existing-id", "", root, false) {
+		t.Fatal("existing story id should resume instead of creating")
+	}
+	if !shouldCreateStory("existing-id", "", root, true) {
+		t.Fatal("replace should recreate an existing story")
+	}
+}
+
 func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	repoRoot := repoRootForTest(t)
 	storyRoot := t.TempDir()
@@ -74,13 +145,12 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	defer cancel()
 
 	cmd := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
-		"-seed-story",
 		"-story-id", "test-id",
 		"-story-root", storyRoot,
 		"-replace-story",
-		"-play",
 		"-model-backend", "static",
-		"-disable-writer-refresh",
+		"-no-writer-refresh",
+		"-no-commit",
 		"-play-trace-jsonl",
 	)
 	cmd.Dir = repoRoot
@@ -109,9 +179,9 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	resume := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
 		"-story-id", "test-id",
 		"-story-root", storyRoot,
-		"-play",
 		"-model-backend", "static",
-		"-disable-writer-refresh",
+		"-no-writer-refresh",
+		"-no-commit",
 		"-turns", "1",
 	)
 	resume.Dir = repoRoot
@@ -134,13 +204,12 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	defer cancel()
 
 	cmd := exec.CommandContext(ctx, "go", "run", "./cmd/cli",
-		"-seed-story",
 		"-story-id", "live-e2e",
 		"-story-root", t.TempDir(),
 		"-replace-story",
-		"-play",
 		"-model-backend", "codex",
-		"-disable-writer-refresh",
+		"-no-writer-refresh",
+		"-no-commit",
 		"-play-trace-jsonl",
 	)
 	cmd.Dir = repoRoot
@@ -156,7 +225,7 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	}
 	text := string(output)
 	if strings.Contains(text, "\nCommitted:") {
-		t.Fatalf("dry play should not commit without -commit:\n%s", text)
+		t.Fatalf("play should not commit when -no-commit is set:\n%s", text)
 	}
 
 	turns, decisions := parseTraceEvents(t, text)
@@ -185,6 +254,18 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	if turns[1].Decision.ChoiceID != decision.ChoiceID {
 		t.Fatalf("turn 2 commit did not carry choice id: got %#v want %q", turns[1].Decision, decision.ChoiceID)
 	}
+}
+
+type seedContextRetriever struct {
+	hits  []lore.Snippet
+	query string
+	k     int
+}
+
+func (r *seedContextRetriever) Search(_ context.Context, query string, k int) ([]lore.Snippet, error) {
+	r.query = query
+	r.k = k
+	return r.hits, nil
 }
 
 type traceTurn struct {

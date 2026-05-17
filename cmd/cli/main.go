@@ -37,15 +37,14 @@ func main() {
 	loadDotEnv(".env")
 	noArgs := len(os.Args) == 1
 
-	packetPath := flag.String("packet", "testdata/packets/toy.json", "StoryPacket JSON path")
+	packetPath := flag.String("packet", "", "StoryPacket JSON path for test/debug packet runs")
 	nodeID := flag.String("node", "", "node id to roll out; defaults to packet entry node")
 	choiceID := flag.String("choice", "", "selected choice id")
 	freeText := flag.String("text", "", "free-text player input")
 	useClaude := flag.Bool("claude", false, "use claude -p Sonnet adapters instead of static local adapters")
 	modelBackend := flag.String("model-backend", os.Getenv("SANS_NOM_MODEL_BACKEND"), "model backend: codex, claude, or static")
-	disableWriterRefresh := flag.Bool("disable-writer-refresh", false, "disable Creative Writer refresh between play turns")
-	seedStory := flag.Bool("seed-story", false, "generate the opening original StoryPacket")
-	seedOutput := flag.String("seed-output", "", "optional path for -seed-story output")
+	noWriterRefresh := flag.Bool("no-writer-refresh", false, "do not refresh the Creative Writer between play turns")
+	seedOutput := flag.String("seed-output", "", "optional path for generated seed bundle output")
 	storyID := flag.String("story-id", "", "create or resume a durable story id")
 	storyRoot := flag.String("story-root", story.DefaultRoot, "root directory for durable story state")
 	globalLoreCollection := flag.String("global-lore-collection", story.DefaultGlobalLoreCollection, "global source-lore Qdrant collection")
@@ -57,16 +56,17 @@ func main() {
 	scenaristTools := flag.Bool("scenarist-tools", envBool("SANS_NOM_SCENARIST_TOOLS"), "allow Scenarists read-only lore tools")
 	scenaristOutputRoot := flag.String("scenarist-output-root", "", "optional root for Scenarist material output")
 	writerScenaristRounds := flag.Int("writer-scenarist-rounds", envInt("SANS_NOM_WRITER_SCENARIST_ROUNDS", 24), "maximum Writer tool rounds while refreshing; 0 uses the 24-round safety cap")
-	playMode := flag.Bool("play", false, "run a small CLI play loop")
-	commitMode := flag.Bool("commit", false, "commit prepared scene canon to Honcho during -play")
-	turns := flag.Int("turns", 0, "number of automated play turns; 0 reads interactively in -play")
-	playTraceJSONL := flag.Bool("play-trace-jsonl", false, "emit machine-readable JSONL trace events during -play")
+	noPlay := flag.Bool("no-play", false, "do not enter the interactive play loop after loading or creating a story")
+	noCommit := flag.Bool("no-commit", false, "do not commit witnessed scene canon to Honcho during play")
+	turns := flag.Int("turns", 0, "number of automated play turns; 0 reads interactively")
+	playTraceJSONL := flag.Bool("play-trace-jsonl", false, "emit machine-readable JSONL trace events during play")
 	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
 	loreK := flag.Int("k", 5, "number of lore search results")
 	bridgeURL := flag.String("bridge-url", os.Getenv("SANS_NOM_BRIDGE_URL"), "bridge sidecar URL")
 	contextPreview := flag.String("context-preview", "", "preview assembled context: narrator or writer")
 	contextText := flag.Bool("context-text", false, "print model-ready context text instead of pretty JSON")
 	flag.Parse()
+	packetExplicit := flagPassed("packet")
 
 	if *loreSearch != "" {
 		if err := runLoreSearch(context.Background(), *bridgeURL, *globalLoreCollection, *loreSearch, *loreK); err != nil {
@@ -81,7 +81,9 @@ func main() {
 	}
 	backend := resolveBackend(*modelBackend, *useClaude)
 	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
-	playRefreshWriter := !*disableWriterRefresh
+	playMode := !*noPlay && *contextPreview == ""
+	commitMode := !*noCommit
+	playRefreshWriter := !*noWriterRefresh
 	if noArgs {
 		if err := runLauncher(context.Background(), launcherConfig{
 			Backend:             backend,
@@ -96,25 +98,37 @@ func main() {
 			ScenaristOutputRoot: *scenaristOutputRoot,
 			ScenaristRounds:     *writerScenaristRounds,
 			RefreshWrite:        true,
+			Commit:              commitMode,
 			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
 		}); err != nil {
 			log.Fatal(err)
 		}
 		return
 	}
+	createStory := shouldCreateStory(*storyID, *packetPath, *storyRoot, *replaceStory)
+	stopBridge, err := ensureFlagBridge(context.Background(), flagBridgeConfig{
+		Backend:   backend,
+		BridgeURL: resolvedBridgeURL,
+		Needed:    true,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stopBridge()
 
 	var packet scene.StoryPacket
 	var bible *story.StoryBible
 	var workspace *story.Workspace
 	var state *story.StoryState
-	if *seedStory {
+	var bundle *story.SeedBundle
+	if createStory {
 		session, err := newStorySession(context.Background(), storyapp.StoryActionOptions{
 			StoryID:              *storyID,
 			StoryRoot:            *storyRoot,
 			GlobalLoreCollection: *globalLoreCollection,
 			StoryCollection:      *storyCollection,
 			ReplaceStory:         *replaceStory,
-		}, backend, resolvedBridgeURL, cardStore)
+		}, backend, resolvedBridgeURL)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -122,14 +136,22 @@ func main() {
 		state = &session.State
 		bible = &session.Bible
 		packet = session.Packet
-		if !*playMode {
-			if err := printSeedBundle(session.Bundle, *seedOutput); err != nil {
+		bundle = &session.Bundle
+		if *seedOutput != "" {
+			if err := printSeedBundle(*bundle, *seedOutput); err != nil {
 				log.Fatal(err)
 			}
-			return
 		}
 		if *nodeID == "" {
 			*nodeID = session.NodeID
+		}
+		if !playMode && *contextPreview == "" {
+			if *seedOutput == "" {
+				if err := printSeedBundle(*bundle, ""); err != nil {
+					log.Fatal(err)
+				}
+			}
+			return
 		}
 	} else if *storyID != "" {
 		session, err := storyapp.ResumeStory(context.Background(), *storyID, storyapp.StoryActionOptions{StoryRoot: *storyRoot})
@@ -143,17 +165,22 @@ func main() {
 		if *nodeID == "" {
 			*nodeID = session.NodeID
 		}
-	} else {
+	} else if *packetPath != "" {
+		if err := validatePacketSourceForBackend(backend, packetExplicit, *packetPath); err != nil {
+			log.Fatal(err)
+		}
 		packet, err = openPacket(*packetPath)
 		if err != nil {
 			log.Fatal(err)
 		}
+	} else {
+		log.Fatal("no story source: run without flags for the live menu, or pass -story-id or -packet")
 	}
 	decision := scene.PlayerDecision{
 		ChoiceID: *choiceID,
 		FreeText: *freeText,
 	}
-	if *playMode {
+	if playMode {
 		if err := runPlay(context.Background(), playConfig{
 			Packet:              packet,
 			NodeID:              *nodeID,
@@ -167,7 +194,7 @@ func main() {
 			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
 			InitialDecision:     decision,
 			Turns:               *turns,
-			Commit:              *commitMode,
+			Commit:              commitMode,
 			RefreshWrite:        playRefreshWriter,
 			TraceJSONL:          *playTraceJSONL,
 			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, playRefreshWriter),
@@ -182,7 +209,7 @@ func main() {
 		return
 	}
 	if *contextPreview != "" {
-		if err := runContextPreview(context.Background(), *contextPreview, *contextText, *bridgeURL, packet, *nodeID, decision, bible, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection), cardStore); err != nil {
+		if err := runContextPreview(context.Background(), *contextPreview, *contextText, resolvedBridgeURL, packet, *nodeID, decision, bible, *globalLoreCollection, resolvedStoryCollection(state, *storyCollection), cardStore); err != nil {
 			log.Fatal(err)
 		}
 		return
@@ -287,6 +314,13 @@ type launcherConfig struct {
 	ScenaristOutputRoot string
 	ScenaristRounds     int
 	RefreshWrite        bool
+	Commit              bool
+}
+
+type flagBridgeConfig struct {
+	Backend   string
+	BridgeURL string
+	Needed    bool
 }
 
 func runLauncher(ctx context.Context, cfg launcherConfig) error {
@@ -306,7 +340,7 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 			StoryRoot:            cfg.StoryRoot,
 			GlobalLoreCollection: cfg.GlobalCollection,
 			StoryCollection:      cfg.StoryCollection,
-		}, cfg.Backend, cfg.BridgeURL, cfg.CardStore)
+		}, cfg.Backend, cfg.BridgeURL)
 		if err != nil {
 			return err
 		}
@@ -324,9 +358,9 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 	}
 }
 
-func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string, cardStore *contextbundle.LocalCardStore) (storyapp.StorySession, error) {
+func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string) (storyapp.StorySession, error) {
 	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
-		return generateSeedBundle(ctx, backend, bridgeURL, action.GlobalLoreCollection, "", cardStore)
+		return generateSeedBundle(ctx, backend, bridgeURL, action.GlobalLoreCollection)
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
 		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle)
@@ -334,11 +368,22 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 	return storyapp.NewStory(ctx, opts)
 }
 
-func ensureLauncherBridge(ctx context.Context, cfg launcherConfig) (func(), error) {
-	if cfg.Backend == "static" {
+func ensureFlagBridge(ctx context.Context, cfg flagBridgeConfig) (func(), error) {
+	if !cfg.Needed || cfg.Backend == "static" {
 		return func() {}, nil
 	}
-	client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+	return ensureBridge(ctx, cfg.Backend, cfg.BridgeURL)
+}
+
+func ensureLauncherBridge(ctx context.Context, cfg launcherConfig) (func(), error) {
+	return ensureBridge(ctx, cfg.Backend, cfg.BridgeURL)
+}
+
+func ensureBridge(ctx context.Context, backend string, bridgeURL string) (func(), error) {
+	if backend == "static" {
+		return func() {}, nil
+	}
+	client := bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN"))
 	if err := bridgeHealth(ctx, client, 500*time.Millisecond); err == nil {
 		return func() {}, nil
 	} else if !bridgeDialFailure(err) {
@@ -484,6 +529,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		Bible:               &bible,
 		GlobalCollection:    globalCollection,
 		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
+		Commit:              cfg.Commit,
 		RefreshWrite:        cfg.RefreshWrite,
 		WriterScenarists:    cfg.WriterScenarists,
 		ScenaristProvider:   cfg.ScenaristProvider,
@@ -494,21 +540,60 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	}
 }
 
-func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string, storyCollection string, cardStore *contextbundle.LocalCardStore) (story.SeedBundle, error) {
+func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string) (story.SeedBundle, error) {
 	contextText := seed.ContextText()
 	if backend != "static" {
-		assembler := contextAssembler(bridgeURL, false, cardStore, globalCollection, storyCollection)
-		packet := seed.DefaultPacket()
-		writerContext, err := assembler.AssembleWriter(ctx, contextbundle.BuildRequest{Packet: packet})
-		if err == nil {
-			contextText += "\n\nRuntime lore context:\n" + writerContext.RenderText()
-		}
+		contextText = buildSeedContext(ctx, seedLoreRetriever(bridgeURL, globalCollection))
 	}
 	return seed.Service{
 		Scenarist:     seedRunner(backend, true),
 		Verifier:      seedRunner(backend, false),
 		MaxIterations: 2,
 	}.Generate(ctx, contextText)
+}
+
+const seedInfluenceQuery = "original science fantasy story seed gravity law taboo body technology witness memory inheritance refusal authority spectacle suspension of disbelief Bushitaka law"
+
+func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever {
+	if globalCollection == "" {
+		globalCollection = story.DefaultGlobalLoreCollection
+	}
+	return lore.BridgeRetriever{
+		Client:     bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN")),
+		Collection: globalCollection,
+	}
+}
+
+func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
+	contextText := seed.ContextText()
+	if retriever == nil {
+		return contextText
+	}
+	hits, err := retriever.Search(ctx, seedInfluenceQuery, 8)
+	if err != nil {
+		return contextText + "\n\nSource-lore retrieval warning: " + err.Error() + "\nProceed from seed doctrine only. Do not copy any fallback fixture."
+	}
+	if len(hits) == 0 {
+		return contextText + "\n\nSource-lore influence snippets: no live snippets found. Proceed from seed doctrine only."
+	}
+	var b strings.Builder
+	b.WriteString(contextText)
+	b.WriteString("\n\nSource-lore influence snippets (craft DNA only; do not copy names, events, factions, or proper nouns):")
+	for _, hit := range hits {
+		label := hit.ID
+		if hit.Kind != "" {
+			label = hit.Kind + " " + label
+		}
+		if hit.Source != "" {
+			label += " " + hit.Source
+		}
+		b.WriteString("\n- ")
+		b.WriteString(label)
+		b.WriteString(": ")
+		b.WriteString(preview(hit.Text, 700))
+	}
+	b.WriteString("\n\nUse these snippets to infer structural craft: laws that carry consequence, character refusal, body-tech pressure, credible social reaction, and suspension of disbelief. The seed must remain an original story.")
+	return b.String()
 }
 
 func seedRunner(backend string, scenarist bool) prompt.Runner {
@@ -1116,6 +1201,45 @@ func preview(text string, max int) string {
 	return text[:max-3] + "..."
 }
 
+func validatePacketSourceForBackend(backend string, packetExplicit bool, packetPath string) error {
+	if packetPath == "" {
+		return errors.New("packet path is required")
+	}
+	if backend == "static" || packetExplicit {
+		return nil
+	}
+	return errors.New("live packet run requires an explicit -packet; testdata is never selected by default")
+}
+
+func flagPassed(name string) bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == name {
+			found = true
+		}
+	})
+	return found
+}
+
+func shouldCreateStory(storyID string, packetPath string, storyRoot string, replaceStory bool) bool {
+	if strings.TrimSpace(packetPath) != "" {
+		return false
+	}
+	if replaceStory || strings.TrimSpace(storyID) == "" {
+		return true
+	}
+	return !storyWorkspaceDirExists(storyRoot, storyID)
+}
+
+func storyWorkspaceDirExists(root string, storyID string) bool {
+	ws, err := story.NewWorkspace(root, storyID)
+	if err != nil {
+		return false
+	}
+	info, err := os.Stat(ws.Dir)
+	return err == nil && info.IsDir()
+}
+
 func resolveBackend(value string, useClaude bool) string {
 	if useClaude {
 		return "claude"
@@ -1177,7 +1301,7 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 		ServiceTier: serviceTier,
 		SchemaName:  schemaName,
 		Schema:      schema,
-		Timeout:     3 * time.Minute,
+		Timeout:     15 * time.Minute,
 	}
 }
 
@@ -1202,7 +1326,7 @@ func claudeRunner() prompt.ClaudeRunner {
 		Model:   "sonnet",
 		Effort:  "medium",
 		WorkDir: ".",
-		Timeout: 3 * time.Minute,
+		Timeout: 15 * time.Minute,
 	}
 }
 
@@ -1240,7 +1364,7 @@ func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {
 			EnvFiles: scenarist.DefaultEnvFiles("."),
 			Tools:    cfg.ScenaristTools,
 			AddDirs:  scenaristAddDirs(cfg),
-			Timeout:  5 * time.Minute,
+			Timeout:  15 * time.Minute,
 		})
 	}
 	return runners

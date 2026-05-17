@@ -42,7 +42,7 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	}
 	timeout := r.Timeout
 	if timeout == 0 {
-		timeout = 3 * time.Minute
+		timeout = 15 * time.Minute
 	}
 	ctx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()

@@ -109,7 +109,7 @@ func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, q
 	}
 	timeout := r.Timeout
 	if timeout <= 0 {
-		timeout = 5 * time.Minute
+		timeout = 15 * time.Minute
 	}
 	ctx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
