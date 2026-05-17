@@ -39,6 +39,7 @@ admin/dist/
 # generated / local runtime state
 *.log
 tmp/
+data/logs/
 data/stories/
 lore/canon/comics/peer-cards/runs/
 

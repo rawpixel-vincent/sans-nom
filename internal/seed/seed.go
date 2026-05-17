@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
@@ -18,6 +19,7 @@ type Service struct {
 	Scenarist     prompt.Runner
 	Verifier      prompt.Runner
 	MaxIterations int
+	Logger        *gamelog.Writer
 }
 
 type Review struct {
@@ -41,37 +43,130 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
 			promptText += "\n\nPrevious verifier review:\n" + reviewText(previous)
 		}
-		raw, err := s.Scenarist.Run(ctx, prompt.SeedScenaristPrompt(promptText))
+		scenaristPrompt := prompt.SeedScenaristPrompt(promptText)
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.scenarist.request",
+			Message:  "seed scenarist request prepared",
+			Fields: map[string]any{
+				"iteration":    i + 1,
+				"prompt_chars": len(scenaristPrompt),
+			},
+			Detail: map[string]any{
+				"iteration": i + 1,
+				"prompt":    scenaristPrompt,
+			},
+		})
+		raw, err := s.Scenarist.Run(ctx, scenaristPrompt)
 		if err != nil {
 			return story.SeedBundle{}, err
 		}
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.scenarist.response",
+			Message:  "seed scenarist response received",
+			Fields: map[string]any{
+				"iteration":      i + 1,
+				"response_chars": len(raw),
+			},
+			Detail: map[string]any{
+				"iteration": i + 1,
+				"response":  raw,
+			},
+		})
 		bundle, err := parseBundle(raw)
 		if err != nil {
 			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Return only valid JSON with top-level bible and packet."}
+			s.log(gamelog.Event{
+				Level:    gamelog.LevelWarn,
+				Category: "model",
+				Event:    "seed.scenarist.invalid",
+				Message:  err.Error(),
+				Fields:   map[string]any{"iteration": i + 1},
+			})
 			continue
 		}
 		if err := story.ValidateBundle(bundle); err != nil {
 			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create an original StoryBible plus opening StoryPacket. Keep source lore as influence only."}
+			s.log(gamelog.Event{
+				Level:    gamelog.LevelWarn,
+				Category: "model",
+				Event:    "seed.bundle.invalid",
+				Message:  err.Error(),
+				Fields:   map[string]any{"iteration": i + 1},
+			})
 			continue
 		}
 		if s.Verifier == nil {
 			return bundle, nil
 		}
 		bundleJSON, _ := json.MarshalIndent(bundle, "", "  ")
-		rawReview, err := s.Verifier.Run(ctx, prompt.SeedVerifierPrompt(string(bundleJSON), contextText))
+		verifierPrompt := prompt.SeedVerifierPrompt(string(bundleJSON), contextText)
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.verifier.request",
+			Message:  "seed verifier request prepared",
+			Fields: map[string]any{
+				"iteration":    i + 1,
+				"prompt_chars": len(verifierPrompt),
+				"title":        bundle.Bible.Title,
+				"packet_id":    bundle.Packet.ID,
+			},
+			Detail: map[string]any{
+				"iteration": i + 1,
+				"prompt":    verifierPrompt,
+				"bundle":    bundle,
+			},
+		})
+		rawReview, err := s.Verifier.Run(ctx, verifierPrompt)
 		if err != nil {
 			return story.SeedBundle{}, err
 		}
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.verifier.response",
+			Message:  "seed verifier response received",
+			Fields: map[string]any{
+				"iteration":      i + 1,
+				"response_chars": len(rawReview),
+			},
+			Detail: map[string]any{
+				"iteration": i + 1,
+				"response":  rawReview,
+			},
+		})
 		review, err := parseReview(rawReview)
 		if err != nil {
 			return story.SeedBundle{}, err
 		}
 		if review.Accepted {
+			s.log(gamelog.Event{
+				Category: "model",
+				Event:    "seed.verifier.accepted",
+				Message:  "seed verifier accepted bundle",
+				Fields: map[string]any{
+					"iteration": i + 1,
+					"title":     bundle.Bible.Title,
+					"packet_id": bundle.Packet.ID,
+				},
+				Detail: map[string]any{
+					"iteration": i + 1,
+					"review":    review,
+					"bundle":    bundle,
+				},
+			})
 			return bundle, nil
 		}
 		previous = review
 	}
 	return story.SeedBundle{}, fmt.Errorf("seed story rejected: %s", reviewText(previous))
+}
+
+func (s Service) log(event gamelog.Event) {
+	if s.Logger == nil {
+		return
+	}
+	_ = s.Logger.Append(event)
 }
 
 func ValidateOriginalSeed(packet scene.StoryPacket) error {

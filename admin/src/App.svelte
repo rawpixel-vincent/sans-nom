@@ -5,8 +5,15 @@
   import Panel from "./lib/Panel.svelte";
   import {
     createStory,
+    deleteGlobalLog,
+    deleteGlobalLogs,
+    deleteLog,
+    deleteLogs,
     getFile,
+    getGlobalLogDetail,
+    getGlobalLogs,
     getIndex,
+    getLogDetail,
     getLogs,
     getModelRuns,
     getStatus,
@@ -47,7 +54,13 @@
   let selectedStoryId = "";
   let detail: StoryDetail | null = null;
   let logs: LogEvent[] = [];
+  let globalLogs: LogEvent[] = [];
   let selectedLog: LogEvent | null = null;
+  let selectedGlobalLog: LogEvent | null = null;
+  let selectedLogDetail: unknown = null;
+  let selectedGlobalLogDetail: unknown = null;
+  let selectedLogIDs = new Set<string>();
+  let selectedGlobalLogIDs = new Set<string>();
   let categories: string[] = [];
   let modelRuns: FileInfo[] = [];
   let indexData: IndexResponse | null = null;
@@ -68,6 +81,9 @@
     pollTimer = window.setInterval(() => {
       if (logPolling && activeTab === "logs" && selectedStoryId) {
         void loadLogsQuietly();
+      }
+      if (logPolling && activeTab === "global-logs") {
+        void loadGlobalLogsQuietly();
       }
     }, 3000);
   });
@@ -92,11 +108,15 @@
       if (selectedStoryId) {
         await loadStory(selectedStoryId);
       }
+      await loadGlobalLogs();
     });
   }
 
   async function loadStory(storyId: string) {
     selectedStoryId = storyId;
+    if (activeTab === "global-logs") {
+      activeTab = "overview";
+    }
     detail = await getStory(storyId);
     await Promise.all([
       loadLogs(),
@@ -114,10 +134,28 @@
       tail: logTail,
     });
     logs = data.events;
+    selectedLogIDs = pruneSelectedLogIDs(selectedLogIDs, logs);
     categories = data.categories;
     const currentLog = selectedLog;
     if (currentLog && !logs.some((entry) => logKey(entry) === logKey(currentLog))) {
       selectedLog = null;
+      selectedLogDetail = null;
+    }
+  }
+
+  async function loadGlobalLogs() {
+    const data = await getGlobalLogs({
+      category: logCategory,
+      level: logLevel,
+      tail: logTail,
+    });
+    globalLogs = data.events;
+    selectedGlobalLogIDs = pruneSelectedLogIDs(selectedGlobalLogIDs, globalLogs);
+    categories = data.categories;
+    const currentLog = selectedGlobalLog;
+    if (currentLog && !globalLogs.some((entry) => logKey(entry) === logKey(currentLog))) {
+      selectedGlobalLog = null;
+      selectedGlobalLogDetail = null;
     }
   }
 
@@ -127,6 +165,111 @@
     } catch (err) {
       error = err instanceof Error ? err.message : String(err);
     }
+  }
+
+  async function loadGlobalLogsQuietly() {
+    try {
+      await loadGlobalLogs();
+    } catch (err) {
+      error = err instanceof Error ? err.message : String(err);
+    }
+  }
+
+  async function selectLog(entry: LogEvent) {
+    selectedLog = entry;
+    selectedLogDetail = null;
+    if (selectedStoryId && entry.detail_path) {
+      selectedLogDetail = await getLogDetail(selectedStoryId, entry.detail_path);
+    }
+  }
+
+  async function selectGlobalLog(entry: LogEvent) {
+    selectedGlobalLog = entry;
+    selectedGlobalLogDetail = null;
+    if (entry.detail_path) {
+      selectedGlobalLogDetail = await getGlobalLogDetail(entry.detail_path);
+    }
+  }
+
+  async function deleteStoryLogRow(entry: LogEvent) {
+    if (!selectedStoryId || !entry.event_id) return;
+    if (!confirm(`Delete log event ${entry.event}?`)) return;
+    await withBusy(async () => {
+      await deleteLog(selectedStoryId, entry.event_id);
+      if (selectedLog && logKey(selectedLog) === logKey(entry)) {
+        selectedLog = null;
+        selectedLogDetail = null;
+      }
+      await loadLogs();
+      notice = `deleted log event: ${entry.event_id}`;
+    });
+  }
+
+  async function deleteGlobalLogRow(entry: LogEvent) {
+    if (!entry.event_id) return;
+    if (!confirm(`Delete global log event ${entry.event}?`)) return;
+    await withBusy(async () => {
+      await deleteGlobalLog(entry.event_id);
+      if (selectedGlobalLog && logKey(selectedGlobalLog) === logKey(entry)) {
+        selectedGlobalLog = null;
+        selectedGlobalLogDetail = null;
+      }
+      await loadGlobalLogs();
+      notice = `deleted global log event: ${entry.event_id}`;
+    });
+  }
+
+  async function deleteSelectedStoryLogs() {
+    if (!selectedStoryId || selectedLogIDs.size === 0) return;
+    const eventIDs = [...selectedLogIDs];
+    if (!confirm(`Delete ${eventIDs.length} story log events?`)) return;
+    await withBusy(async () => {
+      await deleteLogs(selectedStoryId, eventIDs);
+      if (selectedLog?.event_id && selectedLogIDs.has(selectedLog.event_id)) {
+        selectedLog = null;
+        selectedLogDetail = null;
+      }
+      selectedLogIDs = new Set<string>();
+      await loadLogs();
+      notice = `deleted ${eventIDs.length} story log events`;
+    });
+  }
+
+  async function deleteSelectedGlobalLogs() {
+    if (selectedGlobalLogIDs.size === 0) return;
+    const eventIDs = [...selectedGlobalLogIDs];
+    if (!confirm(`Delete ${eventIDs.length} global log events?`)) return;
+    await withBusy(async () => {
+      await deleteGlobalLogs(eventIDs);
+      if (selectedGlobalLog?.event_id && selectedGlobalLogIDs.has(selectedGlobalLog.event_id)) {
+        selectedGlobalLog = null;
+        selectedGlobalLogDetail = null;
+      }
+      selectedGlobalLogIDs = new Set<string>();
+      await loadGlobalLogs();
+      notice = `deleted ${eventIDs.length} global log events`;
+    });
+  }
+
+  async function copyStoryLogMarkdown(entry: LogEvent) {
+    if (!selectedStoryId) return;
+    await withBusy(async () => {
+      const detail = entry.detail_path
+        ? await getLogDetail(selectedStoryId, entry.detail_path)
+        : null;
+      await copyText(formatLogMarkdown(entry, detail, "story"));
+      notice = `copied log event: ${entry.event_id || entry.event}`;
+    });
+  }
+
+  async function copyGlobalLogMarkdown(entry: LogEvent) {
+    await withBusy(async () => {
+      const detail = entry.detail_path
+        ? await getGlobalLogDetail(entry.detail_path)
+        : null;
+      await copyText(formatLogMarkdown(entry, detail, "global"));
+      notice = `copied global log event: ${entry.event_id || entry.event}`;
+    });
   }
 
   async function loadModelRuns() {
@@ -173,7 +316,9 @@
       selectedStoryId = stories[0]?.story_id ?? "";
       detail = null;
       logs = [];
+      selectedLogIDs = new Set<string>();
       selectedLog = null;
+      selectedLogDetail = null;
       modelRuns = [];
       indexData = null;
       fileText = "";
@@ -224,6 +369,7 @@
   }
 
   function logKey(entry: LogEvent) {
+    if (entry.event_id) return entry.event_id;
     return [
       entry.time,
       entry.level,
@@ -233,6 +379,106 @@
       entry.node_id ?? "",
       entry.run_id ?? "",
     ].join("|");
+  }
+
+  function pruneSelectedLogIDs(selected: Set<string>, events: LogEvent[]) {
+    const visible = new Set(logEventIDs(events));
+    return new Set([...selected].filter((eventID) => visible.has(eventID)));
+  }
+
+  function toggleStoryLogSelection(entry: LogEvent) {
+    if (!entry.event_id) return;
+    const next = new Set(selectedLogIDs);
+    if (next.has(entry.event_id)) next.delete(entry.event_id);
+    else next.add(entry.event_id);
+    selectedLogIDs = next;
+  }
+
+  function toggleGlobalLogSelection(entry: LogEvent) {
+    if (!entry.event_id) return;
+    const next = new Set(selectedGlobalLogIDs);
+    if (next.has(entry.event_id)) next.delete(entry.event_id);
+    else next.add(entry.event_id);
+    selectedGlobalLogIDs = next;
+  }
+
+  function selectAllStoryLogs() {
+    selectedLogIDs = new Set(logEventIDs(logs));
+  }
+
+  function selectAllGlobalLogs() {
+    selectedGlobalLogIDs = new Set(logEventIDs(globalLogs));
+  }
+
+  function logEventIDs(events: LogEvent[]) {
+    const out: string[] = [];
+    for (const entry of events) {
+      if (entry.event_id) out.push(entry.event_id);
+    }
+    return out;
+  }
+
+  async function copyText(text: string) {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "true");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+
+  function formatLogMarkdown(entry: LogEvent, detailPayload: unknown, scope: "story" | "global") {
+    const lines = [
+      `# ${scope === "global" ? "Global" : "Story"} Log: ${entry.event || "(unnamed event)"}`,
+      "",
+      "| Field | Value |",
+      "| --- | --- |",
+      `| Time | ${markdownCell(entry.time)} |`,
+      `| Level | ${markdownCell(entry.level)} |`,
+      `| Category | ${markdownCell(entry.category)} |`,
+      `| Event | ${markdownCell(entry.event)} |`,
+      `| Event ID | ${markdownCell(entry.event_id)} |`,
+    ];
+    if (entry.story_id) lines.push(`| Story ID | ${markdownCell(entry.story_id)} |`);
+    if (entry.turn !== undefined) lines.push(`| Turn | ${entry.turn} |`);
+    if (entry.packet_id) lines.push(`| Packet ID | ${markdownCell(entry.packet_id)} |`);
+    if (entry.node_id) lines.push(`| Node ID | ${markdownCell(entry.node_id)} |`);
+    if (entry.run_id) lines.push(`| Run ID | ${markdownCell(entry.run_id)} |`);
+    if (entry.message) lines.push(`| Message | ${markdownCell(entry.message)} |`);
+    if (entry.detail_path) lines.push(`| Detail Path | ${markdownCell(entry.detail_path)} |`);
+
+    lines.push(
+      "",
+      "## Fields",
+      "````json",
+      pretty(entry.fields ?? {}),
+      "````",
+      "",
+      "## Detail",
+      "````json",
+      detailPayload === null ? "null" : pretty(detailPayload),
+      "````",
+      "",
+      "## Event JSON",
+      "````json",
+      pretty(entry),
+      "````",
+      "",
+    );
+    return lines.join("\n");
+  }
+
+  function markdownCell(value: unknown) {
+    return String(value ?? "")
+      .replace(/\|/g, "\\|")
+      .replace(/\r?\n/g, "<br>");
   }
 </script>
 
@@ -286,6 +532,16 @@
         <h2 class="text-sm font-semibold uppercase text-slate-600">Stories</h2>
         <span class="text-xs text-slate-500">{stories?.length ?? 0}</span>
       </div>
+      <div class="mb-4">
+        <button
+          class:selected={activeTab === "global-logs"}
+          class="story-button"
+          on:click={() => withBusy(async () => { activeTab = "global-logs"; await loadGlobalLogs(); })}
+        >
+          <span class="block font-medium">Global Logs</span>
+          <span class="block text-xs text-slate-500">startup, seed, bridge, and system events</span>
+        </button>
+      </div>
       <div class="space-y-2">
         {#each stories as story}
           <button
@@ -331,7 +587,151 @@
         </div>
       {/if}
 
-      {#if detail}
+      {#if activeTab === "global-logs"}
+        <Panel title="Global Logs">
+          <div class="mb-3 flex flex-wrap items-center gap-2">
+            <select
+              bind:value={logCategory}
+              class="input"
+              on:change={() => withBusy(loadGlobalLogs)}
+            >
+              <option value="">all categories</option>
+              {#each categories as category}
+                <option value={category}>{category}</option>
+              {/each}
+            </select>
+            <select
+              bind:value={logLevel}
+              class="input"
+              on:change={() => withBusy(loadGlobalLogs)}
+            >
+              <option value="">all levels</option>
+              <option value="debug">debug</option>
+              <option value="info">info</option>
+              <option value="warn">warn</option>
+              <option value="error">error</option>
+            </select>
+            <input
+              class="input w-24"
+              type="number"
+              min="1"
+              max="2000"
+              bind:value={logTail}
+            />
+            <label class="flex items-center gap-1 text-xs text-slate-600">
+              <input type="checkbox" bind:checked={logPolling} />
+              poll
+            </label>
+            <button class="btn" on:click={() => withBusy(loadGlobalLogs)}
+              >Apply</button
+            >
+            <button class="btn" disabled={globalLogs.length === 0} on:click={selectAllGlobalLogs}>
+              Select all rows
+            </button>
+            <button class="btn" disabled={selectedGlobalLogIDs.size === 0} on:click={() => (selectedGlobalLogIDs = new Set<string>())}>
+              Clear selection
+            </button>
+            <button
+              class="btn-danger"
+              disabled={selectedGlobalLogIDs.size === 0}
+              on:click={deleteSelectedGlobalLogs}
+            >
+              Delete selected ({selectedGlobalLogIDs.size})
+            </button>
+          </div>
+          <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+            <div class="overflow-auto">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th class="w-8"></th>
+                    <th>time</th>
+                    <th>level</th>
+                    <th>category</th>
+                    <th>event</th>
+                    <th>story</th>
+                    <th>message</th>
+                    <th>fields</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {#each globalLogs as entry}
+                    <tr
+                      class:selected-row={selectedGlobalLog && logKey(entry) === logKey(selectedGlobalLog)}
+                      class="cursor-pointer"
+                      on:click={() => withBusy(() => selectGlobalLog(entry))}
+                    >
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={entry.event_id ? selectedGlobalLogIDs.has(entry.event_id) : false}
+                          disabled={!entry.event_id}
+                          on:click|stopPropagation={() => toggleGlobalLogSelection(entry)}
+                        />
+                      </td>
+                      <td class="font-mono">{entry.time}</td>
+                      <td>{entry.level}</td>
+                      <td>{entry.category}</td>
+                      <td>{entry.event}</td>
+                      <td>{entry.story_id ?? ""}</td>
+                      <td>{entry.message}</td>
+                      <td class="max-w-[420px] font-mono">
+                        {short(pretty(entry.fields ?? {}), 160)}
+                      </td>
+                      <td class="text-right">
+                        <div class="flex justify-end gap-1">
+                          <button
+                            class="btn-mini"
+                            on:click|stopPropagation={() => copyGlobalLogMarkdown(entry)}
+                          >
+                            Copy
+                          </button>
+                          <button
+                            class="btn-danger"
+                            disabled={!entry.event_id}
+                            on:click|stopPropagation={() => deleteGlobalLogRow(entry)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  {/each}
+                </tbody>
+              </table>
+            </div>
+            <div class="min-w-0">
+              <div class="mb-2 flex items-center justify-between">
+                <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Global Event</h4>
+                {#if selectedGlobalLog}
+                  <button class="btn" on:click={() => { selectedGlobalLog = null; selectedGlobalLogDetail = null; }}>Clear</button>
+                {/if}
+              </div>
+              {#if selectedGlobalLog}
+                {#if selectedGlobalLogDetail}
+                  <div class="mb-3">
+                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                    <pre class="json max-h-[38vh]">{pretty(selectedGlobalLogDetail)}</pre>
+                  </div>
+                {/if}
+                <div class="mb-3">
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog.fields ?? {})}</pre>
+                </div>
+                <div>
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Full Event</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog)}</pre>
+                </div>
+              {:else}
+                <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                  Select a global log row to inspect full fields and detail JSON.
+                </div>
+              {/if}
+            </div>
+          </div>
+        </Panel>
+      {:else if detail}
         <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 class="text-2xl font-semibold">{detail.summary.label}</h2>
@@ -409,18 +809,33 @@
               <button class="btn" on:click={() => withBusy(loadLogs)}
                 >Apply</button
               >
+              <button class="btn" disabled={logs.length === 0} on:click={selectAllStoryLogs}>
+                Select all rows
+              </button>
+              <button class="btn" disabled={selectedLogIDs.size === 0} on:click={() => (selectedLogIDs = new Set<string>())}>
+                Clear selection
+              </button>
+              <button
+                class="btn-danger"
+                disabled={selectedLogIDs.size === 0}
+                on:click={deleteSelectedStoryLogs}
+              >
+                Delete selected ({selectedLogIDs.size})
+              </button>
             </div>
             <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
               <div class="overflow-auto">
                 <table class="data-table">
                   <thead>
                     <tr>
+                      <th class="w-8"></th>
                       <th>time</th>
                       <th>level</th>
                       <th>category</th>
                       <th>event</th>
                       <th>message</th>
                       <th>fields</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -428,8 +843,16 @@
                       <tr
                         class:selected-row={selectedLog && logKey(entry) === logKey(selectedLog)}
                         class="cursor-pointer"
-                        on:click={() => (selectedLog = entry)}
+                        on:click={() => withBusy(() => selectLog(entry))}
                       >
+                        <td>
+                          <input
+                            type="checkbox"
+                            checked={entry.event_id ? selectedLogIDs.has(entry.event_id) : false}
+                            disabled={!entry.event_id}
+                            on:click|stopPropagation={() => toggleStoryLogSelection(entry)}
+                          />
+                        </td>
                         <td class="font-mono">{entry.time}</td>
                         <td>{entry.level}</td>
                         <td>{entry.category}</td>
@@ -437,6 +860,23 @@
                         <td>{entry.message}</td>
                         <td class="max-w-[420px] font-mono">
                           {short(pretty(entry.fields ?? {}), 160)}
+                        </td>
+                        <td class="text-right">
+                          <div class="flex justify-end gap-1">
+                            <button
+                              class="btn-mini"
+                              on:click|stopPropagation={() => copyStoryLogMarkdown(entry)}
+                            >
+                              Copy
+                            </button>
+                            <button
+                              class="btn-danger"
+                              disabled={!entry.event_id}
+                              on:click|stopPropagation={() => deleteStoryLogRow(entry)}
+                            >
+                              Delete
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     {/each}
@@ -447,10 +887,16 @@
                 <div class="mb-2 flex items-center justify-between">
                   <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Event</h4>
                   {#if selectedLog}
-                    <button class="btn" on:click={() => (selectedLog = null)}>Clear</button>
+                    <button class="btn" on:click={() => { selectedLog = null; selectedLogDetail = null; }}>Clear</button>
                   {/if}
                 </div>
                 {#if selectedLog}
+                  {#if selectedLogDetail}
+                    <div class="mb-3">
+                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                      <pre class="json max-h-[38vh]">{pretty(selectedLogDetail)}</pre>
+                    </div>
+                  {/if}
                   <div class="mb-3">
                     <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
                     <pre class="json max-h-[38vh]">{pretty(selectedLog.fields ?? {})}</pre>

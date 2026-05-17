@@ -112,6 +112,14 @@ func (s *Server) serveAPI(w http.ResponseWriter, r *http.Request) {
 		s.handleStories(w, r)
 		return
 	}
+	if path == "logs" {
+		s.handleGlobalLogs(w, r)
+		return
+	}
+	if path == "logs/detail" {
+		s.handleGlobalLogDetail(w, r)
+		return
+	}
 	if strings.HasPrefix(path, "stories/") {
 		s.handleStoryPath(w, r, strings.Split(path, "/")[1:])
 		return
@@ -204,6 +212,10 @@ func (s *Server) handleStoryPath(w http.ResponseWriter, r *http.Request, parts [
 	case "file":
 		s.handleStoryFile(w, r, storyID)
 	case "logs":
+		if len(parts) > 2 && parts[2] == "detail" {
+			s.handleStoryLogDetail(w, r, storyID)
+			return
+		}
 		s.handleStoryLogs(w, r, storyID)
 	case "model-runs":
 		s.handleModelRuns(w, r, storyID)
@@ -282,7 +294,12 @@ func (s *Server) handleStoryFile(w http.ResponseWriter, r *http.Request, storyID
 }
 
 func (s *Server) handleStoryLogs(w http.ResponseWriter, r *http.Request, storyID string) {
-	if r.Method != http.MethodGet {
+	switch r.Method {
+	case http.MethodGet:
+	case http.MethodDelete:
+		s.handleDeleteStoryLog(w, r, storyID)
+		return
+	default:
 		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
 		return
 	}
@@ -303,6 +320,94 @@ func (s *Server) handleStoryLogs(w http.ResponseWriter, r *http.Request, storyID
 		return
 	}
 	writeJSON(w, map[string]any{"events": events, "categories": gamelog.Categories()})
+}
+
+func (s *Server) handleDeleteStoryLog(w http.ResponseWriter, r *http.Request, storyID string) {
+	ws, state, err := story.LoadWorkspace(s.StoryRoot, storyID)
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	eventIDs := r.URL.Query()["event_id"]
+	deleted, err := gamelog.NewWriter(ws.Dir, state.StoryID).DeleteMany(eventIDs)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	if len(deleted) == 0 {
+		writeError(w, http.StatusNotFound, "log event not found")
+		return
+	}
+	writeJSON(w, deleteLogResponse(deleted))
+}
+
+func (s *Server) handleStoryLogDetail(w http.ResponseWriter, r *http.Request, storyID string) {
+	if r.Method != http.MethodGet {
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+	ws, state, err := story.LoadWorkspace(s.StoryRoot, storyID)
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	detail, err := gamelog.NewWriter(ws.Dir, state.StoryID).ReadDetail(r.URL.Query().Get("path"))
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	writeJSON(w, map[string]any{"detail": detail})
+}
+
+func (s *Server) handleGlobalLogs(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+	case http.MethodDelete:
+		s.handleDeleteGlobalLog(w, r)
+		return
+	default:
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+	tail, _ := strconv.Atoi(r.URL.Query().Get("tail"))
+	events, err := gamelog.Read(gamelog.GlobalEventsPath(s.StoryRoot), gamelog.Filter{
+		Level:    r.URL.Query().Get("level"),
+		Category: r.URL.Query().Get("category"),
+		Event:    r.URL.Query().Get("event"),
+		Tail:     tail,
+	})
+	if err != nil {
+		writeError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	writeJSON(w, map[string]any{"events": events, "categories": gamelog.Categories()})
+}
+
+func (s *Server) handleDeleteGlobalLog(w http.ResponseWriter, r *http.Request) {
+	eventIDs := r.URL.Query()["event_id"]
+	deleted, err := gamelog.NewGlobalWriter(s.StoryRoot).DeleteMany(eventIDs)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	if len(deleted) == 0 {
+		writeError(w, http.StatusNotFound, "log event not found")
+		return
+	}
+	writeJSON(w, deleteLogResponse(deleted))
+}
+
+func (s *Server) handleGlobalLogDetail(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+	detail, err := gamelog.NewGlobalWriter(s.StoryRoot).ReadDetail(r.URL.Query().Get("path"))
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	writeJSON(w, map[string]any{"detail": detail})
 }
 
 func (s *Server) handleModelRuns(w http.ResponseWriter, r *http.Request, storyID string) {
@@ -535,6 +640,23 @@ func bridgeStoryDocs(docs []story.IndexDocument) []bridgeclient.StoryIndexDocume
 		})
 	}
 	return out
+}
+
+func deleteLogResponse(events []gamelog.Event) map[string]any {
+	eventIDs := make([]string, 0, len(events))
+	detailDeleted := 0
+	for _, event := range events {
+		eventIDs = append(eventIDs, event.EventID)
+		if event.DetailPath != "" {
+			detailDeleted++
+		}
+	}
+	return map[string]any{
+		"ok":                   true,
+		"deleted_count":        len(events),
+		"detail_deleted_count": detailDeleted,
+		"event_ids":            eventIDs,
+	}
 }
 
 func listFiles(root string, rel string) ([]fileInfo, error) {

@@ -30,6 +30,14 @@ textarea {
     @apply rounded border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-800 hover:bg-slate-100 disabled:opacity-50;
   }
 
+  .btn-mini {
+    @apply rounded border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 hover:bg-slate-100 disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply rounded border border-red-300 bg-red-50 px-2 py-1 text-xs text-red-700 hover:bg-red-100 disabled:opacity-50;
+  }
+
   .tab {
     @apply rounded border border-slate-300 bg-white px-2.5 py-1 text-xs uppercase tracking-wide text-slate-600 hover:bg-slate-100;
   }

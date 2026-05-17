@@ -428,17 +428,80 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 }
 
 func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string) (storyapp.StorySession, error) {
+	globalLogger := gamelog.NewGlobalWriter(opts.StoryRoot)
+	logEvent(globalLogger, gamelog.Event{
+		Category: "story",
+		Event:    "story.seed.started",
+		Message:  "story seed generation started",
+		Fields: map[string]any{
+			"backend":                backend,
+			"ground_lore_pack_id":    opts.GroundLorePackID,
+			"ground_lore_collection": firstNonEmpty(opts.GroundLoreCollection, opts.GlobalLoreCollection, story.DefaultGroundLoreCollection),
+			"story_collection":       opts.StoryCollection,
+			"replace_story":          opts.ReplaceStory,
+		},
+		Detail: map[string]any{
+			"story_action_options": map[string]any{
+				"story_id":               opts.StoryID,
+				"story_root":             opts.StoryRoot,
+				"ground_lore_pack_id":    opts.GroundLorePackID,
+				"ground_lore_collection": opts.GroundLoreCollection,
+				"global_lore_collection": opts.GlobalLoreCollection,
+				"story_collection":       opts.StoryCollection,
+				"replace_story":          opts.ReplaceStory,
+			},
+			"bridge_url": bridgeURL,
+		},
+	})
 	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
-		return generateSeedBundle(ctx, backend, bridgeURL, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection))
+		return generateSeedBundle(ctx, backend, bridgeURL, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection), globalLogger)
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
-		return maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle, storyLogger(&session.Workspace, &session.State))
+		logger := storyLogger(&session.Workspace, &session.State)
+		err := maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle, logger)
+		if err != nil {
+			logEvent(globalLogger, gamelog.Event{
+				Level:    gamelog.LevelError,
+				Category: "story",
+				Event:    "story.seed.external.failed",
+				StoryID:  session.State.StoryID,
+				Message:  err.Error(),
+			})
+		}
+		return err
 	}
 	session, err := storyapp.NewStory(ctx, opts)
 	if err != nil {
+		logEvent(globalLogger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "story",
+			Event:    "story.seed.failed",
+			Message:  err.Error(),
+		})
 		return storyapp.StorySession{}, err
 	}
 	logger := storyLogger(&session.Workspace, &session.State)
+	logEvent(globalLogger, gamelog.Event{
+		Category: "story",
+		Event:    "story.created",
+		StoryID:  session.State.StoryID,
+		Message:  "story workspace created",
+		PacketID: session.Packet.ID,
+		NodeID:   session.NodeID,
+		Fields: map[string]any{
+			"title":                  session.Bible.Title,
+			"backend":                backend,
+			"story_id":               session.State.StoryID,
+			"ground_lore_pack_id":    session.State.SourceLorePackID(),
+			"ground_lore_collection": session.State.SourceLoreCollection(),
+			"story_collection":       session.State.StoryCollection,
+		},
+		Detail: map[string]any{
+			"state":  session.State,
+			"bible":  session.Bible,
+			"packet": session.Packet,
+		},
+	})
 	logEvent(logger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.generated",
@@ -701,15 +764,39 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	}
 }
 
-func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string) (story.SeedBundle, error) {
+func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string, logger *gamelog.Writer) (story.SeedBundle, error) {
+	logEvent(logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.seed.context.started",
+		Message:  "building seed context",
+		Fields: map[string]any{
+			"backend":    backend,
+			"collection": globalCollection,
+			"query":      seedInfluenceQuery,
+		},
+	})
 	contextText := seed.ContextText()
 	if backend != "static" {
-		contextText = buildSeedContext(ctx, seedLoreRetriever(bridgeURL, globalCollection))
+		contextText = buildSeedContextLogged(ctx, seedLoreRetriever(bridgeURL, globalCollection), logger)
 	}
+	logEvent(logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.seed.context.completed",
+		Message:  "seed context ready",
+		Fields: map[string]any{
+			"backend":       backend,
+			"collection":    globalCollection,
+			"context_chars": len(contextText),
+		},
+		Detail: map[string]any{
+			"context": contextText,
+		},
+	})
 	return seed.Service{
 		Scenarist:     seedRunner(backend, true),
 		Verifier:      seedRunner(backend, false),
 		MaxIterations: 2,
+		Logger:        logger,
 	}.Generate(ctx, contextText)
 }
 
@@ -726,14 +813,47 @@ func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever
 }
 
 func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
+	return buildSeedContextLogged(ctx, retriever, nil)
+}
+
+func buildSeedContextLogged(ctx context.Context, retriever lore.Retriever, logger *gamelog.Writer) string {
 	contextText := seed.ContextText()
 	if retriever == nil {
 		return contextText
 	}
 	hits, err := retriever.Search(ctx, seedInfluenceQuery, 8)
 	if err != nil {
+		logEvent(logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "lore",
+			Event:    "story.seed.lore_search.failed",
+			Message:  err.Error(),
+			Fields: map[string]any{
+				"query": seedInfluenceQuery,
+				"k":     8,
+			},
+			Detail: map[string]any{
+				"query": seedInfluenceQuery,
+				"error": err.Error(),
+			},
+		})
 		return contextText + "\n\nSource-lore retrieval warning: " + err.Error() + "\nProceed from seed doctrine only. Do not copy any fallback fixture."
 	}
+	logEvent(logger, gamelog.Event{
+		Category: "lore",
+		Event:    "story.seed.lore_search.completed",
+		Message:  "seed lore search completed",
+		Fields: map[string]any{
+			"query":     seedInfluenceQuery,
+			"k":         8,
+			"hit_count": len(hits),
+		},
+		Detail: map[string]any{
+			"query": seedInfluenceQuery,
+			"k":     8,
+			"hits":  hits,
+		},
+	})
 	if len(hits) == 0 {
 		return contextText + "\n\nSource-lore influence snippets: no live snippets found. Proceed from seed doctrine only."
 	}
@@ -780,21 +900,91 @@ func maybeSeedExternalStory(ctx context.Context, backend string, bridgeURL strin
 	if err != nil {
 		return err
 	}
-	if _, err := client.IngestStoryIndex(ctx, bridgeclient.StoryIndexIngestRequest{
+	ingestReq := bridgeclient.StoryIndexIngestRequest{
 		Collection: state.StoryCollection,
 		Documents:  bridgeStoryDocs(docs),
 		Replace:    true,
-	}); err != nil {
-		logEvent(logger, gamelog.Event{Level: gamelog.LevelError, Category: "qdrant", Event: "story.seed.index.failed", Message: err.Error(), Fields: map[string]any{"collection": state.StoryCollection}})
+	}
+	logEvent(logger, gamelog.Event{
+		Category: "qdrant",
+		Event:    "story.seed.index.request",
+		Message:  "seed story index ingest request prepared",
+		Fields: map[string]any{
+			"collection":     state.StoryCollection,
+			"document_count": len(docs),
+			"replace":        true,
+		},
+		Detail: map[string]any{
+			"request": ingestReq,
+		},
+	})
+	ingestResp, err := client.IngestStoryIndex(ctx, ingestReq)
+	if err != nil {
+		logEvent(logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "qdrant",
+			Event:    "story.seed.index.failed",
+			Message:  err.Error(),
+			Fields:   map[string]any{"collection": state.StoryCollection},
+			Detail: map[string]any{
+				"request": ingestReq,
+				"error":   err.Error(),
+			},
+		})
 		return fmt.Errorf("seed story collection %q: %w", state.StoryCollection, err)
 	}
-	logEvent(logger, gamelog.Event{Category: "qdrant", Event: "story.seed.index.ingested", Message: "seed story index ingested", Fields: map[string]any{"collection": state.StoryCollection, "document_count": len(docs)}})
+	logEvent(logger, gamelog.Event{
+		Category: "qdrant",
+		Event:    "story.seed.index.ingested",
+		Message:  "seed story index ingested",
+		Fields:   map[string]any{"collection": state.StoryCollection, "document_count": len(docs), "response_count": ingestResp.Count},
+		Detail: map[string]any{
+			"request":  ingestReq,
+			"response": ingestResp,
+		},
+	})
 	for peerID, facts := range seedPeerCards(bundle.Bible) {
-		if _, err := client.PatchCard(ctx, state.WorkspaceID, peerID, bridgeclient.PeerCardPatch{Facts: facts, Replace: true}); err != nil {
-			logEvent(logger, gamelog.Event{Level: gamelog.LevelError, Category: "honcho", Event: "story.seed.card.failed", Message: err.Error(), Fields: map[string]any{"peer_id": peerID}})
+		patch := bridgeclient.PeerCardPatch{Facts: facts, Replace: true}
+		logEvent(logger, gamelog.Event{
+			Category: "honcho",
+			Event:    "story.seed.card.request",
+			Message:  "base Honcho peer card request prepared",
+			Fields:   map[string]any{"peer_id": peerID, "fact_count": len(facts), "workspace_id": state.WorkspaceID},
+			Detail: map[string]any{
+				"workspace_id": state.WorkspaceID,
+				"peer_id":      peerID,
+				"request":      patch,
+			},
+		})
+		cardResp, err := client.PatchCard(ctx, state.WorkspaceID, peerID, patch)
+		if err != nil {
+			logEvent(logger, gamelog.Event{
+				Level:    gamelog.LevelError,
+				Category: "honcho",
+				Event:    "story.seed.card.failed",
+				Message:  err.Error(),
+				Fields:   map[string]any{"peer_id": peerID},
+				Detail: map[string]any{
+					"workspace_id": state.WorkspaceID,
+					"peer_id":      peerID,
+					"request":      patch,
+					"error":        err.Error(),
+				},
+			})
 			return fmt.Errorf("seed Honcho card %q: %w", peerID, err)
 		}
-		logEvent(logger, gamelog.Event{Category: "honcho", Event: "story.seed.card.seeded", Message: "base Honcho peer card seeded", Fields: map[string]any{"peer_id": peerID, "fact_count": len(facts)}})
+		logEvent(logger, gamelog.Event{
+			Category: "honcho",
+			Event:    "story.seed.card.seeded",
+			Message:  "base Honcho peer card seeded",
+			Fields:   map[string]any{"peer_id": peerID, "fact_count": len(facts), "response_fact_count": len(cardResp)},
+			Detail: map[string]any{
+				"workspace_id": state.WorkspaceID,
+				"peer_id":      peerID,
+				"request":      patch,
+				"response":     cardResp,
+			},
+		})
 	}
 	return nil
 }
@@ -1021,6 +1211,10 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				"commit_event_count": len(rollout.Commit.Events),
 				"witness_count":      len(rollout.Commit.Witnesses),
 			},
+			Detail: map[string]any{
+				"draft":  rollout.Draft,
+				"commit": rollout.Commit,
+			},
 		})
 		fmt.Printf("\n--- Turn %d ---\n\n%s\n", turn, rollout.Draft.Prose)
 		if len(rollout.Draft.Choices) > 0 {
@@ -1032,10 +1226,36 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		if cfg.Commit {
 			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
 			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
-				logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "honcho", Event: "honcho.commit.failed", Message: err.Error(), Turn: turn, PacketID: rollout.Commit.PacketID, NodeID: rollout.Commit.NodeID})
+				logEvent(cfg.Logger, gamelog.Event{
+					Level:    gamelog.LevelError,
+					Category: "honcho",
+					Event:    "honcho.commit.failed",
+					Message:  err.Error(),
+					Turn:     turn,
+					PacketID: rollout.Commit.PacketID,
+					NodeID:   rollout.Commit.NodeID,
+					Detail: map[string]any{
+						"request": rollout.Commit,
+						"error":   err.Error(),
+					},
+				})
 				return err
 			}
-			logEvent(cfg.Logger, gamelog.Event{Category: "honcho", Event: "honcho.commit.completed", Message: "witnessed canon committed", Turn: turn, PacketID: rollout.Commit.PacketID, NodeID: rollout.Commit.NodeID})
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "honcho",
+				Event:    "honcho.commit.completed",
+				Message:  "witnessed canon committed",
+				Turn:     turn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"event_count":   len(rollout.Commit.Events),
+					"witness_count": len(rollout.Commit.Witnesses),
+				},
+				Detail: map[string]any{
+					"request": rollout.Commit,
+				},
+			})
 			fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
 		} else {
 			fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
@@ -1316,6 +1536,9 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 			"choice_id":     rollout.Commit.PlayerDecision.ChoiceID,
 			"has_free_text": rollout.Commit.PlayerDecision.FreeText != "",
 		},
+		Detail: map[string]any{
+			"turn_record": record,
+		},
 	})
 	return refreshStoryIndex(ctx, cfg, state, packet)
 }
@@ -1354,21 +1577,49 @@ func refreshStoryIndex(ctx context.Context, cfg playConfig, state *story.StorySt
 	if err := cfg.Workspace.WriteIndex(docs, state.StoryCollection); err != nil {
 		return err
 	}
-	logEvent(cfg.Logger, gamelog.Event{Category: "memory", Event: "story.index.rebuilt", Message: "local story index rebuilt", Fields: map[string]any{"document_count": len(docs), "collection": state.StoryCollection}})
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "memory",
+		Event:    "story.index.rebuilt",
+		Message:  "local story index rebuilt",
+		Fields:   map[string]any{"document_count": len(docs), "collection": state.StoryCollection},
+		Detail: map[string]any{
+			"documents": docs,
+		},
+	})
 	if cfg.Backend == "static" {
 		return nil
 	}
 	client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
-	_, err = client.IngestStoryIndex(ctx, bridgeclient.StoryIndexIngestRequest{
+	ingestReq := bridgeclient.StoryIndexIngestRequest{
 		Collection: state.StoryCollection,
 		Documents:  bridgeStoryDocs(docs),
 		Replace:    false,
-	})
+	}
+	ingestResp, err := client.IngestStoryIndex(ctx, ingestReq)
 	if err != nil {
-		logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "qdrant", Event: "story.index.ingest.failed", Message: err.Error(), Fields: map[string]any{"collection": state.StoryCollection}})
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "qdrant",
+			Event:    "story.index.ingest.failed",
+			Message:  err.Error(),
+			Fields:   map[string]any{"collection": state.StoryCollection},
+			Detail: map[string]any{
+				"request": ingestReq,
+				"error":   err.Error(),
+			},
+		})
 		return fmt.Errorf("refresh story collection %q: %w", state.StoryCollection, err)
 	}
-	logEvent(cfg.Logger, gamelog.Event{Category: "qdrant", Event: "story.index.ingested", Message: "story index ingested", Fields: map[string]any{"collection": state.StoryCollection, "document_count": len(docs)}})
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "qdrant",
+		Event:    "story.index.ingested",
+		Message:  "story index ingested",
+		Fields:   map[string]any{"collection": state.StoryCollection, "document_count": len(docs), "response_count": ingestResp.Count},
+		Detail: map[string]any{
+			"request":  ingestReq,
+			"response": ingestResp,
+		},
+	})
 	return nil
 }
 

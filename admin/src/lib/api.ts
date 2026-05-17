@@ -47,6 +47,7 @@ export type StoryDetail = {
 };
 
 export type LogEvent = {
+  event_id: string;
   time: string;
   level: string;
   category: string;
@@ -58,6 +59,7 @@ export type LogEvent = {
   run_id?: string;
   message?: string;
   fields?: Record<string, unknown>;
+  detail_path?: string;
 };
 
 export type FileInfo = {
@@ -126,6 +128,59 @@ export async function getLogs(
   return request<{ events: LogEvent[]; categories: string[] }>(
     `/admin/api/stories/${encodeURIComponent(storyId)}/logs?${params.toString()}`
   );
+}
+
+export async function getGlobalLogs(
+  filters: { category?: string; level?: string; tail?: number }
+): Promise<{ events: LogEvent[]; categories: string[] }> {
+  const params = new URLSearchParams();
+  if (filters.category) params.set('category', filters.category);
+  if (filters.level) params.set('level', filters.level);
+  if (filters.tail) params.set('tail', String(filters.tail));
+  return request<{ events: LogEvent[]; categories: string[] }>(
+    `/admin/api/logs?${params.toString()}`
+  );
+}
+
+export async function getLogDetail(storyId: string, path: string): Promise<unknown> {
+  const params = new URLSearchParams({ path });
+  const data = await request<{ detail: unknown }>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/logs/detail?${params.toString()}`
+  );
+  return data.detail;
+}
+
+export async function deleteLogs(storyId: string, eventIds: string[]): Promise<Record<string, unknown>> {
+  const params = new URLSearchParams();
+  for (const eventId of eventIds) params.append('event_id', eventId);
+  return request<Record<string, unknown>>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/logs?${params.toString()}`,
+    { method: 'DELETE' }
+  );
+}
+
+export async function deleteLog(storyId: string, eventId: string): Promise<Record<string, unknown>> {
+  return deleteLogs(storyId, [eventId]);
+}
+
+export async function getGlobalLogDetail(path: string): Promise<unknown> {
+  const params = new URLSearchParams({ path });
+  const data = await request<{ detail: unknown }>(
+    `/admin/api/logs/detail?${params.toString()}`
+  );
+  return data.detail;
+}
+
+export async function deleteGlobalLogs(eventIds: string[]): Promise<Record<string, unknown>> {
+  const params = new URLSearchParams();
+  for (const eventId of eventIds) params.append('event_id', eventId);
+  return request<Record<string, unknown>>(`/admin/api/logs?${params.toString()}`, {
+    method: 'DELETE'
+  });
+}
+
+export async function deleteGlobalLog(eventId: string): Promise<Record<string, unknown>> {
+  return deleteGlobalLogs([eventId]);
 }
 
 export async function getModelRuns(storyId: string): Promise<FileInfo[]> {

@@ -57,6 +57,115 @@ func TestAdminListsLorePacks(t *testing.T) {
 	}
 }
 
+func TestAdminExposesGlobalLogsAndDetails(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{
+		Category: "story",
+		Event:    "story.seed.started",
+		Detail:   map[string]any{"prompt": "seed request"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var logs struct {
+		Events []gamelog.Event `json:"events"`
+	}
+	getJSON(t, server.URL+"/admin/api/logs", &logs)
+	if len(logs.Events) != 1 || logs.Events[0].DetailPath == "" {
+		t.Fatalf("unexpected global logs: %#v", logs.Events)
+	}
+	var detail struct {
+		Detail map[string]any `json:"detail"`
+	}
+	getJSON(t, server.URL+"/admin/api/logs/detail?path="+logs.Events[0].DetailPath, &detail)
+	if detail.Detail["prompt"] != "seed request" {
+		t.Fatalf("unexpected global detail: %#v", detail.Detail)
+	}
+}
+
+func TestAdminDeletesGlobalLog(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{Category: "story", Event: "delete.me", Detail: map[string]any{"payload": "gone"}}); err != nil {
+		t.Fatal(err)
+	}
+	if err := global.Append(gamelog.Event{Category: "story", Event: "delete.me.too"}); err != nil {
+		t.Fatal(err)
+	}
+	if err := global.Append(gamelog.Event{Category: "story", Event: "keep.me"}); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(global.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	req, err := http.NewRequest(http.MethodDelete, server.URL+"/admin/api/logs?event_id="+events[0].EventID+"&event_id="+events[1].EventID, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		t.Fatalf("expected 200, got %s: %s", resp.Status, body)
+	}
+	remaining, err := gamelog.Read(global.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(remaining) != 1 || remaining[0].Event != "keep.me" {
+		t.Fatalf("unexpected remaining global logs: %#v", remaining)
+	}
+}
+
+func TestAdminDeletesStoryLog(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{Category: "story", Event: "delete.me"}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{Category: "story", Event: "keep.me"}); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	req, err := http.NewRequest(http.MethodDelete, server.URL+"/admin/api/stories/"+state.StoryID+"/logs?event_id="+events[0].EventID, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		t.Fatalf("expected 200, got %s: %s", resp.Status, body)
+	}
+	remaining, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(remaining) != 1 || remaining[0].Event != "keep.me" {
+		t.Fatalf("unexpected remaining story logs: %#v", remaining)
+	}
+}
+
 func TestAdminCreateStoryUsesSelectedPack(t *testing.T) {
 	root := t.TempDir()
 	var gotPackID string
