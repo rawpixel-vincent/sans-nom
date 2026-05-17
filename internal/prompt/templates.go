@@ -89,13 +89,15 @@ Return compact JSON:
 		string(packetBytes), actorJSON, context)
 }
 
-func SeedScenaristPrompt(contextText string) string {
-	return fmt.Sprintf(`You are the Scenarist for the first playable Sans-Nom CLI slice.
+func SeedWriterPrompt(contextText string) string {
+	return fmt.Sprintf(`You are the Creative Writer for the first playable Sans-Nom CLI slice.
 
 Create a durable StoryBible and opening StoryPacket for a new science-fantasy comic story.
 
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
+- You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
+- Scenarist material, when present in later phases, is free-form advisory material only; it is not canon, not final structure, and never a substitute for Writer authorship.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
 - Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.

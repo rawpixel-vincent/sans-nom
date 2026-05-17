@@ -168,7 +168,16 @@ func main() {
 			GroundLoreCollection: groundLoreCollection,
 			StoryCollection:      *storyCollection,
 			ReplaceStory:         *replaceStory,
-		}, backend, resolvedBridgeURL)
+		}, seedRuntimeConfig{
+			Backend:             backend,
+			BridgeURL:           resolvedBridgeURL,
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
+			ScenaristProvider:   *scenaristProvider,
+			ScenaristModel:      *scenaristModel,
+			ScenaristTools:      *scenaristTools,
+			ScenaristOutputRoot: *scenaristOutputRoot,
+			ScenaristRounds:     *writerScenaristRounds,
+		})
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -376,6 +385,17 @@ type adminConfig struct {
 	ScenaristRounds     int
 }
 
+type seedRuntimeConfig struct {
+	Backend             string
+	BridgeURL           string
+	WriterScenarists    int
+	ScenaristProvider   string
+	ScenaristModel      string
+	ScenaristTools      bool
+	ScenaristOutputRoot string
+	ScenaristRounds     int
+}
+
 type flagBridgeConfig struct {
 	Backend   string
 	BridgeURL string
@@ -409,7 +429,16 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 			GroundLorePackID:     pack.ID,
 			GroundLoreCollection: groundCollection,
 			StoryCollection:      cfg.StoryCollection,
-		}, cfg.Backend, cfg.BridgeURL)
+		}, seedRuntimeConfig{
+			Backend:             cfg.Backend,
+			BridgeURL:           cfg.BridgeURL,
+			WriterScenarists:    cfg.WriterScenarists,
+			ScenaristProvider:   cfg.ScenaristProvider,
+			ScenaristModel:      cfg.ScenaristModel,
+			ScenaristTools:      cfg.ScenaristTools,
+			ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+			ScenaristRounds:     cfg.ScenaristRounds,
+		})
 		if err != nil {
 			return err
 		}
@@ -427,18 +456,19 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 	}
 }
 
-func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, backend string, bridgeURL string) (storyapp.StorySession, error) {
+func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg seedRuntimeConfig) (storyapp.StorySession, error) {
 	globalLogger := gamelog.NewGlobalWriter(opts.StoryRoot)
 	logEvent(globalLogger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.started",
 		Message:  "story seed generation started",
 		Fields: map[string]any{
-			"backend":                backend,
+			"backend":                cfg.Backend,
 			"ground_lore_pack_id":    opts.GroundLorePackID,
 			"ground_lore_collection": firstNonEmpty(opts.GroundLoreCollection, opts.GlobalLoreCollection, story.DefaultGroundLoreCollection),
 			"story_collection":       opts.StoryCollection,
 			"replace_story":          opts.ReplaceStory,
+			"writer_scenarists":      cfg.WriterScenarists,
 		},
 		Detail: map[string]any{
 			"story_action_options": map[string]any{
@@ -450,15 +480,16 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 				"story_collection":       opts.StoryCollection,
 				"replace_story":          opts.ReplaceStory,
 			},
-			"bridge_url": bridgeURL,
+			"bridge_url":   cfg.BridgeURL,
+			"seed_runtime": cfg,
 		},
 	})
 	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
-		return generateSeedBundle(ctx, backend, bridgeURL, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection), globalLogger)
+		return generateSeedBundle(ctx, cfg, action.StoryRoot, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection), globalLogger)
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
 		logger := storyLogger(&session.Workspace, &session.State)
-		err := maybeSeedExternalStory(ctx, backend, bridgeURL, session.Workspace, session.State, bundle, logger)
+		err := maybeSeedExternalStory(ctx, cfg.Backend, cfg.BridgeURL, session.Workspace, session.State, bundle, logger)
 		if err != nil {
 			logEvent(globalLogger, gamelog.Event{
 				Level:    gamelog.LevelError,
@@ -490,7 +521,7 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
 			"title":                  session.Bible.Title,
-			"backend":                backend,
+			"backend":                cfg.Backend,
 			"story_id":               session.State.StoryID,
 			"ground_lore_pack_id":    session.State.SourceLorePackID(),
 			"ground_lore_collection": session.State.SourceLoreCollection(),
@@ -510,7 +541,7 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
 			"title":      session.Bible.Title,
-			"backend":    backend,
+			"backend":    cfg.Backend,
 			"law_count":  len(session.Bible.OriginalLaws),
 			"node_count": len(session.Packet.Nodes),
 		},
@@ -523,7 +554,7 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, back
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
 			"title":                  session.Bible.Title,
-			"backend":                backend,
+			"backend":                cfg.Backend,
 			"ground_lore_pack_id":    session.State.SourceLorePackID(),
 			"ground_lore_collection": session.State.SourceLoreCollection(),
 			"story_collection":       session.State.StoryCollection,
@@ -588,7 +619,16 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 				GroundLorePackID:     pack.ID,
 				GroundLoreCollection: firstNonEmpty(pack.Collection, cfg.GlobalCollection),
 				StoryCollection:      cfg.StoryCollection,
-			}, cfg.Backend, cfg.BridgeURL)
+			}, seedRuntimeConfig{
+				Backend:             cfg.Backend,
+				BridgeURL:           cfg.BridgeURL,
+				WriterScenarists:    cfg.WriterScenarists,
+				ScenaristProvider:   cfg.ScenaristProvider,
+				ScenaristModel:      cfg.ScenaristModel,
+				ScenaristTools:      cfg.ScenaristTools,
+				ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+				ScenaristRounds:     cfg.ScenaristRounds,
+			})
 		},
 	})
 	fmt.Printf("Admin UI: http://%s/admin\n", cfg.Addr)
@@ -764,37 +804,47 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	}
 }
 
-func generateSeedBundle(ctx context.Context, backend string, bridgeURL string, globalCollection string, logger *gamelog.Writer) (story.SeedBundle, error) {
+func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot string, globalCollection string, logger *gamelog.Writer) (story.SeedBundle, error) {
 	logEvent(logger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.context.started",
 		Message:  "building seed context",
 		Fields: map[string]any{
-			"backend":    backend,
+			"backend":    cfg.Backend,
 			"collection": globalCollection,
 			"query":      seedInfluenceQuery,
 		},
 	})
 	contextText := seed.ContextText()
-	if backend != "static" {
-		contextText = buildSeedContextLogged(ctx, seedLoreRetriever(bridgeURL, globalCollection), logger)
+	if cfg.Backend != "static" {
+		contextText = buildSeedContextLogged(ctx, seedLoreRetriever(cfg.BridgeURL, globalCollection), logger)
+	}
+	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
+	writerRunner, err := seedWriterRunner(cfg, contextText, scenaristOutputDir, logger)
+	if err != nil {
+		return story.SeedBundle{}, err
 	}
 	logEvent(logger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.context.completed",
 		Message:  "seed context ready",
 		Fields: map[string]any{
-			"backend":       backend,
-			"collection":    globalCollection,
-			"context_chars": len(contextText),
+			"backend":                 cfg.Backend,
+			"collection":              globalCollection,
+			"context_chars":           len(contextText),
+			"writer_scenarists":       cfg.WriterScenarists,
+			"scenarist_output_dir":    filepath.ToSlash(scenaristOutputDir),
+			"scenarist_tool_attached": writerRunnerHasTools(writerRunner),
 		},
 		Detail: map[string]any{
-			"context": contextText,
+			"context":              contextText,
+			"seed_runtime":         cfg,
+			"scenarist_output_dir": filepath.ToSlash(scenaristOutputDir),
 		},
 	})
 	return seed.Service{
-		Scenarist:     seedRunner(backend, true),
-		Verifier:      seedRunner(backend, false),
+		Writer:        writerRunner,
+		Verifier:      seedRunner(cfg.Backend, false),
 		MaxIterations: 2,
 		Logger:        logger,
 	}.Generate(ctx, contextText)
@@ -877,14 +927,68 @@ func buildSeedContextLogged(ctx context.Context, retriever lore.Retriever, logge
 	return b.String()
 }
 
-func seedRunner(backend string, scenarist bool) prompt.Runner {
+func seedWriterRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer) (prompt.Runner, error) {
+	if cfg.Backend == "static" {
+		return nil, nil
+	}
+	toolRunner, err := seedScenaristToolRunner(cfg, contextText, outputDir, logger)
+	if err != nil {
+		return nil, err
+	}
+	if toolRunner != nil && cfg.Backend == "claude" {
+		return nil, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
+	}
+	switch cfg.Backend {
+	case "claude":
+		return claudeRunner(), nil
+	default:
+		materialDir := ""
+		if toolRunner != nil {
+			materialDir = outputDir
+		}
+		return codexRunnerWithMaterialAccess("SeedBundle", prompt.SeedBundleSchema(), materialDir, toolRunner, cfg.ScenaristRounds), nil
+	}
+}
+
+func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer) (*scenarist.ToolRunner, error) {
+	if cfg.WriterScenarists == 0 || cfg.Backend == "static" {
+		return nil, nil
+	}
+	return scenaristToolRunner(playConfig{
+		WriterScenarists:    cfg.WriterScenarists,
+		ScenaristProvider:   cfg.ScenaristProvider,
+		ScenaristModel:      cfg.ScenaristModel,
+		ScenaristTools:      cfg.ScenaristTools,
+		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
+		Logger:              logger,
+	}, contextText, outputDir)
+}
+
+func seedScenaristOutputDir(storyRoot string, outputRoot string) string {
+	segment := "seed-" + strings.NewReplacer(".", "", ":", "", "-", "").Replace(time.Now().UTC().Format(time.RFC3339Nano))
+	root := strings.TrimSpace(outputRoot)
+	if root != "" {
+		return filepath.Join(root, "seed-runs", segment, "scenarists")
+	}
+	if strings.TrimSpace(storyRoot) == "" {
+		storyRoot = story.DefaultRoot
+	}
+	return filepath.Join(filepath.Dir(filepath.Clean(storyRoot)), "seed-runs", segment, "scenarists")
+}
+
+func writerRunnerHasTools(runner prompt.Runner) bool {
+	codex, ok := runner.(prompt.CodexRunner)
+	return ok && codex.LocalTools && len(codex.ExtraTools) > 0
+}
+
+func seedRunner(backend string, seedBundle bool) prompt.Runner {
 	switch backend {
 	case "static":
 		return nil
 	case "claude":
 		return claudeRunner()
 	default:
-		if scenarist {
+		if seedBundle {
 			return codexRunner("SeedBundle", prompt.SeedBundleSchema())
 		}
 		return codexRunner("SeedReview", prompt.SeedReviewSchema())

@@ -16,7 +16,7 @@ import (
 )
 
 type Service struct {
-	Scenarist     prompt.Runner
+	Writer        prompt.Runner
 	Verifier      prompt.Runner
 	MaxIterations int
 	Logger        *gamelog.Writer
@@ -29,7 +29,7 @@ type Review struct {
 }
 
 func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBundle, error) {
-	if s.Scenarist == nil {
+	if s.Writer == nil {
 		bundle := DefaultBundle()
 		return bundle, story.ValidateBundle(bundle)
 	}
@@ -43,28 +43,28 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
 			promptText += "\n\nPrevious verifier review:\n" + reviewText(previous)
 		}
-		scenaristPrompt := prompt.SeedScenaristPrompt(promptText)
+		writerPrompt := prompt.SeedWriterPrompt(promptText)
 		s.log(gamelog.Event{
 			Category: "model",
-			Event:    "seed.scenarist.request",
-			Message:  "seed scenarist request prepared",
+			Event:    "seed.writer.request",
+			Message:  "seed writer request prepared",
 			Fields: map[string]any{
 				"iteration":    i + 1,
-				"prompt_chars": len(scenaristPrompt),
+				"prompt_chars": len(writerPrompt),
 			},
 			Detail: map[string]any{
 				"iteration": i + 1,
-				"prompt":    scenaristPrompt,
+				"prompt":    writerPrompt,
 			},
 		})
-		raw, err := s.Scenarist.Run(ctx, scenaristPrompt)
+		raw, err := s.Writer.Run(ctx, writerPrompt)
 		if err != nil {
 			return story.SeedBundle{}, err
 		}
 		s.log(gamelog.Event{
 			Category: "model",
-			Event:    "seed.scenarist.response",
-			Message:  "seed scenarist response received",
+			Event:    "seed.writer.response",
+			Message:  "seed writer response received",
 			Fields: map[string]any{
 				"iteration":      i + 1,
 				"response_chars": len(raw),
@@ -80,7 +80,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
 				Category: "model",
-				Event:    "seed.scenarist.invalid",
+				Event:    "seed.writer.invalid",
 				Message:  err.Error(),
 				Fields:   map[string]any{"iteration": i + 1},
 			})

@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/writer"
@@ -44,6 +45,31 @@ func TestResolveWriterScenaristCount(t *testing.T) {
 	}
 	if got := resolveWriterScenaristCount(0, "codex", true); got != 0 {
 		t.Fatalf("explicit zero scenarists = %d", got)
+	}
+}
+
+func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
+	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
+	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
+	t.Setenv("ZAI__ANTHROPIC_MODEL", "model")
+	runner, err := seedWriterRunner(seedRuntimeConfig{
+		Backend:           "codex",
+		WriterScenarists:  1,
+		ScenaristProvider: "ZAI",
+		ScenaristRounds:   7,
+	}, "writer context", t.TempDir(), nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	codex, ok := runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", runner)
+	}
+	if !codex.LocalTools || codex.MaxToolRounds != 7 {
+		t.Fatalf("seed writer runner missing local tools: %#v", codex)
+	}
+	if len(codex.ExtraTools) != 1 || codex.ExtraTools[0].Name != "call_scenarists" {
+		t.Fatalf("seed writer missing scenarist tool: %#v", codex.ExtraTools)
 	}
 }
 

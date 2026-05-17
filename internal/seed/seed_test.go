@@ -6,6 +6,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -60,7 +61,7 @@ func TestGenerateUsesVerifierRejection(t *testing.T) {
 		t.Fatal(err)
 	}
 	service := Service{
-		Scenarist:     prompt.StaticRunner{Response: rawBundle},
+		Writer:        prompt.StaticRunner{Response: rawBundle},
 		Verifier:      prompt.StaticRunner{Response: `{"accepted":false,"blocking_issues":["too polished"],"revision_instructions":"make it structural"}`},
 		MaxIterations: 1,
 	}
@@ -68,6 +69,37 @@ func TestGenerateUsesVerifierRejection(t *testing.T) {
 	_, err = service.Generate(context.Background(), ContextText())
 	if err == nil {
 		t.Fatal("expected verifier rejection")
+	}
+}
+
+func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
+	rawBundle, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	service := Service{
+		Writer: prompt.StaticRunner{Response: rawBundle},
+		Logger: logger,
+	}
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	var sawWriter bool
+	for _, event := range events {
+		if strings.Contains(event.Event, "scenarist") {
+			t.Fatalf("seed producer logged as scenarist: %#v", event)
+		}
+		if event.Event == "seed.writer.request" {
+			sawWriter = true
+		}
+	}
+	if !sawWriter {
+		t.Fatalf("missing seed.writer.request event: %#v", events)
 	}
 }
 

@@ -40,6 +40,7 @@ admin/dist/
 *.log
 tmp/
 data/logs/
+data/seed-runs/
 data/stories/
 lore/canon/comics/peer-cards/runs/
 

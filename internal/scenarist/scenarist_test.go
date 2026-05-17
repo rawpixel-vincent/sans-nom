@@ -9,6 +9,8 @@ import (
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 )
 
 func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
@@ -197,15 +199,59 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	}
 }
 
+func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	tool := (&ToolRunner{
+		Runner:      &fakeScenaristRunner{response: "material"},
+		OutputDir:   t.TempDir(),
+		ContextText: "writer context",
+		MaxParallel: 1,
+		Logger:      logger,
+	}).LocalTool()
+	args := `{"requests":[{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for suspension of disbelief.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
+	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "scenarist"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 2 {
+		t.Fatalf("expected started and completed logs, got %#v", events)
+	}
+	for _, event := range events {
+		if event.DetailPath == "" {
+			t.Fatalf("missing detail path on event %#v", event)
+		}
+		detail, err := logger.ReadDetail(event.DetailPath)
+		if err != nil {
+			t.Fatal(err)
+		}
+		text := string(mustJSON(t, detail))
+		if !strings.Contains(text, "law-check") {
+			t.Fatalf("detail missing request payload: %s", text)
+		}
+	}
+}
+
 func TestToolRunnerRejectsMoreRequestsThanProviderCount(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
 	tool := (&ToolRunner{
 		Runner:      &fakeScenaristRunner{response: "material"},
 		OutputDir:   t.TempDir(),
 		MaxParallel: 1,
+		Logger:      logger,
 	}).LocalTool()
 	_, err := tool.Handler(context.Background(), ".", `{"requests":[{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]},{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":[]}]}`)
 	if err == nil {
 		t.Fatal("expected provider-count cap error")
+	}
+	events, readErr := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.call.rejected"})
+	if readErr != nil {
+		t.Fatal(readErr)
+	}
+	if len(events) != 1 || events[0].DetailPath == "" {
+		t.Fatalf("expected rejected call log with details, got %#v", events)
 	}
 }
 
@@ -262,4 +308,13 @@ func (r *fakeScenaristRunner) RunScenarist(context.Context, string, string) (str
 	r.active--
 	r.mu.Unlock()
 	return r.response, nil
+}
+
+func mustJSON(t *testing.T, value any) []byte {
+	t.Helper()
+	data, err := json.Marshal(value)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return data
 }
