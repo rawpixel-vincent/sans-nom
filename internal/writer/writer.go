@@ -6,6 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
+	"path/filepath"
 	"sync"
 	"time"
 
@@ -21,6 +23,8 @@ type Input struct {
 	Current        scene.StoryPacket
 	LatestDecision string
 	ContextText    string
+	RunID          string
+	ArtifactDir    string
 }
 
 type Service struct {
@@ -43,9 +47,16 @@ func (s Service) RefreshAsync(ctx context.Context, input Input) (*Job, error) {
 	}
 	job := &Job{done: make(chan Result, 1)}
 	go func() {
+		artifactErr := writeInputFallback(input)
 		packet, err := s.Planner.Plan(ctx, input)
 		if err == nil {
 			err = packet.Validate()
+		}
+		if writeErr := writeResultArtifacts(input, packet, err); artifactErr == nil {
+			artifactErr = writeErr
+		}
+		if err == nil && artifactErr != nil {
+			err = fmt.Errorf("write writer artifacts: %w", artifactErr)
 		}
 		job.done <- Result{Packet: packet, Err: err}
 		close(job.done)
@@ -97,10 +108,12 @@ func (p ClaudePlanner) Plan(ctx context.Context, input Input) (scene.StoryPacket
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
+	_ = writeTextArtifact(input.ArtifactDir, "input.txt", text)
 	raw, err := p.Runner.Run(ctx, text)
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
+	_ = writeTextArtifact(input.ArtifactDir, "raw-output.json", raw)
 	var packet scene.StoryPacket
 	dec := json.NewDecoder(bytes.NewBufferString(raw))
 	dec.DisallowUnknownFields()
@@ -112,4 +125,72 @@ func (p ClaudePlanner) Plan(ctx context.Context, input Input) (scene.StoryPacket
 
 func DefaultAwaitTimeout() time.Duration {
 	return 15 * time.Minute
+}
+
+func writeInputFallback(input Input) error {
+	if input.ArtifactDir == "" {
+		return nil
+	}
+	if _, err := os.Stat(filepath.Join(input.ArtifactDir, "input.txt")); err == nil {
+		return nil
+	}
+	text := input.ContextText
+	if text == "" {
+		data, err := json.MarshalIndent(input.Current, "", "  ")
+		if err != nil {
+			return err
+		}
+		text = string(data)
+	}
+	return writeTextArtifact(input.ArtifactDir, "input.txt", text)
+}
+
+func writeResultArtifacts(input Input, packet scene.StoryPacket, runErr error) error {
+	if input.ArtifactDir == "" {
+		return nil
+	}
+	if _, err := os.Stat(filepath.Join(input.ArtifactDir, "raw-output.json")); errors.Is(err, os.ErrNotExist) && packet.ID != "" {
+		if writeErr := writeJSONArtifact(input.ArtifactDir, "raw-output.json", packet); writeErr != nil {
+			return writeErr
+		}
+	}
+	metadata := map[string]any{
+		"run_id":          input.RunID,
+		"latest_decision": input.LatestDecision,
+		"created_at":      time.Now().UTC().Format(time.RFC3339),
+		"accepted":        runErr == nil,
+	}
+	if runErr != nil {
+		metadata["error"] = runErr.Error()
+		if err := writeTextArtifact(input.ArtifactDir, "validation-error.txt", runErr.Error()+"\n"); err != nil {
+			return err
+		}
+	} else if err := writeJSONArtifact(input.ArtifactDir, "accepted-packet.json", packet); err != nil {
+		return err
+	}
+	return writeJSONArtifact(input.ArtifactDir, "metadata.json", metadata)
+}
+
+func writeTextArtifact(dir string, name string, text string) error {
+	if dir == "" {
+		return nil
+	}
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
+	path := filepath.Join(dir, name)
+	tmp := path + ".tmp"
+	if err := os.WriteFile(tmp, []byte(text), 0o644); err != nil {
+		return err
+	}
+	return os.Rename(tmp, path)
+}
+
+func writeJSONArtifact(dir string, name string, value any) error {
+	data, err := json.MarshalIndent(value, "", "  ")
+	if err != nil {
+		return err
+	}
+	data = append(data, '\n')
+	return writeTextArtifact(dir, name, string(data))
 }

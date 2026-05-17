@@ -200,11 +200,17 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 				Title:   "Paid",
 				Beats:   []scene.Beat{{Text: "The graft warms."}},
 				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
 			}, {
 				ID:      "refuse",
 				Title:   "Refused",
 				Beats:   []scene.Beat{{Text: "The ledgers stare back."}},
 				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
 			}},
 		},
 	}

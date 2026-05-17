@@ -35,6 +35,19 @@ func TestSeedBundleValidationRejectsLiteralCanonTerms(t *testing.T) {
 	}
 }
 
+func TestSeedPacketRejectsAllTerminalOpeningBranchesWithoutContinuationNotes(t *testing.T) {
+	bundle := validBundle()
+	for i := range bundle.Packet.Nodes {
+		if bundle.Packet.Nodes[i].ID != "entry" {
+			bundle.Packet.Nodes[i].RevisionNotes = nil
+		}
+	}
+
+	if err := ValidateBundle(bundle); err == nil {
+		t.Fatal("expected terminal branch rejection")
+	}
+}
+
 func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 	root := t.TempDir()
 	ws, state, err := InitWorkspace(InitOptions{
@@ -92,6 +105,39 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 		if !kinds[kind] {
 			t.Fatalf("missing index kind %s in %#v", kind, kinds)
 		}
+	}
+}
+
+func TestLoadWorkspaceBackfillsLegacyGroundLoreState(t *testing.T) {
+	root := t.TempDir()
+	ws, state, err := InitWorkspace(InitOptions{
+		StoryID: "Legacy Story",
+		Root:    root,
+		Replace: true,
+	}, validBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	state.GroundLorePackID = ""
+	state.GroundLoreCollection = ""
+	state.GlobalLoreCollection = DefaultGlobalLoreCollection
+	state.Status = ""
+	if err := ws.SaveState(state); err != nil {
+		t.Fatal(err)
+	}
+
+	_, loaded, err := LoadWorkspace(root, "legacy-story")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.GroundLorePackID != DefaultGroundLorePackID {
+		t.Fatalf("ground pack = %q", loaded.GroundLorePackID)
+	}
+	if loaded.GroundLoreCollection != DefaultGroundLoreCollection || loaded.SourceLoreCollection() != DefaultGroundLoreCollection {
+		t.Fatalf("ground collection = %q source = %q", loaded.GroundLoreCollection, loaded.SourceLoreCollection())
+	}
+	if loaded.Status != StatusActive {
+		t.Fatalf("status = %q", loaded.Status)
 	}
 }
 
@@ -175,11 +221,17 @@ func validBundle() SeedBundle {
 				Title:   "Paid",
 				Beats:   []scene.Beat{{Text: "The graft warms."}},
 				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
 			}, {
 				ID:      "refuse",
 				Title:   "Refused",
 				Beats:   []scene.Beat{{Text: "The ledgers stare back."}},
 				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
 			}},
 		},
 	}

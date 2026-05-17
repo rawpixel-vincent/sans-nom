@@ -2,9 +2,13 @@ package writer
 
 import (
 	"context"
+	"os"
+	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
@@ -75,6 +79,48 @@ func TestRefreshAsyncRejectsInvalidReplacement(t *testing.T) {
 	result := job.Await(context.Background())
 	if result.Err == nil {
 		t.Fatal("expected invalid packet error")
+	}
+}
+
+func TestRefreshAsyncWritesDiagnosticsForInvalidWriterPacket(t *testing.T) {
+	raw := `{
+  "id": "bad",
+  "entry_node_id": "start",
+  "context_snapshot": {},
+  "nodes": [{
+    "id": "start",
+    "title": "Start",
+    "beats": [{"text": "A beat."}],
+    "choices": [{"id": "jump", "label": "Jump.", "target_node_id": "missing"}]
+  }]
+}`
+	dir := t.TempDir()
+	svc := Service{Planner: ClaudePlanner{Runner: prompt.StaticRunner{Response: raw}}}
+
+	job, err := svc.RefreshAsync(context.Background(), Input{
+		LatestDecision: "jump",
+		ContextText:    "writer context",
+		RunID:          "turn-000001",
+		ArtifactDir:    dir,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	result := job.Await(context.Background())
+	if result.Err == nil {
+		t.Fatal("expected invalid packet error")
+	}
+	for _, name := range []string{"input.txt", "raw-output.json", "validation-error.txt", "metadata.json"} {
+		if _, err := os.Stat(filepath.Join(dir, name)); err != nil {
+			t.Fatalf("missing %s: %v", name, err)
+		}
+	}
+	validation, err := os.ReadFile(filepath.Join(dir, "validation-error.txt"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(validation), "targets missing node") {
+		t.Fatalf("unexpected validation artifact:\n%s", validation)
 	}
 }
 

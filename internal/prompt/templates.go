@@ -108,6 +108,7 @@ Rules:
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
 - The first entry node should be richer than later nodes: enough beats for a long opening that establishes world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 - Include 2-4 choices on the entry node and valid target_node_id values.
+- Each first-choice target node must either offer follow-up choices or include revision_notes that clearly say Writer continuation is required after that branch; do not make every opening branch a silent terminal leaf.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Use rolled_out_canon only for facts witnessed on the entry path; use planning_only for unrolled branch notes; use actor_private only with private_to_actor.
@@ -133,6 +134,7 @@ Reject if:
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with 3-5 nodes;
 - any choice targets a missing node;
+- every first-choice target node is terminal without follow-up choices or revision_notes requiring Writer continuation;
 - any node has actor_needs; original actor peer cards are not available in this seed pass;
 - it uses any Metabarons canon name, place, faction, dynastic event, or direct equivalent as story content;
 - it uses council mechanics, all-cast fanout, resurrected dynasty roster assumptions, or canon from unused branches;

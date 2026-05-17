@@ -496,7 +496,7 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 				Bible:               &bible,
 				GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
 				StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
-				InitialDecision:     state.LastDecision,
+				InitialDecision:     decisionForWriterRefresh(&state),
 				RefreshWrite:        true,
 				WriterScenarists:    cfg.WriterScenarists,
 				ScenaristProvider:   cfg.ScenaristProvider,
@@ -506,8 +506,11 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 				ScenaristRounds:     cfg.ScenaristRounds,
 				Logger:              storyLogger(&workspace, &state),
 			}
-			next, err := refreshPacket(ctx, session.Packet, session.NodeID, state.LastDecision, refreshCfg)
+			next, err := refreshPacket(ctx, session.Packet, session.NodeID, decisionForWriterRefresh(&state), refreshCfg)
 			if err != nil {
+				if failure, ok := asWriterFailure(err); ok {
+					_ = markStoryBlocked(refreshCfg, &state, failure)
+				}
 				return err
 			}
 			return saveCurrentStoryPacket(ctx, refreshCfg, &state, next, entryNodeID(next))
@@ -946,6 +949,24 @@ type playConfig struct {
 	ScenaristOutputRoot string
 	ScenaristRounds     int
 	Logger              *gamelog.Writer
+	WriterPlanner       writer.Planner
+}
+
+type writerRefreshFailure struct {
+	Err    error
+	RunID  string
+	RunDir string
+}
+
+func (e writerRefreshFailure) Error() string {
+	if e.RunDir != "" {
+		return fmt.Sprintf("writer refresh failed: %v (artifacts: %s)", e.Err, filepath.ToSlash(e.RunDir))
+	}
+	return fmt.Sprintf("writer refresh failed: %v", e.Err)
+}
+
+func (e writerRefreshFailure) Unwrap() error {
+	return e.Err
 }
 
 func runPlay(ctx context.Context, cfg playConfig) error {
@@ -959,6 +980,12 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 	}
 	if cfg.Logger == nil {
 		cfg.Logger = storyLogger(cfg.Workspace, state)
+	}
+	if state != nil && state.Status == story.StatusBlockedWriterRefresh {
+		return fmt.Errorf("story is blocked by Writer refresh: %s (artifacts: %s)", state.BlockedReason, state.BlockedWriterRunPath)
+	}
+	if story.PlayerDecisionEmpty(decision) && state != nil && state.HasPendingDecision() {
+		decision = state.PendingDecision
 	}
 	logEvent(cfg.Logger, gamelog.Event{
 		Category: "story",
@@ -1063,11 +1090,37 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		if cfg.RefreshWrite {
 			refreshCfg := cfg
 			refreshCfg.State = state
-			logEvent(cfg.Logger, gamelog.Event{Category: "writer", Event: "writer.refresh.started", Message: "writer refresh started", Turn: turn, PacketID: packet.ID, NodeID: nodeID})
+			runID, runDir := writerRunInfo(refreshCfg)
+			if err := savePendingDecision(cfg, state, nextDecision, runID, runDir); err != nil {
+				return err
+			}
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "writer",
+				Event:    "writer.refresh.started",
+				Message:  "writer refresh started",
+				Turn:     turn,
+				PacketID: packet.ID,
+				NodeID:   nodeID,
+				RunID:    runID,
+				Fields: map[string]any{
+					"artifact_dir": filepath.ToSlash(runDir),
+				},
+			})
 			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, refreshCfg)
 			if err == nil {
 				nextNodeID = entryNodeID(next)
-				logEvent(cfg.Logger, gamelog.Event{Category: "writer", Event: "writer.refresh.completed", Message: "writer refresh completed", Turn: turn, PacketID: next.ID, NodeID: nextNodeID})
+				logEvent(cfg.Logger, gamelog.Event{
+					Category: "writer",
+					Event:    "writer.refresh.completed",
+					Message:  "writer refresh completed",
+					Turn:     turn,
+					PacketID: next.ID,
+					NodeID:   nextNodeID,
+					RunID:    runID,
+					Fields: map[string]any{
+						"artifact_dir": filepath.ToSlash(runDir),
+					},
+				})
 				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit); err != nil {
 					return err
 				}
@@ -1084,8 +1137,32 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				}
 				continue
 			}
-			logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "writer", Event: "writer.refresh.failed", Message: err.Error(), Turn: turn, PacketID: packet.ID, NodeID: nodeID})
-			fmt.Fprintf(os.Stderr, "writer refresh failed, continuing current packet: %v\n", err)
+			failure := writerFailure(err, runID, runDir)
+			logEvent(cfg.Logger, gamelog.Event{
+				Level:    gamelog.LevelError,
+				Category: "writer",
+				Event:    "writer.refresh.failed",
+				Message:  failure.Err.Error(),
+				Turn:     turn,
+				PacketID: packet.ID,
+				NodeID:   nodeID,
+				RunID:    failure.RunID,
+				Fields: map[string]any{
+					"artifact_dir": filepath.ToSlash(failure.RunDir),
+				},
+			})
+			if err := markStoryBlocked(cfg, state, failure); err != nil {
+				return err
+			}
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
+				return err
+			}
+			if cfg.TraceJSONL {
+				if err := writePlayTrace(decisionTrace(rawInput, nextDecision, "")); err != nil {
+					return err
+				}
+			}
+			return failure
 		}
 		if choice, err := rollout.Node.Choice(nextDecision.ChoiceID); err == nil && choice.TargetNodeID != "" {
 			nextNodeID = choice.TargetNodeID
@@ -1154,6 +1231,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 }
 
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
+	runID, runDir := writerRunInfo(cfg)
 	outputDir := scenaristOutputDir(cfg)
 	scenaristEnabled := cfg.WriterScenarists != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg)) > 0
 	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
@@ -1177,7 +1255,10 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if toolRunner != nil && cfg.Backend == "claude" {
 		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
 	}
-	planner := writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, cfg.ScenaristRounds)
+	planner := cfg.WriterPlanner
+	if planner == nil {
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, cfg.ScenaristRounds)
+	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
 			return scene.StoryPacket{}, err
@@ -1187,14 +1268,19 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		Current:        packet,
 		LatestDecision: decisionText(decision.ChoiceID, decision.FreeText),
 		ContextText:    writerContext.RenderText(),
+		RunID:          runID,
+		ArtifactDir:    runDir,
 	})
 	if err != nil {
-		return scene.StoryPacket{}, err
+		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
 	}
 	waitCtx, cancel := context.WithTimeout(ctx, writer.DefaultAwaitTimeout())
 	defer cancel()
 	result := job.Await(waitCtx)
-	return result.Packet, result.Err
+	if result.Err != nil {
+		return result.Packet, writerFailure(result.Err, runID, runDir)
+	}
+	return result.Packet, nil
 }
 
 func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, committed bool) error {
@@ -1244,6 +1330,11 @@ func saveCurrentStoryPacket(ctx context.Context, cfg playConfig, state *story.St
 	state.CurrentPacketID = packet.ID
 	state.CurrentPacketPath = filepath.ToSlash(filepath.Join("packets", packet.ID+".json"))
 	state.CurrentNodeID = nodeID
+	state.Status = story.StatusActive
+	state.BlockedReason = ""
+	state.BlockedAt = ""
+	state.BlockedWriterRunID = ""
+	state.BlockedWriterRunPath = ""
 	if err := cfg.Workspace.SaveState(*state); err != nil {
 		return err
 	}
@@ -1308,6 +1399,93 @@ func sourceLoreCollection(state *story.StoryState, fallback string) string {
 		}
 	}
 	return firstNonEmpty(fallback, story.DefaultGroundLoreCollection)
+}
+
+func decisionForWriterRefresh(state *story.StoryState) scene.PlayerDecision {
+	if state != nil && state.HasPendingDecision() {
+		return state.PendingDecision
+	}
+	if state != nil {
+		return state.LastDecision
+	}
+	return scene.PlayerDecision{}
+}
+
+func savePendingDecision(cfg playConfig, state *story.StoryState, decision scene.PlayerDecision, runID string, runDir string) error {
+	if cfg.Workspace == nil || state == nil || story.PlayerDecisionEmpty(decision) {
+		return nil
+	}
+	state.PendingDecision = decision
+	state.PendingDecisionAt = story.NowString()
+	state.PendingWriterRunID = runID
+	state.PendingWriterRunPath = filepath.ToSlash(runDir)
+	state.Status = story.StatusActive
+	state.BlockedReason = ""
+	state.BlockedAt = ""
+	state.BlockedWriterRunID = ""
+	state.BlockedWriterRunPath = ""
+	if err := cfg.Workspace.SaveState(*state); err != nil {
+		return err
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "memory",
+		Event:    "story.pending_decision.saved",
+		Message:  "player decision saved before Writer refresh",
+		RunID:    runID,
+		Fields: map[string]any{
+			"choice_id":     decision.ChoiceID,
+			"has_free_text": decision.FreeText != "",
+			"artifact_dir":  filepath.ToSlash(runDir),
+		},
+	})
+	return nil
+}
+
+func markStoryBlocked(cfg playConfig, state *story.StoryState, failure writerRefreshFailure) error {
+	if cfg.Workspace == nil || state == nil {
+		return nil
+	}
+	state.Status = story.StatusBlockedWriterRefresh
+	state.BlockedReason = failure.Err.Error()
+	state.BlockedAt = story.NowString()
+	state.BlockedWriterRunID = failure.RunID
+	state.BlockedWriterRunPath = filepath.ToSlash(failure.RunDir)
+	if err := cfg.Workspace.SaveState(*state); err != nil {
+		return err
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Level:    gamelog.LevelError,
+		Category: "story",
+		Event:    "story.blocked",
+		Message:  "story blocked by Writer refresh failure",
+		RunID:    failure.RunID,
+		Fields: map[string]any{
+			"reason":       failure.Err.Error(),
+			"artifact_dir": filepath.ToSlash(failure.RunDir),
+		},
+	})
+	return nil
+}
+
+func writerFailure(err error, runID string, runDir string) writerRefreshFailure {
+	if failure, ok := asWriterFailure(err); ok {
+		if failure.RunID == "" {
+			failure.RunID = runID
+		}
+		if failure.RunDir == "" {
+			failure.RunDir = runDir
+		}
+		return failure
+	}
+	return writerRefreshFailure{Err: err, RunID: runID, RunDir: runDir}
+}
+
+func asWriterFailure(err error) (writerRefreshFailure, bool) {
+	var failure writerRefreshFailure
+	if errors.As(err, &failure) {
+		return failure, true
+	}
+	return writerRefreshFailure{}, false
 }
 
 func storyLogger(workspace *story.Workspace, state *story.StoryState) *gamelog.Writer {
@@ -1637,6 +1815,14 @@ func scenaristOutputDir(cfg playConfig) string {
 		return ""
 	}
 	return filepath.Join(cfg.Workspace.ModelRunsDir(), "scenarists", scenaristTurnSegment(cfg))
+}
+
+func writerRunInfo(cfg playConfig) (string, string) {
+	segment := scenaristTurnSegment(cfg)
+	if cfg.Workspace == nil {
+		return segment, ""
+	}
+	return segment, filepath.Join(cfg.Workspace.ModelRunsDir(), "writer", segment)
 }
 
 func scenaristTurnSegment(cfg playConfig) string {

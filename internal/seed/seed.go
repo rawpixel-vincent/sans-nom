@@ -264,24 +264,36 @@ func DefaultPacket() scene.StoryPacket {
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "Ila places her wrist in the cuff, and the machine measures which memories her hand will still be allowed to hold after the cut."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
+			RevisionNotes: []string{
+				"Writer continuation is required after this branch.",
+			},
 		}, {
 			ID:         "node_steal_pearl",
 			Title:      "The lantern opens sideways",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "The bone-key refuses the public lock and instead opens a black side-door in the air beside the pearl, marking Ila as thief before every witness."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
+			RevisionNotes: []string{
+				"Writer continuation is required after this branch.",
+			},
 		}, {
 			ID:         "node_bargain_sarex",
 			Title:      "The red thread price",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "Sarex offers a witness-thread that can fool the machine but not the crowd, and asks which part of Ila's name may be spent as payment."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
+			RevisionNotes: []string{
+				"Writer continuation is required after this branch.",
+			},
 		}, {
 			ID:         "node_accuse_talik",
 			Title:      "Mercy clauses have witnesses too",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "Ila names the hidden mercy clause aloud, forcing Talik and the auditors to decide whether the crowd heard law or insolence."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
+			RevisionNotes: []string{
+				"Writer continuation is required after this branch.",
+			},
 		}},
 		RevisionNotes: []string{"Opening seed for original CLI playtest; source lore is influence only, no literal canon import, no actor_needs yet.", "Entry node is intentionally richer than branch nodes for classic first-turn narration."},
 	}

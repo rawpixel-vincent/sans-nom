@@ -98,6 +98,7 @@ func InitWorkspace(opts InitOptions, bundle SeedBundle) (Workspace, StoryState, 
 		CurrentPacketID:      bundle.Packet.ID,
 		CurrentPacketPath:    filepath.ToSlash(filepath.Join("packets", bundle.Packet.ID+".json")),
 		CurrentNodeID:        bundle.Packet.EntryNodeID,
+		Status:               StatusActive,
 		CreatedAt:            now,
 		UpdatedAt:            now,
 	}
@@ -133,6 +134,12 @@ func LoadWorkspace(root string, storyID string) (Workspace, StoryState, error) {
 	state, err := ws.LoadState()
 	if err != nil {
 		return Workspace{}, StoryState{}, err
+	}
+	if normalized, changed := state.WithDefaults(); changed {
+		state = normalized
+		if err := ws.SaveState(state); err != nil {
+			return Workspace{}, StoryState{}, err
+		}
 	}
 	return ws, state, nil
 }
@@ -254,6 +261,12 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 	}
 	state.LastDecision = record.Decision
 	state.LastNarratorProse = record.Prose
+	if !PlayerDecisionEmpty(record.Decision) && PlayerDecisionEqual(record.Decision, state.PendingDecision) {
+		state.PendingDecision = scene.PlayerDecision{}
+		state.PendingDecisionAt = ""
+		state.PendingWriterRunID = ""
+		state.PendingWriterRunPath = ""
+	}
 	return state, w.SaveState(state)
 }
 

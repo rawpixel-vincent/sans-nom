@@ -14,6 +14,8 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
+	"github.com/rawpixel-vincent/sans-nom/internal/story"
+	"github.com/rawpixel-vincent/sans-nom/internal/writer"
 )
 
 func TestParseDecisionAcceptsNumericChoice(t *testing.T) {
@@ -195,6 +197,63 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	}
 }
 
+func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("hard-fail")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "hard-fail",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	bible := bundle.Bible
+	originalStdin := pipeStdin(t, "1\n")
+	defer func() { os.Stdin = originalStdin }()
+
+	err = runPlay(context.Background(), playConfig{
+		Packet:           bundle.Packet,
+		NodeID:           bundle.Packet.EntryNodeID,
+		Backend:          "static",
+		Workspace:        &workspace,
+		State:            &state,
+		Bible:            &bible,
+		RefreshWrite:     true,
+		Commit:           false,
+		WriterScenarists: 0,
+		WriterPlanner:    invalidRefreshPlanner{},
+	})
+	if err == nil {
+		t.Fatal("expected writer refresh failure")
+	}
+	if !strings.Contains(err.Error(), "artifacts:") {
+		t.Fatalf("expected artifact path in error: %v", err)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "hard-fail")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.Status != story.StatusBlockedWriterRefresh {
+		t.Fatalf("status = %q", loaded.Status)
+	}
+	if loaded.PendingDecision.ChoiceID != "open" {
+		t.Fatalf("pending decision = %#v", loaded.PendingDecision)
+	}
+	if loaded.BlockedWriterRunPath == "" {
+		t.Fatalf("missing blocked run path: %#v", loaded)
+	}
+	for _, rel := range []string{
+		filepath.Join("model-runs", "writer", "turn-000001", "input.txt"),
+		filepath.Join("model-runs", "writer", "turn-000001", "raw-output.json"),
+		filepath.Join("model-runs", "writer", "turn-000001", "validation-error.txt"),
+	} {
+		if _, err := os.Stat(filepath.Join(workspace.Dir, rel)); err != nil {
+			t.Fatalf("missing artifact %s: %v", rel, err)
+		}
+	}
+}
+
 func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	if os.Getenv("SANS_NOM_E2E_LIVE") != "1" {
 		t.Skip("set SANS_NOM_E2E_LIVE=1 to run live Codex OAuth e2e")
@@ -336,4 +395,134 @@ func repoRootForTest(t *testing.T) string {
 		t.Fatalf("resolve repo root from %s: %v", wd, err)
 	}
 	return root
+}
+
+func pipeStdin(t *testing.T, input string) *os.File {
+	t.Helper()
+	original := os.Stdin
+	reader, writer, err := os.Pipe()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := writer.WriteString(input); err != nil {
+		t.Fatal(err)
+	}
+	if err := writer.Close(); err != nil {
+		t.Fatal(err)
+	}
+	os.Stdin = reader
+	t.Cleanup(func() {
+		_ = reader.Close()
+		os.Stdin = original
+	})
+	return original
+}
+
+type invalidRefreshPlanner struct{}
+
+func (invalidRefreshPlanner) Plan(context.Context, writer.Input) (scene.StoryPacket, error) {
+	return scene.StoryPacket{
+		ID:          "bad-writer-packet",
+		EntryNodeID: "start",
+		Nodes: []scene.SceneNode{{
+			ID:    "start",
+			Title: "Bad start",
+			Beats: []scene.Beat{{Text: "A bad beat."}},
+			Choices: []scene.Choice{{
+				ID:           "dangling",
+				Label:        "Dangling.",
+				TargetNodeID: "missing",
+			}},
+		}},
+	}, nil
+}
+
+func cliTestBundle(id string) story.SeedBundle {
+	return story.SeedBundle{
+		Bible: story.StoryBible{
+			StoryID: id,
+			Title:   "The Test Weight",
+			Premise: "A keeper must decide whether public memory can protect the dead without owning the living.",
+			PlayerCharacter: story.PlayerCharacter{
+				PeerID:      "sans-nom",
+				Name:        "Rin",
+				Description: "A keeper with a civic graft.",
+				Desire:      "Rin wants to protect a record.",
+				Wound:       "Rin distrusts legal mercy.",
+				Boundary:    "Rin will not become an instrument.",
+			},
+			PlayerWorldConnection: "Rin's graft makes the city recognize them.",
+			WorldBasics: []string{
+				"The city weighs public memory.",
+				"Debt law is performed by machines and crowds.",
+				"Witnesses change what buildings permit.",
+			},
+			OriginalLaws: []story.OriginalLaw{{
+				ID:             "first-weight",
+				Name:           "Law of First Weight",
+				Description:    "A vow's first burden must stay with the vow-maker.",
+				SourcePattern:  "binding taboo structure",
+				Enforcement:    "Public ledgers refuse dishonest transfer.",
+				WhyProfound:    "It protects the weak from inherited erasure.",
+				NotMerelyCruel: "It limits debt instead of making it endless.",
+			}},
+			Factions: []story.Faction{{
+				ID:          "ledger-choir",
+				Name:        "Ledger Choir",
+				Description: "Clerks who sing records into public force.",
+			}},
+			CoreRelationships:          []string{"Rin is bound to the witness hall."},
+			ToneDoctrine:               []string{"Body law should feel sacred before tactical."},
+			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
+			ForbiddenLiteralCanonTerms: story.ForbiddenCanonTerms(),
+			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
+			ResumeSummary:              "Rin stands before the witness hall.",
+			Metadata:                   map[string]string{"test": "true"},
+		},
+		Packet: scene.StoryPacket{
+			ID:          "packet-" + id,
+			EntryNodeID: "entry",
+			ContextSnapshot: scene.ContextSnapshot{
+				WorkspaceID: id,
+				SessionID:   "main",
+				Location:    "Witness Hall",
+				Time:        "opening bell",
+			},
+			Nodes: []scene.SceneNode{{
+				ID:    "entry",
+				Title: "The hall asks",
+				Beats: []scene.Beat{
+					{Text: "The witness hall wakes."},
+					{Text: "Rin feels the graft answer."},
+					{Text: "The first weight is named."},
+					{Text: "A record will vanish if Rin waits."},
+				},
+				Choices: []scene.Choice{{
+					ID:           "open",
+					Label:        "Open the ledger.",
+					TargetNodeID: "opened",
+				}, {
+					ID:           "refuse",
+					Label:        "Refuse the ledger.",
+					TargetNodeID: "refused",
+				}},
+			}, {
+				ID:      "opened",
+				Title:   "Opened",
+				Beats:   []scene.Beat{{Text: "The ledger opens."}},
+				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
+			}, {
+				ID:      "refused",
+				Title:   "Refused",
+				Beats:   []scene.Beat{{Text: "The ledger waits."}},
+				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
+			}},
+		},
+	}
 }

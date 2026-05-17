@@ -14,6 +14,9 @@ const (
 	DefaultGroundLorePackID     = "metabarons"
 	DefaultGroundLoreCollection = "sans_nom_lore_metabarons"
 	DefaultGlobalLoreCollection = "sans_nom_lore"
+
+	StatusActive               = "active"
+	StatusBlockedWriterRefresh = "blocked_writer_refresh"
 )
 
 type SeedBundle struct {
@@ -76,9 +79,18 @@ type StoryState struct {
 	CurrentPacketID      string               `json:"current_packet_id"`
 	CurrentPacketPath    string               `json:"current_packet_path"`
 	CurrentNodeID        string               `json:"current_node_id"`
+	Status               string               `json:"status,omitempty"`
 	LatestTurn           int                  `json:"latest_turn"`
 	LastDecision         scene.PlayerDecision `json:"last_decision"`
 	LastNarratorProse    string               `json:"last_narrator_prose"`
+	PendingDecision      scene.PlayerDecision `json:"pending_decision,omitempty"`
+	PendingDecisionAt    string               `json:"pending_decision_at,omitempty"`
+	PendingWriterRunID   string               `json:"pending_writer_run_id,omitempty"`
+	PendingWriterRunPath string               `json:"pending_writer_run_path,omitempty"`
+	BlockedReason        string               `json:"blocked_reason,omitempty"`
+	BlockedAt            string               `json:"blocked_at,omitempty"`
+	BlockedWriterRunID   string               `json:"blocked_writer_run_id,omitempty"`
+	BlockedWriterRunPath string               `json:"blocked_writer_run_path,omitempty"`
 	CreatedAt            string               `json:"created_at"`
 	UpdatedAt            string               `json:"updated_at"`
 }
@@ -91,12 +103,43 @@ func (s StoryState) SourceLorePackID() string {
 }
 
 func (s StoryState) SourceLoreCollection() string {
-	for _, value := range []string{s.GroundLoreCollection, s.GlobalLoreCollection, DefaultGroundLoreCollection} {
-		if strings.TrimSpace(value) != "" {
-			return value
-		}
+	if strings.TrimSpace(s.GroundLoreCollection) != "" {
+		return s.GroundLoreCollection
+	}
+	if collection := strings.TrimSpace(s.GlobalLoreCollection); collection != "" && collection != DefaultGlobalLoreCollection {
+		return collection
 	}
 	return DefaultGroundLoreCollection
+}
+
+func (s StoryState) WithDefaults() (StoryState, bool) {
+	out := s
+	changed := false
+	if strings.TrimSpace(out.GroundLorePackID) == "" {
+		out.GroundLorePackID = DefaultGroundLorePackID
+		changed = true
+	}
+	if strings.TrimSpace(out.GroundLoreCollection) == "" {
+		out.GroundLoreCollection = out.SourceLoreCollection()
+		changed = true
+	}
+	if strings.TrimSpace(out.Status) == "" {
+		out.Status = StatusActive
+		changed = true
+	}
+	return out, changed
+}
+
+func (s StoryState) HasPendingDecision() bool {
+	return !PlayerDecisionEmpty(s.PendingDecision)
+}
+
+func PlayerDecisionEmpty(decision scene.PlayerDecision) bool {
+	return strings.TrimSpace(decision.ChoiceID) == "" && strings.TrimSpace(decision.FreeText) == ""
+}
+
+func PlayerDecisionEqual(a scene.PlayerDecision, b scene.PlayerDecision) bool {
+	return a.ChoiceID == b.ChoiceID && a.FreeText == b.FreeText
 }
 
 type TurnRecord struct {
@@ -190,7 +233,41 @@ func ValidateSeedPacket(packet scene.StoryPacket) error {
 	if len(entry.Choices) < 2 || len(entry.Choices) > 4 {
 		return fmt.Errorf("entry node needs 2-4 choices, got %d", len(entry.Choices))
 	}
+	if err := validateSeedBranchContinuations(packet, entry); err != nil {
+		return err
+	}
 	return nil
+}
+
+func validateSeedBranchContinuations(packet scene.StoryPacket, entry scene.SceneNode) error {
+	targets := map[string]struct{}{}
+	for _, choice := range entry.Choices {
+		if strings.TrimSpace(choice.TargetNodeID) != "" {
+			targets[choice.TargetNodeID] = struct{}{}
+		}
+	}
+	if len(targets) == 0 {
+		return nil
+	}
+	for _, node := range packet.Nodes {
+		if _, ok := targets[node.ID]; !ok {
+			continue
+		}
+		if len(node.Choices) > 0 || hasNonEmptyString(node.RevisionNotes) {
+			continue
+		}
+		return fmt.Errorf("seed branch node %q is terminal; add choices or revision_notes requiring Writer continuation", node.ID)
+	}
+	return nil
+}
+
+func hasNonEmptyString(values []string) bool {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return true
+		}
+	}
+	return false
 }
 
 func (b StoryBible) CreatedStoryText() string {
