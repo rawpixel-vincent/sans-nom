@@ -80,6 +80,7 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 		"-replace-story",
 		"-play",
 		"-model-backend", "static",
+		"-disable-writer-refresh",
 		"-play-trace-jsonl",
 	)
 	cmd.Dir = repoRoot
@@ -110,6 +111,7 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 		"-story-root", storyRoot,
 		"-play",
 		"-model-backend", "static",
+		"-disable-writer-refresh",
 		"-turns", "1",
 	)
 	resume.Dir = repoRoot
@@ -138,6 +140,7 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 		"-replace-story",
 		"-play",
 		"-model-backend", "codex",
+		"-disable-writer-refresh",
 		"-play-trace-jsonl",
 	)
 	cmd.Dir = repoRoot

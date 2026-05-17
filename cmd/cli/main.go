@@ -43,7 +43,7 @@ func main() {
 	freeText := flag.String("text", "", "free-text player input")
 	useClaude := flag.Bool("claude", false, "use claude -p Sonnet adapters instead of static local adapters")
 	modelBackend := flag.String("model-backend", os.Getenv("SANS_NOM_MODEL_BACKEND"), "model backend: codex, claude, or static")
-	refreshWriter := flag.Bool("refresh-writer", false, "run the Creative Writer asynchronously before rollout")
+	disableWriterRefresh := flag.Bool("disable-writer-refresh", false, "disable Creative Writer refresh between play turns")
 	seedStory := flag.Bool("seed-story", false, "generate the opening original StoryPacket")
 	seedOutput := flag.String("seed-output", "", "optional path for -seed-story output")
 	storyID := flag.String("story-id", "", "create or resume a durable story id")
@@ -81,6 +81,7 @@ func main() {
 	}
 	backend := resolveBackend(*modelBackend, *useClaude)
 	resolvedBridgeURL := runtimeBridgeURL(backend, *bridgeURL)
+	playRefreshWriter := !*disableWriterRefresh
 	if noArgs {
 		if err := runLauncher(context.Background(), launcherConfig{
 			Backend:             backend,
@@ -94,7 +95,8 @@ func main() {
 			ScenaristTools:      *scenaristTools,
 			ScenaristOutputRoot: *scenaristOutputRoot,
 			ScenaristRounds:     *writerScenaristRounds,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, false),
+			RefreshWrite:        true,
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -166,9 +168,9 @@ func main() {
 			InitialDecision:     decision,
 			Turns:               *turns,
 			Commit:              *commitMode,
-			RefreshWrite:        *refreshWriter,
+			RefreshWrite:        playRefreshWriter,
 			TraceJSONL:          *playTraceJSONL,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, *refreshWriter),
+			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, playRefreshWriter),
 			ScenaristProvider:   *scenaristProvider,
 			ScenaristModel:      *scenaristModel,
 			ScenaristTools:      *scenaristTools,
@@ -184,27 +186,6 @@ func main() {
 			log.Fatal(err)
 		}
 		return
-	}
-	if *refreshWriter {
-		packet, err = refreshPacket(context.Background(), packet, *nodeID, decision, playConfig{
-			Backend:             backend,
-			BridgeURL:           resolvedBridgeURL,
-			CardStore:           cardStore,
-			Workspace:           workspace,
-			State:               state,
-			Bible:               bible,
-			GlobalCollection:    *globalLoreCollection,
-			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, *refreshWriter),
-			ScenaristProvider:   *scenaristProvider,
-			ScenaristModel:      *scenaristModel,
-			ScenaristTools:      *scenaristTools,
-			ScenaristOutputRoot: *scenaristOutputRoot,
-			ScenaristRounds:     *writerScenaristRounds,
-		})
-		if err != nil {
-			log.Fatal(err)
-		}
 	}
 	runner := claudeRunner()
 	registry, err := actorRegistry(cardStore)
@@ -305,6 +286,7 @@ type launcherConfig struct {
 	ScenaristTools      bool
 	ScenaristOutputRoot string
 	ScenaristRounds     int
+	RefreshWrite        bool
 }
 
 func runLauncher(ctx context.Context, cfg launcherConfig) error {
@@ -502,6 +484,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		Bible:               &bible,
 		GlobalCollection:    globalCollection,
 		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
+		RefreshWrite:        cfg.RefreshWrite,
 		WriterScenarists:    cfg.WriterScenarists,
 		ScenaristProvider:   cfg.ScenaristProvider,
 		ScenaristModel:      cfg.ScenaristModel,
@@ -841,7 +824,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 					return err
 				}
 			}
-			fmt.Println("\nFree text needs -refresh-writer to create the next packet; play loop stopped.")
+			fmt.Println("\nFree text needs Writer refresh enabled to create the next packet; play loop stopped.")
 			break
 		} else if len(rollout.Node.Choices) == 0 {
 			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit); err != nil {
@@ -1290,14 +1273,14 @@ func scenaristTurnSegment(cfg playConfig) string {
 	return fmt.Sprintf("turn-%06d", turn)
 }
 
-func resolveWriterScenaristCount(value int, backend string, refreshWriter bool) int {
+func resolveWriterScenaristCount(value int, backend string, writerRefreshEnabled bool) int {
 	if value >= 0 {
 		if value > scenarist.MaxToolRequests {
 			return scenarist.MaxToolRequests
 		}
 		return value
 	}
-	if refreshWriter && backend != "static" {
+	if writerRefreshEnabled && backend != "static" {
 		return scenarist.MaxToolRequests
 	}
 	return 0

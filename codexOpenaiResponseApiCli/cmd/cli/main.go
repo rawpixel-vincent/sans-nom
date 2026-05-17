@@ -15,7 +15,6 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
-	"github.com/rawpixel-vincent/sans-nom/internal/writer"
 )
 
 func main() {
@@ -26,7 +25,6 @@ func main() {
 	choiceID := flag.String("choice", "", "selected choice id")
 	freeText := flag.String("text", "", "free-text player input")
 	useClaude := flag.Bool("claude", false, "use claude -p Sonnet adapters instead of static local adapters")
-	refreshWriter := flag.Bool("refresh-writer", false, "run the Creative Writer asynchronously before rollout")
 	flag.Parse()
 
 	packet, err := openPacket(*packetPath)
@@ -34,21 +32,6 @@ func main() {
 		log.Fatal(err)
 	}
 	runner := claudeRunner()
-	if *refreshWriter {
-		job, err := writer.Service{
-			Planner: writer.ClaudePlanner{Runner: runner},
-		}.RefreshAsync(context.Background(), packet, decisionText(*choiceID, *freeText))
-		if err != nil {
-			log.Fatal(err)
-		}
-		ctx, cancel := context.WithTimeout(context.Background(), writer.DefaultAwaitTimeout())
-		defer cancel()
-		result := job.Await(ctx)
-		if result.Err != nil {
-			log.Fatal(result.Err)
-		}
-		packet = result.Packet
-	}
 	registry, err := actorRegistry()
 	if err != nil {
 		log.Fatal(err)
@@ -96,16 +79,6 @@ func claudeRunner() prompt.ClaudeRunner {
 		WorkDir: ".",
 		Timeout: 3 * time.Minute,
 	}
-}
-
-func decisionText(choiceID string, freeText string) string {
-	if freeText != "" {
-		return freeText
-	}
-	if choiceID != "" {
-		return choiceID
-	}
-	return "observe"
 }
 
 func loadDotEnv(path string) {
