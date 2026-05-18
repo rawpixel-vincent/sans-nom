@@ -6,7 +6,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
@@ -16,10 +19,12 @@ import (
 )
 
 type Service struct {
-	Writer        prompt.Runner
-	Verifier      prompt.Runner
-	MaxIterations int
-	Logger        *gamelog.Writer
+	Writer         prompt.Runner
+	WorkshopWriter prompt.Runner
+	Verifier       prompt.Runner
+	MaxIterations  int
+	Logger         *gamelog.Writer
+	WorkshopDir    string
 }
 
 type Review struct {
@@ -28,11 +33,31 @@ type Review struct {
 	RevisionInstructions string   `json:"revision_instructions"`
 }
 
+type WorkshopTurn struct {
+	ID          string
+	Title       string
+	PromptShape string
+}
+
+type WorkshopArtifact struct {
+	TurnID     string `json:"turn_id"`
+	Title      string `json:"title"`
+	PromptPath string `json:"prompt_path"`
+	OutputPath string `json:"output_path"`
+	MetaPath   string `json:"metadata_path"`
+	Summary    string `json:"summary"`
+}
+
 func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBundle, error) {
 	if s.Writer == nil {
 		bundle := DefaultBundle()
 		return bundle, story.ValidateBundle(bundle)
 	}
+	workshopContext, err := s.buildWorkshop(ctx, contextText)
+	if err != nil {
+		return story.SeedBundle{}, err
+	}
+	contextText += workshopContext
 	maxIterations := s.MaxIterations
 	if maxIterations <= 0 {
 		maxIterations = 2
@@ -179,6 +204,181 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		previousRaw = string(bundleJSON)
 	}
 	return story.SeedBundle{}, fmt.Errorf("seed story rejected: %s", reviewText(previous))
+}
+
+func (s Service) buildWorkshop(ctx context.Context, contextText string) (string, error) {
+	if strings.TrimSpace(s.WorkshopDir) == "" {
+		return "", nil
+	}
+	workshopWriter := s.WorkshopWriter
+	if workshopWriter == nil {
+		workshopWriter = s.Writer
+	}
+	turns := DefaultWorkshopTurns()
+	if len(turns) == 0 {
+		return "", nil
+	}
+	if err := os.MkdirAll(s.WorkshopDir, 0o755); err != nil {
+		return "", err
+	}
+	artifacts := make([]WorkshopArtifact, 0, len(turns))
+	var previous []WorkshopArtifact
+	for index, turn := range turns {
+		promptText := prompt.SeedWorkshopPrompt(contextText, turn.Title, turn.PromptShape, workshopManifest(previous))
+		turnDir := filepath.Join(s.WorkshopDir, fmt.Sprintf("%02d-%s", index+1, sanitizeSegment(turn.ID)))
+		if err := os.MkdirAll(turnDir, 0o755); err != nil {
+			return "", err
+		}
+		promptPath := filepath.Join(turnDir, "prompt.txt")
+		outputPath := filepath.Join(turnDir, "output.md")
+		metaPath := filepath.Join(turnDir, "metadata.json")
+		if err := writeTextAtomic(promptPath, promptText); err != nil {
+			return "", err
+		}
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.workshop.request",
+			Message:  "seed workshop request prepared",
+			Fields: map[string]any{
+				"turn":         index + 1,
+				"turn_id":      turn.ID,
+				"title":        turn.Title,
+				"prompt_chars": len(promptText),
+				"prompt_path":  filepath.ToSlash(promptPath),
+			},
+			Detail: map[string]any{
+				"turn":        index + 1,
+				"turn_id":     turn.ID,
+				"title":       turn.Title,
+				"prompt":      promptText,
+				"prompt_path": filepath.ToSlash(promptPath),
+			},
+		})
+		output, err := workshopWriter.Run(ctx, promptText)
+		if err != nil {
+			s.log(gamelog.Event{
+				Level:    gamelog.LevelError,
+				Category: "model",
+				Event:    "seed.workshop.failed",
+				Message:  err.Error(),
+				Fields: map[string]any{
+					"turn":        index + 1,
+					"turn_id":     turn.ID,
+					"title":       turn.Title,
+					"prompt_path": filepath.ToSlash(promptPath),
+				},
+				Detail: map[string]any{
+					"turn":        index + 1,
+					"turn_id":     turn.ID,
+					"title":       turn.Title,
+					"prompt":      promptText,
+					"prompt_path": filepath.ToSlash(promptPath),
+					"error":       err.Error(),
+				},
+			})
+			return "", err
+		}
+		if err := writeTextAtomic(outputPath, output); err != nil {
+			return "", err
+		}
+		artifact := WorkshopArtifact{
+			TurnID:     turn.ID,
+			Title:      turn.Title,
+			PromptPath: filepath.ToSlash(promptPath),
+			OutputPath: filepath.ToSlash(outputPath),
+			MetaPath:   filepath.ToSlash(metaPath),
+			Summary:    previewText(output, 600),
+		}
+		if err := writeJSONAtomic(metaPath, map[string]any{
+			"turn":          index + 1,
+			"turn_id":       turn.ID,
+			"title":         turn.Title,
+			"prompt_path":   artifact.PromptPath,
+			"output_path":   artifact.OutputPath,
+			"summary":       artifact.Summary,
+			"prompt_chars":  len(promptText),
+			"output_chars":  len(output),
+			"planning_only": true,
+			"created_at":    time.Now().UTC().Format(time.RFC3339Nano),
+		}); err != nil {
+			return "", err
+		}
+		s.log(gamelog.Event{
+			Category: "model",
+			Event:    "seed.workshop.response",
+			Message:  "seed workshop response received",
+			Fields: map[string]any{
+				"turn":          index + 1,
+				"turn_id":       turn.ID,
+				"title":         turn.Title,
+				"output_chars":  len(output),
+				"output_path":   artifact.OutputPath,
+				"metadata_path": artifact.MetaPath,
+			},
+			Detail: map[string]any{
+				"turn":     index + 1,
+				"turn_id":  turn.ID,
+				"title":    turn.Title,
+				"artifact": artifact,
+				"output":   output,
+			},
+		})
+		artifacts = append(artifacts, artifact)
+		previous = artifacts
+	}
+	manifest := workshopManifest(artifacts)
+	if err := writeTextAtomic(filepath.Join(s.WorkshopDir, "manifest.md"), manifest); err != nil {
+		return "", err
+	}
+	if err := writeJSONAtomic(filepath.Join(s.WorkshopDir, "manifest.json"), artifacts); err != nil {
+		return "", err
+	}
+	s.log(gamelog.Event{
+		Category: "model",
+		Event:    "seed.workshop.completed",
+		Message:  "seed workshop completed",
+		Fields: map[string]any{
+			"artifact_count": len(artifacts),
+			"workshop_dir":   filepath.ToSlash(s.WorkshopDir),
+		},
+		Detail: map[string]any{
+			"workshop_dir": filepath.ToSlash(s.WorkshopDir),
+			"manifest":     manifest,
+			"artifacts":    artifacts,
+		},
+	})
+	return "\n\nSeed Workshop Manifest (planning references only, not canon):\n" + manifest + "\n\nThe workshop files are advisory material. The final Writer owns the StoryBible and StoryPacket; do not copy raw workshop text blindly.", nil
+}
+
+func DefaultWorkshopTurns() []WorkshopTurn {
+	return []WorkshopTurn{{
+		ID:          "imagination",
+		Title:       "Imagination Turn",
+		PromptShape: "Invent freely. Let ideas collide. Produce 5-8 original science-fantasy story germs, each with a vivid image, a taboo or law, a character wound, and a possible first crisis. Do not choose the final story yet.",
+	}, {
+		ID:          "elements",
+		Title:       "Fiction Elements Turn",
+		PromptShape: "Choose the strongest germ. Develop Character, Point of View, Setting, Plot pressure, Theme, and Style/Tone as separate Markdown sections. Keep each element concrete and playable.",
+	}, {
+		ID:          "law",
+		Title:       "Law And Suspension Turn",
+		PromptShape: "Stress-test the original gravity law. Explain social enforcement, history, public rituals, edge cases, loopholes, emotional cost, visible consequences, and why refusal matters.",
+	}, {
+		ID:          "opening",
+		Title:       "Opening Scene Engine Turn",
+		PromptShape: "Design the opening turn as a scene engine: exposition, player identity, player-world connection, immediate pressure, sensory atmosphere, and 2-4 dramatic choice pressures with branch implications.",
+	}}
+}
+
+func workshopManifest(artifacts []WorkshopArtifact) string {
+	if len(artifacts) == 0 {
+		return "No workshop artifacts yet."
+	}
+	var b strings.Builder
+	for _, artifact := range artifacts {
+		fmt.Fprintf(&b, "- %s (%s)\n  - output: %s\n  - summary: %s\n", artifact.Title, artifact.TurnID, artifact.OutputPath, strings.TrimSpace(artifact.Summary))
+	}
+	return strings.TrimSpace(b.String())
 }
 
 func (s Service) log(event gamelog.Event) {
@@ -471,4 +671,57 @@ func reviewText(review Review) string {
 		b.WriteString(review.RevisionInstructions)
 	}
 	return strings.TrimSpace(b.String())
+}
+
+func writeTextAtomic(path string, text string) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	tmp := path + ".tmp"
+	if err := os.WriteFile(tmp, []byte(text), 0o644); err != nil {
+		return err
+	}
+	return os.Rename(tmp, path)
+}
+
+func writeJSONAtomic(path string, value any) error {
+	data, err := json.MarshalIndent(value, "", "  ")
+	if err != nil {
+		return err
+	}
+	data = append(data, '\n')
+	return writeTextAtomic(path, string(data))
+}
+
+func sanitizeSegment(value string) string {
+	value = strings.ToLower(strings.TrimSpace(value))
+	var b strings.Builder
+	lastDash := false
+	for _, r := range value {
+		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') {
+			b.WriteRune(r)
+			lastDash = false
+			continue
+		}
+		if !lastDash {
+			b.WriteByte('-')
+			lastDash = true
+		}
+	}
+	out := strings.Trim(b.String(), "-")
+	if out == "" {
+		return "turn"
+	}
+	return out
+}
+
+func previewText(text string, max int) string {
+	text = strings.Join(strings.Fields(text), " ")
+	if len(text) <= max {
+		return text
+	}
+	if max < 4 {
+		return text[:max]
+	}
+	return text[:max-3] + "..."
 }

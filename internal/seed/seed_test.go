@@ -3,6 +3,8 @@ package seed
 import (
 	"context"
 	"encoding/json"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
@@ -154,6 +156,109 @@ func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 	}
 	if !sawWriter {
 		t.Fatalf("missing seed.writer.request event: %#v", events)
+	}
+}
+
+func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
+	rawBundle, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	runner := &sequenceRunner{responses: []string{
+		"## Germs\nA law image.",
+		"## Elements\nCharacter, POV, Setting, Plot, Theme, Style/Tone.",
+		"## Law\nEnforcement and refusal.",
+		"## Opening\nChoices as pressure, not ids.",
+		rawBundle,
+	}}
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	workshopDir := filepath.Join(t.TempDir(), "workshop")
+	service := Service{
+		Writer:      runner,
+		Logger:      logger,
+		WorkshopDir: workshopDir,
+	}
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	if len(runner.prompts) != 5 {
+		t.Fatalf("prompt count = %d", len(runner.prompts))
+	}
+	for _, required := range []string{"Output Markdown only", "Do not output JSON", "Do not use schema field names or target_node_id values"} {
+		if !strings.Contains(runner.prompts[0], required) {
+			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
+		}
+	}
+	final := runner.prompts[4]
+	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\nA law image.") {
+		t.Fatalf("final prompt should include manifest but not raw workshop text:\n%s", final)
+	}
+	for _, rel := range []string{
+		filepath.Join("01-imagination", "prompt.txt"),
+		filepath.Join("01-imagination", "output.md"),
+		filepath.Join("01-imagination", "metadata.json"),
+		"manifest.md",
+		"manifest.json",
+	} {
+		if _, err := os.Stat(filepath.Join(workshopDir, rel)); err != nil {
+			t.Fatalf("missing workshop artifact %s: %v", rel, err)
+		}
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	var sawCompleted bool
+	for _, event := range events {
+		if event.Event == "seed.workshop.completed" {
+			sawCompleted = true
+		}
+	}
+	if !sawCompleted {
+		t.Fatalf("missing seed.workshop.completed event: %#v", events)
+	}
+}
+
+func TestGenerateRetryDoesNotRerunWorkshop(t *testing.T) {
+	invalid := DefaultBundle()
+	invalid.Packet.Nodes[1].Choices = []scene.Choice{{
+		ID:           "choice_missing",
+		Label:        "Bad continuation.",
+		TargetNodeID: "node_missing_handoff",
+		PlayerIntent: "break validation",
+	}}
+	rawInvalid, err := jsonForTest(invalid)
+	if err != nil {
+		t.Fatal(err)
+	}
+	rawValid, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	runner := &sequenceRunner{responses: []string{
+		"germs",
+		"elements",
+		"law",
+		"opening",
+		rawInvalid,
+		rawValid,
+	}}
+	service := Service{
+		Writer:        runner,
+		MaxIterations: 2,
+		WorkshopDir:   filepath.Join(t.TempDir(), "workshop"),
+	}
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	if len(runner.prompts) != 6 {
+		t.Fatalf("prompt count = %d", len(runner.prompts))
+	}
+	if strings.HasPrefix(runner.prompts[5], "You are the Creative Writer for the Sans-Nom story seed workshop.") {
+		t.Fatalf("retry reran workshop instead of final bundle revision:\n%s", runner.prompts[5])
+	}
+	if !strings.Contains(runner.prompts[5], "Previous raw Writer output to patch") {
+		t.Fatalf("retry prompt missing previous raw output:\n%s", runner.prompts[5])
 	}
 }
 

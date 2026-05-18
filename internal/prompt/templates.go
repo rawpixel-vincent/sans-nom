@@ -100,6 +100,7 @@ Create a durable StoryBible and opening StoryPacket for a new science-fantasy co
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
+- If a Seed Workshop Manifest is present, use those files as advisory planning references only. They are not canon, not final structure, and not constraints unless they improve the final StoryBible and StoryPacket.
 - If the call_scenarists tool is available, use it as a workshop before final JSON when focused outside pressure would improve the seed: law stress tests, suspension-of-disbelief checks, character contradictions, story seed risks, or vivid scene engines.
 - The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes free-form material to files, and returns only file paths.
 - You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
@@ -127,6 +128,37 @@ Context:
 %s
 
 Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`, contextText)
+}
+
+func SeedWorkshopPrompt(contextText string, turnTitle string, promptShape string, priorManifest string) string {
+	return fmt.Sprintf(`You are the Creative Writer for the Sans-Nom story seed workshop.
+
+This is a free-form workshop turn, not the final seed bundle.
+
+Rules:
+- Output Markdown only.
+- Do not output JSON.
+- Do not write a final StoryBible.
+- Do not write a final StoryPacket.
+- Do not use schema field names or target_node_id values.
+- Treat source lore as craft DNA only: pressure, contradiction, body/law/taboo, witness-bound memory, operatic SF-comics rhythm.
+- Preserve originality: no Metabarons canon names, places, factions, dynasty mechanics, council mode, direct equivalents, resurrection roster assumptions, or all-cast fanout.
+- Protect suspension of disbelief: every strange law, technology, social practice, and character choice should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequence.
+- Build useful creative material; the final constrained bundle will happen later.
+
+Workshop turn:
+%s
+
+Turn task:
+%s
+
+Prior workshop manifest:
+%s
+
+Context:
+%s
+
+Return only Markdown workshop material.`, turnTitle, promptShape, priorManifest, contextText)
 }
 
 func SeedVerifierPrompt(bundleJSON string, contextText string) string {

@@ -28,6 +28,23 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	}
 }
 
+func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
+	got := SeedWorkshopPrompt("seed context", "Imagination Turn", "Invent germs.", "No workshop artifacts yet.")
+	for _, required := range []string{
+		"Output Markdown only",
+		"Do not output JSON",
+		"Do not write a final StoryBible",
+		"Do not write a final StoryPacket",
+		"Do not use schema field names or target_node_id values",
+		"Protect suspension of disbelief",
+		"Invent germs.",
+	} {
+		if !strings.Contains(got, required) {
+			t.Fatalf("workshop prompt missing %q:\n%s", required, got)
+		}
+	}
+}
+
 func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 	got, err := WriterPrompt("writer context", "choice_refuse_publicly")
 	if err != nil {
