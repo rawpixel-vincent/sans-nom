@@ -1,0 +1,7 @@
+{
+  "include": ["bridge/src", "bridge/tests"],
+  "venvPath": "bridge",
+  "venv": ".venv",
+  "extraPaths": ["bridge/src"],
+  "pythonVersion": "3.11"
+}

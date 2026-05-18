@@ -485,7 +485,3 @@ func firstNonEmpty(values ...string) string {
 	}
 	return ""
 }
-
-func textSHA256(text string) string {
-	return hashText(text)
-}

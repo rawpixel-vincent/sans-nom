@@ -93,6 +93,15 @@ export type BackstageMessage = {
   detail_path?: string;
   artifact_paths?: string[];
   visibility: string;
+  model?: ModelMetadata;
+};
+
+export type ModelMetadata = {
+  provider_type?: string;
+  model_provider?: string;
+  model?: string;
+  reasoning_level?: string;
+  service_tier?: string;
 };
 
 export type FileInfo = {

@@ -12,6 +12,7 @@ import (
 	"sync"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -136,6 +137,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 		go func(idx int, actor Actor, need scene.ActorNeed) {
 			defer wg.Done()
 			promptText := prompt.ActorPrompt(actor.Card, node, need, context)
+			metadata := invokerModelMetadata(s.Invoker)
 			s.logActorEvent(gamelog.Event{
 				Category: "actor",
 				Event:    "actor.invoke.request",
@@ -143,19 +145,20 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 				Turn:     s.Turn,
 				PacketID: s.PacketID,
 				NodeID:   node.ID,
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"actor_id": actor.ID,
 					"mode":     need.Mode,
 					"reason":   need.Reason,
-				},
+				}, metadata),
 				Detail: map[string]any{
-					"actor_id":     actor.ID,
-					"display_name": actor.DisplayName,
-					"node_id":      node.ID,
-					"node_title":   node.Title,
-					"need":         need,
-					"prompt":       promptText,
-					"context_text": context,
+					"actor_id":       actor.ID,
+					"display_name":   actor.DisplayName,
+					"node_id":        node.ID,
+					"node_title":     node.Title,
+					"need":           need,
+					"prompt":         promptText,
+					"context_text":   context,
+					"model_metadata": metadata,
 				},
 			})
 			output, err := s.Invoker.Invoke(ctx, actor, node, need, context)
@@ -168,17 +171,18 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					Turn:     s.Turn,
 					PacketID: s.PacketID,
 					NodeID:   node.ID,
-					Fields: map[string]any{
+					Fields: modelmeta.MergeFields(map[string]any{
 						"actor_id": actor.ID,
 						"mode":     need.Mode,
 						"reason":   need.Reason,
-					},
+					}, metadata),
 					Detail: map[string]any{
-						"actor_id": actor.ID,
-						"node_id":  node.ID,
-						"need":     need,
-						"prompt":   promptText,
-						"error":    err.Error(),
+						"actor_id":       actor.ID,
+						"node_id":        node.ID,
+						"need":           need,
+						"prompt":         promptText,
+						"error":          err.Error(),
+						"model_metadata": metadata,
 					},
 				})
 				errs <- err
@@ -193,17 +197,18 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 				Turn:     s.Turn,
 				PacketID: s.PacketID,
 				NodeID:   node.ID,
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"actor_id": actor.ID,
 					"mode":     need.Mode,
 					"reason":   need.Reason,
-				},
+				}, metadata),
 				Detail: map[string]any{
-					"actor_id": actor.ID,
-					"node_id":  node.ID,
-					"need":     need,
-					"prompt":   promptText,
-					"output":   output,
+					"actor_id":       actor.ID,
+					"node_id":        node.ID,
+					"need":           need,
+					"prompt":         promptText,
+					"output":         output,
+					"model_metadata": metadata,
 				},
 			})
 		}(i, actor, need)
@@ -225,8 +230,25 @@ func (s Service) logActorEvent(event gamelog.Event) {
 	_ = s.Logger.Append(event)
 }
 
+func invokerModelMetadata(invoker Invoker) modelmeta.Metadata {
+	if invoker == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := invoker.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
+}
+
 type StaticInvoker struct {
 	Outputs map[string]Output
+}
+
+func (i StaticInvoker) ModelMetadata() modelmeta.Metadata {
+	return prompt.StaticRunner{}.ModelMetadata()
 }
 
 func (i StaticInvoker) Invoke(_ context.Context, actor Actor, _ scene.SceneNode, _ scene.ActorNeed, _ string) (Output, error) {
@@ -241,6 +263,19 @@ func (i StaticInvoker) Invoke(_ context.Context, actor Actor, _ scene.SceneNode,
 
 type ClaudeInvoker struct {
 	Runner prompt.Runner
+}
+
+func (i ClaudeInvoker) ModelMetadata() modelmeta.Metadata {
+	if i.Runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := i.Runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 func (i ClaudeInvoker) Invoke(ctx context.Context, actor Actor, node scene.SceneNode, need scene.ActorNeed, context string) (Output, error) {

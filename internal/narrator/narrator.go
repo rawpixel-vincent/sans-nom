@@ -9,6 +9,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -59,6 +60,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 	}
 	rawActors, _ := json.Marshal(actorRaw)
 	promptText := prompt.NarratorPrompt(node, string(rawActors), context)
+	metadata := rendererModelMetadata(s.Renderer)
 	logEvent(s.Logger, gamelog.Event{
 		Category: "narrator",
 		Event:    "narrator.rollout.request",
@@ -66,19 +68,20 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 		Turn:     s.Turn,
 		PacketID: packet.ID,
 		NodeID:   node.ID,
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"actor_output_count": len(actorRaw),
 			"context_chars":      len([]rune(context)),
 			"prompt_chars":       len([]rune(promptText)),
 			"decision_choice_id": decision.ChoiceID,
 			"decision_free_text": decision.FreeText,
-		},
+		}, metadata),
 		Detail: map[string]any{
-			"prompt":        promptText,
-			"context_text":  context,
-			"node":          node,
-			"actor_outputs": actorRaw,
-			"decision":      decision,
+			"prompt":         promptText,
+			"context_text":   context,
+			"node":           node,
+			"actor_outputs":  actorRaw,
+			"decision":       decision,
+			"model_metadata": metadata,
 		},
 	})
 	draft, err := s.Renderer.Render(ctx, node, actorRaw, context)
@@ -92,12 +95,13 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			PacketID: packet.ID,
 			NodeID:   node.ID,
 			Detail: map[string]any{
-				"prompt":        promptText,
-				"context_text":  context,
-				"node":          node,
-				"actor_outputs": actorRaw,
-				"decision":      decision,
-				"error":         err.Error(),
+				"prompt":         promptText,
+				"context_text":   context,
+				"node":           node,
+				"actor_outputs":  actorRaw,
+				"decision":       decision,
+				"error":          err.Error(),
+				"model_metadata": metadata,
 			},
 		})
 		return Rollout{}, err
@@ -113,13 +117,14 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			PacketID: packet.ID,
 			NodeID:   node.ID,
 			Detail: map[string]any{
-				"prompt":        promptText,
-				"context_text":  context,
-				"node":          node,
-				"actor_outputs": actorRaw,
-				"draft":         draft,
-				"decision":      decision,
-				"error":         err.Error(),
+				"prompt":         promptText,
+				"context_text":   context,
+				"node":           node,
+				"actor_outputs":  actorRaw,
+				"draft":          draft,
+				"decision":       decision,
+				"error":          err.Error(),
+				"model_metadata": metadata,
 			},
 		})
 		return Rollout{}, err
@@ -216,7 +221,28 @@ func logEvent(logger *gamelog.Writer, event gamelog.Event) {
 	_ = logger.Append(event)
 }
 
+func rendererModelMetadata(renderer Renderer) modelmeta.Metadata {
+	if renderer == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := renderer.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
+}
+
 type StaticRenderer struct{}
+
+func (StaticRenderer) ModelMetadata() modelmeta.Metadata {
+	return modelmeta.Metadata{
+		ProviderType:  "static",
+		ModelProvider: "static",
+		Model:         "static",
+	}
+}
 
 func (StaticRenderer) Render(_ context.Context, node scene.SceneNode, actorOutputs []actors.Output, _ string) (Draft, error) {
 	var prose strings.Builder
@@ -247,6 +273,19 @@ func (StaticRenderer) Render(_ context.Context, node scene.SceneNode, actorOutpu
 
 type ClaudeRenderer struct {
 	Runner prompt.Runner
+}
+
+func (r ClaudeRenderer) ModelMetadata() modelmeta.Metadata {
+	if r.Runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := r.Runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 func (r ClaudeRenderer) Render(ctx context.Context, node scene.SceneNode, actorOutputs []actors.Output, context string) (Draft, error) {

@@ -136,11 +136,12 @@ func (m Model) View() string {
 	b.WriteString("\n")
 	b.WriteString("  SANS NOM\n")
 	b.WriteString("  Runtime story launcher\n\n")
-	if m.screen == screenMain {
+	switch m.screen {
+	case screenMain:
 		b.WriteString(m.viewMain())
-	} else if m.screen == screenPack {
+	case screenPack:
 		b.WriteString(m.viewPacks())
-	} else {
+	default:
 		b.WriteString(m.viewResume())
 	}
 	b.WriteString("\n  arrows/jk move  enter select  esc back  q exit\n")

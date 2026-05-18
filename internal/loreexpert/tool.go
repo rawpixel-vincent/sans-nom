@@ -16,6 +16,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 const PromptVersion = "lore-expert-v3"
@@ -89,24 +90,26 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	}
 	cacheDir := filepath.Join(r.cacheRoot(), request.PackID, cacheKey)
 	answerPath := filepath.Join(cacheDir, "answer.md")
+	metadata := r.modelMetadata()
 	if answer, err := os.ReadFile(answerPath); err == nil && strings.TrimSpace(string(answer)) != "" {
 		refs := readSourceRefs(filepath.Join(cacheDir, "sources.json"))
 		r.log(gamelog.Event{
 			Category: "lore",
 			Event:    "lore.expert.cache_hit",
 			Message:  "lore expert cache hit",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"pack_id":     request.PackID,
 				"purpose":     request.Purpose,
 				"cache_key":   cacheKey,
 				"answer_path": filepath.ToSlash(answerPath),
-			},
+			}, metadata),
 			Detail: map[string]any{
-				"request":     request,
-				"cache_key":   cacheKey,
-				"cache_dir":   filepath.ToSlash(cacheDir),
-				"answer_path": filepath.ToSlash(answerPath),
-				"source_refs": refs,
+				"request":        request,
+				"cache_key":      cacheKey,
+				"cache_dir":      filepath.ToSlash(cacheDir),
+				"answer_path":    filepath.ToSlash(answerPath),
+				"source_refs":    refs,
+				"model_metadata": metadata,
 			},
 		})
 		return r.result(true, cacheDir, cacheKey, string(answer), refs), nil
@@ -143,20 +146,21 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		Category: "lore",
 		Event:    "lore.expert.request",
 		Message:  "lore expert request prepared",
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"pack_id":      request.PackID,
 			"purpose":      request.Purpose,
 			"cache_key":    cacheKey,
 			"source_count": len(refs),
 			"prompt_chars": len(promptText),
 			"prompt_path":  filepath.ToSlash(filepath.Join(cacheDir, "prompt.txt")),
-		},
+		}, metadata),
 		Detail: map[string]any{
-			"request":     request,
-			"cache_key":   cacheKey,
-			"cache_dir":   filepath.ToSlash(cacheDir),
-			"prompt":      promptText,
-			"source_refs": refs,
+			"request":        request,
+			"cache_key":      cacheKey,
+			"cache_dir":      filepath.ToSlash(cacheDir),
+			"prompt":         promptText,
+			"source_refs":    refs,
+			"model_metadata": metadata,
 		},
 	})
 	answer, err := r.Runner.Run(ctx, promptText)
@@ -185,6 +189,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		"answer_path":    filepath.ToSlash(answerPath),
 		"answer_chars":   len(answer),
 		"source_count":   len(refs),
+		"model":          metadata,
 		"created_at":     time.Now().UTC().Format(time.RFC3339Nano),
 		"planning_only":  true,
 	}
@@ -196,18 +201,19 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		Category: "lore",
 		Event:    "lore.expert.response",
 		Message:  "lore expert answer written",
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"pack_id":      request.PackID,
 			"purpose":      request.Purpose,
 			"cache_key":    cacheKey,
 			"answer_chars": len(answer),
 			"answer_path":  filepath.ToSlash(answerPath),
-		},
+		}, metadata),
 		Detail: map[string]any{
-			"request":     request,
-			"metadata":    meta,
-			"source_refs": refs,
-			"answer":      answer,
+			"request":        request,
+			"metadata":       meta,
+			"source_refs":    refs,
+			"answer":         answer,
+			"model_metadata": metadata,
 		},
 	})
 	return r.result(false, cacheDir, cacheKey, answer, refs), nil
@@ -447,19 +453,34 @@ func (r *ToolRunner) logFailed(arguments string, request *ToolRequest, cacheKey 
 	if cacheKey != "" {
 		fields["cache_key"] = cacheKey
 	}
+	metadata := r.modelMetadata()
 	r.log(gamelog.Event{
 		Level:    gamelog.LevelError,
 		Category: "lore",
 		Event:    "lore.expert.failed",
 		Message:  err.Error(),
-		Fields:   fields,
+		Fields:   modelmeta.MergeFields(fields, metadata),
 		Detail: map[string]any{
-			"arguments": arguments,
-			"request":   request,
-			"cache_key": cacheKey,
-			"error":     err.Error(),
+			"arguments":      arguments,
+			"request":        request,
+			"cache_key":      cacheKey,
+			"error":          err.Error(),
+			"model_metadata": metadata,
 		},
 	})
+}
+
+func (r *ToolRunner) modelMetadata() modelmeta.Metadata {
+	if r == nil || r.Runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := r.Runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 func toolSchema() map[string]any {

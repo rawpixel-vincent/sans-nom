@@ -8,6 +8,8 @@ import (
 	"os/exec"
 	"strings"
 	"time"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 type Runner interface {
@@ -21,6 +23,14 @@ type StaticRunner struct {
 
 func (r StaticRunner) Run(context.Context, string) (string, error) {
 	return r.Response, r.Err
+}
+
+func (r StaticRunner) ModelMetadata() modelmeta.Metadata {
+	return modelmeta.Metadata{
+		ProviderType:  "static",
+		ModelProvider: "static",
+		Model:         "static",
+	}
 }
 
 type ClaudeRunner struct {
@@ -96,4 +106,21 @@ func (r ClaudeRunner) Run(ctx context.Context, text string) (string, error) {
 	}
 
 	return strings.TrimSpace(stdout.String()), nil
+}
+
+func (r ClaudeRunner) ModelMetadata() modelmeta.Metadata {
+	model := r.Model
+	if model == "" {
+		model = "sonnet"
+	}
+	effort := r.Effort
+	if effort == "" {
+		effort = "medium"
+	}
+	return modelmeta.Metadata{
+		ProviderType:   "claude_cli",
+		ModelProvider:  "anthropic",
+		Model:          model,
+		ReasoningLevel: effort,
+	}
 }

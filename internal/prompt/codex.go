@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 type CodexClient interface {
@@ -115,6 +116,16 @@ func (r CodexRunner) RequestBody(text string) map[string]any {
 		}
 	}
 	return body
+}
+
+func (r CodexRunner) ModelMetadata() modelmeta.Metadata {
+	return modelmeta.Metadata{
+		ProviderType:   "codex_oauth",
+		ModelProvider:  "openai",
+		Model:          r.model(),
+		ReasoningLevel: r.effort(),
+		ServiceTier:    r.serviceTier(),
+	}
 }
 
 func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {

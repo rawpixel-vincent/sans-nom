@@ -13,6 +13,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
@@ -64,6 +65,8 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 	}
 	var previous Review
 	var previousRaw string
+	writerMetadata := promptRunnerMetadata(s.Writer)
+	verifierMetadata := promptRunnerMetadata(s.Verifier)
 	for i := 0; i < maxIterations; i++ {
 		promptText := contextText
 		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
@@ -78,13 +81,14 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			Category: "model",
 			Event:    "seed.writer.request",
 			Message:  "seed writer request prepared",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"iteration":    i + 1,
 				"prompt_chars": len(writerPrompt),
-			},
+			}, writerMetadata),
 			Detail: map[string]any{
-				"iteration": i + 1,
-				"prompt":    writerPrompt,
+				"iteration":      i + 1,
+				"prompt":         writerPrompt,
+				"model_metadata": writerMetadata,
 			},
 		})
 		raw, err := s.Writer.Run(ctx, writerPrompt)
@@ -95,13 +99,14 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			Category: "model",
 			Event:    "seed.writer.response",
 			Message:  "seed writer response received",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"iteration":      i + 1,
 				"response_chars": len(raw),
-			},
+			}, writerMetadata),
 			Detail: map[string]any{
-				"iteration": i + 1,
-				"response":  raw,
+				"iteration":      i + 1,
+				"response":       raw,
+				"model_metadata": writerMetadata,
 			},
 		})
 		bundle, err := parseBundle(raw)
@@ -113,11 +118,12 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				Category: "model",
 				Event:    "seed.writer.invalid",
 				Message:  err.Error(),
-				Fields:   map[string]any{"iteration": i + 1},
+				Fields:   modelmeta.MergeFields(map[string]any{"iteration": i + 1}, writerMetadata),
 				Detail: map[string]any{
 					"iteration":             i + 1,
 					"validation_error":      err.Error(),
 					"revision_instructions": previous.RevisionInstructions,
+					"model_metadata":        writerMetadata,
 				},
 			})
 			continue
@@ -130,12 +136,13 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				Category: "model",
 				Event:    "seed.bundle.invalid",
 				Message:  err.Error(),
-				Fields:   map[string]any{"iteration": i + 1},
+				Fields:   modelmeta.MergeFields(map[string]any{"iteration": i + 1}, writerMetadata),
 				Detail: map[string]any{
 					"iteration":             i + 1,
 					"validation_error":      err.Error(),
 					"revision_instructions": previous.RevisionInstructions,
 					"bundle":                bundle,
+					"model_metadata":        writerMetadata,
 				},
 			})
 			continue
@@ -149,16 +156,17 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			Category: "model",
 			Event:    "seed.verifier.request",
 			Message:  "seed verifier request prepared",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"iteration":    i + 1,
 				"prompt_chars": len(verifierPrompt),
 				"title":        bundle.Bible.Title,
 				"packet_id":    bundle.Packet.ID,
-			},
+			}, verifierMetadata),
 			Detail: map[string]any{
-				"iteration": i + 1,
-				"prompt":    verifierPrompt,
-				"bundle":    bundle,
+				"iteration":      i + 1,
+				"prompt":         verifierPrompt,
+				"bundle":         bundle,
+				"model_metadata": verifierMetadata,
 			},
 		})
 		rawReview, err := s.Verifier.Run(ctx, verifierPrompt)
@@ -169,13 +177,14 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			Category: "model",
 			Event:    "seed.verifier.response",
 			Message:  "seed verifier response received",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"iteration":      i + 1,
 				"response_chars": len(rawReview),
-			},
+			}, verifierMetadata),
 			Detail: map[string]any{
-				"iteration": i + 1,
-				"response":  rawReview,
+				"iteration":      i + 1,
+				"response":       rawReview,
+				"model_metadata": verifierMetadata,
 			},
 		})
 		review, err := parseReview(rawReview)
@@ -187,15 +196,16 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				Category: "model",
 				Event:    "seed.verifier.accepted",
 				Message:  "seed verifier accepted bundle",
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"iteration": i + 1,
 					"title":     bundle.Bible.Title,
 					"packet_id": bundle.Packet.ID,
-				},
+				}, verifierMetadata),
 				Detail: map[string]any{
-					"iteration": i + 1,
-					"review":    review,
-					"bundle":    bundle,
+					"iteration":      i + 1,
+					"review":         review,
+					"bundle":         bundle,
+					"model_metadata": verifierMetadata,
 				},
 			})
 			return bundle, nil
@@ -221,6 +231,7 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 	if err := os.MkdirAll(s.WorkshopDir, 0o755); err != nil {
 		return "", err
 	}
+	workshopMetadata := promptRunnerMetadata(workshopWriter)
 	artifacts := make([]WorkshopArtifact, 0, len(turns))
 	var previous []WorkshopArtifact
 	for index, turn := range turns {
@@ -239,19 +250,20 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 			Category: "model",
 			Event:    "seed.workshop.request",
 			Message:  "seed workshop request prepared",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"turn":         index + 1,
 				"turn_id":      turn.ID,
 				"title":        turn.Title,
 				"prompt_chars": len(promptText),
 				"prompt_path":  filepath.ToSlash(promptPath),
-			},
+			}, workshopMetadata),
 			Detail: map[string]any{
-				"turn":        index + 1,
-				"turn_id":     turn.ID,
-				"title":       turn.Title,
-				"prompt":      promptText,
-				"prompt_path": filepath.ToSlash(promptPath),
+				"turn":           index + 1,
+				"turn_id":        turn.ID,
+				"title":          turn.Title,
+				"prompt":         promptText,
+				"prompt_path":    filepath.ToSlash(promptPath),
+				"model_metadata": workshopMetadata,
 			},
 		})
 		output, err := workshopWriter.Run(ctx, promptText)
@@ -261,19 +273,20 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 				Category: "model",
 				Event:    "seed.workshop.failed",
 				Message:  err.Error(),
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"turn":        index + 1,
 					"turn_id":     turn.ID,
 					"title":       turn.Title,
 					"prompt_path": filepath.ToSlash(promptPath),
-				},
+				}, workshopMetadata),
 				Detail: map[string]any{
-					"turn":        index + 1,
-					"turn_id":     turn.ID,
-					"title":       turn.Title,
-					"prompt":      promptText,
-					"prompt_path": filepath.ToSlash(promptPath),
-					"error":       err.Error(),
+					"turn":           index + 1,
+					"turn_id":        turn.ID,
+					"title":          turn.Title,
+					"prompt":         promptText,
+					"prompt_path":    filepath.ToSlash(promptPath),
+					"error":          err.Error(),
+					"model_metadata": workshopMetadata,
 				},
 			})
 			return "", err
@@ -298,6 +311,7 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 			"summary":       artifact.Summary,
 			"prompt_chars":  len(promptText),
 			"output_chars":  len(output),
+			"model":         workshopMetadata,
 			"planning_only": true,
 			"created_at":    time.Now().UTC().Format(time.RFC3339Nano),
 		}); err != nil {
@@ -307,20 +321,21 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 			Category: "model",
 			Event:    "seed.workshop.response",
 			Message:  "seed workshop response received",
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"turn":          index + 1,
 				"turn_id":       turn.ID,
 				"title":         turn.Title,
 				"output_chars":  len(output),
 				"output_path":   artifact.OutputPath,
 				"metadata_path": artifact.MetaPath,
-			},
+			}, workshopMetadata),
 			Detail: map[string]any{
-				"turn":     index + 1,
-				"turn_id":  turn.ID,
-				"title":    turn.Title,
-				"artifact": artifact,
-				"output":   output,
+				"turn":           index + 1,
+				"turn_id":        turn.ID,
+				"title":          turn.Title,
+				"artifact":       artifact,
+				"output":         output,
+				"model_metadata": workshopMetadata,
 			},
 		})
 		artifacts = append(artifacts, artifact)
@@ -387,6 +402,19 @@ func (s Service) log(event gamelog.Event) {
 		return
 	}
 	_ = s.Logger.Append(event)
+}
+
+func promptRunnerMetadata(runner prompt.Runner) modelmeta.Metadata {
+	if runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 func ValidateOriginalSeed(packet scene.StoryPacket) error {
@@ -634,16 +662,6 @@ func parseBundle(raw string) (story.SeedBundle, error) {
 		return story.SeedBundle{}, fmt.Errorf("parse seed bundle: %w", err)
 	}
 	return bundle, nil
-}
-
-func parsePacket(raw string) (scene.StoryPacket, error) {
-	var packet scene.StoryPacket
-	dec := json.NewDecoder(bytes.NewBufferString(raw))
-	dec.DisallowUnknownFields()
-	if err := dec.Decode(&packet); err != nil {
-		return scene.StoryPacket{}, fmt.Errorf("parse seed packet: %w", err)
-	}
-	return packet, packet.Validate()
 }
 
 func parseReview(raw string) (Review, error) {

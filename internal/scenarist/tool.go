@@ -14,6 +14,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 type ToolRunner struct {
@@ -91,20 +92,22 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	}
 	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil)
 	dependencyWarnings := dependencyWarnings(payload.Requests)
+	metadata := runnerModelMetadata(r.Runner)
 	r.log(gamelog.Event{
 		Category: "scenarist",
 		Event:    "scenarist.call.started",
 		Message:  "writer requested scenarist material",
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"request_count":         len(payload.Requests),
 			"max_parallel":          maxParallel,
 			"call_dir":              filepath.ToSlash(callDir),
 			"tools_enabled":         r.Tools,
 			"lore_expert_available": r.LoreExpert != nil,
-		},
+		}, metadata),
 		Detail: map[string]any{
 			"arguments":             arguments,
 			"requests":              payload.Requests,
+			"model_metadata":        metadata,
 			"output_dir":            filepath.ToSlash(r.OutputDir),
 			"call_dir":              filepath.ToSlash(callDir),
 			"max_parallel":          maxParallel,
@@ -218,15 +221,16 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		Category: "scenarist",
 		Event:    "scenarist.call.completed",
 		Message:  "scenarist material written",
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"request_count":  len(payload.Requests),
 			"material_count": len(materials),
 			"call_dir":       filepath.ToSlash(callDir),
 			"tools_enabled":  r.Tools,
-		},
+		}, metadata),
 		Detail: map[string]any{
 			"requests":              payload.Requests,
 			"manifest":              manifest,
+			"model_metadata":        metadata,
 			"manifest_path":         filepath.ToSlash(filepath.Join(callDir, "manifest.json")),
 			"materials":             materials,
 			"call_dir":              filepath.ToSlash(callDir),
@@ -242,6 +246,19 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		"materials":    materials,
 		"note":         "Scenarist material is planning-only and each material in this call was generated independently. Read returned files selectively; for synthesis or dependent follow-up, call again with those paths. Do not copy wholesale or commit as canon.",
 	}, nil
+}
+
+func runnerModelMetadata(runner Runner) modelmeta.Metadata {
+	if runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 type loreExpertAnswer struct {

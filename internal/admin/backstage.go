@@ -11,28 +11,30 @@ import (
 	"strings"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 type backstageMessage struct {
-	ID             string   `json:"id"`
-	Time           string   `json:"time"`
-	StoryID        string   `json:"story_id,omitempty"`
-	Turn           int      `json:"turn,omitempty"`
-	RunID          string   `json:"run_id,omitempty"`
-	Role           string   `json:"role"`
-	Speaker        string   `json:"speaker"`
-	Kind           string   `json:"kind"`
-	Status         string   `json:"status"`
-	Text           string   `json:"text"`
-	Preview        string   `json:"preview"`
-	SourceEventID  string   `json:"source_event_id,omitempty"`
-	DetailPath     string   `json:"detail_path,omitempty"`
-	ArtifactPaths  []string `json:"artifact_paths,omitempty"`
-	Visibility     string   `json:"visibility"`
-	PacketID       string   `json:"packet_id,omitempty"`
-	NodeID         string   `json:"node_id,omitempty"`
-	SourceEvent    string   `json:"source_event,omitempty"`
-	SourceCategory string   `json:"source_category,omitempty"`
+	ID             string              `json:"id"`
+	Time           string              `json:"time"`
+	StoryID        string              `json:"story_id,omitempty"`
+	Turn           int                 `json:"turn,omitempty"`
+	RunID          string              `json:"run_id,omitempty"`
+	Role           string              `json:"role"`
+	Speaker        string              `json:"speaker"`
+	Kind           string              `json:"kind"`
+	Status         string              `json:"status"`
+	Text           string              `json:"text"`
+	Preview        string              `json:"preview"`
+	SourceEventID  string              `json:"source_event_id,omitempty"`
+	DetailPath     string              `json:"detail_path,omitempty"`
+	ArtifactPaths  []string            `json:"artifact_paths,omitempty"`
+	Visibility     string              `json:"visibility"`
+	PacketID       string              `json:"packet_id,omitempty"`
+	NodeID         string              `json:"node_id,omitempty"`
+	SourceEvent    string              `json:"source_event,omitempty"`
+	SourceCategory string              `json:"source_category,omitempty"`
+	Model          *modelmeta.Metadata `json:"model,omitempty"`
 }
 
 type backstageBuilder struct {
@@ -154,6 +156,12 @@ func (b backstageBuilder) message(event gamelog.Event, role string, speaker stri
 		text = firstNonEmpty(event.Message, event.Event)
 	}
 	artifacts := artifactPaths(b.root, event)
+	detail := b.detail(event)
+	metadata := modelMetadataForEvent(event, detail)
+	var model *modelmeta.Metadata
+	if !metadata.Empty() {
+		model = &metadata
+	}
 	return backstageMessage{
 		ID:             backstageID(event, role, kind, text),
 		Time:           event.Time,
@@ -174,6 +182,7 @@ func (b backstageBuilder) message(event gamelog.Event, role string, speaker stri
 		NodeID:         event.NodeID,
 		SourceEvent:    event.Event,
 		SourceCategory: event.Category,
+		Model:          model,
 	}
 }
 
@@ -319,6 +328,46 @@ func scenaristRequestText(detail map[string]any) string {
 
 func errorText(event gamelog.Event, detail map[string]any) string {
 	return firstNonEmpty(stringField(detail, "error"), stringField(detail, "validation_error"), event.Message, event.Event)
+}
+
+func modelMetadataForEvent(event gamelog.Event, detail map[string]any) modelmeta.Metadata {
+	metadata := modelMetadataFromAny(detail["model_metadata"])
+	if metadata.Empty() {
+		metadata = modelMetadataFromAny(detail["model"])
+	}
+	if metadata.Empty() {
+		if nested, ok := detail["metadata"].(map[string]any); ok {
+			metadata = modelMetadataFromAny(nested["model_metadata"])
+			if metadata.Empty() {
+				metadata = modelMetadataFromAny(nested["model"])
+			}
+		}
+	}
+	fieldMetadata := modelmeta.Metadata{
+		ProviderType:   firstNonEmpty(stringFromFields(event, "provider_type"), metadata.ProviderType),
+		ModelProvider:  firstNonEmpty(stringFromFields(event, "model_provider"), stringFromFields(event, "provider"), metadata.ModelProvider),
+		Model:          firstNonEmpty(stringFromFields(event, "model"), metadata.Model),
+		ReasoningLevel: firstNonEmpty(stringFromFields(event, "reasoning_level"), metadata.ReasoningLevel),
+		ServiceTier:    firstNonEmpty(stringFromFields(event, "service_tier"), metadata.ServiceTier),
+	}
+	return fieldMetadata
+}
+
+func modelMetadataFromAny(value any) modelmeta.Metadata {
+	switch typed := value.(type) {
+	case modelmeta.Metadata:
+		return typed
+	case map[string]any:
+		return modelmeta.Metadata{
+			ProviderType:   stringField(typed, "provider_type"),
+			ModelProvider:  stringField(typed, "model_provider"),
+			Model:          stringField(typed, "model"),
+			ReasoningLevel: stringField(typed, "reasoning_level"),
+			ServiceTier:    stringField(typed, "service_tier"),
+		}
+	default:
+		return modelmeta.Metadata{}
+	}
 }
 
 func providerToolUseText(event gamelog.Event, detail map[string]any) string {

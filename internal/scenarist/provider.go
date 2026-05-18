@@ -17,6 +17,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 type ProviderRunner struct {
@@ -36,6 +37,58 @@ type ProviderPoolRunner struct {
 	next    int
 	once    sync.Once
 	slots   []*providerSlot
+}
+
+func (r ProviderRunner) ModelMetadata() modelmeta.Metadata {
+	provider := strings.ToUpper(strings.TrimSpace(r.Provider))
+	if provider == "" {
+		provider = "UNKNOWN"
+	}
+	return modelmeta.Metadata{
+		ProviderType:  "claude_compatible",
+		ModelProvider: provider,
+		Model:         strings.TrimSpace(r.Model),
+	}
+}
+
+func (r *ProviderPoolRunner) ModelMetadata() modelmeta.Metadata {
+	if r == nil || len(r.Runners) == 0 {
+		return modelmeta.Metadata{}
+	}
+	providers := make([]string, 0, len(r.Runners))
+	models := make([]string, 0, len(r.Runners))
+	for _, runner := range r.Runners {
+		meta := runner.ModelMetadata()
+		if strings.TrimSpace(meta.ModelProvider) != "" {
+			providers = append(providers, meta.ModelProvider)
+		}
+		if strings.TrimSpace(meta.Model) != "" {
+			models = append(models, meta.Model)
+		}
+	}
+	return modelmeta.Metadata{
+		ProviderType:  "claude_compatible_pool",
+		ModelProvider: strings.Join(uniqueSorted(providers), ","),
+		Model:         strings.Join(uniqueSorted(models), ","),
+	}
+}
+
+func uniqueSorted(values []string) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(values))
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		if _, ok := seen[value]; ok {
+			continue
+		}
+		seen[value] = struct{}{}
+		out = append(out, value)
+	}
+	sort.Strings(out)
+	return out
 }
 
 type providerSlot struct {
@@ -259,11 +312,12 @@ func (p *claudeStreamParser) logToolUse(block map[string]any, event map[string]a
 		p.toolNames[id] = name
 		p.toolInput[id] = input
 	}
+	metadata := p.runner.ModelMetadata()
 	p.log(gamelog.Event{
 		Category: "scenarist",
 		Event:    "scenarist.provider.tool_use",
 		Message:  providerToolMessage(name, input),
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"provider":       strings.ToUpper(p.runner.Provider),
 			"model":          p.runner.Model,
 			"tool_name":      name,
@@ -271,15 +325,16 @@ func (p *claudeStreamParser) logToolUse(block map[string]any, event map[string]a
 			"target":         providerToolTarget(input),
 			"caller_role":    "scenarist",
 			"caller_speaker": "Scenarist",
-		},
+		}, metadata),
 		Detail: map[string]any{
-			"provider":    strings.ToUpper(p.runner.Provider),
-			"model":       p.runner.Model,
-			"tool_name":   name,
-			"tool_use_id": id,
-			"input":       input,
-			"raw_event":   event,
-			"raw_block":   block,
+			"provider":       strings.ToUpper(p.runner.Provider),
+			"model":          p.runner.Model,
+			"model_metadata": metadata,
+			"tool_name":      name,
+			"tool_use_id":    id,
+			"input":          input,
+			"raw_event":      event,
+			"raw_block":      block,
 		},
 	})
 }
@@ -287,11 +342,12 @@ func (p *claudeStreamParser) logToolUse(block map[string]any, event map[string]a
 func (p *claudeStreamParser) logToolResult(block map[string]any, event map[string]any) {
 	id := stringAny(block["tool_use_id"])
 	name := firstNonEmpty(p.toolNames[id], "tool")
+	metadata := p.runner.ModelMetadata()
 	p.log(gamelog.Event{
 		Category: "scenarist",
 		Event:    "scenarist.provider.tool_result",
 		Message:  providerToolResultMessage(name, p.toolInput[id], block),
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"provider":       strings.ToUpper(p.runner.Provider),
 			"model":          p.runner.Model,
 			"tool_name":      name,
@@ -299,15 +355,16 @@ func (p *claudeStreamParser) logToolResult(block map[string]any, event map[strin
 			"target":         providerToolTarget(p.toolInput[id]),
 			"caller_role":    "scenarist",
 			"caller_speaker": "Scenarist",
-		},
+		}, metadata),
 		Detail: map[string]any{
-			"provider":    strings.ToUpper(p.runner.Provider),
-			"model":       p.runner.Model,
-			"tool_name":   name,
-			"tool_use_id": id,
-			"input":       p.toolInput[id],
-			"result":      block,
-			"raw_event":   event,
+			"provider":       strings.ToUpper(p.runner.Provider),
+			"model":          p.runner.Model,
+			"model_metadata": metadata,
+			"tool_name":      name,
+			"tool_use_id":    id,
+			"input":          p.toolInput[id],
+			"result":         block,
+			"raw_event":      event,
 		},
 	})
 }

@@ -662,6 +662,38 @@
     return [...new Set(messages.map((message) => message.role).filter(Boolean))].sort();
   }
 
+  function hasModelMeta(message: BackstageMessage) {
+    const model = message.model;
+    return Boolean(
+      model?.provider_type ||
+        model?.model_provider ||
+        model?.model ||
+        model?.reasoning_level ||
+        model?.service_tier,
+    );
+  }
+
+  function modelChip(message: BackstageMessage) {
+    const model = message.model;
+    if (!model) return "";
+    return [model.model_provider, model.model].filter(Boolean).join(" / ") || model.provider_type || "model";
+  }
+
+  function modelTooltip(message: BackstageMessage) {
+    const model = message.model;
+    if (!model) return "";
+    return [
+      ["Provider type", model.provider_type],
+      ["Model provider", model.model_provider],
+      ["Model", model.model],
+      ["Reasoning", model.reasoning_level],
+      ["Service tier", model.service_tier],
+    ]
+      .filter(([, value]) => Boolean(value))
+      .map(([label, value]) => `${label}: ${value}`)
+      .join("\n");
+  }
+
   function isOpenableArtifact(path: string) {
     return /\.(json|jsonl|md|txt|log)$/i.test(path);
   }
@@ -684,6 +716,11 @@
     if (message.packet_id) lines.push(`| Packet ID | ${markdownCell(message.packet_id)} |`);
     if (message.node_id) lines.push(`| Node ID | ${markdownCell(message.node_id)} |`);
     if (message.run_id) lines.push(`| Run ID | ${markdownCell(message.run_id)} |`);
+    if (message.model?.provider_type) lines.push(`| Provider Type | ${markdownCell(message.model.provider_type)} |`);
+    if (message.model?.model_provider) lines.push(`| Model Provider | ${markdownCell(message.model.model_provider)} |`);
+    if (message.model?.model) lines.push(`| Model | ${markdownCell(message.model.model)} |`);
+    if (message.model?.reasoning_level) lines.push(`| Reasoning | ${markdownCell(message.model.reasoning_level)} |`);
+    if (message.model?.service_tier) lines.push(`| Service Tier | ${markdownCell(message.model.service_tier)} |`);
     if (message.source_event) lines.push(`| Source Event | ${markdownCell(message.source_event)} |`);
     if (message.source_event_id) lines.push(`| Source Event ID | ${markdownCell(message.source_event_id)} |`);
     if (message.detail_path) lines.push(`| Detail Path | ${markdownCell(message.detail_path)} |`);
@@ -877,6 +914,9 @@
                     <span class="role-chip">@{message.speaker}</span>
                     <span class="chip">{message.kind}</span>
                     <span class="chip">{message.status}</span>
+                    {#if hasModelMeta(message)}
+                      <span class="chip" title={modelTooltip(message)}>{modelChip(message)}</span>
+                    {/if}
                     {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
                     {#if message.run_id}<span class="chip">{message.run_id}</span>{/if}
                     <span class="ml-auto font-mono text-[11px] text-slate-500">{message.time}</span>
@@ -1159,6 +1199,9 @@
                       <span class="role-chip">@{message.speaker}</span>
                       <span class="chip">{message.kind}</span>
                       <span class="chip">{message.status}</span>
+                      {#if hasModelMeta(message)}
+                        <span class="chip" title={modelTooltip(message)}>{modelChip(message)}</span>
+                      {/if}
                       {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
                       {#if message.node_id}<span class="chip">{message.node_id}</span>{/if}
                       {#if message.run_id}<span class="chip">{message.run_id}</span>{/if}

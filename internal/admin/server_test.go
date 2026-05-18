@@ -94,7 +94,16 @@ func TestAdminExposesGlobalBackstage(t *testing.T) {
 	if err := global.Append(gamelog.Event{
 		Category: "model",
 		Event:    "seed.writer.request",
-		Detail:   map[string]any{"prompt": "make a seed"},
+		Detail: map[string]any{
+			"prompt": "make a seed",
+			"model_metadata": map[string]any{
+				"provider_type":   "codex_oauth",
+				"model_provider":  "openai",
+				"model":           "gpt-5.5",
+				"reasoning_level": "medium",
+				"service_tier":    "priority",
+			},
+		},
 	}); err != nil {
 		t.Fatal(err)
 	}
@@ -117,6 +126,9 @@ func TestAdminExposesGlobalBackstage(t *testing.T) {
 	}
 	if resp.Messages[0].Speaker != "System" || resp.Messages[0].Role != "creative-writer" || !strings.Contains(resp.Messages[0].Text, "make a seed") {
 		t.Fatalf("unexpected request message: %#v", resp.Messages[0])
+	}
+	if resp.Messages[0].Model == nil || resp.Messages[0].Model.Model != "gpt-5.5" || resp.Messages[0].Model.ReasoningLevel != "medium" {
+		t.Fatalf("missing model metadata: %#v", resp.Messages[0].Model)
 	}
 	if resp.Messages[1].Speaker != "Creative Writer" || resp.Messages[1].Status != "completed" {
 		t.Fatalf("unexpected response message: %#v", resp.Messages[1])

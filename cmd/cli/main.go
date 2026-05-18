@@ -31,6 +31,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
@@ -1453,9 +1454,23 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		} else {
 			rollout, err = rolloutOnce(ctx, packet, nodeID, decision, cfg, displayTurn)
 			if err != nil {
-				logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "narrator", Event: "narrator.rollout.failed", Message: err.Error(), PacketID: packet.ID, NodeID: nodeID})
+				metadata := narratorModelMetadata(cfg)
+				logEvent(cfg.Logger, gamelog.Event{
+					Level:    gamelog.LevelError,
+					Category: "narrator",
+					Event:    "narrator.rollout.failed",
+					Message:  err.Error(),
+					PacketID: packet.ID,
+					NodeID:   nodeID,
+					Fields:   modelmeta.MergeFields(nil, metadata),
+					Detail: map[string]any{
+						"error":          err.Error(),
+						"model_metadata": metadata,
+					},
+				})
 				return err
 			}
+			metadata := narratorModelMetadata(cfg)
 			logEvent(cfg.Logger, gamelog.Event{
 				Category: "narrator",
 				Event:    "narrator.rollout.completed",
@@ -1463,15 +1478,16 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				Turn:     displayTurn,
 				PacketID: rollout.Commit.PacketID,
 				NodeID:   rollout.Commit.NodeID,
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"choice_count":       len(rollout.Draft.Choices),
 					"prose_chars":        len([]rune(rollout.Draft.Prose)),
 					"commit_event_count": len(rollout.Commit.Events),
 					"witness_count":      len(rollout.Commit.Witnesses),
-				},
+				}, metadata),
 				Detail: map[string]any{
-					"draft":  rollout.Draft,
-					"commit": rollout.Commit,
+					"draft":          rollout.Draft,
+					"commit":         rollout.Commit,
+					"model_metadata": metadata,
 				},
 			})
 		}
@@ -1591,6 +1607,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			refreshCfg := cfg
 			refreshCfg.State = state
 			runID, runDir := writerRunInfo(refreshCfg)
+			metadata := writerRefreshModelMetadata(refreshCfg)
 			if err := savePendingDecision(cfg, state, nextDecision, runID, runDir); err != nil {
 				return err
 			}
@@ -1602,8 +1619,12 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				PacketID: packet.ID,
 				NodeID:   nodeID,
 				RunID:    runID,
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"artifact_dir": filepath.ToSlash(runDir),
+				}, metadata),
+				Detail: map[string]any{
+					"artifact_dir":   filepath.ToSlash(runDir),
+					"model_metadata": metadata,
 				},
 			})
 			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, refreshCfg)
@@ -1617,8 +1638,12 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 					PacketID: next.ID,
 					NodeID:   nextNodeID,
 					RunID:    runID,
-					Fields: map[string]any{
+					Fields: modelmeta.MergeFields(map[string]any{
 						"artifact_dir": filepath.ToSlash(runDir),
+					}, metadata),
+					Detail: map[string]any{
+						"artifact_dir":   filepath.ToSlash(runDir),
+						"model_metadata": metadata,
 					},
 				})
 				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit, turnAudioPath); err != nil {
@@ -1638,6 +1663,8 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				continue
 			}
 			failure := writerFailure(err, runID, runDir)
+			detail := writerFailureDetails(failure)
+			detail["model_metadata"] = metadata
 			logEvent(cfg.Logger, gamelog.Event{
 				Level:    gamelog.LevelError,
 				Category: "writer",
@@ -1647,10 +1674,10 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				PacketID: packet.ID,
 				NodeID:   nodeID,
 				RunID:    failure.RunID,
-				Fields: map[string]any{
+				Fields: modelmeta.MergeFields(map[string]any{
 					"artifact_dir": filepath.ToSlash(failure.RunDir),
-				},
-				Detail: writerFailureDetails(failure),
+				}, metadata),
+				Detail: detail,
 			})
 			if err := markStoryBlocked(cfg, state, failure); err != nil {
 				return err
@@ -1945,8 +1972,10 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		return "", err
 	}
 	requestSummary := ttsRequestSummary(client, text, chunks, format, requestFormat, outputPath)
+	ttsMetadata := ttsModelMetadata(cfg.TTS, stringFromAny(requestSummary["model"]))
 	if err := writeJSONFileAtomic(filepath.Join(runDir, "request.json"), map[string]any{
 		"request":         requestSummary,
+		"model_metadata":  ttsMetadata,
 		"base_url":        firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
 		"output_path":     filepath.ToSlash(outputPath),
 		"instruction":     cfg.TTS.Instruction,
@@ -1964,7 +1993,7 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"model":          requestSummary["model"],
 			"voice":          requestSummary["voice"],
 			"format":         format,
@@ -1973,13 +2002,14 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 			"chunk_count":    len(chunks),
 			"output_path":    filepath.ToSlash(outputPath),
 			"run_dir":        filepath.ToSlash(runDir),
-		},
+		}, ttsMetadata),
 		Detail: map[string]any{
-			"request":     requestSummary,
-			"base_url":    firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
-			"output_path": filepath.ToSlash(outputPath),
-			"run_dir":     filepath.ToSlash(runDir),
-			"text_sha256": textSHA256(text),
+			"request":        requestSummary,
+			"base_url":       firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
+			"output_path":    filepath.ToSlash(outputPath),
+			"run_dir":        filepath.ToSlash(runDir),
+			"text_sha256":    textSHA256(text),
+			"model_metadata": ttsMetadata,
 		},
 	})
 	ttsCtx, cancel := context.WithTimeout(ctx, client.TimeoutOrDefault())
@@ -2054,6 +2084,8 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 			"audio_bytes":        len(result.Audio),
 			"audio_base64_chars": result.AudioBase64Chars,
 		})
+		chunkDetail := responses[len(responses)-1]
+		chunkDetail["model_metadata"] = ttsMetadata
 		logEvent(cfg.Logger, gamelog.Event{
 			Category: "model",
 			Event:    "tts.mimo.chunk.completed",
@@ -2061,13 +2093,13 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 			Turn:     turnNumber,
 			PacketID: rollout.Commit.PacketID,
 			NodeID:   rollout.Commit.NodeID,
-			Fields: map[string]any{
+			Fields: modelmeta.MergeFields(map[string]any{
 				"chunk":       index + 1,
 				"chunk_count": len(chunks),
 				"chars":       len([]rune(chunk)),
 				"audio_bytes": len(result.Audio),
-			},
-			Detail: responses[len(responses)-1],
+			}, ttsMetadata),
+			Detail: chunkDetail,
 		})
 	}
 	if err := writeJSONFileAtomic(filepath.Join(runDir, "response.json"), map[string]any{
@@ -2084,7 +2116,7 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": requestSummary, "response_path": filepath.ToSlash(filepath.Join(runDir, "response.json")), "phase": "write_audio_file"})
 		return "", err
 	}
-	metadata := map[string]any{
+	runMetadata := map[string]any{
 		"model":              requestSummary["model"],
 		"voice":              requestSummary["voice"],
 		"format":             format,
@@ -2098,8 +2130,9 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		"response_path":      filepath.ToSlash(filepath.Join(runDir, "response.json")),
 		"created_at":         story.NowString(),
 	}
-	if err := writeJSONFileAtomic(filepath.Join(runDir, "metadata.json"), metadata); err != nil {
-		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": requestSummary, "metadata": metadata, "phase": "write_metadata"})
+	runMetadata["model_metadata"] = ttsMetadata
+	if err := writeJSONFileAtomic(filepath.Join(runDir, "metadata.json"), runMetadata); err != nil {
+		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": requestSummary, "metadata": runMetadata, "phase": "write_metadata"})
 		return "", err
 	}
 	logEvent(cfg.Logger, gamelog.Event{
@@ -2109,7 +2142,7 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"model":       requestSummary["model"],
 			"voice":       requestSummary["voice"],
 			"format":      format,
@@ -2117,11 +2150,12 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 			"audio_bytes": len(audio),
 			"output_path": filepath.ToSlash(outputPath),
 			"run_dir":     filepath.ToSlash(runDir),
-		},
+		}, ttsMetadata),
 		Detail: map[string]any{
-			"request":       requestSummary,
-			"response_path": filepath.ToSlash(filepath.Join(runDir, "response.json")),
-			"metadata":      metadata,
+			"request":        requestSummary,
+			"response_path":  filepath.ToSlash(filepath.Join(runDir, "response.json")),
+			"metadata":       runMetadata,
+			"model_metadata": ttsMetadata,
 		},
 	})
 	return outputPath, nil
@@ -2159,6 +2193,8 @@ func logTTSFailure(cfg playConfig, rollout narrator.Rollout, turnNumber int, run
 	detail["error"] = err.Error()
 	detail["output_path"] = filepath.ToSlash(outputPath)
 	detail["run_dir"] = filepath.ToSlash(runDir)
+	metadata := ttsModelMetadata(cfg.TTS, "")
+	detail["model_metadata"] = metadata
 	logEvent(cfg.Logger, gamelog.Event{
 		Level:    gamelog.LevelError,
 		Category: "model",
@@ -2167,10 +2203,10 @@ func logTTSFailure(cfg playConfig, rollout narrator.Rollout, turnNumber int, run
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
-		Fields: map[string]any{
+		Fields: modelmeta.MergeFields(map[string]any{
 			"output_path": filepath.ToSlash(outputPath),
 			"run_dir":     filepath.ToSlash(runDir),
-		},
+		}, metadata),
 		Detail: detail,
 	})
 }
@@ -2217,6 +2253,17 @@ func ttsRequestSummary(client ttsclient.Client, text string, chunks []string, ou
 		"chunks":         chunkSummaries,
 		"output_path":    filepath.ToSlash(outputPath),
 		"endpoint":       strings.TrimRight(firstNonEmpty(client.BaseURL, ttsclient.DefaultBaseURL), "/") + "/chat/completions",
+	}
+}
+
+func ttsModelMetadata(cfg playTTSConfig, model string) modelmeta.Metadata {
+	if strings.TrimSpace(model) == "" {
+		model = firstNonEmpty(cfg.Model, "mimo-v2.5-tts")
+	}
+	return modelmeta.Metadata{
+		ProviderType:  "openai_compatible_tts",
+		ModelProvider: "xiaomi_mimo",
+		Model:         model,
 	}
 }
 
@@ -2375,23 +2422,6 @@ func writeJSONFileAtomic(path string, value any) error {
 	}
 	data = append(data, '\n')
 	return writeBinaryAtomic(path, data)
-}
-
-func appendJSONL(path string, value any) error {
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		return err
-	}
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o644)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-	enc := json.NewEncoder(file)
-	enc.SetEscapeHTML(false)
-	if err := enc.Encode(value); err != nil {
-		return err
-	}
-	return nil
 }
 
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
@@ -2756,6 +2786,17 @@ func firstNonEmpty(values ...string) string {
 	return ""
 }
 
+func stringFromAny(value any) string {
+	switch typed := value.(type) {
+	case string:
+		return strings.TrimSpace(typed)
+	case fmt.Stringer:
+		return strings.TrimSpace(typed.String())
+	default:
+		return ""
+	}
+}
+
 func automatedDecision(node scene.SceneNode) scene.PlayerDecision {
 	if len(node.Choices) > 0 {
 		return scene.PlayerDecision{ChoiceID: node.Choices[0].ID}
@@ -2990,6 +3031,35 @@ func runtimeBridgeURL(backend string, bridgeURL string) string {
 		return ""
 	}
 	return bridgeclient.NewClient("", "").BaseURL
+}
+
+func narratorModelMetadata(cfg playConfig) modelmeta.Metadata {
+	switch cfg.Backend {
+	case "static":
+		return narrator.StaticRenderer{}.ModelMetadata()
+	case "claude":
+		return claudeRunner().ModelMetadata()
+	default:
+		return codexRunner("NarratorDraft", prompt.NarratorDraftSchema()).ModelMetadata()
+	}
+}
+
+func writerRefreshModelMetadata(cfg playConfig) modelmeta.Metadata {
+	if cfg.WriterPlanner != nil {
+		if provider, ok := cfg.WriterPlanner.(interface {
+			ModelMetadata() modelmeta.Metadata
+		}); ok {
+			return provider.ModelMetadata()
+		}
+	}
+	switch cfg.Backend {
+	case "static":
+		return prompt.StaticRunner{}.ModelMetadata()
+	case "claude":
+		return claudeRunner().ModelMetadata()
+	default:
+		return codexRunner("StoryPacket", prompt.StoryPacketSchema()).ModelMetadata()
+	}
 }
 
 func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) writer.Planner {

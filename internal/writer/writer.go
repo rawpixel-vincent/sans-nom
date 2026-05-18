@@ -11,6 +11,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -88,8 +89,25 @@ func (p StaticPlanner) Plan(_ context.Context, input Input) (scene.StoryPacket, 
 	return p.Next, p.Next.Validate()
 }
 
+func (p StaticPlanner) ModelMetadata() modelmeta.Metadata {
+	return prompt.StaticRunner{}.ModelMetadata()
+}
+
 type ClaudePlanner struct {
 	Runner prompt.Runner
+}
+
+func (p ClaudePlanner) ModelMetadata() modelmeta.Metadata {
+	if p.Runner == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := p.Runner.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
 }
 
 func (p ClaudePlanner) Plan(ctx context.Context, input Input) (scene.StoryPacket, error) {
