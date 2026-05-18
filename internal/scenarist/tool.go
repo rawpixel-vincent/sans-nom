@@ -13,18 +13,21 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 )
 
 type ToolRunner struct {
-	Runner      Runner
-	OutputDir   string
-	RepoRoot    string
-	ContextText string
-	Tools       bool
-	MaxParallel int
-	Logger      *gamelog.Writer
-	CallerRole  string
-	CallerName  string
+	Runner           Runner
+	OutputDir        string
+	RepoRoot         string
+	ContextText      string
+	Tools            bool
+	LoreExpert       *loreexpert.ToolRunner
+	LoreExpertRounds int
+	MaxParallel      int
+	Logger           *gamelog.Writer
+	CallerRole       string
+	CallerName       string
 
 	mu     sync.Mutex
 	nextID int
@@ -37,7 +40,7 @@ func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	}
 	return codexoauth.LocalTool{
 		Name:        "call_scenarists",
-		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
+		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
 		Parameters:  scenaristToolSchema(maxParallel),
 		Handler:     r.Handle,
 	}
@@ -86,27 +89,31 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	if err := os.MkdirAll(callDir, 0o755); err != nil {
 		return nil, err
 	}
-	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools)
+	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil)
 	r.log(gamelog.Event{
 		Category: "scenarist",
 		Event:    "scenarist.call.started",
 		Message:  "writer requested scenarist material",
 		Fields: map[string]any{
-			"request_count": len(payload.Requests),
-			"max_parallel":  maxParallel,
-			"call_dir":      filepath.ToSlash(callDir),
+			"request_count":         len(payload.Requests),
+			"max_parallel":          maxParallel,
+			"call_dir":              filepath.ToSlash(callDir),
+			"tools_enabled":         r.Tools,
+			"lore_expert_available": r.LoreExpert != nil,
 		},
 		Detail: map[string]any{
-			"arguments":      arguments,
-			"requests":       payload.Requests,
-			"output_dir":     filepath.ToSlash(r.OutputDir),
-			"call_dir":       filepath.ToSlash(callDir),
-			"max_parallel":   maxParallel,
-			"tools_enabled":  r.Tools,
-			"system_prompt":  systemPrompt,
-			"context_chars":  len(r.ContextText),
-			"context_text":   r.ContextText,
-			"planning_scope": "scenarist material is planning-only; Writer owns final StoryPacket",
+			"arguments":             arguments,
+			"requests":              payload.Requests,
+			"output_dir":            filepath.ToSlash(r.OutputDir),
+			"call_dir":              filepath.ToSlash(callDir),
+			"max_parallel":          maxParallel,
+			"tools_enabled":         r.Tools,
+			"lore_expert_available": r.LoreExpert != nil,
+			"lore_expert_rounds":    r.effectiveLoreExpertRounds(),
+			"system_prompt":         systemPrompt,
+			"context_chars":         len(r.ContextText),
+			"context_text":          r.ContextText,
+			"planning_scope":        "scenarist material is planning-only; Writer owns final StoryPacket",
 		},
 	})
 
@@ -119,7 +126,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		go func() {
 			defer wg.Done()
 			query := ScenaristToolQuery(r.ContextText, request)
-			raw, err := r.Runner.RunScenarist(ctx, systemPrompt, query)
+			raw, err := r.runScenarist(ctx, systemPrompt, query, request)
 			if err != nil {
 				errs[i] = err
 				return
@@ -193,13 +200,16 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"request_count":  len(payload.Requests),
 			"material_count": len(materials),
 			"call_dir":       filepath.ToSlash(callDir),
+			"tools_enabled":  r.Tools,
 		},
 		Detail: map[string]any{
-			"requests":      payload.Requests,
-			"manifest":      manifest,
-			"manifest_path": filepath.ToSlash(filepath.Join(callDir, "manifest.json")),
-			"materials":     materials,
-			"call_dir":      filepath.ToSlash(callDir),
+			"requests":              payload.Requests,
+			"manifest":              manifest,
+			"manifest_path":         filepath.ToSlash(filepath.Join(callDir, "manifest.json")),
+			"materials":             materials,
+			"call_dir":              filepath.ToSlash(callDir),
+			"tools_enabled":         r.Tools,
+			"lore_expert_available": r.LoreExpert != nil,
 		},
 	})
 	return map[string]any{
@@ -209,6 +219,170 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		"materials":    materials,
 		"note":         "Scenarist material is planning-only. Read returned files selectively; do not copy wholesale or commit as canon.",
 	}, nil
+}
+
+type loreExpertAnswer struct {
+	Question   string
+	Preview    string
+	AnswerPath string
+	Cached     bool
+	SourceRefs any
+}
+
+func (r *ToolRunner) runScenarist(ctx context.Context, systemPrompt string, query string, request ToolRequest) (string, error) {
+	raw, err := r.Runner.RunScenarist(ctx, systemPrompt, query)
+	if err != nil || r.LoreExpert == nil {
+		return raw, err
+	}
+	seen := map[string]bool{}
+	for round := 0; round < r.effectiveLoreExpertRounds(); round++ {
+		questions := extractLoreExpertQuestions(raw)
+		if len(questions) == 0 {
+			return raw, nil
+		}
+		answers := make([]loreExpertAnswer, 0, len(questions))
+		for _, question := range questions {
+			key := strings.ToLower(strings.TrimSpace(question))
+			if key == "" || seen[key] {
+				continue
+			}
+			seen[key] = true
+			answer, err := r.askLoreExpert(ctx, question, request)
+			if err != nil {
+				return "", err
+			}
+			answers = append(answers, answer)
+		}
+		if len(answers) == 0 {
+			return raw, nil
+		}
+		query = query + "\n\nThe Scenarist asked the cached Nerd Lore Expert for source-influence grounding.\n\nPrevious Scenarist material:\n" + strings.TrimSpace(raw) + "\n\nLore Expert answers:\n" + formatLoreExpertAnswers(answers) + "\n\nContinue now as the Scenarist. Use these answers as influence-only support, then return free-form Markdown creative material for the Writer to mine.\n"
+		raw, err = r.Runner.RunScenarist(ctx, systemPrompt, query)
+		if err != nil {
+			return "", err
+		}
+	}
+	return raw, nil
+}
+
+func (r *ToolRunner) askLoreExpert(ctx context.Context, question string, request ToolRequest) (loreExpertAnswer, error) {
+	if r.LoreExpert == nil {
+		return loreExpertAnswer{}, errors.New("lore expert tool is not available to scenarist")
+	}
+	tool := *r.LoreExpert
+	tool.CallerRole = "scenarist"
+	tool.CallerSpeaker = "Scenarist"
+	payload := loreexpert.ToolRequest{
+		Question:      question,
+		Purpose:       "general_influence",
+		RelevantPaths: request.RelevantPaths,
+	}
+	data, err := json.Marshal(payload)
+	if err != nil {
+		return loreExpertAnswer{}, err
+	}
+	result, err := tool.Handle(ctx, r.RepoRoot, string(data))
+	if err != nil {
+		return loreExpertAnswer{}, err
+	}
+	mapped, ok := result.(map[string]any)
+	if !ok {
+		return loreExpertAnswer{}, fmt.Errorf("unexpected lore expert result %T", result)
+	}
+	answer := loreExpertAnswer{
+		Question:   question,
+		Preview:    stringField(mapped, "preview"),
+		AnswerPath: stringField(mapped, "answer_path"),
+		Cached:     boolField(mapped, "cached"),
+		SourceRefs: mapped["source_refs"],
+	}
+	return answer, nil
+}
+
+func (r *ToolRunner) effectiveLoreExpertRounds() int {
+	if r == nil || r.LoreExpert == nil {
+		return 0
+	}
+	if r.LoreExpertRounds > 0 {
+		if r.LoreExpertRounds > 4 {
+			return 4
+		}
+		return r.LoreExpertRounds
+	}
+	return 2
+}
+
+func extractLoreExpertQuestions(text string) []string {
+	var questions []string
+	seen := map[string]bool{}
+	for _, line := range strings.Split(text, "\n") {
+		line = trimListMarker(strings.TrimSpace(line))
+		lower := strings.ToLower(line)
+		for _, marker := range []string{"@loreexpert:", "@lore expert:", "@ask_lore_expert:"} {
+			if !strings.HasPrefix(lower, marker) {
+				continue
+			}
+			question := strings.TrimSpace(line[len(marker):])
+			key := strings.ToLower(question)
+			if question != "" && !seen[key] {
+				seen[key] = true
+				questions = append(questions, question)
+			}
+			break
+		}
+		if len(questions) >= 3 {
+			break
+		}
+	}
+	return questions
+}
+
+func trimListMarker(value string) string {
+	for {
+		switch {
+		case strings.HasPrefix(value, "- "):
+			value = strings.TrimSpace(strings.TrimPrefix(value, "- "))
+		case strings.HasPrefix(value, "* "):
+			value = strings.TrimSpace(strings.TrimPrefix(value, "* "))
+		case strings.HasPrefix(value, "> "):
+			value = strings.TrimSpace(strings.TrimPrefix(value, "> "))
+		default:
+			return value
+		}
+	}
+}
+
+func formatLoreExpertAnswers(answers []loreExpertAnswer) string {
+	var b strings.Builder
+	for i, answer := range answers {
+		fmt.Fprintf(&b, "\n### LoreExpert answer %d\n", i+1)
+		fmt.Fprintf(&b, "Question: %s\n", strings.TrimSpace(answer.Question))
+		if answer.AnswerPath != "" {
+			fmt.Fprintf(&b, "Answer path: %s\n", answer.AnswerPath)
+		}
+		fmt.Fprintf(&b, "Cached: %t\n", answer.Cached)
+		if answer.SourceRefs != nil {
+			fmt.Fprintf(&b, "Source refs: %v\n", answer.SourceRefs)
+		}
+		if answer.Preview != "" {
+			fmt.Fprintf(&b, "Preview:\n%s\n", strings.TrimSpace(answer.Preview))
+		}
+	}
+	return strings.TrimSpace(b.String())
+}
+
+func stringField(values map[string]any, key string) string {
+	if value, ok := values[key].(string); ok {
+		return value
+	}
+	return ""
+}
+
+func boolField(values map[string]any, key string) bool {
+	if value, ok := values[key].(bool); ok {
+		return value
+	}
+	return false
 }
 
 func (r *ToolRunner) log(event gamelog.Event) {

@@ -63,7 +63,7 @@ func main() {
 	writerScenarists := flag.Int("writer-scenarists", -1, "optional max call_scenarists requests per tool call; 0 disables; default is provider count")
 	scenaristProvider := flag.String("scenarist-provider", defaultScenaristProviderPool(), "Claude-compatible scenarist provider pool, comma-separated, for example ZAI,MINIMAX")
 	scenaristModel := flag.String("scenarist-model", os.Getenv("SANS_NOM_SCENARIST_MODEL"), "Claude-compatible scenarist model override")
-	scenaristTools := flag.Bool("scenarist-tools", envBool("SANS_NOM_SCENARIST_TOOLS"), "allow Scenarists read-only lore tools")
+	scenaristTools := flag.Bool("scenarist-tools", envBoolDefault("SANS_NOM_SCENARIST_TOOLS", true), "allow Scenarists read-only lore tools")
 	scenaristOutputRoot := flag.String("scenarist-output-root", "", "optional root for Scenarist material output")
 	writerScenaristRounds := flag.Int("writer-scenarist-rounds", envInt("SANS_NOM_WRITER_SCENARIST_ROUNDS", 24), "maximum Writer tool rounds while refreshing; 0 uses the 24-round safety cap")
 	noPlay := flag.Bool("no-play", false, "do not enter the interactive play loop after loading or creating a story")
@@ -917,11 +917,11 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	contextText := buildSeedContextForPack(pack)
 	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
 	workshopOutputDir := seedWorkshopOutputDir(scenaristOutputDir)
-	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, logger)
+	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
+	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, logger, loreExpertTool)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
 	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool)
 	if err != nil {
 		return story.SeedBundle{}, err
@@ -1037,7 +1037,7 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 	}
 }
 
-func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer) (*scenarist.ToolRunner, error) {
+func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
 	if cfg.WriterScenarists == 0 || cfg.Backend == "static" {
 		return nil, nil
 	}
@@ -1048,7 +1048,7 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 		ScenaristTools:      cfg.ScenaristTools,
 		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
 		Logger:              logger,
-	}, contextText, outputDir)
+	}, contextText, outputDir, loreExpertTool)
 	if tool != nil {
 		tool.CallerRole = "creative-writer"
 		tool.CallerName = "Creative Writer"
@@ -2411,14 +2411,14 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		return scene.StoryPacket{}, err
 	}
 	runner := claudeRunner()
-	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir)
+	loreExpertTool := loreExpertToolRunner(cfg)
+	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir, loreExpertTool)
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
 	if toolRunner != nil && cfg.Backend == "claude" {
 		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
 	}
-	loreExpertTool := loreExpertToolRunner(cfg)
 	planner := cfg.WriterPlanner
 	if planner == nil {
 		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, loreExpertTool, cfg.ScenaristRounds)
@@ -3060,7 +3060,7 @@ func claudeRunner() prompt.ClaudeRunner {
 	}
 }
 
-func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (*scenarist.ToolRunner, error) {
+func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
 	if cfg.WriterScenarists == 0 || strings.TrimSpace(outputDir) == "" {
 		return nil, nil
 	}
@@ -3078,6 +3078,7 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (
 		RepoRoot:    repoRoot(),
 		ContextText: contextText,
 		Tools:       cfg.ScenaristTools,
+		LoreExpert:  loreExpertTool,
 		MaxParallel: maxParallel,
 		Logger:      cfg.Logger,
 		CallerRole:  "writer",
@@ -3232,6 +3233,21 @@ func envBool(name string) bool {
 		return true
 	default:
 		return false
+	}
+}
+
+func envBoolDefault(name string, fallback bool) bool {
+	value := strings.TrimSpace(os.Getenv(name))
+	if value == "" {
+		return fallback
+	}
+	switch strings.ToLower(value) {
+	case "1", "true", "yes", "on":
+		return true
+	case "0", "false", "no", "off":
+		return false
+	default:
+		return fallback
 	}
 }
 

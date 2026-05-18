@@ -57,6 +57,21 @@ func TestResolveWriterScenaristCount(t *testing.T) {
 	}
 }
 
+func TestEnvBoolDefaultAllowsOptOut(t *testing.T) {
+	t.Setenv("SANS_NOM_SCENARIST_TOOLS", "")
+	if !envBoolDefault("SANS_NOM_SCENARIST_TOOLS", true) {
+		t.Fatal("empty env should use true fallback")
+	}
+	t.Setenv("SANS_NOM_SCENARIST_TOOLS", "false")
+	if envBoolDefault("SANS_NOM_SCENARIST_TOOLS", true) {
+		t.Fatal("false env should disable default-on tools")
+	}
+	t.Setenv("SANS_NOM_SCENARIST_TOOLS", "true")
+	if !envBoolDefault("SANS_NOM_SCENARIST_TOOLS", false) {
+		t.Fatal("true env should enable tools")
+	}
+}
+
 func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
 	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
@@ -68,11 +83,14 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 		ScenaristRounds:   7,
 	}
 	outputDir := t.TempDir()
-	toolRunner, err := seedScenaristToolRunner(cfg, "writer context", outputDir, nil)
+	loreTool := &loreexpert.ToolRunner{PackID: "metabarons"}
+	toolRunner, err := seedScenaristToolRunner(cfg, "writer context", outputDir, nil, loreTool)
 	if err != nil {
 		t.Fatal(err)
 	}
-	loreTool := &loreexpert.ToolRunner{PackID: "metabarons"}
+	if toolRunner.LoreExpert != loreTool {
+		t.Fatal("seed scenarist tool should receive lore expert access")
+	}
 	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool)
 	if err != nil {
 		t.Fatal(err)

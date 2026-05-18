@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 )
 
 func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
@@ -30,7 +31,7 @@ func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
 }
 
 func TestScenaristPromptKeepsChoicesAsNonSchemaMaterial(t *testing.T) {
-	system := ScenaristSystemPrompt("", false)
+	system := ScenaristSystemPrompt("", false, false)
 	for _, required := range []string{
 		"Do not write a StoryPacket",
 		"Do not invent schema target_node_id values",
@@ -53,6 +54,17 @@ func TestScenaristPromptKeepsChoicesAsNonSchemaMaterial(t *testing.T) {
 		if !strings.Contains(query, required) {
 			t.Fatalf("scenarist query missing %q:\n%s", required, query)
 		}
+	}
+}
+
+func TestScenaristSystemPromptExposesLoreExpertWhenAvailable(t *testing.T) {
+	withExpert := ScenaristSystemPrompt("", true, true)
+	if !strings.Contains(withExpert, "@LoreExpert:") {
+		t.Fatalf("scenarist prompt should explain lore expert access:\n%s", withExpert)
+	}
+	withoutExpert := ScenaristSystemPrompt("", true, false)
+	if strings.Contains(withoutExpert, "@LoreExpert:") {
+		t.Fatalf("scenarist prompt should not mention unavailable lore expert:\n%s", withoutExpert)
 	}
 }
 
@@ -226,6 +238,88 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	}
 }
 
+func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	scenaristRunner := &fakeScenaristRunner{responses: []string{
+		"@LoreExpert: How do source consequence systems make a local doctrine credible?",
+		"final scenarist material after source grounding",
+	}}
+	loreRunner := &fakeLoreExpertRunner{response: strings.Join([]string{
+		"## Influence-only answer",
+		"consequence systems work through public cost.",
+		"## Source pattern",
+		"pattern",
+		"## Why it works",
+		"why",
+		"## How to transform it originally",
+		"transform",
+		"## Reader-plausibility risks",
+		"risk",
+		"## Do not copy",
+		"copy nothing",
+		"## Useful source refs",
+		"none",
+	}, "\n")}
+	outputDir := t.TempDir()
+	tool := (&ToolRunner{
+		Runner:      scenaristRunner,
+		OutputDir:   outputDir,
+		ContextText: "writer context",
+		MaxParallel: 1,
+		Logger:      logger,
+		CallerRole:  "creative-writer",
+		CallerName:  "Creative Writer",
+		LoreExpert: &loreexpert.ToolRunner{
+			Runner:        loreRunner,
+			CacheRoot:     t.TempDir(),
+			PackID:        "metabarons",
+			PackLabel:     "Metabarons",
+			Collection:    "sans_nom_lore_metabarons",
+			MaxSources:    1,
+			Logger:        logger,
+			CallerRole:    "creative-writer",
+			CallerSpeaker: "Creative Writer",
+		},
+	}).LocalTool()
+	args := `{"requests":[{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
+	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
+		t.Fatal(err)
+	}
+	if scenaristRunner.calls != 2 {
+		t.Fatalf("scenarist calls = %d, want 2", scenaristRunner.calls)
+	}
+	if loreRunner.calls != 1 {
+		t.Fatalf("lore expert calls = %d, want 1", loreRunner.calls)
+	}
+	if len(scenaristRunner.queries) < 2 || !strings.Contains(scenaristRunner.queries[1], "Lore Expert answers") {
+		t.Fatalf("second scenarist query missing lore expert answer:\n%#v", scenaristRunner.queries)
+	}
+	matches, err := filepath.Glob(filepath.Join(outputDir, "tool-call-001", "*doctrine.md"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(matches) != 1 {
+		t.Fatalf("material matches = %#v", matches)
+	}
+	fileData, err := os.ReadFile(matches[0])
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(fileData), "@LoreExpert") || !strings.Contains(string(fileData), "final scenarist material") {
+		t.Fatalf("unexpected material file:\n%s", fileData)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "lore.expert.request"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("lore expert request events = %#v", events)
+	}
+	if events[0].Fields["caller_role"] != "scenarist" || events[0].Fields["caller_speaker"] != "Scenarist" {
+		t.Fatalf("lore expert call not attributed to scenarist: %#v", events[0].Fields)
+	}
+}
+
 func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	tool := (&ToolRunner{
@@ -320,14 +414,22 @@ func TestManifestTextDoesNotExposeMaterial(t *testing.T) {
 
 type fakeScenaristRunner struct {
 	response  string
+	responses []string
+	queries   []string
+	systems   []string
+	calls     int
 	delay     time.Duration
 	mu        sync.Mutex
 	active    int
 	maxActive int
 }
 
-func (r *fakeScenaristRunner) RunScenarist(context.Context, string, string) (string, error) {
+func (r *fakeScenaristRunner) RunScenarist(_ context.Context, systemPrompt string, query string) (string, error) {
 	r.mu.Lock()
+	call := r.calls
+	r.calls++
+	r.systems = append(r.systems, systemPrompt)
+	r.queries = append(r.queries, query)
 	r.active++
 	if r.active > r.maxActive {
 		r.maxActive = r.active
@@ -339,6 +441,21 @@ func (r *fakeScenaristRunner) RunScenarist(context.Context, string, string) (str
 	r.mu.Lock()
 	r.active--
 	r.mu.Unlock()
+	if call < len(r.responses) {
+		return r.responses[call], nil
+	}
+	return r.response, nil
+}
+
+type fakeLoreExpertRunner struct {
+	response string
+	calls    int
+	prompts  []string
+}
+
+func (r *fakeLoreExpertRunner) Run(_ context.Context, prompt string) (string, error) {
+	r.calls++
+	r.prompts = append(r.prompts, prompt)
 	return r.response, nil
 }
 

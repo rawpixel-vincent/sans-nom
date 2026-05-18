@@ -26,7 +26,7 @@ func ManifestText(manifest Manifest) string {
 	return strings.TrimSpace(b.String())
 }
 
-func ScenaristSystemPrompt(repoRoot string, tools bool) string {
+func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string {
 	var b strings.Builder
 	b.WriteString("You are a creative scenarist assistant for Sans-Nom.\n")
 	b.WriteString("You are deeply passionate about the Metabarons as craft influence: philosophical pressure, body/law/taboo, spectacle, entertainment value, and durable questions that remain after the plot.\n")
@@ -39,6 +39,9 @@ func ScenaristSystemPrompt(repoRoot string, tools bool) string {
 	b.WriteString("Prioritize story engines: world laws, character contradictions, scene pressures, choice shapes, images, taboos, rituals, reversals, and consequences.\n")
 	b.WriteString("Protect reader plausibility. Strange material should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequences.\n")
 	b.WriteString("Never explain the moral directly. Build entertaining story material that can carry meaning through pressure and action.\n")
+	if loreExpert {
+		b.WriteString("\nA cached Nerd Lore Expert is available for focused source-influence questions. When source grounding would sharpen your brainstorm, write a line beginning `@LoreExpert:` followed by one concise influence-only question. The runtime will answer and let you continue. Use this for source patterns, tone lineage, relationship pressure, and anti-copy checks; keep creative invention and criticism in your own voice.\n")
+	}
 	if tools {
 		b.WriteString("\nRead-only lore pointers are available. Use them only to deepen craft influence, never to import canon literally.\n")
 		if repoRoot != "" {

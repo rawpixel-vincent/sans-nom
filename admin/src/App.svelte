@@ -89,6 +89,7 @@
   let backstageLive = true;
   let backstageRole = "";
   let backstageAdminDetail = false;
+  let sidebarVisible = true;
   let busy = false;
   let error = "";
   let notice = "";
@@ -722,6 +723,13 @@
         </p>
       </div>
       <div class="flex items-center gap-2 text-xs">
+        <button
+          class="btn"
+          aria-pressed={sidebarVisible}
+          on:click={() => (sidebarVisible = !sidebarVisible)}
+        >
+          {sidebarVisible ? "Hide sidebar" : "Show sidebar"}
+        </button>
         <span
           class:status-ok={status?.ok}
           class:status-bad={!status?.ok}
@@ -736,7 +744,8 @@
     </div>
   </header>
 
-  <main class="grid min-h-[calc(100vh-57px)] grid-cols-[320px_1fr]">
+  <main class={sidebarVisible ? "grid min-h-[calc(100vh-57px)] grid-cols-[320px_1fr]" : "grid min-h-[calc(100vh-57px)] grid-cols-1"}>
+    {#if sidebarVisible}
     <aside class="border-r border-slate-300 bg-slate-50 p-3">
       <div class="mb-4 rounded border border-slate-300 bg-white p-3">
         <div class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
@@ -808,6 +817,7 @@
         {/if}
       </div>
     </aside>
+    {/if}
 
     <section class="min-w-0 p-4">
       {#if error}
@@ -851,7 +861,7 @@
             </label>
             <button class="btn" on:click={() => withBusy(loadGlobalBackstage)}>Apply</button>
           </div>
-          <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+          <div class={selectedGlobalBackstageMessage ? "grid grid-cols-[minmax(0,1fr)_420px] gap-3" : "grid gap-3"}>
             <div class="chat-room" bind:this={globalChatEl}>
               {#each filteredBackstage(globalBackstageMessages) as message}
                 <div
@@ -886,27 +896,21 @@
                 </div>
               {/if}
             </div>
+            {#if selectedGlobalBackstageMessage}
             <div class="min-w-0">
               <div class="mb-2 flex items-center justify-between">
                 <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Message</h4>
-                {#if selectedGlobalBackstageMessage}
-                  <button class="btn" on:click={() => { selectedGlobalBackstageMessage = null; selectedGlobalBackstageDetail = null; }}>Clear</button>
-                {/if}
+                <button class="btn" on:click={() => { selectedGlobalBackstageMessage = null; selectedGlobalBackstageDetail = null; }}>Clear</button>
               </div>
-              {#if selectedGlobalBackstageMessage}
-                <pre class="json max-h-[38vh]">{selectedGlobalBackstageMessage.text}</pre>
-                {#if backstageAdminDetail}
-                  <div class="mt-3">
-                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
-                    <pre class="json max-h-[38vh]">{pretty(selectedGlobalBackstageDetail ?? {})}</pre>
-                  </div>
-                {/if}
-              {:else}
-                <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
-                  Select a backstage bubble to inspect the full text.
+              <pre class="json max-h-[38vh]">{selectedGlobalBackstageMessage.text}</pre>
+              {#if backstageAdminDetail}
+                <div class="mt-3">
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalBackstageDetail ?? {})}</pre>
                 </div>
               {/if}
             </div>
+            {/if}
           </div>
         </Panel>
       {:else if activeTab === "global-logs"}
@@ -961,7 +965,7 @@
               Delete selected ({selectedGlobalLogIDs.size})
             </button>
           </div>
-          <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+          <div class={selectedGlobalLog ? "grid grid-cols-[minmax(0,1fr)_420px] gap-3" : "grid gap-3"}>
             <div class="overflow-auto">
               <table class="data-table">
                 <thead>
@@ -1023,34 +1027,28 @@
                 </tbody>
               </table>
             </div>
+            {#if selectedGlobalLog}
             <div class="min-w-0">
               <div class="mb-2 flex items-center justify-between">
                 <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Global Event</h4>
-                {#if selectedGlobalLog}
-                  <button class="btn" on:click={() => { selectedGlobalLog = null; selectedGlobalLogDetail = null; }}>Clear</button>
-                {/if}
+                <button class="btn" on:click={() => { selectedGlobalLog = null; selectedGlobalLogDetail = null; }}>Clear</button>
               </div>
-              {#if selectedGlobalLog}
-                {#if selectedGlobalLogDetail}
-                  <div class="mb-3">
-                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
-                    <pre class="json max-h-[38vh]">{pretty(selectedGlobalLogDetail)}</pre>
-                  </div>
-                {/if}
+              {#if selectedGlobalLogDetail}
                 <div class="mb-3">
-                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
-                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog.fields ?? {})}</pre>
-                </div>
-                <div>
-                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Full Event</div>
-                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog)}</pre>
-                </div>
-              {:else}
-                <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
-                  Select a global log row to inspect full fields and detail JSON.
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedGlobalLogDetail)}</pre>
                 </div>
               {/if}
+              <div class="mb-3">
+                <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
+                <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog.fields ?? {})}</pre>
+              </div>
+              <div>
+                <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Full Event</div>
+                <pre class="json max-h-[38vh]">{pretty(selectedGlobalLog)}</pre>
+              </div>
             </div>
+            {/if}
           </div>
         </Panel>
       {:else if detail}
@@ -1145,7 +1143,7 @@
               </label>
               <button class="btn" on:click={() => withBusy(loadBackstage)}>Apply</button>
             </div>
-            <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+            <div class={selectedBackstageMessage ? "grid grid-cols-[minmax(0,1fr)_420px] gap-3" : "grid gap-3"}>
               <div class="chat-room" bind:this={storyChatEl}>
                 {#each filteredBackstage(backstageMessages) as message}
                   <div
@@ -1190,43 +1188,37 @@
                   </div>
                 {/if}
               </div>
+              {#if selectedBackstageMessage}
               <div class="min-w-0">
                 <div class="mb-2 flex items-center justify-between">
                   <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Message</h4>
-                  {#if selectedBackstageMessage}
-                    <button class="btn" on:click={() => { selectedBackstageMessage = null; selectedBackstageDetail = null; }}>Clear</button>
-                  {/if}
+                  <button class="btn" on:click={() => { selectedBackstageMessage = null; selectedBackstageDetail = null; }}>Clear</button>
                 </div>
-                {#if selectedBackstageMessage}
-                  <pre class="json max-h-[38vh]">{selectedBackstageMessage.text}</pre>
-                  {#if selectedBackstageMessage.artifact_paths?.length}
-                    <div class="mt-3">
-                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Artifacts</div>
-                      <div class="flex flex-wrap gap-1">
-                        {#each selectedBackstageMessage.artifact_paths as path}
-                          {#if isOpenableArtifact(path)}
-                            <button class="btn-mini" on:click={() => openBackstageArtifact(path)}>
-                              {path}
-                            </button>
-                          {:else}
-                            <span class="chip">{path}</span>
-                          {/if}
-                        {/each}
-                      </div>
+                <pre class="json max-h-[38vh]">{selectedBackstageMessage.text}</pre>
+                {#if selectedBackstageMessage.artifact_paths?.length}
+                  <div class="mt-3">
+                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Artifacts</div>
+                    <div class="flex flex-wrap gap-1">
+                      {#each selectedBackstageMessage.artifact_paths as path}
+                        {#if isOpenableArtifact(path)}
+                          <button class="btn-mini" on:click={() => openBackstageArtifact(path)}>
+                            {path}
+                          </button>
+                        {:else}
+                          <span class="chip">{path}</span>
+                        {/if}
+                      {/each}
                     </div>
-                  {/if}
-                  {#if backstageAdminDetail}
-                    <div class="mt-3">
-                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
-                      <pre class="json max-h-[38vh]">{pretty(selectedBackstageDetail ?? {})}</pre>
-                    </div>
-                  {/if}
-                {:else}
-                  <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
-                    Select a backstage bubble to inspect the full prompt, answer, and artifacts.
+                  </div>
+                {/if}
+                {#if backstageAdminDetail}
+                  <div class="mt-3">
+                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                    <pre class="json max-h-[38vh]">{pretty(selectedBackstageDetail ?? {})}</pre>
                   </div>
                 {/if}
               </div>
+              {/if}
             </div>
           </Panel>
         {:else if activeTab === "logs"}
@@ -1281,7 +1273,7 @@
                 Delete selected ({selectedLogIDs.size})
               </button>
             </div>
-            <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+            <div class={selectedLog ? "grid grid-cols-[minmax(0,1fr)_420px] gap-3" : "grid gap-3"}>
               <div class="overflow-auto">
                 <table class="data-table">
                   <thead>
@@ -1341,34 +1333,28 @@
                   </tbody>
                 </table>
               </div>
+              {#if selectedLog}
               <div class="min-w-0">
                 <div class="mb-2 flex items-center justify-between">
                   <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Event</h4>
-                  {#if selectedLog}
-                    <button class="btn" on:click={() => { selectedLog = null; selectedLogDetail = null; }}>Clear</button>
-                  {/if}
+                  <button class="btn" on:click={() => { selectedLog = null; selectedLogDetail = null; }}>Clear</button>
                 </div>
-                {#if selectedLog}
-                  {#if selectedLogDetail}
-                    <div class="mb-3">
-                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
-                      <pre class="json max-h-[38vh]">{pretty(selectedLogDetail)}</pre>
-                    </div>
-                  {/if}
+                {#if selectedLogDetail}
                   <div class="mb-3">
-                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
-                    <pre class="json max-h-[38vh]">{pretty(selectedLog.fields ?? {})}</pre>
-                  </div>
-                  <div>
-                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Full Event</div>
-                    <pre class="json max-h-[38vh]">{pretty(selectedLog)}</pre>
-                  </div>
-                {:else}
-                  <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
-                    Select a log row to inspect complete fields and event JSON.
+                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                    <pre class="json max-h-[38vh]">{pretty(selectedLogDetail)}</pre>
                   </div>
                 {/if}
+                <div class="mb-3">
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Fields</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedLog.fields ?? {})}</pre>
+                </div>
+                <div>
+                  <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Full Event</div>
+                  <pre class="json max-h-[38vh]">{pretty(selectedLog)}</pre>
+                </div>
               </div>
+              {/if}
             </div>
           </Panel>
         {:else if activeTab === "model-runs"}
