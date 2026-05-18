@@ -97,15 +97,20 @@ type providerSlot struct {
 }
 
 func (r *ProviderPoolRunner) RunScenarist(ctx context.Context, systemPrompt string, query string) (string, error) {
+	raw, _, err := r.RunScenaristWithMetadata(ctx, systemPrompt, query)
+	return raw, err
+}
+
+func (r *ProviderPoolRunner) RunScenaristWithMetadata(ctx context.Context, systemPrompt string, query string) (string, modelmeta.Metadata, error) {
 	if r == nil || len(r.Runners) == 0 {
-		return "", errors.New("scenarist provider pool is empty")
+		return "", modelmeta.Metadata{}, errors.New("scenarist provider pool is empty")
 	}
 	slot, release, err := r.acquireSlot(ctx)
 	if err != nil {
-		return "", err
+		return "", modelmeta.Metadata{}, err
 	}
 	defer release()
-	return slot.runner.RunScenarist(ctx, systemPrompt, query)
+	return slot.runner.RunScenaristWithMetadata(ctx, systemPrompt, query)
 }
 
 func (r *ProviderPoolRunner) ProviderCount() int {
@@ -158,12 +163,26 @@ func (r *ProviderPoolRunner) nextSlot() *providerSlot {
 }
 
 func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, query string) (string, error) {
+	raw, _, err := r.RunScenaristWithMetadata(ctx, systemPrompt, query)
+	return raw, err
+}
+
+func (r ProviderRunner) RunScenaristWithMetadata(ctx context.Context, systemPrompt string, query string) (string, modelmeta.Metadata, error) {
+	raw, model, err := r.runScenarist(ctx, systemPrompt, query)
+	metadata := r.ModelMetadata()
+	if model != "" {
+		metadata.Model = model
+	}
+	return raw, metadata, err
+}
+
+func (r ProviderRunner) runScenarist(ctx context.Context, systemPrompt string, query string) (string, string, error) {
 	if strings.TrimSpace(query) == "" {
-		return "", errors.New("scenarist query is required")
+		return "", "", errors.New("scenarist query is required")
 	}
 	env, model, err := ProviderEnv(r.Provider, r.Model, r.EnvFiles, os.Environ())
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	timeout := r.Timeout
 	if timeout <= 0 {
@@ -172,7 +191,8 @@ func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, q
 	ctx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
 	if r.Tools {
-		return r.runStreamScenarist(ctx, model, systemPrompt, query)
+		raw, err := r.runStreamScenarist(ctx, model, systemPrompt, query)
+		return raw, model, err
 	}
 
 	args := []string{"--bare", "--model", model, "--system-prompt", systemPrompt, "-p", query}
@@ -187,11 +207,11 @@ func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, q
 	if err := cmd.Run(); err != nil {
 		errMsg := strings.TrimSpace(stderr.String())
 		if errMsg != "" {
-			return "", fmt.Errorf("scenarist provider %s: %s: %w", strings.ToUpper(r.Provider), errMsg, err)
+			return "", model, fmt.Errorf("scenarist provider %s: %s: %w", strings.ToUpper(r.Provider), errMsg, err)
 		}
-		return "", fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), err)
+		return "", model, fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), err)
 	}
-	return strings.TrimSpace(stdout.String()), nil
+	return strings.TrimSpace(stdout.String()), model, nil
 }
 
 func (r ProviderRunner) runStreamScenarist(ctx context.Context, model string, systemPrompt string, query string) (string, error) {

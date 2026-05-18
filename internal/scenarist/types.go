@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 const MaxToolRequests = 24
@@ -19,10 +21,11 @@ type ToolRequest struct {
 }
 
 type Material struct {
-	TopicID string `json:"topic_id"`
-	Topic   string `json:"topic"`
-	Path    string `json:"path"`
-	Bytes   int    `json:"bytes"`
+	TopicID       string              `json:"topic_id"`
+	Topic         string              `json:"topic"`
+	Path          string              `json:"path"`
+	Bytes         int                 `json:"bytes"`
+	ModelMetadata *modelmeta.Metadata `json:"model_metadata,omitempty"`
 }
 
 type Manifest struct {

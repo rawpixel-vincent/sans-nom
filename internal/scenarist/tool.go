@@ -151,7 +151,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		go func() {
 			defer wg.Done()
 			query := ScenaristToolQuery(r.ContextText, request)
-			raw, err := r.runScenarist(ctx, systemPrompt, query, request)
+			raw, materialMetadata, err := r.runScenarist(ctx, systemPrompt, query, request)
 			if err != nil {
 				errs[i] = err
 				return
@@ -172,12 +172,16 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 				errs[i] = statErr
 				return
 			}
-			materials[i] = Material{
+			material := Material{
 				TopicID: topicID,
 				Topic:   request.Topic,
 				Path:    filepath.ToSlash(path),
 				Bytes:   int(info.Size()),
 			}
+			if !materialMetadata.Empty() {
+				material.ModelMetadata = &materialMetadata
+			}
+			materials[i] = material
 		}()
 	}
 	wg.Wait()
@@ -269,16 +273,16 @@ type loreExpertAnswer struct {
 	SourceRefs any
 }
 
-func (r *ToolRunner) runScenarist(ctx context.Context, systemPrompt string, query string, request ToolRequest) (string, error) {
-	raw, err := r.Runner.RunScenarist(ctx, systemPrompt, query)
+func (r *ToolRunner) runScenarist(ctx context.Context, systemPrompt string, query string, request ToolRequest) (string, modelmeta.Metadata, error) {
+	raw, metadata, err := runScenaristWithMetadata(ctx, r.Runner, systemPrompt, query)
 	if err != nil || r.LoreExpert == nil {
-		return raw, err
+		return raw, metadata, err
 	}
 	seen := map[string]bool{}
 	for round := 0; round < r.effectiveLoreExpertRounds(); round++ {
 		questions := extractLoreExpertQuestions(raw)
 		if len(questions) == 0 {
-			return raw, nil
+			return raw, metadata, nil
 		}
 		answers := make([]loreExpertAnswer, 0, len(questions))
 		for _, question := range questions {
@@ -289,20 +293,35 @@ func (r *ToolRunner) runScenarist(ctx context.Context, systemPrompt string, quer
 			seen[key] = true
 			answer, err := r.askLoreExpert(ctx, question, request)
 			if err != nil {
-				return "", err
+				return "", metadata, err
 			}
 			answers = append(answers, answer)
 		}
 		if len(answers) == 0 {
-			return raw, nil
+			return raw, metadata, nil
 		}
 		query = query + "\n\nThe Scenarist asked the cached Nerd Lore Expert for source-influence grounding.\n\nPrevious Scenarist material:\n" + strings.TrimSpace(raw) + "\n\nLore Expert answers:\n" + formatLoreExpertAnswers(answers) + "\n\nContinue now as the Scenarist. Use these answers as influence-only support, then return free-form Markdown creative material for the Writer to mine.\n"
-		raw, err = r.Runner.RunScenarist(ctx, systemPrompt, query)
+		raw, metadata, err = runScenaristWithMetadata(ctx, r.Runner, systemPrompt, query)
 		if err != nil {
-			return "", err
+			return "", metadata, err
 		}
 	}
-	return raw, nil
+	return raw, metadata, nil
+}
+
+type metadataRunner interface {
+	RunScenaristWithMetadata(ctx context.Context, systemPrompt string, query string) (string, modelmeta.Metadata, error)
+}
+
+func runScenaristWithMetadata(ctx context.Context, runner Runner, systemPrompt string, query string) (string, modelmeta.Metadata, error) {
+	if runner == nil {
+		return "", modelmeta.Metadata{}, errors.New("scenarist runner is required")
+	}
+	if typed, ok := runner.(metadataRunner); ok {
+		return typed.RunScenaristWithMetadata(ctx, systemPrompt, query)
+	}
+	raw, err := runner.RunScenarist(ctx, systemPrompt, query)
+	return raw, runnerModelMetadata(runner), err
 }
 
 func (r *ToolRunner) askLoreExpert(ctx context.Context, question string, request ToolRequest) (loreExpertAnswer, error) {

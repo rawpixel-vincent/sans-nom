@@ -208,6 +208,9 @@ func (b backstageBuilder) scenaristResponses(event gamelog.Event, detail map[str
 		msg := b.message(event, "scenarist", "Scenarist", "tool_response", "completed", text)
 		msg.ID = backstageID(event, "scenarist", stringField(item, "topic_id"), text)
 		msg.ArtifactPaths = uniqueStrings(append(msg.ArtifactPaths, path))
+		if metadata := modelMetadataFromAny(item["model_metadata"]); !metadata.Empty() {
+			msg.Model = &metadata
+		}
 		out = append(out, msg)
 	}
 	return out

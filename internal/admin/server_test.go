@@ -275,6 +275,62 @@ func TestAdminBackstageShowsScenaristProviderToolCalls(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageScenaristResponsesUseMaterialModelMetadata(t *testing.T) {
+	root := t.TempDir()
+	materialPath := filepath.Join("data", "seed-runs", "example", "scenarists", "tool-call-001", "01-germ.md")
+	if err := os.MkdirAll(filepath.Join(root, filepath.Dir(materialPath)), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, materialPath), []byte("scenarist material"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.call.completed",
+		Message:  "scenarist material written",
+		Fields: map[string]any{
+			"provider_type":  "claude_compatible_pool",
+			"model_provider": "MINIMAX,XIAOMI,ZAI",
+		},
+		Detail: map[string]any{
+			"manifest": map[string]any{
+				"materials": []any{
+					map[string]any{
+						"topic_id": "germ",
+						"topic":    "Germ",
+						"path":     filepath.ToSlash(materialPath),
+						"model_metadata": map[string]any{
+							"provider_type":  "claude_compatible",
+							"model_provider": "ZAI",
+							"model":          "glm-4.7",
+						},
+					},
+				},
+			},
+			"model_metadata": map[string]any{
+				"provider_type":  "claude_compatible_pool",
+				"model_provider": "MINIMAX,XIAOMI,ZAI",
+			},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 1 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Model == nil || resp.Messages[0].Model.ModelProvider != "ZAI" || resp.Messages[0].Model.Model != "glm-4.7" {
+		t.Fatalf("scenarist response used aggregate metadata instead of material metadata: %#v", resp.Messages[0].Model)
+	}
+}
+
 func TestAdminBackstageShowsActorInvocationPrompt(t *testing.T) {
 	root := t.TempDir()
 	ws, state := createAdminStory(t, root)

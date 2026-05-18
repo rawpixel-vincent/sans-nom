@@ -12,6 +12,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
@@ -232,7 +233,14 @@ func TestClaudeStreamParserLogsReadToolUseAndResult(t *testing.T) {
 func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	outputDir := t.TempDir()
 	tool := (&ToolRunner{
-		Runner:      &fakeScenaristRunner{response: "raw free-form material\nnot json"},
+		Runner: &fakeScenaristRunner{
+			response: "raw free-form material\nnot json",
+			metadata: modelmeta.Metadata{
+				ProviderType:  "claude_compatible",
+				ModelProvider: "ZAI",
+				Model:         "glm-4.7",
+			},
+		},
 		OutputDir:   outputDir,
 		ContextText: "writer context",
 		MaxParallel: 2,
@@ -266,6 +274,13 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	}
 	if !strings.Contains(string(fileData), "raw free-form material") {
 		t.Fatalf("missing material: %s", fileData)
+	}
+	manifestData, err := os.ReadFile(filepath.Join(outputDir, "tool-call-001", "manifest.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(manifestData), `"model_provider": "ZAI"`) || !strings.Contains(string(manifestData), `"model": "glm-4.7"`) {
+		t.Fatalf("manifest missing per-material model metadata:\n%s", manifestData)
 	}
 }
 
@@ -494,6 +509,7 @@ type fakeScenaristRunner struct {
 	responses []string
 	queries   []string
 	systems   []string
+	metadata  modelmeta.Metadata
 	calls     int
 	delay     time.Duration
 	mu        sync.Mutex
@@ -522,6 +538,11 @@ func (r *fakeScenaristRunner) RunScenarist(_ context.Context, systemPrompt strin
 		return r.responses[call], nil
 	}
 	return r.response, nil
+}
+
+func (r *fakeScenaristRunner) RunScenaristWithMetadata(ctx context.Context, systemPrompt string, query string) (string, modelmeta.Metadata, error) {
+	raw, err := r.RunScenarist(ctx, systemPrompt, query)
+	return raw, r.metadata, err
 }
 
 type fakeLoreExpertRunner struct {
