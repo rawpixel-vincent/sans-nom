@@ -9,9 +9,10 @@ import sys
 import tempfile
 import uuid
 from collections import Counter
+from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from pydantic import BaseModel, Field, ValidationError
 
@@ -645,14 +646,14 @@ def smoke_index(
     if not key:
         raise RuntimeError("SANS_NOM_VOYAGE_API_KEY or VOYAGE_API_KEY is required")
 
-    import voyageai
+    from voyageai.client import Client as VoyageClient
     from qdrant_client import QdrantClient
 
-    vo = voyageai.Client(api_key=key)
+    vo = VoyageClient(api_key=key)
     client = QdrantClient(url=qdrant_url(), check_compatibility=False)
     failures = 0
     for smoke in smoke_queries or DEFAULT_SMOKE_QUERIES:
-        vector = vo.embed([smoke.query], model=embedding_model or voyage_model(), input_type="query").embeddings[0]
+        vector = float_vector(vo.embed([smoke.query], model=embedding_model or voyage_model(), input_type="query").embeddings[0])
         hits = query_points(client, collection, vector, limit=5)
         print(f"\n## {smoke.query}")
         haystacks = []
@@ -677,17 +678,21 @@ def embed_documents(texts: list[str], fake: bool = False, embedding_model: str |
     key = voyage_api_key()
     if not key:
         raise RuntimeError("SANS_NOM_VOYAGE_API_KEY or VOYAGE_API_KEY is required")
-    import voyageai
+    from voyageai.client import Client as VoyageClient
 
-    vo = voyageai.Client(api_key=key)
+    vo = VoyageClient(api_key=key)
     batch_size = max(1, int(os.getenv("SANS_NOM_VOYAGE_BATCH_SIZE", "64")))
     vectors: list[list[float]] = []
     for start in range(0, len(texts), batch_size):
         batch = texts[start:start + batch_size]
         response = vo.embed(batch, model=embedding_model or voyage_model(), input_type="document")
-        vectors.extend(response.embeddings)
+        vectors.extend(float_vector(vector) for vector in response.embeddings)
         print(f"embedded {len(vectors)}/{len(texts)} docs", flush=True)
     return vectors
+
+
+def float_vector(values: Iterable[float | int]) -> list[float]:
+    return [float(value) for value in values]
 
 
 def ensure_collection(

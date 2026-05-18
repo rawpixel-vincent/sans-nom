@@ -100,7 +100,7 @@ class HonchoOps:
         peer_ids = {honcho_peer_id(event.peer_id) for event in req.events}
         peers = [honcho.peer(peer_id) for peer_id in sorted(peer_ids)]
         if peers:
-            session.add_peers([(peer, SessionPeerConfig(observe_others=True)) for peer in peers])
+            session.add_peers([(peer, SessionPeerConfig(observe_others=True, observe_me=True)) for peer in peers])
 
         messages = []
         for event in req.events:

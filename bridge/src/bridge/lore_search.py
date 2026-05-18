@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .lore_index import DEFAULT_COLLECTION, query_points
+from .lore_index import DEFAULT_COLLECTION, float_vector, query_points
 from .lore_ops import qdrant_url, voyage_api_key, voyage_model
 from .models import LoreSearchRequest, LoreSearchResponse, LoreSnippet
 
@@ -19,18 +19,18 @@ class LoreSearchService:
         if not key:
             raise RuntimeError("SANS_NOM_VOYAGE_API_KEY or VOYAGE_API_KEY is required")
 
-        import voyageai
+        from voyageai.client import Client as VoyageClient
         from qdrant_client import QdrantClient
 
         query = req.query.strip()
         if not query:
             return LoreSearchResponse(snippets=[])
 
-        vector = voyageai.Client(api_key=key).embed(
+        vector = float_vector(VoyageClient(api_key=key).embed(
             [query],
             model=voyage_model(),
             input_type="query",
-        ).embeddings[0]
+        ).embeddings[0])
         client = QdrantClient(url=qdrant_url(), check_compatibility=False)
         hits = query_points(
             client,
