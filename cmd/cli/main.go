@@ -17,7 +17,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -62,7 +61,7 @@ func main() {
 	groundLorePackID := flag.String("ground-lore-pack", lorepack.DefaultPackID(), "ground lore pack used for new stories and source-lore search")
 	storyCollection := flag.String("story-collection", "", "story Qdrant collection; defaults from story id")
 	replaceStory := flag.Bool("replace-story", false, "replace an existing durable story directory and seed collection")
-	writerScenarists := flag.Int("writer-scenarists", -1, "optional max call_scenarists requests per tool call; 0 disables; default is provider count")
+	writerScenaristCalls := flag.Int("writer-scenarist-calls", -1, "optional max ask_scenarist calls per Writer run; 0 disables; default is 24 for live runs")
 	scenaristProvider := flag.String("scenarist-provider", defaultScenaristProviderPool(), "Claude-compatible scenarist provider pool, comma-separated, for example ZAI,MINIMAX")
 	scenaristModel := flag.String("scenarist-model", os.Getenv("SANS_NOM_SCENARIST_MODEL"), "Claude-compatible scenarist model override")
 	scenaristTools := flag.Bool("scenarist-tools", envBoolDefault("SANS_NOM_SCENARIST_TOOLS", true), "allow Scenarists read-only lore tools")
@@ -115,20 +114,20 @@ func main() {
 	}
 	if *adminMode {
 		if err := runAdmin(context.Background(), adminConfig{
-			Addr:                *adminAddr,
-			StoryRoot:           *storyRoot,
-			BridgeURL:           resolvedBridgeURL,
-			Backend:             backend,
-			CardStore:           cardStore,
-			GroundLorePackID:    groundPack.ID,
-			GlobalCollection:    groundLoreCollection,
-			StoryCollection:     *storyCollection,
-			ScenaristProvider:   *scenaristProvider,
-			ScenaristModel:      *scenaristModel,
-			ScenaristTools:      *scenaristTools,
-			ScenaristOutputRoot: *scenaristOutputRoot,
-			ScenaristRounds:     *writerScenaristRounds,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
+			Addr:                 *adminAddr,
+			StoryRoot:            *storyRoot,
+			BridgeURL:            resolvedBridgeURL,
+			Backend:              backend,
+			CardStore:            cardStore,
+			GroundLorePackID:     groundPack.ID,
+			GlobalCollection:     groundLoreCollection,
+			StoryCollection:      *storyCollection,
+			ScenaristProvider:    *scenaristProvider,
+			ScenaristModel:       *scenaristModel,
+			ScenaristTools:       *scenaristTools,
+			ScenaristOutputRoot:  *scenaristOutputRoot,
+			ScenaristRounds:      *writerScenaristRounds,
+			WriterScenaristCalls: resolveWriterScenaristCallCount(*writerScenaristCalls, backend, true),
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -153,22 +152,22 @@ func main() {
 	if shouldRunLauncher(noArgs, passedFlagNames()) {
 		ttsCfg := playTTSConfigFromFlags(*readTurnTTS, *ttsBaseURL, *ttsModel, *ttsVoice, *ttsFormat, *ttsInstruction, *ttsOutputDir)
 		if err := runLauncher(context.Background(), launcherConfig{
-			Backend:             backend,
-			BridgeURL:           resolvedBridgeURL,
-			CardStore:           cardStore,
-			StoryRoot:           *storyRoot,
-			GroundLorePackID:    groundPack.ID,
-			GlobalCollection:    groundLoreCollection,
-			StoryCollection:     *storyCollection,
-			ScenaristProvider:   *scenaristProvider,
-			ScenaristModel:      *scenaristModel,
-			ScenaristTools:      *scenaristTools,
-			ScenaristOutputRoot: *scenaristOutputRoot,
-			ScenaristRounds:     *writerScenaristRounds,
-			RefreshWrite:        playRefreshWriter,
-			Commit:              commitMode,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
-			TTS:                 ttsCfg,
+			Backend:              backend,
+			BridgeURL:            resolvedBridgeURL,
+			CardStore:            cardStore,
+			StoryRoot:            *storyRoot,
+			GroundLorePackID:     groundPack.ID,
+			GlobalCollection:     groundLoreCollection,
+			StoryCollection:      *storyCollection,
+			ScenaristProvider:    *scenaristProvider,
+			ScenaristModel:       *scenaristModel,
+			ScenaristTools:       *scenaristTools,
+			ScenaristOutputRoot:  *scenaristOutputRoot,
+			ScenaristRounds:      *writerScenaristRounds,
+			RefreshWrite:         playRefreshWriter,
+			Commit:               commitMode,
+			WriterScenaristCalls: resolveWriterScenaristCallCount(*writerScenaristCalls, backend, true),
+			TTS:                  ttsCfg,
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -199,15 +198,15 @@ func main() {
 			StoryCollection:      *storyCollection,
 			ReplaceStory:         *replaceStory,
 		}, seedRuntimeConfig{
-			Backend:             backend,
-			BridgeURL:           resolvedBridgeURL,
-			GroundLorePackID:    groundPack.ID,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
-			ScenaristProvider:   *scenaristProvider,
-			ScenaristModel:      *scenaristModel,
-			ScenaristTools:      *scenaristTools,
-			ScenaristOutputRoot: *scenaristOutputRoot,
-			ScenaristRounds:     *writerScenaristRounds,
+			Backend:              backend,
+			BridgeURL:            resolvedBridgeURL,
+			GroundLorePackID:     groundPack.ID,
+			WriterScenaristCalls: resolveWriterScenaristCallCount(*writerScenaristCalls, backend, true),
+			ScenaristProvider:    *scenaristProvider,
+			ScenaristModel:       *scenaristModel,
+			ScenaristTools:       *scenaristTools,
+			ScenaristOutputRoot:  *scenaristOutputRoot,
+			ScenaristRounds:      *writerScenaristRounds,
 		})
 		if err != nil {
 			log.Fatal(err)
@@ -263,30 +262,30 @@ func main() {
 	if playMode {
 		ttsCfg := playTTSConfigFromFlags(*readTurnTTS, *ttsBaseURL, *ttsModel, *ttsVoice, *ttsFormat, *ttsInstruction, *ttsOutputDir)
 		if err := runPlay(context.Background(), playConfig{
-			Packet:              packet,
-			NodeID:              *nodeID,
-			Backend:             backend,
-			BridgeURL:           resolvedBridgeURL,
-			CardStore:           cardStore,
-			Workspace:           workspace,
-			State:               state,
-			Bible:               bible,
-			GroundLorePackID:    sourceLorePackID(state, groundPack.ID),
-			GlobalCollection:    sourceLoreCollection(state, groundLoreCollection),
-			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
-			InitialDecision:     decision,
-			Turns:               *turns,
-			Commit:              commitMode,
-			RefreshWrite:        playRefreshWriter,
-			TraceJSONL:          *playTraceJSONL,
-			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, playRefreshWriter),
-			ScenaristProvider:   *scenaristProvider,
-			ScenaristModel:      *scenaristModel,
-			ScenaristTools:      *scenaristTools,
-			ScenaristOutputRoot: *scenaristOutputRoot,
-			ScenaristRounds:     *writerScenaristRounds,
-			Logger:              storyLogger(workspace, state),
-			TTS:                 ttsCfg,
+			Packet:               packet,
+			NodeID:               *nodeID,
+			Backend:              backend,
+			BridgeURL:            resolvedBridgeURL,
+			CardStore:            cardStore,
+			Workspace:            workspace,
+			State:                state,
+			Bible:                bible,
+			GroundLorePackID:     sourceLorePackID(state, groundPack.ID),
+			GlobalCollection:     sourceLoreCollection(state, groundLoreCollection),
+			StoryCollection:      resolvedStoryCollection(state, *storyCollection),
+			InitialDecision:      decision,
+			Turns:                *turns,
+			Commit:               commitMode,
+			RefreshWrite:         playRefreshWriter,
+			TraceJSONL:           *playTraceJSONL,
+			WriterScenaristCalls: resolveWriterScenaristCallCount(*writerScenaristCalls, backend, playRefreshWriter),
+			ScenaristProvider:    *scenaristProvider,
+			ScenaristModel:       *scenaristModel,
+			ScenaristTools:       *scenaristTools,
+			ScenaristOutputRoot:  *scenaristOutputRoot,
+			ScenaristRounds:      *writerScenaristRounds,
+			Logger:               storyLogger(workspace, state),
+			TTS:                  ttsCfg,
 		}); err != nil {
 			log.Fatal(err)
 		}
@@ -419,51 +418,51 @@ func printSeedBundle(bundle story.SeedBundle, outputPath string) error {
 }
 
 type launcherConfig struct {
-	Backend             string
-	BridgeURL           string
-	CardStore           *contextbundle.LocalCardStore
-	StoryRoot           string
-	GroundLorePackID    string
-	GlobalCollection    string
-	StoryCollection     string
-	WriterScenarists    int
-	ScenaristProvider   string
-	ScenaristModel      string
-	ScenaristTools      bool
-	ScenaristOutputRoot string
-	ScenaristRounds     int
-	RefreshWrite        bool
-	Commit              bool
-	TTS                 playTTSConfig
+	Backend              string
+	BridgeURL            string
+	CardStore            *contextbundle.LocalCardStore
+	StoryRoot            string
+	GroundLorePackID     string
+	GlobalCollection     string
+	StoryCollection      string
+	WriterScenaristCalls int
+	ScenaristProvider    string
+	ScenaristModel       string
+	ScenaristTools       bool
+	ScenaristOutputRoot  string
+	ScenaristRounds      int
+	RefreshWrite         bool
+	Commit               bool
+	TTS                  playTTSConfig
 }
 
 type adminConfig struct {
-	Addr                string
-	StoryRoot           string
-	BridgeURL           string
-	Backend             string
-	CardStore           *contextbundle.LocalCardStore
-	GroundLorePackID    string
-	GlobalCollection    string
-	StoryCollection     string
-	WriterScenarists    int
-	ScenaristProvider   string
-	ScenaristModel      string
-	ScenaristTools      bool
-	ScenaristOutputRoot string
-	ScenaristRounds     int
+	Addr                 string
+	StoryRoot            string
+	BridgeURL            string
+	Backend              string
+	CardStore            *contextbundle.LocalCardStore
+	GroundLorePackID     string
+	GlobalCollection     string
+	StoryCollection      string
+	WriterScenaristCalls int
+	ScenaristProvider    string
+	ScenaristModel       string
+	ScenaristTools       bool
+	ScenaristOutputRoot  string
+	ScenaristRounds      int
 }
 
 type seedRuntimeConfig struct {
-	Backend             string
-	BridgeURL           string
-	GroundLorePackID    string
-	WriterScenarists    int
-	ScenaristProvider   string
-	ScenaristModel      string
-	ScenaristTools      bool
-	ScenaristOutputRoot string
-	ScenaristRounds     int
+	Backend              string
+	BridgeURL            string
+	GroundLorePackID     string
+	WriterScenaristCalls int
+	ScenaristProvider    string
+	ScenaristModel       string
+	ScenaristTools       bool
+	ScenaristOutputRoot  string
+	ScenaristRounds      int
 }
 
 type playTTSConfig struct {
@@ -512,15 +511,15 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 			GroundLoreCollection: groundCollection,
 			StoryCollection:      cfg.StoryCollection,
 		}, seedRuntimeConfig{
-			Backend:             cfg.Backend,
-			BridgeURL:           cfg.BridgeURL,
-			GroundLorePackID:    pack.ID,
-			WriterScenarists:    cfg.WriterScenarists,
-			ScenaristProvider:   cfg.ScenaristProvider,
-			ScenaristModel:      cfg.ScenaristModel,
-			ScenaristTools:      cfg.ScenaristTools,
-			ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-			ScenaristRounds:     cfg.ScenaristRounds,
+			Backend:              cfg.Backend,
+			BridgeURL:            cfg.BridgeURL,
+			GroundLorePackID:     pack.ID,
+			WriterScenaristCalls: cfg.WriterScenaristCalls,
+			ScenaristProvider:    cfg.ScenaristProvider,
+			ScenaristModel:       cfg.ScenaristModel,
+			ScenaristTools:       cfg.ScenaristTools,
+			ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
+			ScenaristRounds:      cfg.ScenaristRounds,
 		})
 		if err != nil {
 			return err
@@ -551,7 +550,7 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 			"ground_lore_collection": firstNonEmpty(opts.GroundLoreCollection, opts.GlobalLoreCollection, story.DefaultGroundLoreCollection),
 			"story_collection":       opts.StoryCollection,
 			"replace_story":          opts.ReplaceStory,
-			"writer_scenarists":      cfg.WriterScenarists,
+			"writer_scenarist_calls": cfg.WriterScenaristCalls,
 		},
 		Detail: map[string]any{
 			"story_action_options": map[string]any{
@@ -669,26 +668,26 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 			state := session.State
 			bible := session.Bible
 			refreshCfg := playConfig{
-				Packet:              session.Packet,
-				NodeID:              session.NodeID,
-				Backend:             cfg.Backend,
-				BridgeURL:           cfg.BridgeURL,
-				CardStore:           cfg.CardStore,
-				Workspace:           &workspace,
-				State:               &state,
-				Bible:               &bible,
-				GroundLorePackID:    state.SourceLorePackID(),
-				GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
-				StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
-				InitialDecision:     decisionForWriterRefresh(&state),
-				RefreshWrite:        true,
-				WriterScenarists:    cfg.WriterScenarists,
-				ScenaristProvider:   cfg.ScenaristProvider,
-				ScenaristModel:      cfg.ScenaristModel,
-				ScenaristTools:      cfg.ScenaristTools,
-				ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-				ScenaristRounds:     cfg.ScenaristRounds,
-				Logger:              storyLogger(&workspace, &state),
+				Packet:               session.Packet,
+				NodeID:               session.NodeID,
+				Backend:              cfg.Backend,
+				BridgeURL:            cfg.BridgeURL,
+				CardStore:            cfg.CardStore,
+				Workspace:            &workspace,
+				State:                &state,
+				Bible:                &bible,
+				GroundLorePackID:     state.SourceLorePackID(),
+				GlobalCollection:     sourceLoreCollection(&state, cfg.GlobalCollection),
+				StoryCollection:      resolvedStoryCollection(&state, cfg.StoryCollection),
+				InitialDecision:      decisionForWriterRefresh(&state),
+				RefreshWrite:         true,
+				WriterScenaristCalls: cfg.WriterScenaristCalls,
+				ScenaristProvider:    cfg.ScenaristProvider,
+				ScenaristModel:       cfg.ScenaristModel,
+				ScenaristTools:       cfg.ScenaristTools,
+				ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
+				ScenaristRounds:      cfg.ScenaristRounds,
+				Logger:               storyLogger(&workspace, &state),
 			}
 			next, err := refreshPacket(ctx, session.Packet, session.NodeID, decisionForWriterRefresh(&state), refreshCfg)
 			if err != nil {
@@ -710,15 +709,15 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 				GroundLoreCollection: firstNonEmpty(pack.Collection, cfg.GlobalCollection),
 				StoryCollection:      cfg.StoryCollection,
 			}, seedRuntimeConfig{
-				Backend:             cfg.Backend,
-				BridgeURL:           cfg.BridgeURL,
-				GroundLorePackID:    pack.ID,
-				WriterScenarists:    cfg.WriterScenarists,
-				ScenaristProvider:   cfg.ScenaristProvider,
-				ScenaristModel:      cfg.ScenaristModel,
-				ScenaristTools:      cfg.ScenaristTools,
-				ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-				ScenaristRounds:     cfg.ScenaristRounds,
+				Backend:              cfg.Backend,
+				BridgeURL:            cfg.BridgeURL,
+				GroundLorePackID:     pack.ID,
+				WriterScenaristCalls: cfg.WriterScenaristCalls,
+				ScenaristProvider:    cfg.ScenaristProvider,
+				ScenaristModel:       cfg.ScenaristModel,
+				ScenaristTools:       cfg.ScenaristTools,
+				ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
+				ScenaristRounds:      cfg.ScenaristRounds,
 			})
 		},
 	})
@@ -873,27 +872,27 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	state := session.State
 	bible := session.Bible
 	return playConfig{
-		Packet:              session.Packet,
-		NodeID:              session.NodeID,
-		Backend:             cfg.Backend,
-		BridgeURL:           cfg.BridgeURL,
-		CardStore:           cfg.CardStore,
-		Workspace:           &workspace,
-		State:               &state,
-		Bible:               &bible,
-		GroundLorePackID:    state.SourceLorePackID(),
-		GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
-		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
-		Commit:              cfg.Commit,
-		RefreshWrite:        cfg.RefreshWrite,
-		WriterScenarists:    cfg.WriterScenarists,
-		ScenaristProvider:   cfg.ScenaristProvider,
-		ScenaristModel:      cfg.ScenaristModel,
-		ScenaristTools:      cfg.ScenaristTools,
-		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-		ScenaristRounds:     cfg.ScenaristRounds,
-		Logger:              storyLogger(&workspace, &state),
-		TTS:                 cfg.TTS,
+		Packet:               session.Packet,
+		NodeID:               session.NodeID,
+		Backend:              cfg.Backend,
+		BridgeURL:            cfg.BridgeURL,
+		CardStore:            cfg.CardStore,
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		GroundLorePackID:     state.SourceLorePackID(),
+		GlobalCollection:     sourceLoreCollection(&state, cfg.GlobalCollection),
+		StoryCollection:      resolvedStoryCollection(&state, cfg.StoryCollection),
+		Commit:               cfg.Commit,
+		RefreshWrite:         cfg.RefreshWrite,
+		WriterScenaristCalls: cfg.WriterScenaristCalls,
+		ScenaristProvider:    cfg.ScenaristProvider,
+		ScenaristModel:       cfg.ScenaristModel,
+		ScenaristTools:       cfg.ScenaristTools,
+		ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
+		ScenaristRounds:      cfg.ScenaristRounds,
+		Logger:               storyLogger(&workspace, &state),
+		TTS:                  cfg.TTS,
 	}
 }
 
@@ -941,7 +940,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 			"collection":                globalCollection,
 			"ground_lore_pack_id":       pack.ID,
 			"context_chars":             len(contextText),
-			"writer_scenarists":         cfg.WriterScenarists,
+			"writer_scenarist_calls":    cfg.WriterScenaristCalls,
 			"scenarist_output_dir":      filepath.ToSlash(scenaristOutputDir),
 			"workshop_output_dir":       filepath.ToSlash(workshopOutputDir),
 			"writer_tools_attached":     writerRunnerHasTools(writerRunner),
@@ -1005,8 +1004,8 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
 	b.WriteString("- material imagination: choose the story's dominant physical condition from its own premise, such as ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
-	b.WriteString("- creative workshop: use call_scenarists as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
-	b.WriteString("- scenarist parallelism: requests inside one call run in parallel and do not see each other's answers. Use one call for independent lenses; make another call after reading returned files for dependent follow-up.\n")
+	b.WriteString("- creative workshop: use ask_scenarist as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
+	b.WriteString("- scenarist sequence: ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.\n")
 	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete influence patterns from the selected lore pack, such as source-pattern analysis, tone lineage, relationship pressure, or anti-copy checks.\n")
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
 	b.WriteString("- no raw source lore is injected here; concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
@@ -1042,17 +1041,17 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 }
 
 func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
-	if cfg.WriterScenarists == 0 || cfg.Backend == "static" {
+	if cfg.WriterScenaristCalls == 0 || cfg.Backend == "static" {
 		return nil, nil
 	}
 	tool, err := scenaristToolRunner(playConfig{
-		WriterScenarists:    cfg.WriterScenarists,
-		GroundLorePackID:    cfg.GroundLorePackID,
-		ScenaristProvider:   cfg.ScenaristProvider,
-		ScenaristModel:      cfg.ScenaristModel,
-		ScenaristTools:      cfg.ScenaristTools,
-		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
-		Logger:              logger,
+		WriterScenaristCalls: cfg.WriterScenaristCalls,
+		GroundLorePackID:     cfg.GroundLorePackID,
+		ScenaristProvider:    cfg.ScenaristProvider,
+		ScenaristModel:       cfg.ScenaristModel,
+		ScenaristTools:       cfg.ScenaristTools,
+		ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
+		Logger:               logger,
 	}, contextText, outputDir, loreExpertTool)
 	if tool != nil {
 		tool.CallerRole = "creative-writer"
@@ -1344,31 +1343,31 @@ func runContextPreview(
 }
 
 type playConfig struct {
-	Packet              scene.StoryPacket
-	NodeID              string
-	Backend             string
-	BridgeURL           string
-	CardStore           *contextbundle.LocalCardStore
-	Workspace           *story.Workspace
-	State               *story.StoryState
-	Bible               *story.StoryBible
-	GroundLorePackID    string
-	GlobalCollection    string
-	StoryCollection     string
-	InitialDecision     scene.PlayerDecision
-	Turns               int
-	Commit              bool
-	RefreshWrite        bool
-	TraceJSONL          bool
-	WriterScenarists    int
-	ScenaristProvider   string
-	ScenaristModel      string
-	ScenaristTools      bool
-	ScenaristOutputRoot string
-	ScenaristRounds     int
-	Logger              *gamelog.Writer
-	WriterPlanner       writer.Planner
-	TTS                 playTTSConfig
+	Packet               scene.StoryPacket
+	NodeID               string
+	Backend              string
+	BridgeURL            string
+	CardStore            *contextbundle.LocalCardStore
+	Workspace            *story.Workspace
+	State                *story.StoryState
+	Bible                *story.StoryBible
+	GroundLorePackID     string
+	GlobalCollection     string
+	StoryCollection      string
+	InitialDecision      scene.PlayerDecision
+	Turns                int
+	Commit               bool
+	RefreshWrite         bool
+	TraceJSONL           bool
+	WriterScenaristCalls int
+	ScenaristProvider    string
+	ScenaristModel       string
+	ScenaristTools       bool
+	ScenaristOutputRoot  string
+	ScenaristRounds      int
+	Logger               *gamelog.Writer
+	WriterPlanner        writer.Planner
+	TTS                  playTTSConfig
 }
 
 type writerRefreshFailure struct {
@@ -2436,7 +2435,7 @@ func writeJSONFileAtomic(path string, value any) error {
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
 	runID, runDir := writerRunInfo(cfg)
 	outputDir := scenaristOutputDir(cfg)
-	scenaristEnabled := cfg.WriterScenarists != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg)) > 0
+	scenaristEnabled := cfg.WriterScenaristCalls != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg, outputDir)) > 0
 	assembler := writerRefreshContextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.StoryCollection, cfg.Logger)
 	if scenaristEnabled {
 		assembler.Options.WriterLoreK = 4
@@ -2457,7 +2456,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		return scene.StoryPacket{}, err
 	}
 	if toolRunner != nil && cfg.Backend == "claude" {
-		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
+		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarist-calls 0")
 	}
 	planner := cfg.WriterPlanner
 	if planner == nil {
@@ -3194,82 +3193,25 @@ func claudeRunner() prompt.ClaudeRunner {
 }
 
 func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
-	if cfg.WriterScenarists == 0 || strings.TrimSpace(outputDir) == "" {
+	if cfg.WriterScenaristCalls == 0 || strings.TrimSpace(outputDir) == "" {
 		return nil, nil
 	}
-	runners := scenaristProviderRunners(cfg)
+	runners := scenaristProviderRunners(cfg, outputDir)
 	if len(runners) == 0 {
 		return nil, nil
 	}
-	maxParallel := len(runners)
-	if cfg.WriterScenarists > 0 && cfg.WriterScenarists < maxParallel {
-		maxParallel = cfg.WriterScenarists
-	}
 	return &scenarist.ToolRunner{
-		Runner:           &scenarist.ProviderPoolRunner{Runners: runners},
-		OutputDir:        outputDir,
-		RepoRoot:         repoRoot(),
-		ContextText:      contextText,
-		ReadOnlyPointers: scenaristReadOnlyPointers(cfg),
-		Tools:            cfg.ScenaristTools,
-		LoreExpert:       loreExpertTool,
-		MaxParallel:      maxParallel,
-		Logger:           cfg.Logger,
-		CallerRole:       "writer",
-		CallerName:       "Writer",
+		Runner:      &scenarist.ProviderPoolRunner{Runners: runners},
+		OutputDir:   outputDir,
+		RepoRoot:    repoRoot(),
+		ContextText: contextText,
+		Tools:       cfg.ScenaristTools,
+		LoreExpert:  loreExpertTool,
+		MaxCalls:    cfg.WriterScenaristCalls,
+		Logger:      cfg.Logger,
+		CallerRole:  "writer",
+		CallerName:  "Writer",
 	}, nil
-}
-
-func scenaristReadOnlyPointers(cfg playConfig) []string {
-	packID := firstNonEmpty(cfg.GroundLorePackID, story.DefaultGroundLorePackID)
-	pack, err := lorepack.GetPack(repoRoot(), packID)
-	if err != nil {
-		return nil
-	}
-	root := repoRoot()
-	packDir := filepath.Dir(pack.Path)
-	var pointers []string
-	seen := map[string]bool{}
-	addPointer := func(label string, path string) {
-		path = filepath.Clean(path)
-		info, err := os.Stat(path)
-		if err != nil {
-			return
-		}
-		rel, err := filepath.Rel(root, path)
-		if err != nil {
-			rel = path
-		}
-		rel = filepath.ToSlash(rel)
-		if seen[rel] {
-			return
-		}
-		seen[rel] = true
-		kind := "file"
-		action := "Read"
-		if info.IsDir() {
-			kind = "directory"
-			action = "LS/Grep"
-		}
-		pointers = append(pointers, fmt.Sprintf("%s %s: %s (use %s)", label, kind, rel, action))
-	}
-	addPointer("pack manifest", pack.Path)
-	keys := make([]string, 0, len(pack.ArtifactRoots))
-	for key := range pack.ArtifactRoots {
-		keys = append(keys, key)
-	}
-	sort.Strings(keys)
-	for _, key := range keys {
-		addPointer(key, filepath.Join(packDir, pack.ArtifactRoots[key]))
-	}
-	addPointer("pack index manifest", filepath.Join(packDir, "index", "manifest.json"))
-	if cfg.Workspace != nil {
-		addPointer("story bible", filepath.Join(cfg.Workspace.Dir, "bible.json"))
-		if cfg.State != nil && strings.TrimSpace(cfg.State.CurrentPacketPath) != "" {
-			addPointer("current story packet", filepath.Join(cfg.Workspace.Dir, cfg.State.CurrentPacketPath))
-		}
-	}
-	return pointers
 }
 
 func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
@@ -3334,18 +3276,19 @@ func codexLoreExpertEffort(value string) string {
 	return value
 }
 
-func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {
+func scenaristProviderRunners(cfg playConfig, outputDir string) []scenarist.ProviderRunner {
 	names := scenarist.ProviderNames(cfg.ScenaristProvider)
 	names = scenarist.UsableProviders(names, cfg.ScenaristModel, scenarist.DefaultEnvFiles("."), os.Environ())
 	runners := make([]scenarist.ProviderRunner, 0, len(names))
+	workDir := scenaristWorkDir(outputDir)
 	for _, name := range names {
 		runners = append(runners, scenarist.ProviderRunner{
 			Provider: name,
 			Model:    cfg.ScenaristModel,
-			WorkDir:  ".",
+			WorkDir:  workDir,
 			EnvFiles: scenarist.DefaultEnvFiles("."),
 			Tools:    cfg.ScenaristTools,
-			AddDirs:  scenaristAddDirs(cfg),
+			AddDirs:  scenaristAddDirs(cfg, outputDir),
 			Timeout:  15 * time.Minute,
 			Logger:   cfg.Logger,
 		})
@@ -3353,12 +3296,30 @@ func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {
 	return runners
 }
 
-func scenaristAddDirs(cfg playConfig) []string {
-	dirs := []string{"lore"}
+func scenaristWorkDir(outputDir string) string {
+	if strings.TrimSpace(outputDir) == "" {
+		return "."
+	}
+	return absOrClean(outputDir)
+}
+
+func scenaristAddDirs(cfg playConfig, outputDir string) []string {
+	dirs := []string{}
+	if strings.TrimSpace(outputDir) != "" {
+		dirs = append(dirs, absOrClean(filepath.Dir(outputDir)))
+	}
 	if cfg.Workspace != nil {
-		dirs = append(dirs, cfg.Workspace.Dir)
+		dirs = append(dirs, absOrClean(cfg.Workspace.Dir))
 	}
 	return dirs
+}
+
+func absOrClean(path string) string {
+	abs, err := filepath.Abs(path)
+	if err != nil {
+		return filepath.Clean(path)
+	}
+	return abs
 }
 
 func scenaristOutputDir(cfg playConfig) string {
@@ -3388,15 +3349,15 @@ func scenaristTurnSegment(cfg playConfig) string {
 	return fmt.Sprintf("turn-%06d", turn)
 }
 
-func resolveWriterScenaristCount(value int, backend string, writerRefreshEnabled bool) int {
+func resolveWriterScenaristCallCount(value int, backend string, writerRefreshEnabled bool) int {
 	if value >= 0 {
-		if value > scenarist.MaxToolRequests {
-			return scenarist.MaxToolRequests
+		if value > scenarist.MaxToolCalls {
+			return scenarist.MaxToolCalls
 		}
 		return value
 	}
 	if writerRefreshEnabled && backend != "static" {
-		return scenarist.MaxToolRequests
+		return scenarist.MaxToolCalls
 	}
 	return 0
 }

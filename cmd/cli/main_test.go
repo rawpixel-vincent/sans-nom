@@ -43,16 +43,16 @@ func TestParseDecisionAcceptsNumericChoice(t *testing.T) {
 }
 
 func TestResolveWriterScenaristCount(t *testing.T) {
-	if got := resolveWriterScenaristCount(-1, "codex", true); got != 24 {
+	if got := resolveWriterScenaristCallCount(-1, "codex", true); got != 24 {
 		t.Fatalf("default live refresh scenarists = %d", got)
 	}
-	if got := resolveWriterScenaristCount(-1, "static", true); got != 0 {
+	if got := resolveWriterScenaristCallCount(-1, "static", true); got != 0 {
 		t.Fatalf("static scenarists = %d", got)
 	}
-	if got := resolveWriterScenaristCount(99, "codex", true); got != 24 {
+	if got := resolveWriterScenaristCallCount(99, "codex", true); got != 24 {
 		t.Fatalf("clamped scenarists = %d", got)
 	}
-	if got := resolveWriterScenaristCount(0, "codex", true); got != 0 {
+	if got := resolveWriterScenaristCallCount(0, "codex", true); got != 0 {
 		t.Fatalf("explicit zero scenarists = %d", got)
 	}
 }
@@ -77,10 +77,10 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
 	t.Setenv("ZAI__ANTHROPIC_MODEL", "model")
 	cfg := seedRuntimeConfig{
-		Backend:           "codex",
-		WriterScenarists:  1,
-		ScenaristProvider: "ZAI",
-		ScenaristRounds:   7,
+		Backend:              "codex",
+		WriterScenaristCalls: 1,
+		ScenaristProvider:    "ZAI",
+		ScenaristRounds:      7,
 	}
 	outputDir := t.TempDir()
 	loreTool := &loreexpert.ToolRunner{PackID: "metabarons"}
@@ -91,8 +91,8 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if toolRunner.LoreExpert != loreTool {
 		t.Fatal("seed scenarist tool should receive lore expert access")
 	}
-	if !containsStringWith(toolRunner.ReadOnlyPointers, "lore/packs/metabarons/lore-pack.json") {
-		t.Fatalf("seed scenarist tool missing pack pointers: %#v", toolRunner.ReadOnlyPointers)
+	if toolRunner.MaxCalls != 1 {
+		t.Fatalf("seed scenarist tool max calls = %d", toolRunner.MaxCalls)
 	}
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool, logger)
@@ -109,7 +109,7 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "creative-writer" {
 		t.Fatalf("seed writer runner missing tool logging metadata: %#v", codex)
 	}
-	if hasTool(codex.ExtraTools, "call_scenarists") {
+	if hasTool(codex.ExtraTools, "ask_scenarist") {
 		t.Fatalf("final seed writer should not get scenarist tool: %#v", codex.ExtraTools)
 	}
 	if !hasTool(codex.ExtraTools, "ask_lore_expert") {
@@ -126,7 +126,7 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if workshopCodex.SchemaName != "" || workshopCodex.Schema != nil {
 		t.Fatalf("workshop runner should be free-form, got schema %q %#v", workshopCodex.SchemaName, workshopCodex.Schema)
 	}
-	if !hasTool(workshopCodex.ExtraTools, "call_scenarists") || !hasTool(workshopCodex.ExtraTools, "ask_lore_expert") {
+	if !hasTool(workshopCodex.ExtraTools, "ask_scenarist") || !hasTool(workshopCodex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("workshop writer missing local tools: %#v", workshopCodex.ExtraTools)
 	}
 	if workshopCodex.Logger != logger || workshopCodex.ToolCategory != "writer" || workshopCodex.CallerRole != "creative-writer" {
@@ -134,31 +134,9 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	}
 }
 
-func TestScenaristReadOnlyPointersUsePackLayout(t *testing.T) {
-	pointers := scenaristReadOnlyPointers(playConfig{GroundLorePackID: "metabarons"})
-	for _, required := range []string{
-		"lore/packs/metabarons/lore-pack.json",
-		"lore/packs/metabarons/wiki/lore.md",
-		"lore/packs/metabarons/links/matrix.md",
-	} {
-		if !containsStringWith(pointers, required) {
-			t.Fatalf("scenarist pointers missing %q: %#v", required, pointers)
-		}
-	}
-	for _, stale := range []string{
-		"lore/metabarons-lore-pack.md",
-		"lore/metabarons.md",
-		"README.md",
-	} {
-		if containsStringWith(pointers, stale) {
-			t.Fatalf("scenarist pointers include stale path %q: %#v", stale, pointers)
-		}
-	}
-}
-
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -170,11 +148,36 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 5 {
 		t.Fatalf("refresh writer runner missing local tools: %#v", codex)
 	}
-	if !hasTool(codex.ExtraTools, "call_scenarists") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
+	if !hasTool(codex.ExtraTools, "ask_scenarist") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("refresh writer missing local tools: %#v", codex.ExtraTools)
 	}
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "writer" || codex.RunID != "run-1" {
 		t.Fatalf("refresh writer missing tool logging metadata: %#v", codex)
+	}
+}
+
+func TestScenaristProviderRunnersUseArtifactDirsNotLoreDir(t *testing.T) {
+	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
+	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
+	t.Setenv("ZAI__ANTHROPIC_MODEL", "model")
+	outputDir := filepath.Join(t.TempDir(), "data", "seed-runs", "seed-1", "scenarists")
+	runners := scenaristProviderRunners(playConfig{
+		ScenaristProvider: "ZAI",
+		ScenaristTools:    true,
+	}, outputDir)
+	if len(runners) != 1 {
+		t.Fatalf("runners = %#v", runners)
+	}
+	if runners[0].WorkDir != outputDir {
+		t.Fatalf("workdir = %q, want %q", runners[0].WorkDir, outputDir)
+	}
+	for _, dir := range runners[0].AddDirs {
+		if dir == "lore" || strings.Contains(filepath.ToSlash(dir), "/lore") {
+			t.Fatalf("scenarist runner should not expose lore dir: %#v", runners[0].AddDirs)
+		}
+	}
+	if !containsStringWith(runners[0].AddDirs, filepath.ToSlash(filepath.Dir(outputDir))) {
+		t.Fatalf("scenarist runner missing artifact parent: %#v", runners[0].AddDirs)
 	}
 }
 
@@ -421,7 +424,7 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	if strings.Contains(text, "A binding law works") {
 		t.Fatalf("seed context should not inject raw lore snippets:\n%s", text)
 	}
-	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") || !strings.Contains(text, "call_scenarists") {
+	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") || !strings.Contains(text, "ask_scenarist") {
 		t.Fatalf("seed context missing DNA/tool guidance:\n%s", text)
 	}
 	for _, required := range []string{
@@ -578,15 +581,15 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	bible := bundle.Bible
 	originalStdin := pipeStdin(t, "")
 	err = runPlay(context.Background(), playConfig{
-		Packet:           bundle.Packet,
-		NodeID:           bundle.Packet.EntryNodeID,
-		Backend:          "static",
-		Workspace:        &workspace,
-		State:            &state,
-		Bible:            &bible,
-		RefreshWrite:     false,
-		Commit:           false,
-		WriterScenarists: 0,
+		Packet:               bundle.Packet,
+		NodeID:               bundle.Packet.EntryNodeID,
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         false,
+		Commit:               false,
+		WriterScenaristCalls: 0,
 	})
 	os.Stdin = originalStdin
 	if err != nil {
@@ -625,15 +628,15 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	}
 	originalStdin = pipeStdin(t, "1\n")
 	err = runPlay(context.Background(), playConfig{
-		Packet:           packet,
-		NodeID:           loaded.CurrentNodeID,
-		Backend:          "static",
-		Workspace:        &workspace,
-		State:            &loaded,
-		Bible:            &bible,
-		RefreshWrite:     false,
-		Commit:           false,
-		WriterScenarists: 0,
+		Packet:               packet,
+		NodeID:               loaded.CurrentNodeID,
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &loaded,
+		Bible:                &bible,
+		RefreshWrite:         false,
+		Commit:               false,
+		WriterScenaristCalls: 0,
 	})
 	os.Stdin = originalStdin
 	if err != nil {
@@ -693,16 +696,16 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	defer func() { os.Stdin = originalStdin }()
 
 	err = runPlay(context.Background(), playConfig{
-		Packet:           bundle.Packet,
-		NodeID:           bundle.Packet.EntryNodeID,
-		Backend:          "static",
-		Workspace:        &workspace,
-		State:            &state,
-		Bible:            &bible,
-		RefreshWrite:     true,
-		Commit:           false,
-		WriterScenarists: 0,
-		WriterPlanner:    invalidRefreshPlanner{},
+		Packet:               bundle.Packet,
+		NodeID:               bundle.Packet.EntryNodeID,
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         true,
+		Commit:               false,
+		WriterScenaristCalls: 0,
+		WriterPlanner:        invalidRefreshPlanner{},
 	})
 	if err == nil {
 		t.Fatal("expected writer refresh failure")
@@ -803,17 +806,17 @@ func TestRunPlayUsesSeedRunwayBeforeWriterRefresh(t *testing.T) {
 	defer func() { os.Stdin = originalStdin }()
 
 	err = runPlay(context.Background(), playConfig{
-		Packet:           bundle.Packet,
-		NodeID:           bundle.Packet.EntryNodeID,
-		Backend:          "static",
-		Workspace:        &workspace,
-		State:            &state,
-		Bible:            &bible,
-		RefreshWrite:     true,
-		Commit:           false,
-		WriterScenarists: 0,
-		WriterPlanner:    planner,
-		Turns:            4,
+		Packet:               bundle.Packet,
+		NodeID:               bundle.Packet.EntryNodeID,
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         true,
+		Commit:               false,
+		WriterScenaristCalls: 0,
+		WriterPlanner:        planner,
+		Turns:                4,
 	})
 	if err != nil {
 		t.Fatal(err)

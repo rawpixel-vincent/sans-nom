@@ -29,7 +29,7 @@ Packet contract:
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:
-- Use call_scenarists for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Requests in one call run in parallel; use independent lenses together and dependent follow-up after reading returned files.
+- Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert only for focused source-pattern research. Treat its answers as influence notes, not as story authorship.
 - You own the final packet shape. Scenarist and LoreExpert material is advisory.
 
@@ -162,8 +162,8 @@ Rules:
 - Keep the generated story original: new names, places, factions, conflicts, and social orders.
 
 Tools:
-- Use call_scenarists for sparks, critique, alternatives, reversals, character contradictions, scene engines, choice pressure, and reader-risk checks.
-- Requests inside one call run in parallel and do not see each other's answers. Use one call for independent lenses; use a later call after reading returned files for dependent follow-up.
+- Use ask_scenarist for sparks, critique, alternatives, reversals, character contradictions, scene engines, choice pressure, and reader-risk checks.
+- Ask one Scenarist for one advisory job, read the returned file, then ask follow-up only when it adds something specific.
 - Use ask_lore_expert only for focused source-pattern research from the selected lore pack.
 
 Workshop turn:

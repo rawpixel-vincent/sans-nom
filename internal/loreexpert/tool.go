@@ -60,7 +60,7 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Reference specialist for the selected ground-lore pack. Use when a question needs source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. For generated-story brainstorming, critique, doctrine invention, scene engines, or choice pressure, call_scenarists is the creative room to ask first. Results are cached per lore pack and returned as file paths plus a short preview.",
+		Description: "Reference specialist for the selected ground-lore pack. Use when a question needs source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. For generated-story brainstorming, critique, doctrine invention, scene engines, or choice pressure, ask_scenarist is the creative room to ask first. Results are cached per lore pack and returned as file paths plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
@@ -494,7 +494,7 @@ func toolSchema() map[string]any {
 			},
 			"question": map[string]any{
 				"type":        "string",
-				"description": "Influence-only source question. Ask for ground-lore patterns, source refs, tone lineage, relationship pressure, or anti-copy risks. Creative brainstorming belongs in call_scenarists.",
+				"description": "Influence-only source question. Ask for ground-lore patterns, source refs, tone lineage, relationship pressure, or anti-copy risks. Creative brainstorming belongs in ask_scenarist.",
 			},
 			"purpose": map[string]any{
 				"type": "string",

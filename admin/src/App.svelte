@@ -721,6 +721,8 @@
     if (message.model?.model) lines.push(`| Model | ${markdownCell(message.model.model)} |`);
     if (message.model?.reasoning_level) lines.push(`| Reasoning | ${markdownCell(message.model.reasoning_level)} |`);
     if (message.model?.service_tier) lines.push(`| Service Tier | ${markdownCell(message.model.service_tier)} |`);
+    if (message.preview_truncated) lines.push("| Preview | Shortened in chat bubble only |");
+    if (message.tool_output_truncated) lines.push("| Tool Output | Truncated before model received it |");
     if (message.source_event) lines.push(`| Source Event | ${markdownCell(message.source_event)} |`);
     if (message.source_event_id) lines.push(`| Source Event ID | ${markdownCell(message.source_event_id)} |`);
     if (message.detail_path) lines.push(`| Detail Path | ${markdownCell(message.detail_path)} |`);
@@ -916,6 +918,12 @@
                     <span class="chip">{message.status}</span>
                     {#if hasModelMeta(message)}
                       <span class="chip" title={modelTooltip(message)}>{modelChip(message)}</span>
+                    {/if}
+                    {#if message.preview_truncated}
+                      <span class="chip" title="Only this chat bubble preview is shortened. Detail and Copy use the full backstage text.">preview truncated</span>
+                    {/if}
+                    {#if message.tool_output_truncated}
+                      <span class="chip-warning" title="The actual tool stdout or stderr was truncated before it was returned to the model.">tool output truncated</span>
                     {/if}
                     {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
                     {#if message.run_id}<span class="chip">{message.run_id}</span>{/if}
@@ -1201,6 +1209,12 @@
                       <span class="chip">{message.status}</span>
                       {#if hasModelMeta(message)}
                         <span class="chip" title={modelTooltip(message)}>{modelChip(message)}</span>
+                      {/if}
+                      {#if message.preview_truncated}
+                        <span class="chip" title="Only this chat bubble preview is shortened. Detail and Copy use the full backstage text.">preview truncated</span>
+                      {/if}
+                      {#if message.tool_output_truncated}
+                        <span class="chip-warning" title="The actual tool stdout or stderr was truncated before it was returned to the model.">tool output truncated</span>
                       {/if}
                       {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
                       {#if message.node_id}<span class="chip">{message.node_id}</span>{/if}

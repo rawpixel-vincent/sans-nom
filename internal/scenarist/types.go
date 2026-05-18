@@ -10,7 +10,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
-const MaxToolRequests = 24
+const MaxToolCalls = 24
 
 type ToolRequest struct {
 	TopicID        string   `json:"topic_id"`

@@ -15,26 +15,28 @@ import (
 )
 
 type backstageMessage struct {
-	ID             string              `json:"id"`
-	Time           string              `json:"time"`
-	StoryID        string              `json:"story_id,omitempty"`
-	Turn           int                 `json:"turn,omitempty"`
-	RunID          string              `json:"run_id,omitempty"`
-	Role           string              `json:"role"`
-	Speaker        string              `json:"speaker"`
-	Kind           string              `json:"kind"`
-	Status         string              `json:"status"`
-	Text           string              `json:"text"`
-	Preview        string              `json:"preview"`
-	SourceEventID  string              `json:"source_event_id,omitempty"`
-	DetailPath     string              `json:"detail_path,omitempty"`
-	ArtifactPaths  []string            `json:"artifact_paths,omitempty"`
-	Visibility     string              `json:"visibility"`
-	PacketID       string              `json:"packet_id,omitempty"`
-	NodeID         string              `json:"node_id,omitempty"`
-	SourceEvent    string              `json:"source_event,omitempty"`
-	SourceCategory string              `json:"source_category,omitempty"`
-	Model          *modelmeta.Metadata `json:"model,omitempty"`
+	ID                  string              `json:"id"`
+	Time                string              `json:"time"`
+	StoryID             string              `json:"story_id,omitempty"`
+	Turn                int                 `json:"turn,omitempty"`
+	RunID               string              `json:"run_id,omitempty"`
+	Role                string              `json:"role"`
+	Speaker             string              `json:"speaker"`
+	Kind                string              `json:"kind"`
+	Status              string              `json:"status"`
+	Text                string              `json:"text"`
+	Preview             string              `json:"preview"`
+	PreviewTruncated    bool                `json:"preview_truncated,omitempty"`
+	ToolOutputTruncated bool                `json:"tool_output_truncated,omitempty"`
+	SourceEventID       string              `json:"source_event_id,omitempty"`
+	DetailPath          string              `json:"detail_path,omitempty"`
+	ArtifactPaths       []string            `json:"artifact_paths,omitempty"`
+	Visibility          string              `json:"visibility"`
+	PacketID            string              `json:"packet_id,omitempty"`
+	NodeID              string              `json:"node_id,omitempty"`
+	SourceEvent         string              `json:"source_event,omitempty"`
+	SourceCategory      string              `json:"source_category,omitempty"`
+	Model               *modelmeta.Metadata `json:"model,omitempty"`
 }
 
 type backstageBuilder struct {
@@ -108,12 +110,12 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "response", "completed", firstNonEmpty(marshalPretty(detail["output"]), event.Message))}
 	case "actor.invoke.failed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "error", "failed", errorText(event, detail))}
-	case "scenarist.call.started":
+	case "scenarist.ask.started":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@Scenarist "+scenaristRequestText(detail))}
-	case "scenarist.call.completed":
+	case "scenarist.ask.completed":
 		return b.scenaristResponses(event, detail)
-	case "scenarist.call.failed", "scenarist.call.rejected":
+	case "scenarist.ask.failed", "scenarist.ask.rejected":
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "error", "failed", errorText(event, detail))}
 	case "scenarist.provider.tool_use":
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
@@ -167,27 +169,30 @@ func (b backstageBuilder) message(event gamelog.Event, role string, speaker stri
 	if !metadata.Empty() {
 		model = &metadata
 	}
+	preview, previewTruncated := previewTextWithFlag(text, 240)
 	return backstageMessage{
-		ID:             backstageID(event, role, kind, text),
-		Time:           event.Time,
-		StoryID:        event.StoryID,
-		Turn:           event.Turn,
-		RunID:          event.RunID,
-		Role:           role,
-		Speaker:        speaker,
-		Kind:           kind,
-		Status:         status,
-		Text:           text,
-		Preview:        previewText(text, 240),
-		SourceEventID:  event.EventID,
-		DetailPath:     event.DetailPath,
-		ArtifactPaths:  artifacts,
-		Visibility:     "admin_only",
-		PacketID:       event.PacketID,
-		NodeID:         event.NodeID,
-		SourceEvent:    event.Event,
-		SourceCategory: event.Category,
-		Model:          model,
+		ID:                  backstageID(event, role, kind, text),
+		Time:                event.Time,
+		StoryID:             event.StoryID,
+		Turn:                event.Turn,
+		RunID:               event.RunID,
+		Role:                role,
+		Speaker:             speaker,
+		Kind:                kind,
+		Status:              status,
+		Text:                text,
+		Preview:             preview,
+		PreviewTruncated:    previewTruncated,
+		ToolOutputTruncated: toolOutputTruncated(detail),
+		SourceEventID:       event.EventID,
+		DetailPath:          event.DetailPath,
+		ArtifactPaths:       artifacts,
+		Visibility:          "admin_only",
+		PacketID:            event.PacketID,
+		NodeID:              event.NodeID,
+		SourceEvent:         event.Event,
+		SourceCategory:      event.Category,
+		Model:               model,
 	}
 }
 
@@ -319,6 +324,9 @@ func backstageID(event gamelog.Event, role string, kind string, text string) str
 }
 
 func scenaristRequestText(detail map[string]any) string {
+	if request, ok := detail["request"].(map[string]any); ok {
+		return firstNonEmpty(stringField(request, "topic"), stringField(request, "topic_id")) + ": " + stringField(request, "request")
+	}
 	requests := sliceField(detail, "requests")
 	if len(requests) == 0 {
 		return stringField(detail, "arguments")
@@ -390,7 +398,12 @@ func providerToolUseText(event gamelog.Event, detail map[string]any) string {
 func providerToolResultText(event gamelog.Event, detail map[string]any) string {
 	name := firstNonEmpty(stringFromFields(event, "tool_name"), stringField(detail, "tool_name"), "Tool")
 	target := firstNonEmpty(stringFromFields(event, "target"), providerToolTargetFromDetail(detail))
-	content := firstNonEmpty(nestedString(detail, "result", "content"), event.Message)
+	content := firstNonEmpty(
+		nestedString(detail, "result", "stdout"),
+		nestedString(detail, "result", "content"),
+		nestedString(detail, "result", "error"),
+		nestedString(detail, "result", "stderr"),
+	)
 	if target != "" && content != "" {
 		return name + " result for " + target + "\n\n" + content
 	}
@@ -400,7 +413,7 @@ func providerToolResultText(event gamelog.Event, detail map[string]any) string {
 	if target != "" {
 		return name + " result for " + target
 	}
-	return name + " result"
+	return firstNonEmpty(event.Message, name+" result")
 }
 
 func providerToolTargetFromDetail(detail map[string]any) string {
@@ -411,6 +424,10 @@ func providerToolTargetFromDetail(detail map[string]any) string {
 		}
 	}
 	return ""
+}
+
+func toolOutputTruncated(detail map[string]any) bool {
+	return nestedBool(detail, "result", "stdout_truncated") || nestedBool(detail, "result", "stderr_truncated")
 }
 
 func artifactPaths(root string, event gamelog.Event) []string {
@@ -546,6 +563,19 @@ func nestedString(value any, keys ...string) string {
 	return strings.TrimSpace(str)
 }
 
+func nestedBool(value any, keys ...string) bool {
+	current := value
+	for _, key := range keys {
+		mapped, ok := current.(map[string]any)
+		if !ok {
+			return false
+		}
+		current = mapped[key]
+	}
+	result, _ := current.(bool)
+	return result
+}
+
 func sliceField(value any, key string) []any {
 	mapped, ok := value.(map[string]any)
 	if !ok {
@@ -580,14 +610,19 @@ func marshalPretty(value any) string {
 }
 
 func previewText(text string, max int) string {
+	preview, _ := previewTextWithFlag(text, max)
+	return preview
+}
+
+func previewTextWithFlag(text string, max int) (string, bool) {
 	text = strings.Join(strings.Fields(text), " ")
 	if len(text) <= max {
-		return text
+		return text, false
 	}
 	if max < 4 {
-		return text[:max]
+		return text[:max], true
 	}
-	return text[:max-3] + "..."
+	return text[:max-3] + "...", true
 }
 
 func uniqueStrings(values []string) []string {

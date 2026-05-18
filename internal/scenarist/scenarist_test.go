@@ -69,19 +69,23 @@ func TestScenaristSystemPromptExposesLoreExpertWhenAvailable(t *testing.T) {
 	}
 }
 
-func TestScenaristSystemPromptListsRealReadPointers(t *testing.T) {
-	system := ScenaristSystemPrompt("/repo", true, true, []string{
-		"pack manifest file: lore/packs/metabarons/lore-pack.json (use Read)",
-		"comics directory: lore/packs/metabarons/comics (use LS/Grep)",
-	})
+func TestScenaristSystemPromptDoesNotExposeLorePackPointers(t *testing.T) {
+	system := ScenaristSystemPrompt("/repo", true, true)
 	for _, required := range []string{
-		"Use @LoreExpert first for source-pattern questions",
-		"Use Read for files and LS or Grep for directories",
-		"pack manifest file: lore/packs/metabarons/lore-pack.json",
-		"comics directory: lore/packs/metabarons/comics",
+		"Use @LoreExpert for source-pack questions",
+		"Read for files and LS or Grep for artifact directories",
+		"Repository root: /repo",
 	} {
 		if !strings.Contains(system, required) {
 			t.Fatalf("scenarist system prompt missing %q:\n%s", required, system)
+		}
+	}
+	for _, forbidden := range []string{
+		"lore/packs/metabarons",
+		"Useful real file pointers",
+	} {
+		if strings.Contains(system, forbidden) {
+			t.Fatalf("scenarist system prompt leaked %q:\n%s", forbidden, system)
 		}
 	}
 }
@@ -205,6 +209,27 @@ func TestProviderPoolRunnerRoundRobinsAvailableSlots(t *testing.T) {
 	}
 }
 
+func TestProviderPoolRunnerRoundRobinsSequentialReleasedCalls(t *testing.T) {
+	pool := &ProviderPoolRunner{Runners: []ProviderRunner{
+		{Provider: "ZAI"},
+		{Provider: "MINIMAX"},
+		{Provider: "XIAOMI"},
+	}}
+	var got []string
+	for range 5 {
+		slot, release, err := pool.acquireSlot(context.Background())
+		if err != nil {
+			t.Fatal(err)
+		}
+		got = append(got, slot.runner.Provider)
+		release()
+	}
+	want := []string{"ZAI", "MINIMAX", "XIAOMI", "ZAI", "MINIMAX"}
+	if strings.Join(got, ",") != strings.Join(want, ",") {
+		t.Fatalf("provider sequence = %#v, want %#v", got, want)
+	}
+}
+
 func TestProviderPoolWaitsWhenProviderBusy(t *testing.T) {
 	pool := &ProviderPoolRunner{Runners: []ProviderRunner{{Provider: "ZAI"}}}
 	_, release, err := pool.acquireSlot(context.Background())
@@ -277,9 +302,15 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 		},
 		OutputDir:   outputDir,
 		ContextText: "writer context",
-		MaxParallel: 2,
+		MaxCalls:    2,
 	}).LocalTool()
-	args := `{"requests":[{"topic_id":"body-law","topic":"Body law","request":"Invent original pressure material with taboos, reversals, and choices for a later packet.","hard_boundaries":["Original material only.","Do not write a StoryPacket."],"relevant_paths":[]}]}`
+	if tool.Name != "ask_scenarist" {
+		t.Fatalf("tool name = %q", tool.Name)
+	}
+	if _, ok := tool.Parameters["properties"].(map[string]any)["requests"]; ok {
+		t.Fatalf("ask_scenarist schema should not expose requests[]: %#v", tool.Parameters)
+	}
+	args := `{"topic_id":"body-law","topic":"Body law","request":"Invent original pressure material with taboos, reversals, and choices for a later packet.","hard_boundaries":["Original material only.","Do not write a StoryPacket."],"relevant_paths":[]}`
 	result, err := tool.Handler(context.Background(), ".", args)
 	if err != nil {
 		t.Fatal(err)
@@ -345,7 +376,7 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 		Runner:      scenaristRunner,
 		OutputDir:   outputDir,
 		ContextText: "writer context",
-		MaxParallel: 1,
+		MaxCalls:    1,
 		Logger:      logger,
 		CallerRole:  "creative-writer",
 		CallerName:  "Creative Writer",
@@ -361,7 +392,7 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 			CallerSpeaker: "Creative Writer",
 		},
 	}).LocalTool()
-	args := `{"requests":[{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
+	args := `{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["data/seed-runs/example/workshop/output.md"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -400,49 +431,33 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 	}
 }
 
-func TestToolRunnerWarnsOnDependentParallelRequests(t *testing.T) {
+func TestToolRunnerRejectsOldBatchedRequestsShape(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	tool := (&ToolRunner{
 		Runner:      &fakeScenaristRunner{response: "material"},
 		OutputDir:   t.TempDir(),
 		ContextText: "writer context",
-		MaxParallel: 2,
 		Logger:      logger,
 	}).LocalTool()
 	args := `{"requests":[{"topic_id":"select","topic":"Select strongest germ","request":"Choose the strongest germ from prior material.","hard_boundaries":["Original material only."],"relevant_paths":[]},{"topic_id":"scene","topic":"Scene engines for selected germ","request":"For the best candidate germ, suggest scene engines.","hard_boundaries":["Original material only."],"relevant_paths":[]}]}`
-	result, err := tool.Handler(context.Background(), ".", args)
-	if err != nil {
-		t.Fatal(err)
+	_, err := tool.Handler(context.Background(), ".", args)
+	if err == nil {
+		t.Fatal("expected old requests[] shape to be rejected")
 	}
-	data, err := json.Marshal(result)
-	if err != nil {
-		t.Fatal(err)
-	}
-	for _, required := range []string{
-		"generated independently",
-		"for synthesis or dependent follow-up",
-	} {
-		if !strings.Contains(string(data), required) {
-			t.Fatalf("tool response missing %q:\n%s", required, data)
-		}
-	}
-	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.call.dependency_warning"})
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.ask.rejected"})
 	if err != nil {
 		t.Fatal(err)
 	}
 	if len(events) != 1 {
-		t.Fatalf("expected dependency warning event, got %#v", events)
-	}
-	if events[0].Level != gamelog.LevelWarn || events[0].Fields["warning_count"] == nil {
-		t.Fatalf("unexpected warning event: %#v", events[0])
+		t.Fatalf("expected rejected event, got %#v", events)
 	}
 	detail, err := logger.ReadDetail(events[0].DetailPath)
 	if err != nil {
 		t.Fatal(err)
 	}
 	text := string(mustJSON(t, detail))
-	if !strings.Contains(text, "Requests in one call run in parallel") || !strings.Contains(text, "selected germ") {
-		t.Fatalf("warning detail missing guidance or matched terms:\n%s", text)
+	if !strings.Contains(text, "requests") || !strings.Contains(text, "unknown field") {
+		t.Fatalf("rejection detail missing old payload and decode error:\n%s", text)
 	}
 }
 
@@ -452,12 +467,11 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		Runner:      &fakeScenaristRunner{response: "material"},
 		OutputDir:   t.TempDir(),
 		ContextText: "writer context",
-		MaxParallel: 1,
 		Logger:      logger,
 		CallerRole:  "writer",
 		CallerName:  "Writer",
 	}).LocalTool()
-	args := `{"requests":[{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
+	args := `{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["data/stories/example/bible.json"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -486,19 +500,23 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	}
 }
 
-func TestToolRunnerRejectsMoreRequestsThanProviderCount(t *testing.T) {
+func TestToolRunnerRejectsAfterConfiguredCallLimit(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	tool := (&ToolRunner{
-		Runner:      &fakeScenaristRunner{response: "material"},
-		OutputDir:   t.TempDir(),
-		MaxParallel: 1,
-		Logger:      logger,
+		Runner:    &fakeScenaristRunner{response: "material"},
+		OutputDir: t.TempDir(),
+		MaxCalls:  1,
+		Logger:    logger,
 	}).LocalTool()
-	_, err := tool.Handler(context.Background(), ".", `{"requests":[{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]},{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":[]}]}`)
-	if err == nil {
-		t.Fatal("expected provider-count cap error")
+	args := `{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]}`
+	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
+		t.Fatal(err)
 	}
-	events, readErr := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.call.rejected"})
+	_, err := tool.Handler(context.Background(), ".", `{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":[]}`)
+	if err == nil {
+		t.Fatal("expected max call cap error")
+	}
+	events, readErr := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.ask.rejected"})
 	if readErr != nil {
 		t.Fatal(readErr)
 	}
@@ -507,19 +525,24 @@ func TestToolRunnerRejectsMoreRequestsThanProviderCount(t *testing.T) {
 	}
 }
 
-func TestToolRunnerRunsRequestsInParallel(t *testing.T) {
+func TestToolRunnerSequentialCallsDoNotOverlap(t *testing.T) {
 	runner := &fakeScenaristRunner{response: "material", delay: 20 * time.Millisecond}
 	tool := (&ToolRunner{
-		Runner:      runner,
-		OutputDir:   t.TempDir(),
-		MaxParallel: 2,
+		Runner:    runner,
+		OutputDir: t.TempDir(),
+		MaxCalls:  2,
 	}).LocalTool()
-	_, err := tool.Handler(context.Background(), ".", `{"requests":[{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]},{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":[]}]}`)
-	if err != nil {
+	if _, err := tool.Handler(context.Background(), ".", `{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]}`); err != nil {
 		t.Fatal(err)
 	}
-	if runner.maxActive < 2 {
-		t.Fatalf("expected parallel calls, max active = %d", runner.maxActive)
+	if _, err := tool.Handler(context.Background(), ".", `{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":["data/seed-runs/example/scenarists/tool-call-001/01-one.md"]}`); err != nil {
+		t.Fatal(err)
+	}
+	if runner.maxActive != 1 {
+		t.Fatalf("expected no overlapping calls, max active = %d", runner.maxActive)
+	}
+	if len(runner.queries) != 2 || !strings.Contains(runner.queries[1], "tool-call-001/01-one.md") {
+		t.Fatalf("second query missing first material path: %#v", runner.queries)
 	}
 }
 

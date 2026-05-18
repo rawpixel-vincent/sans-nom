@@ -278,6 +278,7 @@ func TestAdminBackstageShowsScenaristProviderToolCalls(t *testing.T) {
 func TestAdminBackstageShowsWriterAndNarratorReadToolCalls(t *testing.T) {
 	root := t.TempDir()
 	global := gamelog.NewGlobalWriter(root)
+	longMaterial := strings.Repeat("workshop material ", 40) + "done"
 	for _, event := range []gamelog.Event{
 		{
 			Category: "writer",
@@ -308,7 +309,10 @@ func TestAdminBackstageShowsWriterAndNarratorReadToolCalls(t *testing.T) {
 			Detail: map[string]any{
 				"tool_name": "Read",
 				"input":     map[string]any{"cmd": "cat data/seed-runs/example/output.md"},
-				"result":    map[string]any{"stdout": "workshop material"},
+				"result": map[string]any{
+					"stdout":           longMaterial,
+					"stdout_truncated": true,
+				},
 			},
 		},
 		{
@@ -361,8 +365,17 @@ func TestAdminBackstageShowsWriterAndNarratorReadToolCalls(t *testing.T) {
 	if resp.Messages[0].Speaker != "Writer" || resp.Messages[0].Role != "writer" || resp.Messages[0].Kind != "tool_request" || !strings.Contains(resp.Messages[0].Text, "@Read cat") {
 		t.Fatalf("unexpected writer tool request: %#v", resp.Messages[0])
 	}
-	if resp.Messages[1].Speaker != "Read" || resp.Messages[1].Kind != "tool_response" || !strings.Contains(resp.Messages[1].Text, "workshop material") {
+	if resp.Messages[1].Speaker != "Read" || resp.Messages[1].Kind != "tool_response" || !strings.Contains(resp.Messages[1].Text, longMaterial) {
 		t.Fatalf("unexpected writer tool response: %#v", resp.Messages[1])
+	}
+	if strings.Count(resp.Messages[1].Text, "Read result for cat data/seed-runs/example/output.md") != 1 {
+		t.Fatalf("writer tool response double-prefixed result text: %q", resp.Messages[1].Text)
+	}
+	if !resp.Messages[1].PreviewTruncated {
+		t.Fatalf("expected writer tool response preview to be marked truncated: %#v", resp.Messages[1])
+	}
+	if !resp.Messages[1].ToolOutputTruncated {
+		t.Fatalf("expected writer tool response output to be marked truncated: %#v", resp.Messages[1])
 	}
 	if resp.Messages[2].Speaker != "Narrator" || resp.Messages[2].Role != "narrator" || resp.Messages[2].Kind != "tool_request" || !strings.Contains(resp.Messages[2].Text, "@Grep rg") {
 		t.Fatalf("unexpected narrator tool request: %#v", resp.Messages[2])
@@ -384,7 +397,7 @@ func TestAdminBackstageScenaristResponsesUseMaterialModelMetadata(t *testing.T) 
 	global := gamelog.NewGlobalWriter(root)
 	if err := global.Append(gamelog.Event{
 		Category: "scenarist",
-		Event:    "scenarist.call.completed",
+		Event:    "scenarist.ask.completed",
 		Message:  "scenarist material written",
 		Fields: map[string]any{
 			"provider_type":  "claude_compatible_pool",

@@ -87,6 +87,8 @@ export type BackstageMessage = {
   status: string;
   text: string;
   preview: string;
+  preview_truncated?: boolean;
+  tool_output_truncated?: boolean;
   source_event_id?: string;
   source_event?: string;
   source_category?: string;

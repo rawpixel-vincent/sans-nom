@@ -286,17 +286,19 @@ func logLocalToolResult(opts LocalToolOptions, call functionCall, result string)
 	info := localToolLogInfo(call)
 	resultValue := decodeToolResult(result)
 	message := info.DisplayName + " result" + targetSuffix(info.Target)
-	if preview := toolResultPreview(resultValue); preview != "" {
-		message += "\n\n" + preview
+	preview := toolResultPreview(resultValue)
+	if preview.Text != "" {
+		message += "\n\n" + preview.Text
 	}
 	logLocalToolEvent(opts, call, "tool_result", "completed", message, map[string]any{
-		"tool_name":     info.DisplayName,
-		"raw_tool_name": call.Name,
-		"tool_use_id":   call.CallID,
-		"target":        info.Target,
-		"arguments":     call.Arguments,
-		"input":         info.Input,
-		"result":        resultValue,
+		"tool_name":         info.DisplayName,
+		"raw_tool_name":     call.Name,
+		"tool_use_id":       call.CallID,
+		"target":            info.Target,
+		"arguments":         call.Arguments,
+		"input":             info.Input,
+		"preview_truncated": preview.Truncated,
+		"result":            resultValue,
 	})
 }
 
@@ -384,13 +386,18 @@ func decodeToolResult(result string) any {
 	return value
 }
 
-func toolResultPreview(result any) string {
+type toolPreview struct {
+	Text      string
+	Truncated bool
+}
+
+func toolResultPreview(result any) toolPreview {
 	mapped, ok := result.(map[string]any)
 	if !ok {
 		if text, ok := result.(string); ok {
 			return trimToolPreview(text)
 		}
-		return ""
+		return toolPreview{}
 	}
 	for _, key := range []string{"stdout", "content", "error", "stderr"} {
 		if value, ok := mapped[key].(string); ok && strings.TrimSpace(value) != "" {
@@ -399,18 +406,18 @@ func toolResultPreview(result any) string {
 	}
 	payload, err := json.Marshal(mapped)
 	if err != nil {
-		return ""
+		return toolPreview{}
 	}
 	return trimToolPreview(string(payload))
 }
 
-func trimToolPreview(value string) string {
+func trimToolPreview(value string) toolPreview {
 	value = strings.TrimSpace(value)
 	const max = 4000
 	if len(value) <= max {
-		return value
+		return toolPreview{Text: value}
 	}
-	return value[:max] + "... [truncated]"
+	return toolPreview{Text: value[:max] + "... [preview truncated]", Truncated: true}
 }
 
 func targetSuffix(target string) string {

@@ -192,7 +192,7 @@ func TestLocalToolSchemaIsInfluenceOnly(t *testing.T) {
 	if tool.Name != "ask_lore_expert" {
 		t.Fatalf("tool name = %q", tool.Name)
 	}
-	if !strings.Contains(tool.Description, "source-pattern analysis") || !strings.Contains(tool.Description, "call_scenarists") || !strings.Contains(tool.Description, "creative room to ask first") {
+	if !strings.Contains(tool.Description, "source-pattern analysis") || !strings.Contains(tool.Description, "ask_scenarist") || !strings.Contains(tool.Description, "creative room to ask first") {
 		t.Fatalf("description should be influence-scoped: %s", tool.Description)
 	}
 	data, err := json.Marshal(tool.Parameters)
@@ -202,7 +202,7 @@ func TestLocalToolSchemaIsInfluenceOnly(t *testing.T) {
 	if !strings.Contains(string(data), "source_pattern") {
 		t.Fatalf("schema missing purpose enum: %s", data)
 	}
-	if !strings.Contains(string(data), "call_scenarists") {
+	if !strings.Contains(string(data), "ask_scenarist") {
 		t.Fatalf("schema missing creative-room guidance: %s", data)
 	}
 }

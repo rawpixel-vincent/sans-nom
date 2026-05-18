@@ -113,4 +113,8 @@ textarea {
   .chip {
     @apply rounded border border-slate-300 bg-white px-2 py-0.5 text-[11px] text-slate-600;
   }
+
+  .chip-warning {
+    @apply rounded border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800;
+  }
 }

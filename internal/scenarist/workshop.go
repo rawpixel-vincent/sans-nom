@@ -19,14 +19,14 @@ func ManifestText(manifest Manifest) string {
 	}
 	var b strings.Builder
 	b.WriteString("## SCENARIST MATERIAL MANIFEST\n")
-	b.WriteString("These files are planning artifacts, not canon. They may come from independent parallel Scenarists. Read them selectively, synthesize them yourself, and make a separate follow-up call when later questions depend on these answers. The Writer remains responsible for the final StoryPacket.\n")
+	b.WriteString("These files are planning artifacts, not canon. Read them selectively before asking dependent follow-up questions. The Writer remains responsible for the final StoryPacket.\n")
 	for _, material := range manifest.Materials {
 		fmt.Fprintf(&b, "- %s: %s (%s)\n", material.TopicID, material.Path, material.Topic)
 	}
 	return strings.TrimSpace(b.String())
 }
 
-func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool, readOnlyPointers ...[]string) string {
+func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string {
 	var b strings.Builder
 	b.WriteString("You are a creative scenarist assistant for Sans-Nom.\n")
 	b.WriteString("You are deeply passionate about the Metabarons as craft influence: philosophical pressure, body/law/taboo, spectacle, entertainment value, and durable questions that remain after the plot.\n")
@@ -44,12 +44,9 @@ func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool, readOnl
 		b.WriteString("\nA cached Nerd Lore Expert is available for focused source-influence questions. When source grounding would sharpen your brainstorm, write a line beginning `@LoreExpert:` followed by one concise influence-only question. The runtime will answer and let you continue. Use this for source patterns, tone lineage, relationship pressure, and anti-copy checks; keep creative invention and criticism in your own voice.\n")
 	}
 	if tools {
-		b.WriteString("\nRead-only tools are available for workshop artifacts and source-influence orientation. Use @LoreExpert first for source-pattern questions. Direct file access: Use Read for files and LS or Grep for directories.\n")
+		b.WriteString("\nRead-only tools are available for workshop and story artifacts explicitly named in the request. Use @LoreExpert for source-pack questions instead of reading lore-pack files directly. Direct file access: use Read for files and LS or Grep for artifact directories.\n")
 		if repoRoot != "" {
 			fmt.Fprintf(&b, "Repository root: %s\n", repoRoot)
-		}
-		for _, pointers := range readOnlyPointers {
-			writeList(&b, "Useful real file pointers", pointers)
 		}
 	}
 	return b.String()
@@ -59,11 +56,11 @@ func ScenaristToolQuery(contextText string, request ToolRequest) string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "Topic: %s\n", request.Topic)
 	fmt.Fprintf(&b, "Request: %s\n", request.Request)
-	b.WriteString("Parallel note: this Scenarist request may be running beside other independent requests and cannot see their answers. Answer from the request, relevant paths, and curated context only.\n")
+	b.WriteString("Answer from this request, its relevant paths, and curated context only. If dependent material is missing, name the missing path or input instead of inventing a synthesis.\n")
 	writeList(&b, "Hard boundaries", request.HardBoundaries)
 	writeList(&b, "Relevant paths", request.RelevantPaths)
 	if len(request.RelevantPaths) == 0 {
-		b.WriteString("\nNo request-specific files were provided. For source influence, ask @LoreExpert or use the real file pointers in the system prompt instead of guessing filenames.\n")
+		b.WriteString("\nNo request-specific files were provided. For source influence, ask @LoreExpert instead of guessing filenames.\n")
 	}
 	if contextText != "" {
 		fmt.Fprintf(&b, "\nCurated writer context:\n%s\n", contextText)
