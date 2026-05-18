@@ -443,6 +443,103 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	}
 }
 
+func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("awaiting-choice")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "awaiting-choice",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	bible := bundle.Bible
+	originalStdin := pipeStdin(t, "")
+	err = runPlay(context.Background(), playConfig{
+		Packet:           bundle.Packet,
+		NodeID:           bundle.Packet.EntryNodeID,
+		Backend:          "static",
+		Workspace:        &workspace,
+		State:            &state,
+		Bible:            &bible,
+		RefreshWrite:     false,
+		Commit:           false,
+		WriterScenarists: 0,
+	})
+	os.Stdin = originalStdin
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "awaiting-choice")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.Status != story.StatusAwaitingPlayerChoice {
+		t.Fatalf("status = %q", loaded.Status)
+	}
+	if loaded.PendingTurnPath == "" {
+		t.Fatalf("missing pending turn path: %#v", loaded)
+	}
+	if loaded.LastNarratorProse == "" {
+		t.Fatal("last narrator prose was not checkpointed")
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, filepath.FromSlash(loaded.PendingTurnPath))); err != nil {
+		t.Fatalf("missing pending turn file: %v", err)
+	}
+	turns, err := workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) != 0 {
+		t.Fatalf("turns were finalized before player input: %#v", turns)
+	}
+
+	packet, err := workspace.LoadPacket(loaded)
+	if err != nil {
+		t.Fatal(err)
+	}
+	originalStdin = pipeStdin(t, "1\n")
+	err = runPlay(context.Background(), playConfig{
+		Packet:           packet,
+		NodeID:           loaded.CurrentNodeID,
+		Backend:          "static",
+		Workspace:        &workspace,
+		State:            &loaded,
+		Bible:            &bible,
+		RefreshWrite:     false,
+		Commit:           false,
+		WriterScenarists: 0,
+	})
+	os.Stdin = originalStdin
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, resumed, err := story.LoadWorkspace(root, "awaiting-choice")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resumed.Status != story.StatusActive {
+		t.Fatalf("resumed status = %q", resumed.Status)
+	}
+	if resumed.PendingTurnPath != "" {
+		t.Fatalf("pending turn was not cleared: %#v", resumed)
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, "pending-turn.json")); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("pending turn file still exists: %v", err)
+	}
+	turns, err = workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) == 0 {
+		t.Fatal("expected finalized turns after resumed choice")
+	}
+	if turns[0].NextNodeID != "opened" {
+		t.Fatalf("first resumed choice next node = %q", turns[0].NextNodeID)
+	}
+}
+
 func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("hard-fail")

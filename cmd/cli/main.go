@@ -1335,6 +1335,16 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 	if state != nil && state.Status == story.StatusBlockedWriterRefresh {
 		return fmt.Errorf("story is blocked by Writer refresh: %s (artifacts: %s)", state.BlockedReason, state.BlockedWriterRunPath)
 	}
+	if err := recoverPendingDisplayedTurnFromLogs(cfg, state, packet, nodeID); err != nil {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "story",
+			Event:    "story.turn.awaiting_choice_recovery_failed",
+			Message:  err.Error(),
+			PacketID: packet.ID,
+			NodeID:   nodeID,
+		})
+	}
 	if story.PlayerDecisionEmpty(decision) && state != nil && state.HasPendingDecision() {
 		decision = state.PendingDecision
 	}
@@ -1354,77 +1364,115 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 	reader := bufio.NewReader(os.Stdin)
 	totalTurns := cfg.Turns
 	for turn := 1; totalTurns <= 0 || turn <= totalTurns; turn++ {
-		rollout, err := rolloutOnce(ctx, packet, nodeID, decision, cfg)
+		displayTurn := turn
+		turnAudioPath := ""
+		rollout, pendingRecord, resumedPending, err := loadPendingDisplayedRollout(cfg, state, packet, nodeID, decision, turn)
 		if err != nil {
-			logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "narrator", Event: "narrator.rollout.failed", Message: err.Error(), PacketID: packet.ID, NodeID: nodeID})
 			return err
 		}
-		logEvent(cfg.Logger, gamelog.Event{
-			Category: "narrator",
-			Event:    "narrator.rollout.completed",
-			Message:  "narrator rollout completed",
-			Turn:     turn,
-			PacketID: rollout.Commit.PacketID,
-			NodeID:   rollout.Commit.NodeID,
-			Fields: map[string]any{
-				"choice_count":       len(rollout.Draft.Choices),
-				"prose_chars":        len([]rune(rollout.Draft.Prose)),
-				"commit_event_count": len(rollout.Commit.Events),
-				"witness_count":      len(rollout.Commit.Witnesses),
-			},
-			Detail: map[string]any{
-				"draft":  rollout.Draft,
-				"commit": rollout.Commit,
-			},
-		})
-		fmt.Printf("\n--- Turn %d ---\n\n%s\n", turn, rollout.Draft.Prose)
+		if resumedPending {
+			if pendingRecord.Turn > 0 {
+				displayTurn = pendingRecord.Turn
+			}
+			turnAudioPath = pendingRecord.AudioPath
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "story",
+				Event:    "story.turn.awaiting_choice_resumed",
+				Message:  "resumed displayed turn awaiting player choice",
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"pending_turn_path": state.PendingTurnPath,
+				},
+			})
+		} else {
+			rollout, err = rolloutOnce(ctx, packet, nodeID, decision, cfg)
+			if err != nil {
+				logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "narrator", Event: "narrator.rollout.failed", Message: err.Error(), PacketID: packet.ID, NodeID: nodeID})
+				return err
+			}
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "narrator",
+				Event:    "narrator.rollout.completed",
+				Message:  "narrator rollout completed",
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"choice_count":       len(rollout.Draft.Choices),
+					"prose_chars":        len([]rune(rollout.Draft.Prose)),
+					"commit_event_count": len(rollout.Commit.Events),
+					"witness_count":      len(rollout.Commit.Witnesses),
+				},
+				Detail: map[string]any{
+					"draft":  rollout.Draft,
+					"commit": rollout.Commit,
+				},
+			})
+		}
+		fmt.Printf("\n--- Turn %d ---\n\n%s\n", displayTurn, rollout.Draft.Prose)
 		if len(rollout.Draft.Choices) > 0 {
 			fmt.Println("\nChoices:")
 			for _, choice := range rollout.Draft.Choices {
 				fmt.Printf("- %s: %s\n", choice.ID, choice.Label)
 			}
 		}
-		turnAudioPath, err := synthesizeTurnAudio(ctx, cfg, state, turn, rollout)
-		if err != nil {
-			return err
-		}
-		if turnAudioPath != "" {
-			fmt.Printf("\nAudio saved: %s\n", filepath.ToSlash(turnAudioPath))
-		}
-		if cfg.Commit {
-			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
-			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
-				logEvent(cfg.Logger, gamelog.Event{
-					Level:    gamelog.LevelError,
-					Category: "honcho",
-					Event:    "honcho.commit.failed",
-					Message:  err.Error(),
-					Turn:     turn,
-					PacketID: rollout.Commit.PacketID,
-					NodeID:   rollout.Commit.NodeID,
-					Detail: map[string]any{
-						"request": rollout.Commit,
-						"error":   err.Error(),
-					},
-				})
+		if !resumedPending {
+			turnAudioPath, err = synthesizeTurnAudio(ctx, cfg, state, turn, rollout)
+			if err != nil {
 				return err
 			}
-			logEvent(cfg.Logger, gamelog.Event{
-				Category: "honcho",
-				Event:    "honcho.commit.completed",
-				Message:  "witnessed canon committed",
-				Turn:     turn,
-				PacketID: rollout.Commit.PacketID,
-				NodeID:   rollout.Commit.NodeID,
-				Fields: map[string]any{
-					"event_count":   len(rollout.Commit.Events),
-					"witness_count": len(rollout.Commit.Witnesses),
-				},
-				Detail: map[string]any{
-					"request": rollout.Commit,
-				},
-			})
-			fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
+			if turnAudioPath != "" {
+				fmt.Printf("\nAudio saved: %s\n", filepath.ToSlash(turnAudioPath))
+			}
+			if cfg.Commit {
+				client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+				if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+					logEvent(cfg.Logger, gamelog.Event{
+						Level:    gamelog.LevelError,
+						Category: "honcho",
+						Event:    "honcho.commit.failed",
+						Message:  err.Error(),
+						Turn:     displayTurn,
+						PacketID: rollout.Commit.PacketID,
+						NodeID:   rollout.Commit.NodeID,
+						Detail: map[string]any{
+							"request": rollout.Commit,
+							"error":   err.Error(),
+						},
+					})
+					return err
+				}
+				logEvent(cfg.Logger, gamelog.Event{
+					Category: "honcho",
+					Event:    "honcho.commit.completed",
+					Message:  "witnessed canon committed",
+					Turn:     displayTurn,
+					PacketID: rollout.Commit.PacketID,
+					NodeID:   rollout.Commit.NodeID,
+					Fields: map[string]any{
+						"event_count":   len(rollout.Commit.Events),
+						"witness_count": len(rollout.Commit.Witnesses),
+					},
+					Detail: map[string]any{
+						"request": rollout.Commit,
+					},
+				})
+				fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
+			} else {
+				fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
+					rollout.Commit.PacketID,
+					rollout.Commit.NodeID,
+					strings.Join(rollout.Commit.Witnesses, ","),
+					len(rollout.Commit.Events),
+				)
+			}
+			if err := savePendingDisplayedTurn(cfg, state, packet, rollout, cfg.Commit, turnAudioPath, turn); err != nil {
+				return err
+			}
+		} else if pendingRecord.Committed {
+			fmt.Printf("\nCommitted: packet=%s node=%s (already recorded)\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
 		} else {
 			fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
 				rollout.Commit.PacketID,
@@ -1436,7 +1484,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		if cfg.TraceJSONL {
 			if err := writePlayTrace(playTraceTurn{
 				Event:            "turn",
-				Turn:             turn,
+				Turn:             displayTurn,
 				PacketID:         rollout.Commit.PacketID,
 				NodeID:           rollout.Commit.NodeID,
 				Decision:         rollout.Commit.PlayerDecision,
@@ -1584,6 +1632,179 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			break
 		}
 	}
+	return nil
+}
+
+func recoverPendingDisplayedTurnFromLogs(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, nodeID string) error {
+	if cfg.Workspace == nil || state == nil || cfg.Logger == nil || state.PendingTurnPath != "" || state.Status != story.StatusActive || state.LatestTurn != 0 || strings.TrimSpace(state.LastNarratorProse) != "" {
+		return nil
+	}
+	events, err := gamelog.Read(cfg.Logger.Path, gamelog.Filter{Event: "narrator.rollout.completed"})
+	if err != nil {
+		return err
+	}
+	for i := len(events) - 1; i >= 0; i-- {
+		event := events[i]
+		if event.PacketID != packet.ID || event.NodeID != nodeID || event.DetailPath == "" {
+			continue
+		}
+		var detail struct {
+			Draft  narrator.Draft `json:"draft"`
+			Commit scene.Commit   `json:"commit"`
+		}
+		if err := readLogDetailAs(cfg.Logger, event.DetailPath, &detail); err != nil {
+			return err
+		}
+		if strings.TrimSpace(detail.Draft.Prose) == "" {
+			continue
+		}
+		node, err := packet.Node(nodeID)
+		if err != nil {
+			return err
+		}
+		rollout := narrator.Rollout{
+			Node:   node,
+			Draft:  detail.Draft,
+			Commit: detail.Commit,
+		}
+		committed := matchingLogEventExists(cfg.Logger.Path, "honcho.commit.completed", event.Turn, packet.ID, nodeID)
+		audioPath := recoveredAudioPath(cfg.Workspace, event.Turn)
+		if err := savePendingDisplayedTurn(cfg, state, packet, rollout, committed, audioPath, event.Turn); err != nil {
+			return err
+		}
+		logEvent(cfg.Logger, gamelog.Event{
+			Category: "story",
+			Event:    "story.turn.awaiting_choice_recovered",
+			Message:  "recovered displayed turn checkpoint from prior rollout log",
+			Turn:     event.Turn,
+			PacketID: packet.ID,
+			NodeID:   nodeID,
+			Fields: map[string]any{
+				"source_event_id": event.EventID,
+				"committed":       committed,
+				"audio_path":      filepath.ToSlash(audioPath),
+			},
+		})
+		return nil
+	}
+	return nil
+}
+
+func readLogDetailAs(logger *gamelog.Writer, detailPath string, out any) error {
+	detail, err := logger.ReadDetail(detailPath)
+	if err != nil {
+		return err
+	}
+	data, err := json.Marshal(detail)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(data, out)
+}
+
+func matchingLogEventExists(path string, eventName string, turn int, packetID string, nodeID string) bool {
+	events, err := gamelog.Read(path, gamelog.Filter{Event: eventName})
+	if err != nil {
+		return false
+	}
+	for _, event := range events {
+		if event.Turn == turn && event.PacketID == packetID && event.NodeID == nodeID {
+			return true
+		}
+	}
+	return false
+}
+
+func recoveredAudioPath(workspace *story.Workspace, turn int) string {
+	if workspace == nil || turn <= 0 {
+		return ""
+	}
+	path := filepath.Join(workspace.Dir, "audio", fmt.Sprintf("turn-%06d.wav", turn))
+	if _, err := os.Stat(path); err == nil {
+		return path
+	}
+	return ""
+}
+
+func loadPendingDisplayedRollout(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, loopTurn int) (narrator.Rollout, story.TurnRecord, bool, error) {
+	if cfg.Workspace == nil || state == nil || state.Status != story.StatusAwaitingPlayerChoice || !story.PlayerDecisionEmpty(decision) {
+		return narrator.Rollout{}, story.TurnRecord{}, false, nil
+	}
+	record, err := cfg.Workspace.LoadPendingTurn(*state)
+	if err != nil {
+		return narrator.Rollout{}, story.TurnRecord{}, false, fmt.Errorf("load pending displayed turn: %w", err)
+	}
+	resolvedNodeID := firstNonEmpty(record.NodeID, nodeID)
+	node, err := packet.Node(resolvedNodeID)
+	if err != nil {
+		return narrator.Rollout{}, story.TurnRecord{}, false, err
+	}
+	choices := record.Choices
+	if len(choices) == 0 {
+		choices = node.Choices
+	}
+	if record.Turn == 0 {
+		record.Turn = currentStoryTurnNumber(state, loopTurn)
+	}
+	rollout := narrator.Rollout{
+		Node: node,
+		Draft: narrator.Draft{
+			Prose:   record.Prose,
+			Choices: choices,
+		},
+		Commit: record.Commit,
+	}
+	return rollout, record, true, nil
+}
+
+func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, committed bool, audioPath string, loopTurn int) error {
+	if cfg.Workspace == nil || state == nil {
+		return nil
+	}
+	record := story.TurnRecord{
+		Turn:      currentStoryTurnNumber(state, loopTurn),
+		StoryID:   state.StoryID,
+		PacketID:  rollout.Commit.PacketID,
+		NodeID:    rollout.Commit.NodeID,
+		Decision:  rollout.Commit.PlayerDecision,
+		Prose:     rollout.Draft.Prose,
+		Choices:   rollout.Node.Choices,
+		Commit:    rollout.Commit,
+		Committed: committed,
+		AudioPath: filepath.ToSlash(audioPath),
+		CreatedAt: story.NowString(),
+	}
+	rel, err := cfg.Workspace.SavePendingTurn(record)
+	if err != nil {
+		return err
+	}
+	state.CurrentPacketID = packet.ID
+	state.CurrentPacketPath = filepath.ToSlash(filepath.Join("packets", packet.ID+".json"))
+	state.CurrentNodeID = rollout.Commit.NodeID
+	state.Status = story.StatusAwaitingPlayerChoice
+	state.LastDecision = rollout.Commit.PlayerDecision
+	state.LastNarratorProse = rollout.Draft.Prose
+	state.PendingTurnPath = rel
+	if err := cfg.Workspace.SaveState(*state); err != nil {
+		return err
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "memory",
+		Event:    "story.turn.awaiting_choice_saved",
+		Message:  "displayed turn saved before player choice",
+		Turn:     record.Turn,
+		PacketID: record.PacketID,
+		NodeID:   record.NodeID,
+		Fields: map[string]any{
+			"pending_turn_path": rel,
+			"choice_count":      len(record.Choices),
+			"committed":         committed,
+			"audio_path":        record.AudioPath,
+		},
+		Detail: map[string]any{
+			"turn_record": record,
+		},
+	})
 	return nil
 }
 
@@ -2162,11 +2383,21 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 	if len(audioPath) > 0 {
 		turnAudioPath = audioPath[0]
 	}
+	pendingRecord := story.TurnRecord{}
+	if state.PendingTurnPath != "" {
+		if record, err := cfg.Workspace.LoadPendingTurn(*state); err == nil {
+			pendingRecord = record
+			if turnAudioPath == "" {
+				turnAudioPath = record.AudioPath
+			}
+		}
+	}
 	nextDecision := scene.PlayerDecision{}
 	if state.HasPendingDecision() {
 		nextDecision = state.PendingDecision
 	}
 	record := story.TurnRecord{
+		Turn:         pendingRecord.Turn,
 		StoryID:      state.StoryID,
 		PacketID:     rollout.Commit.PacketID,
 		NodeID:       rollout.Commit.NodeID,

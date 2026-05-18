@@ -16,6 +16,7 @@ const (
 	DefaultGlobalLoreCollection = "sans_nom_lore"
 
 	StatusActive               = "active"
+	StatusAwaitingPlayerChoice = "awaiting_player_choice"
 	StatusBlockedWriterRefresh = "blocked_writer_refresh"
 )
 
@@ -85,6 +86,7 @@ type StoryState struct {
 	LastNarratorProse    string               `json:"last_narrator_prose"`
 	PendingDecision      scene.PlayerDecision `json:"pending_decision,omitempty"`
 	PendingDecisionAt    string               `json:"pending_decision_at,omitempty"`
+	PendingTurnPath      string               `json:"pending_turn_path,omitempty"`
 	PendingWriterRunID   string               `json:"pending_writer_run_id,omitempty"`
 	PendingWriterRunPath string               `json:"pending_writer_run_path,omitempty"`
 	BlockedReason        string               `json:"blocked_reason,omitempty"`

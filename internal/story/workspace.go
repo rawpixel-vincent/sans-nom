@@ -238,6 +238,24 @@ func (w Workspace) LoadTurns() ([]TurnRecord, error) {
 	return out, scanner.Err()
 }
 
+func (w Workspace) SavePendingTurn(record TurnRecord) (string, error) {
+	if record.CreatedAt == "" {
+		record.CreatedAt = NowString()
+	}
+	rel := "pending-turn.json"
+	return rel, writeJSONAtomic(filepath.Join(w.Dir, rel), record)
+}
+
+func (w Workspace) LoadPendingTurn(state StoryState) (TurnRecord, error) {
+	rel := strings.TrimSpace(state.PendingTurnPath)
+	if rel == "" {
+		rel = "pending-turn.json"
+	}
+	var record TurnRecord
+	err := readJSON(filepath.Join(w.Dir, filepath.FromSlash(rel)), &record)
+	return record, err
+}
+
 func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record TurnRecord) (StoryState, error) {
 	if record.StoryID == "" {
 		record.StoryID = state.StoryID
@@ -245,6 +263,7 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 	if record.Turn == 0 {
 		record.Turn = state.LatestTurn + 1
 	}
+	pendingTurnPath := state.PendingTurnPath
 	if err := w.AppendTurn(record); err != nil {
 		return state, err
 	}
@@ -261,13 +280,25 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 	}
 	state.LastDecision = record.Decision
 	state.LastNarratorProse = record.Prose
-	if !PlayerDecisionEmpty(record.Decision) && PlayerDecisionEqual(record.Decision, state.PendingDecision) {
+	state.PendingTurnPath = ""
+	if state.Status == StatusAwaitingPlayerChoice {
+		state.Status = StatusActive
+	}
+	if state.Status != StatusBlockedWriterRefresh &&
+		((!PlayerDecisionEmpty(record.Decision) && PlayerDecisionEqual(record.Decision, state.PendingDecision)) ||
+			(!PlayerDecisionEmpty(record.NextDecision) && PlayerDecisionEqual(record.NextDecision, state.PendingDecision))) {
 		state.PendingDecision = scene.PlayerDecision{}
 		state.PendingDecisionAt = ""
 		state.PendingWriterRunID = ""
 		state.PendingWriterRunPath = ""
 	}
-	return state, w.SaveState(state)
+	if err := w.SaveState(state); err != nil {
+		return state, err
+	}
+	if pendingTurnPath != "" {
+		_ = os.Remove(filepath.Join(w.Dir, filepath.FromSlash(pendingTurnPath)))
+	}
+	return state, nil
 }
 
 func GenerateStoryID() string {
