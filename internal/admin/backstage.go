@@ -55,13 +55,17 @@ func buildBackstageMessages(root string, writer *gamelog.Writer, events []gamelo
 			activeCaller = caller
 		}
 	}
+	sortBackstageMessages(messages)
+	return messages
+}
+
+func sortBackstageMessages(messages []backstageMessage) {
 	sort.SliceStable(messages, func(i, j int) bool {
 		if messages[i].Time == messages[j].Time {
 			return messages[i].ID < messages[j].ID
 		}
 		return messages[i].Time < messages[j].Time
 	})
-	return messages
 }
 
 func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller backstageCaller) []backstageMessage {

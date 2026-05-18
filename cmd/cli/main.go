@@ -1450,7 +1450,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 				},
 			})
 		} else {
-			rollout, err = rolloutOnce(ctx, packet, nodeID, decision, cfg)
+			rollout, err = rolloutOnce(ctx, packet, nodeID, decision, cfg, displayTurn)
 			if err != nil {
 				logEvent(cfg.Logger, gamelog.Event{Level: gamelog.LevelError, Category: "narrator", Event: "narrator.rollout.failed", Message: err.Error(), PacketID: packet.ID, NodeID: nodeID})
 				return err
@@ -1876,7 +1876,7 @@ func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet sc
 	return nil
 }
 
-func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (narrator.Rollout, error) {
+func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig, turn int) (narrator.Rollout, error) {
 	registry, err := actorRegistry(cfg.CardStore)
 	if err != nil {
 		return narrator.Rollout{}, err
@@ -1892,23 +1892,6 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		return narrator.Rollout{}, err
 	}
 	narratorContextText := narratorContext.RenderText()
-	logEvent(cfg.Logger, gamelog.Event{
-		Category: "narrator",
-		Event:    "narrator.rollout.request",
-		Message:  "narrator rollout requested",
-		PacketID: packet.ID,
-		NodeID:   nodeID,
-		Fields: map[string]any{
-			"decision_choice_id": decision.ChoiceID,
-			"decision_free_text": decision.FreeText,
-			"context_chars":      len([]rune(narratorContextText)),
-		},
-		Detail: map[string]any{
-			"node_id":      nodeID,
-			"decision":     decision,
-			"context_text": narratorContextText,
-		},
-	})
 	actorInvoker := actors.Invoker(actors.StaticInvoker{})
 	renderer := narrator.Renderer(narrator.StaticRenderer{})
 	switch cfg.Backend {
@@ -1923,6 +1906,8 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	return narrator.Service{
 		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger},
 		Renderer: renderer,
+		Logger:   cfg.Logger,
+		Turn:     turn,
 	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
 }
 

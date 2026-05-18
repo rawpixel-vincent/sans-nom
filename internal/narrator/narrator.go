@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -25,6 +26,8 @@ type Draft struct {
 type Service struct {
 	Actors   *actors.Service
 	Renderer Renderer
+	Logger   *gamelog.Writer
+	Turn     int
 }
 
 type Rollout struct {
@@ -46,17 +49,79 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 
 	var actorRaw []actors.Output
 	if s.Actors != nil {
-		actorRaw, err = s.Actors.InvokeForNode(ctx, node, context)
+		actorService := *s.Actors
+		actorService.PacketID = packet.ID
+		actorService.Turn = s.Turn
+		actorRaw, err = actorService.InvokeForNode(ctx, node, context)
 		if err != nil {
 			return Rollout{}, err
 		}
 	}
+	rawActors, _ := json.Marshal(actorRaw)
+	promptText := prompt.NarratorPrompt(node, string(rawActors), context)
+	logEvent(s.Logger, gamelog.Event{
+		Category: "narrator",
+		Event:    "narrator.rollout.request",
+		Message:  "narrator rollout requested",
+		Turn:     s.Turn,
+		PacketID: packet.ID,
+		NodeID:   node.ID,
+		Fields: map[string]any{
+			"actor_output_count": len(actorRaw),
+			"context_chars":      len([]rune(context)),
+			"prompt_chars":       len([]rune(promptText)),
+			"decision_choice_id": decision.ChoiceID,
+			"decision_free_text": decision.FreeText,
+		},
+		Detail: map[string]any{
+			"prompt":        promptText,
+			"context_text":  context,
+			"node":          node,
+			"actor_outputs": actorRaw,
+			"decision":      decision,
+		},
+	})
 	draft, err := s.Renderer.Render(ctx, node, actorRaw, context)
 	if err != nil {
+		logEvent(s.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "narrator",
+			Event:    "narrator.rollout.failed",
+			Message:  err.Error(),
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			Detail: map[string]any{
+				"prompt":        promptText,
+				"context_text":  context,
+				"node":          node,
+				"actor_outputs": actorRaw,
+				"decision":      decision,
+				"error":         err.Error(),
+			},
+		})
 		return Rollout{}, err
 	}
 	commit := buildCommit(packet, node, decision, draft)
 	if err := commit.ValidateCanonOnly(); err != nil {
+		logEvent(s.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "narrator",
+			Event:    "narrator.rollout.failed",
+			Message:  err.Error(),
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			Detail: map[string]any{
+				"prompt":        promptText,
+				"context_text":  context,
+				"node":          node,
+				"actor_outputs": actorRaw,
+				"draft":         draft,
+				"decision":      decision,
+				"error":         err.Error(),
+			},
+		})
 		return Rollout{}, err
 	}
 	return Rollout{Node: node, ActorRaw: actorRaw, Draft: draft, Commit: commit}, nil
@@ -142,6 +207,13 @@ func decisionText(decision scene.PlayerDecision) string {
 		return "Player selected choice: " + decision.ChoiceID
 	}
 	return "Player observed."
+}
+
+func logEvent(logger *gamelog.Writer, event gamelog.Event) {
+	if logger == nil {
+		return
+	}
+	_ = logger.Append(event)
 }
 
 type StaticRenderer struct{}

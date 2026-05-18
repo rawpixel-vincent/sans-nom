@@ -2,10 +2,12 @@ package narrator
 
 import (
 	"context"
+	"encoding/json"
 	"strings"
 	"testing"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
@@ -89,6 +91,49 @@ func TestRolloutDoesNotCommitActorInterior(t *testing.T) {
 	encoded := commitText(rollout.Commit)
 	if strings.Contains(encoded, "private thought") {
 		t.Fatalf("actor interior leaked into commit: %s", encoded)
+	}
+}
+
+func TestRolloutLogsNarratorPromptAndResponseInputs(t *testing.T) {
+	logger := gamelog.NewWriter(t.TempDir(), "story-1")
+	packet := scene.StoryPacket{
+		ID: "packet-1",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID: "ws",
+			SessionID:   "session",
+		},
+		Nodes: []scene.SceneNode{{
+			ID:      "selected",
+			Beats:   []scene.Beat{{Text: "Selected branch."}},
+			Choices: []scene.Choice{{ID: "choice-a", Label: "Go", TargetNodeID: "selected"}},
+		}},
+	}
+	svc := Service{Renderer: StaticRenderer{}, Logger: logger, Turn: 7}
+	if _, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "choice-a"}, "narrator context"); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "narrator.rollout.request"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("expected one narrator request log, got %#v", events)
+	}
+	if events[0].Turn != 7 || events[0].PacketID != "packet-1" || events[0].NodeID != "selected" {
+		t.Fatalf("unexpected request event metadata: %#v", events[0])
+	}
+	var detail map[string]any
+	raw, err := logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	encoded, _ := json.Marshal(raw)
+	if err := json.Unmarshal(encoded, &detail); err != nil {
+		t.Fatal(err)
+	}
+	promptText, _ := detail["prompt"].(string)
+	if !strings.Contains(promptText, "You are the Narrator for Sans-Nom") || !strings.Contains(promptText, "narrator context") {
+		t.Fatalf("narrator prompt detail missing expected text: %#v", detail)
 	}
 }
 

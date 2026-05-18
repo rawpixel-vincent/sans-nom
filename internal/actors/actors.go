@@ -109,6 +109,8 @@ type Service struct {
 	Registry *Registry
 	Invoker  Invoker
 	Logger   *gamelog.Writer
+	PacketID string
+	Turn     int
 }
 
 func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, context string) ([]Output, error) {
@@ -133,10 +135,13 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 		wg.Add(1)
 		go func(idx int, actor Actor, need scene.ActorNeed) {
 			defer wg.Done()
+			promptText := prompt.ActorPrompt(actor.Card, node, need, context)
 			s.logActorEvent(gamelog.Event{
 				Category: "actor",
 				Event:    "actor.invoke.request",
 				Message:  "actor invocation requested",
+				Turn:     s.Turn,
+				PacketID: s.PacketID,
 				NodeID:   node.ID,
 				Fields: map[string]any{
 					"actor_id": actor.ID,
@@ -149,6 +154,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					"node_id":      node.ID,
 					"node_title":   node.Title,
 					"need":         need,
+					"prompt":       promptText,
 					"context_text": context,
 				},
 			})
@@ -159,6 +165,8 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					Category: "actor",
 					Event:    "actor.invoke.failed",
 					Message:  err.Error(),
+					Turn:     s.Turn,
+					PacketID: s.PacketID,
 					NodeID:   node.ID,
 					Fields: map[string]any{
 						"actor_id": actor.ID,
@@ -169,6 +177,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 						"actor_id": actor.ID,
 						"node_id":  node.ID,
 						"need":     need,
+						"prompt":   promptText,
 						"error":    err.Error(),
 					},
 				})
@@ -181,6 +190,8 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 				Category: "actor",
 				Event:    "actor.invoke.completed",
 				Message:  "actor invocation completed",
+				Turn:     s.Turn,
+				PacketID: s.PacketID,
 				NodeID:   node.ID,
 				Fields: map[string]any{
 					"actor_id": actor.ID,
@@ -191,6 +202,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					"actor_id": actor.ID,
 					"node_id":  node.ID,
 					"need":     need,
+					"prompt":   promptText,
 					"output":   output,
 				},
 			})

@@ -2,7 +2,9 @@ package actors
 
 import (
 	"context"
+	"encoding/json"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
@@ -85,6 +87,8 @@ func TestServiceLogsActorInvocation(t *testing.T) {
 		Registry: reg,
 		Invoker:  StaticInvoker{},
 		Logger:   gamelog.NewWriter(dir, "story-1"),
+		PacketID: "packet-1",
+		Turn:     3,
 	}
 	node := scene.SceneNode{
 		ID:    "start",
@@ -104,5 +108,21 @@ func TestServiceLogsActorInvocation(t *testing.T) {
 	}
 	if len(events) != 2 || events[0].Event != "actor.invoke.request" || events[1].Event != "actor.invoke.completed" {
 		t.Fatalf("unexpected actor logs: %#v", events)
+	}
+	if events[0].PacketID != "packet-1" || events[0].Turn != 3 {
+		t.Fatalf("actor request missed packet/turn metadata: %#v", events[0])
+	}
+	detail, err := svc.Logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	raw, _ := json.Marshal(detail)
+	var decoded map[string]any
+	if err := json.Unmarshal(raw, &decoded); err != nil {
+		t.Fatal(err)
+	}
+	promptText, _ := decoded["prompt"].(string)
+	if !strings.Contains(promptText, "You are acting as tonto") || !strings.Contains(promptText, "actor context") {
+		t.Fatalf("actor prompt not logged: %#v", decoded)
 	}
 }

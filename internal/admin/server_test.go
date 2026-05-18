@@ -123,6 +123,55 @@ func TestAdminExposesGlobalBackstage(t *testing.T) {
 	}
 }
 
+func TestAdminGlobalBackstageIncludesStoryNarratorMessages(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "narrator",
+		Event:    "narrator.rollout.request",
+		Turn:     1,
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Detail:   map[string]any{"prompt": "narrator prompt"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{
+		Category: "narrator",
+		Event:    "narrator.rollout.completed",
+		Turn:     1,
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Detail:   map[string]any{"draft": map[string]any{"prose": "narrator prose"}},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "System" || resp.Messages[0].Role != "narrator" || !strings.Contains(resp.Messages[0].Text, "@Narrator narrator prompt") {
+		t.Fatalf("unexpected narrator request message: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "Narrator" || resp.Messages[1].Status != "completed" || !strings.Contains(resp.Messages[1].Text, "narrator prose") {
+		t.Fatalf("unexpected narrator response message: %#v", resp.Messages[1])
+	}
+	var detail struct {
+		Detail map[string]any `json:"detail"`
+	}
+	getJSON(t, server.URL+"/admin/api/logs/detail?path="+resp.Messages[0].DetailPath, &detail)
+	if detail.Detail["prompt"] != "narrator prompt" {
+		t.Fatalf("global backstage story detail did not resolve: %#v", detail.Detail)
+	}
+}
+
 func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
 	root := t.TempDir()
 	global := gamelog.NewGlobalWriter(root)
@@ -158,6 +207,50 @@ func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
 	}
 	if !strings.Contains(toolCall.Text, "@LoreExpert") {
 		t.Fatalf("tool call text should address LoreExpert, got %q", toolCall.Text)
+	}
+}
+
+func TestAdminBackstageShowsActorInvocationPrompt(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "actor",
+		Event:    "actor.invoke.request",
+		Turn:     2,
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Fields:   map[string]any{"actor_id": "tonto"},
+		Detail:   map[string]any{"prompt": "actor prompt text"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{
+		Category: "actor",
+		Event:    "actor.invoke.completed",
+		Turn:     2,
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Fields:   map[string]any{"actor_id": "tonto"},
+		Detail:   map[string]any{"output": map[string]any{"dialogue": "actor answer"}},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID+"/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "Narrator" || !strings.Contains(resp.Messages[0].Text, "@tonto actor prompt text") {
+		t.Fatalf("unexpected actor request bubble: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "tonto" || !strings.Contains(resp.Messages[1].Text, "actor answer") {
+		t.Fatalf("unexpected actor response bubble: %#v", resp.Messages[1])
 	}
 }
 

@@ -6,10 +6,12 @@ import (
 	"net/http"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
+	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
 
 func (s *Server) handleGlobalBackstage(w http.ResponseWriter, r *http.Request) {
@@ -118,7 +120,44 @@ func (s *Server) globalBackstageMessages(r *http.Request) ([]backstageMessage, e
 	if err != nil {
 		return nil, err
 	}
-	return buildBackstageMessages(writer.RootDir, writer, events), nil
+	messages := buildBackstageMessages(writer.RootDir, writer, events)
+	stories, err := storyapp.ListStories(s.StoryRoot)
+	if err != nil {
+		return nil, err
+	}
+	for _, summary := range stories {
+		ws, state, err := story.LoadWorkspace(s.StoryRoot, summary.StoryID)
+		if err != nil {
+			continue
+		}
+		storyWriter := gamelog.NewWriter(ws.Dir, state.StoryID)
+		storyEvents, err := gamelog.Read(filepath.Join(ws.LogsDir(), "events.jsonl"), gamelog.Filter{Tail: tail})
+		if err != nil {
+			return nil, err
+		}
+		storyMessages := buildBackstageMessages(ws.Dir, storyWriter, storyEvents)
+		rewriteBackstageDetailPaths(writer.RootDir, ws.Dir, storyMessages)
+		messages = append(messages, storyMessages...)
+	}
+	sortBackstageMessages(messages)
+	if tail > 0 && len(messages) > tail {
+		messages = messages[len(messages)-tail:]
+	}
+	return messages, nil
+}
+
+func rewriteBackstageDetailPaths(globalRoot string, sourceRoot string, messages []backstageMessage) {
+	for i := range messages {
+		if messages[i].DetailPath == "" {
+			continue
+		}
+		absolutePath := filepath.Join(sourceRoot, filepath.FromSlash(messages[i].DetailPath))
+		relativePath, err := filepath.Rel(globalRoot, absolutePath)
+		if err != nil || strings.HasPrefix(relativePath, "..") || filepath.IsAbs(relativePath) {
+			continue
+		}
+		messages[i].DetailPath = filepath.ToSlash(relativePath)
+	}
 }
 
 func (s *Server) storyBackstageMessages(r *http.Request, storyID string) ([]backstageMessage, error) {
