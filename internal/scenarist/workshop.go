@@ -19,7 +19,7 @@ func ManifestText(manifest Manifest) string {
 	}
 	var b strings.Builder
 	b.WriteString("## SCENARIST MATERIAL MANIFEST\n")
-	b.WriteString("These files are planning artifacts, not canon. Read them selectively; do not copy them wholesale. The Writer remains responsible for the final StoryPacket.\n")
+	b.WriteString("These files are planning artifacts, not canon. They may come from independent parallel Scenarists. Read them selectively, synthesize them yourself, and make a separate follow-up call when later questions depend on these answers. The Writer remains responsible for the final StoryPacket.\n")
 	for _, material := range manifest.Materials {
 		fmt.Fprintf(&b, "- %s: %s (%s)\n", material.TopicID, material.Path, material.Topic)
 	}
@@ -55,6 +55,7 @@ func ScenaristToolQuery(contextText string, request ToolRequest) string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "Topic: %s\n", request.Topic)
 	fmt.Fprintf(&b, "Request: %s\n", request.Request)
+	b.WriteString("Parallel note: this Scenarist request may be running beside other independent requests and cannot see their answers. Answer from the request, relevant paths, and curated context only.\n")
 	writeList(&b, "Hard boundaries", request.HardBoundaries)
 	writeList(&b, "Relevant paths", request.RelevantPaths)
 	if contextText != "" {

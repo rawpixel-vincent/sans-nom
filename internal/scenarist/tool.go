@@ -40,7 +40,7 @@ func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	}
 	return codexoauth.LocalTool{
 		Name:        "call_scenarists",
-		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
+		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Requests inside one call run in parallel and do not see each other's answers; put only independent lenses in the same call. For dependent follow-up, read returned files, then call again with those paths. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
 		Parameters:  scenaristToolSchema(maxParallel),
 		Handler:     r.Handle,
 	}
@@ -90,6 +90,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		return nil, err
 	}
 	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil)
+	dependencyWarnings := dependencyWarnings(payload.Requests)
 	r.log(gamelog.Event{
 		Category: "scenarist",
 		Event:    "scenarist.call.started",
@@ -114,8 +115,29 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"context_chars":         len(r.ContextText),
 			"context_text":          r.ContextText,
 			"planning_scope":        "scenarist material is planning-only; Writer owns final StoryPacket",
+			"parallel_contract":     "requests in one call run in parallel and do not see each other's answers",
+			"dependency_warnings":   dependencyWarnings,
 		},
 	})
+	if len(dependencyWarnings) > 0 {
+		r.log(gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "scenarist",
+			Event:    "scenarist.call.dependency_warning",
+			Message:  "parallel scenarist call contains dependent-looking requests",
+			Fields: map[string]any{
+				"request_count": len(payload.Requests),
+				"warning_count": len(dependencyWarnings),
+				"call_dir":      filepath.ToSlash(callDir),
+			},
+			Detail: map[string]any{
+				"requests": payload.Requests,
+				"warnings": dependencyWarnings,
+				"guidance": "Requests in one call run in parallel and do not see each other's answers. For dependent work, read returned files and make another call with those files in relevant_paths.",
+				"call_dir": filepath.ToSlash(callDir),
+			},
+		})
+	}
 
 	materials := make([]Material, len(payload.Requests))
 	errs := make([]error, len(payload.Requests))
@@ -210,6 +232,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"call_dir":              filepath.ToSlash(callDir),
 			"tools_enabled":         r.Tools,
 			"lore_expert_available": r.LoreExpert != nil,
+			"parallel_contract":     "materials in one call were generated independently",
 		},
 	})
 	return map[string]any{
@@ -217,7 +240,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		"root":         filepath.ToSlash(callDir),
 		"max_parallel": maxParallel,
 		"materials":    materials,
-		"note":         "Scenarist material is planning-only. Read returned files selectively; do not copy wholesale or commit as canon.",
+		"note":         "Scenarist material is planning-only and each material in this call was generated independently. Read returned files selectively; for synthesis or dependent follow-up, call again with those paths. Do not copy wholesale or commit as canon.",
 	}, nil
 }
 
@@ -385,6 +408,57 @@ func boolField(values map[string]any, key string) bool {
 	return false
 }
 
+type dependencyWarning struct {
+	Index        int      `json:"index"`
+	TopicID      string   `json:"topic_id"`
+	Topic        string   `json:"topic"`
+	MatchedTerms []string `json:"matched_terms"`
+}
+
+func dependencyWarnings(requests []ToolRequest) []dependencyWarning {
+	if len(requests) < 2 {
+		return nil
+	}
+	var warnings []dependencyWarning
+	for i, request := range requests {
+		terms := dependencyTerms(request)
+		if len(terms) == 0 {
+			continue
+		}
+		warnings = append(warnings, dependencyWarning{
+			Index:        i,
+			TopicID:      request.TopicID,
+			Topic:        request.Topic,
+			MatchedTerms: terms,
+		})
+	}
+	return warnings
+}
+
+func dependencyTerms(request ToolRequest) []string {
+	text := strings.ToLower(strings.Join([]string{request.Topic, request.Request}, "\n"))
+	candidates := []string{
+		"previous",
+		"prior",
+		"strongest germ",
+		"selected germ",
+		"best candidate",
+		"likely strongest",
+		"choose the strongest",
+		"for the likely",
+		"after reading",
+		"after reviewing",
+		"based on the answer",
+	}
+	var terms []string
+	for _, candidate := range candidates {
+		if strings.Contains(text, candidate) {
+			terms = append(terms, candidate)
+		}
+	}
+	return terms
+}
+
 func (r *ToolRunner) log(event gamelog.Event) {
 	if r == nil || r.Logger == nil {
 		return
@@ -466,9 +540,10 @@ func scenaristToolSchema(maxParallel int) map[string]any {
 		"required":             []string{"requests"},
 		"properties": map[string]any{
 			"requests": map[string]any{
-				"type":     "array",
-				"minItems": 1,
-				"maxItems": maxParallel,
+				"type":        "array",
+				"description": "Parallel independent Scenarist requests. Requests in the same call run concurrently and cannot read each other's answers. If one question depends on another answer, call this tool again after reading returned material paths.",
+				"minItems":    1,
+				"maxItems":    maxParallel,
 				"items": map[string]any{
 					"type":                 "object",
 					"additionalProperties": false,
@@ -478,7 +553,7 @@ func scenaristToolSchema(maxParallel int) map[string]any {
 						"topic":    map[string]any{"type": "string"},
 						"request": map[string]any{
 							"type":        "string",
-							"description": "Creative or critical request for the scenarist: brainstorm, suggest, critique, stress-test, react to a character/doctrine/scene, or propose vivid pressure material. The request can be broad.",
+							"description": "Creative or critical request for this one scenarist: brainstorm, suggest, critique, stress-test, react to a character/doctrine/scene, or propose vivid pressure material. The request can be broad, but it should be independently answerable unless this is the only request in the call.",
 						},
 						"hard_boundaries": map[string]any{
 							"type":        "array",

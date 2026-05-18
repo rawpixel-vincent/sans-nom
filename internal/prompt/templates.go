@@ -23,7 +23,8 @@ Rules:
 - If a branch should hand off to the next Writer refresh, make that branch a terminal node with no choices and revision_notes explaining the continuation requirement.
 - Protect reader plausibility: every law, taboo, technology, social reaction, character choice, and consequence must have internal cause, social enforcement, cost, emotional credibility, and consequence inside the player character's lived world.
 - Use call_scenarists as the default outside workshop when you want invention, critique, story possibilities, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility criticism. The tool accepts broad or narrow requests, can run up to the provider-pool size in parallel, writes free-form material to files, and returns paths.
-- Scenarist material is brainstorming material. Read it selectively, then author the validator-closed StoryPacket yourself.
+- Requests inside one call run in parallel and do not see each other's answers. Put independent lenses in the same call; for dependent follow-up, read the returned files first, then call again with those paths.
+- Scenarist material is brainstorming material. Read it selectively, synthesize it yourself, then author the validator-closed StoryPacket.
 - Use ask_lore_expert when the question depends on the selected ground-lore pack: source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. Treat the answer as reference research, not as the creative room.
 - Practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.
 - The Narrator will write final prose later. Keep Writer material out of canon.
@@ -103,7 +104,8 @@ Rules:
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
 - If a Seed Workshop Manifest is present, use those files as advisory planning references only. They are not canon, not final structure, and not constraints unless they improve the final StoryBible and StoryPacket.
 - Use call_scenarists as the seed writer's room when you want invention, critique, alternate story seeds, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility criticism. The tool accepts broad or narrow requests, can run up to the provider-pool size in parallel, writes free-form material to files, and returns paths.
-- Scenarist material is brainstorming material. Read it selectively, then author the StoryBible and StoryPacket yourself.
+- Requests inside one call run in parallel and do not see each other's answers. Put independent lenses in the same call; for dependent follow-up, read the returned files first, then call again with those paths.
+- Scenarist material is brainstorming material. Read it selectively, synthesize it yourself, then author the StoryBible and StoryPacket.
 - Use ask_lore_expert when the question depends on the selected ground-lore pack: source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. Treat the answer as reference research, not as the creative room.
 - Practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
@@ -146,6 +148,7 @@ Rules:
 - Do not use schema field names or target_node_id values.
 - Treat source lore as craft DNA only: pressure, contradiction, body/law/taboo, witness-bound memory, operatic SF-comics rhythm.
 - Use call_scenarists as the preferred creative workshop for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and reader-plausibility criticism.
+- Requests inside one call run in parallel and do not see each other's answers. Use one call for independent lenses; use a later call after reading returned files for dependent follow-up.
 - Use ask_lore_expert for source-influence research when the workshop needs grounded patterns from the selected lore pack.
 - Practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.
 - Preserve originality: no Metabarons canon names, places, factions, dynasty mechanics, council mode, direct equivalents, resurrection roster assumptions, or all-cast fanout.

@@ -351,6 +351,52 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 	}
 }
 
+func TestToolRunnerWarnsOnDependentParallelRequests(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	tool := (&ToolRunner{
+		Runner:      &fakeScenaristRunner{response: "material"},
+		OutputDir:   t.TempDir(),
+		ContextText: "writer context",
+		MaxParallel: 2,
+		Logger:      logger,
+	}).LocalTool()
+	args := `{"requests":[{"topic_id":"select","topic":"Select strongest germ","request":"Choose the strongest germ from prior material.","hard_boundaries":["Original material only."],"relevant_paths":[]},{"topic_id":"scene","topic":"Scene engines for selected germ","request":"For the best candidate germ, suggest scene engines.","hard_boundaries":["Original material only."],"relevant_paths":[]}]}`
+	result, err := tool.Handler(context.Background(), ".", args)
+	if err != nil {
+		t.Fatal(err)
+	}
+	data, err := json.Marshal(result)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, required := range []string{
+		"generated independently",
+		"for synthesis or dependent follow-up",
+	} {
+		if !strings.Contains(string(data), required) {
+			t.Fatalf("tool response missing %q:\n%s", required, data)
+		}
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "scenarist.call.dependency_warning"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("expected dependency warning event, got %#v", events)
+	}
+	if events[0].Level != gamelog.LevelWarn || events[0].Fields["warning_count"] == nil {
+		t.Fatalf("unexpected warning event: %#v", events[0])
+	}
+	detail, err := logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(mustJSON(t, detail))
+	if !strings.Contains(text, "Requests in one call run in parallel") || !strings.Contains(text, "selected germ") {
+		t.Fatalf("warning detail missing guidance or matched terms:\n%s", text)
+	}
+}
+
 func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	tool := (&ToolRunner{
