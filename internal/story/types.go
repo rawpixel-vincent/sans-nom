@@ -208,7 +208,7 @@ func (b StoryBible) Validate() error {
 		return fmt.Errorf("story bible needs at least 3 world basics")
 	}
 	if len(b.OriginalLaws) == 0 {
-		return errors.New("story bible needs at least one original gravity law")
+		return errors.New("story bible needs at least one original binding doctrine")
 	}
 	for _, law := range b.OriginalLaws {
 		if strings.TrimSpace(law.ID) == "" || strings.TrimSpace(law.Name) == "" {

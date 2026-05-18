@@ -50,6 +50,10 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 	if !strings.Contains(text, "StoryPacket closure rule") || !strings.Contains(text, "future packet handoffs must be terminal nodes with revision_notes") {
 		t.Fatalf("writer context missed packet closure rule:\n%s", text)
 	}
+	if !strings.Contains(text, "binding doctrine as a deep rule inside the player character's lived order") ||
+		!strings.Contains(text, "visible cost, and consequence") {
+		t.Fatalf("writer context missed binding doctrine/plausibility rule:\n%s", text)
+	}
 }
 
 func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T) {

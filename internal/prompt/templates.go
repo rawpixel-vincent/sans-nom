@@ -21,7 +21,7 @@ Rules:
 - Plan the full decision structure for the current chunk, roughly 3-5 scene nodes.
 - Every choice target_node_id must point to a scene node included in this same packet. Do not use placeholder or future targets such as "node_future_*", "continue", "writer_continuation", or any missing handoff node.
 - If a branch should hand off to the next Writer refresh, make that branch a terminal node with no choices and revision_notes explaining the continuation requirement.
-- Protect suspension of disbelief: every law, taboo, technology, social reaction, character choice, and consequence must feel internally motivated by the created world.
+- Protect suspension of disbelief: every law, taboo, technology, social reaction, character choice, and consequence must have internal cause, social enforcement, cost, emotional credibility, and consequence inside the player character's lived world.
 - If the call_scenarists tool is available, use it whenever free-form workshop help would improve the packet. The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes material to files, and returns only file paths.
 - You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
 - Scenarist material is inspiration only. Convert it into a validator-closed StoryPacket yourself; do not copy unresolved future branch labels into target_node_id.
@@ -111,7 +111,8 @@ Rules:
 - Lore expert answers are cached influence-only analysis files. They are not canon, not StoryBible doctrine, and not a substitute for Writer authorship.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
-- Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
+- Include at least one original binding doctrine inspired by source-law structure: profound, binding, not merely cruel, and enforced by the player character's lived social order.
+- The binding doctrine belongs to the player character's world: a family, guild, dynasty, sect, profession, city office, rite, or other local order.
 - Protect suspension of disbelief by making each strange law or technology legible through social practice, cost, taboo, and consequence.
 - Return one StoryPacket with 3-5 scene nodes.
 - The Metabarons lore context is creative DNA: passion, taste, contradictions, taboos, relationship pressure, body/technology myth, witness-bound memory, and operatic SF-comics rhythm.
@@ -173,11 +174,11 @@ Review the proposed opening StoryBible plus StoryPacket against the original-sto
 
 Reject if:
 - the JSON is not a valid top-level object with bible and packet;
-- the StoryBible lacks a strong original gravity law inspired by source-law structure;
+- the StoryBible lacks a strong original binding doctrine inspired by source-law structure;
 - the opening lacks world setup, player identity, player-world connection, active taboo/law, immediate pressure, or choices;
 - the proposed law is merely cruel instead of profound and binding;
 - the proposed law is copied literally from source canon instead of original story doctrine;
-- the world, law, technology, or character behavior damages suspension of disbelief because it lacks internal cause, social enforcement, cost, or consequence;
+- the player character's world, law, technology, or character behavior damages suspension of disbelief because it lacks internal cause, social enforcement, cost, or consequence;
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with 3-5 nodes;
 - any choice targets a missing node;

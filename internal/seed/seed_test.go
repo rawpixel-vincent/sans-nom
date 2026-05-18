@@ -63,6 +63,9 @@ func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
 		"Every choice target must be an included node",
 		"make that branch node terminal with revision_notes",
 		"placeholder continuation choice",
+		"original binding doctrine",
+		"player character's world",
+		"social cause, emotional credibility, visible cost, and consequence",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
@@ -189,9 +192,18 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
 		}
 	}
+	if !strings.Contains(runner.prompts[2], "Doctrine And Plausibility Turn") ||
+		!strings.Contains(runner.prompts[2], "original binding doctrine") ||
+		!strings.Contains(runner.prompts[2], "player character's lived social order") {
+		t.Fatalf("doctrine workshop prompt has wrong law framing:\n%s", runner.prompts[2])
+	}
 	final := runner.prompts[4]
 	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\nA law image.") {
 		t.Fatalf("final prompt should include manifest but not raw workshop text:\n%s", final)
+	}
+	if !strings.Contains(final, "Repeated motifs in workshop output are not requirements") ||
+		!strings.Contains(final, "discard any motif that became too repetitive") {
+		t.Fatalf("final prompt should prevent workshop motif propagation:\n%s", final)
 	}
 	for _, rel := range []string{
 		filepath.Join("01-imagination", "prompt.txt"),

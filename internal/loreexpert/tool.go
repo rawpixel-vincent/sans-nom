@@ -18,7 +18,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 )
 
-const PromptVersion = "lore-expert-v1"
+const PromptVersion = "lore-expert-v3"
 
 type Runner interface {
 	Run(ctx context.Context, prompt string) (string, error)
@@ -271,6 +271,8 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	fmt.Fprintf(&b, "Your job is to answer questions about a ground-lore pack as craft influence only.\n")
 	fmt.Fprintf(&b, "You are not writing generated story canon, final prose, StoryBible doctrine, StoryPacket nodes, character cards, or direct equivalents.\n")
 	fmt.Fprintf(&b, "Every answer must clearly say it is influence-only inspiration, not canon for the generated story.\n\n")
+	fmt.Fprintf(&b, "When discussing laws or doctrines, describe source patterns as consequence systems, initiation rules, taboos, oaths, inheritance pressures, refusal points, and social enforcement.\n")
+	fmt.Fprintf(&b, "Frame binding doctrines through the protagonist's lived social order, such as a family, guild, dynasty, sect, profession, city office, or rite.\n\n")
 	fmt.Fprintf(&b, "Ground-lore pack:\n- id: %s\n- label: %s\n- collection: %s\n", request.PackID, r.packLabel(), r.Collection)
 	if strings.TrimSpace(r.PackDescription) != "" {
 		fmt.Fprintf(&b, "- description: %s\n", strings.TrimSpace(r.PackDescription))
@@ -441,7 +443,7 @@ func toolSchema() map[string]any {
 			},
 			"question": map[string]any{
 				"type":        "string",
-				"description": "Influence-only lore/craft question. Ask about patterns, mechanisms, risks, relationships, tone, or suspension of disbelief, not final story material.",
+				"description": "Influence-only lore/craft question. Ask about patterns, binding doctrines, mechanisms, risks, relationships, tone, or suspension of disbelief, not final story material.",
 			},
 			"purpose": map[string]any{
 				"type": "string",

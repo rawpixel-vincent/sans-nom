@@ -15,6 +15,8 @@ func TestStoryBibleValidationRejectsMissingOriginalLaw(t *testing.T) {
 
 	if err := ValidateBundle(bundle); err == nil {
 		t.Fatal("expected missing original law rejection")
+	} else if !strings.Contains(err.Error(), "original binding doctrine") {
+		t.Fatalf("expected binding doctrine validation error, got: %v", err)
 	}
 }
 

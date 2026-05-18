@@ -998,7 +998,9 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	if strings.TrimSpace(pack.Description) != "" {
 		fmt.Fprintf(&b, "- pack description: %s\n", strings.TrimSpace(pack.Description))
 	}
-	b.WriteString("- influence style: operatic science-fantasy comics; body, law, taboo, witness memory, social enforcement, philosophical violence, spectacle, family/function/refusal pressure, and credible strange-world consequence.\n")
+	b.WriteString("- influence style: operatic science-fantasy comics; body, law, taboo, witness memory, social enforcement, philosophical violence, spectacle, family/function/refusal pressure, and credible consequence inside the protagonist's lived order.\n")
+	b.WriteString("- binding doctrine: create an original deep rule for the player character's family, guild, dynasty, sect, profession, city office, rite, or local social world.\n")
+	b.WriteString("- plausibility boundary: suspension of disbelief means internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
 	b.WriteString("- lore digging: use the ask_lore_expert tool for targeted influence questions about mechanisms, laws, relationships, tone, source-pattern risks, or suspension-of-disbelief checks.\n")
 	b.WriteString("- no raw source lore is injected here; concrete source analysis must come through cached ask_lore_expert calls.\n")
@@ -1220,7 +1222,7 @@ func bridgeStoryDocs(docs []story.IndexDocument) []bridgeclient.StoryIndexDocume
 func seedPeerCards(bible story.StoryBible) map[string][]string {
 	lawFacts := make([]string, 0, len(bible.OriginalLaws))
 	for _, law := range bible.OriginalLaws {
-		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce original story law %s: %s", law.Name, law.Enforcement))
+		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce original binding doctrine %s: %s", law.Name, law.Enforcement))
 	}
 	baseBoundaries := []string{
 		"BOUNDARY: Source lore is influence material, not story canon.",

@@ -361,8 +361,8 @@ func DefaultWorkshopTurns() []WorkshopTurn {
 		PromptShape: "Choose the strongest germ. Develop Character, Point of View, Setting, Plot pressure, Theme, and Style/Tone as separate Markdown sections. Keep each element concrete and playable.",
 	}, {
 		ID:          "law",
-		Title:       "Law And Suspension Turn",
-		PromptShape: "Stress-test the original gravity law. Explain social enforcement, history, public rituals, edge cases, loopholes, emotional cost, visible consequences, and why refusal matters.",
+		Title:       "Doctrine And Plausibility Turn",
+		PromptShape: "Stress-test the original binding doctrine that governs the player character's lived social order. Explain social enforcement, history, public rituals, edge cases, loopholes, emotional cost, visible consequences, and why refusal matters.",
 	}, {
 		ID:          "opening",
 		Title:       "Opening Scene Engine Turn",
@@ -375,6 +375,7 @@ func workshopManifest(artifacts []WorkshopArtifact) string {
 		return "No workshop artifacts yet."
 	}
 	var b strings.Builder
+	fmt.Fprintln(&b, "These summaries are navigation aids only. Repeated motifs in workshop output are not requirements; the final Writer may discard any motif that became too repetitive.")
 	for _, artifact := range artifacts {
 		fmt.Fprintf(&b, "- %s (%s)\n  - output: %s\n  - summary: %s\n", artifact.Title, artifact.TurnID, artifact.OutputPath, strings.TrimSpace(artifact.Summary))
 	}
@@ -443,7 +444,9 @@ The selected ground-lore pack is creative DNA for the writer and narrator: passi
 Do not literalize that source lore. The generated story must use new characters, new places, new factions, new conflicts, and new proper nouns.
 Do not use source canon names, places, factions, dynastic events, council mechanics, all-cast fanout, or resurrection-roster assumptions.
 Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible is binding doctrine for this generated story, separate from source-lore influence.
-The StoryBible must contain at least one original gravity law inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
+The StoryBible must contain at least one original binding doctrine inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by the player character's lived social order.
+The binding doctrine belongs to the player character's world: a family, guild, dynasty, sect, profession, city office, rite, or other local order.
+Suspension of disbelief means internal plausibility, social cause, emotional credibility, visible cost, and consequence.
 The first entry node must be richer than later nodes. It should give the Narrator enough structure for a long classic opening: world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
 Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.

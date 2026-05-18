@@ -21,6 +21,9 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 		"can run up to the provider-pool size in parallel",
 		"Scenarist material is advisory material only",
 		"Lore expert answers are cached influence-only analysis files",
+		"original binding doctrine",
+		"player character's world",
+		"social practice, cost, taboo, and consequence",
 		"Every choice target_node_id must point to a scene node included in this same packet",
 		"Do not use placeholder targets",
 	} {
@@ -39,6 +42,7 @@ func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 		"Do not write a final StoryPacket",
 		"Do not use schema field names or target_node_id values",
 		"Protect suspension of disbelief",
+		"internal cause, social enforcement, cost, taboo, emotional credibility, and consequence",
 		"ask_lore_expert",
 		"Invent germs.",
 	} {
@@ -57,6 +61,7 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"Every choice target_node_id must point to a scene node included in this same packet",
 		"node_future_*",
 		"terminal node with no choices and revision_notes",
+		"internal cause, social enforcement, cost, emotional credibility, and consequence",
 		"Scenarist material is inspiration only",
 		"ask_lore_expert",
 		"validator-closed StoryPacket",
@@ -73,6 +78,7 @@ func TestSeedVerifierRejectsPlaceholderContinuationTargets(t *testing.T) {
 		"any choice targets a missing node",
 		"any choice uses a placeholder or sentinel target",
 		"follow-up choices whose target nodes are missing",
+		"original binding doctrine",
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("seed verifier prompt missing %q:\n%s", required, got)

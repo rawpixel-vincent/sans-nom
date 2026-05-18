@@ -116,7 +116,9 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 		t.Fatalf("answer path missing: %v", err)
 	}
 	if !strings.Contains(runner.prompt, "## Influence-only answer") ||
-		!strings.Contains(runner.prompt, "Suspension-of-disbelief risks") {
+		!strings.Contains(runner.prompt, "Suspension-of-disbelief risks") ||
+		!strings.Contains(runner.prompt, "consequence systems, initiation rules, taboos") ||
+		!strings.Contains(runner.prompt, "protagonist's lived social order") {
 		t.Fatalf("prompt missing required answer contract:\n%s", runner.prompt)
 	}
 	refs := secondMap["source_refs"].([]SourceRef)
@@ -150,5 +152,8 @@ func TestLocalToolSchemaIsInfluenceOnly(t *testing.T) {
 	}
 	if !strings.Contains(string(data), "suspension_check") {
 		t.Fatalf("schema missing purpose enum: %s", data)
+	}
+	if !strings.Contains(string(data), "binding doctrines") {
+		t.Fatalf("schema missing binding doctrine guidance: %s", data)
 	}
 }

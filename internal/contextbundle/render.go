@@ -68,6 +68,8 @@ func (c WriterContext) RenderText() string {
 	fmt.Fprintln(&b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(&b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
 	fmt.Fprintln(&b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
+	fmt.Fprintln(&b, "- Treat binding doctrine as a deep rule inside the player character's lived order.")
+	fmt.Fprintln(&b, "- Suspension of disbelief means internal cause, social practice, emotional credibility, visible cost, and consequence.")
 	fmt.Fprintln(&b, "- Use actor cards and directional representations only for original story actors explicitly present in the packet.")
 	fmt.Fprintln(&b, "- Treat lore references as influence material, not as candidate actor inventory or canon to reproduce.")
 	fmt.Fprintln(&b, "- Do not infer council mechanics, resurrection roster assumptions, or global shared knowledge.")

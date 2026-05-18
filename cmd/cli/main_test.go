@@ -355,6 +355,16 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") {
 		t.Fatalf("seed context missing DNA/tool guidance:\n%s", text)
 	}
+	for _, required := range []string{
+		"binding doctrine",
+		"player character's family, guild, dynasty",
+		"suspension of disbelief means internal cause",
+		"visible cost, and consequence",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("seed context missing %q:\n%s", required, text)
+		}
+	}
 	if retriever.query != "" || retriever.k != 0 {
 		t.Fatalf("seed context should not call lore retriever, got query=%q k=%d", retriever.query, retriever.k)
 	}
