@@ -94,6 +94,46 @@ func TestRolloutDoesNotCommitActorInterior(t *testing.T) {
 	}
 }
 
+func TestRolloutUsesSceneScopedSessionAndFiltersUnsupportedActorSurfaces(t *testing.T) {
+	packet := scene.StoryPacket{
+		ID: "packet-1",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID:   "ws",
+			SessionID:     "story-session",
+			PresentActors: []string{"Ira Quell", "Warden Cas"},
+		},
+		Nodes: []scene.SceneNode{{
+			ID:    "selected",
+			Beats: []scene.Beat{{Text: "Ira waits at the hatch."}},
+		}},
+	}
+	svc := Service{Renderer: fixedRenderer{draft: Draft{
+		Prose: "Ira waits at the hatch.",
+		SurfacedActorMessages: []scene.ActorMessage{{
+			ActorID:   "warden_cas",
+			Surface:   "Cas speaks despite having no actor output.",
+			Witnesses: []string{"Ira Quell"},
+		}},
+	}}}
+
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "wait"}, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	expectedSession := scene.SceneSessionID("story-session", "packet-1", "selected")
+	if rollout.Commit.SessionID != expectedSession {
+		t.Fatalf("commit session = %q, want %q", rollout.Commit.SessionID, expectedSession)
+	}
+	if len(rollout.Commit.ActorMessages) != 0 {
+		t.Fatalf("unsupported actor surfaces should not be committed: %#v", rollout.Commit.ActorMessages)
+	}
+	for _, event := range rollout.Commit.Events {
+		if event.Source == scene.CommitSourceActorSurface {
+			t.Fatalf("unsupported actor surface event leaked into commit: %#v", event)
+		}
+	}
+}
+
 func TestRolloutLogsNarratorPromptAndResponseInputs(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-1")
 	packet := scene.StoryPacket{
@@ -176,4 +216,12 @@ func commitText(commit scene.Commit) string {
 		b.WriteString(msg.Interior)
 	}
 	return b.String()
+}
+
+type fixedRenderer struct {
+	draft Draft
+}
+
+func (r fixedRenderer) Render(context.Context, scene.SceneNode, []actors.Output, string) (Draft, error) {
+	return r.draft, nil
 }

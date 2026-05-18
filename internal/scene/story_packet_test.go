@@ -131,3 +131,18 @@ func TestCommitAcceptsWitnessedCanon(t *testing.T) {
 		t.Fatalf("commit should validate: %v", err)
 	}
 }
+
+func TestSceneSessionIDScopesCommitsPerNode(t *testing.T) {
+	first := SceneSessionID("seed-rain-engine-second-heart-opening", "packet-one", "turn_6_three_minutes_begin")
+	second := SceneSessionID("seed-rain-engine-second-heart-opening", "packet-one", "turn_7_deeper_with_heart")
+
+	if first == second {
+		t.Fatalf("scene sessions should differ by node: %q", first)
+	}
+	if !strings.Contains(first, "turn_6_three_minutes_begin") {
+		t.Fatalf("scene session should keep a readable node fragment: %q", first)
+	}
+	if len(first) > MaxSessionIDLength {
+		t.Fatalf("scene session too long: %d > %d", len(first), MaxSessionIDLength)
+	}
+}

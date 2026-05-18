@@ -39,6 +39,27 @@ func (c NarratorContext) RenderText() string {
 	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
 }
 
+func (c NarratorContext) RenderActorText() string {
+	var b strings.Builder
+	writeSection(&b, "ROLE BOUNDARY")
+	fmt.Fprintln(&b, "You are acting inside the current scene only. Use the character card, current scene beats, player decision, and provided directional representations as your available knowledge.")
+
+	writeSection(&b, "CURRENT SCENE STATE")
+	writeJSON(&b, c.SceneState)
+
+	writeSection(&b, "PLAYER DECISION")
+	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
+
+	writeSection(&b, "SELECTED NODE")
+	writeJSON(&b, c.SelectedNode)
+
+	writeActorContexts(&b, c.ActorContexts)
+	writeStringList(&b, "MEMORY AND WITNESS RULES", c.WitnessRules)
+	writeStringList(&b, "WARNINGS", c.Warnings)
+
+	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+}
+
 func (c WriterContext) RenderText() string {
 	var b strings.Builder
 	writeSection(&b, "ROLE BOUNDARY")

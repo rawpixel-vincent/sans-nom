@@ -116,6 +116,34 @@ func TestServiceSkipsMissingActorsWhenConfigured(t *testing.T) {
 	}
 }
 
+func TestPruneUnsupportedPacketNeedsKeepsOnlyRegisteredActors(t *testing.T) {
+	registry, err := NewRegistry([]Actor{{ID: "tonto", Card: "card"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	packet := scene.StoryPacket{
+		ID: "packet-1",
+		Nodes: []scene.SceneNode{{
+			ID: "node-1",
+			ActorNeeds: []scene.ActorNeed{
+				{ActorID: "tonto", Mode: scene.ActorModePresent},
+				{ActorID: "unknown", Mode: scene.ActorModePresent},
+			},
+		}},
+	}
+
+	pruned, removed := PruneUnsupportedPacketNeeds(packet, registry)
+	if len(removed) != 1 || removed[0].Need.ActorID != "unknown" {
+		t.Fatalf("unexpected removed needs: %#v", removed)
+	}
+	if got := pruned.Nodes[0].ActorNeeds; len(got) != 1 || got[0].ActorID != "tonto" {
+		t.Fatalf("unexpected pruned needs: %#v", got)
+	}
+	if len(packet.Nodes[0].ActorNeeds) != 2 {
+		t.Fatalf("original packet was mutated: %#v", packet.Nodes[0].ActorNeeds)
+	}
+}
+
 func TestServiceLogsActorInvocation(t *testing.T) {
 	reg, err := NewRegistry([]Actor{{ID: "tonto", DisplayName: "Tonto", Card: "TRAIT: witness"}})
 	if err != nil {

@@ -40,7 +40,7 @@ func (a Assembler) AssembleNarrator(ctx context.Context, req BuildRequest) (Narr
 		return NarratorContext{}, err
 	}
 	query := queryText(req.Packet, node, req.Decision)
-	sceneCtx, warnings, err := a.sceneContext(ctx, req.Packet, query, opts)
+	sceneCtx, warnings, err := a.sceneContext(ctx, req.Packet, node.ID, query, opts)
 	if err != nil {
 		return NarratorContext{}, err
 	}
@@ -96,7 +96,7 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		return WriterContext{}, err
 	}
 	query := queryText(req.Packet, node, req.Decision)
-	sceneCtx, warnings, err := a.sceneContext(ctx, req.Packet, query, opts)
+	sceneCtx, warnings, err := a.sceneContext(ctx, req.Packet, node.ID, query, opts)
 	if err != nil {
 		return WriterContext{}, err
 	}
@@ -218,15 +218,17 @@ func publicNode(node scene.SceneNode) PublicSceneNode {
 func (a Assembler) sceneContext(
 	ctx context.Context,
 	packet scene.StoryPacket,
+	nodeID string,
 	query string,
 	opts Options,
 ) (bridgeclient.SceneContextResponse, []string, error) {
 	if a.Bridge == nil {
 		return fallbackSceneContext(packet, opts), []string{"bridge unavailable; using StoryPacket context snapshot"}, nil
 	}
+	sceneSessionID := scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, nodeID)
 	resp, err := a.Bridge.SceneContext(ctx, bridgeclient.SceneContextRequest{
 		WorkspaceID:      packet.ContextSnapshot.WorkspaceID,
-		SessionID:        packet.ContextSnapshot.SessionID,
+		SessionID:        sceneSessionID,
 		PlayerPeerID:     opts.PlayerPeerID,
 		RecentSceneCount: opts.RecentSceneCount,
 		Representations:  []string{"narrator:" + opts.PlayerPeerID},
@@ -238,6 +240,7 @@ func (a Assembler) sceneContext(
 		}
 		return fallbackSceneContext(packet, opts), []string{"bridge scene context failed; using StoryPacket context snapshot"}, nil
 	}
+	resp.RecentScenes = mergeFallbackRecentScenes(resp.RecentScenes, packet.ContextSnapshot.LatestNarratorProse, opts)
 	return resp, nil, nil
 }
 
@@ -252,6 +255,20 @@ func fallbackSceneContext(packet scene.StoryPacket, opts Options) bridgeclient.S
 		RecentScenes:    trimToCount(recent, opts.RecentSceneCount),
 		Representations: copyStringMap(packet.ContextSnapshot.Representations),
 	}
+}
+
+func mergeFallbackRecentScenes(recent []string, latest string, opts Options) []string {
+	latest = strings.TrimSpace(latest)
+	if latest == "" {
+		return trimToCount(recent, opts.RecentSceneCount)
+	}
+	for _, scene := range recent {
+		if strings.TrimSpace(scene) == latest {
+			return trimToCount(recent, opts.RecentSceneCount)
+		}
+	}
+	merged := append([]string{latest}, recent...)
+	return trimToCount(merged, opts.RecentSceneCount)
 }
 
 func (a Assembler) loreHits(ctx context.Context, query string, k int, opts Options) ([]LoreHit, []string, error) {

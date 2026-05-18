@@ -1938,6 +1938,8 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	if err != nil {
 		return narrator.Rollout{}, err
 	}
+	packet, removedNeeds := actors.PruneUnsupportedPacketNeeds(packet, registry)
+	logUnsupportedActorNeeds(cfg.Logger, "actor.needs.filtered", "unsupported actor_needs filtered before narrator context assembly", turn, packet.ID, nodeID, removedNeeds)
 	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
 	assembler.Options.SkipMissingActorCards = true
 	narratorContext, err := assembler.AssembleNarrator(ctx, contextbundle.BuildRequest{
@@ -1962,10 +1964,11 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
 	}
 	return narrator.Service{
-		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
-		Renderer: renderer,
-		Logger:   cfg.Logger,
-		Turn:     turn,
+		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
+		Renderer:         renderer,
+		Logger:           cfg.Logger,
+		Turn:             turn,
+		ActorContextText: narratorContext.RenderActorText(),
 	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
 }
 
@@ -2505,7 +2508,13 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if result.Err != nil {
 		return result.Packet, writerFailure(result.Err, runID, runDir)
 	}
-	return result.Packet, nil
+	nextPacket := result.Packet
+	if registry, err := actorRegistry(cfg.CardStore); err == nil {
+		var removedNeeds []actors.UnsupportedActorNeed
+		nextPacket, removedNeeds = actors.PruneUnsupportedPacketNeeds(nextPacket, registry)
+		logUnsupportedActorNeeds(cfg.Logger, "writer.packet.actor_needs.filtered", "unsupported actor_needs filtered from Writer packet", 0, nextPacket.ID, "", removedNeeds)
+	}
+	return nextPacket, nil
 }
 
 func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, nextDecision scene.PlayerDecision, committed bool, audioPath ...string) error {
@@ -2804,6 +2813,27 @@ func logEvent(logger *gamelog.Writer, event gamelog.Event) {
 		return
 	}
 	_ = logger.Append(event)
+}
+
+func logUnsupportedActorNeeds(logger *gamelog.Writer, event string, message string, turn int, packetID string, nodeID string, removed []actors.UnsupportedActorNeed) {
+	if logger == nil || len(removed) == 0 {
+		return
+	}
+	_ = logger.Append(gamelog.Event{
+		Level:    gamelog.LevelWarn,
+		Category: "actor",
+		Event:    event,
+		Message:  message,
+		Turn:     turn,
+		PacketID: packetID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"removed_count": len(removed),
+		},
+		Detail: map[string]any{
+			"removed_actor_needs": removed,
+		},
+	})
 }
 
 func firstNonEmpty(values ...string) string {

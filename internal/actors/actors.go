@@ -40,6 +40,11 @@ type Registry struct {
 	actors map[string]Actor
 }
 
+type UnsupportedActorNeed struct {
+	NodeID string          `json:"node_id"`
+	Need   scene.ActorNeed `json:"need"`
+}
+
 func NewRegistry(actorList []Actor) (*Registry, error) {
 	r := &Registry{actors: map[string]Actor{}}
 	for _, actor := range actorList {
@@ -85,6 +90,44 @@ func (r *Registry) IDs() []string {
 	}
 	sort.Strings(ids)
 	return ids
+}
+
+func FilterUnsupportedNeeds(node scene.SceneNode, registry *Registry) (scene.SceneNode, []UnsupportedActorNeed) {
+	if registry == nil || len(node.ActorNeeds) == 0 {
+		return node, nil
+	}
+	filtered := node
+	filtered.ActorNeeds = make([]scene.ActorNeed, 0, len(node.ActorNeeds))
+	var removed []UnsupportedActorNeed
+	for _, need := range node.ActorNeeds {
+		if _, ok := registry.Actor(need.ActorID); ok {
+			filtered.ActorNeeds = append(filtered.ActorNeeds, need)
+			continue
+		}
+		removed = append(removed, UnsupportedActorNeed{NodeID: node.ID, Need: need})
+	}
+	if len(removed) == 0 {
+		return node, nil
+	}
+	return filtered, removed
+}
+
+func PruneUnsupportedPacketNeeds(packet scene.StoryPacket, registry *Registry) (scene.StoryPacket, []UnsupportedActorNeed) {
+	if registry == nil || len(packet.Nodes) == 0 {
+		return packet, nil
+	}
+	pruned := packet
+	pruned.Nodes = append([]scene.SceneNode(nil), packet.Nodes...)
+	var removed []UnsupportedActorNeed
+	for i, node := range pruned.Nodes {
+		filtered, nodeRemoved := FilterUnsupportedNeeds(node, registry)
+		pruned.Nodes[i] = filtered
+		removed = append(removed, nodeRemoved...)
+	}
+	if len(removed) == 0 {
+		return packet, nil
+	}
+	return pruned, removed
 }
 
 // NeedsForNode returns only the explicit actor needs encoded in the selected

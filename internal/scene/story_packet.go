@@ -1,6 +1,8 @@
 package scene
 
 import (
+	"crypto/sha1"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -11,6 +13,8 @@ import (
 )
 
 const (
+	MaxSessionIDLength = 96
+
 	ActorModePresent    = "present"
 	ActorModeRemembered = "remembered"
 	ActorModeNarrated   = "narrated"
@@ -27,6 +31,63 @@ const (
 	CommitSourceWriterDraft  = "writer_draft"
 	CommitSourceUnusedBranch = "unused_branch"
 )
+
+func SceneSessionID(baseSessionID string, packetID string, nodeID string) string {
+	base := sessionIDPart(baseSessionID)
+	node := sessionIDPart(nodeID)
+	if node == "scene" {
+		node = sessionIDPart(packetID)
+	}
+	hash := sha1.Sum([]byte(baseSessionID + "\x00" + packetID + "\x00" + nodeID))
+	suffix := hex.EncodeToString(hash[:])[:10]
+	sessionID := base + "--" + node + "--" + suffix
+	if len(sessionID) <= MaxSessionIDLength {
+		return sessionID
+	}
+	reserved := len(node) + len(suffix) + 4
+	if reserved >= MaxSessionIDLength {
+		nodeLimit := MaxSessionIDLength - len(suffix) - 4
+		if nodeLimit < 8 {
+			return "scene--" + suffix
+		}
+		node = strings.Trim(node[:nodeLimit], "-_")
+		return "scene--" + node + "--" + suffix
+	}
+	baseLimit := MaxSessionIDLength - reserved
+	base = strings.Trim(base[:baseLimit], "-_")
+	if base == "" {
+		base = "scene"
+	}
+	return base + "--" + node + "--" + suffix
+}
+
+func sessionIDPart(value string) string {
+	value = strings.ToLower(strings.TrimSpace(value))
+	var b strings.Builder
+	lastSep := false
+	for _, r := range value {
+		switch {
+		case r >= 'a' && r <= 'z', r >= '0' && r <= '9':
+			b.WriteRune(r)
+			lastSep = false
+		case r == '-' || r == '_':
+			if !lastSep && b.Len() > 0 {
+				b.WriteRune(r)
+				lastSep = true
+			}
+		default:
+			if !lastSep && b.Len() > 0 {
+				b.WriteByte('-')
+				lastSep = true
+			}
+		}
+	}
+	out := strings.Trim(b.String(), "-_")
+	if out == "" {
+		return "scene"
+	}
+	return out
+}
 
 // StoryPacket is the bounded tree the Creative Writer prepares in the
 // background. It is not canon. Only a Narrator rollout may become canon.

@@ -34,6 +34,22 @@ func TestNarratorContextExcludesUnusedBranchesAndWriterNotes(t *testing.T) {
 	}
 }
 
+func TestActorContextIsSceneLocal(t *testing.T) {
+	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleNarrator(context.Background(), BuildRequest{
+		Packet: testPacket(),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderActorText()
+	if strings.Contains(text, "RECENT WITNESSED CANON") || strings.Contains(text, "Latest prose.") {
+		t.Fatalf("actor context leaked prior story canon:\n%s", text)
+	}
+	if !strings.Contains(text, "CURRENT SCENE STATE") || !strings.Contains(text, "SELECTED NODE") {
+		t.Fatalf("actor context missing scene-local material:\n%s", text)
+	}
+}
+
 func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
 		Packet: testPacket(),
@@ -124,6 +140,25 @@ func TestWriterContextDoesNotPromoteLorePeersToActors(t *testing.T) {
 	}
 	if !strings.Contains(ctx.RenderText(), "CREATIVE INFLUENCE REFERENCES") {
 		t.Fatalf("lore should render as influence references:\n%s", ctx.RenderText())
+	}
+}
+
+func TestAssemblerRequestsSceneScopedHonchoSession(t *testing.T) {
+	bridge := &capturingBridge{}
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Bridge = bridge
+	packet := testPacket()
+
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: packet, NodeID: "active"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	expected := scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, "active")
+	if bridge.req.SessionID != expected {
+		t.Fatalf("session id = %q, want scene-scoped %q", bridge.req.SessionID, expected)
+	}
+	if !strings.Contains(strings.Join(ctx.RecentScenes, "\n"), packet.ContextSnapshot.LatestNarratorProse) {
+		t.Fatalf("writer context should retain latest local prose when scene session is sparse: %#v", ctx.RecentScenes)
 	}
 }
 
@@ -441,6 +476,28 @@ func (b fakeBridge) GetCard(_ context.Context, _ string, peerID string, _ string
 		return nil, b.err
 	}
 	return b.cards[peerID], nil
+}
+
+type capturingBridge struct {
+	req bridgeclient.SceneContextRequest
+}
+
+func (b *capturingBridge) SceneContext(_ context.Context, req bridgeclient.SceneContextRequest) (bridgeclient.SceneContextResponse, error) {
+	b.req = req
+	return bridgeclient.SceneContextResponse{
+		WorkspaceID:     req.WorkspaceID,
+		SessionID:       req.SessionID,
+		RecentScenes:    []string{},
+		Representations: map[string]string{},
+	}, nil
+}
+
+func (b *capturingBridge) Representation(_ context.Context, req bridgeclient.RepresentationRequest) (bridgeclient.RepresentationResponse, error) {
+	return bridgeclient.RepresentationResponse{Observer: req.Observer, Observed: req.Observed}, nil
+}
+
+func (b *capturingBridge) GetCard(context.Context, string, string, string) ([]string, error) {
+	return nil, nil
 }
 
 func actorIDs(actors []ActorContext) []string {

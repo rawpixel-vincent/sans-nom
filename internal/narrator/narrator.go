@@ -25,10 +25,11 @@ type Draft struct {
 }
 
 type Service struct {
-	Actors   *actors.Service
-	Renderer Renderer
-	Logger   *gamelog.Writer
-	Turn     int
+	Actors           *actors.Service
+	Renderer         Renderer
+	Logger           *gamelog.Writer
+	Turn             int
+	ActorContextText string
 }
 
 type Rollout struct {
@@ -47,13 +48,35 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 	if err != nil {
 		return Rollout{}, err
 	}
+	node, removedActorNeeds := filterUnsupportedActorNeeds(node, s.Actors)
+	if len(removedActorNeeds) > 0 {
+		logEvent(s.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "actor",
+			Event:    "actor.needs.filtered",
+			Message:  "unsupported actor_needs filtered before narrator rollout",
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			Fields: map[string]any{
+				"removed_count": len(removedActorNeeds),
+			},
+			Detail: map[string]any{
+				"removed_actor_needs": removedActorNeeds,
+			},
+		})
+	}
 
 	var actorRaw []actors.Output
 	if s.Actors != nil {
 		actorService := *s.Actors
 		actorService.PacketID = packet.ID
 		actorService.Turn = s.Turn
-		actorRaw, err = actorService.InvokeForNode(ctx, node, context)
+		actorContext := context
+		if strings.TrimSpace(s.ActorContextText) != "" {
+			actorContext = s.ActorContextText
+		}
+		actorRaw, err = actorService.InvokeForNode(ctx, node, actorContext)
 		if err != nil {
 			return Rollout{}, err
 		}
@@ -106,6 +129,24 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 		})
 		return Rollout{}, err
 	}
+	draft, droppedSurfaces := filterUnsupportedActorSurfaces(draft, actorRaw)
+	if len(droppedSurfaces) > 0 {
+		logEvent(s.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "narrator",
+			Event:    "narrator.actor_surface.filtered",
+			Message:  "unsupported surfaced actor messages filtered before commit",
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			Fields: map[string]any{
+				"removed_count": len(droppedSurfaces),
+			},
+			Detail: map[string]any{
+				"removed_actor_messages": droppedSurfaces,
+			},
+		})
+	}
 	commit := buildCommit(packet, node, decision, draft)
 	if err := commit.ValidateCanonOnly(); err != nil {
 		logEvent(s.Logger, gamelog.Event{
@@ -130,6 +171,39 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 		return Rollout{}, err
 	}
 	return Rollout{Node: node, ActorRaw: actorRaw, Draft: draft, Commit: commit}, nil
+}
+
+func filterUnsupportedActorNeeds(node scene.SceneNode, service *actors.Service) (scene.SceneNode, []actors.UnsupportedActorNeed) {
+	if service == nil || service.Registry == nil {
+		return node, nil
+	}
+	return actors.FilterUnsupportedNeeds(node, service.Registry)
+}
+
+func filterUnsupportedActorSurfaces(draft Draft, actorRaw []actors.Output) (Draft, []scene.ActorMessage) {
+	if len(draft.SurfacedActorMessages) == 0 {
+		return draft, nil
+	}
+	supported := map[string]struct{}{}
+	for _, output := range actorRaw {
+		if strings.TrimSpace(output.ActorID) != "" {
+			supported[output.ActorID] = struct{}{}
+		}
+	}
+	filtered := draft
+	filtered.SurfacedActorMessages = make([]scene.ActorMessage, 0, len(draft.SurfacedActorMessages))
+	var dropped []scene.ActorMessage
+	for _, msg := range draft.SurfacedActorMessages {
+		if _, ok := supported[msg.ActorID]; ok {
+			filtered.SurfacedActorMessages = append(filtered.SurfacedActorMessages, msg)
+			continue
+		}
+		dropped = append(dropped, msg)
+	}
+	if len(dropped) == 0 {
+		return draft, nil
+	}
+	return filtered, dropped
 }
 
 func selectedNode(packet scene.StoryPacket, nodeID string) (scene.SceneNode, error) {
@@ -193,7 +267,7 @@ func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.
 
 	return scene.Commit{
 		WorkspaceID:    packet.ContextSnapshot.WorkspaceID,
-		SessionID:      packet.ContextSnapshot.SessionID,
+		SessionID:      scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, node.ID),
 		PacketID:       packet.ID,
 		NodeID:         node.ID,
 		PlayerDecision: decision,
