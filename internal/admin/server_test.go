@@ -36,7 +36,7 @@ func TestAdminListsStoriesAndReadsDetail(t *testing.T) {
 
 	var detail storyDetail
 	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID, &detail)
-	if detail.State.StoryID != state.StoryID || detail.Bible.Title == "" || detail.Packet == nil || detail.Turns == nil {
+	if detail.State.StoryID != state.StoryID || detail.Bible.Title == "" || detail.Packet == nil || detail.Turns == nil || detail.Narration == nil {
 		t.Fatalf("unexpected detail: %#v", detail)
 	}
 	if detail.Summary.GroundLorePackID != "metabarons" || detail.GroundLorePack == nil {

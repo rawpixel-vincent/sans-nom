@@ -378,6 +378,9 @@ func TestShouldRunLauncherAllowsTTSConfigOnlyFlags(t *testing.T) {
 	if shouldRunLauncher(false, map[string]struct{}{"tts": {}, "story-id": {}}) {
 		t.Fatal("story-id is an explicit flow flag")
 	}
+	if shouldRunLauncher(false, map[string]struct{}{"read-story": {}}) {
+		t.Fatal("read-story is an explicit flow flag")
+	}
 	if shouldRunLauncher(false, map[string]struct{}{"packet": {}}) {
 		t.Fatal("packet is an explicit flow flag")
 	}
@@ -487,6 +490,9 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	if _, err := os.Stat(filepath.Join(workspace.Dir, filepath.FromSlash(loaded.PendingTurnPath))); err != nil {
 		t.Fatalf("missing pending turn file: %v", err)
 	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "pending-turn.md")); err != nil {
+		t.Fatalf("missing pending narration file: %v", err)
+	}
 	turns, err := workspace.LoadTurns()
 	if err != nil {
 		t.Fatal(err)
@@ -527,6 +533,12 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	}
 	if _, err := os.Stat(filepath.Join(workspace.Dir, "pending-turn.json")); !errors.Is(err, os.ErrNotExist) {
 		t.Fatalf("pending turn file still exists: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "pending-turn.md")); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("pending narration file still exists: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "turn-000001.md")); err != nil {
+		t.Fatalf("missing finalized narration file: %v", err)
 	}
 	turns, err = workspace.LoadTurns()
 	if err != nil {

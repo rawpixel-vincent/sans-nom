@@ -160,6 +160,16 @@ type TurnRecord struct {
 	CreatedAt    string               `json:"created_at"`
 }
 
+type NarrationFile struct {
+	Path    string `json:"path"`
+	Name    string `json:"name"`
+	Turn    int    `json:"turn,omitempty"`
+	Pending bool   `json:"pending,omitempty"`
+	Text    string `json:"text"`
+	Size    int64  `json:"size"`
+	ModTime string `json:"mod_time"`
+}
+
 func ValidateBundle(bundle SeedBundle) error {
 	if err := bundle.Bible.Validate(); err != nil {
 		return fmt.Errorf("story bible: %w", err)

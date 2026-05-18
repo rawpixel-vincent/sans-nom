@@ -54,6 +54,7 @@ type storyDetail struct {
 	Packet         any                   `json:"packet"`
 	Turns          []story.TurnRecord    `json:"turns"`
 	TurnCount      int                   `json:"turn_count"`
+	Narration      []story.NarrationFile `json:"narration"`
 	Paths          map[string]string     `json:"paths"`
 	GroundLorePack *lorepack.Pack        `json:"ground_lore_pack,omitempty"`
 }
@@ -246,6 +247,10 @@ func (s *Server) handleStoryDetail(w http.ResponseWriter, r *http.Request, story
 	if turns == nil {
 		turns = []story.TurnRecord{}
 	}
+	narration, _ := session.Workspace.LoadNarrationFiles()
+	if narration == nil {
+		narration = []story.NarrationFile{}
+	}
 	detail := storyDetail{
 		Summary:   storySummaryFromSession(session),
 		State:     session.State,
@@ -253,10 +258,12 @@ func (s *Server) handleStoryDetail(w http.ResponseWriter, r *http.Request, story
 		Packet:    session.Packet,
 		Turns:     turns,
 		TurnCount: len(turns),
+		Narration: narration,
 		Paths: map[string]string{
 			"state":     "state.json",
 			"bible":     "bible.json",
 			"turns":     "turns.jsonl",
+			"narration": "narration",
 			"index":     "index/documents.jsonl",
 			"manifest":  "index/manifest.json",
 			"logs":      "logs/events.jsonl",

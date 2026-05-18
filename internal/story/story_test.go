@@ -3,6 +3,7 @@ package story
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
@@ -66,6 +67,7 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 		"bible.json",
 		filepath.Join("packets", state.CurrentPacketID+".json"),
 		filepath.Join("model-runs", "seed-bundle.json"),
+		"narration",
 		filepath.Join("index", "documents.jsonl"),
 		filepath.Join("index", "manifest.json"),
 	}
@@ -105,6 +107,67 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 		if !kinds[kind] {
 			t.Fatalf("missing index kind %s in %#v", kind, kinds)
 		}
+	}
+}
+
+func TestWorkspaceWritesReadableTurnNarration(t *testing.T) {
+	root := t.TempDir()
+	bundle := validBundle()
+	ws, state, err := InitWorkspace(InitOptions{
+		StoryID: "Book Story",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	record := TurnRecord{
+		Turn:      1,
+		StoryID:   state.StoryID,
+		PacketID:  bundle.Packet.ID,
+		NodeID:    bundle.Packet.EntryNodeID,
+		Prose:     "The garden opened like a ledger.",
+		Choices:   bundle.Packet.Nodes[0].Choices,
+		Committed: true,
+		NextDecision: scene.PlayerDecision{
+			ChoiceID: "pay",
+		},
+	}
+	rel, err := ws.SavePendingTurn(record)
+	if err != nil {
+		t.Fatal(err)
+	}
+	state.PendingTurnPath = rel
+	state.Status = StatusAwaitingPlayerChoice
+	if err := ws.SaveState(state); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(filepath.Join(ws.NarrationDir(), "pending-turn.md")); err != nil {
+		t.Fatalf("missing pending narration: %v", err)
+	}
+	state, err = ws.RecordTurn(state, bundle.Packet, record)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(filepath.Join(ws.NarrationDir(), "pending-turn.md")); !os.IsNotExist(err) {
+		t.Fatalf("pending narration was not cleared: %v", err)
+	}
+	data, err := os.ReadFile(filepath.Join(ws.NarrationDir(), "turn-000001.md"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(data)
+	for _, want := range []string{"# Turn 1", "The garden opened like a ledger.", "## Choices", "Choice: pay"} {
+		if !strings.Contains(text, want) {
+			t.Fatalf("narration missing %q:\n%s", want, text)
+		}
+	}
+	files, err := ws.LoadNarrationFiles()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(files) != 1 || files[0].Path != "narration/turn-000001.md" || files[0].Text == "" {
+		t.Fatalf("unexpected narration files: %#v", files)
 	}
 }
 

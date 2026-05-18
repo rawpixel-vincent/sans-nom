@@ -124,7 +124,7 @@ func BuildIndexDocuments(bible StoryBible, packet scene.StoryPacket, turns []Tur
 		docs = append(docs, newIndexDocument(
 			fmt.Sprintf("story_turn:%s:%06d", bible.StoryID, turn.Turn),
 			"story_turn",
-			"turns.jsonl",
+			fmt.Sprintf("narration/turn-%06d.md", turn.Turn),
 			turnIndexText(turn),
 			bible.StoryID,
 			turn.PacketID,

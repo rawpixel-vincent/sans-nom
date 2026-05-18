@@ -52,6 +52,7 @@ func main() {
 	useClaude := flag.Bool("claude", false, "use claude -p Sonnet adapters instead of static local adapters")
 	modelBackend := flag.String("model-backend", os.Getenv("SANS_NOM_MODEL_BACKEND"), "model backend: codex, claude, or static")
 	noWriterRefresh := flag.Bool("no-writer-refresh", false, "do not refresh the Creative Writer between play turns")
+	readStory := flag.Bool("read-story", false, "print saved story narration and exit")
 	seedOutput := flag.String("seed-output", "", "optional path for generated seed bundle output")
 	storyID := flag.String("story-id", "", "create or resume a durable story id")
 	storyRoot := flag.String("story-root", story.DefaultRoot, "root directory for durable story state")
@@ -126,6 +127,19 @@ func main() {
 			ScenaristRounds:     *writerScenaristRounds,
 			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
 		}); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
+	if *readStory {
+		if strings.TrimSpace(*storyID) == "" {
+			log.Fatal("-read-story requires -story-id")
+		}
+		workspace, _, err := story.LoadWorkspace(*storyRoot, *storyID)
+		if err != nil {
+			log.Fatal(err)
+		}
+		if err := printStoryNarration(workspace); err != nil {
 			log.Fatal(err)
 		}
 		return
@@ -350,6 +364,40 @@ func runLoreSearch(ctx context.Context, bridgeURL string, collection string, que
 		}
 	}
 	return nil
+}
+
+func printStoryNarration(workspace story.Workspace) error {
+	files, err := workspace.LoadNarrationFiles()
+	if err != nil {
+		return err
+	}
+	if len(files) == 0 {
+		fmt.Printf("No narration files found in %s\n", filepath.ToSlash(workspace.NarrationDir()))
+		return nil
+	}
+	for i, file := range files {
+		if i > 0 {
+			fmt.Print("\n---\n\n")
+		}
+		fmt.Print(stripNarrationMetadata(file.Text))
+		fmt.Println()
+	}
+	return nil
+}
+
+func stripNarrationMetadata(text string) string {
+	text = strings.TrimSpace(text)
+	if strings.HasPrefix(text, "# ") {
+		if idx := strings.Index(text, "\n\n"); idx >= 0 {
+			text = strings.TrimSpace(text[idx+2:])
+		}
+	}
+	if strings.HasPrefix(text, "<!--") {
+		if idx := strings.Index(text, "-->"); idx >= 0 {
+			text = strings.TrimSpace(text[idx+3:])
+		}
+	}
+	return text
 }
 
 func printSeedBundle(bundle story.SeedBundle, outputPath string) error {
@@ -1734,6 +1782,11 @@ func loadPendingDisplayedRollout(cfg playConfig, state *story.StoryState, packet
 	if err != nil {
 		return narrator.Rollout{}, story.TurnRecord{}, false, fmt.Errorf("load pending displayed turn: %w", err)
 	}
+	if _, err := os.Stat(filepath.Join(cfg.Workspace.NarrationDir(), "pending-turn.md")); errors.Is(err, os.ErrNotExist) {
+		if _, err := cfg.Workspace.SavePendingTurn(record); err != nil {
+			return narrator.Rollout{}, story.TurnRecord{}, false, fmt.Errorf("backfill pending narration: %w", err)
+		}
+	}
 	resolvedNodeID := firstNonEmpty(record.NodeID, nodeID)
 	node, err := packet.Node(resolvedNodeID)
 	if err != nil {
@@ -2832,6 +2885,7 @@ func shouldRunLauncher(noArgs bool, passed map[string]struct{}) bool {
 		"node":             {},
 		"packet":           {},
 		"play-trace-jsonl": {},
+		"read-story":       {},
 		"replace-story":    {},
 		"seed-output":      {},
 		"story-id":         {},

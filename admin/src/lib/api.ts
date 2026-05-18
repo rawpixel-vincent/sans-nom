@@ -42,8 +42,19 @@ export type StoryDetail = {
   packet: Record<string, unknown>;
   turns: Record<string, unknown>[];
   turn_count: number;
+  narration: NarrationFile[];
   paths: Record<string, string>;
   ground_lore_pack?: LorePack;
+};
+
+export type NarrationFile = {
+  path: string;
+  name: string;
+  turn?: number;
+  pending?: boolean;
+  text: string;
+  size: number;
+  mod_time: string;
 };
 
 export type LogEvent = {

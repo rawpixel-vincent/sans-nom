@@ -32,6 +32,7 @@
 
   const tabs = [
     "overview",
+    "book",
     "logs",
     "model-runs",
     "index",
@@ -43,6 +44,7 @@
     "state.json",
     "bible.json",
     "turns.jsonl",
+    "narration/pending-turn.md",
     "index/manifest.json",
     "logs/events.jsonl",
   ];
@@ -366,6 +368,13 @@
   function short(value: string, max = 72) {
     if (!value) return "";
     return value.length <= max ? value : `${value.slice(0, max - 3)}...`;
+  }
+
+  function bookText(value: string) {
+    return value
+      .replace(/^# [^\n]+\n\n/, "")
+      .replace(/^<!--[\s\S]*?-->\n\n/, "")
+      .trim();
   }
 
   function logKey(entry: LogEvent) {
@@ -771,6 +780,32 @@
               <pre class="json">{pretty(detail.paths)}</pre>
             </Panel>
           </div>
+        {:else if activeTab === "book"}
+          <Panel title={`Book (${detail.narration?.length ?? 0})`}>
+            {#if detail.narration?.length}
+              <div class="space-y-8">
+                {#each detail.narration as chapter}
+                  <article class="max-w-4xl border-b border-slate-200 pb-8 last:border-b-0">
+                    <div class="mb-3 flex items-center justify-between gap-3">
+                      <h3 class="text-lg font-semibold">
+                        {chapter.pending ? "Pending turn" : `Turn ${chapter.turn ?? ""}`}
+                      </h3>
+                      <button class="btn" on:click={() => withBusy(() => loadFile(chapter.path))}>
+                        Open source
+                      </button>
+                    </div>
+                    <div class="whitespace-pre-wrap font-serif text-[17px] leading-8 text-slate-900">
+                      {bookText(chapter.text)}
+                    </div>
+                  </article>
+                {/each}
+              </div>
+            {:else}
+              <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                No narration files saved yet.
+              </div>
+            {/if}
+          </Panel>
         {:else if activeTab === "logs"}
           <Panel title="Logs">
             <div class="mb-3 flex flex-wrap items-center gap-2">

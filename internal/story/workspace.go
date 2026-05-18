@@ -8,6 +8,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -77,6 +79,7 @@ func InitWorkspace(opts InitOptions, bundle SeedBundle) (Workspace, StoryState, 
 		ws.Dir,
 		ws.PacketsDir(),
 		ws.ModelRunsDir(),
+		ws.NarrationDir(),
 		ws.IndexDir(),
 		ws.LogsDir(),
 	} {
@@ -150,6 +153,10 @@ func (w Workspace) PacketsDir() string {
 
 func (w Workspace) ModelRunsDir() string {
 	return filepath.Join(w.Dir, "model-runs")
+}
+
+func (w Workspace) NarrationDir() string {
+	return filepath.Join(w.Dir, "narration")
 }
 
 func (w Workspace) IndexDir() string {
@@ -243,7 +250,13 @@ func (w Workspace) SavePendingTurn(record TurnRecord) (string, error) {
 		record.CreatedAt = NowString()
 	}
 	rel := "pending-turn.json"
-	return rel, writeJSONAtomic(filepath.Join(w.Dir, rel), record)
+	if err := writeJSONAtomic(filepath.Join(w.Dir, rel), record); err != nil {
+		return "", err
+	}
+	if err := w.writeTurnNarration(filepath.ToSlash(filepath.Join("narration", "pending-turn.md")), record, true); err != nil {
+		return "", err
+	}
+	return rel, nil
 }
 
 func (w Workspace) LoadPendingTurn(state StoryState) (TurnRecord, error) {
@@ -268,6 +281,9 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 		return state, err
 	}
 	if err := w.SavePacket(packet); err != nil {
+		return state, err
+	}
+	if _, err := w.SaveTurnNarration(record); err != nil {
 		return state, err
 	}
 	state.LatestTurn = record.Turn
@@ -297,8 +313,112 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 	}
 	if pendingTurnPath != "" {
 		_ = os.Remove(filepath.Join(w.Dir, filepath.FromSlash(pendingTurnPath)))
+		_ = os.Remove(filepath.Join(w.NarrationDir(), "pending-turn.md"))
 	}
 	return state, nil
+}
+
+func (w Workspace) SaveTurnNarration(record TurnRecord) (string, error) {
+	if record.Turn <= 0 {
+		return "", errors.New("turn narration requires a positive turn number")
+	}
+	rel := filepath.ToSlash(filepath.Join("narration", fmt.Sprintf("turn-%06d.md", record.Turn)))
+	return rel, w.writeTurnNarration(rel, record, false)
+}
+
+func (w Workspace) LoadNarrationFiles() ([]NarrationFile, error) {
+	entries, err := os.ReadDir(w.NarrationDir())
+	if errors.Is(err, os.ErrNotExist) {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	var files []NarrationFile
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
+			continue
+		}
+		path := filepath.Join(w.NarrationDir(), entry.Name())
+		info, err := entry.Info()
+		if err != nil {
+			return nil, err
+		}
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return nil, err
+		}
+		rel := filepath.ToSlash(filepath.Join("narration", entry.Name()))
+		files = append(files, NarrationFile{
+			Path:    rel,
+			Name:    entry.Name(),
+			Turn:    turnFromNarrationName(entry.Name()),
+			Pending: entry.Name() == "pending-turn.md",
+			Text:    string(data),
+			Size:    info.Size(),
+			ModTime: info.ModTime().UTC().Format(time.RFC3339Nano),
+		})
+	}
+	sort.SliceStable(files, func(i, j int) bool {
+		if files[i].Pending != files[j].Pending {
+			return files[i].Pending
+		}
+		if files[i].Turn != files[j].Turn {
+			return files[i].Turn < files[j].Turn
+		}
+		return files[i].Path < files[j].Path
+	})
+	return files, nil
+}
+
+func (w Workspace) writeTurnNarration(rel string, record TurnRecord, pending bool) error {
+	if rel == "" {
+		return errors.New("narration path is required")
+	}
+	var b strings.Builder
+	title := "Turn"
+	if pending {
+		title = "Pending Turn"
+	}
+	if record.Turn > 0 {
+		fmt.Fprintf(&b, "# %s %d\n\n", title, record.Turn)
+	} else {
+		fmt.Fprintf(&b, "# %s\n\n", title)
+	}
+	fmt.Fprintf(&b, "<!-- story_id: %s packet_id: %s node_id: %s -->\n\n", record.StoryID, record.PacketID, record.NodeID)
+	if text := strings.TrimSpace(record.Prose); text != "" {
+		b.WriteString(text)
+		b.WriteString("\n")
+	}
+	if len(record.Choices) > 0 {
+		b.WriteString("\n## Choices\n\n")
+		for i, choice := range record.Choices {
+			fmt.Fprintf(&b, "%d. **%s**: %s\n", i+1, choice.ID, strings.TrimSpace(choice.Label))
+		}
+	}
+	if !PlayerDecisionEmpty(record.NextDecision) {
+		b.WriteString("\n## Player Choice\n\n")
+		if record.NextDecision.ChoiceID != "" {
+			fmt.Fprintf(&b, "- Choice: %s\n", record.NextDecision.ChoiceID)
+		}
+		if record.NextDecision.FreeText != "" {
+			fmt.Fprintf(&b, "- Free text: %s\n", record.NextDecision.FreeText)
+		}
+	}
+	if record.AudioPath != "" {
+		fmt.Fprintf(&b, "\nAudio: `%s`\n", filepath.ToSlash(record.AudioPath))
+	}
+	return writeTextAtomic(filepath.Join(w.Dir, filepath.FromSlash(rel)), b.String())
+}
+
+func turnFromNarrationName(name string) int {
+	name = strings.TrimSuffix(name, ".md")
+	name = strings.TrimPrefix(name, "turn-")
+	turn, err := strconv.Atoi(name)
+	if err != nil {
+		return 0
+	}
+	return turn
 }
 
 func GenerateStoryID() string {
@@ -333,6 +453,17 @@ func writeJSONAtomic(path string, value any) error {
 	if closeErr != nil {
 		_ = os.Remove(tmp)
 		return closeErr
+	}
+	return os.Rename(tmp, path)
+}
+
+func writeTextAtomic(path string, text string) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	tmp := path + ".tmp"
+	if err := os.WriteFile(tmp, []byte(text), 0o644); err != nil {
+		return err
 	}
 	return os.Rename(tmp, path)
 }
