@@ -29,6 +29,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
@@ -198,6 +199,7 @@ func main() {
 		}, seedRuntimeConfig{
 			Backend:             backend,
 			BridgeURL:           resolvedBridgeURL,
+			GroundLorePackID:    groundPack.ID,
 			WriterScenarists:    resolveWriterScenaristCount(*writerScenarists, backend, true),
 			ScenaristProvider:   *scenaristProvider,
 			ScenaristModel:      *scenaristModel,
@@ -267,6 +269,7 @@ func main() {
 			Workspace:           workspace,
 			State:               state,
 			Bible:               bible,
+			GroundLorePackID:    sourceLorePackID(state, groundPack.ID),
 			GlobalCollection:    sourceLoreCollection(state, groundLoreCollection),
 			StoryCollection:     resolvedStoryCollection(state, *storyCollection),
 			InitialDecision:     decision,
@@ -452,6 +455,7 @@ type adminConfig struct {
 type seedRuntimeConfig struct {
 	Backend             string
 	BridgeURL           string
+	GroundLorePackID    string
 	WriterScenarists    int
 	ScenaristProvider   string
 	ScenaristModel      string
@@ -508,6 +512,7 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 		}, seedRuntimeConfig{
 			Backend:             cfg.Backend,
 			BridgeURL:           cfg.BridgeURL,
+			GroundLorePackID:    pack.ID,
 			WriterScenarists:    cfg.WriterScenarists,
 			ScenaristProvider:   cfg.ScenaristProvider,
 			ScenaristModel:      cfg.ScenaristModel,
@@ -561,7 +566,7 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 		},
 	})
 	opts.GenerateSeedBundle = func(ctx context.Context, action storyapp.StoryActionOptions) (story.SeedBundle, error) {
-		return generateSeedBundle(ctx, cfg, action.StoryRoot, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection), globalLogger)
+		return generateSeedBundle(ctx, cfg, action.StoryRoot, action.GroundLorePackID, firstNonEmpty(action.GroundLoreCollection, action.GlobalLoreCollection, story.DefaultGroundLoreCollection), globalLogger)
 	}
 	opts.SeedExternal = func(ctx context.Context, session storyapp.StorySession, bundle story.SeedBundle) error {
 		logger := storyLogger(&session.Workspace, &session.State)
@@ -670,6 +675,7 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 				Workspace:           &workspace,
 				State:               &state,
 				Bible:               &bible,
+				GroundLorePackID:    state.SourceLorePackID(),
 				GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
 				StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
 				InitialDecision:     decisionForWriterRefresh(&state),
@@ -704,6 +710,7 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 			}, seedRuntimeConfig{
 				Backend:             cfg.Backend,
 				BridgeURL:           cfg.BridgeURL,
+				GroundLorePackID:    pack.ID,
 				WriterScenarists:    cfg.WriterScenarists,
 				ScenaristProvider:   cfg.ScenaristProvider,
 				ScenaristModel:      cfg.ScenaristModel,
@@ -872,6 +879,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		Workspace:           &workspace,
 		State:               &state,
 		Bible:               &bible,
+		GroundLorePackID:    state.SourceLorePackID(),
 		GlobalCollection:    sourceLoreCollection(&state, cfg.GlobalCollection),
 		StoryCollection:     resolvedStoryCollection(&state, cfg.StoryCollection),
 		Commit:              cfg.Commit,
@@ -887,32 +895,38 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 	}
 }
 
-func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot string, globalCollection string, logger *gamelog.Writer) (story.SeedBundle, error) {
+func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot string, groundPackID string, globalCollection string, logger *gamelog.Writer) (story.SeedBundle, error) {
+	pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(groundPackID, cfg.GroundLorePackID, lorepack.DefaultPackID()))
+	if err != nil {
+		return story.SeedBundle{}, err
+	}
+	if strings.TrimSpace(globalCollection) == "" {
+		globalCollection = pack.Collection
+	}
 	logEvent(logger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.context.started",
 		Message:  "building seed context",
 		Fields: map[string]any{
-			"backend":    cfg.Backend,
-			"collection": globalCollection,
-			"query":      seedInfluenceQuery,
+			"backend":                cfg.Backend,
+			"ground_lore_pack_id":    pack.ID,
+			"ground_lore_pack":       pack.Label,
+			"ground_lore_collection": globalCollection,
 		},
 	})
-	contextText := seed.ContextText()
-	if cfg.Backend != "static" {
-		contextText = buildSeedContextLogged(ctx, seedLoreRetriever(cfg.BridgeURL, globalCollection), logger)
-	}
+	contextText := buildSeedContextForPack(pack)
 	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
 	workshopOutputDir := seedWorkshopOutputDir(scenaristOutputDir)
 	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool)
+	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
+	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	workshopRunner, err := seedWorkshopRunner(cfg, scenaristOutputDir, scenaristTool)
+	workshopRunner, err := seedWorkshopRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
@@ -921,17 +935,21 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 		Event:    "story.seed.context.completed",
 		Message:  "seed context ready",
 		Fields: map[string]any{
-			"backend":                 cfg.Backend,
-			"collection":              globalCollection,
-			"context_chars":           len(contextText),
-			"writer_scenarists":       cfg.WriterScenarists,
-			"scenarist_output_dir":    filepath.ToSlash(scenaristOutputDir),
-			"workshop_output_dir":     filepath.ToSlash(workshopOutputDir),
-			"scenarist_tool_attached": writerRunnerHasTools(writerRunner),
+			"backend":                   cfg.Backend,
+			"collection":                globalCollection,
+			"ground_lore_pack_id":       pack.ID,
+			"context_chars":             len(contextText),
+			"writer_scenarists":         cfg.WriterScenarists,
+			"scenarist_output_dir":      filepath.ToSlash(scenaristOutputDir),
+			"workshop_output_dir":       filepath.ToSlash(workshopOutputDir),
+			"writer_tools_attached":     writerRunnerHasTools(writerRunner),
+			"scenarist_tool_attached":   scenaristTool != nil,
+			"lore_expert_tool_attached": loreExpertTool != nil,
 		},
 		Detail: map[string]any{
 			"context":              contextText,
 			"seed_runtime":         cfg,
+			"ground_lore_pack":     pack,
 			"scenarist_output_dir": filepath.ToSlash(scenaristOutputDir),
 			"workshop_output_dir":  filepath.ToSlash(workshopOutputDir),
 		},
@@ -946,8 +964,6 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	}.Generate(ctx, contextText)
 }
 
-const seedInfluenceQuery = "original science fantasy story seed gravity law taboo body technology witness memory inheritance refusal authority spectacle suspension of disbelief Bushitaka law"
-
 func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever {
 	if globalCollection == "" {
 		globalCollection = story.DefaultGroundLoreCollection
@@ -959,84 +975,50 @@ func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever
 }
 
 func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
-	return buildSeedContextLogged(ctx, retriever, nil)
+	_ = ctx
+	_ = retriever
+	pack, err := lorepack.GetPack(repoRoot(), lorepack.DefaultPackID())
+	if err != nil {
+		return buildSeedContextForPack(lorepack.Pack{
+			ID:          story.DefaultGroundLorePackID,
+			Label:       "Metabarons",
+			Description: "Default ground-lore pack used as craft DNA for Sans-Nom stories.",
+		})
+	}
+	return buildSeedContextForPack(pack)
 }
 
-func buildSeedContextLogged(ctx context.Context, retriever lore.Retriever, logger *gamelog.Writer) string {
-	contextText := seed.ContextText()
-	if retriever == nil {
-		return contextText
-	}
-	hits, err := retriever.Search(ctx, seedInfluenceQuery, 8)
-	if err != nil {
-		logEvent(logger, gamelog.Event{
-			Level:    gamelog.LevelWarn,
-			Category: "lore",
-			Event:    "story.seed.lore_search.failed",
-			Message:  err.Error(),
-			Fields: map[string]any{
-				"query": seedInfluenceQuery,
-				"k":     8,
-			},
-			Detail: map[string]any{
-				"query": seedInfluenceQuery,
-				"error": err.Error(),
-			},
-		})
-		return contextText + "\n\nSource-lore retrieval warning: " + err.Error() + "\nProceed from seed doctrine only. Do not copy any fallback fixture."
-	}
-	logEvent(logger, gamelog.Event{
-		Category: "lore",
-		Event:    "story.seed.lore_search.completed",
-		Message:  "seed lore search completed",
-		Fields: map[string]any{
-			"query":     seedInfluenceQuery,
-			"k":         8,
-			"hit_count": len(hits),
-		},
-		Detail: map[string]any{
-			"query": seedInfluenceQuery,
-			"k":     8,
-			"hits":  hits,
-		},
-	})
-	if len(hits) == 0 {
-		return contextText + "\n\nSource-lore influence snippets: no live snippets found. Proceed from seed doctrine only."
-	}
+func buildSeedContextForPack(pack lorepack.Pack) string {
 	var b strings.Builder
-	b.WriteString(contextText)
-	b.WriteString("\n\nSource-lore influence snippets (craft DNA only; do not copy names, events, factions, or proper nouns):")
-	for _, hit := range hits {
-		label := hit.ID
-		if hit.Kind != "" {
-			label = hit.Kind + " " + label
-		}
-		if hit.Source != "" {
-			label += " " + hit.Source
-		}
-		b.WriteString("\n- ")
-		b.WriteString(label)
-		b.WriteString(": ")
-		b.WriteString(preview(hit.Text, 700))
+	b.WriteString(seed.ContextText())
+	b.WriteString("\n\nGround-lore DNA summary:\n")
+	if pack.ID != "" || pack.Label != "" {
+		fmt.Fprintf(&b, "- selected lore pack: %s (%s)\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	}
-	b.WriteString("\n\nUse these snippets to infer structural craft: laws that carry consequence, character refusal, body-tech pressure, credible social reaction, and suspension of disbelief. The seed must remain an original story.")
+	if strings.TrimSpace(pack.Description) != "" {
+		fmt.Fprintf(&b, "- pack description: %s\n", strings.TrimSpace(pack.Description))
+	}
+	b.WriteString("- influence style: operatic science-fantasy comics; body, law, taboo, witness memory, social enforcement, philosophical violence, spectacle, family/function/refusal pressure, and credible strange-world consequence.\n")
+	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
+	b.WriteString("- lore digging: use the ask_lore_expert tool for targeted influence questions about mechanisms, laws, relationships, tone, source-pattern risks, or suspension-of-disbelief checks.\n")
+	b.WriteString("- no raw source lore is injected here; concrete source analysis must come through cached ask_lore_expert calls.\n")
 	return b.String()
 }
 
-func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, toolRunner)
+func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, toolRunner, loreExpertTool)
 }
 
-func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "", nil, outputDir, toolRunner)
+func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "", nil, outputDir, toolRunner, loreExpertTool)
 }
 
-func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, outputDir string, toolRunner *scenarist.ToolRunner) (prompt.Runner, error) {
+func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
 	if cfg.Backend == "static" {
 		return nil, nil
 	}
-	if toolRunner != nil && cfg.Backend == "claude" {
-		return nil, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
+	if (toolRunner != nil || loreExpertTool != nil) && cfg.Backend == "claude" {
+		return nil, fmt.Errorf("Writer local tools are only supported for codex backend; use -model-backend codex or disable writer tools")
 	}
 	switch cfg.Backend {
 	case "claude":
@@ -1046,7 +1028,7 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 		if toolRunner != nil {
 			materialDir = outputDir
 		}
-		return codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, cfg.ScenaristRounds), nil
+		return codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, loreExpertTool, cfg.ScenaristRounds), nil
 	}
 }
 
@@ -1062,6 +1044,22 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
 		Logger:              logger,
 	}, contextText, outputDir)
+}
+
+func seedLoreExpertToolRunner(cfg seedRuntimeConfig, pack lorepack.Pack, collection string, logger *gamelog.Writer) *loreexpert.ToolRunner {
+	if cfg.Backend == "static" || cfg.Backend == "claude" {
+		return nil
+	}
+	if strings.TrimSpace(collection) == "" {
+		collection = pack.Collection
+	}
+	return loreExpertToolRunner(playConfig{
+		Backend:          cfg.Backend,
+		BridgeURL:        cfg.BridgeURL,
+		GroundLorePackID: pack.ID,
+		GlobalCollection: collection,
+		Logger:           logger,
+	})
 }
 
 func seedScenaristOutputDir(storyRoot string, outputRoot string) string {
@@ -1296,10 +1294,10 @@ func runContextPreview(
 	storyCollection string,
 	cardStore *contextbundle.LocalCardStore,
 ) error {
-	assembler := contextAssembler(bridgeURL, bridgeURL != "", cardStore, globalCollection, storyCollection, nil)
 	req := contextbundle.BuildRequest{Packet: packet, NodeID: nodeID, Decision: decision, Bible: bible}
 	switch role {
 	case "narrator":
+		assembler := contextAssembler(bridgeURL, bridgeURL != "", cardStore, globalCollection, storyCollection, nil)
 		context, err := assembler.AssembleNarrator(ctx, req)
 		if err != nil {
 			return err
@@ -1310,6 +1308,7 @@ func runContextPreview(
 		}
 		return printPrettyJSON(context)
 	case "writer":
+		assembler := writerRefreshContextAssembler(bridgeURL, bridgeURL != "", cardStore, storyCollection, nil)
 		context, err := assembler.AssembleWriter(ctx, req)
 		if err != nil {
 			return err
@@ -1333,6 +1332,7 @@ type playConfig struct {
 	Workspace           *story.Workspace
 	State               *story.StoryState
 	Bible               *story.StoryBible
+	GroundLorePackID    string
 	GlobalCollection    string
 	StoryCollection     string
 	InitialDecision     scene.PlayerDecision
@@ -2379,7 +2379,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	runID, runDir := writerRunInfo(cfg)
 	outputDir := scenaristOutputDir(cfg)
 	scenaristEnabled := cfg.WriterScenarists != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg)) > 0
-	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
+	assembler := writerRefreshContextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.StoryCollection, cfg.Logger)
 	if scenaristEnabled {
 		assembler.Options.WriterLoreK = 4
 	}
@@ -2400,9 +2400,10 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if toolRunner != nil && cfg.Backend == "claude" {
 		return scene.StoryPacket{}, fmt.Errorf("scenarist Writer tool is only supported for codex backend; use -model-backend codex or -writer-scenarists 0")
 	}
+	loreExpertTool := loreExpertToolRunner(cfg)
 	planner := cfg.WriterPlanner
 	if planner == nil {
-		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, cfg.ScenaristRounds)
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, loreExpertTool, cfg.ScenaristRounds)
 	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
@@ -2598,6 +2599,15 @@ func sourceLoreCollection(state *story.StoryState, fallback string) string {
 		}
 	}
 	return firstNonEmpty(fallback, story.DefaultGroundLoreCollection)
+}
+
+func sourceLorePackID(state *story.StoryState, fallback string) string {
+	if state != nil {
+		if packID := state.SourceLorePackID(); packID != "" {
+			return packID
+		}
+	}
+	return firstNonEmpty(fallback, story.DefaultGroundLorePackID)
 }
 
 func decisionForWriterRefresh(state *story.StoryState) scene.PlayerDecision {
@@ -2833,6 +2843,24 @@ func contextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.Lo
 	return assembler
 }
 
+func writerRefreshContextAssembler(bridgeURL string, strict bool, cardStore *contextbundle.LocalCardStore, storyCollection string, logger *gamelog.Writer) contextbundle.Assembler {
+	assembler := contextbundle.Assembler{
+		Cards: cardStore,
+		Options: contextbundle.Options{
+			RequireBridge: strict,
+			RequireLore:   strict,
+		},
+	}
+	if strict || bridgeURL != "" {
+		client := bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN"))
+		assembler.Bridge = client
+		if storyCollection != "" {
+			assembler.Lore = lore.BridgeRetriever{Client: client, Collection: storyCollection, Telemetry: logger}
+		}
+	}
+	return assembler
+}
+
 func preview(text string, max int) string {
 	text = strings.Join(strings.Fields(text), " ")
 	if len(text) <= max {
@@ -2945,7 +2973,7 @@ func runtimeBridgeURL(backend string, bridgeURL string) string {
 	return bridgeclient.NewClient("", "").BaseURL
 }
 
-func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, maxToolRounds int) writer.Planner {
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
@@ -2957,7 +2985,7 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 		}
 		return writer.ClaudePlanner{Runner: claude}
 	default:
-		return writer.ClaudePlanner{Runner: codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, maxToolRounds)}
+		return writer.ClaudePlanner{Runner: codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, loreExpertTool, maxToolRounds)}
 	}
 }
 
@@ -2984,18 +3012,23 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 	}
 }
 
-func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, materialDir string, scenaristTool *scenarist.ToolRunner, maxToolRounds int) prompt.CodexRunner {
+func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
-	if strings.TrimSpace(materialDir) != "" || scenaristTool != nil {
+	if strings.TrimSpace(materialDir) != "" || scenaristTool != nil || loreExpertTool != nil {
 		runner.LocalTools = true
 		runner.ToolRoot = repoRoot()
 		if maxToolRounds <= 0 {
 			maxToolRounds = 24
 		}
 		runner.MaxToolRounds = maxToolRounds
+		var tools []codexoauth.LocalTool
 		if scenaristTool != nil {
-			runner.ExtraTools = []codexoauth.LocalTool{scenaristTool.LocalTool()}
+			tools = append(tools, scenaristTool.LocalTool())
 		}
+		if loreExpertTool != nil {
+			tools = append(tools, loreExpertTool.LocalTool())
+		}
+		runner.ExtraTools = tools
 	}
 	return runner
 }
@@ -3030,6 +3063,66 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (
 		MaxParallel: maxParallel,
 		Logger:      cfg.Logger,
 	}, nil
+}
+
+func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
+	if cfg.Backend == "static" || cfg.Backend == "claude" {
+		return nil
+	}
+	packID := firstNonEmpty(cfg.GroundLorePackID, story.DefaultGroundLorePackID)
+	pack, err := lorepack.GetPack(repoRoot(), packID)
+	if err != nil {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "lore",
+			Event:    "lore.expert.pack_unavailable",
+			Message:  err.Error(),
+			Fields:   map[string]any{"pack_id": packID},
+		})
+		return nil
+	}
+	collection := firstNonEmpty(cfg.GlobalCollection, pack.Collection, story.DefaultGroundLoreCollection)
+	packDir := filepath.Dir(pack.Path)
+	return &loreexpert.ToolRunner{
+		Runner:            loreExpertModelRunner(),
+		Retriever:         seedLoreRetriever(cfg.BridgeURL, collection),
+		CacheRoot:         filepath.Join(repoRoot(), ".cache", "sans-nom", "lore-expert"),
+		RepoRoot:          repoRoot(),
+		PackID:            pack.ID,
+		PackLabel:         pack.Label,
+		PackDescription:   pack.Description,
+		Collection:        collection,
+		PackManifestPath:  pack.Path,
+		IndexManifestPath: filepath.Join(packDir, "index", "manifest.json"),
+		MaxSources:        6,
+		Logger:            cfg.Logger,
+	}
+}
+
+func loreExpertModelRunner() prompt.CodexRunner {
+	runner := codexRunner("", nil)
+	if model := strings.TrimSpace(os.Getenv("SANS_NOM_LORE_EXPERT_MODEL")); model != "" {
+		runner.Model = model
+	} else {
+		runner.Model = "gpt-5.3-codex-spark"
+	}
+	if effort := strings.TrimSpace(os.Getenv("SANS_NOM_LORE_EXPERT_EFFORT")); effort != "" {
+		runner.Effort = codexLoreExpertEffort(effort)
+	} else {
+		runner.Effort = "low"
+	}
+	if tier := strings.TrimSpace(os.Getenv("SANS_NOM_LORE_EXPERT_SERVICE_TIER")); tier != "" {
+		runner.ServiceTier = tier
+	}
+	return runner
+}
+
+func codexLoreExpertEffort(value string) string {
+	value = strings.TrimSpace(strings.ToLower(value))
+	if value == "minimal" {
+		return "low"
+	}
+	return value
 }
 
 func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {

@@ -17,8 +17,10 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 		"own the StoryBible and StoryPacket",
 		"Do not delegate final story design",
 		"If the call_scenarists tool is available",
+		"If the ask_lore_expert tool is available",
 		"can run up to the provider-pool size in parallel",
 		"Scenarist material is advisory material only",
+		"Lore expert answers are cached influence-only analysis files",
 		"Every choice target_node_id must point to a scene node included in this same packet",
 		"Do not use placeholder targets",
 	} {
@@ -37,6 +39,7 @@ func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 		"Do not write a final StoryPacket",
 		"Do not use schema field names or target_node_id values",
 		"Protect suspension of disbelief",
+		"ask_lore_expert",
 		"Invent germs.",
 	} {
 		if !strings.Contains(got, required) {
@@ -55,6 +58,7 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"node_future_*",
 		"terminal node with no choices and revision_notes",
 		"Scenarist material is inspiration only",
+		"ask_lore_expert",
 		"validator-closed StoryPacket",
 	} {
 		if !strings.Contains(got, required) {

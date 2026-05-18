@@ -25,6 +25,8 @@ Rules:
 - If the call_scenarists tool is available, use it whenever free-form workshop help would improve the packet. The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes material to files, and returns only file paths.
 - You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
 - Scenarist material is inspiration only. Convert it into a validator-closed StoryPacket yourself; do not copy unresolved future branch labels into target_node_id.
+- If the ask_lore_expert tool is available, use it for targeted source-influence questions. Its answers are influence-only lore analysis, cached as files, and never generated-story canon.
+- Do not ask the lore expert to write prose, StoryBible doctrine, StoryPacket nodes, or final story material.
 - The Narrator will write final prose later. Keep Writer material out of canon.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
@@ -105,6 +107,8 @@ Rules:
 - The tool accepts any kind of request, can run up to the provider-pool size in parallel per call, writes free-form material to files, and returns only file paths.
 - You may call call_scenarists repeatedly before final JSON, then inspect returned files with read-only shell tools.
 - Scenarist material is advisory material only; it is not canon, not final structure, and never a substitute for Writer authorship.
+- If the ask_lore_expert tool is available, use it for targeted source-influence questions about laws, relationship pressure, tone, anti-copy risks, and suspension of disbelief.
+- Lore expert answers are cached influence-only analysis files. They are not canon, not StoryBible doctrine, and not a substitute for Writer authorship.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
 - Include at least one original gravity law inspired by source-law structure: profound, binding, not merely cruel, and enforced by world reaction rather than system blocking.
@@ -142,6 +146,7 @@ Rules:
 - Do not write a final StoryPacket.
 - Do not use schema field names or target_node_id values.
 - Treat source lore as craft DNA only: pressure, contradiction, body/law/taboo, witness-bound memory, operatic SF-comics rhythm.
+- If the ask_lore_expert tool is available, use it to dig into targeted source-influence questions; its answers are inspiration analysis only, not story canon.
 - Preserve originality: no Metabarons canon names, places, factions, dynasty mechanics, council mode, direct equivalents, resurrection roster assumptions, or all-cast fanout.
 - Protect suspension of disbelief: every strange law, technology, social practice, and character choice should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequence.
 - Build useful creative material; the final constrained bundle will happen later.

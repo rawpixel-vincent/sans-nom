@@ -16,8 +16,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
@@ -70,7 +72,8 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	runner, err := seedWriterRunner(cfg, outputDir, toolRunner)
+	loreTool := &loreexpert.ToolRunner{PackID: "metabarons"}
+	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,10 +84,10 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 7 {
 		t.Fatalf("seed writer runner missing local tools: %#v", codex)
 	}
-	if len(codex.ExtraTools) != 1 || codex.ExtraTools[0].Name != "call_scenarists" {
-		t.Fatalf("seed writer missing scenarist tool: %#v", codex.ExtraTools)
+	if !hasTool(codex.ExtraTools, "call_scenarists") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
+		t.Fatalf("seed writer missing local tools: %#v", codex.ExtraTools)
 	}
-	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner)
+	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner, loreTool)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -98,7 +101,7 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 }
 
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, 5)
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5)
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -110,9 +113,39 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 5 {
 		t.Fatalf("refresh writer runner missing local tools: %#v", codex)
 	}
-	if len(codex.ExtraTools) != 1 || codex.ExtraTools[0].Name != "call_scenarists" {
-		t.Fatalf("refresh writer missing scenarist tool: %#v", codex.ExtraTools)
+	if !hasTool(codex.ExtraTools, "call_scenarists") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
+		t.Fatalf("refresh writer missing local tools: %#v", codex.ExtraTools)
 	}
+}
+
+func TestLoreExpertModelRunnerDefaultsToCodexMiniLow(t *testing.T) {
+	t.Setenv("SANS_NOM_LORE_EXPERT_MODEL", "")
+	t.Setenv("SANS_NOM_LORE_EXPERT_EFFORT", "")
+	runner := loreExpertModelRunner()
+	if runner.Model != "gpt-5.3-codex-spark" {
+		t.Fatalf("model = %q", runner.Model)
+	}
+	if runner.Effort != "low" {
+		t.Fatalf("effort = %q", runner.Effort)
+	}
+}
+
+func TestLoreExpertModelRunnerMapsMinimalEffortToLow(t *testing.T) {
+	t.Setenv("SANS_NOM_LORE_EXPERT_MODEL", "")
+	t.Setenv("SANS_NOM_LORE_EXPERT_EFFORT", "minimal")
+	runner := loreExpertModelRunner()
+	if runner.Effort != "low" {
+		t.Fatalf("effort = %q", runner.Effort)
+	}
+}
+
+func hasTool(tools []codexoauth.LocalTool, name string) bool {
+	for _, tool := range tools {
+		if tool.Name == name {
+			return true
+		}
+	}
+	return false
 }
 
 func TestBridgeDialFailureDetectsConnectionRefused(t *testing.T) {
@@ -295,7 +328,7 @@ func TestBridgeListenAddressOnlySupportsLocalhost(t *testing.T) {
 	}
 }
 
-func TestBuildSeedContextDoesNotInjectStaticFixture(t *testing.T) {
+func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	retriever := &seedContextRetriever{hits: []lore.Snippet{{
 		ID:     "wiki_lore:bushitaka",
 		Kind:   "wiki_lore",
@@ -316,11 +349,14 @@ func TestBuildSeedContextDoesNotInjectStaticFixture(t *testing.T) {
 			t.Fatalf("live seed context leaked static fixture term %q:\n%s", forbidden, text)
 		}
 	}
-	if !strings.Contains(text, "A binding law works") {
-		t.Fatalf("expected source-lore influence snippet in seed context:\n%s", text)
+	if strings.Contains(text, "A binding law works") {
+		t.Fatalf("seed context should not inject raw lore snippets:\n%s", text)
 	}
-	if retriever.query != seedInfluenceQuery || retriever.k != 8 {
-		t.Fatalf("unexpected retrieval request query=%q k=%d", retriever.query, retriever.k)
+	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") {
+		t.Fatalf("seed context missing DNA/tool guidance:\n%s", text)
+	}
+	if retriever.query != "" || retriever.k != 0 {
+		t.Fatalf("seed context should not call lore retriever, got query=%q k=%d", retriever.query, retriever.k)
 	}
 }
 
