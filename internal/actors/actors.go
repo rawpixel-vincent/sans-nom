@@ -11,6 +11,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
@@ -107,6 +108,7 @@ func NeedsForNode(node scene.SceneNode) ([]scene.ActorNeed, error) {
 type Service struct {
 	Registry *Registry
 	Invoker  Invoker
+	Logger   *gamelog.Writer
 }
 
 func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, context string) ([]Output, error) {
@@ -131,13 +133,67 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 		wg.Add(1)
 		go func(idx int, actor Actor, need scene.ActorNeed) {
 			defer wg.Done()
+			s.logActorEvent(gamelog.Event{
+				Category: "actor",
+				Event:    "actor.invoke.request",
+				Message:  "actor invocation requested",
+				NodeID:   node.ID,
+				Fields: map[string]any{
+					"actor_id": actor.ID,
+					"mode":     need.Mode,
+					"reason":   need.Reason,
+				},
+				Detail: map[string]any{
+					"actor_id":     actor.ID,
+					"display_name": actor.DisplayName,
+					"node_id":      node.ID,
+					"node_title":   node.Title,
+					"need":         need,
+					"context_text": context,
+				},
+			})
 			output, err := s.Invoker.Invoke(ctx, actor, node, need, context)
 			if err != nil {
+				s.logActorEvent(gamelog.Event{
+					Level:    gamelog.LevelError,
+					Category: "actor",
+					Event:    "actor.invoke.failed",
+					Message:  err.Error(),
+					NodeID:   node.ID,
+					Fields: map[string]any{
+						"actor_id": actor.ID,
+						"mode":     need.Mode,
+						"reason":   need.Reason,
+					},
+					Detail: map[string]any{
+						"actor_id": actor.ID,
+						"node_id":  node.ID,
+						"need":     need,
+						"error":    err.Error(),
+					},
+				})
 				errs <- err
 				return
 			}
 			output.ActorID = actor.ID
 			outputs[idx] = output
+			s.logActorEvent(gamelog.Event{
+				Category: "actor",
+				Event:    "actor.invoke.completed",
+				Message:  "actor invocation completed",
+				NodeID:   node.ID,
+				Fields: map[string]any{
+					"actor_id": actor.ID,
+					"mode":     need.Mode,
+					"reason":   need.Reason,
+				},
+				Detail: map[string]any{
+					"actor_id": actor.ID,
+					"node_id":  node.ID,
+					"need":     need,
+					"output":   output,
+				},
+			})
 		}(i, actor, need)
 	}
 	wg.Wait()
@@ -148,6 +204,13 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 		}
 	}
 	return outputs, nil
+}
+
+func (s Service) logActorEvent(event gamelog.Event) {
+	if s.Logger == nil {
+		return
+	}
+	_ = s.Logger.Append(event)
 }
 
 type StaticInvoker struct {

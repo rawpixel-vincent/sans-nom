@@ -4,12 +4,15 @@
   import FileTable from "./lib/FileTable.svelte";
   import Panel from "./lib/Panel.svelte";
   import {
+    backstageStreamURL,
     createStory,
     deleteGlobalLog,
     deleteGlobalLogs,
     deleteLog,
     deleteLogs,
     getFile,
+    getBackstage,
+    getGlobalBackstage,
     getGlobalLogDetail,
     getGlobalLogs,
     getIndex,
@@ -18,10 +21,12 @@
     getModelRuns,
     getStatus,
     getStory,
+    globalBackstageStreamURL,
     listLorePacks,
     listStories,
     runControl,
     type AdminStatus,
+    type BackstageMessage,
     type FileInfo,
     type IndexResponse,
     type LogEvent,
@@ -33,6 +38,7 @@
   const tabs = [
     "overview",
     "book",
+    "behind-scenes",
     "logs",
     "model-runs",
     "index",
@@ -57,8 +63,14 @@
   let detail: StoryDetail | null = null;
   let logs: LogEvent[] = [];
   let globalLogs: LogEvent[] = [];
+  let backstageMessages: BackstageMessage[] = [];
+  let globalBackstageMessages: BackstageMessage[] = [];
   let selectedLog: LogEvent | null = null;
   let selectedGlobalLog: LogEvent | null = null;
+  let selectedBackstageMessage: BackstageMessage | null = null;
+  let selectedGlobalBackstageMessage: BackstageMessage | null = null;
+  let selectedBackstageDetail: unknown = null;
+  let selectedGlobalBackstageDetail: unknown = null;
   let selectedLogDetail: unknown = null;
   let selectedGlobalLogDetail: unknown = null;
   let selectedLogIDs = new Set<string>();
@@ -73,10 +85,23 @@
   let logLevel = "";
   let logTail = 200;
   let logPolling = true;
+  let backstageTail = 200;
+  let backstageLive = true;
+  let backstageRole = "";
+  let backstageAdminDetail = false;
   let busy = false;
   let error = "";
   let notice = "";
   let pollTimer: number | undefined;
+  let backstageSource: EventSource | null = null;
+  let backstageStreamKey = "";
+  let storyChatEl: HTMLDivElement | null = null;
+  let globalChatEl: HTMLDivElement | null = null;
+  let storyBackstageCount = 0;
+  let globalBackstageCount = 0;
+
+  $: configureBackstageStream(activeTab, selectedStoryId, backstageLive, backstageTail);
+  $: autoscrollBackstage();
 
   onMount(() => {
     void refreshAll();
@@ -87,6 +112,12 @@
       if (logPolling && activeTab === "global-logs") {
         void loadGlobalLogsQuietly();
       }
+      if (!backstageLive && activeTab === "behind-scenes" && selectedStoryId) {
+        void loadBackstageQuietly();
+      }
+      if (!backstageLive && activeTab === "global-backstage") {
+        void loadGlobalBackstageQuietly();
+      }
     }, 3000);
   });
 
@@ -94,6 +125,7 @@
     if (pollTimer !== undefined) {
       window.clearInterval(pollTimer);
     }
+    closeBackstageStream();
   });
 
   async function refreshAll() {
@@ -111,17 +143,19 @@
         await loadStory(selectedStoryId);
       }
       await loadGlobalLogs();
+      await loadGlobalBackstage();
     });
   }
 
   async function loadStory(storyId: string) {
     selectedStoryId = storyId;
-    if (activeTab === "global-logs") {
+    if (activeTab === "global-logs" || activeTab === "global-backstage") {
       activeTab = "overview";
     }
     detail = await getStory(storyId);
     await Promise.all([
       loadLogs(),
+      loadBackstage(),
       loadModelRuns(),
       loadIndex(),
       loadFile(filePath),
@@ -161,6 +195,25 @@
     }
   }
 
+  async function loadBackstage() {
+    if (!selectedStoryId) return;
+    backstageMessages = await getBackstage(selectedStoryId, { tail: backstageTail });
+    const current = selectedBackstageMessage;
+    if (current && !backstageMessages.some((entry) => entry.id === current.id)) {
+      selectedBackstageMessage = null;
+      selectedBackstageDetail = null;
+    }
+  }
+
+  async function loadGlobalBackstage() {
+    globalBackstageMessages = await getGlobalBackstage({ tail: backstageTail });
+    const current = selectedGlobalBackstageMessage;
+    if (current && !globalBackstageMessages.some((entry) => entry.id === current.id)) {
+      selectedGlobalBackstageMessage = null;
+      selectedGlobalBackstageDetail = null;
+    }
+  }
+
   async function loadLogsQuietly() {
     try {
       await loadLogs();
@@ -174,6 +227,38 @@
       await loadGlobalLogs();
     } catch (err) {
       error = err instanceof Error ? err.message : String(err);
+    }
+  }
+
+  async function loadBackstageQuietly() {
+    try {
+      await loadBackstage();
+    } catch (err) {
+      error = err instanceof Error ? err.message : String(err);
+    }
+  }
+
+  async function loadGlobalBackstageQuietly() {
+    try {
+      await loadGlobalBackstage();
+    } catch (err) {
+      error = err instanceof Error ? err.message : String(err);
+    }
+  }
+
+  async function selectBackstageMessage(message: BackstageMessage) {
+    selectedBackstageMessage = message;
+    selectedBackstageDetail = null;
+    if (selectedStoryId && message.detail_path) {
+      selectedBackstageDetail = await getLogDetail(selectedStoryId, message.detail_path);
+    }
+  }
+
+  async function selectGlobalBackstageMessage(message: BackstageMessage) {
+    selectedGlobalBackstageMessage = message;
+    selectedGlobalBackstageDetail = null;
+    if (message.detail_path) {
+      selectedGlobalBackstageDetail = await getGlobalLogDetail(message.detail_path);
     }
   }
 
@@ -272,6 +357,83 @@
       await copyText(formatLogMarkdown(entry, detail, "global"));
       notice = `copied global log event: ${entry.event_id || entry.event}`;
     });
+  }
+
+  async function copyBackstageMarkdown(message: BackstageMessage, scope: "story" | "global") {
+    const detailPayload = message.detail_path
+      ? scope === "story" && selectedStoryId
+        ? await getLogDetail(selectedStoryId, message.detail_path)
+        : await getGlobalLogDetail(message.detail_path)
+      : null;
+    await copyText(formatBackstageMarkdown(message, detailPayload, scope));
+    notice = `copied backstage message: ${message.id}`;
+  }
+
+  async function openBackstageArtifact(path: string) {
+    if (!selectedStoryId || !path) return;
+    await withBusy(async () => {
+      await loadFile(path);
+      activeTab = "files";
+    });
+  }
+
+  function configureBackstageStream(tab: string, storyId: string, live: boolean, tail: number) {
+    const wantsStory = live && tab === "behind-scenes" && !!storyId;
+    const wantsGlobal = live && tab === "global-backstage";
+    if (!wantsStory && !wantsGlobal) {
+      closeBackstageStream();
+      return;
+    }
+    const key = wantsStory ? `story:${storyId}:${tail}` : `global:${tail}`;
+    if (key === backstageStreamKey && backstageSource) {
+      return;
+    }
+    closeBackstageStream();
+    backstageStreamKey = key;
+    const url = wantsStory ? backstageStreamURL(storyId, tail) : globalBackstageStreamURL(tail);
+    const source = new EventSource(url);
+    source.addEventListener("backstage", (event) => {
+      try {
+        const payload = JSON.parse((event as MessageEvent).data) as { messages?: BackstageMessage[] };
+        if (payload.messages) {
+          if (wantsStory) backstageMessages = payload.messages;
+          else globalBackstageMessages = payload.messages;
+        }
+      } catch (err) {
+        error = err instanceof Error ? err.message : String(err);
+      }
+    });
+    source.onerror = () => {
+      error = "backstage stream disconnected";
+      closeBackstageStream();
+    };
+    backstageSource = source;
+  }
+
+  function closeBackstageStream() {
+    if (backstageSource) {
+      backstageSource.close();
+      backstageSource = null;
+    }
+    backstageStreamKey = "";
+  }
+
+  function autoscrollBackstage() {
+    if (!backstageLive) return;
+    if (activeTab === "behind-scenes" && backstageMessages.length !== storyBackstageCount) {
+      storyBackstageCount = backstageMessages.length;
+      queueMicrotask(() => storyChatEl?.scrollTo({ top: storyChatEl.scrollHeight }));
+    }
+    if (activeTab === "global-backstage" && globalBackstageMessages.length !== globalBackstageCount) {
+      globalBackstageCount = globalBackstageMessages.length;
+      queueMicrotask(() => globalChatEl?.scrollTo({ top: globalChatEl.scrollHeight }));
+    }
+  }
+
+  function onBackstageKey(event: KeyboardEvent, open: () => void) {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    open();
   }
 
   async function loadModelRuns() {
@@ -489,6 +651,65 @@
       .replace(/\|/g, "\\|")
       .replace(/\r?\n/g, "<br>");
   }
+
+  function filteredBackstage(messages: BackstageMessage[]) {
+    if (!backstageRole) return messages;
+    return messages.filter((message) => message.role === backstageRole);
+  }
+
+  function backstageRoles(messages: BackstageMessage[]) {
+    return [...new Set(messages.map((message) => message.role).filter(Boolean))].sort();
+  }
+
+  function isOpenableArtifact(path: string) {
+    return /\.(json|jsonl|md|txt|log)$/i.test(path);
+  }
+
+  function formatBackstageMarkdown(message: BackstageMessage, detailPayload: unknown, scope: "story" | "global") {
+    const lines = [
+      `# ${scope === "global" ? "Global" : "Story"} Backstage: ${message.speaker}`,
+      "",
+      "| Field | Value |",
+      "| --- | --- |",
+      `| Time | ${markdownCell(message.time)} |`,
+      `| Speaker | ${markdownCell(message.speaker)} |`,
+      `| Role | ${markdownCell(message.role)} |`,
+      `| Kind | ${markdownCell(message.kind)} |`,
+      `| Status | ${markdownCell(message.status)} |`,
+      `| Visibility | ${markdownCell(message.visibility)} |`,
+    ];
+    if (message.story_id) lines.push(`| Story ID | ${markdownCell(message.story_id)} |`);
+    if (message.turn !== undefined) lines.push(`| Turn | ${message.turn} |`);
+    if (message.packet_id) lines.push(`| Packet ID | ${markdownCell(message.packet_id)} |`);
+    if (message.node_id) lines.push(`| Node ID | ${markdownCell(message.node_id)} |`);
+    if (message.run_id) lines.push(`| Run ID | ${markdownCell(message.run_id)} |`);
+    if (message.source_event) lines.push(`| Source Event | ${markdownCell(message.source_event)} |`);
+    if (message.source_event_id) lines.push(`| Source Event ID | ${markdownCell(message.source_event_id)} |`);
+    if (message.detail_path) lines.push(`| Detail Path | ${markdownCell(message.detail_path)} |`);
+    lines.push(
+      "",
+      "## Message",
+      "",
+      message.text || message.preview || "",
+      "",
+      "## Artifacts",
+      "````json",
+      pretty(message.artifact_paths ?? []),
+      "````",
+      "",
+      "## Detail",
+      "````json",
+      detailPayload === null ? "null" : pretty(detailPayload),
+      "````",
+      "",
+      "## Message JSON",
+      "````json",
+      pretty(message),
+      "````",
+      "",
+    );
+    return lines.join("\n");
+  }
 </script>
 
 <div class="min-h-screen bg-slate-100 text-slate-950">
@@ -543,6 +764,14 @@
       </div>
       <div class="mb-4">
         <button
+          class:selected={activeTab === "global-backstage"}
+          class="story-button mb-2"
+          on:click={() => withBusy(async () => { activeTab = "global-backstage"; await loadGlobalBackstage(); })}
+        >
+          <span class="block font-medium">Behind The Scenes</span>
+          <span class="block text-xs text-slate-500">global model calls as office chat</span>
+        </button>
+        <button
           class:selected={activeTab === "global-logs"}
           class="story-button"
           on:click={() => withBusy(async () => { activeTab = "global-logs"; await loadGlobalLogs(); })}
@@ -596,7 +825,91 @@
         </div>
       {/if}
 
-      {#if activeTab === "global-logs"}
+      {#if activeTab === "global-backstage"}
+        <Panel title="Global Behind The Scenes">
+          <div class="mb-3 flex flex-wrap items-center gap-2">
+            <select bind:value={backstageRole} class="input">
+              <option value="">all roles</option>
+              {#each backstageRoles(globalBackstageMessages) as role}
+                <option value={role}>{role}</option>
+              {/each}
+            </select>
+            <input
+              class="input w-24"
+              type="number"
+              min="1"
+              max="2000"
+              bind:value={backstageTail}
+            />
+            <label class="flex items-center gap-1 text-xs text-slate-600">
+              <input type="checkbox" bind:checked={backstageLive} />
+              live
+            </label>
+            <label class="flex items-center gap-1 text-xs text-slate-600">
+              <input type="checkbox" bind:checked={backstageAdminDetail} />
+              detail
+            </label>
+            <button class="btn" on:click={() => withBusy(loadGlobalBackstage)}>Apply</button>
+          </div>
+          <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+            <div class="chat-room" bind:this={globalChatEl}>
+              {#each filteredBackstage(globalBackstageMessages) as message}
+                <div
+                  class:failed={message.status === "failed"}
+                  class:pending={message.status === "pending"}
+                  class="chat-bubble"
+                  role="button"
+                  tabindex="0"
+                  on:click={() => withBusy(() => selectGlobalBackstageMessage(message))}
+                  on:keydown={(event) => onBackstageKey(event, () => void withBusy(() => selectGlobalBackstageMessage(message)))}
+                >
+                  <div class="mb-2 flex flex-wrap items-center gap-2">
+                    <span class="role-chip">@{message.speaker}</span>
+                    <span class="chip">{message.kind}</span>
+                    <span class="chip">{message.status}</span>
+                    {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
+                    {#if message.run_id}<span class="chip">{message.run_id}</span>{/if}
+                    <span class="ml-auto font-mono text-[11px] text-slate-500">{message.time}</span>
+                  </div>
+                  <div class="whitespace-pre-wrap text-sm leading-relaxed">{message.preview || message.text}</div>
+                  <div class="mt-2 flex flex-wrap gap-1">
+                    {#if message.detail_path}
+                      <button class="btn-mini" on:click|stopPropagation={() => withBusy(() => selectGlobalBackstageMessage(message))}>Detail</button>
+                    {/if}
+                    <button class="btn-mini" on:click|stopPropagation={() => copyBackstageMarkdown(message, "global")}>Copy</button>
+                  </div>
+                </div>
+              {/each}
+              {#if filteredBackstage(globalBackstageMessages).length === 0}
+                <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                  No backstage messages yet.
+                </div>
+              {/if}
+            </div>
+            <div class="min-w-0">
+              <div class="mb-2 flex items-center justify-between">
+                <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Message</h4>
+                {#if selectedGlobalBackstageMessage}
+                  <button class="btn" on:click={() => { selectedGlobalBackstageMessage = null; selectedGlobalBackstageDetail = null; }}>Clear</button>
+                {/if}
+              </div>
+              {#if selectedGlobalBackstageMessage}
+                <pre class="json max-h-[38vh]">{selectedGlobalBackstageMessage.text}</pre>
+                {#if backstageAdminDetail}
+                  <div class="mt-3">
+                    <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                    <pre class="json max-h-[38vh]">{pretty(selectedGlobalBackstageDetail ?? {})}</pre>
+                  </div>
+                {/if}
+              {:else}
+                <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                  Select a backstage bubble to inspect the full text.
+                </div>
+              {/if}
+            </div>
+          </div>
+        </Panel>
+      {:else if activeTab === "global-logs"}
         <Panel title="Global Logs">
           <div class="mb-3 flex flex-wrap items-center gap-2">
             <select
@@ -805,6 +1118,116 @@
                 No narration files saved yet.
               </div>
             {/if}
+          </Panel>
+        {:else if activeTab === "behind-scenes"}
+          <Panel title="Behind The Scenes">
+            <div class="mb-3 flex flex-wrap items-center gap-2">
+              <select bind:value={backstageRole} class="input">
+                <option value="">all roles</option>
+                {#each backstageRoles(backstageMessages) as role}
+                  <option value={role}>{role}</option>
+                {/each}
+              </select>
+              <input
+                class="input w-24"
+                type="number"
+                min="1"
+                max="2000"
+                bind:value={backstageTail}
+              />
+              <label class="flex items-center gap-1 text-xs text-slate-600">
+                <input type="checkbox" bind:checked={backstageLive} />
+                live
+              </label>
+              <label class="flex items-center gap-1 text-xs text-slate-600">
+                <input type="checkbox" bind:checked={backstageAdminDetail} />
+                detail
+              </label>
+              <button class="btn" on:click={() => withBusy(loadBackstage)}>Apply</button>
+            </div>
+            <div class="grid grid-cols-[minmax(0,1fr)_420px] gap-3">
+              <div class="chat-room" bind:this={storyChatEl}>
+                {#each filteredBackstage(backstageMessages) as message}
+                  <div
+                    class:failed={message.status === "failed"}
+                    class:pending={message.status === "pending"}
+                    class="chat-bubble"
+                    role="button"
+                    tabindex="0"
+                    on:click={() => withBusy(() => selectBackstageMessage(message))}
+                    on:keydown={(event) => onBackstageKey(event, () => void withBusy(() => selectBackstageMessage(message)))}
+                  >
+                    <div class="mb-2 flex flex-wrap items-center gap-2">
+                      <span class="role-chip">@{message.speaker}</span>
+                      <span class="chip">{message.kind}</span>
+                      <span class="chip">{message.status}</span>
+                      {#if message.turn}<span class="chip">turn {message.turn}</span>{/if}
+                      {#if message.node_id}<span class="chip">{message.node_id}</span>{/if}
+                      {#if message.run_id}<span class="chip">{message.run_id}</span>{/if}
+                      <span class="ml-auto font-mono text-[11px] text-slate-500">{message.time}</span>
+                    </div>
+                    <div class="whitespace-pre-wrap text-sm leading-relaxed">{message.preview || message.text}</div>
+                    <div class="mt-2 flex flex-wrap gap-1">
+                      {#each message.artifact_paths ?? [] as path}
+                        {#if isOpenableArtifact(path)}
+                          <button class="btn-mini" on:click|stopPropagation={() => openBackstageArtifact(path)}>
+                            {short(path, 42)}
+                          </button>
+                        {:else}
+                          <span class="chip">{short(path, 42)}</span>
+                        {/if}
+                      {/each}
+                      {#if message.detail_path}
+                        <button class="btn-mini" on:click|stopPropagation={() => withBusy(() => selectBackstageMessage(message))}>Detail</button>
+                      {/if}
+                      <button class="btn-mini" on:click|stopPropagation={() => copyBackstageMarkdown(message, "story")}>Copy</button>
+                    </div>
+                  </div>
+                {/each}
+                {#if filteredBackstage(backstageMessages).length === 0}
+                  <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                    No backstage messages yet.
+                  </div>
+                {/if}
+              </div>
+              <div class="min-w-0">
+                <div class="mb-2 flex items-center justify-between">
+                  <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-600">Selected Message</h4>
+                  {#if selectedBackstageMessage}
+                    <button class="btn" on:click={() => { selectedBackstageMessage = null; selectedBackstageDetail = null; }}>Clear</button>
+                  {/if}
+                </div>
+                {#if selectedBackstageMessage}
+                  <pre class="json max-h-[38vh]">{selectedBackstageMessage.text}</pre>
+                  {#if selectedBackstageMessage.artifact_paths?.length}
+                    <div class="mt-3">
+                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Artifacts</div>
+                      <div class="flex flex-wrap gap-1">
+                        {#each selectedBackstageMessage.artifact_paths as path}
+                          {#if isOpenableArtifact(path)}
+                            <button class="btn-mini" on:click={() => openBackstageArtifact(path)}>
+                              {path}
+                            </button>
+                          {:else}
+                            <span class="chip">{path}</span>
+                          {/if}
+                        {/each}
+                      </div>
+                    </div>
+                  {/if}
+                  {#if backstageAdminDetail}
+                    <div class="mt-3">
+                      <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Detail</div>
+                      <pre class="json max-h-[38vh]">{pretty(selectedBackstageDetail ?? {})}</pre>
+                    </div>
+                  {/if}
+                {:else}
+                  <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                    Select a backstage bubble to inspect the full prompt, answer, and artifacts.
+                  </div>
+                {/if}
+              </div>
+            </div>
           </Panel>
         {:else if activeTab === "logs"}
           <Panel title="Logs">

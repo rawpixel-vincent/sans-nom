@@ -7,8 +7,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
@@ -83,6 +85,126 @@ func TestAdminExposesGlobalLogsAndDetails(t *testing.T) {
 	getJSON(t, server.URL+"/admin/api/logs/detail?path="+logs.Events[0].DetailPath, &detail)
 	if detail.Detail["prompt"] != "seed request" {
 		t.Fatalf("unexpected global detail: %#v", detail.Detail)
+	}
+}
+
+func TestAdminExposesGlobalBackstage(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{
+		Category: "model",
+		Event:    "seed.writer.request",
+		Detail:   map[string]any{"prompt": "make a seed"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := global.Append(gamelog.Event{
+		Category: "model",
+		Event:    "seed.writer.response",
+		Detail:   map[string]any{"response": `{"bible":{},"packet":{}}`},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "System" || resp.Messages[0].Role != "creative-writer" || !strings.Contains(resp.Messages[0].Text, "make a seed") {
+		t.Fatalf("unexpected request message: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "Creative Writer" || resp.Messages[1].Status != "completed" {
+		t.Fatalf("unexpected response message: %#v", resp.Messages[1])
+	}
+}
+
+func TestAdminExposesStoryBackstageArtifactsSafely(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	runDir := filepath.Join(ws.Dir, "model-runs", "writer", "turn-000001")
+	if err := os.MkdirAll(runDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(runDir, "input.txt"), []byte("writer prompt"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(runDir, "accepted-packet.json"), []byte(`{"id":"packet"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "writer",
+		Event:    "writer.refresh.started",
+		Fields:   map[string]any{"artifact_dir": runDir},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{
+		Category: "writer",
+		Event:    "writer.refresh.completed",
+		Fields:   map[string]any{"artifact_dir": runDir, "leaked": "../state.json"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID+"/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
+	}
+	if !strings.Contains(resp.Messages[0].Text, "writer prompt") {
+		t.Fatalf("writer input was not loaded: %#v", resp.Messages[0])
+	}
+	if !strings.Contains(resp.Messages[1].Text, `"id":"packet"`) {
+		t.Fatalf("accepted packet was not loaded: %#v", resp.Messages[1])
+	}
+	for _, path := range resp.Messages[1].ArtifactPaths {
+		if strings.Contains(path, "..") {
+			t.Fatalf("unsafe artifact path exposed: %q", path)
+		}
+	}
+}
+
+func TestAdminBackstageStreamEmitsSnapshot(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{Category: "narrator", Event: "narrator.rollout.completed", Detail: map[string]any{"draft": map[string]any{"prose": "hello"}}}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, server.URL+"/admin/api/backstage/stream?tail=10", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if got := resp.Header.Get("Content-Type"); !strings.Contains(got, "text/event-stream") {
+		t.Fatalf("unexpected content type %q", got)
+	}
+	buf := make([]byte, 4096)
+	n, err := resp.Body.Read(buf)
+	if err != nil && err != io.EOF {
+		t.Fatal(err)
+	}
+	body := string(buf[:n])
+	if !strings.Contains(body, "event: backstage") || !strings.Contains(body, "hello") {
+		t.Fatalf("unexpected stream body: %s", body)
 	}
 }
 

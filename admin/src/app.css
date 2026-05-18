@@ -89,4 +89,28 @@ textarea {
   .status-bad {
     @apply bg-red-100 text-red-800;
   }
+
+  .chat-room {
+    @apply max-h-[72vh] space-y-3 overflow-auto rounded border border-slate-200 bg-slate-100 p-3;
+  }
+
+  .chat-bubble {
+    @apply cursor-pointer rounded border border-slate-200 bg-white p-3 shadow-sm hover:border-slate-400;
+  }
+
+  .chat-bubble.pending {
+    @apply border-amber-300 bg-amber-50;
+  }
+
+  .chat-bubble.failed {
+    @apply border-red-300 bg-red-50;
+  }
+
+  .role-chip {
+    @apply rounded bg-slate-900 px-2 py-1 text-xs font-semibold text-white;
+  }
+
+  .chip {
+    @apply rounded border border-slate-300 bg-white px-2 py-0.5 text-[11px] text-slate-600;
+  }
 }

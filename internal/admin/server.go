@@ -121,6 +121,14 @@ func (s *Server) serveAPI(w http.ResponseWriter, r *http.Request) {
 		s.handleGlobalLogDetail(w, r)
 		return
 	}
+	if path == "backstage" {
+		s.handleGlobalBackstage(w, r)
+		return
+	}
+	if path == "backstage/stream" {
+		s.handleGlobalBackstageStream(w, r)
+		return
+	}
 	if strings.HasPrefix(path, "stories/") {
 		s.handleStoryPath(w, r, strings.Split(path, "/")[1:])
 		return
@@ -218,6 +226,12 @@ func (s *Server) handleStoryPath(w http.ResponseWriter, r *http.Request, parts [
 			return
 		}
 		s.handleStoryLogs(w, r, storyID)
+	case "backstage":
+		if len(parts) > 2 && parts[2] == "stream" {
+			s.handleStoryBackstageStream(w, r, storyID)
+			return
+		}
+		s.handleStoryBackstage(w, r, storyID)
 	case "model-runs":
 		s.handleModelRuns(w, r, storyID)
 	case "index":

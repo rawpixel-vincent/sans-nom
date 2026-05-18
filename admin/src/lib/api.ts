@@ -73,6 +73,28 @@ export type LogEvent = {
   detail_path?: string;
 };
 
+export type BackstageMessage = {
+  id: string;
+  time: string;
+  story_id?: string;
+  turn?: number;
+  packet_id?: string;
+  node_id?: string;
+  run_id?: string;
+  role: string;
+  speaker: string;
+  kind: string;
+  status: string;
+  text: string;
+  preview: string;
+  source_event_id?: string;
+  source_event?: string;
+  source_category?: string;
+  detail_path?: string;
+  artifact_paths?: string[];
+  visibility: string;
+};
+
 export type FileInfo = {
   path: string;
   name: string;
@@ -151,6 +173,39 @@ export async function getGlobalLogs(
   return request<{ events: LogEvent[]; categories: string[] }>(
     `/admin/api/logs?${params.toString()}`
   );
+}
+
+export async function getBackstage(
+  storyId: string,
+  filters: { tail?: number } = {}
+): Promise<BackstageMessage[]> {
+  const params = new URLSearchParams();
+  if (filters.tail) params.set('tail', String(filters.tail));
+  const data = await request<{ messages: BackstageMessage[] }>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/backstage?${params.toString()}`
+  );
+  return data.messages;
+}
+
+export async function getGlobalBackstage(
+  filters: { tail?: number } = {}
+): Promise<BackstageMessage[]> {
+  const params = new URLSearchParams();
+  if (filters.tail) params.set('tail', String(filters.tail));
+  const data = await request<{ messages: BackstageMessage[] }>(
+    `/admin/api/backstage?${params.toString()}`
+  );
+  return data.messages;
+}
+
+export function backstageStreamURL(storyId: string, tail = 50): string {
+  const params = new URLSearchParams({ tail: String(tail) });
+  return `/admin/api/stories/${encodeURIComponent(storyId)}/backstage/stream?${params.toString()}`;
+}
+
+export function globalBackstageStreamURL(tail = 50): string {
+  const params = new URLSearchParams({ tail: String(tail) });
+  return `/admin/api/backstage/stream?${params.toString()}`;
 }
 
 export async function getLogDetail(storyId: string, path: string): Promise<unknown> {

@@ -1878,6 +1878,24 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	if err != nil {
 		return narrator.Rollout{}, err
 	}
+	narratorContextText := narratorContext.RenderText()
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "narrator",
+		Event:    "narrator.rollout.request",
+		Message:  "narrator rollout requested",
+		PacketID: packet.ID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"decision_choice_id": decision.ChoiceID,
+			"decision_free_text": decision.FreeText,
+			"context_chars":      len([]rune(narratorContextText)),
+		},
+		Detail: map[string]any{
+			"node_id":      nodeID,
+			"decision":     decision,
+			"context_text": narratorContextText,
+		},
+	})
 	actorInvoker := actors.Invoker(actors.StaticInvoker{})
 	renderer := narrator.Renderer(narrator.StaticRenderer{})
 	switch cfg.Backend {
@@ -1890,9 +1908,9 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: codexRunner("NarratorDraft", prompt.NarratorDraftSchema())}
 	}
 	return narrator.Service{
-		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker},
+		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger},
 		Renderer: renderer,
-	}.Rollout(ctx, packet, nodeID, decision, narratorContext.RenderText())
+	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
 }
 
 func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.StoryState, loopTurn int, rollout narrator.Rollout) (string, error) {
