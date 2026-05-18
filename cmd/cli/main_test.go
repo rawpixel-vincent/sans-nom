@@ -91,6 +91,9 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if toolRunner.LoreExpert != loreTool {
 		t.Fatal("seed scenarist tool should receive lore expert access")
 	}
+	if !containsStringWith(toolRunner.ReadOnlyPointers, "lore/packs/metabarons/lore-pack.json") {
+		t.Fatalf("seed scenarist tool missing pack pointers: %#v", toolRunner.ReadOnlyPointers)
+	}
 	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool)
 	if err != nil {
 		t.Fatal(err)
@@ -121,6 +124,28 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	}
 	if !hasTool(workshopCodex.ExtraTools, "call_scenarists") || !hasTool(workshopCodex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("workshop writer missing local tools: %#v", workshopCodex.ExtraTools)
+	}
+}
+
+func TestScenaristReadOnlyPointersUsePackLayout(t *testing.T) {
+	pointers := scenaristReadOnlyPointers(playConfig{GroundLorePackID: "metabarons"})
+	for _, required := range []string{
+		"lore/packs/metabarons/lore-pack.json",
+		"lore/packs/metabarons/wiki/lore.md",
+		"lore/packs/metabarons/links/matrix.md",
+	} {
+		if !containsStringWith(pointers, required) {
+			t.Fatalf("scenarist pointers missing %q: %#v", required, pointers)
+		}
+	}
+	for _, stale := range []string{
+		"lore/metabarons-lore-pack.md",
+		"lore/metabarons.md",
+		"README.md",
+	} {
+		if containsStringWith(pointers, stale) {
+			t.Fatalf("scenarist pointers include stale path %q: %#v", stale, pointers)
+		}
 	}
 }
 
@@ -166,6 +191,15 @@ func TestLoreExpertModelRunnerMapsMinimalEffortToLow(t *testing.T) {
 func hasTool(tools []codexoauth.LocalTool, name string) bool {
 	for _, tool := range tools {
 		if tool.Name == name {
+			return true
+		}
+	}
+	return false
+}
+
+func containsStringWith(values []string, needle string) bool {
+	for _, value := range values {
+		if strings.Contains(value, needle) {
 			return true
 		}
 	}

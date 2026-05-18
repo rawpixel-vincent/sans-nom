@@ -22,6 +22,7 @@ type ToolRunner struct {
 	OutputDir        string
 	RepoRoot         string
 	ContextText      string
+	ReadOnlyPointers []string
 	Tools            bool
 	LoreExpert       *loreexpert.ToolRunner
 	LoreExpertRounds int
@@ -90,7 +91,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	if err := os.MkdirAll(callDir, 0o755); err != nil {
 		return nil, err
 	}
-	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil)
+	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil, r.ReadOnlyPointers)
 	dependencyWarnings := dependencyWarnings(payload.Requests)
 	metadata := runnerModelMetadata(r.Runner)
 	r.log(gamelog.Event{
@@ -115,6 +116,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"lore_expert_available": r.LoreExpert != nil,
 			"lore_expert_rounds":    r.effectiveLoreExpertRounds(),
 			"system_prompt":         systemPrompt,
+			"read_only_pointers":    r.ReadOnlyPointers,
 			"context_chars":         len(r.ContextText),
 			"context_text":          r.ContextText,
 			"planning_scope":        "scenarist material is planning-only; Writer owns final StoryPacket",

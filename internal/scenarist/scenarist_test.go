@@ -69,6 +69,40 @@ func TestScenaristSystemPromptExposesLoreExpertWhenAvailable(t *testing.T) {
 	}
 }
 
+func TestScenaristSystemPromptListsRealReadPointers(t *testing.T) {
+	system := ScenaristSystemPrompt("/repo", true, true, []string{
+		"pack manifest file: lore/packs/metabarons/lore-pack.json (use Read)",
+		"comics directory: lore/packs/metabarons/comics (use LS/Grep)",
+	})
+	for _, required := range []string{
+		"Use @LoreExpert first for source-pattern questions",
+		"Use Read for files and LS or Grep for directories",
+		"pack manifest file: lore/packs/metabarons/lore-pack.json",
+		"comics directory: lore/packs/metabarons/comics",
+	} {
+		if !strings.Contains(system, required) {
+			t.Fatalf("scenarist system prompt missing %q:\n%s", required, system)
+		}
+	}
+}
+
+func TestScenaristQueryGuidesEmptyRelevantPaths(t *testing.T) {
+	query := ScenaristToolQuery("writer context", ToolRequest{
+		Topic:          "Seed heat",
+		Request:        "Brainstorm.",
+		HardBoundaries: []string{"Original material only."},
+	})
+	for _, required := range []string{
+		"No request-specific files were provided",
+		"ask @LoreExpert",
+		"instead of guessing filenames",
+	} {
+		if !strings.Contains(query, required) {
+			t.Fatalf("scenarist query missing %q:\n%s", required, query)
+		}
+	}
+}
+
 func TestProviderEnvMapsProviderPrefixedVariables(t *testing.T) {
 	dir := t.TempDir()
 	envPath := filepath.Join(dir, ".env")

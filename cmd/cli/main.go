@@ -17,6 +17,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -1045,6 +1046,7 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 	}
 	tool, err := scenaristToolRunner(playConfig{
 		WriterScenarists:    cfg.WriterScenarists,
+		GroundLorePackID:    cfg.GroundLorePackID,
 		ScenaristProvider:   cfg.ScenaristProvider,
 		ScenaristModel:      cfg.ScenaristModel,
 		ScenaristTools:      cfg.ScenaristTools,
@@ -3180,17 +3182,70 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, l
 		maxParallel = cfg.WriterScenarists
 	}
 	return &scenarist.ToolRunner{
-		Runner:      &scenarist.ProviderPoolRunner{Runners: runners},
-		OutputDir:   outputDir,
-		RepoRoot:    repoRoot(),
-		ContextText: contextText,
-		Tools:       cfg.ScenaristTools,
-		LoreExpert:  loreExpertTool,
-		MaxParallel: maxParallel,
-		Logger:      cfg.Logger,
-		CallerRole:  "writer",
-		CallerName:  "Writer",
+		Runner:           &scenarist.ProviderPoolRunner{Runners: runners},
+		OutputDir:        outputDir,
+		RepoRoot:         repoRoot(),
+		ContextText:      contextText,
+		ReadOnlyPointers: scenaristReadOnlyPointers(cfg),
+		Tools:            cfg.ScenaristTools,
+		LoreExpert:       loreExpertTool,
+		MaxParallel:      maxParallel,
+		Logger:           cfg.Logger,
+		CallerRole:       "writer",
+		CallerName:       "Writer",
 	}, nil
+}
+
+func scenaristReadOnlyPointers(cfg playConfig) []string {
+	packID := firstNonEmpty(cfg.GroundLorePackID, story.DefaultGroundLorePackID)
+	pack, err := lorepack.GetPack(repoRoot(), packID)
+	if err != nil {
+		return nil
+	}
+	root := repoRoot()
+	packDir := filepath.Dir(pack.Path)
+	var pointers []string
+	seen := map[string]bool{}
+	addPointer := func(label string, path string) {
+		path = filepath.Clean(path)
+		info, err := os.Stat(path)
+		if err != nil {
+			return
+		}
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			rel = path
+		}
+		rel = filepath.ToSlash(rel)
+		if seen[rel] {
+			return
+		}
+		seen[rel] = true
+		kind := "file"
+		action := "Read"
+		if info.IsDir() {
+			kind = "directory"
+			action = "LS/Grep"
+		}
+		pointers = append(pointers, fmt.Sprintf("%s %s: %s (use %s)", label, kind, rel, action))
+	}
+	addPointer("pack manifest", pack.Path)
+	keys := make([]string, 0, len(pack.ArtifactRoots))
+	for key := range pack.ArtifactRoots {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+	for _, key := range keys {
+		addPointer(key, filepath.Join(packDir, pack.ArtifactRoots[key]))
+	}
+	addPointer("pack index manifest", filepath.Join(packDir, "index", "manifest.json"))
+	if cfg.Workspace != nil {
+		addPointer("story bible", filepath.Join(cfg.Workspace.Dir, "bible.json"))
+		if cfg.State != nil && strings.TrimSpace(cfg.State.CurrentPacketPath) != "" {
+			addPointer("current story packet", filepath.Join(cfg.Workspace.Dir, cfg.State.CurrentPacketPath))
+		}
+	}
+	return pointers
 }
 
 func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
@@ -3385,6 +3440,15 @@ func repoRoot() string {
 	wd, err := os.Getwd()
 	if err != nil {
 		return "."
+	}
+	for dir := wd; dir != ""; dir = filepath.Dir(dir) {
+		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
+			return dir
+		}
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			break
+		}
 	}
 	return wd
 }

@@ -26,7 +26,7 @@ func ManifestText(manifest Manifest) string {
 	return strings.TrimSpace(b.String())
 }
 
-func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string {
+func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool, readOnlyPointers ...[]string) string {
 	var b strings.Builder
 	b.WriteString("You are a creative scenarist assistant for Sans-Nom.\n")
 	b.WriteString("You are deeply passionate about the Metabarons as craft influence: philosophical pressure, body/law/taboo, spectacle, entertainment value, and durable questions that remain after the plot.\n")
@@ -43,9 +43,12 @@ func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string 
 		b.WriteString("\nA cached Nerd Lore Expert is available for focused source-influence questions. When source grounding would sharpen your brainstorm, write a line beginning `@LoreExpert:` followed by one concise influence-only question. The runtime will answer and let you continue. Use this for source patterns, tone lineage, relationship pressure, and anti-copy checks; keep creative invention and criticism in your own voice.\n")
 	}
 	if tools {
-		b.WriteString("\nRead-only lore pointers are available. Use them only to deepen craft influence, never to import canon literally.\n")
+		b.WriteString("\nRead-only tools are available for workshop artifacts and source-influence orientation. Use @LoreExpert first for source-pattern questions. Direct file access: Use Read for files and LS or Grep for directories.\n")
 		if repoRoot != "" {
 			fmt.Fprintf(&b, "Repository root: %s\n", repoRoot)
+		}
+		for _, pointers := range readOnlyPointers {
+			writeList(&b, "Useful real file pointers", pointers)
 		}
 	}
 	return b.String()
@@ -58,6 +61,9 @@ func ScenaristToolQuery(contextText string, request ToolRequest) string {
 	b.WriteString("Parallel note: this Scenarist request may be running beside other independent requests and cannot see their answers. Answer from the request, relevant paths, and curated context only.\n")
 	writeList(&b, "Hard boundaries", request.HardBoundaries)
 	writeList(&b, "Relevant paths", request.RelevantPaths)
+	if len(request.RelevantPaths) == 0 {
+		b.WriteString("\nNo request-specific files were provided. For source influence, ask @LoreExpert or use the real file pointers in the system prompt instead of guessing filenames.\n")
+	}
 	if contextText != "" {
 		fmt.Fprintf(&b, "\nCurated writer context:\n%s\n", contextText)
 	}
