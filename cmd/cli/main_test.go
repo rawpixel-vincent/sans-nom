@@ -352,12 +352,14 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	if strings.Contains(text, "A binding law works") {
 		t.Fatalf("seed context should not inject raw lore snippets:\n%s", text)
 	}
-	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") {
+	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") || !strings.Contains(text, "call_scenarists") {
 		t.Fatalf("seed context missing DNA/tool guidance:\n%s", text)
 	}
 	for _, required := range []string{
 		"binding doctrine",
 		"player character's family, guild, dynasty",
+		"creative workshop",
+		"ask Scenarists first",
 		"suspension of disbelief means internal cause",
 		"visible cost, and consequence",
 	} {

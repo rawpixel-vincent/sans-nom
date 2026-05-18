@@ -8,6 +8,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 )
 
@@ -127,6 +128,54 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 	}
 }
 
+func TestToolLogsCallerRole(t *testing.T) {
+	root := t.TempDir()
+	manifest := filepath.Join(root, "lore-pack.json")
+	index := filepath.Join(root, "index-manifest.json")
+	if err := os.WriteFile(manifest, []byte(`{"id":"metabarons"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(index, []byte(`{"documents":1}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewGlobalWriter(root)
+	tool := &ToolRunner{
+		Runner:            &fakeRunner{},
+		CacheRoot:         filepath.Join(root, ".cache"),
+		PackID:            "metabarons",
+		PackManifestPath:  manifest,
+		IndexManifestPath: index,
+		Logger:            logger,
+		CallerRole:        "creative-writer",
+		CallerSpeaker:     "Creative Writer",
+	}
+	if _, err := tool.Handle(context.Background(), root, `{"question":"What makes a doctrine credible?","purpose":"general_influence"}`); err != nil {
+		t.Fatal(err)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "lore.expert.request"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("request events = %#v", events)
+	}
+	if events[0].Fields["caller_role"] != "creative-writer" || events[0].Fields["caller_speaker"] != "Creative Writer" {
+		t.Fatalf("missing caller fields: %#v", events[0].Fields)
+	}
+	detail, err := logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	data, err := json.Marshal(detail)
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(data)
+	if !strings.Contains(text, `"caller_role":"creative-writer"`) {
+		t.Fatalf("missing caller detail: %s", text)
+	}
+}
+
 func TestToolRejectsFinalStoryRequests(t *testing.T) {
 	tool := &ToolRunner{PackID: "metabarons", Runner: &fakeRunner{}}
 	_, err := tool.Handle(context.Background(), t.TempDir(), `{"question":"Write the final StoryPacket with target_node_id values","purpose":"general_influence"}`)
@@ -143,17 +192,17 @@ func TestLocalToolSchemaIsInfluenceOnly(t *testing.T) {
 	if tool.Name != "ask_lore_expert" {
 		t.Fatalf("tool name = %q", tool.Name)
 	}
-	if !strings.Contains(tool.Description, "influence-only") {
-		t.Fatalf("description should be influence-only: %s", tool.Description)
+	if !strings.Contains(tool.Description, "source-pattern analysis") || !strings.Contains(tool.Description, "call_scenarists") || !strings.Contains(tool.Description, "creative room to ask first") {
+		t.Fatalf("description should be influence-scoped: %s", tool.Description)
 	}
 	data, err := json.Marshal(tool.Parameters)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(data), "suspension_check") {
+	if !strings.Contains(string(data), "source_pattern") {
 		t.Fatalf("schema missing purpose enum: %s", data)
 	}
-	if !strings.Contains(string(data), "binding doctrines") {
-		t.Fatalf("schema missing binding doctrine guidance: %s", data)
+	if !strings.Contains(string(data), "call_scenarists") {
+		t.Fatalf("schema missing creative-room guidance: %s", data)
 	}
 }

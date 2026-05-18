@@ -1002,8 +1002,10 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	b.WriteString("- binding doctrine: create an original deep rule for the player character's family, guild, dynasty, sect, profession, city office, rite, or local social world.\n")
 	b.WriteString("- plausibility boundary: suspension of disbelief means internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
-	b.WriteString("- lore digging: use the ask_lore_expert tool for targeted influence questions about mechanisms, laws, relationships, tone, source-pattern risks, or suspension-of-disbelief checks.\n")
-	b.WriteString("- no raw source lore is injected here; concrete source analysis must come through cached ask_lore_expert calls.\n")
+	b.WriteString("- creative workshop: use call_scenarists as the preferred room for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and suspension-of-disbelief criticism.\n")
+	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete influence patterns from the selected lore pack, such as source-pattern analysis, tone lineage, relationship pressure, or anti-copy checks.\n")
+	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
+	b.WriteString("- no raw source lore is injected here; concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
 	return b.String()
 }
 
@@ -1038,7 +1040,7 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 	if cfg.WriterScenarists == 0 || cfg.Backend == "static" {
 		return nil, nil
 	}
-	return scenaristToolRunner(playConfig{
+	tool, err := scenaristToolRunner(playConfig{
 		WriterScenarists:    cfg.WriterScenarists,
 		ScenaristProvider:   cfg.ScenaristProvider,
 		ScenaristModel:      cfg.ScenaristModel,
@@ -1046,6 +1048,11 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 		ScenaristOutputRoot: cfg.ScenaristOutputRoot,
 		Logger:              logger,
 	}, contextText, outputDir)
+	if tool != nil {
+		tool.CallerRole = "creative-writer"
+		tool.CallerName = "Creative Writer"
+	}
+	return tool, err
 }
 
 func seedLoreExpertToolRunner(cfg seedRuntimeConfig, pack lorepack.Pack, collection string, logger *gamelog.Writer) *loreexpert.ToolRunner {
@@ -1055,13 +1062,18 @@ func seedLoreExpertToolRunner(cfg seedRuntimeConfig, pack lorepack.Pack, collect
 	if strings.TrimSpace(collection) == "" {
 		collection = pack.Collection
 	}
-	return loreExpertToolRunner(playConfig{
+	tool := loreExpertToolRunner(playConfig{
 		Backend:          cfg.Backend,
 		BridgeURL:        cfg.BridgeURL,
 		GroundLorePackID: pack.ID,
 		GlobalCollection: collection,
 		Logger:           logger,
 	})
+	if tool != nil {
+		tool.CallerRole = "creative-writer"
+		tool.CallerSpeaker = "Creative Writer"
+	}
+	return tool
 }
 
 func seedScenaristOutputDir(storyRoot string, outputRoot string) string {
@@ -3082,6 +3094,8 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string) (
 		Tools:       cfg.ScenaristTools,
 		MaxParallel: maxParallel,
 		Logger:      cfg.Logger,
+		CallerRole:  "writer",
+		CallerName:  "Writer",
 	}, nil
 }
 
@@ -3116,6 +3130,8 @@ func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
 		IndexManifestPath: filepath.Join(packDir, "index", "manifest.json"),
 		MaxSources:        6,
 		Logger:            cfg.Logger,
+		CallerRole:        "writer",
+		CallerSpeaker:     "Writer",
 	}
 }
 

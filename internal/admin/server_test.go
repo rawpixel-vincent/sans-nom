@@ -123,6 +123,44 @@ func TestAdminExposesGlobalBackstage(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{
+		Category: "model",
+		Event:    "seed.workshop.request",
+		Detail:   map[string]any{"prompt": "imagine"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := global.Append(gamelog.Event{
+		Category: "lore",
+		Event:    "lore.expert.request",
+		Detail: map[string]any{
+			"request": map[string]any{"question": "What makes doctrine credible?"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	toolCall := resp.Messages[1]
+	if toolCall.Speaker != "Creative Writer" || toolCall.Role != "creative-writer" {
+		t.Fatalf("tool call should be attributed to Creative Writer, got %#v", toolCall)
+	}
+	if !strings.Contains(toolCall.Text, "@LoreExpert") {
+		t.Fatalf("tool call text should address LoreExpert, got %q", toolCall.Text)
+	}
+}
+
 func TestAdminExposesStoryBackstageArtifactsSafely(t *testing.T) {
 	root := t.TempDir()
 	ws, state := createAdminStory(t, root)

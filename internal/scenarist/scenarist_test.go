@@ -234,6 +234,8 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		ContextText: "writer context",
 		MaxParallel: 1,
 		Logger:      logger,
+		CallerRole:  "writer",
+		CallerName:  "Writer",
 	}).LocalTool()
 	args := `{"requests":[{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for suspension of disbelief.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
@@ -247,6 +249,9 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		t.Fatalf("expected started and completed logs, got %#v", events)
 	}
 	for _, event := range events {
+		if event.Fields["caller_role"] != "writer" || event.Fields["caller_speaker"] != "Writer" {
+			t.Fatalf("missing caller fields: %#v", event.Fields)
+		}
 		if event.DetailPath == "" {
 			t.Fatalf("missing detail path on event %#v", event)
 		}

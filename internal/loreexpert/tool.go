@@ -37,6 +37,8 @@ type ToolRunner struct {
 	IndexManifestPath string
 	MaxSources        int
 	Logger            *gamelog.Writer
+	CallerRole        string
+	CallerSpeaker     string
 }
 
 type ToolRequest struct {
@@ -57,7 +59,7 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Ask a nerd lore expert about the selected ground-lore pack. Answers are influence-only craft analysis for inspiration, never story canon, final prose, StoryBible doctrine, or StoryPacket structure. Results are cached per lore pack and returned as file paths plus a short preview.",
+		Description: "Reference specialist for the selected ground-lore pack. Use when a question needs source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. For generated-story brainstorming, critique, doctrine invention, scene engines, or choice pressure, call_scenarists is the creative room to ask first. Results are cached per lore pack and returned as file paths plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
@@ -243,7 +245,7 @@ func (r *ToolRunner) validateRequest(request ToolRequest) error {
 
 func allowedPurpose(value string) bool {
 	switch value {
-	case "", "law_mechanism", "character_pressure", "relationship_matrix", "suspension_check", "tone_pattern", "anti_copy_check", "general_influence":
+	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "suspension_check", "tone_pattern", "anti_copy_check", "general_influence":
 		return true
 	default:
 		return false
@@ -402,7 +404,34 @@ func (r *ToolRunner) log(event gamelog.Event) {
 	if r == nil || r.Logger == nil {
 		return
 	}
+	event = r.withCaller(event)
 	_ = r.Logger.Append(event)
+}
+
+func (r *ToolRunner) withCaller(event gamelog.Event) gamelog.Event {
+	role := strings.TrimSpace(r.CallerRole)
+	if role == "" {
+		return event
+	}
+	speaker := firstNonEmpty(r.CallerSpeaker, role)
+	if event.Fields == nil {
+		event.Fields = map[string]any{}
+	}
+	if _, ok := event.Fields["caller_role"]; !ok {
+		event.Fields["caller_role"] = role
+	}
+	if _, ok := event.Fields["caller_speaker"]; !ok {
+		event.Fields["caller_speaker"] = speaker
+	}
+	if detail, ok := event.Detail.(map[string]any); ok {
+		if _, exists := detail["caller_role"]; !exists {
+			detail["caller_role"] = role
+		}
+		if _, exists := detail["caller_speaker"]; !exists {
+			detail["caller_speaker"] = speaker
+		}
+	}
+	return event
 }
 
 func (r *ToolRunner) logFailed(arguments string, request *ToolRequest, cacheKey string, err error) {
@@ -443,15 +472,14 @@ func toolSchema() map[string]any {
 			},
 			"question": map[string]any{
 				"type":        "string",
-				"description": "Influence-only lore/craft question. Ask about patterns, binding doctrines, mechanisms, risks, relationships, tone, or suspension of disbelief, not final story material.",
+				"description": "Influence-only source question. Ask for ground-lore patterns, source refs, tone lineage, relationship pressure, or anti-copy risks. Creative brainstorming belongs in call_scenarists.",
 			},
 			"purpose": map[string]any{
 				"type": "string",
 				"enum": []string{
-					"law_mechanism",
-					"character_pressure",
+					"source_pattern",
+					"source_ref_check",
 					"relationship_matrix",
-					"suspension_check",
 					"tone_pattern",
 					"anti_copy_check",
 					"general_influence",

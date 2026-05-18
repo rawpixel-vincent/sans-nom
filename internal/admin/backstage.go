@@ -40,11 +40,20 @@ type backstageBuilder struct {
 	writer *gamelog.Writer
 }
 
+type backstageCaller struct {
+	Role    string
+	Speaker string
+}
+
 func buildBackstageMessages(root string, writer *gamelog.Writer, events []gamelog.Event) []backstageMessage {
 	builder := backstageBuilder{root: filepath.Clean(root), writer: writer}
 	messages := []backstageMessage{}
+	activeCaller := backstageCaller{}
 	for _, event := range events {
-		messages = append(messages, builder.messagesForEvent(event)...)
+		messages = append(messages, builder.messagesForEvent(event, activeCaller)...)
+		if caller, ok := eventCaller(event); ok {
+			activeCaller = caller
+		}
 	}
 	sort.SliceStable(messages, func(i, j int) bool {
 		if messages[i].Time == messages[j].Time {
@@ -55,7 +64,7 @@ func buildBackstageMessages(root string, writer *gamelog.Writer, events []gamelo
 	return messages
 }
 
-func (b backstageBuilder) messagesForEvent(event gamelog.Event) []backstageMessage {
+func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller backstageCaller) []backstageMessage {
 	detail := b.detail(event)
 	switch event.Event {
 	case "seed.workshop.request":
@@ -87,19 +96,22 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event) []backstageMessa
 	case "narrator.rollout.failed":
 		return []backstageMessage{b.message(event, "narrator", "Narrator", "error", "failed", errorText(event, detail))}
 	case "actor.invoke.request":
-		return []backstageMessage{b.message(event, "actor", "System", "mention", "pending", "@"+firstNonEmpty(stringFromFields(event, "actor_id"), "Actor")+" "+firstNonEmpty(stringField(detail, "prompt"), event.Message))}
+		caller := toolCaller(event, detail, activeCaller, backstageCaller{Role: "narrator", Speaker: "Narrator"})
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "mention", "pending", "@"+firstNonEmpty(stringFromFields(event, "actor_id"), "Actor")+" "+firstNonEmpty(stringField(detail, "prompt"), event.Message))}
 	case "actor.invoke.completed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "response", "completed", firstNonEmpty(marshalPretty(detail["output"]), event.Message))}
 	case "actor.invoke.failed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "error", "failed", errorText(event, detail))}
 	case "scenarist.call.started":
-		return []backstageMessage{b.message(event, "scenarist", "System", "tool_request", "pending", "@Scenarist "+scenaristRequestText(detail))}
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@Scenarist "+scenaristRequestText(detail))}
 	case "scenarist.call.completed":
 		return b.scenaristResponses(event, detail)
 	case "scenarist.call.failed", "scenarist.call.rejected":
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "error", "failed", errorText(event, detail))}
 	case "lore.expert.request":
-		return []backstageMessage{b.message(event, "lore-expert", "System", "tool_request", "pending", "@LoreExpert "+firstNonEmpty(nestedString(detail, "request", "question"), stringField(detail, "prompt"), event.Message))}
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@LoreExpert "+firstNonEmpty(nestedString(detail, "request", "question"), stringField(detail, "prompt"), event.Message))}
 	case "lore.expert.response":
 		return []backstageMessage{b.message(event, "lore-expert", "Lore Expert", "tool_response", "completed", firstNonEmpty(stringField(detail, "answer"), b.readPathText(nestedString(detail, "metadata", "answer_path")), event.Message))}
 	case "lore.expert.cache_hit":
@@ -226,6 +238,49 @@ func speakerForCategory(category string) string {
 		return "Lore Expert"
 	default:
 		return titleWords(strings.ReplaceAll(category, "-", " "))
+	}
+}
+
+func eventCaller(event gamelog.Event) (backstageCaller, bool) {
+	switch event.Event {
+	case "seed.workshop.request", "seed.writer.request":
+		return backstageCaller{Role: "creative-writer", Speaker: "Creative Writer"}, true
+	case "writer.refresh.started":
+		return backstageCaller{Role: "writer", Speaker: "Writer"}, true
+	case "narrator.rollout.request":
+		return backstageCaller{Role: "narrator", Speaker: "Narrator"}, true
+	default:
+		return backstageCaller{}, false
+	}
+}
+
+func toolCaller(event gamelog.Event, detail map[string]any, active backstageCaller, fallback backstageCaller) backstageCaller {
+	role := firstNonEmpty(stringFromFields(event, "caller_role"), stringField(detail, "caller_role"), active.Role, fallback.Role)
+	speaker := firstNonEmpty(stringFromFields(event, "caller_speaker"), stringField(detail, "caller_speaker"), active.Speaker, fallback.Speaker, speakerForRole(role))
+	return backstageCaller{Role: role, Speaker: speaker}
+}
+
+func defaultToolCaller(event gamelog.Event) backstageCaller {
+	if event.StoryID == "" {
+		return backstageCaller{Role: "creative-writer", Speaker: "Creative Writer"}
+	}
+	return backstageCaller{Role: "writer", Speaker: "Writer"}
+}
+
+func speakerForRole(role string) string {
+	switch role {
+	case "creative-writer":
+		return "Creative Writer"
+	case "writer":
+		return "Writer"
+	case "narrator":
+		return "Narrator"
+	case "lore-expert":
+		return "Lore Expert"
+	case "scenarist":
+		return "Scenarist"
+	default:
+		return titleWords(strings.ReplaceAll(role, "-", " "))
 	}
 }
 
