@@ -999,12 +999,12 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	if strings.TrimSpace(pack.Description) != "" {
 		fmt.Fprintf(&b, "- pack description: %s\n", strings.TrimSpace(pack.Description))
 	}
-	b.WriteString("- influence style: operatic science-fantasy comics; body, law, taboo, witness memory, social enforcement, philosophical violence, spectacle, family/function/refusal pressure, and credible consequence inside the protagonist's lived order.\n")
-	b.WriteString("- binding doctrine: create an original deep rule for the player character's family, guild, dynasty, sect, profession, city office, rite, or local social world.\n")
+	b.WriteString("- influence style: operatic science-fantasy comics; body, taboo, witness memory, social pressure, philosophical violence, spectacle, family/function/refusal tension, and credible consequence inside the protagonist's lived order.\n")
+	b.WriteString("- binding doctrine: include an original deep rule as support for the player character's conflict; it should sharpen desire, opposition, and cost rather than dominate the premise.\n")
 	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
 	b.WriteString("- material imagination: choose the story's dominant physical condition from its own premise, such as ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
-	b.WriteString("- creative workshop: use call_scenarists as the preferred room for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and reader-plausibility criticism.\n")
+	b.WriteString("- creative workshop: use call_scenarists as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
 	b.WriteString("- scenarist parallelism: requests inside one call run in parallel and do not see each other's answers. Use one call for independent lenses; make another call after reading returned files for dependent follow-up.\n")
 	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete influence patterns from the selected lore pack, such as source-pattern analysis, tone lineage, relationship pressure, or anti-copy checks.\n")
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
@@ -1012,8 +1012,8 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	return b.String()
 }
 
-func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, toolRunner, loreExpertTool)
+func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, nil, loreExpertTool)
 }
 
 func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
@@ -1032,7 +1032,7 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 		return claudeRunner(), nil
 	default:
 		materialDir := ""
-		if toolRunner != nil {
+		if strings.TrimSpace(outputDir) != "" {
 			materialDir = outputDir
 		}
 		return codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, loreExpertTool, cfg.ScenaristRounds), nil
@@ -1577,13 +1577,13 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			}
 		}
 		if totalTurns > 0 && turn == totalTurns {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", scene.PlayerDecision{}, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			break
 		}
 		if len(rollout.Node.Choices) == 0 && !cfg.RefreshWrite {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", scene.PlayerDecision{}, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			fmt.Println("\nNo choices available; play loop stopped.")
@@ -1603,6 +1603,24 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			nextDecision = parseDecision(rawInput, rollout.Node)
 		}
 		nextNodeID := ""
+		if targetNodeID, ok := resolvedChoiceTarget(packet, rollout.Node, nextDecision); ok {
+			nextNodeID = targetNodeID
+			nextRolloutDecision := nextDecision
+			if isCosmeticIntroChoice(packet, rollout.Node) {
+				nextRolloutDecision = scene.PlayerDecision{}
+			}
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, nextDecision, cfg.Commit, turnAudioPath); err != nil {
+				return err
+			}
+			nodeID = nextNodeID
+			decision = nextRolloutDecision
+			if cfg.TraceJSONL {
+				if err := writePlayTrace(decisionTrace(rawInput, nextDecision, nextNodeID)); err != nil {
+					return err
+				}
+			}
+			continue
+		}
 		if cfg.RefreshWrite {
 			refreshCfg := cfg
 			refreshCfg.State = state
@@ -1646,7 +1664,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 						"model_metadata": metadata,
 					},
 				})
-				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit, turnAudioPath); err != nil {
+				if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, nextDecision, cfg.Commit, turnAudioPath); err != nil {
 					return err
 				}
 				if err := saveCurrentStoryPacket(ctx, cfg, state, next, nextNodeID); err != nil {
@@ -1682,7 +1700,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			if err := markStoryBlocked(cfg, state, failure); err != nil {
 				return err
 			}
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", nextDecision, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			if cfg.TraceJSONL {
@@ -1692,20 +1710,8 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			}
 			return failure
 		}
-		if choice, err := rollout.Node.Choice(nextDecision.ChoiceID); err == nil && choice.TargetNodeID != "" {
-			nextNodeID = choice.TargetNodeID
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, cfg.Commit, turnAudioPath); err != nil {
-				return err
-			}
-			nodeID = nextNodeID
-			decision = nextDecision
-			if cfg.TraceJSONL {
-				if err := writePlayTrace(decisionTrace(rawInput, nextDecision, nextNodeID)); err != nil {
-					return err
-				}
-			}
-		} else if nextDecision.FreeText != "" && !cfg.RefreshWrite {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
+		if nextDecision.FreeText != "" && !cfg.RefreshWrite {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", nextDecision, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			if cfg.TraceJSONL {
@@ -1716,7 +1722,7 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			fmt.Println("\nFree text needs Writer refresh enabled to create the next packet; play loop stopped.")
 			break
 		} else if len(rollout.Node.Choices) == 0 {
-			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", cfg.Commit, turnAudioPath); err != nil {
+			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, "", nextDecision, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			fmt.Println("\nNo choices available; play loop stopped.")
@@ -2478,7 +2484,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	return result.Packet, nil
 }
 
-func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, committed bool, audioPath ...string) error {
+func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, nextNodeID string, nextDecision scene.PlayerDecision, committed bool, audioPath ...string) error {
 	if cfg.Workspace == nil || state == nil || cfg.Bible == nil {
 		return nil
 	}
@@ -2495,8 +2501,7 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 			}
 		}
 	}
-	nextDecision := scene.PlayerDecision{}
-	if state.HasPendingDecision() {
+	if story.PlayerDecisionEmpty(nextDecision) && state.HasPendingDecision() {
 		nextDecision = state.PendingDecision
 	}
 	record := story.TurnRecord{
@@ -2817,6 +2822,37 @@ func parseDecision(line string, node scene.SceneNode) scene.PlayerDecision {
 		}
 	}
 	return scene.PlayerDecision{FreeText: line}
+}
+
+func resolvedChoiceTarget(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision) (string, bool) {
+	if strings.TrimSpace(decision.ChoiceID) == "" {
+		return "", false
+	}
+	choice, err := node.Choice(decision.ChoiceID)
+	if err != nil || strings.TrimSpace(choice.TargetNodeID) == "" {
+		return "", false
+	}
+	if _, err := packet.Node(choice.TargetNodeID); err != nil {
+		return "", false
+	}
+	return choice.TargetNodeID, true
+}
+
+func isCosmeticIntroChoice(packet scene.StoryPacket, node scene.SceneNode) bool {
+	entryID := entryNodeID(packet)
+	if node.ID != entryID || len(node.Choices) < 2 || len(node.Choices) > 3 {
+		return false
+	}
+	target := strings.TrimSpace(node.Choices[0].TargetNodeID)
+	if target == "" || target == node.ID {
+		return false
+	}
+	for _, choice := range node.Choices[1:] {
+		if strings.TrimSpace(choice.TargetNodeID) != target {
+			return false
+		}
+	}
+	return true
 }
 
 func numericChoice(line string, node scene.SceneNode) (scene.Choice, bool) {

@@ -234,43 +234,68 @@ func ValidateSeedPacket(packet scene.StoryPacket) error {
 	if err := packet.Validate(); err != nil {
 		return err
 	}
-	if len(packet.Nodes) < 3 || len(packet.Nodes) > 5 {
-		return fmt.Errorf("seed packet must have 3-5 nodes, got %d", len(packet.Nodes))
+	if len(packet.Nodes) != 5 {
+		return fmt.Errorf("seed packet must have exactly 5 runway nodes, got %d", len(packet.Nodes))
 	}
 	entry, err := packet.EntryNode()
 	if err != nil {
 		return err
 	}
 	if len(entry.Beats) < 4 {
-		return fmt.Errorf("entry node needs at least 4 beats for a long first narration")
+		return fmt.Errorf("turn_1_intro node needs at least 4 beats for story onboarding")
 	}
-	if len(entry.Choices) < 2 || len(entry.Choices) > 4 {
-		return fmt.Errorf("entry node needs 2-4 choices, got %d", len(entry.Choices))
+	if len(entry.Choices) < 2 || len(entry.Choices) > 3 {
+		return fmt.Errorf("turn_1_intro node needs 2-3 cosmetic choices, got %d", len(entry.Choices))
 	}
-	if err := validateSeedBranchContinuations(packet, entry); err != nil {
+	if err := validateSeedRunway(packet, entry); err != nil {
 		return err
 	}
 	return nil
 }
 
-func validateSeedBranchContinuations(packet scene.StoryPacket, entry scene.SceneNode) error {
-	targets := map[string]struct{}{}
+func validateSeedRunway(packet scene.StoryPacket, entry scene.SceneNode) error {
+	decisionID := strings.TrimSpace(entry.Choices[0].TargetNodeID)
+	if decisionID == "" {
+		return fmt.Errorf("turn_1_intro choice %q needs target_node_id", entry.Choices[0].ID)
+	}
 	for _, choice := range entry.Choices {
-		if strings.TrimSpace(choice.TargetNodeID) != "" {
-			targets[choice.TargetNodeID] = struct{}{}
+		if strings.TrimSpace(choice.TargetNodeID) != decisionID {
+			return fmt.Errorf("turn_1_intro choices must all target the same turn_2_decision node")
 		}
 	}
-	if len(targets) == 0 {
-		return nil
+	if decisionID == entry.ID {
+		return fmt.Errorf("turn_1_intro cannot target itself")
 	}
-	for _, node := range packet.Nodes {
-		if _, ok := targets[node.ID]; !ok {
-			continue
+	decision, err := packet.Node(decisionID)
+	if err != nil {
+		return fmt.Errorf("turn_2_decision node %q not found", decisionID)
+	}
+	if len(decision.Choices) != 3 {
+		return fmt.Errorf("turn_2_decision node %q needs exactly 3 real choices, got %d", decision.ID, len(decision.Choices))
+	}
+	branchTargets := map[string]struct{}{}
+	for _, choice := range decision.Choices {
+		targetID := strings.TrimSpace(choice.TargetNodeID)
+		if targetID == "" {
+			return fmt.Errorf("turn_2_decision choice %q needs target_node_id", choice.ID)
 		}
-		if len(node.Choices) > 0 || hasNonEmptyString(node.RevisionNotes) {
-			continue
+		if targetID == entry.ID || targetID == decision.ID {
+			return fmt.Errorf("turn_2_decision choice %q must target a turn_3 branch node", choice.ID)
 		}
-		return fmt.Errorf("seed branch node %q is terminal; add choices or revision_notes requiring Writer continuation", node.ID)
+		if _, ok := branchTargets[targetID]; ok {
+			return fmt.Errorf("turn_2_decision choices must target three distinct turn_3 branch nodes")
+		}
+		branchTargets[targetID] = struct{}{}
+		branch, err := packet.Node(targetID)
+		if err != nil {
+			return fmt.Errorf("turn_3 branch node %q not found", targetID)
+		}
+		if len(branch.Choices) != 0 {
+			return fmt.Errorf("turn_3 branch node %q must be terminal with no choices", branch.ID)
+		}
+		if !hasNonEmptyString(branch.RevisionNotes) {
+			return fmt.Errorf("turn_3 branch node %q needs revision_notes requiring Writer continuation", branch.ID)
+		}
 	}
 	return nil
 }

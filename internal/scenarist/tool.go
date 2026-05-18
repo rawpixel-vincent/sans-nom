@@ -41,7 +41,7 @@ func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	}
 	return codexoauth.LocalTool{
 		Name:        "call_scenarists",
-		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Requests inside one call run in parallel and do not see each other's answers; put only independent lenses in the same call. For dependent follow-up, read returned files, then call again with those paths. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
+		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: story heat, brainstorming, suggestions, critique, seed ideas, character contradictions, reversals, scene engines, choice pressure, or reader-plausibility checks. Requests inside one call run in parallel and do not see each other's answers; put only independent lenses in the same call. For dependent follow-up, read returned files, then call again with those paths. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
 		Parameters:  scenaristToolSchema(maxParallel),
 		Handler:     r.Handle,
 	}
@@ -589,7 +589,7 @@ func scenaristToolSchema(maxParallel int) map[string]any {
 						"topic":    map[string]any{"type": "string"},
 						"request": map[string]any{
 							"type":        "string",
-							"description": "Creative or critical request for this one scenarist: brainstorm, suggest, critique, stress-test, react to a character/doctrine/scene, or propose vivid pressure material. The request can be broad, but it should be independently answerable unless this is the only request in the call.",
+							"description": "Creative or critical request for this one scenarist: brainstorm, suggest, critique, stress-test, react to a character/conflict/scene, or propose vivid pressure material. The request can be broad, but it should be independently answerable unless this is the only request in the call.",
 						},
 						"hard_boundaries": map[string]any{
 							"type":        "array",

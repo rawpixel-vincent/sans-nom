@@ -57,6 +57,40 @@ func TestValidateOriginalSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
 	}
 }
 
+func TestValidateOriginalSeedRequiresRunwayIntroChoices(t *testing.T) {
+	packet := DefaultPacket()
+	packet.Nodes[0].Choices[1].TargetNodeID = "turn_3_submit_hand"
+
+	err := ValidateOriginalSeed(packet)
+	if err == nil || !strings.Contains(err.Error(), "turn_1_intro choices must all target the same") {
+		t.Fatalf("expected cosmetic intro target rejection, got %v", err)
+	}
+}
+
+func TestValidateOriginalSeedRequiresThreeRealDecisionChoices(t *testing.T) {
+	packet := DefaultPacket()
+	packet.Nodes[1].Choices = packet.Nodes[1].Choices[:2]
+
+	err := ValidateOriginalSeed(packet)
+	if err == nil || !strings.Contains(err.Error(), "exactly 3 real choices") {
+		t.Fatalf("expected decision choice count rejection, got %v", err)
+	}
+}
+
+func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
+	packet := DefaultPacket()
+	packet.Nodes[2].Choices = []scene.Choice{{
+		ID:           "bad_followup",
+		Label:        "Bad followup.",
+		TargetNodeID: "turn_3_steal_pearl",
+	}}
+
+	err := ValidateOriginalSeed(packet)
+	if err == nil || !strings.Contains(err.Error(), "must be terminal with no choices") {
+		t.Fatalf("expected terminal branch rejection, got %v", err)
+	}
+}
+
 func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
 	text := ContextText()
 	for _, required := range []string{
@@ -64,10 +98,13 @@ func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
 		"make that branch node terminal with revision_notes",
 		"placeholder continuation choice",
 		"original binding doctrine",
-		"player character's world",
+		"support element for the player character's conflict",
 		"Reader plausibility",
 		"social practice, emotional credibility, visible cost, and consequence",
 		"Material imagination",
+		"three-turn runway with exactly 5 nodes",
+		"turn_1_intro choices are cosmetic",
+		"turn_2_decision node has exactly 3 meaningful choices",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
@@ -172,7 +209,7 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 	runner := &sequenceRunner{responses: []string{
 		"## Germs\nA law image.",
 		"## Elements\nCharacter, POV, Setting, Plot, Theme, Style/Tone.",
-		"## Law\nEnforcement and refusal.",
+		"## Engine\nConflict and opposition.",
 		"## Opening\nChoices as pressure, not ids.",
 		rawBundle,
 	}}
@@ -194,10 +231,10 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
 		}
 	}
-	if !strings.Contains(runner.prompts[2], "Doctrine And Plausibility Turn") ||
-		!strings.Contains(runner.prompts[2], "original binding doctrine") ||
-		!strings.Contains(runner.prompts[2], "player character's lived social order") {
-		t.Fatalf("doctrine workshop prompt has wrong law framing:\n%s", runner.prompts[2])
+	if !strings.Contains(runner.prompts[2], "Dramatic Engine Turn") ||
+		!strings.Contains(runner.prompts[2], "player desire") ||
+		!strings.Contains(runner.prompts[2], "binding doctrine only where it sharpens conflict") {
+		t.Fatalf("engine workshop prompt has wrong story framing:\n%s", runner.prompts[2])
 	}
 	final := runner.prompts[4]
 	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\nA law image.") {

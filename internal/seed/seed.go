@@ -369,19 +369,19 @@ func DefaultWorkshopTurns() []WorkshopTurn {
 	return []WorkshopTurn{{
 		ID:          "imagination",
 		Title:       "Imagination Turn",
-		PromptShape: "Invent freely. Let ideas collide. Produce 5-8 original science-fantasy story germs, each with a vivid image, a taboo or law, a character wound, and a possible first crisis. Do not choose the final story yet.",
+		PromptShape: "Invent freely. Let ideas collide. Produce 5-8 original science-fantasy story germs. Each germ needs a vivid image, a player desire, active opposition, a character wound, and a first irreversible pressure. Keep the ideas varied; do not choose the final story yet.",
 	}, {
 		ID:          "elements",
-		Title:       "Fiction Elements Turn",
-		PromptShape: "Choose the strongest germ. Develop Character, Point of View, Setting, Plot pressure, Theme, and Style/Tone as separate Markdown sections. Keep each element concrete and playable.",
+		Title:       "Story Engine Selection Turn",
+		PromptShape: "Compare the 2-3 strongest germs by player hook, active opposition, novelty, emotional clarity, and playable first choice. Recommend one, but keep useful alternates visible.",
 	}, {
-		ID:          "law",
-		Title:       "Doctrine And Plausibility Turn",
-		PromptShape: "Stress-test the original binding doctrine that governs the player character's lived social order. Explain social enforcement, history, public rituals, edge cases, loopholes, emotional cost, visible consequences, and why refusal matters.",
+		ID:          "engine",
+		Title:       "Dramatic Engine Turn",
+		PromptShape: "Develop the selected story engine: player desire, opposing will, supporting cast pressure, material world, reversals, and the binding doctrine only where it sharpens conflict.",
 	}, {
-		ID:          "opening",
-		Title:       "Opening Scene Engine Turn",
-		PromptShape: "Design the opening turn as a scene engine: exposition, player identity, player-world connection, immediate pressure, sensory atmosphere, and 2-4 dramatic choice pressures with branch implications.",
+		ID:          "runway",
+		Title:       "Three-Turn Runway Turn",
+		PromptShape: "Design the opening as three playable turns: an introductory fake-choice scene, a second scene with exactly three meaningful choices, and one third-turn branch scene for each choice. Focus on story heat, conflict, and player agency.",
 	}}
 }
 
@@ -472,13 +472,15 @@ The selected ground-lore pack is creative DNA for the writer and narrator: passi
 Do not literalize that source lore. The generated story must use new characters, new places, new factions, new conflicts, and new proper nouns.
 Do not use source canon names, places, factions, dynastic events, council mechanics, all-cast fanout, or resurrection-roster assumptions.
 Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible is binding doctrine for this generated story, separate from source-lore influence.
-The StoryBible must contain at least one original binding doctrine inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by the player character's lived social order.
-The binding doctrine belongs to the player character's world: a family, guild, dynasty, sect, profession, city office, rite, or other local order.
+The StoryBible must contain at least one original binding doctrine as a support element for the player character's conflict.
+The binding doctrine belongs to the player character's lived order, such as family, guild, dynasty, sect, profession, city office, rite, or other local order.
 Reader plausibility means internal cause, social practice, emotional credibility, visible cost, and consequence.
 Material imagination should arise from the story premise: ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
-The first entry node must be richer than later nodes. It should give the Narrator enough structure for a long classic opening: world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
+Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
 For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
-Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.
+The seed packet is a three-turn runway with exactly 5 nodes: turn_1_intro, turn_2_decision, and three turn_3 branch nodes.
+The turn_1_intro choices are cosmetic onboarding flavor; all target the same turn_2_decision node and do not change story state.
+The turn_2_decision node has exactly 3 meaningful choices, each targeting one distinct turn_3 branch node.
 Every choice target must be an included node in the same bounded packet. If a branch should hand off to Writer continuation, make that branch node terminal with revision_notes instead of adding a placeholder continuation choice.`
 }
 
@@ -545,9 +547,9 @@ func DefaultBible() story.StoryBible {
 		FirstTurnExposition: []string{
 			"Establish Glasswell as a city whose public law is machinery, ritual, crowd, and debt.",
 			"Introduce Ila Venn as the player character and show why her body matters to the city.",
-			"Make the Law of Living Collateral active in the opening scene.",
-			"Connect the immediate pressure to Ila's mother, brother, and inherited work.",
-			"End with 2-4 choices that express submission, theft, illegal bargaining, or accusation.",
+			"Use the first turn as a non-branching onboarding scene that lets the player choose Ila's small public posture.",
+			"Use the second turn for the real dilemma: family memory, brother's food ledger, Talik's pressure, and Sarex's illegal option.",
+			"End the seed runway with one prebuilt branch scene for each real second-turn choice.",
 		},
 		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the ninth bell approaches and the city demands her left hand as living collateral.",
 		Metadata: map[string]string{
@@ -559,7 +561,7 @@ func DefaultBible() story.StoryBible {
 func DefaultPacket() scene.StoryPacket {
 	return scene.StoryPacket{
 		ID:          "storypacket_glasswell_opening_001",
-		EntryNodeID: "node_entry_living_collateral",
+		EntryNodeID: "turn_1_intro",
 		ContextSnapshot: scene.ContextSnapshot{
 			WorkspaceID:   "static-seed",
 			SessionID:     "main",
@@ -568,45 +570,65 @@ func DefaultPacket() scene.StoryPacket {
 			PresentActors: []string{},
 		},
 		Nodes: []scene.SceneNode{{
-			ID:    "node_entry_living_collateral",
-			Title: "The city asks for Ila's hand",
+			ID:    "turn_1_intro",
+			Title: "Ila arrives beneath the lantern",
 			Beats: []scene.Beat{
-				{ID: "beat-world", Text: "Glasswell's tide has withdrawn from the market streets, exposing glass channels, debt shrines, stranded mirror-eels, and a crowd waiting for the law to finish drying."},
-				{ID: "beat-player", Text: "Ila Venn, junior condenser mechanic and inherited keeper of a sleeping bone-key, stands below her mother's sealed memory pearl with her left sleeve rolled to the elbow."},
-				{ID: "beat-law", Text: "The Law of Living Collateral says a family debt becomes real only when a living function is surrendered before witnesses; tonight the auditors name Ila's left hand."},
-				{ID: "beat-pressure", Text: "If the ninth bell sounds before submission, the pearl becomes state salvage and Ila's younger brother is struck from the food ledgers by dawn."},
-				{ID: "beat-wake", Text: "The bone-key under Ila's skin wakes early and the witness-machine answers, proving the city can already hear the part of her it intends to take."},
+				{ID: "beat-world", Text: "Glasswell's tide has withdrawn from the market streets, exposing glass channels, debt shrines, stranded mirror-eels, and a crowd waiting for the mourning auction to begin."},
+				{ID: "beat-player", Text: "Ila Venn, junior condenser mechanic and inherited keeper of a sleeping bone-key, pushes through the crowd with her mother's sealed memory pearl hanging above the shrine."},
+				{ID: "beat-connection", Text: "Her brother's child-sized food-knot bumps against her belt, making the city's paperwork feel more immediate than the auditors' ceremonial brass."},
+				{ID: "beat-posture", Text: "Before anyone formally names the debt, Ila has one small choice of posture in public: how to enter the circle and let the crowd read her."},
+			},
+			ActorNeeds: []scene.ActorNeed{},
+			Choices: []scene.Choice{{
+				ID:           "choice_enter_silent",
+				Label:        "Enter the witness circle without speaking.",
+				TargetNodeID: "turn_2_decision",
+				PlayerIntent: "choose a guarded public posture",
+			}, {
+				ID:           "choice_enter_with_brother_knot",
+				Label:        "Hold up your brother's food-knot so the crowd sees it.",
+				TargetNodeID: "turn_2_decision",
+				PlayerIntent: "choose a pleading public posture",
+			}, {
+				ID:           "choice_enter_touching_wrist",
+				Label:        "Keep one hand over the bone-key hidden in your wrist.",
+				TargetNodeID: "turn_2_decision",
+				PlayerIntent: "choose a defensive public posture",
+			}},
+			MemoryIntents: []scene.MemoryIntent{{
+				ID:        "opening-arrival",
+				Summary:   "Ila Venn entered the Veyr Tidemarket mourning circle while her mother's memory pearl hung above the shrine.",
+				Policy:    scene.MemoryPolicyCanon,
+				Witnesses: []string{"sans-nom", "Tidemarket crowd"},
+			}},
+		}, {
+			ID:    "turn_2_decision",
+			Title: "The ninth bell gathers breath",
+			Beats: []scene.Beat{
+				{ID: "beat-law", Text: "Talik Oathsmith names the debt before the auditors: the city will preserve Ila's mother's pearl only if Ila surrenders the living function of her left hand."},
+				{ID: "beat-pressure", Text: "If the ninth bell sounds first, the pearl becomes state salvage and Ila's brother is erased from the dawn food ledgers."},
+				{ID: "beat-opposition", Text: "Talik's tablet carries a fogged-over clause Ila recognizes as altered glass, while Sarex of the Red Loom watches from a stall that sells illegal witness-thread."},
+				{ID: "beat-choice", Text: "The bone-key under Ila's skin wakes early, forcing her to choose a stance before the crowd decides what courage should look like."},
 			},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices: []scene.Choice{{
 				ID:           "choice_submit_hand",
 				Label:        "Offer Ila's left hand to the witness-machine and keep the funeral lawful.",
-				TargetNodeID: "node_submit_hand",
+				TargetNodeID: "turn_3_submit_hand",
 				PlayerIntent: "submit to the law to preserve family memory",
 			}, {
 				ID:           "choice_steal_pearl",
 				Label:        "Break the Mourning Lantern's seal and steal the memory pearl.",
-				TargetNodeID: "node_steal_pearl",
+				TargetNodeID: "turn_3_steal_pearl",
 				PlayerIntent: "defy the law by stealing the family memory",
 			}, {
 				ID:           "choice_bargain_sarex",
 				Label:        "Go to Sarex of the Red Loom and ask for a counterfeit witness-thread.",
-				TargetNodeID: "node_bargain_sarex",
+				TargetNodeID: "turn_3_bargain_sarex",
 				PlayerIntent: "seek illegal technical help",
-			}, {
-				ID:           "choice_accuse_talik",
-				Label:        "Accuse Talik Oathsmith of altering the debt terms.",
-				TargetNodeID: "node_accuse_talik",
-				PlayerIntent: "challenge the public legal performance",
-			}},
-			MemoryIntents: []scene.MemoryIntent{{
-				ID:        "opening-law",
-				Summary:   "Glasswell demanded Ila Venn's left hand as living collateral for her mother's funeral debt.",
-				Policy:    scene.MemoryPolicyCanon,
-				Witnesses: []string{"sans-nom", "Tidemarket crowd", "Brass Choir Auditors"},
 			}},
 		}, {
-			ID:         "node_submit_hand",
+			ID:         "turn_3_submit_hand",
 			Title:      "The lawful wound",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "Ila places her wrist in the cuff, and the machine measures which memories her hand will still be allowed to hold after the cut."}},
 			ActorNeeds: []scene.ActorNeed{},
@@ -615,7 +637,7 @@ func DefaultPacket() scene.StoryPacket {
 				"Writer continuation is required after this branch.",
 			},
 		}, {
-			ID:         "node_steal_pearl",
+			ID:         "turn_3_steal_pearl",
 			Title:      "The lantern opens sideways",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "The bone-key refuses the public lock and instead opens a black side-door in the air beside the pearl, marking Ila as thief before every witness."}},
 			ActorNeeds: []scene.ActorNeed{},
@@ -624,7 +646,7 @@ func DefaultPacket() scene.StoryPacket {
 				"Writer continuation is required after this branch.",
 			},
 		}, {
-			ID:         "node_bargain_sarex",
+			ID:         "turn_3_bargain_sarex",
 			Title:      "The red thread price",
 			Beats:      []scene.Beat{{ID: "beat-1", Text: "Sarex offers a witness-thread that can fool the machine but not the crowd, and asks which part of Ila's name may be spent as payment."}},
 			ActorNeeds: []scene.ActorNeed{},
@@ -632,17 +654,8 @@ func DefaultPacket() scene.StoryPacket {
 			RevisionNotes: []string{
 				"Writer continuation is required after this branch.",
 			},
-		}, {
-			ID:         "node_accuse_talik",
-			Title:      "Mercy clauses have witnesses too",
-			Beats:      []scene.Beat{{ID: "beat-1", Text: "Ila names the hidden mercy clause aloud, forcing Talik and the auditors to decide whether the crowd heard law or insolence."}},
-			ActorNeeds: []scene.ActorNeed{},
-			Choices:    []scene.Choice{},
-			RevisionNotes: []string{
-				"Writer continuation is required after this branch.",
-			},
 		}},
-		RevisionNotes: []string{"Opening seed for original CLI playtest; source lore is influence only, no literal canon import, no actor_needs yet.", "Entry node is intentionally richer than branch nodes for classic first-turn narration."},
+		RevisionNotes: []string{"Opening seed runway for original CLI playtest; source lore is influence only, no literal canon import, no actor_needs yet.", "Turn 1 choices are cosmetic and all lead to turn_2_decision; turn 2 choices branch into three prebuilt terminal handoff nodes."},
 	}
 }
 

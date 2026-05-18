@@ -103,28 +103,25 @@ Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
 - If a Seed Workshop Manifest is present, use those files as advisory planning references only. They are not canon, not final structure, and not constraints unless they improve the final StoryBible and StoryPacket.
-- Use call_scenarists as the seed writer's room when you want invention, critique, alternate story seeds, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility criticism. The tool accepts broad or narrow requests, can run up to the provider-pool size in parallel, writes free-form material to files, and returns paths.
-- Requests inside one call run in parallel and do not see each other's answers. Put independent lenses in the same call; for dependent follow-up, read the returned files first, then call again with those paths.
-- Scenarist material is brainstorming material. Read it selectively, synthesize it yourself, then author the StoryBible and StoryPacket.
+- The seed workshop already happened. Read workshop and scenarist files selectively, synthesize them yourself, then author the StoryBible and StoryPacket.
 - Use ask_lore_expert when the question depends on the selected ground-lore pack: source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. Treat the answer as reference research, not as the creative room.
-- Practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.
 - The StoryBible is binding doctrine for the generated story. The source lore is only influence material.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
-- Include at least one original binding doctrine inspired by source-law structure: profound, binding, not merely cruel, and enforced by the player character's lived social order.
-- The binding doctrine belongs to the player character's world: a family, guild, dynasty, sect, profession, city office, rite, or other local order.
-- Protect reader plausibility by making each strange law or technology legible through social practice, cost, taboo, and consequence.
+- Include at least one original binding doctrine as a support element for character conflict. It should belong to the player character's lived order and sharpen the story, not become the whole premise.
+- Protect reader plausibility by making strange material legible through social practice, cost, emotional credibility, and consequence.
 - Choose the story's dominant material condition from its own premise, such as ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
-- Return one StoryPacket with 3-5 scene nodes.
+- Return one StoryPacket with exactly 5 scene nodes.
 - The Metabarons lore context is creative DNA: passion, taste, contradictions, taboos, relationship pressure, body/technology myth, witness-bound memory, and operatic SF-comics rhythm.
 - Do not literalize the source lore. Use new characters, new places, new factions, new conflicts, and new proper nouns.
 - Do not use Metabarons canon names, places, factions, dynasty events, council mechanics, all-cast fanout, resurrection-roster assumptions, or direct equivalents.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
-- The first entry node should be richer than later nodes: enough beats for a long opening that establishes world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
-- Include 2-4 choices on the entry node and valid target_node_id values.
+- Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
+- The seed packet is a three-turn runway: turn_1_intro, turn_2_decision, and exactly three turn_3 branch nodes.
+- The entry node is turn_1_intro: a story-onboarding scene with 2-3 cosmetic flavor choices. All entry choices target the same turn_2_decision node and should not change story state.
+- The turn_2_decision node has exactly 3 meaningful choices. Each choice targets one distinct turn_3 branch node included in this packet.
+- Each turn_3 branch node has no choices and has revision_notes explaining Writer continuation after that branch is narrated.
 - Every choice target_node_id must point to a scene node included in this same packet. Do not use placeholder targets such as "node_requires_continuation", "continue", "writer_continuation", or any missing handoff node.
-- Each first-choice target node must either offer follow-up choices whose target nodes are also included in this packet, or be a terminal handoff node with no choices and revision_notes that clearly say Writer continuation is required after that branch.
-- Do not make every opening branch a silent terminal leaf.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Use rolled_out_canon only for facts witnessed on the entry path; use planning_only for unrolled branch notes; use actor_private only with private_to_actor.
@@ -147,13 +144,14 @@ Rules:
 - Do not write a final StoryPacket.
 - Do not use schema field names or target_node_id values.
 - Treat source lore as craft DNA only: pressure, contradiction, body/law/taboo, witness-bound memory, operatic SF-comics rhythm.
-- Use call_scenarists as the preferred creative workshop for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and reader-plausibility criticism.
+- Use call_scenarists as the preferred creative workshop for story heat, player conflict, reversals, fresh premises, character contradictions, scene engines, choice pressure, and reader criticism.
 - Requests inside one call run in parallel and do not see each other's answers. Use one call for independent lenses; use a later call after reading returned files for dependent follow-up.
 - Use ask_lore_expert for source-influence research when the workshop needs grounded patterns from the selected lore pack.
 - Practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.
 - Preserve originality: no Metabarons canon names, places, factions, dynasty mechanics, council mode, direct equivalents, resurrection roster assumptions, or all-cast fanout.
-- Protect reader plausibility: every strange law, technology, social practice, and character choice should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequence.
+- Protect reader plausibility: every strange technology, social practice, and character choice should have internal cause, cost, emotional credibility, and consequence.
 - Use material imagination: let each story find a fresh physical condition through ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
+- Treat doctrine as support for dramatic conflict, not as the main attraction.
 - Build useful creative material; the final constrained bundle will happen later.
 
 Workshop turn:
@@ -178,13 +176,19 @@ Review the proposed opening StoryBible plus StoryPacket against the original-sto
 
 Reject if:
 - the JSON is not a valid top-level object with bible and packet;
-- the StoryBible lacks a strong original binding doctrine inspired by source-law structure;
-- the opening lacks world setup, player identity, player-world connection, active taboo/law, immediate pressure, or choices;
-- the proposed law is merely cruel instead of profound and binding;
+- the StoryBible lacks a strong original binding doctrine that supports the player character's conflict;
+- the opening lacks player desire, place, pressure, active opposition, or choices that reveal character;
+- law/doctrine is the dominant dramatic subject instead of serving character conflict;
+- the first turn is mostly system explanation, civic procedure, or invented terminology;
+- the proposed law is merely cruel instead of meaningful inside the player character's lived order;
 - the proposed law is copied literally from source canon instead of original story doctrine;
 - the player character's world, law, technology, or character behavior damages reader plausibility because it lacks internal cause, social enforcement, cost, or consequence;
 - the StoryBible lacks resume metadata;
-- the packet is not a valid StoryPacket with 3-5 nodes;
+- the packet is not a valid StoryPacket with exactly 5 nodes;
+- the packet does not use the seed runway shape: turn_1_intro, turn_2_decision, and three turn_3 branch nodes;
+- turn_1_intro does not have 2-3 cosmetic choices all targeting the same turn_2_decision node;
+- turn_2_decision does not have exactly 3 meaningful choices targeting the three branch nodes;
+- any turn_3 branch node has choices or lacks revision_notes for Writer continuation;
 - any choice targets a missing node;
 - any choice uses a placeholder or sentinel target such as "node_requires_continuation", "continue", or "writer_continuation" instead of an included scene node;
 - any first-choice target node has follow-up choices whose target nodes are missing from this same packet;

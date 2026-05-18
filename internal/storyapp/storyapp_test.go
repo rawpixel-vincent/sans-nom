@@ -177,8 +177,32 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 				Beats: []scene.Beat{
 					{ID: "b1", Text: "The city opens its public garden for debt witness."},
 					{ID: "b2", Text: "Rin stands with the graft hidden in one palm."},
-					{ID: "b3", Text: "The living tax is named before neighbors."},
-					{ID: "b4", Text: "A parent record will vanish if Rin refuses."},
+					{ID: "b3", Text: "A friend in the crowd tries to catch Rin's eye."},
+					{ID: "b4", Text: "Rin chooses how to enter before the real demand is spoken."},
+				},
+				Choices: []scene.Choice{{
+					ID:           "enter_quiet",
+					Label:        "Enter quietly.",
+					TargetNodeID: "decision",
+				}, {
+					ID:           "enter_marked",
+					Label:        "Show the graft.",
+					TargetNodeID: "decision",
+				}},
+				MemoryIntents: []scene.MemoryIntent{{
+					ID:        "law",
+					Summary:   "Rin entered the civic garden before the debt rite.",
+					Policy:    scene.MemoryPolicyCanon,
+					Witnesses: []string{"sans-nom"},
+				}},
+			}, {
+				ID:    "decision",
+				Title: "The record is named",
+				Beats: []scene.Beat{
+					{Text: "The living tax is named before neighbors."},
+					{Text: "A parent record will vanish if Rin refuses."},
+					{Text: "The opposing clerk steps close enough to force a public answer."},
+					{Text: "Rin must choose a value to damage."},
 				},
 				Choices: []scene.Choice{{
 					ID:           "pay",
@@ -188,12 +212,10 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 					ID:           "refuse",
 					Label:        "Refuse the garden.",
 					TargetNodeID: "refuse",
-				}},
-				MemoryIntents: []scene.MemoryIntent{{
-					ID:        "law",
-					Summary:   "The city demanded Rin pay living tax.",
-					Policy:    scene.MemoryPolicyCanon,
-					Witnesses: []string{"sans-nom"},
+				}, {
+					ID:           "accuse",
+					Label:        "Accuse the clerk.",
+					TargetNodeID: "accuse",
 				}},
 			}, {
 				ID:      "pay",
@@ -207,6 +229,14 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 				ID:      "refuse",
 				Title:   "Refused",
 				Beats:   []scene.Beat{{Text: "The ledgers stare back."}},
+				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
+			}, {
+				ID:      "accuse",
+				Title:   "Accused",
+				Beats:   []scene.Beat{{Text: "The clerk's seal cracks in public."}},
 				Choices: []scene.Choice{},
 				RevisionNotes: []string{
 					"Writer continuation is required after this branch.",

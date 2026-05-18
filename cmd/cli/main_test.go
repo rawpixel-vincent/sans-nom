@@ -72,7 +72,7 @@ func TestEnvBoolDefaultAllowsOptOut(t *testing.T) {
 	}
 }
 
-func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
+func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
 	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
 	t.Setenv("ZAI__ANTHROPIC_MODEL", "model")
@@ -102,8 +102,11 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 7 {
 		t.Fatalf("seed writer runner missing local tools: %#v", codex)
 	}
-	if !hasTool(codex.ExtraTools, "call_scenarists") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
-		t.Fatalf("seed writer missing local tools: %#v", codex.ExtraTools)
+	if hasTool(codex.ExtraTools, "call_scenarists") {
+		t.Fatalf("final seed writer should not get scenarist tool: %#v", codex.ExtraTools)
+	}
+	if !hasTool(codex.ExtraTools, "ask_lore_expert") {
+		t.Fatalf("seed writer missing lore expert tool: %#v", codex.ExtraTools)
 	}
 	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner, loreTool)
 	if err != nil {
@@ -115,6 +118,9 @@ func TestSeedWriterRunnerGetsScenaristTool(t *testing.T) {
 	}
 	if workshopCodex.SchemaName != "" || workshopCodex.Schema != nil {
 		t.Fatalf("workshop runner should be free-form, got schema %q %#v", workshopCodex.SchemaName, workshopCodex.Schema)
+	}
+	if !hasTool(workshopCodex.ExtraTools, "call_scenarists") || !hasTool(workshopCodex.ExtraTools, "ask_lore_expert") {
+		t.Fatalf("workshop writer missing local tools: %#v", workshopCodex.ExtraTools)
 	}
 }
 
@@ -375,7 +381,7 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	}
 	for _, required := range []string{
 		"binding doctrine",
-		"player character's family, guild, dynasty",
+		"support for the player character's conflict",
 		"creative workshop",
 		"ask Scenarists first",
 		"reader plausibility",
@@ -473,7 +479,7 @@ func TestStaticStorySeedWorkspaceResume(t *testing.T) {
 	)
 	cmd.Dir = repoRoot
 	cmd.Env = os.Environ()
-	cmd.Stdin = strings.NewReader("1\n")
+	cmd.Stdin = strings.NewReader("1\n1\n")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		t.Fatalf("static seed play failed: %v\n%s", err, output)
@@ -592,17 +598,24 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	if err != nil {
 		t.Fatal(err)
 	}
-	if resumed.Status != story.StatusActive {
+	if resumed.Status != story.StatusAwaitingPlayerChoice {
 		t.Fatalf("resumed status = %q", resumed.Status)
 	}
-	if resumed.PendingTurnPath != "" {
-		t.Fatalf("pending turn was not cleared: %#v", resumed)
+	if resumed.PendingTurnPath == "" {
+		t.Fatalf("next pending turn was not saved: %#v", resumed)
 	}
-	if _, err := os.Stat(filepath.Join(workspace.Dir, "pending-turn.json")); !errors.Is(err, os.ErrNotExist) {
-		t.Fatalf("pending turn file still exists: %v", err)
+	pending, err := workspace.LoadPendingTurn(resumed)
+	if err != nil {
+		t.Fatal(err)
 	}
-	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "pending-turn.md")); !errors.Is(err, os.ErrNotExist) {
-		t.Fatalf("pending narration file still exists: %v", err)
+	if pending.NodeID != "decision" {
+		t.Fatalf("pending node = %q", pending.NodeID)
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, filepath.FromSlash(resumed.PendingTurnPath))); err != nil {
+		t.Fatalf("pending turn file missing: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "pending-turn.md")); err != nil {
+		t.Fatalf("pending narration file missing: %v", err)
 	}
 	if _, err := os.Stat(filepath.Join(workspace.Dir, "narration", "turn-000001.md")); err != nil {
 		t.Fatalf("missing finalized narration file: %v", err)
@@ -614,7 +627,7 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	if len(turns) == 0 {
 		t.Fatal("expected finalized turns after resumed choice")
 	}
-	if turns[0].NextNodeID != "opened" {
+	if turns[0].NextNodeID != "decision" {
 		t.Fatalf("first resumed choice next node = %q", turns[0].NextNodeID)
 	}
 }
@@ -631,7 +644,7 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 		t.Fatal(err)
 	}
 	bible := bundle.Bible
-	originalStdin := pipeStdin(t, "1\n")
+	originalStdin := pipeStdin(t, "1\n1\nwait\n")
 	defer func() { os.Stdin = originalStdin }()
 
 	err = runPlay(context.Background(), playConfig{
@@ -662,7 +675,7 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	if loaded.Status != story.StatusBlockedWriterRefresh {
 		t.Fatalf("status = %q", loaded.Status)
 	}
-	if loaded.PendingDecision.ChoiceID != "open" {
+	if loaded.PendingDecision.FreeText != "wait" {
 		t.Fatalf("pending decision = %#v", loaded.PendingDecision)
 	}
 	if loaded.BlockedWriterRunPath == "" {
@@ -672,11 +685,17 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(turns) != 1 {
+	if len(turns) != 3 {
 		t.Fatalf("turn count = %d", len(turns))
 	}
 	if turns[0].NextDecision.ChoiceID != "open" {
-		t.Fatalf("turn next decision = %#v", turns[0].NextDecision)
+		t.Fatalf("turn 1 next decision = %#v", turns[0].NextDecision)
+	}
+	if turns[1].Decision.ChoiceID != "" || turns[1].NextDecision.ChoiceID != "pay" {
+		t.Fatalf("turn 2 decisions = current %#v next %#v", turns[1].Decision, turns[1].NextDecision)
+	}
+	if turns[2].Decision.ChoiceID != "pay" || turns[2].NextDecision.FreeText != "wait" {
+		t.Fatalf("turn 3 decisions = current %#v next %#v", turns[2].Decision, turns[2].NextDecision)
 	}
 	events, err := gamelog.Read(gamelog.NewWriter(workspace.Dir, state.StoryID).Path, gamelog.Filter{Event: "writer.refresh.failed"})
 	if err != nil {
@@ -699,13 +718,82 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 		}
 	}
 	for _, rel := range []string{
-		filepath.Join("model-runs", "writer", "turn-000001", "input.txt"),
-		filepath.Join("model-runs", "writer", "turn-000001", "raw-output.json"),
-		filepath.Join("model-runs", "writer", "turn-000001", "validation-error.txt"),
+		filepath.Join("model-runs", "writer", "turn-000003", "input.txt"),
+		filepath.Join("model-runs", "writer", "turn-000003", "raw-output.json"),
+		filepath.Join("model-runs", "writer", "turn-000003", "validation-error.txt"),
 	} {
 		if _, err := os.Stat(filepath.Join(workspace.Dir, rel)); err != nil {
 			t.Fatalf("missing artifact %s: %v", rel, err)
 		}
+	}
+}
+
+func TestRunPlayUsesSeedRunwayBeforeWriterRefresh(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("runway")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "runway",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	bible := bundle.Bible
+	planner := &countingPlanner{next: scene.StoryPacket{
+		ID:          "packet-next",
+		EntryNodeID: "next",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID: "runway",
+			SessionID:   "main",
+		},
+		Nodes: []scene.SceneNode{{
+			ID:      "next",
+			Title:   "Next",
+			Beats:   []scene.Beat{{Text: "The next packet begins."}},
+			Choices: []scene.Choice{},
+		}},
+	}}
+	originalStdin := pipeStdin(t, "1\n2\ncontinue\n")
+	defer func() { os.Stdin = originalStdin }()
+
+	err = runPlay(context.Background(), playConfig{
+		Packet:           bundle.Packet,
+		NodeID:           bundle.Packet.EntryNodeID,
+		Backend:          "static",
+		Workspace:        &workspace,
+		State:            &state,
+		Bible:            &bible,
+		RefreshWrite:     true,
+		Commit:           false,
+		WriterScenarists: 0,
+		WriterPlanner:    planner,
+		Turns:            4,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if planner.calls != 1 {
+		t.Fatalf("writer refresh calls = %d, want 1 after runway branch", planner.calls)
+	}
+	turns, err := workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) != 4 {
+		t.Fatalf("turn count = %d", len(turns))
+	}
+	if turns[0].NodeID != "entry" || turns[0].NextNodeID != "decision" || turns[0].NextDecision.ChoiceID != "open" {
+		t.Fatalf("turn 1 did not follow cosmetic intro: %#v", turns[0])
+	}
+	if turns[1].NodeID != "decision" || turns[1].Decision.ChoiceID != "" || turns[1].NextDecision.ChoiceID != "pay" || turns[1].NextNodeID != "opened" {
+		t.Fatalf("turn 2 did not consume real decision correctly: %#v", turns[1])
+	}
+	if turns[2].NodeID != "opened" || turns[2].Decision.ChoiceID != "pay" || turns[2].NextDecision.FreeText != "wait" {
+		t.Fatalf("turn 3 did not trigger continuation correctly: %#v", turns[2])
+	}
+	if turns[3].NodeID != "next" || turns[3].Decision.FreeText != "wait" {
+		t.Fatalf("turn 4 did not render refreshed packet: %#v", turns[3])
 	}
 }
 
@@ -743,10 +831,10 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	}
 
 	turns, decisions := parseTraceEvents(t, text)
-	if len(turns) < 2 {
-		t.Fatalf("expected at least two turn events, got %d:\n%s", len(turns), text)
+	if len(turns) < 3 {
+		t.Fatalf("expected at least three turn events, got %d:\n%s", len(turns), text)
 	}
-	if len(decisions) == 0 {
+	if len(decisions) < 2 {
 		t.Fatalf("expected a player_decision event:\n%s", text)
 	}
 	if turns[0].ProseChars <= 0 {
@@ -755,18 +843,28 @@ func TestLiveSeedPlayNarratorChoiceE2E(t *testing.T) {
 	if turns[0].ChoiceCount <= 0 {
 		t.Fatalf("turn 1 had no choices: %#v", turns[0])
 	}
-	decision := decisions[0]
-	if decision.RawInput != "1" {
-		t.Fatalf("expected raw input 1, got %#v", decision)
+	introDecision := decisions[0]
+	if introDecision.RawInput != "1" {
+		t.Fatalf("expected intro raw input 1, got %#v", introDecision)
 	}
-	if decision.ChoiceID == "" || decision.TargetNodeID == "" {
-		t.Fatalf("expected resolved choice and target: %#v", decision)
+	if introDecision.ChoiceID == "" || introDecision.TargetNodeID == "" {
+		t.Fatalf("expected resolved intro choice and target: %#v", introDecision)
 	}
-	if turns[1].NodeID != decision.TargetNodeID {
-		t.Fatalf("turn 2 did not follow selected target: got %q want %q\n%s", turns[1].NodeID, decision.TargetNodeID, text)
+	if turns[1].NodeID != introDecision.TargetNodeID {
+		t.Fatalf("turn 2 did not follow selected intro target: got %q want %q\n%s", turns[1].NodeID, introDecision.TargetNodeID, text)
 	}
-	if turns[1].Decision.ChoiceID != decision.ChoiceID {
-		t.Fatalf("turn 2 commit did not carry choice id: got %#v want %q", turns[1].Decision, decision.ChoiceID)
+	if turns[1].Decision.ChoiceID != "" {
+		t.Fatalf("turn 2 should not carry cosmetic intro choice into canon: %#v", turns[1].Decision)
+	}
+	realDecision := decisions[1]
+	if realDecision.RawInput != "1" || realDecision.ChoiceID == "" || realDecision.TargetNodeID == "" {
+		t.Fatalf("expected resolved real choice: %#v", realDecision)
+	}
+	if turns[2].NodeID != realDecision.TargetNodeID {
+		t.Fatalf("turn 3 did not follow selected real target: got %q want %q\n%s", turns[2].NodeID, realDecision.TargetNodeID, text)
+	}
+	if turns[2].Decision.ChoiceID != realDecision.ChoiceID {
+		t.Fatalf("turn 3 commit did not carry real choice id: got %#v want %q", turns[2].Decision, realDecision.ChoiceID)
 	}
 }
 
@@ -901,6 +999,16 @@ func (invalidRefreshPlanner) Plan(context.Context, writer.Input) (scene.StoryPac
 	}, nil
 }
 
+type countingPlanner struct {
+	calls int
+	next  scene.StoryPacket
+}
+
+func (p *countingPlanner) Plan(context.Context, writer.Input) (scene.StoryPacket, error) {
+	p.calls++
+	return p.next, nil
+}
+
 func cliTestBundle(id string) story.SeedBundle {
 	return story.SeedBundle{
 		Bible: story.StoryBible{
@@ -958,17 +1066,39 @@ func cliTestBundle(id string) story.SeedBundle {
 				Beats: []scene.Beat{
 					{Text: "The witness hall wakes."},
 					{Text: "Rin feels the graft answer."},
-					{Text: "The first weight is named."},
-					{Text: "A record will vanish if Rin waits."},
+					{Text: "A rival clerk watches from the public bench."},
+					{Text: "Rin chooses how to enter before the real demand is named."},
 				},
 				Choices: []scene.Choice{{
 					ID:           "open",
+					Label:        "Open your hand as you enter.",
+					TargetNodeID: "decision",
+				}, {
+					ID:           "quiet",
+					Label:        "Keep your hand closed.",
+					TargetNodeID: "decision",
+				}},
+			}, {
+				ID:    "decision",
+				Title: "The record is named",
+				Beats: []scene.Beat{
+					{Text: "The first weight is named."},
+					{Text: "A record will vanish if Rin waits."},
+					{Text: "The rival clerk tries to force a public answer."},
+					{Text: "Rin must choose what kind of witness to become."},
+				},
+				Choices: []scene.Choice{{
+					ID:           "pay",
 					Label:        "Open the ledger.",
 					TargetNodeID: "opened",
 				}, {
 					ID:           "refuse",
 					Label:        "Refuse the ledger.",
 					TargetNodeID: "refused",
+				}, {
+					ID:           "accuse",
+					Label:        "Accuse the rival clerk.",
+					TargetNodeID: "accused",
 				}},
 			}, {
 				ID:      "opened",
@@ -982,6 +1112,14 @@ func cliTestBundle(id string) story.SeedBundle {
 				ID:      "refused",
 				Title:   "Refused",
 				Beats:   []scene.Beat{{Text: "The ledger waits."}},
+				Choices: []scene.Choice{},
+				RevisionNotes: []string{
+					"Writer continuation is required after this branch.",
+				},
+			}, {
+				ID:      "accused",
+				Title:   "Accused",
+				Beats:   []scene.Beat{{Text: "The clerk's seal cracks."}},
 				Choices: []scene.Choice{},
 				RevisionNotes: []string{
 					"Writer continuation is required after this branch.",
