@@ -119,6 +119,11 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
 	case "scenarist.provider.tool_result":
 		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
+	case "writer.provider.tool_use", "narrator.provider.tool_use", "model.provider.tool_use":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", providerToolUseText(event, detail))}
+	case "writer.provider.tool_result", "narrator.provider.tool_result", "model.provider.tool_result":
+		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
 	case "lore.expert.request":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@LoreExpert "+firstNonEmpty(nestedString(detail, "request", "question"), stringField(detail, "prompt"), event.Message))}

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 )
 
 func TestCodexRunnerRequestBodyUsesPriorityAndSchema(t *testing.T) {
@@ -53,6 +54,7 @@ func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
 
 func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	client := &fakeLocalToolClient{}
+	logger := gamelog.NewWriter(t.TempDir(), "story-1")
 	runner := CodexRunner{
 		Client:        client,
 		Model:         "gpt-5.5",
@@ -61,6 +63,15 @@ func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 		LocalTools:    true,
 		ToolRoot:      "/tmp/materials",
 		MaxToolRounds: 7,
+		Logger:        logger,
+		ToolCategory:  "writer",
+		CallerRole:    "writer",
+		CallerSpeaker: "Writer",
+		StoryID:       "story-1",
+		Turn:          2,
+		PacketID:      "packet-1",
+		NodeID:        "node-1",
+		RunID:         "run-1",
 		ExtraTools: []codexoauth.LocalTool{{
 			Name:        "custom_tool",
 			Description: "custom",
@@ -80,6 +91,12 @@ func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	}
 	if len(client.opts.ExtraTools) != 1 || client.opts.ExtraTools[0].Name != "custom_tool" {
 		t.Fatalf("unexpected extra tools: %#v", client.opts.ExtraTools)
+	}
+	if client.opts.Logger != logger || client.opts.ToolCategory != "writer" || client.opts.CallerRole != "writer" || client.opts.RunID != "run-1" {
+		t.Fatalf("unexpected tool logging opts: %#v", client.opts)
+	}
+	if client.opts.ModelMetadata.Model != "gpt-5.5" || client.opts.ModelMetadata.ReasoningLevel != "medium" || client.opts.ModelMetadata.ServiceTier != "priority" {
+		t.Fatalf("unexpected model metadata: %#v", client.opts.ModelMetadata)
 	}
 	if client.body["model"] != "gpt-5.5" {
 		t.Fatalf("missing request body: %#v", client.body)

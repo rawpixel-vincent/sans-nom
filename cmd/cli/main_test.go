@@ -94,7 +94,8 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if !containsStringWith(toolRunner.ReadOnlyPointers, "lore/packs/metabarons/lore-pack.json") {
 		t.Fatalf("seed scenarist tool missing pack pointers: %#v", toolRunner.ReadOnlyPointers)
 	}
-	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool)
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool, logger)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -105,13 +106,16 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 7 {
 		t.Fatalf("seed writer runner missing local tools: %#v", codex)
 	}
+	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "creative-writer" {
+		t.Fatalf("seed writer runner missing tool logging metadata: %#v", codex)
+	}
 	if hasTool(codex.ExtraTools, "call_scenarists") {
 		t.Fatalf("final seed writer should not get scenarist tool: %#v", codex.ExtraTools)
 	}
 	if !hasTool(codex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("seed writer missing lore expert tool: %#v", codex.ExtraTools)
 	}
-	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner, loreTool)
+	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner, loreTool, logger)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -124,6 +128,9 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	}
 	if !hasTool(workshopCodex.ExtraTools, "call_scenarists") || !hasTool(workshopCodex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("workshop writer missing local tools: %#v", workshopCodex.ExtraTools)
+	}
+	if workshopCodex.Logger != logger || workshopCodex.ToolCategory != "writer" || workshopCodex.CallerRole != "creative-writer" {
+		t.Fatalf("workshop writer missing tool logging metadata: %#v", workshopCodex)
 	}
 }
 
@@ -150,7 +157,8 @@ func TestScenaristReadOnlyPointersUsePackLayout(t *testing.T) {
 }
 
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5)
+	logger := gamelog.NewWriter(t.TempDir(), "story-test")
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxParallel: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -164,6 +172,9 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	}
 	if !hasTool(codex.ExtraTools, "call_scenarists") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("refresh writer missing local tools: %#v", codex.ExtraTools)
+	}
+	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "writer" || codex.RunID != "run-1" {
+		t.Fatalf("refresh writer missing tool logging metadata: %#v", codex)
 	}
 }
 

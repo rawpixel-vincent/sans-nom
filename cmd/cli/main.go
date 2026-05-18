@@ -321,7 +321,7 @@ func main() {
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
 		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
-		renderer = narrator.ClaudeRenderer{Runner: codexRunner("NarratorDraft", prompt.NarratorDraftSchema())}
+		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), nil, "narrator", "narrator", "Narrator", 0, packet.ID, *nodeID)}
 	}
 	svc := narrator.Service{
 		Actors: &actors.Service{
@@ -924,11 +924,11 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool)
+	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	workshopRunner, err := seedWorkshopRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool)
+	workshopRunner, err := seedWorkshopRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
@@ -1013,15 +1013,15 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	return b.String()
 }
 
-func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, nil, loreExpertTool)
+func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, nil, loreExpertTool, logger)
 }
 
-func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "", nil, outputDir, toolRunner, loreExpertTool)
+func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "", nil, outputDir, toolRunner, loreExpertTool, logger)
 }
 
-func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner) (prompt.Runner, error) {
+func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
 	if cfg.Backend == "static" {
 		return nil, nil
 	}
@@ -1036,7 +1036,8 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 		if strings.TrimSpace(outputDir) != "" {
 			materialDir = outputDir
 		}
-		return codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, loreExpertTool, cfg.ScenaristRounds), nil
+		runner := codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, loreExpertTool, cfg.ScenaristRounds)
+		return configureCodexToolLogging(runner, logger, "writer", "creative-writer", "Creative Writer", "", 0, "", "", ""), nil
 	}
 }
 
@@ -1937,7 +1938,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
 		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
-		renderer = narrator.ClaudeRenderer{Runner: codexRunner("NarratorDraft", prompt.NarratorDraftSchema())}
+		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
 	}
 	return narrator.Service{
 		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger},
@@ -2460,7 +2461,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	}
 	planner := cfg.WriterPlanner
 	if planner == nil {
-		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, loreExpertTool, cfg.ScenaristRounds)
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, loreExpertTool, cfg.ScenaristRounds, cfg.Logger, runID)
 	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
@@ -3100,7 +3101,7 @@ func writerRefreshModelMetadata(cfg playConfig) modelmeta.Metadata {
 	}
 }
 
-func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) writer.Planner {
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
@@ -3112,7 +3113,9 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 		}
 		return writer.ClaudePlanner{Runner: claude}
 	default:
-		return writer.ClaudePlanner{Runner: codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, loreExpertTool, maxToolRounds)}
+		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, loreExpertTool, maxToolRounds)
+		runner = configureCodexToolLogging(runner, logger, "writer", "writer", "Writer", runID, 0, "", "", "")
+		return writer.ClaudePlanner{Runner: runner}
 	}
 }
 
@@ -3157,6 +3160,27 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, mat
 		}
 		runner.ExtraTools = tools
 	}
+	return runner
+}
+
+func codexRunnerWithReadTools(schemaName string, schema map[string]any, logger *gamelog.Writer, category string, role string, speaker string, turn int, packetID string, nodeID string) prompt.CodexRunner {
+	runner := codexRunner(schemaName, schema)
+	runner.LocalTools = true
+	runner.ToolRoot = repoRoot()
+	runner.MaxToolRounds = 8
+	return configureCodexToolLogging(runner, logger, category, role, speaker, "", turn, packetID, nodeID, "")
+}
+
+func configureCodexToolLogging(runner prompt.CodexRunner, logger *gamelog.Writer, category string, role string, speaker string, runID string, turn int, packetID string, nodeID string, storyID string) prompt.CodexRunner {
+	runner.Logger = logger
+	runner.ToolCategory = category
+	runner.CallerRole = role
+	runner.CallerSpeaker = speaker
+	runner.RunID = runID
+	runner.Turn = turn
+	runner.PacketID = packetID
+	runner.NodeID = nodeID
+	runner.StoryID = storyID
 	return runner
 }
 

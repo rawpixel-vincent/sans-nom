@@ -34,7 +34,7 @@ func TestToolRequestAllowsBroadRequestsButRequiresBoundaries(t *testing.T) {
 func TestScenaristPromptKeepsChoicesAsNonSchemaMaterial(t *testing.T) {
 	system := ScenaristSystemPrompt("", false, false)
 	for _, required := range []string{
-		"Do not write a StoryPacket",
+		"not StoryPacket structure",
 		"Do not invent schema target_node_id values",
 		"future placeholder node ids",
 	} {

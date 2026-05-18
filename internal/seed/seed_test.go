@@ -91,23 +91,47 @@ func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
 	}
 }
 
-func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
+func TestContextTextIsCreativeOnly(t *testing.T) {
 	text := ContextText()
 	for _, required := range []string{
-		"Every choice target must be an included node",
-		"make that branch node terminal with revision_notes",
-		"placeholder continuation choice",
-		"original binding doctrine",
-		"support element for the player character's conflict",
+		"Opening aim: player, desire, place, pressure, active opposition, relationship stakes",
 		"Reader plausibility",
 		"social practice, emotional credibility, visible cost, and consequence",
 		"Material imagination",
-		"three-turn runway with exactly 5 nodes",
-		"turn_1_intro choices are cosmetic",
-		"turn_2_decision node has exactly 3 meaningful choices",
+		"supports conflict rather than replacing story with procedure",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
+		}
+	}
+	for _, forbidden := range []string{
+		"StoryPacket",
+		"StoryBible",
+		"three-turn runway",
+		"turn_1_intro",
+		"target_node_id",
+	} {
+		if strings.Contains(text, forbidden) {
+			t.Fatalf("seed context leaked final bundle contract %q:\n%s", forbidden, text)
+		}
+	}
+}
+
+func TestSeedWriterPromptForbidsPlaceholderContinuationTargets(t *testing.T) {
+	text := prompt.SeedWriterPrompt(ContextText())
+	for _, required := range []string{
+		"Every choice target_node_id must point to a scene node included in this same packet",
+		"Each turn_3 branch node has no choices and has revision_notes",
+		"Do not use placeholder targets",
+		"original binding doctrine",
+		"support element for character conflict",
+		"three-turn runway",
+		"turn_1_intro",
+		"turn_2_decision",
+		"exactly 3 meaningful choices",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("seed writer prompt missing %q:\n%s", required, text)
 		}
 	}
 }
@@ -226,14 +250,23 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 	if len(runner.prompts) != 5 {
 		t.Fatalf("prompt count = %d", len(runner.prompts))
 	}
-	for _, required := range []string{"Output Markdown only", "Do not output JSON", "Do not use schema field names or target_node_id values"} {
+	for _, required := range []string{"Output Markdown only", "Stay free-form", "no JSON, schema field names, node ids, final bundle, or player-facing prose"} {
 		if !strings.Contains(runner.prompts[0], required) {
 			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
 		}
 	}
+	if !strings.Contains(runner.prompts[0], "Produce 3-4 original science-fantasy story germs") ||
+		!strings.Contains(runner.prompts[0], "Prefer depth over coverage") {
+		t.Fatalf("imagination workshop prompt should ask for fewer deeper germs:\n%s", runner.prompts[0])
+	}
+	for _, forbidden := range []string{"StoryBible", "StoryPacket", "target_node_id", "The seed packet is a three-turn runway", "turn_1_intro", "Every choice target must be an included node"} {
+		if strings.Contains(runner.prompts[0], forbidden) {
+			t.Fatalf("workshop prompt leaked final contract %q:\n%s", forbidden, runner.prompts[0])
+		}
+	}
 	if !strings.Contains(runner.prompts[2], "Dramatic Engine Turn") ||
-		!strings.Contains(runner.prompts[2], "player desire") ||
-		!strings.Contains(runner.prompts[2], "binding doctrine only where it sharpens conflict") {
+		!strings.Contains(runner.prompts[2], "cast friction") ||
+		!strings.Contains(runner.prompts[2], "local doctrine only where it sharpens conflict") {
 		t.Fatalf("engine workshop prompt has wrong story framing:\n%s", runner.prompts[2])
 	}
 	final := runner.prompts[4]

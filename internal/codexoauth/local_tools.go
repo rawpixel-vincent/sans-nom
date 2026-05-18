@@ -11,6 +11,9 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 const defaultMaxToolRounds = 24
@@ -37,6 +40,17 @@ type LocalToolOptions struct {
 	Root       string
 	MaxRounds  int
 	ExtraTools []LocalTool
+	Logger     *gamelog.Writer
+
+	ToolCategory  string
+	CallerRole    string
+	CallerSpeaker string
+	StoryID       string
+	Turn          int
+	PacketID      string
+	NodeID        string
+	RunID         string
+	ModelMetadata modelmeta.Metadata
 }
 
 type LocalTool struct {
@@ -82,7 +96,9 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		input := inputItems(current["input"])
 		input = append(input, functionCallInputItems(calls)...)
 		for _, call := range calls {
+			logLocalToolUse(opts, call)
 			result := executeLocalTool(ctx, root, call, extraTools)
+			logLocalToolResult(opts, call, result)
 			input = append(input, map[string]any{
 				"type":    "function_call_output",
 				"call_id": call.CallID,
@@ -246,6 +262,172 @@ func executeLocalTool(ctx context.Context, root string, call functionCall, extra
 		return fmt.Sprintf(`{"ok":false,"error":%q}`, marshalErr.Error())
 	}
 	return string(payload)
+}
+
+func logLocalToolUse(opts LocalToolOptions, call functionCall) {
+	if !shouldLogLocalTool(call) {
+		return
+	}
+	info := localToolLogInfo(call)
+	logLocalToolEvent(opts, call, "tool_use", "pending", "@"+info.DisplayName+targetSuffix(info.Target), map[string]any{
+		"tool_name":     info.DisplayName,
+		"raw_tool_name": call.Name,
+		"tool_use_id":   call.CallID,
+		"target":        info.Target,
+		"arguments":     call.Arguments,
+		"input":         info.Input,
+	})
+}
+
+func logLocalToolResult(opts LocalToolOptions, call functionCall, result string) {
+	if !shouldLogLocalTool(call) {
+		return
+	}
+	info := localToolLogInfo(call)
+	resultValue := decodeToolResult(result)
+	message := info.DisplayName + " result" + targetSuffix(info.Target)
+	if preview := toolResultPreview(resultValue); preview != "" {
+		message += "\n\n" + preview
+	}
+	logLocalToolEvent(opts, call, "tool_result", "completed", message, map[string]any{
+		"tool_name":     info.DisplayName,
+		"raw_tool_name": call.Name,
+		"tool_use_id":   call.CallID,
+		"target":        info.Target,
+		"arguments":     call.Arguments,
+		"input":         info.Input,
+		"result":        resultValue,
+	})
+}
+
+func shouldLogLocalTool(call functionCall) bool {
+	return call.Name == "exec_command"
+}
+
+type localToolInfo struct {
+	DisplayName string
+	Target      string
+	Input       map[string]any
+}
+
+func localToolLogInfo(call functionCall) localToolInfo {
+	input := map[string]any{}
+	_ = json.Unmarshal([]byte(call.Arguments), &input)
+	cmd, _ := input["cmd"].(string)
+	return localToolInfo{
+		DisplayName: displayNameForCommand(cmd),
+		Target:      strings.TrimSpace(cmd),
+		Input:       input,
+	}
+}
+
+func displayNameForCommand(command string) string {
+	fields := strings.Fields(strings.TrimSpace(command))
+	if len(fields) == 0 {
+		return "Read"
+	}
+	name := filepath.Base(fields[0])
+	switch name {
+	case "ls", "find", "pwd":
+		return "LS"
+	case "rg":
+		return "Grep"
+	default:
+		return "Read"
+	}
+}
+
+func logLocalToolEvent(opts LocalToolOptions, call functionCall, eventSuffix string, status string, message string, detail map[string]any) {
+	if opts.Logger == nil {
+		return
+	}
+	category := firstNonEmpty(opts.ToolCategory, "model")
+	fields := modelmeta.MergeFields(map[string]any{
+		"tool_name":      detail["tool_name"],
+		"raw_tool_name":  call.Name,
+		"tool_use_id":    call.CallID,
+		"target":         detail["target"],
+		"caller_role":    opts.CallerRole,
+		"caller_speaker": opts.CallerSpeaker,
+		"status":         status,
+	}, opts.ModelMetadata)
+	eventDetail := map[string]any{
+		"tool_name":      detail["tool_name"],
+		"raw_tool_name":  call.Name,
+		"tool_use_id":    call.CallID,
+		"caller_role":    opts.CallerRole,
+		"caller_speaker": opts.CallerSpeaker,
+		"model_metadata": opts.ModelMetadata,
+	}
+	for key, value := range detail {
+		eventDetail[key] = value
+	}
+	_ = opts.Logger.Append(gamelog.Event{
+		Category: category,
+		Event:    category + ".provider." + eventSuffix,
+		StoryID:  opts.StoryID,
+		Turn:     opts.Turn,
+		PacketID: opts.PacketID,
+		NodeID:   opts.NodeID,
+		RunID:    opts.RunID,
+		Message:  message,
+		Fields:   fields,
+		Detail:   eventDetail,
+	})
+}
+
+func decodeToolResult(result string) any {
+	var value any
+	if err := json.Unmarshal([]byte(result), &value); err != nil {
+		return result
+	}
+	return value
+}
+
+func toolResultPreview(result any) string {
+	mapped, ok := result.(map[string]any)
+	if !ok {
+		if text, ok := result.(string); ok {
+			return trimToolPreview(text)
+		}
+		return ""
+	}
+	for _, key := range []string{"stdout", "content", "error", "stderr"} {
+		if value, ok := mapped[key].(string); ok && strings.TrimSpace(value) != "" {
+			return trimToolPreview(value)
+		}
+	}
+	payload, err := json.Marshal(mapped)
+	if err != nil {
+		return ""
+	}
+	return trimToolPreview(string(payload))
+}
+
+func trimToolPreview(value string) string {
+	value = strings.TrimSpace(value)
+	const max = 4000
+	if len(value) <= max {
+		return value
+	}
+	return value[:max] + "... [truncated]"
+}
+
+func targetSuffix(target string) string {
+	target = strings.TrimSpace(target)
+	if target == "" {
+		return ""
+	}
+	return " " + target
+}
+
+func firstNonEmpty(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return strings.TrimSpace(value)
+		}
+	}
+	return ""
 }
 
 func toolExecCommand(ctx context.Context, root string, rawArgs string) (map[string]any, error) {

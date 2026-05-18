@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
@@ -35,6 +36,15 @@ type CodexRunner struct {
 	ToolRoot      string
 	MaxToolRounds int
 	ExtraTools    []codexoauth.LocalTool
+	Logger        *gamelog.Writer
+	ToolCategory  string
+	CallerRole    string
+	CallerSpeaker string
+	StoryID       string
+	Turn          int
+	PacketID      string
+	NodeID        string
+	RunID         string
 }
 
 func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
@@ -134,9 +144,19 @@ func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {
 		root = "."
 	}
 	return codexoauth.LocalToolOptions{
-		Root:       root,
-		MaxRounds:  r.MaxToolRounds,
-		ExtraTools: r.ExtraTools,
+		Root:          root,
+		MaxRounds:     r.MaxToolRounds,
+		ExtraTools:    r.ExtraTools,
+		Logger:        r.Logger,
+		ToolCategory:  r.ToolCategory,
+		CallerRole:    r.CallerRole,
+		CallerSpeaker: r.CallerSpeaker,
+		StoryID:       r.StoryID,
+		Turn:          r.Turn,
+		PacketID:      r.PacketID,
+		NodeID:        r.NodeID,
+		RunID:         r.RunID,
+		ModelMetadata: r.ModelMetadata(),
 	}
 }
 

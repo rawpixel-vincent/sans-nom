@@ -275,6 +275,103 @@ func TestAdminBackstageShowsScenaristProviderToolCalls(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageShowsWriterAndNarratorReadToolCalls(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	for _, event := range []gamelog.Event{
+		{
+			Category: "writer",
+			Event:    "writer.provider.tool_use",
+			Message:  "@Read cat data/seed-runs/example/output.md",
+			Fields: map[string]any{
+				"tool_name":      "Read",
+				"target":         "cat data/seed-runs/example/output.md",
+				"caller_role":    "writer",
+				"caller_speaker": "Writer",
+			},
+			Detail: map[string]any{
+				"tool_name":      "Read",
+				"tool_use_id":    "call_1",
+				"input":          map[string]any{"cmd": "cat data/seed-runs/example/output.md"},
+				"caller_role":    "writer",
+				"caller_speaker": "Writer",
+			},
+		},
+		{
+			Category: "writer",
+			Event:    "writer.provider.tool_result",
+			Message:  "Read result for cat data/seed-runs/example/output.md\n\nworkshop material",
+			Fields: map[string]any{
+				"tool_name": "Read",
+				"target":    "cat data/seed-runs/example/output.md",
+			},
+			Detail: map[string]any{
+				"tool_name": "Read",
+				"input":     map[string]any{"cmd": "cat data/seed-runs/example/output.md"},
+				"result":    map[string]any{"stdout": "workshop material"},
+			},
+		},
+		{
+			Category: "narrator",
+			Event:    "narrator.provider.tool_use",
+			Message:  "@Grep rg turn-000001",
+			Fields: map[string]any{
+				"tool_name":      "Grep",
+				"target":         "rg turn-000001",
+				"caller_role":    "narrator",
+				"caller_speaker": "Narrator",
+			},
+			Detail: map[string]any{
+				"tool_name":      "Grep",
+				"tool_use_id":    "call_2",
+				"input":          map[string]any{"cmd": "rg turn-000001"},
+				"caller_role":    "narrator",
+				"caller_speaker": "Narrator",
+			},
+		},
+		{
+			Category: "narrator",
+			Event:    "narrator.provider.tool_result",
+			Message:  "Grep result for rg turn-000001\n\nturn found",
+			Fields: map[string]any{
+				"tool_name": "Grep",
+				"target":    "rg turn-000001",
+			},
+			Detail: map[string]any{
+				"tool_name": "Grep",
+				"input":     map[string]any{"cmd": "rg turn-000001"},
+				"result":    map[string]any{"stdout": "turn found"},
+			},
+		},
+	} {
+		if err := global.Append(event); err != nil {
+			t.Fatal(err)
+		}
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 4 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "Writer" || resp.Messages[0].Role != "writer" || resp.Messages[0].Kind != "tool_request" || !strings.Contains(resp.Messages[0].Text, "@Read cat") {
+		t.Fatalf("unexpected writer tool request: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "Read" || resp.Messages[1].Kind != "tool_response" || !strings.Contains(resp.Messages[1].Text, "workshop material") {
+		t.Fatalf("unexpected writer tool response: %#v", resp.Messages[1])
+	}
+	if resp.Messages[2].Speaker != "Narrator" || resp.Messages[2].Role != "narrator" || resp.Messages[2].Kind != "tool_request" || !strings.Contains(resp.Messages[2].Text, "@Grep rg") {
+		t.Fatalf("unexpected narrator tool request: %#v", resp.Messages[2])
+	}
+	if resp.Messages[3].Speaker != "Grep" || resp.Messages[3].Kind != "tool_response" || !strings.Contains(resp.Messages[3].Text, "turn found") {
+		t.Fatalf("unexpected narrator tool response: %#v", resp.Messages[3])
+	}
+}
+
 func TestAdminBackstageScenaristResponsesUseMaterialModelMetadata(t *testing.T) {
 	root := t.TempDir()
 	materialPath := filepath.Join("data", "seed-runs", "example", "scenarists", "tool-call-001", "01-germ.md")

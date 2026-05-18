@@ -12,7 +12,8 @@ import (
 func (c NarratorContext) RenderText() string {
 	var b strings.Builder
 	writeSection(&b, "ROLE BOUNDARY")
-	fmt.Fprintf(&b, "You are the Narrator. Rewrite only the selected scene node into player-facing prose.\n")
+	fmt.Fprintf(&b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
+	fmt.Fprintf(&b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
 	fmt.Fprintf(&b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
 	fmt.Fprintf(&b, "Lore references are creative influence only; do not import source-canon names, places, factions, or events as facts in the new story.\n")
 
@@ -41,7 +42,8 @@ func (c NarratorContext) RenderText() string {
 func (c WriterContext) RenderText() string {
 	var b strings.Builder
 	writeSection(&b, "ROLE BOUNDARY")
-	fmt.Fprintf(&b, "You are the Creative Writer. Plan the next bounded packet; the packet tree is planning material, not canon.\n")
+	fmt.Fprintf(&b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
+	fmt.Fprintf(&b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
 	fmt.Fprintf(&b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
 	fmt.Fprintf(&b, "Lore references encode SF-comics taste and passion; create new story content instead of copying source canon.\n")
 
@@ -68,8 +70,8 @@ func (c WriterContext) RenderText() string {
 	fmt.Fprintln(&b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(&b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
 	fmt.Fprintln(&b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
-	fmt.Fprintln(&b, "- Treat binding doctrine as a deep rule inside the player character's lived order.")
-	fmt.Fprintln(&b, "- Reader plausibility means internal cause, social practice, emotional credibility, visible cost, and consequence.")
+	fmt.Fprintln(&b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
+	fmt.Fprintln(&b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
 	fmt.Fprintln(&b, "- Use actor cards and directional representations only for original story actors explicitly present in the packet.")
 	fmt.Fprintln(&b, "- Treat lore references as influence material, not as candidate actor inventory or canon to reproduce.")
 	fmt.Fprintln(&b, "- Do not infer council mechanics, resurrection roster assumptions, or global shared knowledge.")

@@ -369,19 +369,19 @@ func DefaultWorkshopTurns() []WorkshopTurn {
 	return []WorkshopTurn{{
 		ID:          "imagination",
 		Title:       "Imagination Turn",
-		PromptShape: "Invent freely. Let ideas collide. Produce 5-8 original science-fantasy story germs. Each germ needs a vivid image, a player desire, active opposition, a character wound, and a first irreversible pressure. Keep the ideas varied; do not choose the final story yet.",
+		PromptShape: "Invent freely. Let ideas collide. Produce 3-4 original science-fantasy story germs. Prefer depth over coverage: each germ should feel playable, emotionally specific, and visually memorable after one paragraph. Include a vivid image, player desire, active opposition, character wound, relationship pressure, strange material condition, and first irreversible pressure. Do not choose the final story yet.",
 	}, {
 		ID:          "elements",
 		Title:       "Story Engine Selection Turn",
-		PromptShape: "Compare the 2-3 strongest germs by player hook, active opposition, novelty, emotional clarity, and playable first choice. Recommend one, but keep useful alternates visible.",
+		PromptShape: "Compare the strongest germs by player hook, active opposition, freshness, emotional clarity, relationship pressure, and playable first choice. Recommend one story engine while keeping only genuinely useful alternate sparks visible.",
 	}, {
 		ID:          "engine",
 		Title:       "Dramatic Engine Turn",
-		PromptShape: "Develop the selected story engine: player desire, opposing will, supporting cast pressure, material world, reversals, and the binding doctrine only where it sharpens conflict.",
+		PromptShape: "Develop the selected story engine: protagonist, opponent, cast friction, material world, reversals, scene pressure, and any local doctrine only where it sharpens conflict.",
 	}, {
 		ID:          "runway",
 		Title:       "Three-Turn Runway Turn",
-		PromptShape: "Design the opening as three playable turns: an introductory fake-choice scene, a second scene with exactly three meaningful choices, and one third-turn branch scene for each choice. Focus on story heat, conflict, and player agency.",
+		PromptShape: "Design the opening in prose/planning terms as a three-turn playable runway: first an onboarding moment with cosmetic flavor choices, then a scene with three meaningful choices, then one branch scene for each choice. Focus on story heat, conflict, player agency, and what each choice reveals.",
 	}}
 }
 
@@ -469,19 +469,12 @@ func containsForbidden(text string, banned string) bool {
 func ContextText() string {
 	return `First playable vertical slice: original science-fantasy comic story.
 The selected ground-lore pack is creative DNA for the writer and narrator: passion, pressure, contradiction, taboo, body/technology myth, witness-bound memory, and operatic SF-comics taste.
-Do not literalize that source lore. The generated story must use new characters, new places, new factions, new conflicts, and new proper nouns.
-Do not use source canon names, places, factions, dynastic events, council mechanics, all-cast fanout, or resurrection-roster assumptions.
-Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible is binding doctrine for this generated story, separate from source-lore influence.
-The StoryBible must contain at least one original binding doctrine as a support element for the player character's conflict.
-The binding doctrine belongs to the player character's lived order, such as family, guild, dynasty, sect, profession, city office, rite, or other local order.
-Reader plausibility means internal cause, social practice, emotional credibility, visible cost, and consequence.
+Source lore is influence material, not canon for the generated story. The new story uses new characters, places, factions, conflicts, and proper nouns.
+Opening aim: player, desire, place, pressure, active opposition, relationship stakes, and a choice that reveals character.
+Reader plausibility means the strange feels lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.
 Material imagination should arise from the story premise: ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
-Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
-For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
-The seed packet is a three-turn runway with exactly 5 nodes: turn_1_intro, turn_2_decision, and three turn_3 branch nodes.
-The turn_1_intro choices are cosmetic onboarding flavor; all target the same turn_2_decision node and do not change story state.
-The turn_2_decision node has exactly 3 meaningful choices, each targeting one distinct turn_3 branch node.
-Every choice target must be an included node in the same bounded packet. If a branch should hand off to Writer continuation, make that branch node terminal with revision_notes instead of adding a placeholder continuation choice.`
+Any binding doctrine belongs to the player character's lived order, such as family, guild, dynasty, sect, profession, city office, rite, or other local order. It supports conflict rather than replacing story with procedure.
+For this first seed, original actor peer cards are not generated yet. Characters may be present as story material, but no actor agent should be invoked.`
 }
 
 func DefaultBundle() story.SeedBundle {
