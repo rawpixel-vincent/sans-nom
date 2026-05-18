@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"errors"
 	"net/http"
@@ -124,38 +126,31 @@ func TestBridgeDialFailureDetectsConnectionRefused(t *testing.T) {
 }
 
 func TestSynthesizeTurnAudioWritesWAVAndLogs(t *testing.T) {
-	audio := []byte("RIFF fake wav")
-	longText := strings.Repeat("Read this full narrator turn.", 1000)
-	var gotCreate map[string]any
-	statusCalls := 0
+	audio := []byte{0x01, 0x02, 0x03, 0x04}
+	longText := strings.TrimSpace(strings.Repeat("Read this full narrator turn. ", 1000))
+	var gotRequests []map[string]any
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.Header.Get("Authorization") != "Bearer secret" {
-			t.Fatalf("missing bearer token")
+		if r.Header.Get("api-key") != "secret" {
+			t.Fatalf("missing api-key header")
 		}
-		switch r.URL.Path {
-		case "/v1/t2a_async_v2":
-			if err := json.NewDecoder(r.Body).Decode(&gotCreate); err != nil {
-				t.Fatal(err)
-			}
-			_ = json.NewEncoder(w).Encode(map[string]any{
-				"task_id":          123,
-				"file_id":          456,
-				"usage_characters": 11,
-				"base_resp":        map[string]any{"status_code": 0, "status_msg": "success"},
-			})
-		case "/v1/query/t2a_async_query_v2":
-			statusCalls++
-			_ = json.NewEncoder(w).Encode(map[string]any{
-				"task_id":   123,
-				"status":    "Success",
-				"file_id":   456,
-				"base_resp": map[string]any{"status_code": 0, "status_msg": "success"},
-			})
-		case "/v1/files/retrieve_content":
-			_, _ = w.Write(audio)
-		default:
+		if r.Method != http.MethodPost || r.URL.Path != "/v1/chat/completions" {
 			t.Fatalf("unexpected path %s", r.URL.Path)
 		}
+		var gotRequest map[string]any
+		if err := json.NewDecoder(r.Body).Decode(&gotRequest); err != nil {
+			t.Fatal(err)
+		}
+		gotRequests = append(gotRequests, gotRequest)
+		_ = json.NewEncoder(w).Encode(map[string]any{
+			"choices": []map[string]any{{
+				"message": map[string]any{
+					"role": "assistant",
+					"audio": map[string]any{
+						"data": base64.StdEncoding.EncodeToString(audio),
+					},
+				},
+			}},
+		})
 	}))
 	defer server.Close()
 	logger := gamelog.NewGlobalWriter(t.TempDir())
@@ -163,13 +158,14 @@ func TestSynthesizeTurnAudioWritesWAVAndLogs(t *testing.T) {
 	path, err := synthesizeTurnAudio(context.Background(), playConfig{
 		Logger: logger,
 		TTS: playTTSConfig{
-			Enabled:   true,
-			BaseURL:   server.URL,
-			APIKey:    "secret",
-			Model:     "speech-2.8-turbo",
-			Voice:     "English_expressive_narrator",
-			Format:    "wav",
-			OutputDir: outDir,
+			Enabled:     true,
+			BaseURL:     server.URL + "/v1",
+			APIKey:      "secret",
+			Model:       "mimo-v2.5-tts",
+			Voice:       "Milo",
+			Format:      "wav",
+			Instruction: "Sci-fi story narrator voice.",
+			OutputDir:   outDir,
 		},
 	}, nil, 1, narrator.Rollout{
 		Draft: narrator.Draft{Prose: longText},
@@ -184,31 +180,44 @@ func TestSynthesizeTurnAudioWritesWAVAndLogs(t *testing.T) {
 	if filepath.Base(path) != "turn-000001.wav" {
 		t.Fatalf("path = %s", path)
 	}
-	if statusCalls != 1 {
-		t.Fatalf("status calls = %d", statusCalls)
+	if len(gotRequests) < 2 {
+		t.Fatalf("expected chunked tts requests, got %d", len(gotRequests))
 	}
-	if got, _ := gotCreate["text"].(string); len(got) != len(longText) || !strings.HasSuffix(got, "full narrator turn.") {
-		t.Fatalf("create text was not submitted intact: got len %d want %d", len(got), len(longText))
+	var submitted []string
+	for _, gotRequest := range gotRequests {
+		messages, _ := gotRequest["messages"].([]any)
+		if len(messages) != 2 {
+			t.Fatalf("messages = %#v", gotRequest["messages"])
+		}
+		assistant, _ := messages[1].(map[string]any)
+		submitted = append(submitted, assistant["content"].(string))
+		audioReq, _ := gotRequest["audio"].(map[string]any)
+		if audioReq["format"] != "pcm16" || audioReq["voice"] != "Milo" {
+			t.Fatalf("bad audio request: %#v", audioReq)
+		}
+	}
+	if got := strings.Join(submitted, " "); got != longText {
+		t.Fatalf("assistant text was not submitted intact: got len %d want %d", len(got), len(longText))
 	}
 	data, err := os.ReadFile(path)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if string(data) != string(audio) {
-		t.Fatalf("audio = %q", data)
+	if len(data) < 44 || !bytes.HasPrefix(data, []byte("RIFF")) || !bytes.Contains(data[:44], []byte("WAVE")) {
+		t.Fatalf("expected synthesized wav container, got %q", data)
 	}
 	for _, rel := range []string{
 		filepath.Join("model-runs", "tts", "turn-000001", "request.json"),
-		filepath.Join("model-runs", "tts", "turn-000001", "create-response.json"),
-		filepath.Join("model-runs", "tts", "turn-000001", "status.jsonl"),
-		filepath.Join("model-runs", "tts", "turn-000001", "download-response.json"),
+		filepath.Join("model-runs", "tts", "turn-000001", "chunk-001", "request.json"),
+		filepath.Join("model-runs", "tts", "turn-000001", "chunk-001", "response.json"),
+		filepath.Join("model-runs", "tts", "turn-000001", "response.json"),
 		filepath.Join("model-runs", "tts", "turn-000001", "metadata.json"),
 	} {
 		if _, err := os.Stat(filepath.Join(outDir, rel)); err != nil {
 			t.Fatalf("missing artifact %s: %v", rel, err)
 		}
 	}
-	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "tts.async.downloaded"})
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "tts.mimo.completed"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -219,8 +228,9 @@ func TestSynthesizeTurnAudioWritesWAVAndLogs(t *testing.T) {
 
 func TestSynthesizeTurnAudioFailurePreservesDiagnostics(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusBadRequest)
 		_ = json.NewEncoder(w).Encode(map[string]any{
-			"base_resp": map[string]any{"status_code": 1001, "status_msg": "bad text"},
+			"error": map[string]any{"message": "bad text"},
 		})
 	}))
 	defer server.Close()
@@ -230,10 +240,10 @@ func TestSynthesizeTurnAudioFailurePreservesDiagnostics(t *testing.T) {
 		Logger: logger,
 		TTS: playTTSConfig{
 			Enabled:   true,
-			BaseURL:   server.URL,
+			BaseURL:   server.URL + "/v1",
 			APIKey:    "secret",
-			Model:     "speech-2.8-turbo",
-			Voice:     "English_expressive_narrator",
+			Model:     "mimo-v2.5-tts",
+			Voice:     "Milo",
 			Format:    "wav",
 			OutputDir: outDir,
 		},
@@ -249,14 +259,14 @@ func TestSynthesizeTurnAudioFailurePreservesDiagnostics(t *testing.T) {
 	}
 	for _, rel := range []string{
 		filepath.Join("model-runs", "tts", "turn-000001", "request.json"),
-		filepath.Join("model-runs", "tts", "turn-000001", "create-response.json"),
+		filepath.Join("model-runs", "tts", "turn-000001", "response.json"),
 		filepath.Join("model-runs", "tts", "turn-000001", "error.txt"),
 	} {
 		if _, statErr := os.Stat(filepath.Join(outDir, rel)); statErr != nil {
 			t.Fatalf("missing artifact %s: %v", rel, statErr)
 		}
 	}
-	events, readErr := gamelog.Read(logger.Path, gamelog.Filter{Event: "tts.async.failed"})
+	events, readErr := gamelog.Read(logger.Path, gamelog.Filter{Event: "tts.mimo.failed"})
 	if readErr != nil {
 		t.Fatal(readErr)
 	}
@@ -266,8 +276,8 @@ func TestSynthesizeTurnAudioFailurePreservesDiagnostics(t *testing.T) {
 }
 
 func TestTTSOutputPathUsesConfiguredFormat(t *testing.T) {
-	got := ttsOutputPath(playConfig{TTS: playTTSConfig{OutputDir: "audio-out", Format: "mp3"}}, nil, 2)
-	if filepath.Base(got) != "turn-000002.mp3" {
+	got := ttsOutputPath(playConfig{TTS: playTTSConfig{OutputDir: "audio-out", Format: "pcm16"}}, nil, 2)
+	if filepath.Base(got) != "turn-000002.pcm16" {
 		t.Fatalf("output path = %s", got)
 	}
 }

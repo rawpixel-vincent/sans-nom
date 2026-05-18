@@ -2,8 +2,10 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"crypto/sha256"
+	"encoding/binary"
 	"encoding/json"
 	"errors"
 	"flag"
@@ -66,12 +68,12 @@ func main() {
 	noCommit := flag.Bool("no-commit", false, "do not commit witnessed scene canon to Honcho during play")
 	turns := flag.Int("turns", 0, "number of automated play turns; 0 reads interactively")
 	playTraceJSONL := flag.Bool("play-trace-jsonl", false, "emit machine-readable JSONL trace events during play")
-	readTurnTTS := flag.Bool("tts", envBool("SANS_NOM_TTS"), "synthesize each narrator turn with MiniMax async long-form TTS")
-	ttsBaseURL := flag.String("tts-base-url", firstNonEmpty(os.Getenv("SANS_NOM_TTS_BASE_URL"), ttsclient.DefaultBaseURL), "MiniMax TTS API base URL")
-	ttsModel := flag.String("tts-model", firstNonEmpty(os.Getenv("SANS_NOM_TTS_MODEL"), ttsclient.DefaultAsyncModel), "MiniMax async TTS model")
-	ttsVoice := flag.String("tts-voice", firstNonEmpty(os.Getenv("SANS_NOM_TTS_VOICE"), ttsclient.DefaultVoiceID), "MiniMax async TTS voice id")
-	ttsFormat := flag.String("tts-format", firstNonEmpty(os.Getenv("SANS_NOM_TTS_FORMAT"), ttsclient.DefaultAudioFormat), "TTS output format: wav, mp3, or flac")
-	ttsInstruction := flag.String("tts-instruction", firstNonEmpty(os.Getenv("SANS_NOM_TTS_INSTRUCTION"), ttsclient.DefaultLegacyPrompt), "legacy TTS voice instruction metadata; async TTS speaks only narrator prose")
+	readTurnTTS := flag.Bool("tts", envBool("SANS_NOM_TTS"), "synthesize each narrator turn with Xiaomi MiMo v2.5 TTS")
+	ttsBaseURL := flag.String("tts-base-url", firstNonEmpty(os.Getenv("SANS_NOM_TTS_BASE_URL"), ttsclient.DefaultBaseURL), "MiMo OpenAI-compatible TTS base URL")
+	ttsModel := flag.String("tts-model", firstNonEmpty(os.Getenv("SANS_NOM_TTS_MODEL"), ttsclient.DefaultModel), "MiMo TTS model")
+	ttsVoice := flag.String("tts-voice", firstNonEmpty(os.Getenv("SANS_NOM_TTS_VOICE"), ttsclient.DefaultVoice), "MiMo TTS voice id")
+	ttsFormat := flag.String("tts-format", firstNonEmpty(os.Getenv("SANS_NOM_TTS_FORMAT"), ttsclient.DefaultAudioFormat), "TTS output format: wav or pcm16")
+	ttsInstruction := flag.String("tts-instruction", firstNonEmpty(os.Getenv("SANS_NOM_TTS_INSTRUCTION"), ttsclient.DefaultNarratorInstruction), "MiMo TTS style/director instruction; spoken text stays in the assistant message")
 	ttsOutputDir := flag.String("tts-output-dir", os.Getenv("SANS_NOM_TTS_OUTPUT_DIR"), "optional TTS output directory; defaults to the story audio directory")
 	loreSearch := flag.String("lore-search", "", "query the runtime lore retriever and exit")
 	loreK := flag.Int("k", 5, "number of lore search results")
@@ -1627,50 +1629,60 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 	}
 	format := normalizeTTSFormat(cfg.TTS.Format)
 	if format == "" {
-		return "", fmt.Errorf("unsupported tts format %q; expected wav, mp3, or flac", cfg.TTS.Format)
+		return "", fmt.Errorf("unsupported tts format %q; expected wav or pcm16", cfg.TTS.Format)
 	}
 	turnNumber := currentStoryTurnNumber(state, loopTurn)
 	outputPath := ttsOutputPath(cfg, state, loopTurn)
 	runDir := ttsRunDir(cfg, state, loopTurn)
-	client := ttsclient.AsyncClient{
-		BaseURL: cfg.TTS.BaseURL,
-		APIKey:  firstNonEmpty(cfg.TTS.APIKey, os.Getenv("SANS_NOM_TTS_API_KEY"), os.Getenv("MINIMAX_API_KEY"), os.Getenv("MINIMAX__ANTHROPIC_AUTH_TOKEN"), os.Getenv("XIAOMI__ANTHROPIC_AUTH_TOKEN")),
-		Model:   cfg.TTS.Model,
-		VoiceID: cfg.TTS.Voice,
-		Format:  format,
-		Timeout: cfg.TTS.Timeout,
+	client := ttsclient.Client{
+		BaseURL:     cfg.TTS.BaseURL,
+		APIKey:      firstNonEmpty(cfg.TTS.APIKey, os.Getenv("SANS_NOM_TTS_API_KEY")),
+		Model:       cfg.TTS.Model,
+		Voice:       cfg.TTS.Voice,
+		Format:      format,
+		Instruction: cfg.TTS.Instruction,
+		Timeout:     cfg.TTS.Timeout,
 	}
-	request := client.RequestPayload(text)
+	chunks := splitTTSChunks(text, envInt("SANS_NOM_TTS_CHUNK_CHARS", defaultTTSChunkChars))
+	requestFormat := format
+	if len(chunks) > 1 && format == "wav" {
+		requestFormat = "pcm16"
+	}
 	if err := os.MkdirAll(runDir, 0o755); err != nil {
 		return "", err
 	}
+	requestSummary := ttsRequestSummary(client, text, chunks, format, requestFormat, outputPath)
 	if err := writeJSONFileAtomic(filepath.Join(runDir, "request.json"), map[string]any{
-		"request":            request,
-		"base_url":           firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
-		"output_path":        filepath.ToSlash(outputPath),
-		"legacy_instruction": cfg.TTS.Instruction,
-		"text_sha256":        textSHA256(text),
-		"text_chars":         len([]rune(text)),
+		"request":         requestSummary,
+		"base_url":        firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
+		"output_path":     filepath.ToSlash(outputPath),
+		"instruction":     cfg.TTS.Instruction,
+		"text_sha256":     textSHA256(text),
+		"text_chars":      len([]rune(text)),
+		"chunk_count":     len(chunks),
+		"chunk_max_chars": envInt("SANS_NOM_TTS_CHUNK_CHARS", defaultTTSChunkChars),
 	}); err != nil {
 		return "", err
 	}
 	logEvent(cfg.Logger, gamelog.Event{
 		Category: "model",
-		Event:    "tts.async.request",
-		Message:  "async turn tts request prepared",
+		Event:    "tts.mimo.request",
+		Message:  "mimo turn tts request prepared",
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"model":       request.Model,
-			"voice":       request.VoiceSetting.VoiceID,
-			"format":      request.AudioSetting.Format,
-			"text_chars":  len([]rune(text)),
-			"output_path": filepath.ToSlash(outputPath),
-			"run_dir":     filepath.ToSlash(runDir),
+			"model":          requestSummary["model"],
+			"voice":          requestSummary["voice"],
+			"format":         format,
+			"request_format": requestFormat,
+			"text_chars":     len([]rune(text)),
+			"chunk_count":    len(chunks),
+			"output_path":    filepath.ToSlash(outputPath),
+			"run_dir":        filepath.ToSlash(runDir),
 		},
 		Detail: map[string]any{
-			"request":     request,
+			"request":     requestSummary,
 			"base_url":    firstNonEmpty(cfg.TTS.BaseURL, ttsclient.DefaultBaseURL),
 			"output_path": filepath.ToSlash(outputPath),
 			"run_dir":     filepath.ToSlash(runDir),
@@ -1679,133 +1691,144 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 	})
 	ttsCtx, cancel := context.WithTimeout(ctx, client.TimeoutOrDefault())
 	defer cancel()
-	create, err := client.CreateTask(ttsCtx, text)
-	if create.TaskID != 0 || create.BaseResponse.StatusMsg != "" || create.BaseResponse.StatusCode != 0 {
-		if writeErr := writeJSONFileAtomic(filepath.Join(runDir, "create-response.json"), create); writeErr != nil {
-			return "", writeErr
-		}
-	}
-	if err != nil {
-		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create})
-		return "", err
-	}
-	fmt.Printf("\nTTS task %d: submitted\n", create.TaskID)
-	statusPath := filepath.Join(runDir, "status.jsonl")
-	var finalStatus ttsclient.QueryTaskResponse
-	for {
-		status, err := client.QueryTask(ttsCtx, create.TaskID)
-		if status.TaskID != 0 || status.Status != "" || status.BaseResponse.StatusMsg != "" || status.BaseResponse.StatusCode != 0 {
-			if writeErr := appendJSONL(statusPath, status); writeErr != nil {
-				logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, writeErr, map[string]any{"request": request, "create_response": create, "status_response": status, "phase": "write_status"})
-				return "", writeErr
-			}
-		}
-		if err != nil {
-			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create, "status_response": status})
+	fmt.Printf("\nTTS MiMo: synthesizing turn %d in %d chunk(s)...\n", turnNumber, len(chunks))
+	var chunkAudios [][]byte
+	var responses []map[string]any
+	totalBase64Chars := 0
+	for index, chunk := range chunks {
+		chunkClient := client
+		chunkClient.Format = requestFormat
+		chunkRequest := chunkClient.RequestPayload(chunk)
+		chunkDir := filepath.Join(runDir, fmt.Sprintf("chunk-%03d", index+1))
+		if err := os.MkdirAll(chunkDir, 0o755); err != nil {
 			return "", err
 		}
-		finalStatus = status
-		normalized := status.NormalizedStatus()
-		fmt.Printf("TTS task %d: %s\n", create.TaskID, normalized)
+		if err := writeJSONFileAtomic(filepath.Join(chunkDir, "request.json"), chunkRequest); err != nil {
+			return "", err
+		}
+		fmt.Printf("TTS MiMo chunk %d/%d...\n", index+1, len(chunks))
+		result, err := chunkClient.Synthesize(ttsCtx, chunk)
+		responsePath := filepath.Join(chunkDir, "response.json")
+		if writeErr := writeJSONFileAtomic(responsePath, result.Response); writeErr != nil {
+			return "", writeErr
+		}
+		if err != nil {
+			failed := map[string]any{
+				"chunk":              index + 1,
+				"chars":              len([]rune(chunk)),
+				"text_sha256":        textSHA256(chunk),
+				"request_path":       filepath.ToSlash(filepath.Join(chunkDir, "request.json")),
+				"response_path":      filepath.ToSlash(responsePath),
+				"audio_path":         "",
+				"audio_bytes":        0,
+				"audio_base64_chars": result.AudioBase64Chars,
+				"error":              err.Error(),
+			}
+			responses = append(responses, failed)
+			_ = writeJSONFileAtomic(filepath.Join(runDir, "response.json"), map[string]any{
+				"chunk_count":  len(chunks),
+				"failed_chunk": index + 1,
+				"chunks":       responses,
+			})
+			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{
+				"request":       chunkRequest,
+				"chunk":         index + 1,
+				"chunk_count":   len(chunks),
+				"response_path": filepath.ToSlash(responsePath),
+			})
+			return "", err
+		}
+		chunkAudioPath := filepath.Join(chunkDir, "audio."+requestFormat)
+		if err := writeBinaryAtomic(chunkAudioPath, result.Audio); err != nil {
+			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{
+				"request":       chunkRequest,
+				"chunk":         index + 1,
+				"chunk_count":   len(chunks),
+				"response_path": filepath.ToSlash(responsePath),
+				"phase":         "write_chunk_audio",
+			})
+			return "", err
+		}
+		chunkAudios = append(chunkAudios, result.Audio)
+		totalBase64Chars += result.AudioBase64Chars
+		responses = append(responses, map[string]any{
+			"chunk":              index + 1,
+			"chars":              len([]rune(chunk)),
+			"text_sha256":        textSHA256(chunk),
+			"request_path":       filepath.ToSlash(filepath.Join(chunkDir, "request.json")),
+			"response_path":      filepath.ToSlash(responsePath),
+			"audio_path":         filepath.ToSlash(chunkAudioPath),
+			"audio_bytes":        len(result.Audio),
+			"audio_base64_chars": result.AudioBase64Chars,
+		})
 		logEvent(cfg.Logger, gamelog.Event{
 			Category: "model",
-			Event:    "tts.async.status",
-			Message:  "async turn tts status",
+			Event:    "tts.mimo.chunk.completed",
+			Message:  "mimo turn tts chunk written",
 			Turn:     turnNumber,
 			PacketID: rollout.Commit.PacketID,
 			NodeID:   rollout.Commit.NodeID,
 			Fields: map[string]any{
-				"task_id": create.TaskID,
-				"file_id": status.FileID,
-				"status":  normalized,
-				"run_dir": filepath.ToSlash(runDir),
+				"chunk":       index + 1,
+				"chunk_count": len(chunks),
+				"chars":       len([]rune(chunk)),
+				"audio_bytes": len(result.Audio),
 			},
-			Detail: status,
+			Detail: responses[len(responses)-1],
 		})
-		switch normalized {
-		case "success":
-			goto download
-		case "failed", "expired":
-			err := fmt.Errorf("minimax tts task %d ended with status %s", create.TaskID, normalized)
-			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create, "status_response": status})
-			return "", err
-		case "", "processing":
-		default:
-			// Treat unknown statuses as still in progress, but keep them visible in logs.
-		}
-		select {
-		case <-ttsCtx.Done():
-			err := fmt.Errorf("minimax tts task %d timed out: %w", create.TaskID, ttsCtx.Err())
-			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create, "status_response": status})
-			return "", err
-		case <-time.After(client.PollIntervalOrDefault()):
-		}
 	}
-
-download:
-	fileID := firstNonZeroInt64(finalStatus.FileID, create.FileID)
-	result, err := client.DownloadFile(ttsCtx, fileID)
-	downloadMeta := map[string]any{
-		"task_id":      create.TaskID,
-		"file_id":      fileID,
-		"status_code":  result.StatusCode,
-		"content_type": result.ContentType,
-		"audio_bytes":  len(result.Audio),
-	}
-	if err == nil {
-		if writeErr := writeJSONFileAtomic(filepath.Join(runDir, "download-response.json"), downloadMeta); writeErr != nil {
-			logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, writeErr, map[string]any{"request": request, "create_response": create, "status_response": finalStatus, "download": downloadMeta, "phase": "write_download_metadata"})
-			return "", writeErr
-		}
-	}
-	if err != nil {
-		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create, "status_response": finalStatus, "download": downloadMeta})
+	if err := writeJSONFileAtomic(filepath.Join(runDir, "response.json"), map[string]any{
+		"chunk_count": len(chunks),
+		"chunks":      responses,
+	}); err != nil {
 		return "", err
 	}
-	if err := writeBinaryAtomic(outputPath, result.Audio); err != nil {
-		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "create_response": create, "status_response": finalStatus, "download": downloadMeta, "phase": "write_audio_file"})
+	audio := bytes.Join(chunkAudios, nil)
+	if format == "wav" && requestFormat == "pcm16" {
+		audio = wavFromPCM16(audio, 24000, 1)
+	}
+	if err := writeBinaryAtomic(outputPath, audio); err != nil {
+		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": requestSummary, "response_path": filepath.ToSlash(filepath.Join(runDir, "response.json")), "phase": "write_audio_file"})
 		return "", err
 	}
 	metadata := map[string]any{
-		"task_id":          create.TaskID,
-		"file_id":          fileID,
-		"usage_characters": create.UsageCharacters,
-		"model":            request.Model,
-		"voice":            request.VoiceSetting.VoiceID,
-		"format":           request.AudioSetting.Format,
-		"text_chars":       len([]rune(text)),
-		"text_sha256":      textSHA256(text),
-		"output_path":      filepath.ToSlash(outputPath),
-		"audio_bytes":      len(result.Audio),
-		"created_at":       story.NowString(),
+		"model":              requestSummary["model"],
+		"voice":              requestSummary["voice"],
+		"format":             format,
+		"request_format":     requestFormat,
+		"chunk_count":        len(chunks),
+		"text_chars":         len([]rune(text)),
+		"text_sha256":        textSHA256(text),
+		"output_path":        filepath.ToSlash(outputPath),
+		"audio_bytes":        len(audio),
+		"audio_base64_chars": totalBase64Chars,
+		"response_path":      filepath.ToSlash(filepath.Join(runDir, "response.json")),
+		"created_at":         story.NowString(),
 	}
 	if err := writeJSONFileAtomic(filepath.Join(runDir, "metadata.json"), metadata); err != nil {
-		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": request, "metadata": metadata, "phase": "write_metadata"})
+		logTTSFailure(cfg, rollout, turnNumber, runDir, outputPath, err, map[string]any{"request": requestSummary, "metadata": metadata, "phase": "write_metadata"})
 		return "", err
 	}
 	logEvent(cfg.Logger, gamelog.Event{
 		Category: "model",
-		Event:    "tts.async.downloaded",
-		Message:  "async turn tts audio downloaded",
+		Event:    "tts.mimo.completed",
+		Message:  "mimo turn tts audio written",
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"model":       request.Model,
-			"voice":       request.VoiceSetting.VoiceID,
-			"format":      request.AudioSetting.Format,
-			"task_id":     create.TaskID,
-			"file_id":     fileID,
-			"audio_bytes": len(result.Audio),
+			"model":       requestSummary["model"],
+			"voice":       requestSummary["voice"],
+			"format":      format,
+			"chunk_count": len(chunks),
+			"audio_bytes": len(audio),
 			"output_path": filepath.ToSlash(outputPath),
 			"run_dir":     filepath.ToSlash(runDir),
 		},
 		Detail: map[string]any{
-			"request":         request,
-			"create_response": create,
-			"status_response": finalStatus,
-			"download":        downloadMeta,
-			"metadata":        metadata,
+			"request":       requestSummary,
+			"response_path": filepath.ToSlash(filepath.Join(runDir, "response.json")),
+			"metadata":      metadata,
 		},
 	})
 	return outputPath, nil
@@ -1846,7 +1869,7 @@ func logTTSFailure(cfg playConfig, rollout narrator.Rollout, turnNumber int, run
 	logEvent(cfg.Logger, gamelog.Event{
 		Level:    gamelog.LevelError,
 		Category: "model",
-		Event:    "tts.async.failed",
+		Event:    "tts.mimo.failed",
 		Message:  err.Error(),
 		Turn:     turnNumber,
 		PacketID: rollout.Commit.PacketID,
@@ -1863,27 +1886,161 @@ func normalizeTTSFormat(format string) string {
 	switch strings.ToLower(strings.TrimSpace(format)) {
 	case "", "wav":
 		return "wav"
-	case "mp3":
-		return "mp3"
-	case "flac":
-		return "flac"
+	case "pcm16":
+		return "pcm16"
 	default:
 		return ""
 	}
 }
+
+const defaultTTSChunkChars = 4500
 
 func textSHA256(text string) string {
 	sum := sha256.Sum256([]byte(text))
 	return fmt.Sprintf("%x", sum)
 }
 
-func firstNonZeroInt64(values ...int64) int64 {
-	for _, value := range values {
-		if value != 0 {
-			return value
+func ttsRequestSummary(client ttsclient.Client, text string, chunks []string, outputFormat string, requestFormat string, outputPath string) map[string]any {
+	template := client
+	template.Format = requestFormat
+	request := template.RequestPayload("")
+	chunkSummaries := make([]map[string]any, 0, len(chunks))
+	for index, chunk := range chunks {
+		chunkSummaries = append(chunkSummaries, map[string]any{
+			"chunk":       index + 1,
+			"chars":       len([]rune(chunk)),
+			"text_sha256": textSHA256(chunk),
+		})
+	}
+	return map[string]any{
+		"model":          request.Model,
+		"voice":          request.Audio.Voice,
+		"output_format":  outputFormat,
+		"request_format": requestFormat,
+		"instruction":    client.Instruction,
+		"text_sha256":    textSHA256(text),
+		"text_chars":     len([]rune(text)),
+		"chunk_count":    len(chunks),
+		"chunks":         chunkSummaries,
+		"output_path":    filepath.ToSlash(outputPath),
+		"endpoint":       strings.TrimRight(firstNonEmpty(client.BaseURL, ttsclient.DefaultBaseURL), "/") + "/chat/completions",
+	}
+}
+
+func splitTTSChunks(text string, maxRunes int) []string {
+	text = strings.TrimSpace(text)
+	if text == "" {
+		return nil
+	}
+	if maxRunes <= 0 {
+		maxRunes = defaultTTSChunkChars
+	}
+	if len([]rune(text)) <= maxRunes {
+		return []string{text}
+	}
+	var chunks []string
+	for _, paragraph := range strings.Split(text, "\n\n") {
+		paragraph = strings.TrimSpace(paragraph)
+		if paragraph == "" {
+			continue
+		}
+		if len([]rune(paragraph)) <= maxRunes {
+			chunks = appendTTSChunk(chunks, paragraph, maxRunes)
+			continue
+		}
+		for _, sentence := range splitSentences(paragraph) {
+			chunks = appendTTSChunk(chunks, sentence, maxRunes)
 		}
 	}
-	return 0
+	return chunks
+}
+
+func appendTTSChunk(chunks []string, part string, maxRunes int) []string {
+	part = strings.TrimSpace(part)
+	if part == "" {
+		return chunks
+	}
+	if len([]rune(part)) > maxRunes {
+		var current []rune
+		for _, word := range strings.Fields(part) {
+			wordRunes := []rune(word)
+			if len(current) > 0 && len(current)+1+len(wordRunes) > maxRunes {
+				chunks = appendTTSChunk(chunks, string(current), maxRunes)
+				current = nil
+			}
+			if len(current) > 0 {
+				current = append(current, ' ')
+			}
+			current = append(current, wordRunes...)
+		}
+		if len(current) > 0 {
+			chunks = append(chunks, strings.TrimSpace(string(current)))
+		}
+		return chunks
+	}
+	if len(chunks) == 0 {
+		return append(chunks, part)
+	}
+	last := chunks[len(chunks)-1]
+	sep := "\n\n"
+	if !strings.Contains(part, "\n") && !strings.Contains(last, "\n") {
+		sep = " "
+	}
+	if len([]rune(last))+len([]rune(sep))+len([]rune(part)) <= maxRunes {
+		chunks[len(chunks)-1] = last + sep + part
+		return chunks
+	}
+	return append(chunks, part)
+}
+
+func splitSentences(text string) []string {
+	var out []string
+	start := 0
+	runes := []rune(text)
+	for i, r := range runes {
+		if r != '.' && r != '!' && r != '?' && r != '\n' {
+			continue
+		}
+		if i+1 < len(runes) && runes[i+1] != ' ' && runes[i+1] != '\n' {
+			continue
+		}
+		part := strings.TrimSpace(string(runes[start : i+1]))
+		if part != "" {
+			out = append(out, part)
+		}
+		start = i + 1
+	}
+	if tail := strings.TrimSpace(string(runes[start:])); tail != "" {
+		out = append(out, tail)
+	}
+	return out
+}
+
+func wavFromPCM16(pcm []byte, sampleRate int, channels int) []byte {
+	if sampleRate <= 0 {
+		sampleRate = 24000
+	}
+	if channels <= 0 {
+		channels = 1
+	}
+	byteRate := sampleRate * channels * 2
+	blockAlign := channels * 2
+	buf := bytes.NewBuffer(make([]byte, 0, 44+len(pcm)))
+	buf.WriteString("RIFF")
+	_ = binary.Write(buf, binary.LittleEndian, uint32(36+len(pcm)))
+	buf.WriteString("WAVE")
+	buf.WriteString("fmt ")
+	_ = binary.Write(buf, binary.LittleEndian, uint32(16))
+	_ = binary.Write(buf, binary.LittleEndian, uint16(1))
+	_ = binary.Write(buf, binary.LittleEndian, uint16(channels))
+	_ = binary.Write(buf, binary.LittleEndian, uint32(sampleRate))
+	_ = binary.Write(buf, binary.LittleEndian, uint32(byteRate))
+	_ = binary.Write(buf, binary.LittleEndian, uint16(blockAlign))
+	_ = binary.Write(buf, binary.LittleEndian, uint16(16))
+	buf.WriteString("data")
+	_ = binary.Write(buf, binary.LittleEndian, uint32(len(pcm)))
+	buf.Write(pcm)
+	return buf.Bytes()
 }
 
 func currentStoryTurnNumber(state *story.StoryState, loopTurn int) int {
@@ -2660,12 +2817,12 @@ func playTTSConfigFromFlags(enabled bool, baseURL string, model string, voice st
 	return playTTSConfig{
 		Enabled:     enabled,
 		BaseURL:     firstNonEmpty(baseURL, ttsclient.DefaultBaseURL),
-		Model:       firstNonEmpty(model, ttsclient.DefaultAsyncModel),
-		Voice:       firstNonEmpty(voice, ttsclient.DefaultVoiceID),
+		Model:       firstNonEmpty(model, ttsclient.DefaultModel),
+		Voice:       firstNonEmpty(voice, ttsclient.DefaultVoice),
 		Format:      firstNonEmpty(format, ttsclient.DefaultAudioFormat),
-		Instruction: firstNonEmpty(instruction, ttsclient.DefaultLegacyPrompt),
+		Instruction: firstNonEmpty(instruction, ttsclient.DefaultNarratorInstruction),
 		OutputDir:   outputDir,
-		Timeout:     time.Duration(envInt("SANS_NOM_TTS_TIMEOUT_MS", int(ttsclient.DefaultAsyncTimeout/time.Millisecond))) * time.Millisecond,
+		Timeout:     time.Duration(envInt("SANS_NOM_TTS_TIMEOUT_MS", int(ttsclient.DefaultTimeout/time.Millisecond))) * time.Millisecond,
 	}
 }
 
