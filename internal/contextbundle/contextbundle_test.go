@@ -173,6 +173,21 @@ func TestMissingExplicitActorCardFails(t *testing.T) {
 	}
 }
 
+func TestMissingExplicitActorCardCanBeSkipped(t *testing.T) {
+	assembler := testAssembler(staticCards{})
+	assembler.Options.SkipMissingActorCards = true
+	ctx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{Packet: testPacket()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(ctx.ActorContexts) != 0 {
+		t.Fatalf("actor contexts = %#v", ctx.ActorContexts)
+	}
+	if !containsSubstring(ctx.Warnings, `actor "tonto" skipped`) {
+		t.Fatalf("missing skip warning: %#v", ctx.Warnings)
+	}
+}
+
 func TestActorRepresentationsKeepPlayerAndCapTargets(t *testing.T) {
 	packet := testPacket()
 	packet.Nodes[0].ActorNeeds[0].Targets = []string{"steelhead__late", "aghora", "lothar"}
@@ -466,6 +481,15 @@ func loreIDs(hits []LoreHit) []string {
 func hasWarning(warnings []string, want string) bool {
 	for _, warning := range warnings {
 		if warning == want {
+			return true
+		}
+	}
+	return false
+}
+
+func containsSubstring(values []string, want string) bool {
+	for _, value := range values {
+		if strings.Contains(value, want) {
 			return true
 		}
 	}

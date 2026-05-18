@@ -88,6 +88,7 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"node_future_*",
 		"terminal node with no choices and revision_notes",
 		"cause, daily practice, human cost, and visible consequence",
+		"Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST",
 		"Use ask_scenarist for sparks",
 		"Ask one clear advisory question",
 		"dependent follow-up with that path in relevant_paths",

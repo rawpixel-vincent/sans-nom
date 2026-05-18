@@ -107,11 +107,12 @@ func NeedsForNode(node scene.SceneNode) ([]scene.ActorNeed, error) {
 }
 
 type Service struct {
-	Registry *Registry
-	Invoker  Invoker
-	Logger   *gamelog.Writer
-	PacketID string
-	Turn     int
+	Registry          *Registry
+	Invoker           Invoker
+	Logger            *gamelog.Writer
+	PacketID          string
+	Turn              int
+	SkipMissingActors bool
 }
 
 func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, context string) ([]Output, error) {
@@ -131,6 +132,29 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 	for i, need := range needs {
 		actor, ok := s.Registry.Actor(need.ActorID)
 		if !ok {
+			if s.SkipMissingActors {
+				s.logActorEvent(gamelog.Event{
+					Level:    gamelog.LevelWarn,
+					Category: "actor",
+					Event:    "actor.invoke.skipped",
+					Message:  fmt.Sprintf("actor %q skipped: no local card", need.ActorID),
+					Turn:     s.Turn,
+					PacketID: s.PacketID,
+					NodeID:   node.ID,
+					Fields: map[string]any{
+						"actor_id": need.ActorID,
+						"mode":     need.Mode,
+						"reason":   need.Reason,
+					},
+					Detail: map[string]any{
+						"actor_id": need.ActorID,
+						"node_id":  node.ID,
+						"need":     need,
+						"reason":   "missing local actor card",
+					},
+				})
+				continue
+			}
 			return nil, fmt.Errorf("actor %q not found", need.ActorID)
 		}
 		wg.Add(1)
@@ -220,7 +244,18 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 			return nil, err
 		}
 	}
-	return outputs, nil
+	return compactActorOutputs(outputs), nil
+}
+
+func compactActorOutputs(outputs []Output) []Output {
+	out := outputs[:0]
+	for _, output := range outputs {
+		if strings.TrimSpace(output.ActorID) == "" {
+			continue
+		}
+		out = append(out, output)
+	}
+	return out
 }
 
 func (s Service) logActorEvent(event gamelog.Event) {

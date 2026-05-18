@@ -17,6 +17,7 @@ const (
 
 	StatusActive               = "active"
 	StatusAwaitingPlayerChoice = "awaiting_player_choice"
+	StatusAwaitingContinuation = "awaiting_writer_continuation"
 	StatusBlockedWriterRefresh = "blocked_writer_refresh"
 )
 

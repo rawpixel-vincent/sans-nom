@@ -77,6 +77,45 @@ func TestServiceInvokesExplicitActors(t *testing.T) {
 	}
 }
 
+func TestServiceSkipsMissingActorsWhenConfigured(t *testing.T) {
+	reg, err := NewRegistry([]Actor{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	dir := t.TempDir()
+	svc := Service{
+		Registry:          reg,
+		Invoker:           StaticInvoker{},
+		Logger:            gamelog.NewWriter(dir, "story-1"),
+		PacketID:          "packet-1",
+		Turn:              4,
+		SkipMissingActors: true,
+	}
+	node := scene.SceneNode{
+		ID:    "start",
+		Beats: []scene.Beat{{Text: "A beat."}},
+		ActorNeeds: []scene.ActorNeed{{
+			ActorID: "missing",
+			Mode:    scene.ActorModePresent,
+			Reason:  "writer requested an actor before cards exist",
+		}},
+	}
+	outputs, err := svc.InvokeForNode(context.Background(), node, "actor context")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(outputs) != 0 {
+		t.Fatalf("outputs = %#v", outputs)
+	}
+	events, err := gamelog.Read(filepath.Join(dir, "logs", "events.jsonl"), gamelog.Filter{Category: "actor"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 || events[0].Event != "actor.invoke.skipped" || events[0].Fields["actor_id"] != "missing" {
+		t.Fatalf("unexpected actor skip logs: %#v", events)
+	}
+}
+
 func TestServiceLogsActorInvocation(t *testing.T) {
 	reg, err := NewRegistry([]Actor{{ID: "tonto", DisplayName: "Tonto", Card: "TRAIT: witness"}})
 	if err != nil {

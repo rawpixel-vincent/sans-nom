@@ -42,6 +42,7 @@ type Options struct {
 	WriterSoftCap          int
 	RequireBridge          bool
 	RequireLore            bool
+	SkipMissingActorCards  bool
 }
 
 type BuildRequest struct {

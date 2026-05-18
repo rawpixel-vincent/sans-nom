@@ -1591,10 +1591,18 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			fmt.Println("\nNo choices available; play loop stopped.")
 			break
 		}
+		terminalHandoff := len(rollout.Node.Choices) == 0 && cfg.RefreshWrite
+		if terminalHandoff && cfg.Turns <= 0 {
+			fmt.Println("\nNo choices in this handoff. Press Enter to continue, or type a direction for Writer.")
+		}
 		nextDecision := automatedDecision(rollout.Node)
 		rawInput := ""
 		if cfg.Turns <= 0 {
-			fmt.Print("\nchoice id or free text> ")
+			if terminalHandoff {
+				fmt.Print("\ncontinuation> ")
+			} else {
+				fmt.Print("\nchoice id or free text> ")
+			}
 			line, readErr := reader.ReadString('\n')
 			if readErr != nil && strings.TrimSpace(line) == "" {
 				fmt.Println("\nInput closed; play loop stopped.")
@@ -1826,7 +1834,7 @@ func recoveredAudioPath(workspace *story.Workspace, turn int) string {
 }
 
 func loadPendingDisplayedRollout(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, loopTurn int) (narrator.Rollout, story.TurnRecord, bool, error) {
-	if cfg.Workspace == nil || state == nil || state.Status != story.StatusAwaitingPlayerChoice || !story.PlayerDecisionEmpty(decision) {
+	if cfg.Workspace == nil || state == nil || !isAwaitingTurnInputStatus(state.Status) || !story.PlayerDecisionEmpty(decision) {
 		return narrator.Rollout{}, story.TurnRecord{}, false, nil
 	}
 	record, err := cfg.Workspace.LoadPendingTurn(*state)
@@ -1861,10 +1869,15 @@ func loadPendingDisplayedRollout(cfg playConfig, state *story.StoryState, packet
 	return rollout, record, true, nil
 }
 
+func isAwaitingTurnInputStatus(status string) bool {
+	return status == story.StatusAwaitingPlayerChoice || status == story.StatusAwaitingContinuation
+}
+
 func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, committed bool, audioPath string, loopTurn int) error {
 	if cfg.Workspace == nil || state == nil {
 		return nil
 	}
+	awaitingContinuation := len(rollout.Node.Choices) == 0 && len(rollout.Node.RevisionNotes) > 0
 	record := story.TurnRecord{
 		Turn:      currentStoryTurnNumber(state, loopTurn),
 		StoryID:   state.StoryID,
@@ -1886,6 +1899,13 @@ func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet sc
 	state.CurrentPacketPath = filepath.ToSlash(filepath.Join("packets", packet.ID+".json"))
 	state.CurrentNodeID = rollout.Commit.NodeID
 	state.Status = story.StatusAwaitingPlayerChoice
+	eventName := "story.turn.awaiting_choice_saved"
+	message := "displayed turn saved before player choice"
+	if awaitingContinuation {
+		state.Status = story.StatusAwaitingContinuation
+		eventName = "story.turn.awaiting_continuation_saved"
+		message = "displayed terminal handoff saved before Writer continuation"
+	}
 	state.LastDecision = rollout.Commit.PlayerDecision
 	state.LastNarratorProse = rollout.Draft.Prose
 	state.PendingTurnPath = rel
@@ -1894,16 +1914,17 @@ func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet sc
 	}
 	logEvent(cfg.Logger, gamelog.Event{
 		Category: "memory",
-		Event:    "story.turn.awaiting_choice_saved",
-		Message:  "displayed turn saved before player choice",
+		Event:    eventName,
+		Message:  message,
 		Turn:     record.Turn,
 		PacketID: record.PacketID,
 		NodeID:   record.NodeID,
 		Fields: map[string]any{
-			"pending_turn_path": rel,
-			"choice_count":      len(record.Choices),
-			"committed":         committed,
-			"audio_path":        record.AudioPath,
+			"pending_turn_path":            rel,
+			"choice_count":                 len(record.Choices),
+			"requires_writer_continuation": awaitingContinuation,
+			"committed":                    committed,
+			"audio_path":                   record.AudioPath,
 		},
 		Detail: map[string]any{
 			"turn_record": record,
@@ -1918,6 +1939,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		return narrator.Rollout{}, err
 	}
 	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
+	assembler.Options.SkipMissingActorCards = true
 	narratorContext, err := assembler.AssembleNarrator(ctx, contextbundle.BuildRequest{
 		Packet:   packet,
 		NodeID:   nodeID,
@@ -1940,7 +1962,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
 	}
 	return narrator.Service{
-		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger},
+		Actors:   &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
 		Renderer: renderer,
 		Logger:   cfg.Logger,
 		Turn:     turn,

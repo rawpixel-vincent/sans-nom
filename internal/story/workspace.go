@@ -297,7 +297,7 @@ func (w Workspace) RecordTurn(state StoryState, packet scene.StoryPacket, record
 	state.LastDecision = record.Decision
 	state.LastNarratorProse = record.Prose
 	state.PendingTurnPath = ""
-	if state.Status == StatusAwaitingPlayerChoice {
+	if state.Status == StatusAwaitingPlayerChoice || state.Status == StatusAwaitingContinuation {
 		state.Status = StatusActive
 	}
 	if state.Status != StatusBlockedWriterRefresh &&

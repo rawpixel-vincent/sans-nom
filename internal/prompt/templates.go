@@ -26,6 +26,7 @@ Packet contract:
 - For future handoff, use a terminal node with no choices and revision_notes; do not use missing placeholder targets such as "node_future_*", "continue", or "writer_continuation".
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
+- Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST; if no matching actor card exists, keep actor_needs empty and express the character/object behavior as beats.
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:

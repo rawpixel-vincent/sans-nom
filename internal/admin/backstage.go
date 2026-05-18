@@ -108,6 +108,8 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "mention", "pending", "@"+firstNonEmpty(stringFromFields(event, "actor_id"), "Actor")+" "+firstNonEmpty(stringField(detail, "prompt"), event.Message))}
 	case "actor.invoke.completed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "response", "completed", firstNonEmpty(marshalPretty(detail["output"]), event.Message))}
+	case "actor.invoke.skipped":
+		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "status", "skipped", firstNonEmpty(stringField(detail, "reason"), event.Message))}
 	case "actor.invoke.failed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "error", "failed", errorText(event, detail))}
 	case "scenarist.ask.started":

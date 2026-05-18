@@ -680,6 +680,93 @@ func TestRunPlaySavesDisplayedTurnBeforeInputAndResumesChoicePrompt(t *testing.T
 	}
 }
 
+func TestRunPlayMarksTerminalRunwayNodeAwaitingContinuation(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("awaiting-continuation")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "awaiting-continuation",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	bible := bundle.Bible
+	originalStdin := pipeStdin(t, "")
+	err = runPlay(context.Background(), playConfig{
+		Packet:               bundle.Packet,
+		NodeID:               "opened",
+		InitialDecision:      scene.PlayerDecision{ChoiceID: "pay"},
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         true,
+		Commit:               false,
+		WriterScenaristCalls: 0,
+	})
+	os.Stdin = originalStdin
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "awaiting-continuation")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.Status != story.StatusAwaitingContinuation {
+		t.Fatalf("status = %q", loaded.Status)
+	}
+	pending, err := workspace.LoadPendingTurn(loaded)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if pending.NodeID != "opened" || len(pending.Choices) != 0 {
+		t.Fatalf("pending turn = %#v", pending)
+	}
+
+	planner := &countingPlanner{next: scene.StoryPacket{
+		ID:          "packet-next",
+		EntryNodeID: "next",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID: "awaiting-continuation",
+			SessionID:   "main",
+		},
+		Nodes: []scene.SceneNode{{
+			ID:      "next",
+			Title:   "Next",
+			Beats:   []scene.Beat{{Text: "The next packet begins."}},
+			Choices: []scene.Choice{},
+		}},
+	}}
+	resumeStdin := pipeStdin(t, "\n")
+	err = runPlay(context.Background(), playConfig{
+		Packet:               bundle.Packet,
+		NodeID:               loaded.CurrentNodeID,
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &loaded,
+		Bible:                &bible,
+		RefreshWrite:         true,
+		Commit:               false,
+		WriterScenaristCalls: 0,
+		WriterPlanner:        planner,
+	})
+	os.Stdin = resumeStdin
+	if err != nil {
+		t.Fatal(err)
+	}
+	if planner.calls != 1 {
+		t.Fatalf("writer refresh calls = %d, want 1", planner.calls)
+	}
+	turns, err := workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) == 0 || turns[0].NodeID != "opened" || turns[0].NextDecision.FreeText != "wait" {
+		t.Fatalf("terminal turn was not continued correctly: %#v", turns)
+	}
+}
+
 func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("hard-fail")

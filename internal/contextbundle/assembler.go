@@ -176,6 +176,7 @@ func (a Assembler) options() Options {
 	copyPositiveInt(&opts.WriterSoftCap, a.Options.WriterSoftCap)
 	opts.RequireBridge = a.Options.RequireBridge
 	opts.RequireLore = a.Options.RequireLore
+	opts.SkipMissingActorCards = a.Options.SkipMissingActorCards
 	return opts
 }
 
@@ -314,6 +315,10 @@ func (a Assembler) actorContexts(
 	for _, need := range needs {
 		card, cardWarnings, err := a.actorCard(ctx, packet.ContextSnapshot.WorkspaceID, need.ActorID, opts)
 		if err != nil {
+			if opts.SkipMissingActorCards {
+				warnings = append(warnings, fmt.Sprintf("actor %q skipped: no Honcho or local card", need.ActorID))
+				continue
+			}
 			return nil, nil, err
 		}
 		warnings = append(warnings, cardWarnings...)
