@@ -245,7 +245,7 @@ func (r *ToolRunner) validateRequest(request ToolRequest) error {
 
 func allowedPurpose(value string) bool {
 	switch value {
-	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "suspension_check", "tone_pattern", "anti_copy_check", "general_influence":
+	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "plausibility_check", "tone_pattern", "anti_copy_check", "general_influence":
 		return true
 	default:
 		return false
@@ -274,6 +274,7 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	fmt.Fprintf(&b, "You are not writing generated story canon, final prose, StoryBible doctrine, StoryPacket nodes, character cards, or direct equivalents.\n")
 	fmt.Fprintf(&b, "Every answer must clearly say it is influence-only inspiration, not canon for the generated story.\n\n")
 	fmt.Fprintf(&b, "When discussing laws or doctrines, describe source patterns as consequence systems, initiation rules, taboos, oaths, inheritance pressures, refusal points, and social enforcement.\n")
+	fmt.Fprintf(&b, "Translate concrete source imagery into portable craft lessons before answering; focus on mechanisms rather than repeating scenery.\n")
 	fmt.Fprintf(&b, "Frame binding doctrines through the protagonist's lived social order, such as a family, guild, dynasty, sect, profession, city office, or rite.\n\n")
 	fmt.Fprintf(&b, "Ground-lore pack:\n- id: %s\n- label: %s\n- collection: %s\n", request.PackID, r.packLabel(), r.Collection)
 	if strings.TrimSpace(r.PackDescription) != "" {
@@ -317,7 +318,7 @@ Return Markdown with exactly these sections:
 ## Source pattern
 ## Why it works
 ## How to transform it originally
-## Suspension-of-disbelief risks
+## Reader-plausibility risks
 ## Do not copy
 ## Useful source refs
 
@@ -479,7 +480,10 @@ func toolSchema() map[string]any {
 				"enum": []string{
 					"source_pattern",
 					"source_ref_check",
+					"law_mechanism",
+					"character_pressure",
 					"relationship_matrix",
+					"plausibility_check",
 					"tone_pattern",
 					"anti_copy_check",
 					"general_influence",

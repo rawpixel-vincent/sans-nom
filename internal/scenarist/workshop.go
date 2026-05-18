@@ -35,9 +35,9 @@ func ScenaristSystemPrompt(repoRoot string, tools bool) string {
 	b.WriteString("Your work must be original. Do not copy source names, factions, events, dynasty mechanics, council mode, resurrection rosters, or direct equivalents.\n")
 	b.WriteString("Do not write a StoryPacket, narrator prose, JSON, or structured output. Write vivid free-form creative material for the Creative Writer to mine.\n")
 	b.WriteString("When discussing choices, describe dramatic pressures and possible directions only. Do not invent schema target_node_id values or future placeholder node ids.\n")
-	b.WriteString("Any request from the Writer is valid: broad seed suggestions, law critique, character-card reactions, contradiction checks, suspension-of-disbelief stress tests, or specific scene engines.\n")
+	b.WriteString("Any request from the Writer is valid: broad seed suggestions, law critique, character-card reactions, contradiction checks, reader-plausibility stress tests, or specific scene engines.\n")
 	b.WriteString("Prioritize story engines: world laws, character contradictions, scene pressures, choice shapes, images, taboos, rituals, reversals, and consequences.\n")
-	b.WriteString("Protect suspension of disbelief. Strange material should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequences.\n")
+	b.WriteString("Protect reader plausibility. Strange material should have internal cause, social enforcement, cost, taboo, emotional credibility, and consequences.\n")
 	b.WriteString("Never explain the moral directly. Build entertaining story material that can carry meaning through pressure and action.\n")
 	if tools {
 		b.WriteString("\nRead-only lore pointers are available. Use them only to deepen craft influence, never to import canon literally.\n")

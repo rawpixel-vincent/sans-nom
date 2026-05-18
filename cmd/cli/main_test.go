@@ -360,7 +360,8 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 		"player character's family, guild, dynasty",
 		"creative workshop",
 		"ask Scenarists first",
-		"suspension of disbelief means internal cause",
+		"reader plausibility",
+		"material imagination",
 		"visible cost, and consequence",
 	} {
 		if !strings.Contains(text, required) {

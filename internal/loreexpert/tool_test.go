@@ -36,7 +36,7 @@ The world reacts before the plot explains.
 ## How to transform it originally
 Invent a new practice with a new cost.
 
-## Suspension-of-disbelief risks
+## Reader-plausibility risks
 Do not make the law arbitrary.
 
 ## Do not copy
@@ -117,7 +117,7 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 		t.Fatalf("answer path missing: %v", err)
 	}
 	if !strings.Contains(runner.prompt, "## Influence-only answer") ||
-		!strings.Contains(runner.prompt, "Suspension-of-disbelief risks") ||
+		!strings.Contains(runner.prompt, "Reader-plausibility risks") ||
 		!strings.Contains(runner.prompt, "consequence systems, initiation rules, taboos") ||
 		!strings.Contains(runner.prompt, "protagonist's lived social order") {
 		t.Fatalf("prompt missing required answer contract:\n%s", runner.prompt)

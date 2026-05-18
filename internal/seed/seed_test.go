@@ -65,7 +65,9 @@ func TestContextTextForbidsPlaceholderContinuationTargets(t *testing.T) {
 		"placeholder continuation choice",
 		"original binding doctrine",
 		"player character's world",
-		"social cause, emotional credibility, visible cost, and consequence",
+		"Reader plausibility",
+		"social practice, emotional credibility, visible cost, and consequence",
+		"Material imagination",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)

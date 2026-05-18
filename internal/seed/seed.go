@@ -446,7 +446,8 @@ Do not use source canon names, places, factions, dynastic events, council mechan
 Return a durable StoryBible plus the first bounded StoryPacket. The StoryBible is binding doctrine for this generated story, separate from source-lore influence.
 The StoryBible must contain at least one original binding doctrine inspired by deep source structures from the selected pack: profound, binding, not merely cruel, and enforced by the player character's lived social order.
 The binding doctrine belongs to the player character's world: a family, guild, dynasty, sect, profession, city office, rite, or other local order.
-Suspension of disbelief means internal plausibility, social cause, emotional credibility, visible cost, and consequence.
+Reader plausibility means internal cause, social practice, emotional credibility, visible cost, and consequence.
+Material imagination should arise from the story premise: ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
 The first entry node must be richer than later nodes. It should give the Narrator enough structure for a long classic opening: world, player identity, player-world connection, active taboo/law, immediate pressure, and choices.
 For this first seed, do not add actor_needs yet; original actor peer cards will come later. Characters may be present in beats and choices as new story material, but no actor agent should be invoked.
 Opening aim: give the player a concrete strange place, one emotional/mechanical taboo, one irreversible pressure point, and 2-4 choices that can branch the current bounded packet.
@@ -475,7 +476,7 @@ func DefaultBible() story.StoryBible {
 		},
 		PlayerWorldConnection: "Ila's family line maintained the old pressure locks, so the city treats her body as a civic instrument whenever those locks wake.",
 		WorldBasics: []string{
-			"Glasswell is a suspended sea-city built around transparent tide shafts, public debt shrines, and machinery that treats memory as legal evidence.",
+			"Glasswell is a brine-glass lock-city built around transparent tide shafts, public debt shrines, and machinery that treats memory as legal evidence.",
 			"House debts are embodied; a function, limb, skill, or memory can be claimed when a family fails a civic rite.",
 			"Public witnesses matter more than private truth, so law in Glasswell is performed before crowds and machines.",
 		},

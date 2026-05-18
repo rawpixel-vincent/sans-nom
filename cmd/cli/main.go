@@ -1000,9 +1000,10 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	}
 	b.WriteString("- influence style: operatic science-fantasy comics; body, law, taboo, witness memory, social enforcement, philosophical violence, spectacle, family/function/refusal pressure, and credible consequence inside the protagonist's lived order.\n")
 	b.WriteString("- binding doctrine: create an original deep rule for the player character's family, guild, dynasty, sect, profession, city office, rite, or local social world.\n")
-	b.WriteString("- plausibility boundary: suspension of disbelief means internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
+	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
+	b.WriteString("- material imagination: choose the story's dominant physical condition from its own premise, such as ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
-	b.WriteString("- creative workshop: use call_scenarists as the preferred room for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and suspension-of-disbelief criticism.\n")
+	b.WriteString("- creative workshop: use call_scenarists as the preferred room for brainstorming, suggestions, critique, story seed risks, doctrine stress tests, character contradictions, scene engines, choice pressure, and reader-plausibility criticism.\n")
 	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete influence patterns from the selected lore pack, such as source-pattern analysis, tone lineage, relationship pressure, or anti-copy checks.\n")
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
 	b.WriteString("- no raw source lore is injected here; concrete source analysis comes through cached ask_lore_expert calls when needed.\n")

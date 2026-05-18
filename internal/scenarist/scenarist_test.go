@@ -237,7 +237,7 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		CallerRole:  "writer",
 		CallerName:  "Writer",
 	}).LocalTool()
-	args := `{"requests":[{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for suspension of disbelief.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
+	args := `{"requests":[{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["lore/packs/metabarons/wiki/lore.md"]}]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}

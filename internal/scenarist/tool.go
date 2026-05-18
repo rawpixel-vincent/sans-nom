@@ -37,7 +37,7 @@ func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	}
 	return codexoauth.LocalTool{
 		Name:        "call_scenarists",
-		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or suspension-of-disbelief checks. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
+		Description: fmt.Sprintf("Preferred creative workshop tool. Ask up to %d Scenarist agents first when exploring what the generated story could become: brainstorming, suggestions, critique, story seed ideas, doctrine stress tests, character contradictions, scene engines, choice pressure, or reader-plausibility checks. Outputs are free-form Markdown planning files and returned as paths; the Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.", maxParallel),
 		Parameters:  scenaristToolSchema(maxParallel),
 		Handler:     r.Handle,
 	}
