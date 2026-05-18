@@ -210,6 +210,59 @@ func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageShowsScenaristProviderToolCalls(t *testing.T) {
+	root := t.TempDir()
+	global := gamelog.NewGlobalWriter(root)
+	if err := global.Append(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.provider.tool_use",
+		Message:  "@Read data/seed-runs/example/output.md",
+		Fields: map[string]any{
+			"tool_name": "Read",
+			"target":    "data/seed-runs/example/output.md",
+		},
+		Detail: map[string]any{
+			"tool_name":   "Read",
+			"tool_use_id": "toolu_1",
+			"input":       map[string]any{"file_path": "data/seed-runs/example/output.md"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := global.Append(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.provider.tool_result",
+		Message:  "Read result for data/seed-runs/example/output.md\n\nworkshop material",
+		Fields: map[string]any{
+			"tool_name": "Read",
+			"target":    "data/seed-runs/example/output.md",
+		},
+		Detail: map[string]any{
+			"tool_name": "Read",
+			"input":     map[string]any{"file_path": "data/seed-runs/example/output.md"},
+			"result":    map[string]any{"content": "workshop material"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "Scenarist" || resp.Messages[0].Kind != "tool_request" || !strings.Contains(resp.Messages[0].Text, "@Read data/seed-runs/example/output.md") {
+		t.Fatalf("unexpected tool request message: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "Read" || resp.Messages[1].Kind != "tool_response" || !strings.Contains(resp.Messages[1].Text, "workshop material") {
+		t.Fatalf("unexpected tool result message: %#v", resp.Messages[1])
+	}
+}
+
 func TestAdminBackstageShowsActorInvocationPrompt(t *testing.T) {
 	root := t.TempDir()
 	ws, state := createAdminStory(t, root)

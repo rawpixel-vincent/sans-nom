@@ -198,6 +198,37 @@ func TestProviderPoolWaitsWhenProviderBusy(t *testing.T) {
 	}
 }
 
+func TestClaudeStreamParserLogsReadToolUseAndResult(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	parser := newClaudeStreamParser(ProviderRunner{Provider: "ZAI", Model: "glm-4.7", Logger: logger})
+	parser.consume(`{"type":"assistant","message":{"content":[{"type":"tool_use","id":"toolu_1","name":"Read","input":{"file_path":"data/seed-runs/example/output.md"}}]}}`)
+	parser.consume(`{"type":"user","message":{"content":[{"type":"tool_result","tool_use_id":"toolu_1","content":"workshop material body"}]}}`)
+	parser.consume(`{"type":"result","result":"final scenarist material"}`)
+	if got := parser.result(); got != "final scenarist material" {
+		t.Fatalf("stream result = %q", got)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "scenarist"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 2 {
+		t.Fatalf("expected tool use/result events, got %#v", events)
+	}
+	if events[0].Event != "scenarist.provider.tool_use" || events[0].Fields["tool_name"] != "Read" || events[0].Fields["target"] != "data/seed-runs/example/output.md" {
+		t.Fatalf("unexpected tool use event: %#v", events[0])
+	}
+	if events[1].Event != "scenarist.provider.tool_result" || !strings.Contains(events[1].Message, "workshop material body") {
+		t.Fatalf("unexpected tool result event: %#v", events[1])
+	}
+	detail, err := logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(mustJSON(t, detail)), "toolu_1") {
+		t.Fatalf("tool detail missing raw id: %#v", detail)
+	}
+}
+
 func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	outputDir := t.TempDir()
 	tool := (&ToolRunner{

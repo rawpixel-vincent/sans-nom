@@ -3161,6 +3161,7 @@ func scenaristProviderRunners(cfg playConfig) []scenarist.ProviderRunner {
 			Tools:    cfg.ScenaristTools,
 			AddDirs:  scenaristAddDirs(cfg),
 			Timeout:  15 * time.Minute,
+			Logger:   cfg.Logger,
 		})
 	}
 	return runners

@@ -113,6 +113,10 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return b.scenaristResponses(event, detail)
 	case "scenarist.call.failed", "scenarist.call.rejected":
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "error", "failed", errorText(event, detail))}
+	case "scenarist.provider.tool_use":
+		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
+	case "scenarist.provider.tool_result":
+		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
 	case "lore.expert.request":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@LoreExpert "+firstNonEmpty(nestedString(detail, "request", "question"), stringField(detail, "prompt"), event.Message))}
@@ -315,6 +319,41 @@ func scenaristRequestText(detail map[string]any) string {
 
 func errorText(event gamelog.Event, detail map[string]any) string {
 	return firstNonEmpty(stringField(detail, "error"), stringField(detail, "validation_error"), event.Message, event.Event)
+}
+
+func providerToolUseText(event gamelog.Event, detail map[string]any) string {
+	name := firstNonEmpty(stringFromFields(event, "tool_name"), stringField(detail, "tool_name"), "Tool")
+	target := firstNonEmpty(stringFromFields(event, "target"), providerToolTargetFromDetail(detail))
+	if target == "" {
+		return "@" + name
+	}
+	return "@" + name + " " + target
+}
+
+func providerToolResultText(event gamelog.Event, detail map[string]any) string {
+	name := firstNonEmpty(stringFromFields(event, "tool_name"), stringField(detail, "tool_name"), "Tool")
+	target := firstNonEmpty(stringFromFields(event, "target"), providerToolTargetFromDetail(detail))
+	content := firstNonEmpty(nestedString(detail, "result", "content"), event.Message)
+	if target != "" && content != "" {
+		return name + " result for " + target + "\n\n" + content
+	}
+	if content != "" {
+		return name + " result\n\n" + content
+	}
+	if target != "" {
+		return name + " result for " + target
+	}
+	return name + " result"
+}
+
+func providerToolTargetFromDetail(detail map[string]any) string {
+	input, _ := detail["input"].(map[string]any)
+	for _, key := range []string{"file_path", "path", "glob", "pattern", "query"} {
+		if value, ok := input[key].(string); ok && strings.TrimSpace(value) != "" {
+			return strings.TrimSpace(value)
+		}
+	}
+	return ""
 }
 
 func artifactPaths(root string, event gamelog.Event) []string {

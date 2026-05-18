@@ -4,8 +4,10 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -13,6 +15,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 )
 
 type ProviderRunner struct {
@@ -23,6 +27,7 @@ type ProviderRunner struct {
 	Tools    bool
 	AddDirs  []string
 	Timeout  time.Duration
+	Logger   *gamelog.Writer
 }
 
 type ProviderPoolRunner struct {
@@ -113,16 +118,11 @@ func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, q
 	}
 	ctx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
+	if r.Tools {
+		return r.runStreamScenarist(ctx, model, systemPrompt, query)
+	}
 
 	args := []string{"--bare", "--model", model, "--system-prompt", systemPrompt, "-p", query}
-	if r.Tools {
-		args = append(args, "--permission-mode", "dontAsk", "--tools", "Read,LS,Grep")
-		for _, dir := range r.AddDirs {
-			if strings.TrimSpace(dir) != "" {
-				args = append(args, "--add-dir", dir)
-			}
-		}
-	}
 	cmd := exec.CommandContext(ctx, "claude", args...)
 	cmd.Env = env
 	if r.WorkDir != "" {
@@ -139,6 +139,296 @@ func (r ProviderRunner) RunScenarist(ctx context.Context, systemPrompt string, q
 		return "", fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), err)
 	}
 	return strings.TrimSpace(stdout.String()), nil
+}
+
+func (r ProviderRunner) runStreamScenarist(ctx context.Context, model string, systemPrompt string, query string) (string, error) {
+	env, _, err := ProviderEnv(r.Provider, model, r.EnvFiles, os.Environ())
+	if err != nil {
+		return "", err
+	}
+	r.Model = model
+	args := []string{"--bare", "--model", model, "--system-prompt", systemPrompt, "--output-format", "stream-json", "--verbose", "-p", query, "--permission-mode", "dontAsk", "--tools", "Read,LS,Grep"}
+	for _, dir := range r.AddDirs {
+		if strings.TrimSpace(dir) != "" {
+			args = append(args, "--add-dir", dir)
+		}
+	}
+	cmd := exec.CommandContext(ctx, "claude", args...)
+	cmd.Env = env
+	if r.WorkDir != "" {
+		cmd.Dir = r.WorkDir
+	}
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		return "", err
+	}
+	stderr, err := cmd.StderrPipe()
+	if err != nil {
+		return "", err
+	}
+	if err := cmd.Start(); err != nil {
+		return "", err
+	}
+	var stderrBuf bytes.Buffer
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		_, _ = io.Copy(&stderrBuf, stderr)
+	}()
+	parser := newClaudeStreamParser(r)
+	scanner := bufio.NewScanner(stdout)
+	scanner.Buffer(make([]byte, 64*1024), 64*1024*1024)
+	for scanner.Scan() {
+		parser.consume(scanner.Text())
+	}
+	scanErr := scanner.Err()
+	waitErr := cmd.Wait()
+	wg.Wait()
+	if scanErr != nil {
+		return "", fmt.Errorf("scenarist provider %s stream: %w", strings.ToUpper(r.Provider), scanErr)
+	}
+	if waitErr != nil {
+		errMsg := strings.TrimSpace(stderrBuf.String())
+		if errMsg != "" {
+			return "", fmt.Errorf("scenarist provider %s: %s: %w", strings.ToUpper(r.Provider), errMsg, waitErr)
+		}
+		return "", fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), waitErr)
+	}
+	return strings.TrimSpace(parser.result()), nil
+}
+
+type claudeStreamParser struct {
+	runner     ProviderRunner
+	toolNames  map[string]string
+	toolInput  map[string]map[string]any
+	resultText string
+	textParts  []string
+}
+
+func newClaudeStreamParser(runner ProviderRunner) *claudeStreamParser {
+	return &claudeStreamParser{
+		runner:    runner,
+		toolNames: map[string]string{},
+		toolInput: map[string]map[string]any{},
+	}
+}
+
+func (p *claudeStreamParser) consume(line string) {
+	line = strings.TrimSpace(line)
+	if line == "" {
+		return
+	}
+	var event map[string]any
+	if err := json.Unmarshal([]byte(line), &event); err != nil {
+		return
+	}
+	switch stringAny(event["type"]) {
+	case "result":
+		p.resultText = stringAny(event["result"])
+	case "assistant", "user":
+		p.consumeMessage(event)
+	}
+}
+
+func (p *claudeStreamParser) consumeMessage(event map[string]any) {
+	message, _ := event["message"].(map[string]any)
+	for _, raw := range contentBlocks(message["content"]) {
+		block, ok := raw.(map[string]any)
+		if !ok {
+			continue
+		}
+		switch stringAny(block["type"]) {
+		case "text":
+			if text := strings.TrimSpace(stringAny(block["text"])); text != "" {
+				p.textParts = append(p.textParts, text)
+			}
+		case "tool_use":
+			p.logToolUse(block, event)
+		case "tool_result":
+			p.logToolResult(block, event)
+		}
+	}
+}
+
+func (p *claudeStreamParser) logToolUse(block map[string]any, event map[string]any) {
+	id := stringAny(block["id"])
+	name := firstNonEmpty(stringAny(block["name"]), "tool")
+	input, _ := block["input"].(map[string]any)
+	if id != "" {
+		p.toolNames[id] = name
+		p.toolInput[id] = input
+	}
+	p.log(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.provider.tool_use",
+		Message:  providerToolMessage(name, input),
+		Fields: map[string]any{
+			"provider":       strings.ToUpper(p.runner.Provider),
+			"model":          p.runner.Model,
+			"tool_name":      name,
+			"tool_use_id":    id,
+			"target":         providerToolTarget(input),
+			"caller_role":    "scenarist",
+			"caller_speaker": "Scenarist",
+		},
+		Detail: map[string]any{
+			"provider":    strings.ToUpper(p.runner.Provider),
+			"model":       p.runner.Model,
+			"tool_name":   name,
+			"tool_use_id": id,
+			"input":       input,
+			"raw_event":   event,
+			"raw_block":   block,
+		},
+	})
+}
+
+func (p *claudeStreamParser) logToolResult(block map[string]any, event map[string]any) {
+	id := stringAny(block["tool_use_id"])
+	name := firstNonEmpty(p.toolNames[id], "tool")
+	p.log(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.provider.tool_result",
+		Message:  providerToolResultMessage(name, p.toolInput[id], block),
+		Fields: map[string]any{
+			"provider":       strings.ToUpper(p.runner.Provider),
+			"model":          p.runner.Model,
+			"tool_name":      name,
+			"tool_use_id":    id,
+			"target":         providerToolTarget(p.toolInput[id]),
+			"caller_role":    "scenarist",
+			"caller_speaker": "Scenarist",
+		},
+		Detail: map[string]any{
+			"provider":    strings.ToUpper(p.runner.Provider),
+			"model":       p.runner.Model,
+			"tool_name":   name,
+			"tool_use_id": id,
+			"input":       p.toolInput[id],
+			"result":      block,
+			"raw_event":   event,
+		},
+	})
+}
+
+func (p *claudeStreamParser) log(event gamelog.Event) {
+	if p == nil || p.runner.Logger == nil {
+		return
+	}
+	_ = p.runner.Logger.Append(event)
+}
+
+func (p *claudeStreamParser) result() string {
+	if strings.TrimSpace(p.resultText) != "" {
+		return p.resultText
+	}
+	return strings.Join(p.textParts, "\n")
+}
+
+func contentBlocks(value any) []any {
+	switch typed := value.(type) {
+	case []any:
+		return typed
+	case string:
+		return []any{map[string]any{"type": "text", "text": typed}}
+	default:
+		return nil
+	}
+}
+
+func providerToolMessage(name string, input map[string]any) string {
+	target := providerToolTarget(input)
+	if target == "" {
+		return "@" + name
+	}
+	return "@" + name + " " + target
+}
+
+func providerToolResultMessage(name string, input map[string]any, block map[string]any) string {
+	target := providerToolTarget(input)
+	content := previewToolContent(block["content"], 700)
+	if target != "" && content != "" {
+		return name + " result for " + target + "\n\n" + content
+	}
+	if content != "" {
+		return name + " result\n\n" + content
+	}
+	if target != "" {
+		return name + " result for " + target
+	}
+	return name + " result"
+}
+
+func providerToolTarget(input map[string]any) string {
+	for _, key := range []string{"file_path", "path", "glob", "pattern", "query"} {
+		if value := strings.TrimSpace(stringAny(input[key])); value != "" {
+			return value
+		}
+	}
+	if len(input) == 0 {
+		return ""
+	}
+	data, err := json.Marshal(input)
+	if err != nil {
+		return fmt.Sprint(input)
+	}
+	return string(data)
+}
+
+func previewToolContent(value any, max int) string {
+	text := strings.TrimSpace(toolContentText(value))
+	if len(text) <= max {
+		return text
+	}
+	if max < 4 {
+		return text[:max]
+	}
+	return text[:max-3] + "..."
+}
+
+func toolContentText(value any) string {
+	switch typed := value.(type) {
+	case string:
+		return typed
+	case []any:
+		parts := make([]string, 0, len(typed))
+		for _, item := range typed {
+			if mapped, ok := item.(map[string]any); ok {
+				parts = append(parts, firstNonEmpty(stringAny(mapped["text"]), stringAny(mapped["content"])))
+			} else {
+				parts = append(parts, stringAny(item))
+			}
+		}
+		return strings.Join(parts, "\n")
+	default:
+		data, err := json.MarshalIndent(value, "", "  ")
+		if err != nil {
+			return fmt.Sprint(value)
+		}
+		return string(data)
+	}
+}
+
+func stringAny(value any) string {
+	if value == nil {
+		return ""
+	}
+	switch typed := value.(type) {
+	case string:
+		return strings.TrimSpace(typed)
+	default:
+		return strings.TrimSpace(fmt.Sprint(value))
+	}
+}
+
+func firstNonEmpty(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return strings.TrimSpace(value)
+		}
+	}
+	return ""
 }
 
 func ProviderEnv(provider string, modelOverride string, files []string, base []string) ([]string, string, error) {
