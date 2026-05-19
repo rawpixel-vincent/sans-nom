@@ -20,6 +20,12 @@ type Scope struct {
 }
 
 func New(root string, role string) Scope {
+	root = strings.TrimSpace(root)
+	if root != "" {
+		if abs, err := filepath.Abs(root); err == nil {
+			root = abs
+		}
+	}
 	return Scope{
 		Root: filepath.Clean(root),
 		Role: strings.TrimSpace(role),

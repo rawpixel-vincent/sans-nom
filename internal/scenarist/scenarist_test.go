@@ -470,6 +470,33 @@ func TestToolRunnerRejectsOldBatchedRequestsShape(t *testing.T) {
 	}
 }
 
+func TestToolRunnerReturnsWorkspaceRelativePaths(t *testing.T) {
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+	relOutputDir := filepath.Join("test-output", "seed-runs", "seed-1", "agent", "scenarists")
+	absOutputDir := filepath.Join(cwd, relOutputDir)
+	t.Cleanup(func() { _ = os.RemoveAll(filepath.Join(cwd, "test-output")) })
+	tool := (&ToolRunner{
+		Runner:        &fakeScenaristRunner{response: "material"},
+		OutputDir:     relOutputDir,
+		WorkspaceRoot: filepath.Dir(absOutputDir),
+		MaxCalls:      1,
+	}).LocalTool()
+	result, err := tool.Handler(context.Background(), filepath.Dir(absOutputDir), `{"topic_id":"imagination-germs","topic":"Germs","request":"Brainstorm germs.","hard_boundaries":["original"],"relevant_paths":[]}`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	data := string(mustJSON(t, result))
+	if !strings.Contains(data, `"path":"scenarists/tool-call-001/01-imagination-germs.md"`) {
+		t.Fatalf("tool result should expose workspace-relative path:\n%s", data)
+	}
+	if strings.Contains(data, "data/seed-runs") || strings.Contains(data, "test-output/seed-runs") {
+		t.Fatalf("tool result leaked durable path to model:\n%s", data)
+	}
+}
+
 func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	workspaceRoot := filepath.Join(t.TempDir(), "agent")

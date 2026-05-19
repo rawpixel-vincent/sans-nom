@@ -435,6 +435,11 @@ func (s Service) modelVisiblePath(path string) string {
 	if root == "" {
 		return filepath.ToSlash(path)
 	}
+	if !filepath.IsAbs(path) {
+		if abs, err := filepath.Abs(path); err == nil {
+			path = abs
+		}
+	}
 	absRoot, rootErr := filepath.Abs(root)
 	absPath, pathErr := filepath.Abs(path)
 	if rootErr == nil && pathErr == nil {

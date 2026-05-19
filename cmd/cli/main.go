@@ -1096,12 +1096,12 @@ func seedScenaristOutputDir(storyRoot string, outputRoot string) string {
 	segment := "seed-" + strings.NewReplacer(".", "", ":", "", "-", "").Replace(time.Now().UTC().Format(time.RFC3339Nano))
 	root := strings.TrimSpace(outputRoot)
 	if root != "" {
-		return filepath.Join(root, "seed-runs", segment, "agent", "scenarists")
+		return absOrClean(filepath.Join(root, "seed-runs", segment, "agent", "scenarists"))
 	}
 	if strings.TrimSpace(storyRoot) == "" {
 		storyRoot = story.DefaultRoot
 	}
-	return filepath.Join(filepath.Dir(filepath.Clean(storyRoot)), "seed-runs", segment, "agent", "scenarists")
+	return absOrClean(filepath.Join(filepath.Dir(filepath.Clean(storyRoot)), "seed-runs", segment, "agent", "scenarists"))
 }
 
 func seedWorkshopOutputDir(scenaristOutputDir string) string {

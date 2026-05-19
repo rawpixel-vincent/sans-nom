@@ -205,7 +205,10 @@ func (b backstageBuilder) writerArtifactMessage(event gamelog.Event, speaker str
 }
 
 func (b backstageBuilder) scenaristResponses(event gamelog.Event, detail map[string]any) []backstageMessage {
-	materials := nestedSlice(detail, "manifest", "materials")
+	materials := nestedSlice(detail, "materials")
+	if len(materials) == 0 {
+		materials = nestedSlice(detail, "manifest", "materials")
+	}
 	if len(materials) == 0 {
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_response", "completed", event.Message)}
 	}

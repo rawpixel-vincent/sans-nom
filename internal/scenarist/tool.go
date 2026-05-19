@@ -166,7 +166,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 	if err != nil {
 		return nil, err
 	}
-	material := Material{
+	artifactMaterial := Material{
 		TopicID:      topicID,
 		Topic:        request.Topic,
 		Path:         r.modelVisiblePath(workspaceRoot, path),
@@ -174,13 +174,16 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 		Bytes:        int(info.Size()),
 	}
 	if !materialMetadata.Empty() {
-		material.ModelMetadata = &materialMetadata
+		artifactMaterial.ModelMetadata = &materialMetadata
 	}
+	material := artifactMaterial
+	material.ArtifactPath = ""
 	completedMetadata := metadata
 	if !materialMetadata.Empty() {
 		completedMetadata = materialMetadata
 	}
 	materials := []Material{material}
+	artifactMaterials := []Material{artifactMaterial}
 	manifest := Manifest{Root: r.modelVisiblePath(workspaceRoot, callDir), Materials: materials}
 	if err := writeJSONAtomic(filepath.Join(callDir, "manifest.json"), manifest); err != nil {
 		r.log(gamelog.Event{
@@ -191,7 +194,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 			Fields:   map[string]any{"call_dir": filepath.ToSlash(callDir), "call_index": callIndex},
 			Detail: map[string]any{
 				"request":   request,
-				"materials": materials,
+				"materials": artifactMaterials,
 				"call_dir":  filepath.ToSlash(callDir),
 			},
 		})
@@ -211,17 +214,18 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 			"agent_workspace_root": filepath.ToSlash(workspaceRoot),
 		}, completedMetadata),
 		Detail: map[string]any{
-			"request":               request,
-			"manifest":              manifest,
-			"model_metadata":        completedMetadata,
-			"manifest_path":         filepath.ToSlash(filepath.Join(callDir, "manifest.json")),
-			"materials":             materials,
-			"call_dir":              filepath.ToSlash(callDir),
-			"call_index":            callIndex,
-			"tools_enabled":         r.Tools,
-			"lore_expert_available": r.LoreExpert != nil,
-			"agent_workspace_root":  filepath.ToSlash(workspaceRoot),
-			"visible_paths":         r.visiblePaths(workspaceRoot),
+			"request":                request,
+			"manifest":               manifest,
+			"model_metadata":         completedMetadata,
+			"manifest_path":          filepath.ToSlash(filepath.Join(callDir, "manifest.json")),
+			"materials":              artifactMaterials,
+			"model_visible_manifest": manifest,
+			"call_dir":               filepath.ToSlash(callDir),
+			"call_index":             callIndex,
+			"tools_enabled":          r.Tools,
+			"lore_expert_available":  r.LoreExpert != nil,
+			"agent_workspace_root":   filepath.ToSlash(workspaceRoot),
+			"visible_paths":          r.visiblePaths(workspaceRoot),
 		},
 	})
 	return map[string]any{
@@ -255,6 +259,11 @@ func (r *ToolRunner) normalizeRelevantPaths(workspaceRoot string, request *ToolR
 
 func (r *ToolRunner) modelVisiblePath(workspaceRoot string, path string) string {
 	scope := agentfs.New(workspaceRoot, "scenarist")
+	if !filepath.IsAbs(path) {
+		if abs, err := filepath.Abs(path); err == nil {
+			path = abs
+		}
+	}
 	if rel, err := scope.Normalize(path); err == nil {
 		return rel
 	}
