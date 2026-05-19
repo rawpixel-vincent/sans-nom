@@ -94,10 +94,11 @@ func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
 func TestContextTextIsCreativeOnly(t *testing.T) {
 	text := ContextText()
 	for _, required := range []string{
-		"Opening aim: player, desire, place, pressure, active opposition, relationship stakes",
+		"Opening aim: a practical situation already in motion",
 		"Reader plausibility",
-		"social practice, emotional credibility, visible cost, and consequence",
+		"daily practice, emotional credibility, visible cost, and consequence",
 		"Material imagination",
+		"infrastructure, ecology, transport, weather",
 		"supports conflict rather than replacing story with procedure",
 	} {
 		if !strings.Contains(text, required) {
@@ -255,9 +256,18 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
 		}
 	}
-	if !strings.Contains(runner.prompts[0], "Produce 3-4 original science-fantasy story germs") ||
-		!strings.Contains(runner.prompts[0], "Prefer depth over coverage") {
-		t.Fatalf("imagination workshop prompt should ask for fewer deeper germs:\n%s", runner.prompts[0])
+	for _, required := range []string{
+		"Invent three opening situations for a playable speculative adventure story",
+		"Return three numbered sections: 1, 2, and 3",
+		"one practical job going wrong",
+		"Use plain language and low lore density",
+		"at most one invented place name and one invented tool or device name",
+		"material causes",
+		"End each situation with the first player choice",
+	} {
+		if !strings.Contains(runner.prompts[0], required) {
+			t.Fatalf("imagination workshop prompt missing %q:\n%s", required, runner.prompts[0])
+		}
 	}
 	for _, forbidden := range []string{"StoryBible", "StoryPacket", "target_node_id", "The seed packet is a three-turn runway", "turn_1_intro", "Every choice target must be an included node"} {
 		if strings.Contains(runner.prompts[0], forbidden) {

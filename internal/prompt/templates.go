@@ -104,7 +104,7 @@ Return compact JSON:
 func SeedWriterPrompt(contextText string) string {
 	return fmt.Sprintf(`You are the Creative Writer for the first playable Sans-Nom CLI slice.
 
-Create the durable StoryBible and opening StoryPacket for a new science-fantasy comic story.
+Create the durable StoryBible and opening StoryPacket for a new speculative adventure story with science-fantasy flavor.
 
 Your creative job:
 - Choose the strongest story seed from the workshop material.
@@ -121,9 +121,9 @@ Rules:
 - The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
 - Include at least one original binding doctrine as a support element for character conflict. It should belong to the player character's lived order and sharpen the story, not become the whole premise.
 - Make strange material legible through cause, social practice, cost, emotional credibility, and consequence.
-- Choose the story's dominant material condition from its own premise: ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
+- Choose the story's dominant material condition from its own premise: infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.
 - Return one StoryPacket with exactly 5 scene nodes.
-- The Metabarons lore context is creative DNA: passion, taste, contradictions, taboos, relationship pressure, body/technology myth, witness-bound memory, and operatic SF-comics rhythm.
+- The Metabarons lore context is creative DNA: passion, taste, contradiction, refusal under expectation, spectacle, material cost, and consequential choices.
 - Do not literalize the source lore. Use new characters, new places, new factions, new conflicts, and new proper nouns.
 - Do not use Metabarons canon names, places, factions, dynasty events, council mechanics, all-cast fanout, resurrection-roster assumptions, or direct equivalents.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
@@ -147,19 +147,19 @@ Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`
 func SeedWorkshopPrompt(contextText string, turnTitle string, promptShape string, priorManifest string) string {
 	return fmt.Sprintf(`You are the Creative Writer for the Sans-Nom story seed workshop.
 
-This turn is for creative discovery. Think like a comics storyteller looking for the hot center of a playable science-fantasy story.
+This turn is for creative discovery. Look for playable story material before final structure.
 
 Creative priorities:
-- Start from a person wanting something under pressure.
-- Look for active opposition, relationship pressure, wounds, reversals, vivid first images, and irreversible trouble.
-- Favor ideas that feel playable, emotionally specific, visually memorable, and strange-but-lived-in.
-- Make the strange concrete: bodies, tools, work, weather, disease, hunger, craft, architecture, rituals, machines, language, scars, inheritance, or jurisdiction.
-- A local doctrine can appear when it sharpens conflict, but story heat comes first.
+- Start from a concrete situation already in motion: a person has a practical task, a specific pressure, and someone making it harder.
+- Favor playable scenes with clear stakes, useful tools, visible hazards, and choices that can be acted on.
+- Let the unusual setting appear through work, infrastructure, ecology, transport, weather, resource scarcity, maintenance routines, money pressure, family pressure, or local trade.
+- Use plain language and low lore density. Prefer ordinary job titles, personal names, and practical institutions over grand labels.
+- Keep emotional pressure specific and human; let it show through what the character must do today.
 
 Rules:
 - Output Markdown only.
 - Stay free-form: no JSON, schema field names, node ids, final bundle, or player-facing prose.
-- Treat source lore as craft DNA only: pressure, contradiction, body/taboo, witness memory, operatic SF-comics rhythm, and philosophical consequence.
+- Treat source lore as craft DNA only: pressure, contradiction, costly choices, spectacular stakes, and consequence.
 - Keep the generated story original: new names, places, factions, conflicts, and social orders.
 
 Tools:

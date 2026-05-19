@@ -376,11 +376,11 @@ func DefaultWorkshopTurns() []WorkshopTurn {
 	return []WorkshopTurn{{
 		ID:          "imagination",
 		Title:       "Imagination Turn",
-		PromptShape: "Invent freely. Let ideas collide. Produce 3-4 original science-fantasy story germs. Prefer depth over coverage: each germ should feel playable, emotionally specific, and visually memorable after one paragraph. Include a vivid image, player desire, active opposition, character wound, relationship pressure, strange material condition, and first irreversible pressure. Do not choose the final story yet.",
+		PromptShape: "Invent three opening situations for a playable speculative adventure story. Return three numbered sections: 1, 2, and 3. Each starts with one practical job going wrong: repair, delivery, rescue, inspection, harvest, crossing, negotiation, theft, or escape. Use grounded hazards: broken equipment, bad weather, missing cargo, corrupt supervisors, family pressure, dangerous terrain, unreliable tools, hostile customers, or local politics. Use plain language and low lore density: in each situation, use at most one invented place name and one invented tool or device name. Prefer common job titles and ordinary personal names over named orders, factions, doctrines, titles, or grand institutions. The unusual setting should come from material causes: infrastructure, ecology, transport, weather, resource scarcity, workplace tools, maintenance routines, money pressure, or local trade. Make each opening understandable as a practical problem before it becomes a mystery. Write 3-5 short paragraphs per situation, like a scene already in motion. Let the unusual setting appear through concrete work details. End each situation with the first player choice. After each situation, add two short notes: why it could be playable, and what risk the Writer should fix later. Do not choose the final story yet.",
 	}, {
 		ID:          "elements",
 		Title:       "Story Engine Selection Turn",
-		PromptShape: "Compare the strongest germs by player hook, active opposition, freshness, emotional clarity, relationship pressure, and playable first choice. Recommend one story engine while keeping only genuinely useful alternate sparks visible.",
+		PromptShape: "Compare the strongest opening situations by player hook, active opposition, freshness, emotional clarity, practical pressure, and playable first choice. Recommend one story engine while keeping only genuinely useful alternate sparks visible.",
 	}, {
 		ID:          "engine",
 		Title:       "Dramatic Engine Turn",
@@ -407,7 +407,7 @@ func workshopManifest(artifacts []WorkshopArtifact) string {
 func workshopSummary(turn WorkshopTurn) string {
 	switch turn.ID {
 	case "imagination":
-		return "Contains candidate story germs for comparison. Read the output file before selecting or developing a specific premise; the manifest intentionally avoids carrying names or motifs forward."
+		return "Contains candidate opening situations for comparison. Read the output file before selecting or developing a specific premise; the manifest intentionally avoids carrying names or motifs forward."
 	case "elements":
 		return "Contains story-engine comparison, recommendation, and useful alternate sparks. Read the output file before dependent development."
 	case "engine":
@@ -513,13 +513,13 @@ func containsForbidden(text string, banned string) bool {
 }
 
 func ContextText() string {
-	return `First playable vertical slice: original science-fantasy comic story.
-The selected ground-lore pack is creative DNA for the writer and narrator: passion, pressure, contradiction, taboo, body/technology myth, witness-bound memory, and operatic SF-comics taste.
+	return `First playable vertical slice: original speculative adventure with science-fantasy flavor.
+The selected ground-lore pack is creative DNA for the writer and narrator: passion, pressure, contradiction, refusal, spectacle, and consequential choices.
 Source lore is influence material, not canon for the generated story. The new story uses new characters, places, factions, conflicts, and proper nouns.
-Opening aim: player, desire, place, pressure, active opposition, relationship stakes, and a choice that reveals character.
-Reader plausibility means the strange feels lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.
-Material imagination should arise from the story premise: ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.
-Any binding doctrine belongs to the player character's lived order, such as family, guild, dynasty, sect, profession, city office, rite, or other local order. It supports conflict rather than replacing story with procedure.
+Opening aim: a practical situation already in motion, a player with something urgent to do, a specific person making it harder, and a choice that reveals character.
+Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, visible cost, and consequence.
+Material imagination should arise from the story premise: infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.
+Any binding doctrine belongs to the player character's lived order, such as family, workplace, trade, crew, office, or local community. It supports conflict rather than replacing story with procedure.
 For this first seed, original actor peer cards are not generated yet. Characters may be present as story material, but no actor agent should be invoked.`
 }
 

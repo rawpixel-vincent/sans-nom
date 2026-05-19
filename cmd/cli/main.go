@@ -1006,13 +1006,11 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	if pack.ID != "" || pack.Label != "" {
 		fmt.Fprintf(&b, "- selected lore pack: %s (%s)\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	}
-	if strings.TrimSpace(pack.Description) != "" {
-		fmt.Fprintf(&b, "- pack description: %s\n", strings.TrimSpace(pack.Description))
-	}
-	b.WriteString("- influence style: operatic science-fantasy comics; body, taboo, witness memory, social pressure, philosophical violence, spectacle, family/function/refusal tension, and credible consequence inside the protagonist's lived order.\n")
+	b.WriteString("- pack note: source-influence pack selected for taste and pressure only; concrete source analysis comes through tools when needed.\n")
+	b.WriteString("- influence style: heightened speculative adventure; intense family and function pressure; refusal under expectation; spectacle; material cost; credible consequence inside the protagonist's lived order.\n")
 	b.WriteString("- binding doctrine: include an original deep rule as support for the player character's conflict; it should sharpen desire, opposition, and cost rather than dominate the premise.\n")
 	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
-	b.WriteString("- material imagination: choose the story's dominant physical condition from its own premise, such as ecology, disease, labor, ritual, resource scarcity, memory practice, jurisdiction, hunger, weather, architecture, language, inheritance, or craft.\n")
+	b.WriteString("- material imagination: choose the story's dominant condition from its own premise, such as infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.\n")
 	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
 	b.WriteString("- creative workshop: use ask_scenarist as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
 	b.WriteString("- scenarist sequence: ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.\n")

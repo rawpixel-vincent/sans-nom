@@ -43,9 +43,11 @@ func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 	got := SeedWorkshopPrompt("seed context", "Imagination Turn", "Invent germs.", "No workshop artifacts yet.")
 	for _, required := range []string{
 		"creative discovery",
-		"Start from a person wanting something under pressure",
-		"playable, emotionally specific, visually memorable, and strange-but-lived-in",
-		"bodies, tools, work",
+		"concrete situation already in motion",
+		"person has a practical task",
+		"playable scenes with clear stakes",
+		"Use plain language and low lore density",
+		"work, infrastructure, ecology, transport, weather",
 		"Output Markdown only",
 		"Stay free-form",
 		"no JSON, schema field names, node ids, final bundle, or player-facing prose",
