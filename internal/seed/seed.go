@@ -300,7 +300,7 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 			PromptPath: filepath.ToSlash(promptPath),
 			OutputPath: filepath.ToSlash(outputPath),
 			MetaPath:   filepath.ToSlash(metaPath),
-			Summary:    previewText(output, 600),
+			Summary:    workshopSummary(turn),
 		}
 		if err := writeJSONAtomic(metaPath, map[string]any{
 			"turn":          index + 1,
@@ -395,6 +395,25 @@ func workshopManifest(artifacts []WorkshopArtifact) string {
 		fmt.Fprintf(&b, "- %s (%s)\n  - output: %s\n  - summary: %s\n", artifact.Title, artifact.TurnID, artifact.OutputPath, strings.TrimSpace(artifact.Summary))
 	}
 	return strings.TrimSpace(b.String())
+}
+
+func workshopSummary(turn WorkshopTurn) string {
+	switch turn.ID {
+	case "imagination":
+		return "Contains candidate story germs for comparison. Read the output file before selecting or developing a specific premise; the manifest intentionally avoids carrying names or motifs forward."
+	case "elements":
+		return "Contains story-engine comparison, recommendation, and useful alternate sparks. Read the output file before dependent development."
+	case "engine":
+		return "Contains focused development for the selected story engine: protagonist, opposition, relationships, material world, reversals, and scene pressure."
+	case "runway":
+		return "Contains prose-level planning for the opening three-turn runway and branch implications. Read the output file before producing the final structured bundle."
+	default:
+		title := strings.TrimSpace(turn.Title)
+		if title == "" {
+			title = "Workshop artifact"
+		}
+		return title + " planning material. Read the output file for details; the manifest avoids copying raw workshop text."
+	}
 }
 
 func (s Service) log(event gamelog.Event) {
@@ -544,7 +563,7 @@ func DefaultBible() story.StoryBible {
 			"Use the second turn for the real dilemma: family memory, brother's food ledger, Talik's pressure, and Sarex's illegal option.",
 			"End the seed runway with one prebuilt branch scene for each real second-turn choice.",
 		},
-		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the ninth bell approaches and the city demands her left hand as living collateral.",
+		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the final audit lantern warms and the city demands her left hand as living collateral.",
 		Metadata: map[string]string{
 			"seed_mode": "static",
 		},
@@ -559,7 +578,7 @@ func DefaultPacket() scene.StoryPacket {
 			WorkspaceID:   "static-seed",
 			SessionID:     "main",
 			Location:      "Veyr Tidemarket, beneath the Mourning Lantern",
-			Time:          "the eighth bell, one bell before public debt certification",
+			Time:          "one audit lantern before public debt certification",
 			PresentActors: []string{},
 		},
 		Nodes: []scene.SceneNode{{
@@ -596,10 +615,10 @@ func DefaultPacket() scene.StoryPacket {
 			}},
 		}, {
 			ID:    "turn_2_decision",
-			Title: "The ninth bell gathers breath",
+			Title: "The final audit lantern warms",
 			Beats: []scene.Beat{
 				{ID: "beat-law", Text: "Talik Oathsmith names the debt before the auditors: the city will preserve Ila's mother's pearl only if Ila surrenders the living function of her left hand."},
-				{ID: "beat-pressure", Text: "If the ninth bell sounds first, the pearl becomes state salvage and Ila's brother is erased from the dawn food ledgers."},
+				{ID: "beat-pressure", Text: "If the final audit lantern turns white first, the pearl becomes state salvage and Ila's brother is erased from the dawn food ledgers."},
 				{ID: "beat-opposition", Text: "Talik's tablet carries a fogged-over clause Ila recognizes as altered glass, while Sarex of the Red Loom watches from a stall that sells illegal witness-thread."},
 				{ID: "beat-choice", Text: "The bone-key under Ila's skin wakes early, forcing her to choose a stance before the crowd decides what courage should look like."},
 			},

@@ -231,7 +231,7 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 		t.Fatal(err)
 	}
 	runner := &sequenceRunner{responses: []string{
-		"## Germs\nA law image.",
+		"## Germs\n### Bell-Hunger\nA bell image.",
 		"## Elements\nCharacter, POV, Setting, Plot, Theme, Style/Tone.",
 		"## Engine\nConflict and opposition.",
 		"## Opening\nChoices as pressure, not ids.",
@@ -270,8 +270,11 @@ func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
 		t.Fatalf("engine workshop prompt has wrong story framing:\n%s", runner.prompts[2])
 	}
 	final := runner.prompts[4]
-	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\nA law image.") {
+	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\n### Bell-Hunger") {
 		t.Fatalf("final prompt should include manifest but not raw workshop text:\n%s", final)
+	}
+	if strings.Contains(final, "Bell-Hunger") || strings.Contains(strings.ToLower(final), "bell image") {
+		t.Fatalf("final prompt should not propagate raw workshop motifs through summaries:\n%s", final)
 	}
 	if !strings.Contains(final, "Repeated motifs in workshop output are not requirements") ||
 		!strings.Contains(final, "discard any motif that became too repetitive") {
