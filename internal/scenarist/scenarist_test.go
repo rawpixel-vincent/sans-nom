@@ -3,6 +3,7 @@ package scenarist
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -74,7 +75,7 @@ func TestScenaristSystemPromptDoesNotExposeLorePackPointers(t *testing.T) {
 	for _, required := range []string{
 		"Use @LoreExpert for source-pack questions",
 		"Read for files and LS or Grep for artifact directories",
-		"Repository root: /repo",
+		"Workspace root: /repo",
 	} {
 		if !strings.Contains(system, required) {
 			t.Fatalf("scenarist system prompt missing %q:\n%s", required, system)
@@ -371,15 +372,23 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 		"## Useful source refs",
 		"none",
 	}, "\n")}
-	outputDir := t.TempDir()
+	workspaceRoot := filepath.Join(t.TempDir(), "agent")
+	outputDir := filepath.Join(workspaceRoot, "scenarists")
+	if err := os.MkdirAll(filepath.Join(workspaceRoot, "workshop"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "workshop", "output.md"), []byte("workshop material"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	tool := (&ToolRunner{
-		Runner:      scenaristRunner,
-		OutputDir:   outputDir,
-		ContextText: "writer context",
-		MaxCalls:    1,
-		Logger:      logger,
-		CallerRole:  "creative-writer",
-		CallerName:  "Creative Writer",
+		Runner:        scenaristRunner,
+		OutputDir:     outputDir,
+		WorkspaceRoot: workspaceRoot,
+		ContextText:   "writer context",
+		MaxCalls:      1,
+		Logger:        logger,
+		CallerRole:    "creative-writer",
+		CallerName:    "Creative Writer",
 		LoreExpert: &loreexpert.ToolRunner{
 			Runner:        loreRunner,
 			CacheRoot:     t.TempDir(),
@@ -392,7 +401,7 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 			CallerSpeaker: "Creative Writer",
 		},
 	}).LocalTool()
-	args := `{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["data/seed-runs/example/workshop/output.md"]}`
+	args := `{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["workshop/output.md"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -463,15 +472,17 @@ func TestToolRunnerRejectsOldBatchedRequestsShape(t *testing.T) {
 
 func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
+	workspaceRoot := filepath.Join(t.TempDir(), "agent")
 	tool := (&ToolRunner{
-		Runner:      &fakeScenaristRunner{response: "material"},
-		OutputDir:   t.TempDir(),
-		ContextText: "writer context",
-		Logger:      logger,
-		CallerRole:  "writer",
-		CallerName:  "Writer",
+		Runner:        &fakeScenaristRunner{response: "material"},
+		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
+		WorkspaceRoot: workspaceRoot,
+		ContextText:   "writer context",
+		Logger:        logger,
+		CallerRole:    "writer",
+		CallerName:    "Writer",
 	}).LocalTool()
-	args := `{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["data/stories/example/bible.json"]}`
+	args := `{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["story/bible.json"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -525,23 +536,52 @@ func TestToolRunnerRejectsAfterConfiguredCallLimit(t *testing.T) {
 	}
 }
 
+func TestToolRunnerRejectsRelevantPathsOutsideAgentWorkspace(t *testing.T) {
+	logger := gamelog.NewGlobalWriter(t.TempDir())
+	workspaceRoot := filepath.Join(t.TempDir(), "agent")
+	tool := (&ToolRunner{
+		Runner:        &fakeScenaristRunner{response: "material"},
+		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
+		WorkspaceRoot: workspaceRoot,
+		MaxCalls:      1,
+		Logger:        logger,
+	}).LocalTool()
+	for _, path := range []string{
+		"/Users/vincent/dev/sans-nom/README.md",
+		"lore/packs/metabarons/lore-pack.json",
+		"cmd/cli/main.go",
+		"internal/seed/seed.go",
+		"testdata/sample.json",
+		"data/stories/example/bible.json",
+		"data/seed-runs/example/workshop/output.md",
+		"../outside.md",
+	} {
+		args := fmt.Sprintf(`{"topic_id":"bad","topic":"Bad","request":"bad path","hard_boundaries":["original"],"relevant_paths":[%q]}`, path)
+		if _, err := tool.Handler(context.Background(), workspaceRoot, args); err == nil {
+			t.Fatalf("expected relevant path %q to be rejected", path)
+		}
+	}
+}
+
 func TestToolRunnerSequentialCallsDoNotOverlap(t *testing.T) {
 	runner := &fakeScenaristRunner{response: "material", delay: 20 * time.Millisecond}
+	workspaceRoot := filepath.Join(t.TempDir(), "agent")
 	tool := (&ToolRunner{
-		Runner:    runner,
-		OutputDir: t.TempDir(),
-		MaxCalls:  2,
+		Runner:        runner,
+		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
+		WorkspaceRoot: workspaceRoot,
+		MaxCalls:      2,
 	}).LocalTool()
 	if _, err := tool.Handler(context.Background(), ".", `{"topic_id":"one","topic":"One","request":"first","hard_boundaries":["original"],"relevant_paths":[]}`); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := tool.Handler(context.Background(), ".", `{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":["data/seed-runs/example/scenarists/tool-call-001/01-one.md"]}`); err != nil {
+	if _, err := tool.Handler(context.Background(), ".", `{"topic_id":"two","topic":"Two","request":"second","hard_boundaries":["original"],"relevant_paths":["scenarists/tool-call-001/01-one.md"]}`); err != nil {
 		t.Fatal(err)
 	}
 	if runner.maxActive != 1 {
 		t.Fatalf("expected no overlapping calls, max active = %d", runner.maxActive)
 	}
-	if len(runner.queries) != 2 || !strings.Contains(runner.queries[1], "tool-call-001/01-one.md") {
+	if len(runner.queries) != 2 || !strings.Contains(runner.queries[1], "scenarists/tool-call-001/01-one.md") {
 		t.Fatalf("second query missing first material path: %#v", runner.queries)
 	}
 }

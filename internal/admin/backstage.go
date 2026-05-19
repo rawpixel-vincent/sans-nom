@@ -215,7 +215,7 @@ func (b backstageBuilder) scenaristResponses(event gamelog.Event, detail map[str
 		if !ok {
 			continue
 		}
-		path := stringField(item, "path")
+		path := firstNonEmpty(stringField(item, "artifact_path"), stringField(item, "path"))
 		text := firstNonEmpty(b.readPathText(path), stringField(item, "topic"), event.Message)
 		msg := b.message(event, "scenarist", "Scenarist", "tool_response", "completed", text)
 		msg.ID = backstageID(event, "scenarist", stringField(item, "topic_id"), text)

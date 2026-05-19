@@ -23,28 +23,29 @@ type LocalToolCodexClient interface {
 }
 
 type CodexRunner struct {
-	Client        CodexClient
-	Model         string
-	Effort        string
-	ServiceTier   string
-	AuthPath      string
-	SystemPrompt  string
-	Timeout       time.Duration
-	SchemaName    string
-	Schema        map[string]any
-	LocalTools    bool
-	ToolRoot      string
-	MaxToolRounds int
-	ExtraTools    []codexoauth.LocalTool
-	Logger        *gamelog.Writer
-	ToolCategory  string
-	CallerRole    string
-	CallerSpeaker string
-	StoryID       string
-	Turn          int
-	PacketID      string
-	NodeID        string
-	RunID         string
+	Client           CodexClient
+	Model            string
+	Effort           string
+	ServiceTier      string
+	AuthPath         string
+	SystemPrompt     string
+	Timeout          time.Duration
+	SchemaName       string
+	Schema           map[string]any
+	LocalTools       bool
+	ToolRoot         string
+	ToolVisiblePaths []string
+	MaxToolRounds    int
+	ExtraTools       []codexoauth.LocalTool
+	Logger           *gamelog.Writer
+	ToolCategory     string
+	CallerRole       string
+	CallerSpeaker    string
+	StoryID          string
+	Turn             int
+	PacketID         string
+	NodeID           string
+	RunID            string
 }
 
 func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
@@ -147,6 +148,7 @@ func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {
 		Root:          root,
 		MaxRounds:     r.MaxToolRounds,
 		ExtraTools:    r.ExtraTools,
+		VisiblePaths:  r.ToolVisiblePaths,
 		Logger:        r.Logger,
 		ToolCategory:  r.ToolCategory,
 		CallerRole:    r.CallerRole,

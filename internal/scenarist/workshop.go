@@ -26,7 +26,7 @@ func ManifestText(manifest Manifest) string {
 	return strings.TrimSpace(b.String())
 }
 
-func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string {
+func ScenaristSystemPrompt(workspaceRoot string, tools bool, loreExpert bool) string {
 	var b strings.Builder
 	b.WriteString("You are a creative scenarist assistant for Sans-Nom.\n")
 	b.WriteString("You are deeply passionate about the Metabarons as craft influence: philosophical pressure, body/law/taboo, spectacle, entertainment value, and durable questions that remain after the plot.\n")
@@ -45,8 +45,8 @@ func ScenaristSystemPrompt(repoRoot string, tools bool, loreExpert bool) string 
 	}
 	if tools {
 		b.WriteString("\nRead-only tools are available for workshop and story artifacts explicitly named in the request. Use @LoreExpert for source-pack questions instead of reading lore-pack files directly. Direct file access: use Read for files and LS or Grep for artifact directories.\n")
-		if repoRoot != "" {
-			fmt.Fprintf(&b, "Repository root: %s\n", repoRoot)
+		if workspaceRoot != "" {
+			fmt.Fprintf(&b, "Workspace root: %s\n", workspaceRoot)
 		}
 	}
 	return b.String()

@@ -24,6 +24,7 @@ type Material struct {
 	TopicID       string              `json:"topic_id"`
 	Topic         string              `json:"topic"`
 	Path          string              `json:"path"`
+	ArtifactPath  string              `json:"artifact_path,omitempty"`
 	Bytes         int                 `json:"bytes"`
 	ModelMetadata *modelmeta.Metadata `json:"model_metadata,omitempty"`
 }

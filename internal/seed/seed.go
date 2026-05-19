@@ -26,6 +26,7 @@ type Service struct {
 	MaxIterations  int
 	Logger         *gamelog.Writer
 	WorkshopDir    string
+	AgentRoot      string
 }
 
 type Review struct {
@@ -41,12 +42,15 @@ type WorkshopTurn struct {
 }
 
 type WorkshopArtifact struct {
-	TurnID     string `json:"turn_id"`
-	Title      string `json:"title"`
-	PromptPath string `json:"prompt_path"`
-	OutputPath string `json:"output_path"`
-	MetaPath   string `json:"metadata_path"`
-	Summary    string `json:"summary"`
+	TurnID             string `json:"turn_id"`
+	Title              string `json:"title"`
+	PromptPath         string `json:"prompt_path"`
+	OutputPath         string `json:"output_path"`
+	MetaPath           string `json:"metadata_path"`
+	ArtifactPromptPath string `json:"artifact_prompt_path,omitempty"`
+	ArtifactOutputPath string `json:"artifact_output_path,omitempty"`
+	ArtifactMetaPath   string `json:"artifact_metadata_path,omitempty"`
+	Summary            string `json:"summary"`
 }
 
 func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBundle, error) {
@@ -295,12 +299,15 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 			return "", err
 		}
 		artifact := WorkshopArtifact{
-			TurnID:     turn.ID,
-			Title:      turn.Title,
-			PromptPath: filepath.ToSlash(promptPath),
-			OutputPath: filepath.ToSlash(outputPath),
-			MetaPath:   filepath.ToSlash(metaPath),
-			Summary:    workshopSummary(turn),
+			TurnID:             turn.ID,
+			Title:              turn.Title,
+			PromptPath:         s.modelVisiblePath(promptPath),
+			OutputPath:         s.modelVisiblePath(outputPath),
+			MetaPath:           s.modelVisiblePath(metaPath),
+			ArtifactPromptPath: filepath.ToSlash(promptPath),
+			ArtifactOutputPath: filepath.ToSlash(outputPath),
+			ArtifactMetaPath:   filepath.ToSlash(metaPath),
+			Summary:            workshopSummary(turn),
 		}
 		if err := writeJSONAtomic(metaPath, map[string]any{
 			"turn":          index + 1,
@@ -421,6 +428,21 @@ func (s Service) log(event gamelog.Event) {
 		return
 	}
 	_ = s.Logger.Append(event)
+}
+
+func (s Service) modelVisiblePath(path string) string {
+	root := strings.TrimSpace(s.AgentRoot)
+	if root == "" {
+		return filepath.ToSlash(path)
+	}
+	absRoot, rootErr := filepath.Abs(root)
+	absPath, pathErr := filepath.Abs(path)
+	if rootErr == nil && pathErr == nil {
+		if rel, err := filepath.Rel(absRoot, absPath); err == nil && rel != "." && !strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+			return filepath.ToSlash(rel)
+		}
+	}
+	return filepath.ToSlash(path)
 }
 
 func promptRunnerMetadata(runner prompt.Runner) modelmeta.Metadata {

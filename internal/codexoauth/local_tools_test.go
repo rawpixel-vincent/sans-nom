@@ -86,6 +86,28 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	}
 }
 
+func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
+	root := t.TempDir()
+	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("ok"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := toolExecCommand(context.Background(), root, `{"cmd":"cat notes.md"}`); err != nil {
+		t.Fatalf("scoped file should be readable: %v", err)
+	}
+	for _, cmd := range []string{
+		`cat /Users/vincent/dev/sans-nom/README.md`,
+		`cat ../README.md`,
+		`rg Bell lore/packs`,
+		`find data/stories`,
+		`cat internal/seed/seed.go`,
+	} {
+		args := fmt.Sprintf(`{"cmd":%q}`, cmd)
+		if _, err := toolExecCommand(context.Background(), root, args); err == nil {
+			t.Fatalf("expected command %q to be rejected", cmd)
+		}
+	}
+}
+
 func writeSSE(t *testing.T, w http.ResponseWriter, raw map[string]any) {
 	t.Helper()
 	data := mustMarshalJSON(t, raw)

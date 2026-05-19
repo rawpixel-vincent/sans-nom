@@ -10,6 +10,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
@@ -20,6 +21,8 @@ type ToolRunner struct {
 	Runner           Runner
 	OutputDir        string
 	RepoRoot         string
+	WorkspaceRoot    string
+	VisiblePaths     []string
 	ContextText      string
 	Tools            bool
 	LoreExpert       *loreexpert.ToolRunner
@@ -42,7 +45,7 @@ func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	}
 }
 
-func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (any, error) {
+func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) (any, error) {
 	if r == nil || r.Runner == nil {
 		return nil, errors.New("scenarist tool requires runner")
 	}
@@ -62,6 +65,11 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		r.logRejected(arguments, err, []ToolRequest{request})
 		return nil, err
 	}
+	workspaceRoot := firstNonEmpty(r.WorkspaceRoot, root, r.OutputDir)
+	if err := r.normalizeRelevantPaths(workspaceRoot, &request); err != nil {
+		r.logRejected(arguments, err, []ToolRequest{request})
+		return nil, err
+	}
 	callID, callIndex, err := r.nextCallID()
 	if err != nil {
 		r.logRejected(arguments, err, []ToolRequest{request})
@@ -71,7 +79,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	if err := os.MkdirAll(callDir, 0o755); err != nil {
 		return nil, err
 	}
-	systemPrompt := ScenaristSystemPrompt(r.RepoRoot, r.Tools, r.LoreExpert != nil)
+	systemPrompt := ScenaristSystemPrompt(workspaceRoot, r.Tools, r.LoreExpert != nil)
 	metadata := runnerModelMetadata(r.Runner)
 	r.log(gamelog.Event{
 		Category: "scenarist",
@@ -84,6 +92,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"topic":                 request.Topic,
 			"tools_enabled":         r.Tools,
 			"lore_expert_available": r.LoreExpert != nil,
+			"agent_workspace_root":  filepath.ToSlash(workspaceRoot),
 		}, metadata),
 		Detail: map[string]any{
 			"arguments":             arguments,
@@ -95,6 +104,8 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"tools_enabled":         r.Tools,
 			"lore_expert_available": r.LoreExpert != nil,
 			"lore_expert_rounds":    r.effectiveLoreExpertRounds(),
+			"agent_workspace_root":  filepath.ToSlash(workspaceRoot),
+			"visible_paths":         r.visiblePaths(workspaceRoot),
 			"system_prompt":         systemPrompt,
 			"context_chars":         len(r.ContextText),
 			"context_text":          r.ContextText,
@@ -156,10 +167,11 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		return nil, err
 	}
 	material := Material{
-		TopicID: topicID,
-		Topic:   request.Topic,
-		Path:    filepath.ToSlash(path),
-		Bytes:   int(info.Size()),
+		TopicID:      topicID,
+		Topic:        request.Topic,
+		Path:         r.modelVisiblePath(workspaceRoot, path),
+		ArtifactPath: filepath.ToSlash(path),
+		Bytes:        int(info.Size()),
 	}
 	if !materialMetadata.Empty() {
 		material.ModelMetadata = &materialMetadata
@@ -169,7 +181,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		completedMetadata = materialMetadata
 	}
 	materials := []Material{material}
-	manifest := Manifest{Root: filepath.ToSlash(callDir), Materials: materials}
+	manifest := Manifest{Root: r.modelVisiblePath(workspaceRoot, callDir), Materials: materials}
 	if err := writeJSONAtomic(filepath.Join(callDir, "manifest.json"), manifest); err != nil {
 		r.log(gamelog.Event{
 			Level:    gamelog.LevelError,
@@ -190,12 +202,13 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		Event:    "scenarist.ask.completed",
 		Message:  "scenarist material written",
 		Fields: modelmeta.MergeFields(map[string]any{
-			"material_count": len(materials),
-			"call_dir":       filepath.ToSlash(callDir),
-			"call_index":     callIndex,
-			"topic_id":       request.TopicID,
-			"topic":          request.Topic,
-			"tools_enabled":  r.Tools,
+			"material_count":       len(materials),
+			"call_dir":             filepath.ToSlash(callDir),
+			"call_index":           callIndex,
+			"topic_id":             request.TopicID,
+			"topic":                request.Topic,
+			"tools_enabled":        r.Tools,
+			"agent_workspace_root": filepath.ToSlash(workspaceRoot),
 		}, completedMetadata),
 		Detail: map[string]any{
 			"request":               request,
@@ -207,15 +220,55 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 			"call_index":            callIndex,
 			"tools_enabled":         r.Tools,
 			"lore_expert_available": r.LoreExpert != nil,
+			"agent_workspace_root":  filepath.ToSlash(workspaceRoot),
+			"visible_paths":         r.visiblePaths(workspaceRoot),
 		},
 	})
 	return map[string]any{
 		"ok":        true,
-		"root":      filepath.ToSlash(callDir),
+		"root":      manifest.Root,
 		"material":  material,
 		"materials": materials,
 		"note":      "Scenarist material is planning-only. Read the returned file before asking any dependent follow-up. Do not copy wholesale or commit as canon.",
 	}, nil
+}
+
+func (r *ToolRunner) normalizeRelevantPaths(workspaceRoot string, request *ToolRequest) error {
+	if request == nil || len(request.RelevantPaths) == 0 {
+		return nil
+	}
+	scope := agentfs.New(workspaceRoot, "scenarist")
+	normalized := make([]string, 0, len(request.RelevantPaths))
+	for _, path := range request.RelevantPaths {
+		if strings.TrimSpace(path) == "" {
+			continue
+		}
+		rel, err := scope.Normalize(path)
+		if err != nil {
+			return fmt.Errorf("relevant_path %q rejected: %w", path, err)
+		}
+		normalized = append(normalized, rel)
+	}
+	request.RelevantPaths = normalized
+	return nil
+}
+
+func (r *ToolRunner) modelVisiblePath(workspaceRoot string, path string) string {
+	scope := agentfs.New(workspaceRoot, "scenarist")
+	if rel, err := scope.Normalize(path); err == nil {
+		return rel
+	}
+	return filepath.ToSlash(path)
+}
+
+func (r *ToolRunner) visiblePaths(workspaceRoot string) []string {
+	if len(r.VisiblePaths) > 0 {
+		return append([]string(nil), r.VisiblePaths...)
+	}
+	if strings.TrimSpace(workspaceRoot) == "" {
+		return nil
+	}
+	return []string{"."}
 }
 
 func runnerModelMetadata(runner Runner) modelmeta.Metadata {

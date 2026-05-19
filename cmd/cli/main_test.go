@@ -16,6 +16,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
@@ -104,9 +105,10 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 		ScenaristProvider:    "ZAI",
 		ScenaristRounds:      7,
 	}
-	outputDir := t.TempDir()
+	outputDir := filepath.Join(t.TempDir(), "agent", "scenarists")
+	scope := seedAgentScopeFromScenaristOutputDir(outputDir)
 	loreTool := &loreexpert.ToolRunner{PackID: "metabarons"}
-	toolRunner, err := seedScenaristToolRunner(cfg, "writer context", outputDir, nil, loreTool)
+	toolRunner, err := seedScenaristToolRunner(cfg, "writer context", outputDir, scope, nil, loreTool)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -117,7 +119,7 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 		t.Fatalf("seed scenarist tool max calls = %d", toolRunner.MaxCalls)
 	}
 	logger := gamelog.NewGlobalWriter(t.TempDir())
-	runner, err := seedWriterRunner(cfg, outputDir, toolRunner, loreTool, logger)
+	runner, err := seedWriterRunner(cfg, scope, toolRunner, loreTool, logger)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -128,6 +130,9 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if !codex.LocalTools || codex.MaxToolRounds != 7 {
 		t.Fatalf("seed writer runner missing local tools: %#v", codex)
 	}
+	if codex.ToolRoot != scope.Root {
+		t.Fatalf("seed writer tool root = %q, want %q", codex.ToolRoot, scope.Root)
+	}
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "creative-writer" {
 		t.Fatalf("seed writer runner missing tool logging metadata: %#v", codex)
 	}
@@ -137,7 +142,7 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	if !hasTool(codex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("seed writer missing lore expert tool: %#v", codex.ExtraTools)
 	}
-	workshop, err := seedWorkshopRunner(cfg, outputDir, toolRunner, loreTool, logger)
+	workshop, err := seedWorkshopRunner(cfg, scope, toolRunner, loreTool, logger)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -158,7 +163,8 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, t.TempDir(), &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
+	scope := agentfs.New(t.TempDir(), "writer").WithVisiblePaths(".")
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, scope, &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -169,6 +175,9 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	}
 	if !codex.LocalTools || codex.MaxToolRounds != 5 {
 		t.Fatalf("refresh writer runner missing local tools: %#v", codex)
+	}
+	if codex.ToolRoot != scope.Root {
+		t.Fatalf("refresh writer tool root = %q, want %q", codex.ToolRoot, scope.Root)
 	}
 	if !hasTool(codex.ExtraTools, "ask_scenarist") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
 		t.Fatalf("refresh writer missing local tools: %#v", codex.ExtraTools)
@@ -182,24 +191,25 @@ func TestScenaristProviderRunnersUseArtifactDirsNotLoreDir(t *testing.T) {
 	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
 	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")
 	t.Setenv("ZAI__ANTHROPIC_MODEL", "model")
-	outputDir := filepath.Join(t.TempDir(), "data", "seed-runs", "seed-1", "scenarists")
+	workspaceRoot := filepath.Join(t.TempDir(), "data", "seed-runs", "seed-1", "agent")
+	outputDir := filepath.Join(workspaceRoot, "scenarists")
 	runners := scenaristProviderRunners(playConfig{
 		ScenaristProvider: "ZAI",
 		ScenaristTools:    true,
-	}, outputDir)
+	}, outputDir, workspaceRoot)
 	if len(runners) != 1 {
 		t.Fatalf("runners = %#v", runners)
 	}
-	if runners[0].WorkDir != outputDir {
-		t.Fatalf("workdir = %q, want %q", runners[0].WorkDir, outputDir)
+	if runners[0].WorkDir != workspaceRoot {
+		t.Fatalf("workdir = %q, want %q", runners[0].WorkDir, workspaceRoot)
 	}
 	for _, dir := range runners[0].AddDirs {
 		if dir == "lore" || strings.Contains(filepath.ToSlash(dir), "/lore") {
 			t.Fatalf("scenarist runner should not expose lore dir: %#v", runners[0].AddDirs)
 		}
 	}
-	if !containsStringWith(runners[0].AddDirs, filepath.ToSlash(filepath.Dir(outputDir))) {
-		t.Fatalf("scenarist runner missing artifact parent: %#v", runners[0].AddDirs)
+	if !containsStringWith(runners[0].AddDirs, filepath.ToSlash(workspaceRoot)) {
+		t.Fatalf("scenarist runner missing workspace root: %#v", runners[0].AddDirs)
 	}
 }
 

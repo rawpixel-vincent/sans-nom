@@ -37,10 +37,11 @@ var readOnlyCommands = map[string]bool{
 // LocalToolOptions enables a minimal local shell-like tool loop for models
 // called directly through the Codex backend.
 type LocalToolOptions struct {
-	Root       string
-	MaxRounds  int
-	ExtraTools []LocalTool
-	Logger     *gamelog.Writer
+	Root         string
+	MaxRounds    int
+	ExtraTools   []LocalTool
+	Logger       *gamelog.Writer
+	VisiblePaths []string
 
 	ToolCategory  string
 	CallerRole    string
@@ -115,7 +116,7 @@ func localToolDefinitions(extra []LocalTool) []any {
 		map[string]any{
 			"type":        "function",
 			"name":        "exec_command",
-			"description": "Run a read-only shell command inside the repository. Prefer rg, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.",
+			"description": "Run a read-only shell command inside the scoped agent workspace. Prefer rg, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.",
 			"parameters": map[string]any{
 				"type":                 "object",
 				"additionalProperties": false,
@@ -126,7 +127,7 @@ func localToolDefinitions(extra []LocalTool) []any {
 					},
 					"workdir": map[string]any{
 						"type":        "string",
-						"description": "Working directory under the repository root. Defaults to the repository root.",
+						"description": "Working directory under the scoped workspace root. Defaults to the workspace root.",
 					},
 					"yield_time_ms": map[string]any{
 						"type":        "integer",
@@ -345,21 +346,24 @@ func logLocalToolEvent(opts LocalToolOptions, call functionCall, eventSuffix str
 	}
 	category := firstNonEmpty(opts.ToolCategory, "model")
 	fields := modelmeta.MergeFields(map[string]any{
-		"tool_name":      detail["tool_name"],
-		"raw_tool_name":  call.Name,
-		"tool_use_id":    call.CallID,
-		"target":         detail["target"],
-		"caller_role":    opts.CallerRole,
-		"caller_speaker": opts.CallerSpeaker,
-		"status":         status,
+		"tool_name":            detail["tool_name"],
+		"raw_tool_name":        call.Name,
+		"tool_use_id":          call.CallID,
+		"target":               detail["target"],
+		"caller_role":          opts.CallerRole,
+		"caller_speaker":       opts.CallerSpeaker,
+		"status":               status,
+		"agent_workspace_root": filepath.ToSlash(opts.Root),
 	}, opts.ModelMetadata)
 	eventDetail := map[string]any{
-		"tool_name":      detail["tool_name"],
-		"raw_tool_name":  call.Name,
-		"tool_use_id":    call.CallID,
-		"caller_role":    opts.CallerRole,
-		"caller_speaker": opts.CallerSpeaker,
-		"model_metadata": opts.ModelMetadata,
+		"tool_name":            detail["tool_name"],
+		"raw_tool_name":        call.Name,
+		"tool_use_id":          call.CallID,
+		"caller_role":          opts.CallerRole,
+		"caller_speaker":       opts.CallerSpeaker,
+		"model_metadata":       opts.ModelMetadata,
+		"agent_workspace_root": filepath.ToSlash(opts.Root),
+		"visible_paths":        opts.VisiblePaths,
 	}
 	for key, value := range detail {
 		eventDetail[key] = value
@@ -463,6 +467,9 @@ func toolExecCommand(ctx context.Context, root string, rawArgs string) (map[stri
 			return nil, err
 		}
 	}
+	if err := validateCommandPaths(root, args.Cmd); err != nil {
+		return nil, err
+	}
 
 	maxBytes := outputByteLimit(args.MaxOutputTokens)
 	toolCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
@@ -559,6 +566,77 @@ func validateReadOnlyCommand(command string) error {
 	return nil
 }
 
+func validateCommandPaths(root string, command string) error {
+	absRoot, err := filepath.Abs(root)
+	if err != nil {
+		return err
+	}
+	segments := strings.Split(command, "|")
+	for _, segment := range segments {
+		fields := strings.Fields(strings.TrimSpace(segment))
+		if len(fields) == 0 {
+			continue
+		}
+		for _, raw := range fields[1:] {
+			arg := trimShellToken(raw)
+			if arg == "" || strings.HasPrefix(arg, "-") {
+				continue
+			}
+			if strings.Contains(arg, "..") {
+				return fmt.Errorf("command path escapes agent workspace: %s", raw)
+			}
+			if agentWorkspaceSurface(arg) {
+				return fmt.Errorf("command path is outside the curated agent workspace: %s", raw)
+			}
+			if strings.HasPrefix(arg, "~") {
+				return fmt.Errorf("home-relative paths are not allowed in scoped tools: %s", raw)
+			}
+			if filepath.IsAbs(arg) {
+				absArg, err := filepath.Abs(arg)
+				if err != nil {
+					return err
+				}
+				rel, err := filepath.Rel(absRoot, absArg)
+				if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
+					return fmt.Errorf("absolute path escapes agent workspace: %s", raw)
+				}
+				if agentWorkspaceSurface(rel) {
+					return fmt.Errorf("command path is outside the curated agent workspace: %s", raw)
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func trimShellToken(value string) string {
+	value = strings.TrimSpace(value)
+	value = strings.Trim(value, `"'`)
+	value = strings.TrimSuffix(value, ",")
+	value = strings.TrimSuffix(value, ":")
+	return value
+}
+
+func agentWorkspaceSurface(path string) bool {
+	clean := filepath.ToSlash(filepath.Clean(filepath.FromSlash(strings.TrimSpace(path))))
+	clean = strings.TrimPrefix(clean, "./")
+	forbidden := []string{
+		".git",
+		"cmd",
+		"internal",
+		"testdata",
+		"lore",
+		"data/stories",
+		"data/seed-runs",
+	}
+	for _, prefix := range forbidden {
+		if clean == prefix || strings.HasPrefix(clean, prefix+"/") {
+			return true
+		}
+	}
+	return false
+}
+
 func validateReadOnlyArgs(name string, args []string) error {
 	for _, arg := range args {
 		switch {
@@ -614,7 +692,7 @@ func safePath(root string, requested string) (string, error) {
 		return "", err
 	}
 	if rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return "", fmt.Errorf("path escapes repository root: %s", requested)
+		return "", fmt.Errorf("path escapes agent workspace: %s", requested)
 	}
 	return abs, nil
 }

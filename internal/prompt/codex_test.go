@@ -56,22 +56,23 @@ func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	client := &fakeLocalToolClient{}
 	logger := gamelog.NewWriter(t.TempDir(), "story-1")
 	runner := CodexRunner{
-		Client:        client,
-		Model:         "gpt-5.5",
-		Effort:        "medium",
-		ServiceTier:   "priority",
-		LocalTools:    true,
-		ToolRoot:      "/tmp/materials",
-		MaxToolRounds: 7,
-		Logger:        logger,
-		ToolCategory:  "writer",
-		CallerRole:    "writer",
-		CallerSpeaker: "Writer",
-		StoryID:       "story-1",
-		Turn:          2,
-		PacketID:      "packet-1",
-		NodeID:        "node-1",
-		RunID:         "run-1",
+		Client:           client,
+		Model:            "gpt-5.5",
+		Effort:           "medium",
+		ServiceTier:      "priority",
+		LocalTools:       true,
+		ToolRoot:         "/tmp/materials",
+		ToolVisiblePaths: []string{"story", "scenarists"},
+		MaxToolRounds:    7,
+		Logger:           logger,
+		ToolCategory:     "writer",
+		CallerRole:       "writer",
+		CallerSpeaker:    "Writer",
+		StoryID:          "story-1",
+		Turn:             2,
+		PacketID:         "packet-1",
+		NodeID:           "node-1",
+		RunID:            "run-1",
 		ExtraTools: []codexoauth.LocalTool{{
 			Name:        "custom_tool",
 			Description: "custom",
@@ -88,6 +89,9 @@ func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	}
 	if client.opts.Root != "/tmp/materials" || client.opts.MaxRounds != 7 {
 		t.Fatalf("unexpected local tool opts: %#v", client.opts)
+	}
+	if len(client.opts.VisiblePaths) != 2 || client.opts.VisiblePaths[0] != "story" || client.opts.VisiblePaths[1] != "scenarists" {
+		t.Fatalf("unexpected visible paths: %#v", client.opts.VisiblePaths)
 	}
 	if len(client.opts.ExtraTools) != 1 || client.opts.ExtraTools[0].Name != "custom_tool" {
 		t.Fatalf("unexpected extra tools: %#v", client.opts.ExtraTools)

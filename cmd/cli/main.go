@@ -24,6 +24,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/admin"
+	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/clitui"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
@@ -322,7 +323,8 @@ func main() {
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
 		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
-		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), nil, "narrator", "narrator", "Narrator", 0, packet.ID, *nodeID)}
+		scope := agentfs.New(filepath.Dir(absOrClean(*packetPath)), "narrator").WithVisiblePaths(".")
+		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, nil, "narrator", "narrator", "Narrator", 0, packet.ID, *nodeID)}
 	}
 	svc := narrator.Service{
 		Actors: &actors.Service{
@@ -921,16 +923,17 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	contextText := buildSeedContextForPack(pack)
 	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
 	workshopOutputDir := seedWorkshopOutputDir(scenaristOutputDir)
+	agentScope := seedAgentScopeFromScenaristOutputDir(scenaristOutputDir)
 	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
-	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, logger, loreExpertTool)
+	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, agentScope, logger, loreExpertTool)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	writerRunner, err := seedWriterRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool, logger)
+	writerRunner, err := seedWriterRunner(cfg, agentScope, scenaristTool, loreExpertTool, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
-	workshopRunner, err := seedWorkshopRunner(cfg, scenaristOutputDir, scenaristTool, loreExpertTool, logger)
+	workshopRunner, err := seedWorkshopRunner(cfg, agentScope, scenaristTool, loreExpertTool, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
@@ -946,6 +949,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 			"writer_scenarist_calls":    cfg.WriterScenaristCalls,
 			"scenarist_output_dir":      filepath.ToSlash(scenaristOutputDir),
 			"workshop_output_dir":       filepath.ToSlash(workshopOutputDir),
+			"agent_workspace_root":      filepath.ToSlash(agentScope.Root),
 			"writer_tools_attached":     writerRunnerHasTools(writerRunner),
 			"scenarist_tool_attached":   scenaristTool != nil,
 			"lore_expert_tool_attached": loreExpertTool != nil,
@@ -956,6 +960,8 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 			"ground_lore_pack":     pack,
 			"scenarist_output_dir": filepath.ToSlash(scenaristOutputDir),
 			"workshop_output_dir":  filepath.ToSlash(workshopOutputDir),
+			"agent_workspace_root": filepath.ToSlash(agentScope.Root),
+			"visible_paths":        agentScope.VisiblePaths,
 		},
 	})
 	return seed.Service{
@@ -965,6 +971,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 		MaxIterations:  2,
 		Logger:         logger,
 		WorkshopDir:    workshopOutputDir,
+		AgentRoot:      agentScope.Root,
 	}.Generate(ctx, contextText)
 }
 
@@ -1015,15 +1022,15 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	return b.String()
 }
 
-func seedWriterRunner(cfg seedRuntimeConfig, outputDir string, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), outputDir, nil, loreExpertTool, logger)
+func seedWriterRunner(cfg seedRuntimeConfig, scope agentfs.Scope, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), scope, nil, loreExpertTool, logger)
 }
 
-func seedWorkshopRunner(cfg seedRuntimeConfig, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
-	return seedCreativeRunner(cfg, "", nil, outputDir, toolRunner, loreExpertTool, logger)
+func seedWorkshopRunner(cfg seedRuntimeConfig, scope agentfs.Scope, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+	return seedCreativeRunner(cfg, "", nil, scope, toolRunner, loreExpertTool, logger)
 }
 
-func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, outputDir string, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[string]any, scope agentfs.Scope, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
 	if cfg.Backend == "static" {
 		return nil, nil
 	}
@@ -1034,16 +1041,17 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 	case "claude":
 		return claudeRunner(), nil
 	default:
-		materialDir := ""
-		if strings.TrimSpace(outputDir) != "" {
-			materialDir = outputDir
+		if strings.TrimSpace(scope.Root) != "" {
+			if err := scope.Ensure(); err != nil {
+				return nil, err
+			}
 		}
-		runner := codexRunnerWithMaterialAccess(schemaName, schema, materialDir, toolRunner, loreExpertTool, cfg.ScenaristRounds)
+		runner := codexRunnerWithMaterialAccess(schemaName, schema, scope, toolRunner, loreExpertTool, cfg.ScenaristRounds)
 		return configureCodexToolLogging(runner, logger, "writer", "creative-writer", "Creative Writer", "", 0, "", "", ""), nil
 	}
 }
 
-func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, logger *gamelog.Writer, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
+func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDir string, scope agentfs.Scope, logger *gamelog.Writer, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
 	if cfg.WriterScenaristCalls == 0 || cfg.Backend == "static" {
 		return nil, nil
 	}
@@ -1055,7 +1063,7 @@ func seedScenaristToolRunner(cfg seedRuntimeConfig, contextText string, outputDi
 		ScenaristTools:       cfg.ScenaristTools,
 		ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
 		Logger:               logger,
-	}, contextText, outputDir, loreExpertTool)
+	}, contextText, outputDir, scope, loreExpertTool)
 	if tool != nil {
 		tool.CallerRole = "creative-writer"
 		tool.CallerName = "Creative Writer"
@@ -1088,16 +1096,24 @@ func seedScenaristOutputDir(storyRoot string, outputRoot string) string {
 	segment := "seed-" + strings.NewReplacer(".", "", ":", "", "-", "").Replace(time.Now().UTC().Format(time.RFC3339Nano))
 	root := strings.TrimSpace(outputRoot)
 	if root != "" {
-		return filepath.Join(root, "seed-runs", segment, "scenarists")
+		return filepath.Join(root, "seed-runs", segment, "agent", "scenarists")
 	}
 	if strings.TrimSpace(storyRoot) == "" {
 		storyRoot = story.DefaultRoot
 	}
-	return filepath.Join(filepath.Dir(filepath.Clean(storyRoot)), "seed-runs", segment, "scenarists")
+	return filepath.Join(filepath.Dir(filepath.Clean(storyRoot)), "seed-runs", segment, "agent", "scenarists")
 }
 
 func seedWorkshopOutputDir(scenaristOutputDir string) string {
 	return filepath.Join(filepath.Dir(scenaristOutputDir), "workshop")
+}
+
+func seedAgentScopeFromScenaristOutputDir(scenaristOutputDir string) agentfs.Scope {
+	root := filepath.Dir(scenaristOutputDir)
+	seedID := filepath.Base(filepath.Dir(root))
+	return agentfs.New(root, "creative-writer").
+		WithSeedRunID(seedID).
+		WithVisiblePaths("workshop", "scenarists")
 }
 
 func writerRunnerHasTools(runner prompt.Runner) bool {
@@ -2485,7 +2501,11 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
 		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
-		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
+		scope, err := prepareStoryAgentScope(cfg, "narrator", fmt.Sprintf("turn-%06d", turn), packet, nodeID, narratorContextText)
+		if err != nil {
+			return narrator.Rollout{}, err
+		}
+		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
 	}
 	return narrator.Service{
 		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
@@ -2995,10 +3015,8 @@ func writeJSONFileAtomic(path string, value any) error {
 
 func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, cfg playConfig) (scene.StoryPacket, error) {
 	runID, runDir := writerRunInfo(cfg)
-	outputDir := scenaristOutputDir(cfg)
-	scenaristEnabled := cfg.WriterScenaristCalls != 0 && strings.TrimSpace(outputDir) != "" && len(scenaristProviderRunners(cfg, outputDir)) > 0
 	assembler := writerRefreshContextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.StoryCollection, cfg.Logger)
-	if scenaristEnabled {
+	if cfg.WriterScenaristCalls != 0 {
 		assembler.Options.WriterLoreK = 4
 	}
 	writerContext, err := assembler.AssembleWriter(ctx, contextbundle.BuildRequest{
@@ -3010,9 +3028,14 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
+	scope, err := prepareStoryAgentScope(cfg, "writer", runID, packet, nodeID, writerContext.RenderText())
+	if err != nil {
+		return scene.StoryPacket{}, err
+	}
+	outputDir := filepath.Join(scope.Root, "scenarists")
 	runner := claudeRunner()
 	loreExpertTool := loreExpertToolRunner(cfg)
-	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir, loreExpertTool)
+	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir, scope, loreExpertTool)
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
@@ -3021,7 +3044,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	}
 	planner := cfg.WriterPlanner
 	if planner == nil {
-		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, outputDir, toolRunner, loreExpertTool, cfg.ScenaristRounds, cfg.Logger, runID)
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, scope, toolRunner, loreExpertTool, cfg.ScenaristRounds, cfg.Logger, runID)
 	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
@@ -3699,19 +3722,20 @@ func writerRefreshModelMetadata(cfg playConfig) modelmeta.Metadata {
 	}
 }
 
-func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
 	case "claude":
-		if materialDir != "" {
+		if scope.Root != "" {
 			claude.PermissionMode = "dontAsk"
 			claude.AllowedTools = []string{"Read", "LS", "Grep"}
-			claude.AddDirs = append(claude.AddDirs, materialDir)
+			claude.WorkDir = scope.Root
+			claude.AddDirs = append(claude.AddDirs, scope.Root)
 		}
 		return writer.ClaudePlanner{Runner: claude}
 	default:
-		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), materialDir, scenaristTool, loreExpertTool, maxToolRounds)
+		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, scenaristTool, loreExpertTool, maxToolRounds)
 		runner = configureCodexToolLogging(runner, logger, "writer", "writer", "Writer", runID, 0, "", "", "")
 		return writer.ClaudePlanner{Runner: runner}
 	}
@@ -3740,11 +3764,16 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 	}
 }
 
-func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, materialDir string, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) prompt.CodexRunner {
+func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
-	if strings.TrimSpace(materialDir) != "" || scenaristTool != nil || loreExpertTool != nil {
+	if strings.TrimSpace(scope.Root) != "" || scenaristTool != nil || loreExpertTool != nil {
+		if strings.TrimSpace(scope.Root) == "" {
+			scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "scratch"), "model").WithVisiblePaths(".")
+		}
+		_ = scope.Ensure()
 		runner.LocalTools = true
-		runner.ToolRoot = repoRoot()
+		runner.ToolRoot = scope.Root
+		runner.ToolVisiblePaths = append([]string(nil), scope.VisiblePaths...)
 		if maxToolRounds <= 0 {
 			maxToolRounds = 24
 		}
@@ -3761,10 +3790,15 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, mat
 	return runner
 }
 
-func codexRunnerWithReadTools(schemaName string, schema map[string]any, logger *gamelog.Writer, category string, role string, speaker string, turn int, packetID string, nodeID string) prompt.CodexRunner {
+func codexRunnerWithReadTools(schemaName string, schema map[string]any, scope agentfs.Scope, logger *gamelog.Writer, category string, role string, speaker string, turn int, packetID string, nodeID string) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
+	if strings.TrimSpace(scope.Root) == "" {
+		scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "read-tools"), role).WithVisiblePaths(".")
+	}
+	_ = scope.Ensure()
 	runner.LocalTools = true
-	runner.ToolRoot = repoRoot()
+	runner.ToolRoot = scope.Root
+	runner.ToolVisiblePaths = append([]string(nil), scope.VisiblePaths...)
 	runner.MaxToolRounds = 8
 	return configureCodexToolLogging(runner, logger, category, role, speaker, "", turn, packetID, nodeID, "")
 }
@@ -3791,25 +3825,30 @@ func claudeRunner() prompt.ClaudeRunner {
 	}
 }
 
-func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
+func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, scope agentfs.Scope, loreExpertTool *loreexpert.ToolRunner) (*scenarist.ToolRunner, error) {
 	if cfg.WriterScenaristCalls == 0 || strings.TrimSpace(outputDir) == "" {
 		return nil, nil
 	}
-	runners := scenaristProviderRunners(cfg, outputDir)
+	runners := scenaristProviderRunners(cfg, outputDir, scope.Root)
 	if len(runners) == 0 {
 		return nil, nil
 	}
+	if strings.TrimSpace(scope.Root) == "" {
+		scope = agentfs.New(filepath.Dir(outputDir), "scenarist").WithVisiblePaths(".")
+	}
 	return &scenarist.ToolRunner{
-		Runner:      &scenarist.ProviderPoolRunner{Runners: runners},
-		OutputDir:   outputDir,
-		RepoRoot:    repoRoot(),
-		ContextText: contextText,
-		Tools:       cfg.ScenaristTools,
-		LoreExpert:  loreExpertTool,
-		MaxCalls:    cfg.WriterScenaristCalls,
-		Logger:      cfg.Logger,
-		CallerRole:  "writer",
-		CallerName:  "Writer",
+		Runner:        &scenarist.ProviderPoolRunner{Runners: runners},
+		OutputDir:     outputDir,
+		RepoRoot:      repoRoot(),
+		WorkspaceRoot: scope.Root,
+		VisiblePaths:  scope.VisiblePaths,
+		ContextText:   contextText,
+		Tools:         cfg.ScenaristTools,
+		LoreExpert:    loreExpertTool,
+		MaxCalls:      cfg.WriterScenaristCalls,
+		Logger:        cfg.Logger,
+		CallerRole:    "writer",
+		CallerName:    "Writer",
 	}, nil
 }
 
@@ -3875,11 +3914,11 @@ func codexLoreExpertEffort(value string) string {
 	return value
 }
 
-func scenaristProviderRunners(cfg playConfig, outputDir string) []scenarist.ProviderRunner {
+func scenaristProviderRunners(cfg playConfig, outputDir string, workspaceRoot string) []scenarist.ProviderRunner {
 	names := scenarist.ProviderNames(cfg.ScenaristProvider)
 	names = scenarist.UsableProviders(names, cfg.ScenaristModel, scenarist.DefaultEnvFiles("."), os.Environ())
 	runners := make([]scenarist.ProviderRunner, 0, len(names))
-	workDir := scenaristWorkDir(outputDir)
+	workDir := scenaristWorkDir(outputDir, workspaceRoot)
 	for _, name := range names {
 		runners = append(runners, scenarist.ProviderRunner{
 			Provider: name,
@@ -3887,7 +3926,7 @@ func scenaristProviderRunners(cfg playConfig, outputDir string) []scenarist.Prov
 			WorkDir:  workDir,
 			EnvFiles: scenarist.DefaultEnvFiles("."),
 			Tools:    cfg.ScenaristTools,
-			AddDirs:  scenaristAddDirs(cfg, outputDir),
+			AddDirs:  scenaristAddDirs(workDir),
 			Timeout:  15 * time.Minute,
 			Logger:   cfg.Logger,
 		})
@@ -3895,20 +3934,20 @@ func scenaristProviderRunners(cfg playConfig, outputDir string) []scenarist.Prov
 	return runners
 }
 
-func scenaristWorkDir(outputDir string) string {
+func scenaristWorkDir(outputDir string, workspaceRoot string) string {
+	if strings.TrimSpace(workspaceRoot) != "" {
+		return absOrClean(workspaceRoot)
+	}
 	if strings.TrimSpace(outputDir) == "" {
 		return "."
 	}
-	return absOrClean(outputDir)
+	return absOrClean(filepath.Dir(outputDir))
 }
 
-func scenaristAddDirs(cfg playConfig, outputDir string) []string {
+func scenaristAddDirs(workDir string) []string {
 	dirs := []string{}
-	if strings.TrimSpace(outputDir) != "" {
-		dirs = append(dirs, absOrClean(filepath.Dir(outputDir)))
-	}
-	if cfg.Workspace != nil {
-		dirs = append(dirs, absOrClean(cfg.Workspace.Dir))
+	if strings.TrimSpace(workDir) != "" {
+		dirs = append(dirs, absOrClean(workDir))
 	}
 	return dirs
 }
@@ -3921,23 +3960,77 @@ func absOrClean(path string) string {
 	return abs
 }
 
-func scenaristOutputDir(cfg playConfig) string {
-	root := strings.TrimSpace(cfg.ScenaristOutputRoot)
-	if root != "" {
-		return filepath.Join(root, scenaristTurnSegment(cfg))
-	}
-	if cfg.Workspace == nil {
-		return ""
-	}
-	return filepath.Join(cfg.Workspace.ModelRunsDir(), "scenarists", scenaristTurnSegment(cfg))
-}
-
 func writerRunInfo(cfg playConfig) (string, string) {
 	segment := scenaristTurnSegment(cfg)
 	if cfg.Workspace == nil {
 		return segment, ""
 	}
 	return segment, filepath.Join(cfg.Workspace.ModelRunsDir(), "writer", segment)
+}
+
+func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet scene.StoryPacket, nodeID string, contextText string) (agentfs.Scope, error) {
+	root := ""
+	storyID := ""
+	if cfg.Workspace != nil {
+		root = filepath.Join(cfg.Workspace.Dir, "agent", story.SanitizeStoryID(role), story.SanitizeStoryID(runID))
+		storyID = cfg.Workspace.StoryID
+	}
+	if strings.TrimSpace(root) == "" {
+		root = filepath.Join(os.TempDir(), "sans-nom-agent", story.SanitizeStoryID(role), story.SanitizeStoryID(runID))
+	}
+	scope := agentfs.New(root, role).WithStoryID(storyID).WithVisiblePaths("story", "scenarists")
+	if err := scope.Ensure(); err != nil {
+		return scope, err
+	}
+	if cfg.State != nil {
+		if _, err := scope.StageJSON(filepath.Join("story", "state.json"), cfg.State); err != nil {
+			return scope, err
+		}
+	}
+	if cfg.Bible != nil {
+		if _, err := scope.StageJSON(filepath.Join("story", "bible.json"), cfg.Bible); err != nil {
+			return scope, err
+		}
+	}
+	if _, err := scope.StageJSON(filepath.Join("story", "current-packet.json"), packet); err != nil {
+		return scope, err
+	}
+	if node, err := packet.Node(nodeID); err == nil {
+		if _, err := scope.StageJSON(filepath.Join("story", "current-node.json"), node); err != nil {
+			return scope, err
+		}
+	}
+	if strings.TrimSpace(contextText) != "" {
+		if _, err := scope.StageText(filepath.Join("story", "context.txt"), contextText); err != nil {
+			return scope, err
+		}
+	}
+	if cfg.Workspace != nil {
+		if err := stageNarrationFiles(scope, cfg.Workspace.NarrationDir()); err != nil {
+			return scope, err
+		}
+	}
+	return scope, nil
+}
+
+func stageNarrationFiles(scope agentfs.Scope, narrationDir string) error {
+	entries, err := os.ReadDir(narrationDir)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return nil
+		}
+		return err
+	}
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".md") {
+			continue
+		}
+		source := filepath.Join(narrationDir, entry.Name())
+		if _, err := scope.StageFile(source, filepath.Join("story", "narration", entry.Name())); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func scenaristTurnSegment(cfg playConfig) string {
