@@ -19,6 +19,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
@@ -278,6 +279,7 @@ func main() {
 			Commit:               commitMode,
 			RefreshWrite:         playRefreshWriter,
 			TraceJSONL:           *playTraceJSONL,
+			UseTUI:               shouldUsePlayTUI(*turns, *choiceID, *freeText, *playTraceJSONL),
 			WriterScenaristCalls: resolveWriterScenaristCallCount(*writerScenaristCalls, backend, playRefreshWriter),
 			ScenaristProvider:    *scenaristProvider,
 			ScenaristModel:       *scenaristModel,
@@ -885,6 +887,7 @@ func playConfigFromSession(session storyapp.StorySession, cfg launcherConfig) pl
 		StoryCollection:      resolvedStoryCollection(&state, cfg.StoryCollection),
 		Commit:               cfg.Commit,
 		RefreshWrite:         cfg.RefreshWrite,
+		UseTUI:               shouldUsePlayTUI(0, "", "", false),
 		WriterScenaristCalls: cfg.WriterScenaristCalls,
 		ScenaristProvider:    cfg.ScenaristProvider,
 		ScenaristModel:       cfg.ScenaristModel,
@@ -1359,6 +1362,8 @@ type playConfig struct {
 	Commit               bool
 	RefreshWrite         bool
 	TraceJSONL           bool
+	UseTUI               bool
+	Status               func(string)
 	WriterScenaristCalls int
 	ScenaristProvider    string
 	ScenaristModel       string
@@ -1388,6 +1393,13 @@ func (e writerRefreshFailure) Unwrap() error {
 }
 
 func runPlay(ctx context.Context, cfg playConfig) error {
+	if cfg.UseTUI {
+		return runPlayTUI(ctx, cfg)
+	}
+	return runPlayRaw(ctx, cfg)
+}
+
+func runPlayRaw(ctx context.Context, cfg playConfig) error {
 	packet := cfg.Packet
 	nodeID := cfg.NodeID
 	decision := cfg.InitialDecision
@@ -1510,7 +1522,27 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 			}
 			if cfg.Commit {
 				client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+				commitStarted := time.Now()
+				logEvent(cfg.Logger, gamelog.Event{
+					Category: "honcho",
+					Event:    "honcho.commit.started",
+					Message:  "witnessed canon commit started",
+					Turn:     displayTurn,
+					PacketID: rollout.Commit.PacketID,
+					NodeID:   rollout.Commit.NodeID,
+					Fields: map[string]any{
+						"session_id":    rollout.Commit.SessionID,
+						"event_count":   len(rollout.Commit.Events),
+						"witness_count": len(rollout.Commit.Witnesses),
+					},
+					Detail: map[string]any{
+						"request": rollout.Commit,
+					},
+				})
 				if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+					if saveErr := savePendingDisplayedTurn(cfg, state, packet, rollout, false, turnAudioPath, turn); saveErr != nil {
+						err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
+					}
 					logEvent(cfg.Logger, gamelog.Event{
 						Level:    gamelog.LevelError,
 						Category: "honcho",
@@ -1519,6 +1551,11 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 						Turn:     displayTurn,
 						PacketID: rollout.Commit.PacketID,
 						NodeID:   rollout.Commit.NodeID,
+						Fields: map[string]any{
+							"session_id":  rollout.Commit.SessionID,
+							"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
+							"event_count": len(rollout.Commit.Events),
+						},
 						Detail: map[string]any{
 							"request": rollout.Commit,
 							"error":   err.Error(),
@@ -1534,6 +1571,8 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 					PacketID: rollout.Commit.PacketID,
 					NodeID:   rollout.Commit.NodeID,
 					Fields: map[string]any{
+						"session_id":    rollout.Commit.SessionID,
+						"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
 						"event_count":   len(rollout.Commit.Events),
 						"witness_count": len(rollout.Commit.Witnesses),
 					},
@@ -1740,6 +1779,491 @@ func runPlay(ctx context.Context, cfg playConfig) error {
 		}
 	}
 	return nil
+}
+
+type playLoopController struct {
+	cfg        playConfig
+	packet     scene.StoryPacket
+	nodeID     string
+	decision   scene.PlayerDecision
+	state      *story.StoryState
+	turn       int
+	current    *playControllerTurn
+	statusMu   sync.Mutex
+	status     []clitui.PlayStatus
+	statusSink func(clitui.PlayStatus)
+}
+
+type playControllerTurn struct {
+	displayTurn int
+	rollout     narrator.Rollout
+	audioPath   string
+	committed   bool
+}
+
+func runPlayTUI(ctx context.Context, cfg playConfig) error {
+	controller, err := newPlayLoopController(cfg)
+	if err != nil {
+		return err
+	}
+	return clitui.Play(ctx, controller)
+}
+
+func newPlayLoopController(cfg playConfig) (*playLoopController, error) {
+	packet := cfg.Packet
+	nodeID := cfg.NodeID
+	decision := cfg.InitialDecision
+	var state *story.StoryState
+	if cfg.State != nil {
+		copied := *cfg.State
+		state = &copied
+	}
+	if cfg.Logger == nil {
+		cfg.Logger = storyLogger(cfg.Workspace, state)
+	}
+	if state != nil && state.Status == story.StatusBlockedWriterRefresh {
+		return nil, fmt.Errorf("story is blocked by Writer refresh: %s (artifacts: %s)", state.BlockedReason, state.BlockedWriterRunPath)
+	}
+	if err := recoverPendingDisplayedTurnFromLogs(cfg, state, packet, nodeID); err != nil {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "story",
+			Event:    "story.turn.awaiting_choice_recovery_failed",
+			Message:  err.Error(),
+			PacketID: packet.ID,
+			NodeID:   nodeID,
+		})
+	}
+	if story.PlayerDecisionEmpty(decision) && state != nil && state.HasPendingDecision() {
+		decision = state.PendingDecision
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "story",
+		Event:    "story.play.started",
+		Message:  "play loop started",
+		PacketID: packet.ID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"backend":        cfg.Backend,
+			"commit":         cfg.Commit,
+			"refresh_writer": cfg.RefreshWrite,
+			"turn_limit":     cfg.Turns,
+			"ui":             "tui",
+		},
+	})
+	return &playLoopController{
+		cfg:      cfg,
+		packet:   packet,
+		nodeID:   nodeID,
+		decision: decision,
+		state:    state,
+	}, nil
+}
+
+func (c *playLoopController) SetStatusSink(sink func(clitui.PlayStatus)) {
+	c.statusMu.Lock()
+	defer c.statusMu.Unlock()
+	c.statusSink = sink
+}
+
+func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, error) {
+	c.turn++
+	displayTurn := currentStoryTurnNumber(c.state, c.turn)
+	c.resetStatus("Rendering narrator turn...")
+	cfg := c.config()
+	turnAudioPath := ""
+	committed := false
+	rollout, pendingRecord, resumedPending, err := loadPendingDisplayedRollout(cfg, c.state, c.packet, c.nodeID, c.decision, displayTurn)
+	if err != nil {
+		return clitui.TurnView{}, err
+	}
+	if resumedPending {
+		if pendingRecord.Turn > 0 {
+			displayTurn = pendingRecord.Turn
+		}
+		turnAudioPath = pendingRecord.AudioPath
+		committed = pendingRecord.Committed
+		c.addStatus("", "Resumed a displayed turn awaiting player input.")
+		logEvent(cfg.Logger, gamelog.Event{
+			Category: "story",
+			Event:    "story.turn.awaiting_choice_resumed",
+			Message:  "resumed displayed turn awaiting player choice",
+			Turn:     displayTurn,
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Fields: map[string]any{
+				"pending_turn_path": c.state.PendingTurnPath,
+			},
+		})
+	} else {
+		rollout, err = rolloutOnce(ctx, c.packet, c.nodeID, c.decision, cfg, displayTurn)
+		if err != nil {
+			metadata := narratorModelMetadata(cfg)
+			logEvent(cfg.Logger, gamelog.Event{
+				Level:    gamelog.LevelError,
+				Category: "narrator",
+				Event:    "narrator.rollout.failed",
+				Message:  err.Error(),
+				PacketID: c.packet.ID,
+				NodeID:   c.nodeID,
+				Fields:   modelmeta.MergeFields(nil, metadata),
+				Detail: map[string]any{
+					"error":          err.Error(),
+					"model_metadata": metadata,
+				},
+			})
+			return clitui.TurnView{}, err
+		}
+		metadata := narratorModelMetadata(cfg)
+		logEvent(cfg.Logger, gamelog.Event{
+			Category: "narrator",
+			Event:    "narrator.rollout.completed",
+			Message:  "narrator rollout completed",
+			Turn:     displayTurn,
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"choice_count":       len(rollout.Draft.Choices),
+				"prose_chars":        len([]rune(rollout.Draft.Prose)),
+				"commit_event_count": len(rollout.Commit.Events),
+				"witness_count":      len(rollout.Commit.Witnesses),
+			}, metadata),
+			Detail: map[string]any{
+				"draft":          rollout.Draft,
+				"commit":         rollout.Commit,
+				"model_metadata": metadata,
+			},
+		})
+		if cfg.TTS.Enabled {
+			c.addStatus("", "Synthesizing turn audio...")
+		}
+		turnAudioPath, err = synthesizeTurnAudio(ctx, cfg, c.state, displayTurn, rollout)
+		if err != nil {
+			return clitui.TurnView{}, err
+		}
+		if cfg.Commit {
+			c.addStatus("", "Committing witnessed canon...")
+			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+			commitStarted := time.Now()
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "honcho",
+				Event:    "honcho.commit.started",
+				Message:  "witnessed canon commit started",
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"session_id":    rollout.Commit.SessionID,
+					"event_count":   len(rollout.Commit.Events),
+					"witness_count": len(rollout.Commit.Witnesses),
+				},
+				Detail: map[string]any{
+					"request": rollout.Commit,
+				},
+			})
+			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+				if saveErr := savePendingDisplayedTurn(cfg, c.state, c.packet, rollout, false, turnAudioPath, displayTurn); saveErr != nil {
+					err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
+				}
+				logEvent(cfg.Logger, gamelog.Event{
+					Level:    gamelog.LevelError,
+					Category: "honcho",
+					Event:    "honcho.commit.failed",
+					Message:  err.Error(),
+					Turn:     displayTurn,
+					PacketID: rollout.Commit.PacketID,
+					NodeID:   rollout.Commit.NodeID,
+					Fields: map[string]any{
+						"session_id":  rollout.Commit.SessionID,
+						"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
+						"event_count": len(rollout.Commit.Events),
+					},
+					Detail: map[string]any{
+						"request": rollout.Commit,
+						"error":   err.Error(),
+					},
+				})
+				return clitui.TurnView{}, err
+			}
+			committed = true
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "honcho",
+				Event:    "honcho.commit.completed",
+				Message:  "witnessed canon committed",
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"session_id":    rollout.Commit.SessionID,
+					"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
+					"event_count":   len(rollout.Commit.Events),
+					"witness_count": len(rollout.Commit.Witnesses),
+				},
+				Detail: map[string]any{
+					"request": rollout.Commit,
+				},
+			})
+			c.addStatus("", "Honcho commit completed.")
+		}
+		if err := savePendingDisplayedTurn(cfg, c.state, c.packet, rollout, cfg.Commit, turnAudioPath, displayTurn); err != nil {
+			return clitui.TurnView{}, err
+		}
+		c.addStatus("", "Turn checkpoint saved.")
+	}
+	if cfg.TraceJSONL {
+		if err := writePlayTrace(playTraceTurn{
+			Event:            "turn",
+			Turn:             displayTurn,
+			PacketID:         rollout.Commit.PacketID,
+			NodeID:           rollout.Commit.NodeID,
+			Decision:         rollout.Commit.PlayerDecision,
+			ChoiceCount:      len(rollout.Draft.Choices),
+			ProseChars:       len([]rune(rollout.Draft.Prose)),
+			CommitEventCount: len(rollout.Commit.Events),
+			Witnesses:        rollout.Commit.Witnesses,
+		}); err != nil {
+			return clitui.TurnView{}, err
+		}
+	}
+	c.current = &playControllerTurn{
+		displayTurn: displayTurn,
+		rollout:     rollout,
+		audioPath:   turnAudioPath,
+		committed:   committed,
+	}
+	return clitui.TurnView{
+		Turn:            displayTurn,
+		PacketID:        rollout.Commit.PacketID,
+		NodeID:          rollout.Commit.NodeID,
+		Prose:           rollout.Draft.Prose,
+		Choices:         choiceViews(rollout),
+		TerminalHandoff: len(rollout.Node.Choices) == 0 && cfg.RefreshWrite,
+		CommitLabel:     commitLabel(rollout, committed, cfg.Commit),
+		AudioPath:       filepath.ToSlash(turnAudioPath),
+		Status:          c.statusSnapshot(),
+	}, nil
+}
+
+func (c *playLoopController) Submit(ctx context.Context, submitted clitui.SubmittedDecision) (bool, error) {
+	if submitted.Exit {
+		return true, nil
+	}
+	if c.current == nil {
+		return true, nil
+	}
+	cfg := c.config()
+	rollout := c.current.rollout
+	displayTurn := c.current.displayTurn
+	nextDecision := scene.PlayerDecision{ChoiceID: submitted.ChoiceID, FreeText: submitted.FreeText}
+	rawInput := strings.TrimSpace(submitted.RawInput)
+	if rawInput == "" {
+		rawInput = firstNonEmpty(nextDecision.ChoiceID, nextDecision.FreeText)
+	}
+	if cfg.Turns > 0 && displayTurn >= cfg.Turns {
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, "", scene.PlayerDecision{}, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		return true, nil
+	}
+	if len(rollout.Node.Choices) == 0 && !cfg.RefreshWrite {
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, "", scene.PlayerDecision{}, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		return true, nil
+	}
+	if targetNodeID, ok := resolvedChoiceTarget(c.packet, rollout.Node, nextDecision); ok {
+		nextRolloutDecision := nextDecision
+		if isCosmeticIntroChoice(c.packet, rollout.Node) {
+			nextRolloutDecision = scene.PlayerDecision{}
+		}
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, targetNodeID, nextDecision, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		c.nodeID = targetNodeID
+		c.decision = nextRolloutDecision
+		c.current = nil
+		if cfg.TraceJSONL {
+			if err := writePlayTrace(decisionTrace(rawInput, nextDecision, targetNodeID)); err != nil {
+				return false, err
+			}
+		}
+		return false, nil
+	}
+	if cfg.RefreshWrite {
+		refreshCfg := cfg
+		refreshCfg.State = c.state
+		runID, runDir := writerRunInfo(refreshCfg)
+		metadata := writerRefreshModelMetadata(refreshCfg)
+		c.resetStatus("Refreshing Writer packet...")
+		if err := savePendingDecision(cfg, c.state, nextDecision, runID, runDir); err != nil {
+			return false, err
+		}
+		logEvent(cfg.Logger, gamelog.Event{
+			Category: "writer",
+			Event:    "writer.refresh.started",
+			Message:  "writer refresh started",
+			Turn:     displayTurn,
+			PacketID: c.packet.ID,
+			NodeID:   c.nodeID,
+			RunID:    runID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"artifact_dir": filepath.ToSlash(runDir),
+			}, metadata),
+			Detail: map[string]any{
+				"artifact_dir":   filepath.ToSlash(runDir),
+				"model_metadata": metadata,
+			},
+		})
+		next, err := refreshPacket(ctx, c.packet, c.nodeID, nextDecision, refreshCfg)
+		if err == nil {
+			nextNodeID := entryNodeID(next)
+			logEvent(cfg.Logger, gamelog.Event{
+				Category: "writer",
+				Event:    "writer.refresh.completed",
+				Message:  "writer refresh completed",
+				Turn:     displayTurn,
+				PacketID: next.ID,
+				NodeID:   nextNodeID,
+				RunID:    runID,
+				Fields: modelmeta.MergeFields(map[string]any{
+					"artifact_dir": filepath.ToSlash(runDir),
+				}, metadata),
+				Detail: map[string]any{
+					"artifact_dir":   filepath.ToSlash(runDir),
+					"model_metadata": metadata,
+				},
+			})
+			if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, nextNodeID, nextDecision, cfg.Commit, c.current.audioPath); err != nil {
+				return false, err
+			}
+			if err := saveCurrentStoryPacket(ctx, cfg, c.state, next, nextNodeID); err != nil {
+				return false, err
+			}
+			c.packet = next
+			c.nodeID = nextNodeID
+			c.decision = nextDecision
+			c.current = nil
+			if cfg.TraceJSONL {
+				if err := writePlayTrace(decisionTrace(rawInput, nextDecision, nextNodeID)); err != nil {
+					return false, err
+				}
+			}
+			return false, nil
+		}
+		failure := writerFailure(err, runID, runDir)
+		detail := writerFailureDetails(failure)
+		detail["model_metadata"] = metadata
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "writer",
+			Event:    "writer.refresh.failed",
+			Message:  failure.Err.Error(),
+			Turn:     displayTurn,
+			PacketID: c.packet.ID,
+			NodeID:   c.nodeID,
+			RunID:    failure.RunID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"artifact_dir": filepath.ToSlash(failure.RunDir),
+			}, metadata),
+			Detail: detail,
+		})
+		if err := markStoryBlocked(cfg, c.state, failure); err != nil {
+			return false, err
+		}
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, "", nextDecision, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		if cfg.TraceJSONL {
+			if err := writePlayTrace(decisionTrace(rawInput, nextDecision, "")); err != nil {
+				return false, err
+			}
+		}
+		return false, failure
+	}
+	if nextDecision.FreeText != "" {
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, "", nextDecision, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		if cfg.TraceJSONL {
+			if err := writePlayTrace(decisionTrace(rawInput, nextDecision, "")); err != nil {
+				return false, err
+			}
+		}
+		return true, nil
+	}
+	if len(rollout.Node.Choices) == 0 {
+		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, "", nextDecision, cfg.Commit, c.current.audioPath); err != nil {
+			return false, err
+		}
+		return true, nil
+	}
+	return true, nil
+}
+
+func (c *playLoopController) config() playConfig {
+	cfg := c.cfg
+	cfg.State = c.state
+	cfg.Status = c.reportStatus
+	return cfg
+}
+
+func (c *playLoopController) resetStatus(message string) {
+	c.statusMu.Lock()
+	c.status = nil
+	c.statusMu.Unlock()
+	c.reportStatus(message)
+}
+
+func (c *playLoopController) reportStatus(message string) {
+	c.addStatus("", message)
+}
+
+func (c *playLoopController) addStatus(level string, message string) {
+	message = strings.TrimSpace(message)
+	if message == "" {
+		return
+	}
+	status := clitui.PlayStatus{Message: message, Level: level}
+	c.statusMu.Lock()
+	c.status = append(c.status, status)
+	sink := c.statusSink
+	c.statusMu.Unlock()
+	if sink != nil {
+		sink(status)
+	}
+}
+
+func (c *playLoopController) statusSnapshot() []clitui.PlayStatus {
+	c.statusMu.Lock()
+	defer c.statusMu.Unlock()
+	return append([]clitui.PlayStatus{}, c.status...)
+}
+
+func choiceViews(rollout narrator.Rollout) []clitui.ChoiceView {
+	choices := rollout.Draft.Choices
+	if len(choices) == 0 {
+		choices = rollout.Node.Choices
+	}
+	views := make([]clitui.ChoiceView, 0, len(choices))
+	for _, choice := range choices {
+		views = append(views, clitui.ChoiceView{ID: choice.ID, Label: choice.Label})
+	}
+	return views
+}
+
+func commitLabel(rollout narrator.Rollout, committed bool, commitEnabled bool) string {
+	if committed {
+		return fmt.Sprintf("Committed: packet=%s node=%s", rollout.Commit.PacketID, rollout.Commit.NodeID)
+	}
+	if commitEnabled {
+		return fmt.Sprintf("Commit pending: packet=%s node=%s", rollout.Commit.PacketID, rollout.Commit.NodeID)
+	}
+	return fmt.Sprintf("Commit prepared: packet=%s node=%s witnesses=%s events=%d",
+		rollout.Commit.PacketID,
+		rollout.Commit.NodeID,
+		strings.Join(rollout.Commit.Witnesses, ","),
+		len(rollout.Commit.Events),
+	)
 }
 
 func recoverPendingDisplayedTurnFromLogs(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, nodeID string) error {
@@ -2047,7 +2571,7 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 	})
 	ttsCtx, cancel := context.WithTimeout(ctx, client.TimeoutOrDefault())
 	defer cancel()
-	fmt.Printf("\nTTS MiMo: synthesizing turn %d in %d chunk(s)...\n", turnNumber, len(chunks))
+	playStatusf(cfg, "\nTTS MiMo: synthesizing turn %d in %d chunk(s)...", turnNumber, len(chunks))
 	var chunkAudios [][]byte
 	var responses []map[string]any
 	totalBase64Chars := 0
@@ -2062,7 +2586,7 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		if err := writeJSONFileAtomic(filepath.Join(chunkDir, "request.json"), chunkRequest); err != nil {
 			return "", err
 		}
-		fmt.Printf("TTS MiMo chunk %d/%d...\n", index+1, len(chunks))
+		playStatusf(cfg, "TTS MiMo chunk %d/%d...", index+1, len(chunks))
 		result, err := chunkClient.Synthesize(ttsCtx, chunk)
 		responsePath := filepath.Join(chunkDir, "response.json")
 		if writeErr := writeJSONFileAtomic(responsePath, result.Response); writeErr != nil {
@@ -2192,6 +2716,18 @@ func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.Story
 		},
 	})
 	return outputPath, nil
+}
+
+func playStatusf(cfg playConfig, format string, args ...any) {
+	message := strings.TrimSpace(fmt.Sprintf(format, args...))
+	if message == "" {
+		return
+	}
+	if cfg.Status != nil {
+		cfg.Status(message)
+		return
+	}
+	fmt.Println(message)
 }
 
 func ttsOutputPath(cfg playConfig, state *story.StoryState, loopTurn int) string {
@@ -3076,6 +3612,17 @@ func shouldRunLauncher(noArgs bool, passed map[string]struct{}) bool {
 		}
 	}
 	return true
+}
+
+func shouldUsePlayTUI(turns int, choiceID string, freeText string, traceJSONL bool) bool {
+	if turns > 0 || strings.TrimSpace(choiceID) != "" || strings.TrimSpace(freeText) != "" || traceJSONL {
+		return false
+	}
+	info, err := os.Stdin.Stat()
+	if err != nil {
+		return false
+	}
+	return info.Mode()&os.ModeCharDevice != 0
 }
 
 func shouldCreateStory(storyID string, packetPath string, storyRoot string, replaceStory bool) bool {

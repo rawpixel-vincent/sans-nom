@@ -8,11 +8,15 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
+
+const DefaultTimeout = 2 * time.Minute
 
 type SceneContextRequest struct {
 	WorkspaceID      string   `json:"workspace_id"`
@@ -149,9 +153,21 @@ func NewClient(baseURL, token string) Client {
 		BaseURL: strings.TrimRight(baseURL, "/"),
 		Token:   token,
 		HTTPClient: &http.Client{
-			Timeout: 30 * time.Second,
+			Timeout: bridgeTimeout(),
 		},
 	}
+}
+
+func bridgeTimeout() time.Duration {
+	value := strings.TrimSpace(os.Getenv("SANS_NOM_BRIDGE_TIMEOUT_MS"))
+	if value == "" {
+		return DefaultTimeout
+	}
+	ms, err := strconv.Atoi(value)
+	if err != nil || ms <= 0 {
+		return DefaultTimeout
+	}
+	return time.Duration(ms) * time.Millisecond
 }
 
 func (c Client) Health(ctx context.Context) error {

@@ -66,7 +66,7 @@ func buildBackstageMessages(root string, writer *gamelog.Writer, events []gamelo
 func sortBackstageMessages(messages []backstageMessage) {
 	sort.SliceStable(messages, func(i, j int) bool {
 		if messages[i].Time == messages[j].Time {
-			return messages[i].ID < messages[j].ID
+			return false
 		}
 		return messages[i].Time < messages[j].Time
 	})

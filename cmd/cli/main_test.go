@@ -72,6 +72,28 @@ func TestEnvBoolDefaultAllowsOptOut(t *testing.T) {
 	}
 }
 
+func TestShouldUsePlayTUIDisabledForScriptedInputs(t *testing.T) {
+	cases := []struct {
+		name      string
+		turns     int
+		choiceID  string
+		freeText  string
+		traceJSON bool
+	}{
+		{name: "turn limit", turns: 1},
+		{name: "choice", choiceID: "choice_a"},
+		{name: "text", freeText: "go north"},
+		{name: "trace", traceJSON: true},
+	}
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			if shouldUsePlayTUI(tt.turns, tt.choiceID, tt.freeText, tt.traceJSON) {
+				t.Fatal("scripted/debug input should stay on raw play path")
+			}
+		})
+	}
+}
+
 func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	t.Setenv("ZAI__ANTHROPIC_BASE_URL", "https://example.invalid")
 	t.Setenv("ZAI__ANTHROPIC_AUTH_TOKEN", "token")

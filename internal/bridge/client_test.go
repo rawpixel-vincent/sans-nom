@@ -6,10 +6,31 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
+	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
+
+func TestNewClientUsesConfiguredBridgeTimeout(t *testing.T) {
+	t.Setenv("SANS_NOM_BRIDGE_TIMEOUT_MS", "3456")
+
+	client := NewClient("http://bridge", "")
+	if client.HTTPClient.Timeout != 3456*time.Millisecond {
+		t.Fatalf("timeout = %s", client.HTTPClient.Timeout)
+	}
+}
+
+func TestNewClientUsesDefaultBridgeTimeout(t *testing.T) {
+	t.Setenv("SANS_NOM_BRIDGE_TIMEOUT_MS", "")
+	_ = os.Unsetenv("SANS_NOM_BRIDGE_TIMEOUT_MS")
+
+	client := NewClient("http://bridge", "")
+	if client.HTTPClient.Timeout != DefaultTimeout {
+		t.Fatalf("timeout = %s, want %s", client.HTTPClient.Timeout, DefaultTimeout)
+	}
+}
 
 func TestCommitSceneRejectsPlanningArtifactBeforeHTTP(t *testing.T) {
 	called := false
