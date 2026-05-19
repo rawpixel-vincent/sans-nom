@@ -199,7 +199,7 @@ func (m PlayModel) View() string {
 	b.WriteString(m.viewProse(width))
 	b.WriteString(m.viewChoices(width))
 	b.WriteString(m.viewInput(width))
-	b.WriteString("\n  up/down or j/k choice  pgup/pgdn scroll  enter submit  q exit\n")
+	b.WriteString("\n  up/down or j/k choice  left/right page story  enter submit  q exit\n")
 	return b.String()
 }
 
@@ -226,11 +226,11 @@ func (m PlayModel) handleKey(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 			m.cursor++
 		}
 		return m, nil
-	case "pgup", "ctrl+u":
+	case "left":
 		m.scroll -= maxInt(1, m.proseHeight()-1)
 		m.clampScroll()
 		return m, nil
-	case "pgdown", "ctrl+d":
+	case "right":
 		m.scroll += maxInt(1, m.proseHeight()-1)
 		m.clampScroll()
 		return m, nil
@@ -331,16 +331,33 @@ func (m PlayModel) viewProse(width int) string {
 	m.clampScroll()
 	start := minInt(m.scroll, len(lines))
 	end := minInt(len(lines), start+height)
+	boxWidth := maxInt(24, width)
+	innerWidth := maxInt(12, boxWidth-4)
 	var b strings.Builder
 	b.WriteString("\n")
+	b.WriteString("  +")
+	b.WriteString(strings.Repeat("-", boxWidth-2))
+	b.WriteString("+\n")
 	for _, line := range lines[start:end] {
-		b.WriteString("  ")
-		b.WriteString(line)
-		b.WriteString("\n")
+		b.WriteString("  | ")
+		b.WriteString(padRight(line, innerWidth))
+		b.WriteString(" |\n")
 	}
+	for filler := end - start; filler < height; filler++ {
+		b.WriteString("  | ")
+		b.WriteString(strings.Repeat(" ", innerWidth))
+		b.WriteString(" |\n")
+	}
+	footer := "story"
 	if len(lines) > height {
-		b.WriteString(fmt.Sprintf("  [%d-%d/%d]\n", start+1, end, len(lines)))
+		footer = fmt.Sprintf("story %d-%d/%d  left/right", start+1, end, len(lines))
 	}
+	b.WriteString("  | ")
+	b.WriteString(padRight(footer, innerWidth))
+	b.WriteString(" |\n")
+	b.WriteString("  +")
+	b.WriteString(strings.Repeat("-", boxWidth-2))
+	b.WriteString("+\n")
 	return b.String()
 }
 
@@ -385,7 +402,7 @@ func (m PlayModel) viewInput(width int) string {
 }
 
 func (m PlayModel) proseLines() []string {
-	return wrapText(strings.TrimSpace(m.turn.Prose), m.contentWidth())
+	return wrapText(strings.TrimSpace(m.turn.Prose), m.proseTextWidth())
 }
 
 func (m PlayModel) proseHeight() int {
@@ -421,6 +438,10 @@ func (m PlayModel) contentWidth() int {
 		return 88
 	}
 	return maxInt(32, m.width-4)
+}
+
+func (m PlayModel) proseTextWidth() int {
+	return maxInt(12, m.contentWidth()-4)
 }
 
 func wrapText(text string, width int) []string {
@@ -463,6 +484,13 @@ func wrapText(text string, width int) []string {
 		return []string{""}
 	}
 	return lines
+}
+
+func padRight(text string, width int) string {
+	if runeLen(text) >= width {
+		return text
+	}
+	return text + strings.Repeat(" ", width-runeLen(text))
 }
 
 func indent(lines []string, prefix string) string {

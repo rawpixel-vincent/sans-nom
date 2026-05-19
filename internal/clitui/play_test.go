@@ -95,13 +95,36 @@ func TestPlayModelScrollsNarration(t *testing.T) {
 	model := loadedPlayModel(t, controller)
 	next, _ := model.Update(tea.WindowSizeMsg{Width: 50, Height: 14})
 	model = next.(PlayModel)
-	model = playPress(model, tea.KeyMsg{Type: tea.KeyPgDown})
+	model = playPress(model, tea.KeyMsg{Type: tea.KeyRight})
 	if model.scroll == 0 {
 		t.Fatal("expected scroll to move down")
 	}
+	model = playPress(model, tea.KeyMsg{Type: tea.KeyLeft})
+	if model.scroll != 0 {
+		t.Fatalf("scroll = %d, want 0 after left page", model.scroll)
+	}
+	model = playPress(model, tea.KeyMsg{Type: tea.KeyRight})
 	model = playPress(model, tea.KeyMsg{Type: tea.KeyHome})
 	if model.scroll != 0 {
 		t.Fatalf("scroll = %d, want 0", model.scroll)
+	}
+}
+
+func TestPlayModelRendersNarrationBox(t *testing.T) {
+	controller := &fakePlayController{turns: []TurnView{{Turn: 1, Prose: "A boxed story line.", Choices: []ChoiceView{{ID: "a", Label: "A"}}}}}
+	model := loadedPlayModel(t, controller)
+	next, _ := model.Update(tea.WindowSizeMsg{Width: 42, Height: 18})
+	model = next.(PlayModel)
+	view := model.View()
+	for _, want := range []string{
+		"  +",
+		"  | A boxed story line.",
+		"story",
+		"left/right page story",
+	} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("view missing %q:\n%s", want, view)
+		}
 	}
 }
 
