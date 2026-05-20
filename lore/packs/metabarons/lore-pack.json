@@ -44,14 +44,14 @@
   "forbidden_literal_terms": [],
   "status": "active",
   "gameplay_mode": "faithful_canon_prototype",
-  "game_synopsis": "The player is a young heir inside a brutal warrior dynasty whose legitimacy depends on bodily proof, family obedience, ritualized refusal, and public consequence. The opening story follows the heir as a demanded succession rite collides with buried family truth, forcing choices that can preserve the dynasty, betray it, or redefine what worthy inheritance means.",
-  "protagonist_role": "A contested dynasty heir raised for violent excellence, watched by family, servants, weapons, and ancestral expectation.",
-  "opening_situation": "The heir is summoned into a rite meant to prove fitness for succession while a witness from the family past exposes that the rite is also a trap.",
-  "initial_pressure": "The rite demands an irreversible bodily or relational cost before the heir fully understands what the family is hiding.",
+  "game_synopsis": "The player stands inside the Metabaron dynasty's pressure field, where family, body, weapon, memory, service, and public consequence decide legitimacy. The opening story stages one immediate household crisis that forces the player to choose how inheritance, obedience, refusal, love, or sacrifice should mean anything when witnesses are watching.",
+  "protagonist_role": "A contested figure bound to the dynasty's household machinery: heir, sworn servant, weapon-keeper, witness, lover, rival, or survivor whose legitimacy is under pressure.",
+  "opening_situation": "A household demand turns private lineage truth into public consequence while someone close to the player needs an answer now.",
+  "initial_pressure": "The opening demands an irreversible visible cost before the player fully understands which family memory, duty, or betrayal is being exposed.",
   "story_lines": [
-    "Survive the succession rite while discovering which family truth the ritual was built to bury.",
-    "Decide whether inheritance means obedience to the dynasty, refusal of the dynasty, or transformation of its purpose.",
-    "Navigate servants, witnesses, rivals, and family figures whose loyalty is real but never simple.",
+    "Move through a household crisis where legitimacy depends on visible cost, witnessed action, and family memory.",
+    "Decide whether inheritance means obedience to the dynasty, refusal of the dynasty, transformation of its purpose, or service to someone it has harmed.",
+    "Navigate servants, witnesses, rivals, lovers, weapons, and family figures whose loyalty is real but never simple.",
     "Make choices whose consequences are public, bodily, and remembered by the household."
   ],
   "must_honor": [

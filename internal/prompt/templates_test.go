@@ -17,13 +17,15 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	}
 	for _, required := range []string{
 		"selected lorepack scenario",
-		"Stage the authored lorepack scenario contract",
-		"Do not replace its central premise",
+		"Stage the authored lorepack scenario contract into a playable opening",
+		"pressure field, not a fixed one-scene template",
+		"freshness comes from staging",
 		"Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles",
 		"Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character",
 		"own the StoryBible and StoryPacket",
 		"Use ask_lore_expert when fidelity to the selected lorepack is uncertain",
 		"lore authority/reference support",
+		"read lorepack/lore-pack.json for the exact scenario contract",
 		"lore_principles that bind the scenario pressure",
 		"cause, social practice, cost, emotional credibility, and consequence",
 		"exactly 5 scene nodes",

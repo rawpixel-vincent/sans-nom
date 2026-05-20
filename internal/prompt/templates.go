@@ -111,7 +111,8 @@ func SeedWriterPrompt(contextText string) string {
 Create the durable StoryBible and opening StoryPacket for the selected lorepack scenario.
 
 Your creative job:
-- Stage the authored lorepack scenario contract into a playable opening. Do not replace its central premise.
+- Stage the authored lorepack scenario contract into a playable opening; treat it as a pressure field, not a fixed one-scene template.
+- Let the contract supply premise logic while freshness comes from staging, consequence, and branch pressure.
 - Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles.
 - Make the opening visually memorable, emotionally specific, and strange-but-lived-in through concrete action.
 - Let binding rites, laws, or doctrines sharpen desire, opposition, and cost rather than becoming exposition.
@@ -120,7 +121,7 @@ Your creative job:
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
-- When local read tools are available, curated active lorepack files are under lorepack/ for concrete fidelity checks.
+- When local read tools are available, read lorepack/lore-pack.json for the exact scenario contract; curated active lorepack files are under lorepack/ for concrete fidelity checks.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.

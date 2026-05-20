@@ -198,6 +198,22 @@ func (p Pack) ScenarioContractText() string {
 	return strings.TrimSpace(b.String())
 }
 
+func (p Pack) ScenarioOrientationText() string {
+	if strings.TrimSpace(p.GameplayMode) == "" {
+		return ""
+	}
+	var b strings.Builder
+	fmt.Fprintf(&b, "Lorepack Scenario Orientation: %s (%s)\n", firstNonEmpty(p.Label, p.ID), firstNonEmpty(p.ID, "unknown"))
+	fmt.Fprintf(&b, "- gameplay_mode: %s\n", p.GameplayMode)
+	if description := strings.TrimSpace(p.Description); description != "" {
+		fmt.Fprintf(&b, "- pack_description: %s\n", description)
+	}
+	fmt.Fprintln(&b, "- contract_path: lorepack/lore-pack.json when local read tools are enabled")
+	fmt.Fprintln(&b, "- use: treat the authored contract as a pressure field for faithful play, not a fixed one-scene template")
+	fmt.Fprintln(&b, "- fidelity: preserve its premise logic, protagonist pressure, public consequence, and choice principles")
+	return strings.TrimSpace(b.String())
+}
+
 func (p Pack) validateActiveScenarioContract() error {
 	required := map[string]string{
 		"gameplay_mode":     p.GameplayMode,

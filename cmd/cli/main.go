@@ -1012,15 +1012,15 @@ func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
 func buildSeedContextForPack(pack lorepack.Pack) string {
 	var b strings.Builder
 	b.WriteString(seed.ContextText())
-	if scenario := pack.ScenarioContractText(); scenario != "" {
+	if scenario := pack.ScenarioOrientationText(); scenario != "" {
 		b.WriteString("\n\n")
 		b.WriteString(scenario)
 		b.WriteString("\n\nSeed fidelity instructions:\n")
-		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise, protagonist role, opening pressure, and choice logic.\n")
-		b.WriteString("- The seed Writer stages and structures that authored scenario; it does not invent a replacement premise.\n")
-		b.WriteString("- When local read tools are available, the active lorepack is staged under lorepack/ inside the agent workspace for concrete fidelity checks.\n")
+		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise logic, protagonist pressure, opening pressure, and choice logic.\n")
+		b.WriteString("- Read lorepack/lore-pack.json when local read tools are available, then stage and structure that authored scenario for playable opening turns.\n")
+		b.WriteString("- Keep the contract's pressure alive through scene choices without copying its synopsis wording into every node.\n")
 		b.WriteString("- Use ask_lore_expert as a lore authority/reference check when fidelity is uncertain.\n")
-		b.WriteString("- Preserve must_honor, avoid must_not_violate, and make choices express the listed choice_principles.\n")
+		b.WriteString("- Preserve the contract's must_honor items, avoid must_not_violate drift, and make choices express its choice_principles.\n")
 		return b.String()
 	}
 	b.WriteString("\n\nLegacy ground-lore influence summary:\n")

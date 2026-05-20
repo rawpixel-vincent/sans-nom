@@ -37,6 +37,25 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 			t.Fatalf("contract text missing %q:\n%s", required, contractText)
 		}
 	}
+	orientationText := pack.ScenarioOrientationText()
+	for _, required := range []string{
+		"Lorepack Scenario Orientation",
+		"contract_path: lorepack/lore-pack.json",
+		"pressure field for faithful play",
+	} {
+		if !strings.Contains(orientationText, required) {
+			t.Fatalf("orientation text missing %q:\n%s", required, orientationText)
+		}
+	}
+	for _, tooSpecific := range []string{
+		"game_synopsis:",
+		"must_honor:",
+		"must_not_violate:",
+	} {
+		if strings.Contains(orientationText, tooSpecific) {
+			t.Fatalf("orientation text should not inline full contract field %q:\n%s", tooSpecific, orientationText)
+		}
+	}
 }
 
 func TestListPacksRejectsDuplicateIDs(t *testing.T) {

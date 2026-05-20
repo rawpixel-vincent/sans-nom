@@ -521,21 +521,30 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 	if strings.Contains(text, "A binding law works") {
 		t.Fatalf("seed context should not inject raw lore snippets:\n%s", text)
 	}
-	if !strings.Contains(text, "Lorepack Scenario Contract") || !strings.Contains(text, "ask_lore_expert") {
+	if !strings.Contains(text, "Lorepack Scenario Orientation") || !strings.Contains(text, "ask_lore_expert") {
 		t.Fatalf("seed context missing scenario/tool guidance:\n%s", text)
 	}
 	for _, required := range []string{
-		"game_synopsis",
-		"protagonist_role",
-		"opening_situation",
-		"initial_pressure",
-		"must_honor",
-		"must_not_violate",
+		"contract_path: lorepack/lore-pack.json",
+		"pressure field for faithful play",
+		"premise logic",
+		"protagonist pressure",
 		"choice_principles",
-		"does not invent a replacement premise",
+		"copying its synopsis wording",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
+		}
+	}
+	for _, tooSpecific := range []string{
+		"young heir inside a brutal warrior dynasty",
+		"demanded succession rite",
+		"rite meant to prove fitness",
+		"must_honor:",
+		"must_not_violate:",
+	} {
+		if strings.Contains(text, tooSpecific) {
+			t.Fatalf("seed context should not inline full scenario contract term %q:\n%s", tooSpecific, text)
 		}
 	}
 	for _, forbidden := range []string{
