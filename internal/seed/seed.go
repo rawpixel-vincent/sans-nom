@@ -727,14 +727,3 @@ func sanitizeSegment(value string) string {
 	}
 	return out
 }
-
-func previewText(text string, max int) string {
-	text = strings.Join(strings.Fields(text), " ")
-	if len(text) <= max {
-		return text
-	}
-	if max < 4 {
-		return text[:max]
-	}
-	return text[:max-3] + "..."
-}
