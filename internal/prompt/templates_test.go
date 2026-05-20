@@ -3,6 +3,8 @@ package prompt
 import (
 	"strings"
 	"testing"
+
+	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
 func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
@@ -95,6 +97,7 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"latest player decision",
 		"immediate consequence",
 		"next playable pressure",
+		"Honor any lorepack scenario contract",
 		"Every choice target_node_id must point to a scene node included in this same packet",
 		"node_future_*",
 		"terminal node with no choices and revision_notes",
@@ -103,11 +106,26 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"Use ask_scenarist for sparks",
 		"Ask one clear advisory question",
 		"dependent follow-up with that path in relevant_paths",
+		"scenario fidelity is uncertain",
 		"ask_lore_expert",
 		"You own the final packet shape",
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("writer prompt missing %q:\n%s", required, got)
+		}
+	}
+}
+
+func TestNarratorPromptUsesLoreFidelityLanguage(t *testing.T) {
+	got := NarratorPrompt(scene.SceneNode{ID: "node", Beats: nil}, "[]", "LOREPACK SCENARIO CONTRACT\nmust_honor")
+	for _, required := range []string{
+		"Honor any lorepack scenario contract",
+		"reinforce its pressure and consequences",
+		"Use lore references to preserve fidelity to the active scenario",
+		"LOREPACK SCENARIO CONTRACT",
+	} {
+		if !strings.Contains(got, required) {
+			t.Fatalf("narrator prompt missing %q:\n%s", required, got)
 		}
 	}
 }

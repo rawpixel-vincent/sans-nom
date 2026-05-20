@@ -137,6 +137,8 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "lore-expert", "Lore Expert", "tool_response", "cached", firstNonEmpty(b.readPathText(stringField(detail, "answer_path")), event.Message))}
 	case "lore.expert.failed":
 		return []backstageMessage{b.message(event, "lore-expert", "Lore Expert", "error", "failed", errorText(event, detail))}
+	case "lore.fidelity.context":
+		return []backstageMessage{b.message(event, "lore-authority", "Lore Authority", "status", "completed", firstNonEmpty(stringField(detail, "scenario_contract"), event.Message))}
 	case "tts.mimo.request":
 		return []backstageMessage{b.message(event, "voice", "System", "mention", "pending", "@Voice "+event.Message)}
 	case "tts.mimo.chunk.completed":

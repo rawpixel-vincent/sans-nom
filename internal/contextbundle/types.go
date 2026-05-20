@@ -46,10 +46,11 @@ type Options struct {
 }
 
 type BuildRequest struct {
-	Packet   scene.StoryPacket    `json:"packet"`
-	NodeID   string               `json:"node_id,omitempty"`
-	Decision scene.PlayerDecision `json:"player_decision,omitempty"`
-	Bible    *story.StoryBible    `json:"story_bible,omitempty"`
+	Packet               scene.StoryPacket    `json:"packet"`
+	NodeID               string               `json:"node_id,omitempty"`
+	Decision             scene.PlayerDecision `json:"player_decision,omitempty"`
+	Bible                *story.StoryBible    `json:"story_bible,omitempty"`
+	ScenarioContractText string               `json:"scenario_contract_text,omitempty"`
 }
 
 type ContextBundleSummary struct {
@@ -110,33 +111,35 @@ type PublicSceneNode struct {
 }
 
 type NarratorContext struct {
-	Summary         ContextBundleSummary `json:"summary"`
-	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
-	StoryBible      *story.StoryBible    `json:"story_bible,omitempty"`
-	SceneState      SceneState           `json:"scene_state"`
-	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
-	SelectedNode    PublicSceneNode      `json:"selected_node"`
-	ActorContexts   []ActorContext       `json:"actor_contexts,omitempty"`
-	LoreHits        []LoreHit            `json:"lore_hits,omitempty"`
-	RecentScenes    []string             `json:"recent_scenes,omitempty"`
-	Representations []Representation     `json:"representations,omitempty"`
-	WitnessRules    []string             `json:"witness_rules"`
-	Warnings        []string             `json:"warnings,omitempty"`
+	Summary          ContextBundleSummary `json:"summary"`
+	MaxRenderChars   int                  `json:"max_render_chars,omitempty"`
+	StoryBible       *story.StoryBible    `json:"story_bible,omitempty"`
+	ScenarioContract string               `json:"scenario_contract,omitempty"`
+	SceneState       SceneState           `json:"scene_state"`
+	PlayerDecision   scene.PlayerDecision `json:"player_decision,omitempty"`
+	SelectedNode     PublicSceneNode      `json:"selected_node"`
+	ActorContexts    []ActorContext       `json:"actor_contexts,omitempty"`
+	LoreHits         []LoreHit            `json:"lore_hits,omitempty"`
+	RecentScenes     []string             `json:"recent_scenes,omitempty"`
+	Representations  []Representation     `json:"representations,omitempty"`
+	WitnessRules     []string             `json:"witness_rules"`
+	Warnings         []string             `json:"warnings,omitempty"`
 }
 
 type WriterContext struct {
-	Summary         ContextBundleSummary `json:"summary"`
-	MaxRenderChars  int                  `json:"max_render_chars,omitempty"`
-	StoryBible      *story.StoryBible    `json:"story_bible,omitempty"`
-	SceneState      SceneState           `json:"scene_state"`
-	PlayerDecision  scene.PlayerDecision `json:"player_decision,omitempty"`
-	SelectedNodeID  string               `json:"selected_node_id"`
-	Packet          scene.StoryPacket    `json:"packet"`
-	RecentScenes    []string             `json:"recent_scenes,omitempty"`
-	Representations []Representation     `json:"representations,omitempty"`
-	LoreByKind      map[string][]LoreHit `json:"lore_by_kind,omitempty"`
-	ActorManifest   []ActorManifestItem  `json:"actor_manifest,omitempty"`
-	Warnings        []string             `json:"warnings,omitempty"`
+	Summary          ContextBundleSummary `json:"summary"`
+	MaxRenderChars   int                  `json:"max_render_chars,omitempty"`
+	StoryBible       *story.StoryBible    `json:"story_bible,omitempty"`
+	ScenarioContract string               `json:"scenario_contract,omitempty"`
+	SceneState       SceneState           `json:"scene_state"`
+	PlayerDecision   scene.PlayerDecision `json:"player_decision,omitempty"`
+	SelectedNodeID   string               `json:"selected_node_id"`
+	Packet           scene.StoryPacket    `json:"packet"`
+	RecentScenes     []string             `json:"recent_scenes,omitempty"`
+	Representations  []Representation     `json:"representations,omitempty"`
+	LoreByKind       map[string][]LoreHit `json:"lore_by_kind,omitempty"`
+	ActorManifest    []ActorManifestItem  `json:"actor_manifest,omitempty"`
+	Warnings         []string             `json:"warnings,omitempty"`
 }
 
 type ActorManifestItem struct {

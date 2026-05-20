@@ -57,15 +57,16 @@ func (a Assembler) AssembleNarrator(ctx context.Context, req BuildRequest) (Narr
 	reps, repWarnings := representationsFromSceneContext(sceneCtx, opts)
 	warnings = append(warnings, repWarnings...)
 	nc := NarratorContext{
-		MaxRenderChars:  opts.NarratorSoftCap,
-		StoryBible:      cloneBible(req.Bible),
-		SceneState:      sceneState(req.Packet),
-		PlayerDecision:  req.Decision,
-		SelectedNode:    publicNode(node),
-		ActorContexts:   actors,
-		LoreHits:        loreHits,
-		RecentScenes:    trimStrings(sceneCtx.RecentScenes, opts.MaxRecentSceneChars, &warnings, "recent scene"),
-		Representations: reps,
+		MaxRenderChars:   opts.NarratorSoftCap,
+		StoryBible:       cloneBible(req.Bible),
+		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
+		SceneState:       sceneState(req.Packet),
+		PlayerDecision:   req.Decision,
+		SelectedNode:     publicNode(node),
+		ActorContexts:    actors,
+		LoreHits:         loreHits,
+		RecentScenes:     trimStrings(sceneCtx.RecentScenes, opts.MaxRecentSceneChars, &warnings, "recent scene"),
+		Representations:  reps,
 		WitnessRules: []string{
 			"Only rolled-out narrator prose, player decisions, surfaced actor speech/actions, and explicit memory intents become canon.",
 			"Actor private interiors may inform narration but are not witnessed memory.",
@@ -109,17 +110,18 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 	warnings = append(warnings, repWarnings...)
 	manifest := a.actorManifest(req.Packet, node, opts)
 	wc := WriterContext{
-		MaxRenderChars:  opts.WriterSoftCap,
-		StoryBible:      cloneBible(req.Bible),
-		SceneState:      sceneState(req.Packet),
-		PlayerDecision:  req.Decision,
-		SelectedNodeID:  node.ID,
-		Packet:          req.Packet,
-		RecentScenes:    trimStrings(sceneCtx.RecentScenes, opts.MaxRecentSceneChars, &warnings, "recent scene"),
-		Representations: reps,
-		LoreByKind:      groupLoreByKind(loreHits),
-		ActorManifest:   manifest,
-		Warnings:        warnings,
+		MaxRenderChars:   opts.WriterSoftCap,
+		StoryBible:       cloneBible(req.Bible),
+		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
+		SceneState:       sceneState(req.Packet),
+		PlayerDecision:   req.Decision,
+		SelectedNodeID:   node.ID,
+		Packet:           req.Packet,
+		RecentScenes:     trimStrings(sceneCtx.RecentScenes, opts.MaxRecentSceneChars, &warnings, "recent scene"),
+		Representations:  reps,
+		LoreByKind:       groupLoreByKind(loreHits),
+		ActorManifest:    manifest,
+		Warnings:         warnings,
 	}
 	wc.Summary = ContextBundleSummary{
 		Role:         "writer",

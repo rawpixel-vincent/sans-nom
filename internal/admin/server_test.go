@@ -222,6 +222,39 @@ func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageShowsLoreFidelityContext(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "lore",
+		Event:    "lore.fidelity.context",
+		Turn:     2,
+		PacketID: "packet-1",
+		NodeID:   "node-2",
+		Message:  "lore fidelity contract attached to narrator context",
+		Detail: map[string]any{
+			"role":              "narrator",
+			"scenario_contract": "Lorepack Scenario Contract\n- must_honor:\n  - dynasty pressure matters",
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/backstage?tail=10", &resp)
+	if len(resp.Messages) != 1 {
+		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "Lore Authority" || resp.Messages[0].Role != "lore-authority" || !strings.Contains(resp.Messages[0].Text, "dynasty pressure matters") {
+		t.Fatalf("unexpected lore fidelity message: %#v", resp.Messages[0])
+	}
+}
+
 func TestAdminBackstageShowsScenaristProviderToolCalls(t *testing.T) {
 	root := t.TempDir()
 	global := gamelog.NewGlobalWriter(root)

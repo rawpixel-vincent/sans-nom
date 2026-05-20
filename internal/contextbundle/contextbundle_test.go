@@ -95,6 +95,40 @@ func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T
 	}
 }
 
+func TestRuntimeContextsIncludeScenarioContract(t *testing.T) {
+	contract := "Lorepack Scenario Contract: Test Pack\n- must_honor:\n  - family pressure matters\n- choice_principles:\n  - choices reveal inheritance"
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	packet := testPacket()
+	bible := testBible()
+	narratorCtx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{
+		Packet:               packet,
+		Bible:                &bible,
+		ScenarioContractText: contract,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	writerCtx, err := assembler.AssembleWriter(context.Background(), BuildRequest{
+		Packet:               packet,
+		Bible:                &bible,
+		ScenarioContractText: contract,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for label, text := range map[string]string{
+		"narrator": narratorCtx.RenderText(),
+		"writer":   writerCtx.RenderText(),
+	} {
+		if !strings.Contains(text, "LOREPACK SCENARIO CONTRACT") || !strings.Contains(text, "family pressure matters") {
+			t.Fatalf("%s context missing scenario contract:\n%s", label, text)
+		}
+	}
+	if !strings.Contains(writerCtx.RenderText(), "choice_principles") || !strings.Contains(writerCtx.RenderText(), "must_honor") {
+		t.Fatalf("writer context should carry fidelity terms:\n%s", writerCtx.RenderText())
+	}
+}
+
 func TestWriterContextUsesCompactActorManifest(t *testing.T) {
 	cards := staticCards{"tonto": testCard("tonto")}
 	for _, id := range []string{"aghora", "lothar", "steelhead__late", "unrelated-one", "unrelated-two"} {

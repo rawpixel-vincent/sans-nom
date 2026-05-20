@@ -1040,6 +1040,14 @@ func faithfulSeedMode(pack lorepack.Pack) bool {
 	return pack.GameplayMode == lorepack.GameplayModeFaithfulCanonPrototype
 }
 
+func scenarioContractTextForPack(packID string) string {
+	pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, lorepack.DefaultPackID()))
+	if err != nil {
+		return ""
+	}
+	return pack.ScenarioContractText()
+}
+
 func seedWriterRunner(cfg seedRuntimeConfig, scope agentfs.Scope, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
 	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), scope, nil, loreExpertTool, logger)
 }
@@ -2500,11 +2508,14 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	logUnsupportedActorNeeds(cfg.Logger, "actor.needs.filtered", "unsupported actor_needs filtered before narrator context assembly", turn, packet.ID, nodeID, removedNeeds)
 	assembler := contextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
 	assembler.Options.SkipMissingActorCards = true
+	scenarioContract := scenarioContractTextForPack(cfg.GroundLorePackID)
+	logLoreFidelityContext(cfg.Logger, "narrator", "", turn, packet.ID, nodeID, cfg.GroundLorePackID, scenarioContract)
 	narratorContext, err := assembler.AssembleNarrator(ctx, contextbundle.BuildRequest{
-		Packet:   packet,
-		NodeID:   nodeID,
-		Decision: decision,
-		Bible:    cfg.Bible,
+		Packet:               packet,
+		NodeID:               nodeID,
+		Decision:             decision,
+		Bible:                cfg.Bible,
+		ScenarioContractText: scenarioContract,
 	})
 	if err != nil {
 		return narrator.Rollout{}, err
@@ -3037,11 +3048,14 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if cfg.WriterScenaristCalls != 0 {
 		assembler.Options.WriterLoreK = 4
 	}
+	scenarioContract := scenarioContractTextForPack(cfg.GroundLorePackID)
+	logLoreFidelityContext(cfg.Logger, "writer", runID, 0, packet.ID, nodeID, cfg.GroundLorePackID, scenarioContract)
 	writerContext, err := assembler.AssembleWriter(ctx, contextbundle.BuildRequest{
-		Packet:   packet,
-		NodeID:   nodeID,
-		Decision: decision,
-		Bible:    cfg.Bible,
+		Packet:               packet,
+		NodeID:               nodeID,
+		Decision:             decision,
+		Bible:                cfg.Bible,
+		ScenarioContractText: scenarioContract,
 	})
 	if err != nil {
 		return scene.StoryPacket{}, err
@@ -3390,6 +3404,31 @@ func logEvent(logger *gamelog.Writer, event gamelog.Event) {
 		return
 	}
 	_ = logger.Append(event)
+}
+
+func logLoreFidelityContext(logger *gamelog.Writer, role string, runID string, turn int, packetID string, nodeID string, packID string, scenarioContract string) {
+	if logger == nil || strings.TrimSpace(scenarioContract) == "" {
+		return
+	}
+	_ = logger.Append(gamelog.Event{
+		Category: "lore",
+		Event:    "lore.fidelity.context",
+		Message:  "lore fidelity contract attached to " + role + " context",
+		RunID:    runID,
+		Turn:     turn,
+		PacketID: packetID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"role":                role,
+			"ground_lore_pack_id": packID,
+			"context_chars":       len([]rune(scenarioContract)),
+		},
+		Detail: map[string]any{
+			"role":                role,
+			"ground_lore_pack_id": packID,
+			"scenario_contract":   scenarioContract,
+		},
+	})
 }
 
 func logUnsupportedActorNeeds(logger *gamelog.Writer, event string, message string, turn int, packetID string, nodeID string, removed []actors.UnsupportedActorNeed) {
