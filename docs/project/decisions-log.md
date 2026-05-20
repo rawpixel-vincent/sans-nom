@@ -69,3 +69,4 @@ Could multiple players play different Sans-Noms in the same Honcho workspace and
 - **Schema for committed scene text.** → Phase 0 implementation; structured-with-prose-as-a-field. Opens the door to scene-level annotations later.
 - **Narrator-as-peer.** → [`architecture/honcho-integration/peers.md`](../architecture/honcho-integration/peers.md). Yes in Phase 1; gives audit pass capability for free.
 - **Death-screen design.** → [`mechanics/player-character/death-state.md`](../mechanics/player-character/death-state.md). Tonto eulogy + workspace archive naming + "Begin again" screen.
+- **Lore-faithful engine pivot.** -> [`project/lore-faithful-engine-master-plan.md`](lore-faithful-engine-master-plan.md). Lorepacks become authored gameplay scenario contracts, and Faithful Canon Prototype mode prioritizes lore fidelity over LLM premise invention.
