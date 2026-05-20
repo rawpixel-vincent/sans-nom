@@ -1,7 +1,7 @@
 {
   "id": "metabarons",
   "label": "Metabarons",
-  "description": "Metabarons canon encoded as source-influence lore for original Sans-Nom stories: body law, dynasty pressure, taboo, refusal, spectacle, and philosophical consequence without copying canon.",
+  "description": "Metabarons lorepack for faithful Sans-Nom prototype play: dynasty pressure, body law, taboo, refusal, spectacle, and philosophical consequence.",
   "collection": "sans_nom_lore_metabarons",
   "embedding_model": "voyage-4",
   "artifact_roots": {
@@ -41,26 +41,7 @@
       "expected_any": [["sans-nom", "dynasty"], ["ended", "dynasty"]]
     }
   ],
-  "forbidden_literal_terms": [
-    "aghora",
-    "aghnar",
-    "bushitaka",
-    "castaka",
-    "council of castaka",
-    "epyphite",
-    "honorata",
-    "lothar",
-    "meta-baron",
-    "metabaron",
-    "metabunker",
-    "oda",
-    "othon",
-    "roundtable",
-    "shabda-oud",
-    "steelhead",
-    "tonto",
-    "vicenta"
-  ],
+  "forbidden_literal_terms": [],
   "status": "active",
   "gameplay_mode": "faithful_canon_prototype",
   "game_synopsis": "The player is a young heir inside a brutal warrior dynasty whose legitimacy depends on bodily proof, family obedience, ritualized refusal, and public consequence. The opening story follows the heir as a demanded succession rite collides with buried family truth, forcing choices that can preserve the dynasty, betray it, or redefine what worthy inheritance means.",

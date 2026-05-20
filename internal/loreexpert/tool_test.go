@@ -24,23 +24,20 @@ func (r *fakeRunner) Run(_ context.Context, prompt string) (string, error) {
 	if r.answer != "" {
 		return r.answer, nil
 	}
-	return `## Influence-only answer
-This is influence-only inspiration, not canon for the generated story.
+	return `## Lore authority answer
+This source pattern supports consequence-heavy dynasty pressure.
 
-## Source pattern
+## Source basis
 Law works through public consequence.
 
-## Why it works
+## Fidelity implications
 The world reacts before the plot explains.
 
-## How to transform it originally
-Invent a new practice with a new cost.
+## Pressure and consequence pattern
+The cost must be witnessed.
 
-## Reader-plausibility risks
+## Risks or contradictions
 Do not make the law arbitrary.
-
-## Do not copy
-No canon names or direct equivalents.
 
 ## Useful source refs
 - source-a`, nil
@@ -116,10 +113,10 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 	if _, err := os.Stat(answerPath); err != nil {
 		t.Fatalf("answer path missing: %v", err)
 	}
-	if !strings.Contains(runner.prompt, "## Influence-only answer") ||
-		!strings.Contains(runner.prompt, "Reader-plausibility risks") ||
+	if !strings.Contains(runner.prompt, "## Lore authority answer") ||
+		!strings.Contains(runner.prompt, "Fidelity implications") ||
 		!strings.Contains(runner.prompt, "consequence systems, initiation rules, taboos") ||
-		!strings.Contains(runner.prompt, "protagonist's lived social order") {
+		!strings.Contains(runner.prompt, "scenario fidelity") {
 		t.Fatalf("prompt missing required answer contract:\n%s", runner.prompt)
 	}
 	refs := secondMap["source_refs"].([]SourceRef)
@@ -149,7 +146,7 @@ func TestToolLogsCallerRole(t *testing.T) {
 		CallerRole:        "creative-writer",
 		CallerSpeaker:     "Creative Writer",
 	}
-	if _, err := tool.Handle(context.Background(), root, `{"question":"What makes a doctrine credible?","purpose":"general_influence"}`); err != nil {
+	if _, err := tool.Handle(context.Background(), root, `{"question":"What makes a doctrine credible?","purpose":"general_lore_reference"}`); err != nil {
 		t.Fatal(err)
 	}
 	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "lore.expert.request"})
@@ -178,31 +175,31 @@ func TestToolLogsCallerRole(t *testing.T) {
 
 func TestToolRejectsFinalStoryRequests(t *testing.T) {
 	tool := &ToolRunner{PackID: "metabarons", Runner: &fakeRunner{}}
-	_, err := tool.Handle(context.Background(), t.TempDir(), `{"question":"Write the final StoryPacket with target_node_id values","purpose":"general_influence"}`)
+	_, err := tool.Handle(context.Background(), t.TempDir(), `{"question":"Write the final StoryPacket with target_node_id values","purpose":"general_lore_reference"}`)
 	if err == nil {
 		t.Fatal("expected rejection")
 	}
-	if !strings.Contains(err.Error(), "influence-only") {
+	if !strings.Contains(err.Error(), "reference-only") {
 		t.Fatalf("unexpected error: %v", err)
 	}
 }
 
-func TestLocalToolSchemaIsInfluenceOnly(t *testing.T) {
+func TestLocalToolSchemaIsLoreAuthority(t *testing.T) {
 	tool := (&ToolRunner{PackID: "metabarons"}).LocalTool()
 	if tool.Name != "ask_lore_expert" {
 		t.Fatalf("tool name = %q", tool.Name)
 	}
-	if !strings.Contains(tool.Description, "source-pattern analysis") || !strings.Contains(tool.Description, "ask_scenarist") || !strings.Contains(tool.Description, "creative room to ask first") {
-		t.Fatalf("description should be influence-scoped: %s", tool.Description)
+	if !strings.Contains(tool.Description, "Lore authority") || !strings.Contains(tool.Description, "scenario-fidelity") || !strings.Contains(tool.Description, "contradiction checks") {
+		t.Fatalf("description should be lore-authority scoped: %s", tool.Description)
 	}
 	data, err := json.Marshal(tool.Parameters)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(data), "source_pattern") {
+	if !strings.Contains(string(data), "source_pattern") || !strings.Contains(string(data), "fidelity_check") {
 		t.Fatalf("schema missing purpose enum: %s", data)
 	}
-	if !strings.Contains(string(data), "ask_scenarist") {
-		t.Fatalf("schema missing creative-room guidance: %s", data)
+	if !strings.Contains(string(data), "scenario-fidelity") {
+		t.Fatalf("schema missing fidelity guidance: %s", data)
 	}
 }

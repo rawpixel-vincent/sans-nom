@@ -42,10 +42,10 @@ func main() {
 		EnvFiles: scenarist.DefaultEnvFiles(root),
 		Timeout:  15 * time.Minute,
 	}
-	systemPrompt := `You are the Creative Writer for a Sans-Nom seed workshop. Answer the user's creative-writing test prompt directly.`
+	systemPrompt := `You are running a legacy attractor probe for Sans-Nom prompt diagnostics. Answer the user's creative-writing test prompt directly. These probes are not the live lore-faithful seed path.`
 	probes := []probe{
 		{
-			ID: "01-minimal-story-starts",
+			ID: "legacy-attractor-01-minimal-story-starts",
 			Prompt: `Invent 3 playable science-fantasy story starts.
 
 For each: one person, one urgent want, one person opposing them, one place, and the first meaningful player choice.
@@ -53,7 +53,7 @@ For each: one person, one urgent want, one person opposing them, one place, and 
 Keep each under 180 words.`,
 		},
 		{
-			ID: "02-human-pressure-first",
+			ID: "legacy-attractor-02-human-pressure-first",
 			Prompt: `Invent 3 playable science-fantasy story starts.
 
 Start from a person trying to do one urgent thing today before someone else stops them. Make the relationship wound clear. Let the strange setting appear through the job, place, danger, or tools.
@@ -61,7 +61,7 @@ Start from a person trying to do one urgent thing today before someone else stop
 For each, include: protagonist, urgent want, opposing person, relationship wound, place, first player choice. Keep the premise playable before it becomes mythic.`,
 		},
 		{
-			ID: "03-light-taste-guidance",
+			ID: "legacy-attractor-03-light-taste-guidance",
 			Prompt: `You are creating a first playable vertical slice for an original science-fantasy comic story.
 
 Invent 3 story starts. Prefer emotionally specific conflict, vivid images, active opposition, and choices that reveal character. The world should feel strange but lived-in; show that through work, tools, weather, architecture, danger, or social habit.
@@ -69,7 +69,7 @@ Invent 3 story starts. Prefer emotionally specific conflict, vivid images, activ
 Avoid explaining a whole invented system. Keep each start focused on one urgent scene.`,
 		},
 		{
-			ID: "04-source-dna-summary-lite",
+			ID: "legacy-attractor-04-source-dna-summary-lite",
 			Prompt: `You are creating a first playable vertical slice for an original science-fantasy comic story.
 
 Influence taste: intense family pressure, spectacular settings, bodies and technology under stress, refusal under impossible expectation, and consequences that feel material.
@@ -77,7 +77,7 @@ Influence taste: intense family pressure, spectacular settings, bodies and techn
 Invent 3 story starts. Each should begin with a person trying to do one urgent thing in a concrete place while a specific opponent interferes. Let the unusual elements arise from the work, danger, relationship, or place.`,
 		},
 		{
-			ID: "05-current-style-descriptive",
+			ID: "legacy-attractor-05-current-style-descriptive",
 			Prompt: `You are the Creative Writer for a Sans-Nom seed workshop.
 
 Invent 4 original science-fantasy story germs. Each germ needs a vivid image, player desire, active opposition, character wound, relationship pressure, strange material condition, and first irreversible pressure.
@@ -85,7 +85,7 @@ Invent 4 original science-fantasy story germs. Each germ needs a vivid image, pl
 Treat source lore as craft DNA only: pressure, contradiction, body/taboo, witness memory, operatic SF-comics rhythm, and philosophical consequence. Any binding doctrine belongs to the player character's lived order and should support conflict.`,
 		},
 		{
-			ID: "06-heavy-motif-palette",
+			ID: "legacy-attractor-06-heavy-motif-palette",
 			Prompt: `You are the Creative Writer for a Sans-Nom seed workshop.
 
 Invent 4 original operatic science-fantasy comics story germs. Use body law, taboo pressure, witness-bound memory, social enforcement, philosophical violence, family/function/refusal tension, binding doctrine, reader plausibility, material condition, and first irreversible pressure.
@@ -93,7 +93,7 @@ Invent 4 original operatic science-fantasy comics story germs. Use body law, tab
 Each germ should include player desire, active opposition, relationship pressure, strange material condition, and a playable first choice.`,
 		},
 		{
-			ID: "07-scenarist-grounded-transform",
+			ID: "legacy-attractor-07-scenarist-grounded-transform",
 			Prompt: `You are the Creative Writer for a seed workshop.
 
 Use only these rough sparks as raw material; improve or compare them rather than inventing unrelated new premises.
@@ -106,7 +106,7 @@ Sparks:
 For each, make the relationship pressure sharper and add one science-fantasy element that grows naturally from the job or place.`,
 		},
 		{
-			ID: "08-low-lore-material-openings",
+			ID: "legacy-attractor-08-low-lore-material-openings",
 			Prompt: `Invent three opening situations for a playable speculative adventure story.
 
 Return three numbered sections: 1, 2, and 3.

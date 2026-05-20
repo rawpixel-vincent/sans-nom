@@ -73,7 +73,7 @@ func TestScenaristSystemPromptExposesLoreExpertWhenAvailable(t *testing.T) {
 func TestScenaristSystemPromptDoesNotExposeLorePackPointers(t *testing.T) {
 	system := ScenaristSystemPrompt("/repo", true, true)
 	for _, required := range []string{
-		"Use @LoreExpert for source-pack questions",
+		"Use @LoreExpert for lorepack reference questions",
 		"Read for files and LS or Grep for artifact directories",
 		"Workspace root: /repo",
 	} {
@@ -354,21 +354,19 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	scenaristRunner := &fakeScenaristRunner{responses: []string{
 		"@LoreExpert: How do source consequence systems make a local doctrine credible?",
-		"final scenarist material after source grounding",
+		"final scenarist material after lore grounding",
 	}}
 	loreRunner := &fakeLoreExpertRunner{response: strings.Join([]string{
-		"## Influence-only answer",
+		"## Lore authority answer",
 		"consequence systems work through public cost.",
-		"## Source pattern",
+		"## Source basis",
 		"pattern",
-		"## Why it works",
+		"## Fidelity implications",
 		"why",
-		"## How to transform it originally",
+		"## Pressure and consequence pattern",
 		"transform",
-		"## Reader-plausibility risks",
+		"## Risks or contradictions",
 		"risk",
-		"## Do not copy",
-		"copy nothing",
 		"## Useful source refs",
 		"none",
 	}, "\n")}

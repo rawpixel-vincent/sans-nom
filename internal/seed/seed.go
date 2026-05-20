@@ -373,23 +373,7 @@ func (s Service) buildWorkshop(ctx context.Context, contextText string) (string,
 }
 
 func DefaultWorkshopTurns() []WorkshopTurn {
-	return []WorkshopTurn{{
-		ID:          "imagination",
-		Title:       "Imagination Turn",
-		PromptShape: "Invent three opening situations for a playable speculative adventure story. Return three numbered sections: 1, 2, and 3. Each starts with one practical job going wrong: repair, delivery, rescue, inspection, harvest, crossing, negotiation, theft, or escape. Use grounded hazards: broken equipment, bad weather, missing cargo, corrupt supervisors, family pressure, dangerous terrain, unreliable tools, hostile customers, or local politics. Use plain language and low lore density: in each situation, use at most one invented place name and one invented tool or device name. Prefer common job titles and ordinary personal names over named orders, factions, doctrines, titles, or grand institutions. The unusual setting should come from material causes: infrastructure, ecology, transport, weather, resource scarcity, workplace tools, maintenance routines, money pressure, or local trade. Make each opening understandable as a practical problem before it becomes a mystery. Write 3-5 short paragraphs per situation, like a scene already in motion. Let the unusual setting appear through concrete work details. End each situation with the first player choice. After each situation, add two short notes: why it could be playable, and what risk the Writer should fix later. Do not choose the final story yet.",
-	}, {
-		ID:          "elements",
-		Title:       "Story Engine Selection Turn",
-		PromptShape: "Compare the strongest opening situations by player hook, active opposition, freshness, emotional clarity, practical pressure, and playable first choice. Recommend one story engine while keeping only genuinely useful alternate sparks visible.",
-	}, {
-		ID:          "engine",
-		Title:       "Dramatic Engine Turn",
-		PromptShape: "Develop the selected story engine: protagonist, opponent, cast friction, material world, reversals, scene pressure, and any local doctrine only where it sharpens conflict.",
-	}, {
-		ID:          "runway",
-		Title:       "Three-Turn Runway Turn",
-		PromptShape: "Design the opening in prose/planning terms as a three-turn playable runway: first an onboarding moment with cosmetic flavor choices, then a scene with three meaningful choices, then one branch scene for each choice. Focus on story heat, conflict, player agency, and what each choice reveals.",
-	}}
+	return nil
 }
 
 func workshopManifest(artifacts []WorkshopArtifact) string {
@@ -463,7 +447,7 @@ func promptRunnerMetadata(runner prompt.Runner) modelmeta.Metadata {
 	return provider.ModelMetadata()
 }
 
-func ValidateOriginalSeed(packet scene.StoryPacket) error {
+func ValidateFaithfulSeed(packet scene.StoryPacket) error {
 	if err := packet.Validate(); err != nil {
 		return err
 	}
@@ -479,37 +463,7 @@ func ValidateOriginalSeed(packet scene.StoryPacket) error {
 			return fmt.Errorf("seed node %q uses actor_needs before original actor cards exist", node.ID)
 		}
 	}
-	lower := strings.ToLower(story.CreatedPacketText(packet))
-	for _, banned := range story.ForbiddenCanonTerms() {
-		if containsForbidden(lower, banned) {
-			return fmt.Errorf("seed packet copies source-lore term %q; create a new story instead", banned)
-		}
-	}
 	return nil
-}
-
-func containsForbidden(text string, banned string) bool {
-	index := strings.Index(text, banned)
-	for index >= 0 {
-		start := index - 16
-		if start < 0 {
-			start = 0
-		}
-		prefix := text[start:index]
-		if !strings.Contains(prefix, "no ") && !strings.Contains(prefix, "not ") && !strings.Contains(prefix, "avoid ") && !strings.Contains(prefix, "without ") {
-			return true
-		}
-		next := index + len(banned)
-		if next >= len(text) {
-			return false
-		}
-		rest := text[next:]
-		index = strings.Index(rest, banned)
-		if index >= 0 {
-			index += next
-		}
-	}
-	return false
 }
 
 func ContextText() string {
@@ -581,7 +535,7 @@ func DefaultBible() story.StoryBible {
 			"global lore: witness-bound narration and actor boundary patterns",
 			"global lore: body alteration as inheritance pressure",
 		},
-		ForbiddenLiteralCanonTerms: story.ForbiddenCanonTerms(),
+		ForbiddenLiteralCanonTerms: []string{},
 		FirstTurnExposition: []string{
 			"Establish Glasswell as a city whose public law is machinery, ritual, crowd, and debt.",
 			"Introduce Ila Venn as the player character and show why her body matters to the city.",
@@ -693,16 +647,8 @@ func DefaultPacket() scene.StoryPacket {
 				"Writer continuation is required after this branch.",
 			},
 		}},
-		RevisionNotes: []string{"Opening seed runway for original CLI playtest; source lore is influence only, no literal canon import, no actor_needs yet.", "Turn 1 choices are cosmetic and all lead to turn_2_decision; turn 2 choices branch into three prebuilt terminal handoff nodes."},
+		RevisionNotes: []string{"Opening seed runway for faithful CLI playtest; no actor_needs yet.", "Turn 1 choices are cosmetic and all lead to turn_2_decision; turn 2 choices branch into three prebuilt terminal handoff nodes."},
 	}
-}
-
-func forbiddenCanonTerms() []string {
-	return story.ForbiddenCanonTerms()
-}
-
-func createdStoryText(packet scene.StoryPacket) string {
-	return story.CreatedPacketText(packet)
 }
 
 func parseBundle(raw string) (story.SeedBundle, error) {

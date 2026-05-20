@@ -3,8 +3,6 @@ package seed
 import (
 	"context"
 	"encoding/json"
-	"os"
-	"path/filepath"
 	"strings"
 	"testing"
 
@@ -13,71 +11,53 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
-func TestDefaultPacketValidatesOriginalSeed(t *testing.T) {
-	if err := ValidateOriginalSeed(DefaultPacket()); err != nil {
+func TestDefaultPacketValidatesFaithfulSeed(t *testing.T) {
+	if err := ValidateFaithfulSeed(DefaultPacket()); err != nil {
 		t.Fatal(err)
 	}
 }
 
-func TestDefaultPacketDoesNotUseCanonProperNouns(t *testing.T) {
-	text := strings.ToLower(createdStoryText(DefaultPacket()))
-	for _, term := range forbiddenCanonTerms() {
-		if strings.Contains(text, term) {
-			t.Fatalf("default seed contains source-canon term %q:\n%s", term, text)
-		}
-	}
-}
-
-func TestValidateOriginalSeedRejectsLiteralCanon(t *testing.T) {
+func TestValidateFaithfulSeedAllowsLorepackTerms(t *testing.T) {
 	packet := DefaultPacket()
 	packet.Nodes[0].Beats[0].Text = "Tonto waits inside the Metabunker."
 
-	if err := ValidateOriginalSeed(packet); err == nil {
-		t.Fatal("expected literal canon rejection")
-	}
-}
-
-func TestValidateOriginalSeedAllowsCanonInRevisionConstraint(t *testing.T) {
-	packet := DefaultPacket()
-	packet.RevisionNotes = []string{"No Metabarons canon names."}
-
-	if err := ValidateOriginalSeed(packet); err != nil {
+	if err := ValidateFaithfulSeed(packet); err != nil {
 		t.Fatal(err)
 	}
 }
 
-func TestValidateOriginalSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
+func TestValidateFaithfulSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
 	packet := DefaultPacket()
 	packet.Nodes[0].ActorNeeds = []scene.ActorNeed{
 		{ActorID: "shift-matron", Mode: scene.ActorModePresent},
 	}
 
-	if err := ValidateOriginalSeed(packet); err == nil {
+	if err := ValidateFaithfulSeed(packet); err == nil {
 		t.Fatal("expected actor_need rejection")
 	}
 }
 
-func TestValidateOriginalSeedRequiresRunwayIntroChoices(t *testing.T) {
+func TestValidateFaithfulSeedRequiresRunwayIntroChoices(t *testing.T) {
 	packet := DefaultPacket()
 	packet.Nodes[0].Choices[1].TargetNodeID = "turn_3_submit_hand"
 
-	err := ValidateOriginalSeed(packet)
+	err := ValidateFaithfulSeed(packet)
 	if err == nil || !strings.Contains(err.Error(), "turn_1_intro choices must all target the same") {
 		t.Fatalf("expected cosmetic intro target rejection, got %v", err)
 	}
 }
 
-func TestValidateOriginalSeedRequiresThreeRealDecisionChoices(t *testing.T) {
+func TestValidateFaithfulSeedRequiresThreeRealDecisionChoices(t *testing.T) {
 	packet := DefaultPacket()
 	packet.Nodes[1].Choices = packet.Nodes[1].Choices[:2]
 
-	err := ValidateOriginalSeed(packet)
+	err := ValidateFaithfulSeed(packet)
 	if err == nil || !strings.Contains(err.Error(), "exactly 3 real choices") {
 		t.Fatalf("expected decision choice count rejection, got %v", err)
 	}
 }
 
-func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
+func TestValidateFaithfulSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
 	packet := DefaultPacket()
 	packet.Nodes[2].Choices = []scene.Choice{{
 		ID:           "bad_followup",
@@ -85,7 +65,7 @@ func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
 		TargetNodeID: "turn_3_steal_pearl",
 	}}
 
-	err := ValidateOriginalSeed(packet)
+	err := ValidateFaithfulSeed(packet)
 	if err == nil || !strings.Contains(err.Error(), "must be terminal with no choices") {
 		t.Fatalf("expected terminal branch rejection, got %v", err)
 	}
@@ -226,93 +206,41 @@ func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 	}
 }
 
-func TestGenerateRunsSeedWorkshopBeforeFinalBundle(t *testing.T) {
+func TestGenerateSkipsRetiredSeedWorkshop(t *testing.T) {
 	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {
 		t.Fatal(err)
 	}
-	runner := &sequenceRunner{responses: []string{
-		"## Germs\n### Bell-Hunger\nA bell image.",
-		"## Elements\nCharacter, POV, Setting, Plot, Theme, Style/Tone.",
-		"## Engine\nConflict and opposition.",
-		"## Opening\nChoices as pressure, not ids.",
-		rawBundle,
-	}}
+	runner := &sequenceRunner{responses: []string{rawBundle}}
 	logger := gamelog.NewGlobalWriter(t.TempDir())
-	workshopDir := filepath.Join(t.TempDir(), "workshop")
 	service := Service{
 		Writer:      runner,
 		Logger:      logger,
-		WorkshopDir: workshopDir,
+		WorkshopDir: "retired-workshop",
 	}
 	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
 		t.Fatal(err)
 	}
-	if len(runner.prompts) != 5 {
+	if len(runner.prompts) != 1 {
 		t.Fatalf("prompt count = %d", len(runner.prompts))
 	}
-	for _, required := range []string{"Output Markdown only", "Stay free-form", "no JSON, schema field names, node ids, final bundle, or player-facing prose"} {
-		if !strings.Contains(runner.prompts[0], required) {
-			t.Fatalf("workshop prompt missing %q:\n%s", required, runner.prompts[0])
-		}
-	}
-	for _, required := range []string{
-		"Invent three opening situations for a playable speculative adventure story",
-		"Return three numbered sections: 1, 2, and 3",
-		"one practical job going wrong",
-		"Use plain language and low lore density",
-		"at most one invented place name and one invented tool or device name",
-		"material causes",
-		"End each situation with the first player choice",
-	} {
-		if !strings.Contains(runner.prompts[0], required) {
-			t.Fatalf("imagination workshop prompt missing %q:\n%s", required, runner.prompts[0])
-		}
-	}
-	for _, forbidden := range []string{"StoryBible", "StoryPacket", "target_node_id", "The seed packet is a three-turn runway", "turn_1_intro", "Every choice target must be an included node"} {
+	for _, forbidden := range []string{"seed workshop", "Invent three opening situations", "Bell-Hunger", "Seed Workshop Manifest"} {
 		if strings.Contains(runner.prompts[0], forbidden) {
-			t.Fatalf("workshop prompt leaked final contract %q:\n%s", forbidden, runner.prompts[0])
-		}
-	}
-	if !strings.Contains(runner.prompts[2], "Dramatic Engine Turn") ||
-		!strings.Contains(runner.prompts[2], "cast friction") ||
-		!strings.Contains(runner.prompts[2], "local doctrine only where it sharpens conflict") {
-		t.Fatalf("engine workshop prompt has wrong story framing:\n%s", runner.prompts[2])
-	}
-	final := runner.prompts[4]
-	if !strings.Contains(final, "Seed Workshop Manifest") || strings.Contains(final, "## Germs\n### Bell-Hunger") {
-		t.Fatalf("final prompt should include manifest but not raw workshop text:\n%s", final)
-	}
-	if strings.Contains(final, "Bell-Hunger") || strings.Contains(strings.ToLower(final), "bell image") {
-		t.Fatalf("final prompt should not propagate raw workshop motifs through summaries:\n%s", final)
-	}
-	if !strings.Contains(final, "Repeated motifs in workshop output are not requirements") ||
-		!strings.Contains(final, "discard any motif that became too repetitive") {
-		t.Fatalf("final prompt should prevent workshop motif propagation:\n%s", final)
-	}
-	for _, rel := range []string{
-		filepath.Join("01-imagination", "prompt.txt"),
-		filepath.Join("01-imagination", "output.md"),
-		filepath.Join("01-imagination", "metadata.json"),
-		"manifest.md",
-		"manifest.json",
-	} {
-		if _, err := os.Stat(filepath.Join(workshopDir, rel)); err != nil {
-			t.Fatalf("missing workshop artifact %s: %v", rel, err)
+			t.Fatalf("final prompt contains retired workshop wording %q:\n%s", forbidden, runner.prompts[0])
 		}
 	}
 	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
 	if err != nil {
 		t.Fatal(err)
 	}
-	var sawCompleted bool
+	var sawWorkshop bool
 	for _, event := range events {
-		if event.Event == "seed.workshop.completed" {
-			sawCompleted = true
+		if strings.HasPrefix(event.Event, "seed.workshop.") {
+			sawWorkshop = true
 		}
 	}
-	if !sawCompleted {
-		t.Fatalf("missing seed.workshop.completed event: %#v", events)
+	if sawWorkshop {
+		t.Fatalf("retired workshop emitted events: %#v", events)
 	}
 }
 
@@ -333,29 +261,25 @@ func TestGenerateRetryDoesNotRerunWorkshop(t *testing.T) {
 		t.Fatal(err)
 	}
 	runner := &sequenceRunner{responses: []string{
-		"germs",
-		"elements",
-		"law",
-		"opening",
 		rawInvalid,
 		rawValid,
 	}}
 	service := Service{
 		Writer:        runner,
 		MaxIterations: 2,
-		WorkshopDir:   filepath.Join(t.TempDir(), "workshop"),
+		WorkshopDir:   "retired-workshop",
 	}
 	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
 		t.Fatal(err)
 	}
-	if len(runner.prompts) != 6 {
+	if len(runner.prompts) != 2 {
 		t.Fatalf("prompt count = %d", len(runner.prompts))
 	}
-	if strings.HasPrefix(runner.prompts[5], "You are the Creative Writer for the Sans-Nom story seed workshop.") {
-		t.Fatalf("retry reran workshop instead of final bundle revision:\n%s", runner.prompts[5])
+	if strings.Contains(runner.prompts[1], "seed staging workshop") {
+		t.Fatalf("retry reran workshop instead of final bundle revision:\n%s", runner.prompts[1])
 	}
-	if !strings.Contains(runner.prompts[5], "Previous raw Writer output to patch") {
-		t.Fatalf("retry prompt missing previous raw output:\n%s", runner.prompts[5])
+	if !strings.Contains(runner.prompts[1], "Previous raw Writer output to patch") {
+		t.Fatalf("retry prompt missing previous raw output:\n%s", runner.prompts[1])
 	}
 }
 

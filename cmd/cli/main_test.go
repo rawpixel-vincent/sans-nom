@@ -1224,7 +1224,7 @@ func cliTestBundle(id string) story.SeedBundle {
 			CoreRelationships:          []string{"Rin is bound to the witness hall."},
 			ToneDoctrine:               []string{"Body law should feel sacred before tactical."},
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
-			ForbiddenLiteralCanonTerms: story.ForbiddenCanonTerms(),
+			ForbiddenLiteralCanonTerms: []string{},
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
 			ResumeSummary:              "Rin stands before the witness hall.",
 			Metadata:                   map[string]string{"test": "true"},

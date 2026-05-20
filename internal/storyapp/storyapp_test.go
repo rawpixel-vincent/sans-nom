@@ -157,7 +157,7 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 			CoreRelationships:          []string{"Rin owes love and suspicion to the same household."},
 			ToneDoctrine:               []string{"Body law should feel sacred before tactical."},
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
-			ForbiddenLiteralCanonTerms: story.ForbiddenCanonTerms(),
+			ForbiddenLiteralCanonTerms: []string{},
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
 			ResumeSummary:              "Rin stands before the civic garden as the debt rite begins.",
 			Metadata:                   map[string]string{"test": "true"},

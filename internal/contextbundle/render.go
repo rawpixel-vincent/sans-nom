@@ -98,7 +98,7 @@ func (c WriterContext) RenderText() string {
 	fmt.Fprintln(&b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
 	fmt.Fprintln(&b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
 	fmt.Fprintln(&b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
-	fmt.Fprintln(&b, "- Use actor cards and directional representations only for original story actors explicitly present in the packet.")
+	fmt.Fprintln(&b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")
 	fmt.Fprintln(&b, "- Treat lore references as support for the active scenario, not as automatic all-cast inventory.")
 
 	writeStringList(&b, "WARNINGS", c.Warnings)
@@ -279,7 +279,7 @@ func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
 		kinds = append(kinds, kind)
 	}
 	sort.Strings(kinds)
-	writeSection(b, "CREATIVE INFLUENCE REFERENCES")
+	writeSection(b, "LORE FIDELITY REFERENCES")
 	for _, kind := range kinds {
 		hits := append([]LoreHit(nil), byKind[kind]...)
 		sortLore(hits)

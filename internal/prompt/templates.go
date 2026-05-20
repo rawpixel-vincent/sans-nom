@@ -142,27 +142,24 @@ Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`
 }
 
 func SeedWorkshopPrompt(contextText string, turnTitle string, promptShape string, priorManifest string) string {
-	return fmt.Sprintf(`You are the Creative Writer for the Sans-Nom story seed workshop.
+	return fmt.Sprintf(`You are the Creative Writer for a legacy Sans-Nom seed staging workshop.
 
-This turn is for creative discovery. Look for playable story material before final structure.
+This legacy turn is for staging and critique around an existing lorepack scenario, not premise invention.
 
 Creative priorities:
-- Start from a concrete situation already in motion: a person has a practical task, a specific pressure, and someone making it harder.
-- Favor playable scenes with clear stakes, useful tools, visible hazards, and choices that can be acted on.
-- Let the unusual setting appear through work, infrastructure, ecology, transport, weather, resource scarcity, maintenance routines, money pressure, family pressure, or local trade.
-- Use plain language and low lore density. Prefer ordinary job titles, personal names, and practical institutions over grand labels.
-- Keep emotional pressure specific and human; let it show through what the character must do today.
+- Preserve the lorepack scenario contract as the premise source.
+- Look for playable staging, scene pressure, relationship friction, reversals, and reader risks.
+- Keep emotional pressure specific and visible through what characters must do now.
+- Make choice pressure concrete: what changes, who witnesses it, and what cost follows.
 
 Rules:
 - Output Markdown only.
 - Stay free-form: no JSON, schema field names, node ids, final bundle, or player-facing prose.
-- Treat source lore as craft DNA only: pressure, contradiction, costly choices, spectacular stakes, and consequence.
-- Keep the generated story original: new names, places, factions, conflicts, and social orders.
 
 Tools:
 - Use ask_scenarist for sparks, critique, alternatives, reversals, character contradictions, scene engines, choice pressure, and reader-risk checks.
 - Ask one Scenarist for one advisory job, read the returned file, then ask follow-up only when it adds something specific.
-- Use ask_lore_expert only for focused source-pattern research from the selected lore pack.
+- Use ask_lore_expert for lore authority/reference checks when fidelity is uncertain.
 
 Workshop turn:
 %s

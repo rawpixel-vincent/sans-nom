@@ -999,7 +999,7 @@ func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
 		return buildSeedContextForPack(lorepack.Pack{
 			ID:          story.DefaultGroundLorePackID,
 			Label:       "Metabarons",
-			Description: "Default ground-lore pack used as craft DNA for Sans-Nom stories.",
+			Description: "Default lorepack for Sans-Nom stories.",
 		})
 	}
 	return buildSeedContextForPack(pack)
@@ -1022,17 +1022,16 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	if pack.ID != "" || pack.Label != "" {
 		fmt.Fprintf(&b, "- selected lore pack: %s (%s)\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	}
-	b.WriteString("- pack note: source-influence pack selected for taste and pressure only; concrete source analysis comes through tools when needed.\n")
+	b.WriteString("- pack note: legacy pack selected for story pressure; concrete source analysis comes through tools when needed.\n")
 	b.WriteString("- influence style: heightened speculative adventure; intense family and function pressure; refusal under expectation; spectacle; material cost; credible consequence inside the protagonist's lived order.\n")
 	b.WriteString("- binding doctrine: include an original deep rule as support for the player character's conflict; it should sharpen desire, opposition, and cost rather than dominate the premise.\n")
 	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
 	b.WriteString("- material imagination: choose the story's dominant condition from its own premise, such as infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.\n")
-	b.WriteString("- originality boundary: source lore is craft DNA only. Do not copy canon names, places, factions, events, dynasty mechanics, council mode, all-cast fanout, or direct equivalents.\n")
 	b.WriteString("- creative workshop: use ask_scenarist as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
 	b.WriteString("- scenarist sequence: ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.\n")
-	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete influence patterns from the selected lore pack, such as source-pattern analysis, tone lineage, relationship pressure, or anti-copy checks.\n")
+	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete patterns from the selected lorepack, such as source-pattern analysis, tone lineage, relationship pressure, or contradiction checks.\n")
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
-	b.WriteString("- no raw source lore is injected here; concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
+	b.WriteString("- concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
 	return b.String()
 }
 
@@ -1284,11 +1283,10 @@ func bridgeStoryDocs(docs []story.IndexDocument) []bridgeclient.StoryIndexDocume
 func seedPeerCards(bible story.StoryBible) map[string][]string {
 	lawFacts := make([]string, 0, len(bible.OriginalLaws))
 	for _, law := range bible.OriginalLaws {
-		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce original binding doctrine %s: %s", law.Name, law.Enforcement))
+		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce binding lore principle %s: %s", law.Name, law.Enforcement))
 	}
 	baseBoundaries := []string{
-		"BOUNDARY: Source lore is influence material, not story canon.",
-		"BOUNDARY: Do not import source canon names, places, factions, or events into the generated story.",
+		"BOUNDARY: Lorepack references support the active scenario contract; unused lore is not automatic scene canon.",
 	}
 	narrator := []string{
 		"Name: narrator",
@@ -1302,8 +1300,8 @@ func seedPeerCards(bible story.StoryBible) map[string][]string {
 	writer := []string{
 		"Name: creative-writer",
 		"ROLE: Background planner for bounded StoryPacket revisions in " + bible.Title + ".",
-		"INSTRUCTION: Use the Story Bible as binding doctrine and source lore as creative influence.",
-		"INSTRUCTION: Create original branches and preserve witness-bound canon boundaries.",
+		"INSTRUCTION: Use the Story Bible and lorepack scenario contract as the active story contract.",
+		"INSTRUCTION: Preserve witness-bound canon boundaries.",
 	}
 	writer = append(writer, lawFacts...)
 	writer = append(writer, baseBoundaries...)

@@ -19,7 +19,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
-const PromptVersion = "lore-expert-v3"
+const PromptVersion = "lore-expert-v4"
 
 type Runner interface {
 	Run(ctx context.Context, prompt string) (string, error)
@@ -60,7 +60,7 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Reference specialist for the selected ground-lore pack. Use when a question needs source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. For generated-story brainstorming, critique, doctrine invention, scene engines, or choice pressure, ask_scenarist is the creative room to ask first. Results are cached per lore pack and returned as file paths plus a short preview.",
+		Description: "Lore authority for the selected lorepack. Use when a question needs scenario-fidelity checking, source references, tone lineage, relationship pressure, contradiction checks, or canon-pressure analysis. Results are cached per lorepack and returned as file paths plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
@@ -78,7 +78,7 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		return nil, err
 	}
 	request.PackID = firstNonEmpty(request.PackID, r.PackID, "metabarons")
-	request.Purpose = firstNonEmpty(request.Purpose, "general_influence")
+	request.Purpose = firstNonEmpty(request.Purpose, "general_lore_reference")
 	if err := r.validateRequest(request); err != nil {
 		r.logFailed(arguments, &request, "", err)
 		return nil, err
@@ -243,7 +243,7 @@ func (r *ToolRunner) validateRequest(request ToolRequest) error {
 		"narrator prose",
 	} {
 		if strings.Contains(lower, term) {
-			return fmt.Errorf("ask_lore_expert is influence-only; request appears to ask for final story material via %q", term)
+			return fmt.Errorf("ask_lore_expert is reference-only; request appears to ask for final story material via %q", term)
 		}
 	}
 	return nil
@@ -251,7 +251,7 @@ func (r *ToolRunner) validateRequest(request ToolRequest) error {
 
 func allowedPurpose(value string) bool {
 	switch value {
-	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "plausibility_check", "tone_pattern", "anti_copy_check", "general_influence":
+	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "plausibility_check", "tone_pattern", "fidelity_check", "scenario_contract", "lore_reference", "general_lore_reference", "general_influence":
 		return true
 	default:
 		return false
@@ -267,7 +267,7 @@ func (r *ToolRunner) searchSources(ctx context.Context, request ToolRequest) ([]
 		k = 6
 	}
 	query := request.Question
-	if request.Purpose != "" && request.Purpose != "general_influence" {
+	if request.Purpose != "" && request.Purpose != "general_lore_reference" && request.Purpose != "general_influence" {
 		query = request.Purpose + " " + query
 	}
 	return r.Retriever.Search(ctx, query, k)
@@ -276,12 +276,11 @@ func (r *ToolRunner) searchSources(ctx context.Context, request ToolRequest) ([]
 func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "You are the Nerd Lore Expert for Sans-Nom.\n\n")
-	fmt.Fprintf(&b, "Your job is to answer questions about a ground-lore pack as craft influence only.\n")
-	fmt.Fprintf(&b, "You are not writing generated story canon, final prose, StoryBible doctrine, StoryPacket nodes, character cards, or direct equivalents.\n")
-	fmt.Fprintf(&b, "Every answer must clearly say it is influence-only inspiration, not canon for the generated story.\n\n")
-	fmt.Fprintf(&b, "When discussing laws or doctrines, describe source patterns as consequence systems, initiation rules, taboos, oaths, inheritance pressures, refusal points, and social enforcement.\n")
-	fmt.Fprintf(&b, "Translate concrete source imagery into portable craft lessons before answering; focus on mechanisms rather than repeating scenery.\n")
-	fmt.Fprintf(&b, "Frame binding doctrines through the protagonist's lived social order, such as a family, guild, dynasty, sect, profession, city office, or rite.\n\n")
+	fmt.Fprintf(&b, "Your job is to answer reference questions about the selected lorepack so Writers and Narrators can preserve scenario fidelity.\n")
+	fmt.Fprintf(&b, "You are not writing final prose, StoryBible doctrine, StoryPacket nodes, or character cards.\n")
+	fmt.Fprintf(&b, "Answer as lore authority: explain what the source references support, what they do not support, and what would drift from the active lore contract.\n\n")
+	fmt.Fprintf(&b, "When discussing laws or doctrines, describe consequence systems, initiation rules, taboos, oaths, inheritance pressures, refusal points, and social enforcement.\n")
+	fmt.Fprintf(&b, "Focus on mechanisms, relationships, and consequences rather than ornamental scenery.\n\n")
 	fmt.Fprintf(&b, "Ground-lore pack:\n- id: %s\n- label: %s\n- collection: %s\n", request.PackID, r.packLabel(), r.Collection)
 	if strings.TrimSpace(r.PackDescription) != "" {
 		fmt.Fprintf(&b, "- description: %s\n", strings.TrimSpace(r.PackDescription))
@@ -303,7 +302,7 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 			}
 		}
 	}
-	fmt.Fprintf(&b, "\nRetrieved source references for analysis. Distill patterns; do not dump or copy them:\n")
+	fmt.Fprintf(&b, "\nRetrieved source references for analysis. Distill the fidelity implications; do not dump long source text:\n")
 	if len(snippets) == 0 {
 		fmt.Fprintf(&b, "- No source snippets were available. Answer from pack-level craft doctrine only and say confidence is limited.\n")
 	} else {
@@ -320,15 +319,14 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	}
 	fmt.Fprintf(&b, `
 Return Markdown with exactly these sections:
-## Influence-only answer
-## Source pattern
-## Why it works
-## How to transform it originally
-## Reader-plausibility risks
-## Do not copy
+## Lore authority answer
+## Source basis
+## Fidelity implications
+## Pressure and consequence pattern
+## Risks or contradictions
 ## Useful source refs
 
-Keep the answer compact, concrete, and useful to a Creative Writer. Do not invent unsupported source facts. Do not propose final plot beats as requirements.`)
+Keep the answer compact, concrete, and useful to a Creative Writer or Narrator. Do not invent unsupported source facts. Do not propose final plot beats as requirements.`)
 	return strings.TrimSpace(b.String())
 }
 
@@ -340,7 +338,7 @@ func (r *ToolRunner) result(cached bool, cacheDir string, cacheKey string, answe
 		"answer_path": filepath.ToSlash(filepath.Join(cacheDir, "answer.md")),
 		"source_refs": refs,
 		"preview":     preview(answer, 700),
-		"note":        "Lore expert material is influence-only planning support. It is not story canon, not StoryBible doctrine, and not final StoryPacket structure.",
+		"note":        "Lore expert material is reference support for scenario fidelity. It is not final prose, StoryBible doctrine, or StoryPacket structure.",
 	}
 }
 
@@ -494,7 +492,7 @@ func toolSchema() map[string]any {
 			},
 			"question": map[string]any{
 				"type":        "string",
-				"description": "Influence-only source question. Ask for ground-lore patterns, source refs, tone lineage, relationship pressure, or anti-copy risks. Creative brainstorming belongs in ask_scenarist.",
+				"description": "Reference question. Ask for lorepack patterns, source refs, tone lineage, relationship pressure, contradiction risks, or scenario-fidelity checks.",
 			},
 			"purpose": map[string]any{
 				"type": "string",
@@ -506,10 +504,13 @@ func toolSchema() map[string]any {
 					"relationship_matrix",
 					"plausibility_check",
 					"tone_pattern",
-					"anti_copy_check",
+					"fidelity_check",
+					"scenario_contract",
+					"lore_reference",
+					"general_lore_reference",
 					"general_influence",
 				},
-				"description": "The kind of influence analysis requested.",
+				"description": "The kind of lore reference analysis requested.",
 			},
 			"relevant_paths": map[string]any{
 				"type":        "array",
@@ -518,7 +519,7 @@ func toolSchema() map[string]any {
 			},
 			"avoid_terms": map[string]any{
 				"type":        "array",
-				"description": "Optional source terms or direct equivalents to explicitly avoid.",
+				"description": "Optional source terms the answer should treat carefully when explaining fidelity risks.",
 				"items":       map[string]any{"type": "string"},
 			},
 		},

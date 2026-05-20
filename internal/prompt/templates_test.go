@@ -50,15 +50,14 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	}
 }
 
-func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
-	got := SeedWorkshopPrompt("seed context", "Imagination Turn", "Invent germs.", "No workshop artifacts yet.")
+func TestLegacySeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
+	got := SeedWorkshopPrompt("seed context", "Staging Turn", "Stress-test the opening.", "No workshop artifacts yet.")
 	for _, required := range []string{
-		"creative discovery",
-		"concrete situation already in motion",
-		"person has a practical task",
-		"playable scenes with clear stakes",
-		"Use plain language and low lore density",
-		"work, infrastructure, ecology, transport, weather",
+		"legacy Sans-Nom seed staging workshop",
+		"existing lorepack scenario, not premise invention",
+		"Preserve the lorepack scenario contract",
+		"playable staging, scene pressure",
+		"what changes, who witnesses it, and what cost follows",
 		"Output Markdown only",
 		"Stay free-form",
 		"no JSON, schema field names, node ids, final bundle, or player-facing prose",
@@ -66,7 +65,7 @@ func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 		"Ask one Scenarist for one advisory job",
 		"read the returned file",
 		"ask_lore_expert",
-		"Invent germs.",
+		"Stress-test the opening.",
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("workshop prompt missing %q:\n%s", required, got)
@@ -81,6 +80,9 @@ func TestSeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 		"turn_1_intro",
 		"turn_2_decision",
 		"target_node_id",
+		"craft DNA",
+		"generated story original",
+		"new names, places",
 	} {
 		if strings.Contains(got, forbidden) {
 			t.Fatalf("workshop prompt leaked final seed contract %q:\n%s", forbidden, got)

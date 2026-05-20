@@ -14,9 +14,9 @@ func TestStoryBibleValidationRejectsMissingOriginalLaw(t *testing.T) {
 	bundle.Bible.OriginalLaws = nil
 
 	if err := ValidateBundle(bundle); err == nil {
-		t.Fatal("expected missing original law rejection")
-	} else if !strings.Contains(err.Error(), "original binding doctrine") {
-		t.Fatalf("expected binding doctrine validation error, got: %v", err)
+		t.Fatal("expected missing binding principle rejection")
+	} else if !strings.Contains(err.Error(), "binding lore principle") {
+		t.Fatalf("expected binding lore validation error, got: %v", err)
 	}
 }
 
@@ -29,12 +29,12 @@ func TestStoryBibleValidationRejectsMissingPlayerWorldConnection(t *testing.T) {
 	}
 }
 
-func TestSeedBundleValidationRejectsLiteralCanonTerms(t *testing.T) {
+func TestSeedBundleValidationAllowsLorepackTermsInFaithfulMode(t *testing.T) {
 	bundle := validBundle()
 	bundle.Bible.Premise = "Tonto waits in the Metabunker."
 
-	if err := ValidateBundle(bundle); err == nil {
-		t.Fatal("expected literal canon term rejection")
+	if err := ValidateBundle(bundle); err != nil {
+		t.Fatal(err)
 	}
 }
 
@@ -243,7 +243,7 @@ func validBundle() SeedBundle {
 			CoreRelationships:          []string{"Rin owes love and suspicion to the same household."},
 			ToneDoctrine:               []string{"Body law should feel sacred before tactical."},
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
-			ForbiddenLiteralCanonTerms: ForbiddenCanonTerms(),
+			ForbiddenLiteralCanonTerms: []string{},
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
 			ResumeSummary:              "Rin stands before the civic garden as the debt rite begins.",
 			Metadata:                   map[string]string{"test": "true"},

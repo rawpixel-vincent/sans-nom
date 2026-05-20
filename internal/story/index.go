@@ -151,19 +151,19 @@ type storyPeerCardDoc struct {
 func storyPeerCardDocuments(bible StoryBible) []storyPeerCardDoc {
 	laws := make([]string, 0, len(bible.OriginalLaws))
 	for _, law := range bible.OriginalLaws {
-		laws = append(laws, "INSTRUCTION: Enforce original story law "+law.Name+": "+law.Enforcement)
+		laws = append(laws, "INSTRUCTION: Enforce binding lore principle "+law.Name+": "+law.Enforcement)
 	}
 	narrator := []string{
 		"Name: narrator",
 		"ROLE: Player-facing narrator for " + bible.Title + ".",
 		"INSTRUCTION: Render selected nodes into witnessed prose grounded in the Story Bible.",
-		"BOUNDARY: Source lore is influence material, not story canon.",
+		"BOUNDARY: Lorepack references support the active scenario contract; unused lore is not automatic scene canon.",
 	}
 	narrator = append(narrator, laws...)
 	writer := []string{
 		"Name: creative-writer",
 		"ROLE: Background planner for bounded StoryPacket revisions in " + bible.Title + ".",
-		"INSTRUCTION: Use the Story Bible as binding doctrine and source lore as creative influence.",
+		"INSTRUCTION: Use the Story Bible and lorepack scenario contract as the active story contract.",
 		"BOUNDARY: Writer drafts and unused branches are planning artifacts.",
 	}
 	writer = append(writer, laws...)

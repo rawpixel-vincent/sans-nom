@@ -178,12 +178,6 @@ func ValidateBundle(bundle SeedBundle) error {
 	if err := ValidateSeedPacket(bundle.Packet); err != nil {
 		return err
 	}
-	created := strings.ToLower(bundle.Bible.CreatedStoryText() + "\n" + CreatedPacketText(bundle.Packet))
-	for _, term := range ForbiddenCanonTerms() {
-		if containsForbidden(created, term) {
-			return fmt.Errorf("seed bundle copies source-lore term %q; create original story material instead", term)
-		}
-	}
 	return nil
 }
 
@@ -209,20 +203,20 @@ func (b StoryBible) Validate() error {
 		return fmt.Errorf("story bible needs at least 3 world basics")
 	}
 	if len(b.OriginalLaws) == 0 {
-		return errors.New("story bible needs at least one original binding doctrine")
+		return errors.New("story bible needs at least one binding lore principle")
 	}
 	for _, law := range b.OriginalLaws {
 		if strings.TrimSpace(law.ID) == "" || strings.TrimSpace(law.Name) == "" {
-			return errors.New("each original law needs id and name")
+			return errors.New("each binding lore principle needs id and name")
 		}
 		if strings.TrimSpace(law.Description) == "" || strings.TrimSpace(law.Enforcement) == "" {
-			return fmt.Errorf("original law %q needs description and enforcement", law.ID)
+			return fmt.Errorf("binding lore principle %q needs description and enforcement", law.ID)
 		}
 		if strings.TrimSpace(law.SourcePattern) == "" {
-			return fmt.Errorf("original law %q needs source pattern note", law.ID)
+			return fmt.Errorf("binding lore principle %q needs source pattern note", law.ID)
 		}
 		if strings.TrimSpace(law.WhyProfound) == "" || strings.TrimSpace(law.NotMerelyCruel) == "" {
-			return fmt.Errorf("original law %q must explain why it is profound and not merely cruel", law.ID)
+			return fmt.Errorf("binding lore principle %q must explain why it has weight and is not merely cruel", law.ID)
 		}
 	}
 	if len(b.FirstTurnExposition) < 5 {
@@ -380,28 +374,4 @@ func CollectionName(storyID string) string {
 
 func NowString() string {
 	return time.Now().UTC().Format(time.RFC3339)
-}
-
-func containsForbidden(text string, banned string) bool {
-	index := strings.Index(text, banned)
-	for index >= 0 {
-		start := index - 16
-		if start < 0 {
-			start = 0
-		}
-		prefix := text[start:index]
-		if !strings.Contains(prefix, "no ") && !strings.Contains(prefix, "not ") && !strings.Contains(prefix, "avoid ") && !strings.Contains(prefix, "without ") {
-			return true
-		}
-		next := index + len(banned)
-		if next >= len(text) {
-			return false
-		}
-		rest := text[next:]
-		index = strings.Index(rest, banned)
-		if index >= 0 {
-			index += next
-		}
-	}
-	return false
 }

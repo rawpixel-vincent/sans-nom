@@ -39,7 +39,7 @@ type ToolRunner struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_scenarist",
-		Description: "Creative workshop tool for one Scenarist advisory session. Ask one clear brainstorm, critique, risk check, reversal pass, character contradiction pass, scene-engine pass, or reader-plausibility question. The Scenarist writes one free-form Markdown planning file and returns its path. For follow-up, read the returned file first, then call ask_scenarist again with that path in relevant_paths. Scenarists may ask the cached Nerd Lore Expert for focused source-influence grounding. The Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.",
+		Description: "Creative workshop tool for one Scenarist advisory session. Ask one clear staging, critique, risk check, reversal pass, character contradiction pass, scene-engine pass, or reader-plausibility question. The Scenarist writes one free-form Markdown planning file and returns its path. For follow-up, read the returned file first, then call ask_scenarist again with that path in relevant_paths. Scenarists may ask the cached Nerd Lore Expert for focused lore-reference grounding. The Writer still authors the final StoryBible, StoryPacket, and prose-facing structure.",
 		Parameters:  scenaristToolSchema(),
 		Handler:     r.Handle,
 	}
@@ -328,7 +328,7 @@ func (r *ToolRunner) runScenarist(ctx context.Context, systemPrompt string, quer
 		if len(answers) == 0 {
 			return raw, metadata, nil
 		}
-		query = query + "\n\nThe Scenarist asked the cached Nerd Lore Expert for source-influence grounding.\n\nPrevious Scenarist material:\n" + strings.TrimSpace(raw) + "\n\nLore Expert answers:\n" + formatLoreExpertAnswers(answers) + "\n\nContinue now as the Scenarist. Use these answers as influence-only support, then return free-form Markdown creative material for the Writer to mine.\n"
+		query = query + "\n\nThe Scenarist asked the cached Nerd Lore Expert for lore-reference grounding.\n\nPrevious Scenarist material:\n" + strings.TrimSpace(raw) + "\n\nLore Expert answers:\n" + formatLoreExpertAnswers(answers) + "\n\nContinue now as the Scenarist. Use these answers as scenario-fidelity support, then return free-form Markdown creative material for the Writer to mine.\n"
 		raw, metadata, err = runScenaristWithMetadata(ctx, r.Runner, systemPrompt, query)
 		if err != nil {
 			return "", metadata, err
@@ -361,7 +361,7 @@ func (r *ToolRunner) askLoreExpert(ctx context.Context, question string, request
 	tool.CallerSpeaker = "Scenarist"
 	payload := loreexpert.ToolRequest{
 		Question:      question,
-		Purpose:       "general_influence",
+		Purpose:       "lore_reference",
 		RelevantPaths: request.RelevantPaths,
 	}
 	data, err := json.Marshal(payload)

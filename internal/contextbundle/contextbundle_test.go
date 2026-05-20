@@ -90,8 +90,8 @@ func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T
 	if !strings.Contains(text, "STORY BIBLE DOCTRINE") || !strings.Contains(text, "Law of Refusal") {
 		t.Fatalf("missing story bible doctrine:\n%s", text)
 	}
-	if !strings.Contains(text, "CREATIVE INFLUENCE REFERENCES") || !strings.Contains(text, "source-law") {
-		t.Fatalf("missing source lore influence section:\n%s", text)
+	if !strings.Contains(text, "LORE FIDELITY REFERENCES") || !strings.Contains(text, "source-law") {
+		t.Fatalf("missing source lore fidelity section:\n%s", text)
 	}
 }
 
@@ -172,8 +172,8 @@ func TestWriterContextDoesNotPromoteLorePeersToActors(t *testing.T) {
 	if got := manifestIDs(ctx.ActorManifest); !reflect.DeepEqual(got, []string{"tonto"}) {
 		t.Fatalf("lore peer became an actor candidate: %#v", got)
 	}
-	if !strings.Contains(ctx.RenderText(), "CREATIVE INFLUENCE REFERENCES") {
-		t.Fatalf("lore should render as influence references:\n%s", ctx.RenderText())
+	if !strings.Contains(ctx.RenderText(), "LORE FIDELITY REFERENCES") {
+		t.Fatalf("lore should render as fidelity references:\n%s", ctx.RenderText())
 	}
 }
 
