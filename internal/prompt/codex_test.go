@@ -130,6 +130,44 @@ func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	}
 }
 
+func TestCodexRunnerRetriesTransientNetworkFailure(t *testing.T) {
+	client := &retryClient{
+		errs: []error{
+			errors.New("read tcp 192.168.1.39:64645->172.64.155.209:443: read: can't assign requested address"),
+		},
+	}
+	runner := CodexRunner{
+		Client: client,
+		Model:  "gpt-5.5",
+		Effort: "medium",
+	}
+
+	out, err := runner.Run(context.Background(), "verify seed")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != "ok" {
+		t.Fatalf("output = %q", out)
+	}
+	if client.calls != 2 {
+		t.Fatalf("calls = %d", client.calls)
+	}
+}
+
+func TestRetryableCodexErrorIncludesSocketDisconnects(t *testing.T) {
+	for _, message := range []string{
+		"read tcp 192.168.1.39:64645->172.64.155.209:443: read: can't assign requested address",
+		"write tcp 10.0.0.2:1234->1.2.3.4:443: write: broken pipe",
+		"read tcp 10.0.0.2:1234->1.2.3.4:443: read: connection reset by peer",
+		"dial tcp: lookup api.openai.com: temporary failure in name resolution",
+		"dial tcp: connect: network is unreachable",
+	} {
+		if !IsRetryableCodexError(errors.New(message)) {
+			t.Fatalf("expected retryable error for %q", message)
+		}
+	}
+}
+
 type fakeLocalToolClient struct {
 	body map[string]any
 	opts codexoauth.LocalToolOptions
@@ -142,5 +180,20 @@ func (c *fakeLocalToolClient) Create(context.Context, map[string]any) (map[strin
 func (c *fakeLocalToolClient) CreateWithLocalTools(_ context.Context, body map[string]any, opts codexoauth.LocalToolOptions) (map[string]any, error) {
 	c.body = body
 	c.opts = opts
+	return map[string]any{"output_text": "ok"}, nil
+}
+
+type retryClient struct {
+	calls int
+	errs  []error
+}
+
+func (c *retryClient) Create(context.Context, map[string]any) (map[string]any, error) {
+	c.calls++
+	if len(c.errs) > 0 {
+		err := c.errs[0]
+		c.errs = c.errs[1:]
+		return nil, err
+	}
 	return map[string]any{"output_text": "ok"}, nil
 }

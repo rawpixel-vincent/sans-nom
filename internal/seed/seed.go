@@ -20,13 +20,14 @@ import (
 )
 
 type Service struct {
-	Writer         prompt.Runner
-	WorkshopWriter prompt.Runner
-	Verifier       prompt.Runner
-	MaxIterations  int
-	Logger         *gamelog.Writer
-	WorkshopDir    string
-	AgentRoot      string
+	Writer          prompt.Runner
+	WorkshopWriter  prompt.Runner
+	Verifier        prompt.Runner
+	MaxIterations   int
+	Logger          *gamelog.Writer
+	WorkshopDir     string
+	AgentRoot       string
+	RecoverRunError func(stage string, err error) bool
 }
 
 type Review struct {
@@ -95,9 +96,17 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				"model_metadata": writerMetadata,
 			},
 		})
-		raw, err := s.Writer.Run(ctx, writerPrompt)
-		if err != nil {
-			return story.SeedBundle{}, err
+		var raw string
+		for {
+			var err error
+			raw, err = s.Writer.Run(ctx, writerPrompt)
+			if err == nil {
+				break
+			}
+			s.logRunFailure("seed.writer.failed", i+1, err, writerPrompt, nil, writerMetadata)
+			if s.RecoverRunError == nil || !s.RecoverRunError("seed writer", err) {
+				return story.SeedBundle{}, err
+			}
 		}
 		s.log(gamelog.Event{
 			Category: "model",
@@ -173,9 +182,17 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 				"model_metadata": verifierMetadata,
 			},
 		})
-		rawReview, err := s.Verifier.Run(ctx, verifierPrompt)
-		if err != nil {
-			return story.SeedBundle{}, err
+		var rawReview string
+		for {
+			var err error
+			rawReview, err = s.Verifier.Run(ctx, verifierPrompt)
+			if err == nil {
+				break
+			}
+			s.logRunFailure("seed.verifier.failed", i+1, err, verifierPrompt, bundle, verifierMetadata)
+			if s.RecoverRunError == nil || !s.RecoverRunError("seed verifier", err) {
+				return story.SeedBundle{}, err
+			}
 		}
 		s.log(gamelog.Event{
 			Category: "model",
@@ -412,6 +429,31 @@ func (s Service) log(event gamelog.Event) {
 		return
 	}
 	_ = s.Logger.Append(event)
+}
+
+func (s Service) logRunFailure(event string, iteration int, err error, promptText string, bundle any, metadata modelmeta.Metadata) {
+	fields := modelmeta.MergeFields(map[string]any{
+		"iteration": iteration,
+	}, metadata)
+	detail := map[string]any{
+		"iteration":      iteration,
+		"error":          err.Error(),
+		"prompt":         promptText,
+		"model_metadata": metadata,
+	}
+	if seedBundle, ok := bundle.(story.SeedBundle); ok {
+		fields["title"] = seedBundle.Bible.Title
+		fields["packet_id"] = seedBundle.Packet.ID
+		detail["bundle"] = seedBundle
+	}
+	s.log(gamelog.Event{
+		Level:    gamelog.LevelError,
+		Category: "model",
+		Event:    event,
+		Message:  err.Error(),
+		Fields:   fields,
+		Detail:   detail,
+	})
 }
 
 func (s Service) modelVisiblePath(path string) string {

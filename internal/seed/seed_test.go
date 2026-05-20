@@ -3,6 +3,7 @@ package seed
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"strings"
 	"testing"
 
@@ -206,6 +207,87 @@ func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 	}
 }
 
+func TestGenerateLogsWriterAndVerifierRunFailures(t *testing.T) {
+	rawBundle, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, tt := range []struct {
+		name      string
+		service   func(*gamelog.Writer) Service
+		wantEvent string
+	}{
+		{
+			name: "writer",
+			service: func(logger *gamelog.Writer) Service {
+				return Service{
+					Writer: errorRunner{err: errors.New("writer socket dropped")},
+					Logger: logger,
+				}
+			},
+			wantEvent: "seed.writer.failed",
+		},
+		{
+			name: "verifier",
+			service: func(logger *gamelog.Writer) Service {
+				return Service{
+					Writer:   prompt.StaticRunner{Response: rawBundle},
+					Verifier: errorRunner{err: errors.New("verifier socket dropped")},
+					Logger:   logger,
+				}
+			},
+			wantEvent: "seed.verifier.failed",
+		},
+	} {
+		t.Run(tt.name, func(t *testing.T) {
+			logger := gamelog.NewGlobalWriter(t.TempDir())
+			service := tt.service(logger)
+			if _, err := service.Generate(context.Background(), ContextText()); err == nil {
+				t.Fatal("expected generation error")
+			}
+			events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+			if err != nil {
+				t.Fatal(err)
+			}
+			for _, event := range events {
+				if event.Event == tt.wantEvent {
+					if event.Level != gamelog.LevelError || event.DetailPath == "" {
+						t.Fatalf("failure event missing level/detail: %#v", event)
+					}
+					return
+				}
+			}
+			t.Fatalf("missing %s in events: %#v", tt.wantEvent, events)
+		})
+	}
+}
+
+func TestGenerateRetriesVerifierAfterRecoverableRunError(t *testing.T) {
+	rawBundle, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	verifier := &sequenceRunner{
+		errs:      []error{errors.New("verifier disconnected")},
+		responses: []string{`{"accepted":true}`},
+	}
+	service := Service{
+		Writer:   prompt.StaticRunner{Response: rawBundle},
+		Verifier: verifier,
+		RecoverRunError: func(stage string, err error) bool {
+			return stage == "seed verifier" && strings.Contains(err.Error(), "disconnected")
+		},
+		MaxIterations: 1,
+	}
+
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	if len(verifier.prompts) != 2 {
+		t.Fatalf("verifier calls = %d, want 2", len(verifier.prompts))
+	}
+}
+
 func TestGenerateSkipsRetiredSeedWorkshop(t *testing.T) {
 	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {
@@ -291,13 +373,27 @@ func jsonForTest(value any) (string, error) {
 type sequenceRunner struct {
 	responses []string
 	prompts   []string
+	errs      []error
 }
 
 func (r *sequenceRunner) Run(_ context.Context, prompt string) (string, error) {
 	r.prompts = append(r.prompts, prompt)
+	if len(r.errs) > 0 {
+		err := r.errs[0]
+		r.errs = r.errs[1:]
+		return "", err
+	}
 	index := len(r.prompts) - 1
 	if index >= len(r.responses) {
 		index = len(r.responses) - 1
 	}
 	return r.responses[index], nil
+}
+
+type errorRunner struct {
+	err error
+}
+
+func (r errorRunner) Run(context.Context, string) (string, error) {
+	return "", r.err
 }

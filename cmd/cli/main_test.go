@@ -926,6 +926,90 @@ func TestRunPlayMarksTerminalRunwayNodeAwaitingContinuation(t *testing.T) {
 	}
 }
 
+func TestRunPlayRetriesUncommittedPendingTurnBeforeContinuing(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("retry-pending-commit")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "retry-pending-commit",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	node := bundle.Packet.Nodes[2]
+	rollout := narrator.Rollout{
+		Node: node,
+		Draft: narrator.Draft{
+			Prose: "The ledger opens.",
+		},
+		Commit: scene.Commit{
+			WorkspaceID: state.WorkspaceID,
+			SessionID:   "main--opened",
+			PacketID:    bundle.Packet.ID,
+			NodeID:      node.ID,
+			PlayerDecision: scene.PlayerDecision{
+				ChoiceID: "pay",
+			},
+			FinalProse: "The ledger opens.",
+			Events: []scene.CanonEvent{{
+				PeerID:    "narrator",
+				Content:   "The ledger opens.",
+				Source:    scene.CommitSourceNarrator,
+				Witnesses: []string{"sans-nom"},
+			}},
+			Witnesses: []string{"sans-nom"},
+		},
+	}
+	var commitCalls int
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/scene/commit" {
+			http.NotFound(w, r)
+			return
+		}
+		commitCalls++
+		_, _ = w.Write([]byte(`{"status":"committed"}`))
+	}))
+	defer server.Close()
+	bible := bundle.Bible
+	cfg := playConfig{
+		Packet:               bundle.Packet,
+		NodeID:               node.ID,
+		Backend:              "static",
+		BridgeURL:            server.URL,
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         false,
+		Commit:               true,
+		WriterScenaristCalls: 0,
+		Logger:               gamelog.NewWriter(workspace.Dir, state.StoryID),
+	}
+	if err := savePendingDisplayedTurn(cfg, &state, bundle.Packet, rollout, false, "", 1); err != nil {
+		t.Fatal(err)
+	}
+	if err := runPlay(context.Background(), cfg); err != nil {
+		t.Fatal(err)
+	}
+	if commitCalls != 1 {
+		t.Fatalf("commit calls = %d, want 1", commitCalls)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "retry-pending-commit")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.PendingTurnPath != "" || loaded.Status != story.StatusActive {
+		t.Fatalf("pending turn was not cleared after commit retry: %#v", loaded)
+	}
+	turns, err := workspace.LoadTurns()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(turns) != 1 || !turns[0].Committed {
+		t.Fatalf("turn was not recorded as committed: %#v", turns)
+	}
+}
+
 func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("hard-fail")

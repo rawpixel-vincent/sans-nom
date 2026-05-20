@@ -74,7 +74,8 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	var resp map[string]any
 	var err error
 	body := r.RequestBody(text)
-	for attempt := 0; attempt < 2; attempt++ {
+	const maxAttempts = 3
+	for attempt := 0; attempt < maxAttempts; attempt++ {
 		if r.LocalTools {
 			toolClient, ok := client.(LocalToolCodexClient)
 			if !ok {
@@ -86,6 +87,13 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 		}
 		if err == nil || !retryableCodexError(err) {
 			break
+		}
+		if attempt < maxAttempts-1 {
+			select {
+			case <-time.After(time.Duration(attempt+1) * 750 * time.Millisecond):
+			case <-ctx.Done():
+				return "", ctx.Err()
+			}
 		}
 	}
 	if err != nil {
@@ -100,8 +108,33 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 }
 
 func retryableCodexError(err error) bool {
+	return IsRetryableCodexError(err)
+}
+
+func IsRetryableCodexError(err error) bool {
+	if err == nil {
+		return false
+	}
 	message := strings.ToLower(err.Error())
-	return strings.Contains(message, "internal_error") || strings.Contains(message, "stream error") || strings.Contains(message, "unexpected eof")
+	for _, pattern := range []string{
+		"internal_error",
+		"stream error",
+		"unexpected eof",
+		"can't assign requested address",
+		"connection reset by peer",
+		"broken pipe",
+		"i/o timeout",
+		"operation timed out",
+		"temporary failure",
+		"network is unreachable",
+		"no route to host",
+		"server disconnected",
+	} {
+		if strings.Contains(message, pattern) {
+			return true
+		}
+	}
+	return false
 }
 
 func (r CodexRunner) RequestBody(text string) map[string]any {

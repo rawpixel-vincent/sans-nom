@@ -2,6 +2,7 @@ package clitui
 
 import (
 	"context"
+	"errors"
 	"strings"
 	"testing"
 
@@ -12,9 +13,16 @@ type fakePlayController struct {
 	turns       []TurnView
 	submissions []SubmittedDecision
 	done        bool
+	nextErrs    []error
+	submitErrs  []error
 }
 
 func (f *fakePlayController) NextTurn(context.Context) (TurnView, error) {
+	if len(f.nextErrs) > 0 {
+		err := f.nextErrs[0]
+		f.nextErrs = f.nextErrs[1:]
+		return TurnView{}, err
+	}
 	if len(f.turns) == 0 {
 		return TurnView{Turn: 99, Prose: "done"}, nil
 	}
@@ -25,7 +33,20 @@ func (f *fakePlayController) NextTurn(context.Context) (TurnView, error) {
 
 func (f *fakePlayController) Submit(_ context.Context, decision SubmittedDecision) (bool, error) {
 	f.submissions = append(f.submissions, decision)
+	if len(f.submitErrs) > 0 {
+		err := f.submitErrs[0]
+		f.submitErrs = f.submitErrs[1:]
+		return false, err
+	}
 	return f.done, nil
+}
+
+type recoverableFakePlayController struct {
+	*fakePlayController
+}
+
+func (f recoverableFakePlayController) IsRecoverableError(error) bool {
+	return true
 }
 
 func TestPlayModelLoadsTurn(t *testing.T) {
@@ -125,6 +146,29 @@ func TestPlayModelRendersNarrationBox(t *testing.T) {
 		if !strings.Contains(view, want) {
 			t.Fatalf("view missing %q:\n%s", want, view)
 		}
+	}
+}
+
+func TestPlayModelRecoverableErrorRetriesOnEnter(t *testing.T) {
+	controller := recoverableFakePlayController{&fakePlayController{
+		nextErrs: []error{errors.New("read tcp: can't assign requested address")},
+		turns:    []TurnView{{Turn: 1, Prose: "Recovered."}},
+	}}
+	model := NewPlayModel(context.Background(), controller)
+	next, _ := model.Update(model.Init()())
+	model = next.(PlayModel)
+	if !model.retryable || !strings.Contains(model.View(), "Disconnected. Press Enter to retry") {
+		t.Fatalf("recoverable error not rendered:\n%s", model.View())
+	}
+	next, cmd := model.Update(tea.KeyMsg{Type: tea.KeyEnter})
+	model = next.(PlayModel)
+	if cmd == nil || !model.loading {
+		t.Fatal("expected retry command after enter")
+	}
+	next, _ = model.Update(cmd())
+	model = next.(PlayModel)
+	if model.err != nil || !model.hasTurn || !strings.Contains(model.View(), "Recovered.") {
+		t.Fatalf("retry did not load turn: %#v\n%s", model.err, model.View())
 	}
 }
 

@@ -192,7 +192,7 @@ func main() {
 	var state *story.StoryState
 	var bundle *story.SeedBundle
 	if createStory {
-		session, err := newStorySession(context.Background(), storyapp.StoryActionOptions{
+		session, err := newStorySessionWithDisconnectRetry(context.Background(), storyapp.StoryActionOptions{
 			StoryID:              *storyID,
 			StoryRoot:            *storyRoot,
 			GroundLorePackID:     groundPack.ID,
@@ -209,7 +209,8 @@ func main() {
 			ScenaristTools:       *scenaristTools,
 			ScenaristOutputRoot:  *scenaristOutputRoot,
 			ScenaristRounds:      *writerScenaristRounds,
-		})
+			InteractiveRetry:     shouldUsePlayTUI(*turns, *choiceID, *freeText, *playTraceJSONL),
+		}, shouldUsePlayTUI(*turns, *choiceID, *freeText, *playTraceJSONL))
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -467,6 +468,7 @@ type seedRuntimeConfig struct {
 	ScenaristTools       bool
 	ScenaristOutputRoot  string
 	ScenaristRounds      int
+	InteractiveRetry     bool
 }
 
 type playTTSConfig struct {
@@ -509,7 +511,7 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 		if groundCollection == "" || pack.ID != cfg.GroundLorePackID {
 			groundCollection = pack.Collection
 		}
-		session, err := newStorySession(ctx, storyapp.StoryActionOptions{
+		session, err := newStorySessionWithDisconnectRetry(ctx, storyapp.StoryActionOptions{
 			StoryRoot:            cfg.StoryRoot,
 			GroundLorePackID:     pack.ID,
 			GroundLoreCollection: groundCollection,
@@ -524,7 +526,8 @@ func runLauncher(ctx context.Context, cfg launcherConfig) error {
 			ScenaristTools:       cfg.ScenaristTools,
 			ScenaristOutputRoot:  cfg.ScenaristOutputRoot,
 			ScenaristRounds:      cfg.ScenaristRounds,
-		})
+			InteractiveRetry:     interactiveStdin(),
+		}, interactiveStdin())
 		if err != nil {
 			return err
 		}
@@ -653,6 +656,18 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 		},
 	})
 	return session, nil
+}
+
+func newStorySessionWithDisconnectRetry(ctx context.Context, opts storyapp.StoryActionOptions, cfg seedRuntimeConfig, interactive bool) (storyapp.StorySession, error) {
+	for {
+		session, err := newStorySession(ctx, opts, cfg)
+		if err == nil {
+			return session, nil
+		}
+		if !waitForDisconnectRetry(ctx, "story seed", err, interactive) {
+			return storyapp.StorySession{}, err
+		}
+	}
 }
 
 func runAdmin(ctx context.Context, cfg adminConfig) error {
@@ -975,14 +990,24 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 		},
 	})
 	return seed.Service{
-		Writer:         writerRunner,
-		WorkshopWriter: workshopRunner,
-		Verifier:       seedRunner(cfg.Backend, false),
-		MaxIterations:  2,
-		Logger:         logger,
-		WorkshopDir:    workshopOutputDir,
-		AgentRoot:      agentScope.Root,
+		Writer:          writerRunner,
+		WorkshopWriter:  workshopRunner,
+		Verifier:        seedRunner(cfg.Backend, false),
+		MaxIterations:   2,
+		Logger:          logger,
+		WorkshopDir:     workshopOutputDir,
+		AgentRoot:       agentScope.Root,
+		RecoverRunError: seedRunErrorRecoverer(ctx, cfg),
 	}.Generate(ctx, contextText)
+}
+
+func seedRunErrorRecoverer(ctx context.Context, cfg seedRuntimeConfig) func(string, error) bool {
+	if !cfg.InteractiveRetry {
+		return nil
+	}
+	return func(stage string, err error) bool {
+		return waitForDisconnectRetry(ctx, stage, err, true)
+	}
 }
 
 func seedLoreRetriever(bridgeURL string, globalCollection string) lore.Retriever {
@@ -1601,65 +1626,9 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 				fmt.Printf("\nAudio saved: %s\n", filepath.ToSlash(turnAudioPath))
 			}
 			if cfg.Commit {
-				client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
-				commitStarted := time.Now()
-				logEvent(cfg.Logger, gamelog.Event{
-					Category: "honcho",
-					Event:    "honcho.commit.started",
-					Message:  "witnessed canon commit started",
-					Turn:     displayTurn,
-					PacketID: rollout.Commit.PacketID,
-					NodeID:   rollout.Commit.NodeID,
-					Fields: map[string]any{
-						"session_id":    rollout.Commit.SessionID,
-						"event_count":   len(rollout.Commit.Events),
-						"witness_count": len(rollout.Commit.Witnesses),
-					},
-					Detail: map[string]any{
-						"request": rollout.Commit,
-					},
-				})
-				if err := client.CommitScene(ctx, rollout.Commit); err != nil {
-					if saveErr := savePendingDisplayedTurn(cfg, state, packet, rollout, false, turnAudioPath, turn); saveErr != nil {
-						err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
-					}
-					logEvent(cfg.Logger, gamelog.Event{
-						Level:    gamelog.LevelError,
-						Category: "honcho",
-						Event:    "honcho.commit.failed",
-						Message:  err.Error(),
-						Turn:     displayTurn,
-						PacketID: rollout.Commit.PacketID,
-						NodeID:   rollout.Commit.NodeID,
-						Fields: map[string]any{
-							"session_id":  rollout.Commit.SessionID,
-							"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
-							"event_count": len(rollout.Commit.Events),
-						},
-						Detail: map[string]any{
-							"request": rollout.Commit,
-							"error":   err.Error(),
-						},
-					})
+				if err := commitDisplayedTurn(ctx, cfg, state, packet, rollout, turnAudioPath, displayTurn); err != nil {
 					return err
 				}
-				logEvent(cfg.Logger, gamelog.Event{
-					Category: "honcho",
-					Event:    "honcho.commit.completed",
-					Message:  "witnessed canon committed",
-					Turn:     displayTurn,
-					PacketID: rollout.Commit.PacketID,
-					NodeID:   rollout.Commit.NodeID,
-					Fields: map[string]any{
-						"session_id":    rollout.Commit.SessionID,
-						"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
-						"event_count":   len(rollout.Commit.Events),
-						"witness_count": len(rollout.Commit.Witnesses),
-					},
-					Detail: map[string]any{
-						"request": rollout.Commit,
-					},
-				})
 				fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
 			} else {
 				fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
@@ -1674,6 +1643,15 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 			}
 		} else if pendingRecord.Committed {
 			fmt.Printf("\nCommitted: packet=%s node=%s (already recorded)\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
+		} else if cfg.Commit {
+			fmt.Println("\nRetrying pending Honcho commit...")
+			if err := commitDisplayedTurn(ctx, cfg, state, packet, rollout, turnAudioPath, displayTurn); err != nil {
+				return err
+			}
+			if err := savePendingDisplayedTurn(cfg, state, packet, rollout, true, turnAudioPath, displayTurn); err != nil {
+				return err
+			}
+			fmt.Printf("\nCommitted: packet=%s node=%s\n", rollout.Commit.PacketID, rollout.Commit.NodeID)
 		} else {
 			fmt.Printf("\nCommit prepared: packet=%s node=%s witnesses=%s events=%d\n",
 				rollout.Commit.PacketID,
@@ -1809,6 +1787,9 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 				}
 				continue
 			}
+			if isRecoverableDisconnect(err) {
+				return err
+			}
 			failure := writerFailure(err, runID, runDir)
 			detail := writerFailureDetails(failure)
 			detail["model_metadata"] = metadata
@@ -1858,6 +1839,69 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 			break
 		}
 	}
+	return nil
+}
+
+func commitDisplayedTurn(ctx context.Context, cfg playConfig, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, audioPath string, displayTurn int) error {
+	client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
+	commitStarted := time.Now()
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "honcho",
+		Event:    "honcho.commit.started",
+		Message:  "witnessed canon commit started",
+		Turn:     displayTurn,
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Fields: map[string]any{
+			"session_id":    rollout.Commit.SessionID,
+			"event_count":   len(rollout.Commit.Events),
+			"witness_count": len(rollout.Commit.Witnesses),
+		},
+		Detail: map[string]any{
+			"request": rollout.Commit,
+		},
+	})
+	if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+		if saveErr := savePendingDisplayedTurn(cfg, state, packet, rollout, false, audioPath, displayTurn); saveErr != nil {
+			err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
+		}
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "honcho",
+			Event:    "honcho.commit.failed",
+			Message:  err.Error(),
+			Turn:     displayTurn,
+			PacketID: rollout.Commit.PacketID,
+			NodeID:   rollout.Commit.NodeID,
+			Fields: map[string]any{
+				"session_id":  rollout.Commit.SessionID,
+				"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
+				"event_count": len(rollout.Commit.Events),
+			},
+			Detail: map[string]any{
+				"request": rollout.Commit,
+				"error":   err.Error(),
+			},
+		})
+		return err
+	}
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "honcho",
+		Event:    "honcho.commit.completed",
+		Message:  "witnessed canon committed",
+		Turn:     displayTurn,
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Fields: map[string]any{
+			"session_id":    rollout.Commit.SessionID,
+			"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
+			"event_count":   len(rollout.Commit.Events),
+			"witness_count": len(rollout.Commit.Witnesses),
+		},
+		Detail: map[string]any{
+			"request": rollout.Commit,
+		},
+	})
 	return nil
 }
 
@@ -1946,6 +1990,10 @@ func (c *playLoopController) SetStatusSink(sink func(clitui.PlayStatus)) {
 	c.statusSink = sink
 }
 
+func (c *playLoopController) IsRecoverableError(err error) bool {
+	return isRecoverableDisconnect(err)
+}
+
 func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, error) {
 	c.turn++
 	displayTurn := currentStoryTurnNumber(c.state, c.turn)
@@ -1975,6 +2023,17 @@ func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, err
 				"pending_turn_path": c.state.PendingTurnPath,
 			},
 		})
+		if cfg.Commit && !committed {
+			c.addStatus("", "Retrying pending Honcho commit...")
+			if err := commitDisplayedTurn(ctx, cfg, c.state, c.packet, rollout, turnAudioPath, displayTurn); err != nil {
+				return clitui.TurnView{}, err
+			}
+			committed = true
+			if err := savePendingDisplayedTurn(cfg, c.state, c.packet, rollout, true, turnAudioPath, displayTurn); err != nil {
+				return clitui.TurnView{}, err
+			}
+			c.addStatus("", "Pending Honcho commit completed.")
+		}
 	} else {
 		rollout, err = rolloutOnce(ctx, c.packet, c.nodeID, c.decision, cfg, displayTurn)
 		if err != nil {
@@ -2023,66 +2082,10 @@ func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, err
 		}
 		if cfg.Commit {
 			c.addStatus("", "Committing witnessed canon...")
-			client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
-			commitStarted := time.Now()
-			logEvent(cfg.Logger, gamelog.Event{
-				Category: "honcho",
-				Event:    "honcho.commit.started",
-				Message:  "witnessed canon commit started",
-				Turn:     displayTurn,
-				PacketID: rollout.Commit.PacketID,
-				NodeID:   rollout.Commit.NodeID,
-				Fields: map[string]any{
-					"session_id":    rollout.Commit.SessionID,
-					"event_count":   len(rollout.Commit.Events),
-					"witness_count": len(rollout.Commit.Witnesses),
-				},
-				Detail: map[string]any{
-					"request": rollout.Commit,
-				},
-			})
-			if err := client.CommitScene(ctx, rollout.Commit); err != nil {
-				if saveErr := savePendingDisplayedTurn(cfg, c.state, c.packet, rollout, false, turnAudioPath, displayTurn); saveErr != nil {
-					err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
-				}
-				logEvent(cfg.Logger, gamelog.Event{
-					Level:    gamelog.LevelError,
-					Category: "honcho",
-					Event:    "honcho.commit.failed",
-					Message:  err.Error(),
-					Turn:     displayTurn,
-					PacketID: rollout.Commit.PacketID,
-					NodeID:   rollout.Commit.NodeID,
-					Fields: map[string]any{
-						"session_id":  rollout.Commit.SessionID,
-						"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
-						"event_count": len(rollout.Commit.Events),
-					},
-					Detail: map[string]any{
-						"request": rollout.Commit,
-						"error":   err.Error(),
-					},
-				})
+			if err := commitDisplayedTurn(ctx, cfg, c.state, c.packet, rollout, turnAudioPath, displayTurn); err != nil {
 				return clitui.TurnView{}, err
 			}
 			committed = true
-			logEvent(cfg.Logger, gamelog.Event{
-				Category: "honcho",
-				Event:    "honcho.commit.completed",
-				Message:  "witnessed canon committed",
-				Turn:     displayTurn,
-				PacketID: rollout.Commit.PacketID,
-				NodeID:   rollout.Commit.NodeID,
-				Fields: map[string]any{
-					"session_id":    rollout.Commit.SessionID,
-					"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
-					"event_count":   len(rollout.Commit.Events),
-					"witness_count": len(rollout.Commit.Witnesses),
-				},
-				Detail: map[string]any{
-					"request": rollout.Commit,
-				},
-			})
 			c.addStatus("", "Honcho commit completed.")
 		}
 		if err := savePendingDisplayedTurn(cfg, c.state, c.packet, rollout, cfg.Commit, turnAudioPath, displayTurn); err != nil {
@@ -2229,6 +2232,9 @@ func (c *playLoopController) Submit(ctx context.Context, submitted clitui.Submit
 				}
 			}
 			return false, nil
+		}
+		if isRecoverableDisconnect(err) {
+			return false, err
 		}
 		failure := writerFailure(err, runID, runDir)
 		detail := writerFailureDetails(failure)
@@ -3736,11 +3742,49 @@ func shouldUsePlayTUI(turns int, choiceID string, freeText string, traceJSONL bo
 	if turns > 0 || strings.TrimSpace(choiceID) != "" || strings.TrimSpace(freeText) != "" || traceJSONL {
 		return false
 	}
+	return interactiveStdin()
+}
+
+func interactiveStdin() bool {
 	info, err := os.Stdin.Stat()
 	if err != nil {
 		return false
 	}
 	return info.Mode()&os.ModeCharDevice != 0
+}
+
+func isRecoverableDisconnect(err error) bool {
+	if prompt.IsRetryableCodexError(err) {
+		return true
+	}
+	message := strings.ToLower(err.Error())
+	return strings.Contains(message, "/v1/scene/commit") &&
+		(strings.Contains(message, "context deadline exceeded") ||
+			strings.Contains(message, "client.timeout exceeded while awaiting headers"))
+}
+
+func waitForDisconnectRetry(ctx context.Context, stage string, err error, interactive bool) bool {
+	if !interactive || !isRecoverableDisconnect(err) {
+		return false
+	}
+	stage = strings.TrimSpace(stage)
+	if stage == "" {
+		stage = "model call"
+	}
+	fmt.Fprintf(os.Stderr, "\nDisconnected during %s:\n%s\n\nPress Enter to continue, or Ctrl+C to exit.", stage, err.Error())
+	done := make(chan struct{})
+	go func() {
+		_, _ = bufio.NewReader(os.Stdin).ReadString('\n')
+		close(done)
+	}()
+	select {
+	case <-ctx.Done():
+		fmt.Fprintln(os.Stderr)
+		return false
+	case <-done:
+		fmt.Fprintln(os.Stderr)
+		return true
+	}
 }
 
 func shouldCreateStory(storyID string, packetPath string, storyRoot string, replaceStory bool) bool {

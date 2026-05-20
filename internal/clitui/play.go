@@ -48,6 +48,10 @@ type PlayStatusSink interface {
 	SetStatusSink(func(PlayStatus))
 }
 
+type RecoverablePlayError interface {
+	IsRecoverableError(error) bool
+}
+
 type playTurnMsg struct {
 	turn TurnView
 }
@@ -57,7 +61,10 @@ type playSubmitMsg struct {
 }
 
 type playErrorMsg struct {
-	err error
+	err       error
+	op        string
+	decision  SubmittedDecision
+	retryable bool
 }
 
 type playStatusMsg struct {
@@ -78,6 +85,9 @@ type PlayModel struct {
 	scroll     int
 	input      string
 	status     []PlayStatus
+	errorOp    string
+	errorInput SubmittedDecision
+	retryable  bool
 }
 
 func NewPlayModel(ctx context.Context, controller PlayController) PlayModel {
@@ -161,6 +171,9 @@ func (m PlayModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case playErrorMsg:
 		m.loading = false
 		m.err = msg.err
+		m.errorOp = msg.op
+		m.errorInput = msg.decision
+		m.retryable = msg.retryable
 		m.status = append(m.status, PlayStatus{Message: msg.err.Error(), Level: "error"})
 		return m, nil
 	case tea.KeyMsg:
@@ -183,7 +196,11 @@ func (m PlayModel) View() string {
 	if m.err != nil {
 		b.WriteString("\n  Error\n\n")
 		b.WriteString(indent(wrapText(m.err.Error(), width), "  "))
-		b.WriteString("\n\n  q exit\n")
+		if m.retryable {
+			b.WriteString("\n\n  Disconnected. Press Enter to retry, or q to exit.\n")
+		} else {
+			b.WriteString("\n\n  q exit\n")
+		}
 		return b.String()
 	}
 	if m.done {
@@ -210,6 +227,18 @@ func (m PlayModel) handleKey(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		return m, tea.Quit
 	}
 	if m.err != nil {
+		if key == "enter" && m.retryable {
+			m.loading = true
+			m.err = nil
+			m.retryable = false
+			m.status = append(m.status, PlayStatus{Message: "Retrying after reconnect..."})
+			switch m.errorOp {
+			case "submit":
+				return m, m.submitCmd(m.errorInput)
+			default:
+				return m, m.nextTurnCmd()
+			}
+		}
 		return m, nil
 	}
 	if m.loading {
@@ -264,7 +293,7 @@ func (m PlayModel) nextTurnCmd() tea.Cmd {
 	return func() tea.Msg {
 		turn, err := m.controller.NextTurn(m.ctx)
 		if err != nil {
-			return playErrorMsg{err: err}
+			return playErrorMsg{err: err, op: "next", retryable: m.isRecoverable(err)}
 		}
 		return playTurnMsg{turn: turn}
 	}
@@ -274,10 +303,15 @@ func (m PlayModel) submitCmd(decision SubmittedDecision) tea.Cmd {
 	return func() tea.Msg {
 		done, err := m.controller.Submit(m.ctx, decision)
 		if err != nil {
-			return playErrorMsg{err: err}
+			return playErrorMsg{err: err, op: "submit", decision: decision, retryable: m.isRecoverable(err)}
 		}
 		return playSubmitMsg{done: done}
 	}
+}
+
+func (m PlayModel) isRecoverable(err error) bool {
+	recoverable, ok := m.controller.(RecoverablePlayError)
+	return ok && recoverable.IsRecoverableError(err)
 }
 
 func (m PlayModel) selectedDecision() SubmittedDecision {
