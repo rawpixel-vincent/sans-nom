@@ -62,11 +62,12 @@ class HonchoOps:
 
         honcho = self._client(req.workspace_id)
         session = honcho.session(req.session_id)
+        player_peer_id = honcho_peer_id(req.player_peer_id)
         try:
             context = session.context(
                 summary=True,
                 tokens=2000,
-                peer_target=req.player_peer_id,
+                peer_target=player_peer_id,
                 peer_perspective="narrator",
                 search_query=req.search_query,
             )
@@ -123,25 +124,29 @@ class HonchoOps:
         return {"status": "committed"}
 
     def get_card(self, workspace_id: str, peer_id: str, target: str | None = None) -> list[str]:
-        key = self._card_key(workspace_id, peer_id, target)
+        safe_peer_id = honcho_peer_id(peer_id)
+        safe_target = honcho_peer_id(target) if target else None
+        key = self._card_key(workspace_id, safe_peer_id, safe_target)
         if not self.live_enabled:
             return list(self._cards[key])
-        peer = self._client(workspace_id).peer(peer_id)
+        peer = self._client(workspace_id).peer(safe_peer_id)
         try:
-            return list(peer.get_card(target=target) or [])
+            return list(peer.get_card(target=safe_target) or [])
         except Exception as exc:
             if self._is_not_found(exc):
                 return []
             raise
 
     def patch_card(self, workspace_id: str, peer_id: str, patch: PeerCardPatch) -> list[str]:
+        safe_peer_id = honcho_peer_id(peer_id)
+        safe_target = honcho_peer_id(patch.target) if patch.target else None
         current = [] if patch.replace else self.get_card(workspace_id, peer_id, patch.target)
         updated = current + patch.facts
-        key = self._card_key(workspace_id, peer_id, patch.target)
+        key = self._card_key(workspace_id, safe_peer_id, safe_target)
         self._cards[key] = updated
         if self.live_enabled:
-            peer = self._client(workspace_id).peer(peer_id)
-            peer.set_card(updated, target=patch.target)
+            peer = self._client(workspace_id).peer(safe_peer_id)
+            peer.set_card(updated, target=safe_target)
         return updated
 
     def delete_workspace(self, workspace_id: str) -> tuple[bool, int]:
@@ -172,10 +177,12 @@ class HonchoOps:
                 observed=req.observed,
                 representation="",
             )
-        peer = self._client(req.workspace_id).peer(req.observer)
+        safe_observer = honcho_peer_id(req.observer)
+        safe_observed = honcho_peer_id(req.observed)
+        peer = self._client(req.workspace_id).peer(safe_observer)
         try:
             context = peer.context(
-                target=req.observed,
+                target=safe_observed,
                 search_query=req.search_query,
                 search_top_k=req.top_k,
             )

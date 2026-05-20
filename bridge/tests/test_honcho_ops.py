@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from bridge.honcho_ops import HonchoOps, honcho_peer_id
-from bridge.models import CanonEvent, CommitRequest, RepresentationRequest, SceneContextRequest
+from bridge.models import CanonEvent, CommitRequest, PeerCardPatch, RepresentationRequest, SceneContextRequest
 
 
 class NotFoundError(Exception):
@@ -12,7 +12,9 @@ class FakeSession:
     def __init__(self, client: "FakeClient | None" = None) -> None:
         self.client = client
 
-    def context(self, **_: object) -> object:
+    def context(self, **kwargs: object) -> object:
+        if self.client is not None:
+            self.client.session_context_kwargs.append(kwargs)
         raise NotFoundError("missing peer")
 
     def add_peers(self, peers: list[tuple["FakePeer", object]]) -> None:
@@ -29,13 +31,22 @@ class FakeSession:
 
 
 class FakePeer:
-    def __init__(self, peer_id: str = "") -> None:
+    def __init__(self, peer_id: str = "", client: "FakeClient | None" = None) -> None:
         self.peer_id = peer_id
+        self.client = client
 
     def get_card(self, target: str | None = None) -> list[str]:
+        if self.client is not None:
+            self.client.get_card_targets.append(target)
         raise NotFoundError("missing peer")
 
-    def context(self, **_: object) -> object:
+    def set_card(self, facts: list[str], target: str | None = None) -> None:
+        if self.client is not None:
+            self.client.set_cards.append((self.peer_id, list(facts), target))
+
+    def context(self, **kwargs: object) -> object:
+        if self.client is not None:
+            self.client.peer_context_kwargs.append(kwargs)
         raise NotFoundError("missing peer")
 
     def message(self, content: str, metadata: dict[str, object]) -> dict[str, object]:
@@ -47,6 +58,10 @@ class FakeClient:
         self.peer_ids: list[str] = []
         self.added_peer_ids: list[str] = []
         self.messages: list[dict[str, object]] = []
+        self.get_card_targets: list[str | None] = []
+        self.set_cards: list[tuple[str, list[str], str | None]] = []
+        self.peer_context_kwargs: list[dict[str, object]] = []
+        self.session_context_kwargs: list[dict[str, object]] = []
         self.deleted_sessions = 0
         self.deleted_workspaces: list[str] = []
 
@@ -55,7 +70,7 @@ class FakeClient:
 
     def peer(self, peer_id: str) -> FakePeer:
         self.peer_ids.append(peer_id)
-        return FakePeer(peer_id)
+        return FakePeer(peer_id, self)
 
     def sessions(self) -> list[FakeSession]:
         return [FakeSession(self), FakeSession(self)]
@@ -64,47 +79,91 @@ class FakeClient:
         self.deleted_workspaces.append(workspace_id)
 
 
-def live_ops_with_missing_peers(monkeypatch) -> HonchoOps:
+def test_scene_context_returns_empty_context_for_missing_live_honcho_peer(monkeypatch) -> None:
     ops = HonchoOps()
     ops.api_key = "test-key"
-    monkeypatch.setattr(ops, "_client", lambda workspace_id: FakeClient())
-    return ops
-
-
-def test_scene_context_returns_empty_context_for_missing_live_honcho_peer(monkeypatch) -> None:
-    ops = live_ops_with_missing_peers(monkeypatch)
+    client = FakeClient()
+    monkeypatch.setattr(ops, "_client", lambda workspace_id: client)
 
     resp = ops.scene_context(
         SceneContextRequest(
             workspace_id="phase0-dev",
             session_id="session",
-            player_peer_id="sans-nom",
-            representations=["narrator:sans-nom"],
+            player_peer_id="player:saren_iku_no",
+            representations=["narrator:player:saren_iku_no"],
         )
     )
 
     assert resp.recent_scenes == []
-    assert resp.representations == {"narrator:sans-nom": ""}
+    assert resp.representations == {"narrator:player:saren_iku_no": ""}
+    assert client.session_context_kwargs[0]["peer_target"] == "player-saren_iku_no"
 
 
 def test_get_card_returns_empty_for_missing_live_honcho_peer(monkeypatch) -> None:
-    ops = live_ops_with_missing_peers(monkeypatch)
+    ops = HonchoOps()
+    ops.api_key = "test-key"
+    client = FakeClient()
+    monkeypatch.setattr(ops, "_client", lambda workspace_id: client)
 
-    assert ops.get_card("phase0-dev", "tonto") == []
+    assert ops.get_card("phase0-dev", "player:saren_iku_no", "actor:mother") == []
+    assert client.peer_ids == ["player-saren_iku_no"]
+    assert client.get_card_targets == ["actor-mother"]
+
+
+def test_patch_card_normalizes_live_honcho_peer_id_and_target(monkeypatch) -> None:
+    ops = HonchoOps()
+    ops.api_key = "test-key"
+    client = FakeClient()
+    monkeypatch.setattr(ops, "_client", lambda workspace_id: client)
+
+    facts = ops.patch_card(
+        "phase0-dev",
+        "player:saren_iku_no",
+        patch=PeerCardPatch(
+            facts=["Name: Saren"],
+            replace=True,
+            target="actor:mother",
+        ),
+    )
+
+    assert facts == ["Name: Saren"]
+    assert client.peer_ids == ["player-saren_iku_no"]
+    assert client.set_cards == [("player-saren_iku_no", ["Name: Saren"], "actor-mother")]
+
+
+def test_dev_card_store_uses_same_normalized_key_transparently() -> None:
+    ops = HonchoOps()
+
+    ops.patch_card(
+        "phase0-dev",
+        "player:saren_iku_no",
+        patch=PeerCardPatch(
+            facts=["Name: Saren"],
+            replace=True,
+            target="actor:mother",
+        ),
+    )
+
+    assert ops.get_card("phase0-dev", "player:saren_iku_no", "actor:mother") == ["Name: Saren"]
 
 
 def test_representation_returns_empty_for_missing_live_honcho_peer(monkeypatch) -> None:
-    ops = live_ops_with_missing_peers(monkeypatch)
+    ops = HonchoOps()
+    ops.api_key = "test-key"
+    client = FakeClient()
+    monkeypatch.setattr(ops, "_client", lambda workspace_id: client)
 
     resp = ops.representation(
         RepresentationRequest(
             workspace_id="phase0-dev",
-            observer="tonto",
-            observed="sans-nom",
+            observer="actor:mother",
+            observed="player:saren_iku_no",
         )
     )
 
     assert resp.representation == ""
+    assert client.peer_ids == ["actor-mother"]
+    assert client.peer_context_kwargs[0]["target"] == "player-saren_iku_no"
 
 
 def test_commit_scene_normalizes_human_witness_labels_for_live_honcho(monkeypatch) -> None:
