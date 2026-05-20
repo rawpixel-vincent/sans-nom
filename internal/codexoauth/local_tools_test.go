@@ -117,6 +117,56 @@ func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
 	}
 }
 
+func TestToolExecCommandAllowsQuotedRegexAlternation(t *testing.T) {
+	root := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(root, "lorepack", "wiki"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "lorepack", "wiki", "lore.md"), []byte("succession\nhonor\nwound\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	result, err := toolExecCommand(context.Background(), root, `{"cmd":"rg -n \"succession|honor|wound|ritual|warrior|dynasty\" lorepack/wiki/lore.md"}`)
+	if err != nil {
+		t.Fatalf("quoted regex alternation should validate: %v", err)
+	}
+	stdout, _ := result["stdout"].(string)
+	for _, want := range []string{"succession", "honor", "wound"} {
+		if !strings.Contains(stdout, want) {
+			t.Fatalf("stdout missing %q: %s", want, stdout)
+		}
+	}
+}
+
+func TestToolExecCommandShellParserKeepsGuards(t *testing.T) {
+	root := t.TempDir()
+	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("ok\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	allowed := []string{
+		`cat notes.md | head -1`,
+		`jq ".items[] | .name" notes.md`,
+	}
+	for _, cmd := range allowed {
+		args := fmt.Sprintf(`{"cmd":%q}`, cmd)
+		if _, err := toolExecCommand(context.Background(), root, args); err != nil {
+			t.Fatalf("expected command %q to validate: %v", cmd, err)
+		}
+	}
+	rejected := []string{
+		`cat notes.md | sort | uniq | head -1 | wc -l`,
+		`cat notes.md && head notes.md`,
+		`cat notes.md > out.md`,
+		`cat $(pwd)`,
+		`FOO=bar cat notes.md`,
+	}
+	for _, cmd := range rejected {
+		args := fmt.Sprintf(`{"cmd":%q}`, cmd)
+		if _, err := toolExecCommand(context.Background(), root, args); err == nil {
+			t.Fatalf("expected command %q to be rejected", cmd)
+		}
+	}
+}
+
 func writeSSE(t *testing.T, w http.ResponseWriter, raw map[string]any) {
 	t.Helper()
 	data := mustMarshalJSON(t, raw)

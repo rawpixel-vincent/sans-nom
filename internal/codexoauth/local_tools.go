@@ -14,6 +14,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
+	"mvdan.cc/sh/v3/syntax"
 )
 
 const defaultMaxToolRounds = 24
@@ -540,30 +541,130 @@ func exitCodeFromWait(waitErr error, timedOut bool) int {
 }
 
 func validateReadOnlyCommand(command string) error {
-	forbidden := []string{"\n", "\r", ";", "&&", "||", "`", "$(", ">", "<"}
-	for _, token := range forbidden {
-		if strings.Contains(command, token) {
-			return fmt.Errorf("command contains forbidden shell token %q", token)
-		}
+	_, err := parseReadOnlyCommandSegments(command)
+	return err
+}
+
+func parseReadOnlyCommandSegments(command string) ([][]string, error) {
+	parser := syntax.NewParser()
+	file, err := parser.Parse(strings.NewReader(command), "")
+	if err != nil {
+		return nil, fmt.Errorf("invalid shell command: %w", err)
 	}
-	segments := strings.Split(command, "|")
+	if len(file.Stmts) != 1 {
+		return nil, errors.New("command must contain exactly one statement")
+	}
+	segments, err := readOnlySegmentsFromStmt(file.Stmts[0])
+	if err != nil {
+		return nil, err
+	}
 	if len(segments) > 4 {
-		return errors.New("command pipeline is too long")
+		return nil, errors.New("command pipeline is too long")
 	}
 	for _, segment := range segments {
-		fields := strings.Fields(strings.TrimSpace(segment))
-		if len(fields) == 0 {
-			return errors.New("empty command segment")
-		}
-		name := filepath.Base(fields[0])
+		name := filepath.Base(segment[0])
 		if !readOnlyCommands[name] {
-			return fmt.Errorf("command %q is not in the read-only allowlist", name)
+			return nil, fmt.Errorf("command %q is not in the read-only allowlist", name)
 		}
-		if err := validateReadOnlyArgs(name, fields[1:]); err != nil {
-			return err
+		if err := validateReadOnlyArgs(name, segment[1:]); err != nil {
+			return nil, err
 		}
 	}
-	return nil
+	return segments, nil
+}
+
+func readOnlySegmentsFromStmt(stmt *syntax.Stmt) ([][]string, error) {
+	if stmt == nil {
+		return nil, errors.New("empty command segment")
+	}
+	if stmt.Negated {
+		return nil, errors.New("negated commands are not allowed")
+	}
+	if stmt.Background {
+		return nil, errors.New("background commands are not allowed")
+	}
+	if stmt.Coprocess {
+		return nil, errors.New("coprocess commands are not allowed")
+	}
+	if stmt.Semicolon.IsValid() {
+		return nil, errors.New("command separators are not allowed")
+	}
+	if len(stmt.Redirs) > 0 {
+		return nil, errors.New("shell redirects are not allowed")
+	}
+	switch cmd := stmt.Cmd.(type) {
+	case *syntax.CallExpr:
+		return readOnlySegmentFromCall(cmd)
+	case *syntax.BinaryCmd:
+		if cmd.Op != syntax.Pipe {
+			return nil, fmt.Errorf("shell operator %q is not allowed", cmd.Op.String())
+		}
+		left, err := readOnlySegmentsFromStmt(cmd.X)
+		if err != nil {
+			return nil, err
+		}
+		right, err := readOnlySegmentsFromStmt(cmd.Y)
+		if err != nil {
+			return nil, err
+		}
+		return append(left, right...), nil
+	default:
+		return nil, fmt.Errorf("shell command form %T is not allowed", cmd)
+	}
+}
+
+func readOnlySegmentFromCall(call *syntax.CallExpr) ([][]string, error) {
+	if len(call.Assigns) > 0 {
+		return nil, errors.New("environment assignments are not allowed")
+	}
+	if len(call.Args) == 0 {
+		return nil, errors.New("empty command segment")
+	}
+	fields := make([]string, 0, len(call.Args))
+	for _, word := range call.Args {
+		field, err := staticShellWord(word)
+		if err != nil {
+			return nil, err
+		}
+		if strings.TrimSpace(field) == "" {
+			return nil, errors.New("empty command argument")
+		}
+		fields = append(fields, field)
+	}
+	return [][]string{fields}, nil
+}
+
+func staticShellWord(word *syntax.Word) (string, error) {
+	var b strings.Builder
+	for _, part := range word.Parts {
+		value, err := staticShellWordPart(part)
+		if err != nil {
+			return "", err
+		}
+		b.WriteString(value)
+	}
+	return b.String(), nil
+}
+
+func staticShellWordPart(part syntax.WordPart) (string, error) {
+	switch p := part.(type) {
+	case *syntax.Lit:
+		return p.Value, nil
+	case *syntax.SglQuoted:
+		return p.Value, nil
+	case *syntax.DblQuoted:
+		var b strings.Builder
+		for _, nested := range p.Parts {
+			value, err := staticShellWordPart(nested)
+			if err != nil {
+				return "", err
+			}
+			b.WriteString(value)
+		}
+		return b.String(), nil
+	default:
+		return "", fmt.Errorf("shell expansion %T is not allowed", part)
+	}
 }
 
 func validateCommandPaths(root string, command string) error {
@@ -571,13 +672,12 @@ func validateCommandPaths(root string, command string) error {
 	if err != nil {
 		return err
 	}
-	segments := strings.Split(command, "|")
+	segments, err := parseReadOnlyCommandSegments(command)
+	if err != nil {
+		return err
+	}
 	for _, segment := range segments {
-		fields := strings.Fields(strings.TrimSpace(segment))
-		if len(fields) == 0 {
-			continue
-		}
-		for _, raw := range fields[1:] {
+		for _, raw := range segment[1:] {
 			arg := trimShellToken(raw)
 			if arg == "" || strings.HasPrefix(arg, "-") {
 				continue
