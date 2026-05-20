@@ -162,6 +162,48 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	}
 }
 
+func TestSeedVerifierRunnerUsesVerifierCodexEnv(t *testing.T) {
+	t.Setenv("SANS_NOM_CODEX_MODEL", "writer-model")
+	t.Setenv("SANS_NOM_CODEX_EFFORT", "low")
+	t.Setenv("SANS_NOM_VERIFIER_CODEX_MODEL", "gpt-5.5")
+	t.Setenv("SANS_NOM_VERIFIER_CODEX_EFFORT", "xhigh")
+
+	runner := seedRunner("codex", false)
+	codex, ok := runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", runner)
+	}
+	if codex.SchemaName != "SeedReview" {
+		t.Fatalf("schema = %q", codex.SchemaName)
+	}
+	if codex.Model != "gpt-5.5" || codex.Effort != "xhigh" {
+		t.Fatalf("verifier model/effort = %q/%q", codex.Model, codex.Effort)
+	}
+
+	writerRunner := seedRunner("codex", true)
+	writerCodex, ok := writerRunner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", writerRunner)
+	}
+	if writerCodex.Model != "writer-model" || writerCodex.Effort != "low" {
+		t.Fatalf("writer seed runner should keep global model/effort, got %q/%q", writerCodex.Model, writerCodex.Effort)
+	}
+}
+
+func TestSeedVerifierRunnerDefaultsToXHighGPT55(t *testing.T) {
+	t.Setenv("SANS_NOM_CODEX_MODEL", "writer-model")
+	t.Setenv("SANS_NOM_CODEX_EFFORT", "low")
+
+	runner := seedRunner("codex", false)
+	codex, ok := runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", runner)
+	}
+	if codex.Model != "gpt-5.5" || codex.Effort != "xhigh" {
+		t.Fatalf("verifier default model/effort = %q/%q", codex.Model, codex.Effort)
+	}
+}
+
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
 	scope := agentfs.New(t.TempDir(), "writer").WithVisiblePaths(".")

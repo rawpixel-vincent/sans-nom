@@ -1182,8 +1182,23 @@ func seedRunner(backend string, seedBundle bool) prompt.Runner {
 		if seedBundle {
 			return codexRunner("SeedBundle", prompt.SeedBundleSchema())
 		}
-		return codexRunner("SeedReview", prompt.SeedReviewSchema())
+		return seedVerifierCodexRunner()
 	}
+}
+
+func seedVerifierCodexRunner() prompt.CodexRunner {
+	runner := codexRunner("SeedReview", prompt.SeedReviewSchema())
+	if model := strings.TrimSpace(os.Getenv("SANS_NOM_VERIFIER_CODEX_MODEL")); model != "" {
+		runner.Model = model
+	} else {
+		runner.Model = "gpt-5.5"
+	}
+	if effort := strings.TrimSpace(os.Getenv("SANS_NOM_VERIFIER_CODEX_EFFORT")); effort != "" {
+		runner.Effort = effort
+	} else {
+		runner.Effort = "xhigh"
+	}
+	return runner
 }
 
 func maybeSeedExternalStory(ctx context.Context, backend string, bridgeURL string, ws story.Workspace, state story.StoryState, bundle story.SeedBundle, logger *gamelog.Writer) error {
