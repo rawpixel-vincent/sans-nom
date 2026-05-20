@@ -31,6 +31,7 @@ Packet contract:
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:
+- Local read tools can inspect curated workspace files under story/, scenarists/, and lorepack/ when available. Use lorepack/ for concrete pack contract or reference checks.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert for focused lore authority/reference checks when scenario fidelity is uncertain. Treat its answers as support, not story authorship.
 - You own the final packet shape. Scenarist and LoreExpert material is advisory.
@@ -85,6 +86,7 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
+- When local read tools are available, use curated lorepack/ files for concrete fidelity checks.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface only dialogue/actions that should be witnessed in this scene.
@@ -118,6 +120,7 @@ Your creative job:
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
+- When local read tools are available, curated active lorepack files are under lorepack/ for concrete fidelity checks.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, binding lore principles in original_laws, factions, relationships, tone doctrine, source-lore refs, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
@@ -157,6 +160,7 @@ Rules:
 - Stay free-form: no JSON, schema field names, node ids, final bundle, or player-facing prose.
 
 Tools:
+- Local read tools can inspect curated workspace files under workshop/, scenarists/, and lorepack/ when available.
 - Use ask_scenarist for sparks, critique, alternatives, reversals, character contradictions, scene engines, choice pressure, and reader-risk checks.
 - Ask one Scenarist for one advisory job, read the returned file, then ask follow-up only when it adds something specific.
 - Use ask_lore_expert for lore authority/reference checks when fidelity is uncertain.

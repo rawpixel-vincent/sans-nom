@@ -923,6 +923,10 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	contextText := buildSeedContextForPack(pack)
 	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
 	agentScope := seedAgentScopeFromScenaristOutputDir(scenaristOutputDir)
+	agentScope, err = stageLorePackForAgent(agentScope, pack)
+	if err != nil {
+		return story.SeedBundle{}, err
+	}
 	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
 	var scenaristTool *scenarist.ToolRunner
 	var workshopRunner prompt.Runner
@@ -1014,6 +1018,7 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 		b.WriteString("\n\nSeed fidelity instructions:\n")
 		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise, protagonist role, opening pressure, and choice logic.\n")
 		b.WriteString("- The seed Writer stages and structures that authored scenario; it does not invent a replacement premise.\n")
+		b.WriteString("- When local read tools are available, the active lorepack is staged under lorepack/ inside the agent workspace for concrete fidelity checks.\n")
 		b.WriteString("- Use ask_lore_expert as a lore authority/reference check when fidelity is uncertain.\n")
 		b.WriteString("- Preserve must_honor, avoid must_not_violate, and make choices express the listed choice_principles.\n")
 		return b.String()
@@ -1139,6 +1144,27 @@ func seedAgentScopeFromScenaristOutputDir(scenaristOutputDir string) agentfs.Sco
 	return agentfs.New(root, "creative-writer").
 		WithSeedRunID(seedID).
 		WithVisiblePaths("workshop", "scenarists")
+}
+
+func stageLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Scope, error) {
+	if strings.TrimSpace(scope.Root) == "" || strings.TrimSpace(pack.Path) == "" {
+		return scope, nil
+	}
+	if err := scope.Ensure(); err != nil {
+		return scope, err
+	}
+	if _, err := scope.StageDir(filepath.Dir(pack.Path), "lorepack"); err != nil {
+		return scope, fmt.Errorf("stage active lorepack %q: %w", pack.ID, err)
+	}
+	return scope.WithVisiblePaths("lorepack"), nil
+}
+
+func stageLorePackForAgentByID(scope agentfs.Scope, packID string) (agentfs.Scope, error) {
+	pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, lorepack.DefaultPackID()))
+	if err != nil {
+		return scope, err
+	}
+	return stageLorePackForAgent(scope, pack)
 }
 
 func writerRunnerHasTools(runner prompt.Runner) bool {
@@ -4036,6 +4062,20 @@ func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet sc
 	scope := agentfs.New(root, role).WithStoryID(storyID).WithVisiblePaths("story", "scenarists")
 	if err := scope.Ensure(); err != nil {
 		return scope, err
+	}
+	if stagedScope, err := stageLorePackForAgentByID(scope, cfg.GroundLorePackID); err == nil {
+		scope = stagedScope
+	} else {
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelWarn,
+			Category: "lore",
+			Event:    "lorepack.agent_stage_failed",
+			Message:  err.Error(),
+			Fields: map[string]any{
+				"ground_lore_pack_id":  firstNonEmpty(cfg.GroundLorePackID, lorepack.DefaultPackID()),
+				"agent_workspace_root": filepath.ToSlash(scope.Root),
+			},
+		})
 	}
 	if cfg.State != nil {
 		if _, err := scope.StageJSON(filepath.Join("story", "state.json"), cfg.State); err != nil {

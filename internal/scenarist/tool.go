@@ -561,7 +561,7 @@ func scenaristToolSchema() map[string]any {
 			},
 			"relevant_paths": map[string]any{
 				"type":        "array",
-				"description": "Optional workshop or story artifact paths the Scenarist may read. Use source-lore research through LoreExpert instead of passing lore-pack files here.",
+				"description": "Optional curated workspace paths the Scenarist may read, such as workshop/..., story/..., scenarists/..., or lorepack/... when the active lorepack is staged.",
 				"items":       map[string]any{"type": "string"},
 			},
 		},

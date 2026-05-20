@@ -1,6 +1,7 @@
 package agentfs
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 )
@@ -38,5 +39,33 @@ func TestScopeStagesVisibleFilesInsideRoot(t *testing.T) {
 	}
 	if got, err := scope.Normalize(abs); err != nil || got != rel {
 		t.Fatalf("normalize staged abs = %q, %v", got, err)
+	}
+}
+
+func TestScopeStagesLorepackDirectoryInsideRoot(t *testing.T) {
+	source := filepath.Join(t.TempDir(), "pack")
+	if err := os.MkdirAll(filepath.Join(source, "wiki"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(source, "lore-pack.json"), []byte(`{"id":"pack"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(source, "wiki", "lore.md"), []byte("lore"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	scope := New(filepath.Join(t.TempDir(), "agent"), "writer")
+	staged, err := scope.StageDir(source, "lorepack")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(staged) != 2 {
+		t.Fatalf("staged = %#v", staged)
+	}
+	if _, err := scope.Normalize("lorepack/lore-pack.json"); err != nil {
+		t.Fatalf("staged lorepack path should be accepted: %v", err)
+	}
+	if _, err := scope.Normalize("lore/packs/metabarons/lore-pack.json"); err == nil {
+		t.Fatal("raw repo lore path should still be rejected")
 	}
 }

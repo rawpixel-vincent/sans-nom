@@ -155,6 +155,65 @@ func (s Scope) StageFile(source string, rel string) (string, error) {
 	return s.Normalize(target)
 }
 
+func (s Scope) StageDir(source string, relRoot string) ([]string, error) {
+	source = strings.TrimSpace(source)
+	if source == "" {
+		return nil, errors.New("source directory is required")
+	}
+	sourceAbs, err := filepath.Abs(source)
+	if err != nil {
+		return nil, err
+	}
+	info, err := os.Stat(sourceAbs)
+	if err != nil {
+		return nil, err
+	}
+	if !info.IsDir() {
+		return nil, fmt.Errorf("source is not a directory: %s", source)
+	}
+	destRoot, err := s.Normalize(relRoot)
+	if err != nil {
+		return nil, err
+	}
+	var staged []string
+	err = filepath.WalkDir(sourceAbs, func(path string, entry os.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if path == sourceAbs {
+			return nil
+		}
+		if entry.Type()&os.ModeSymlink != 0 {
+			return fmt.Errorf("symlink is not allowed in staged agent files: %s", path)
+		}
+		rel, err := filepath.Rel(sourceAbs, path)
+		if err != nil {
+			return err
+		}
+		if rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+			return fmt.Errorf("source path escapes staged directory: %s", path)
+		}
+		targetRel := filepath.ToSlash(filepath.Join(destRoot, rel))
+		if entry.IsDir() {
+			target, err := s.Abs(targetRel)
+			if err != nil {
+				return err
+			}
+			return os.MkdirAll(target, 0o755)
+		}
+		normalized, err := s.StageFile(path, targetRel)
+		if err != nil {
+			return err
+		}
+		staged = append(staged, normalized)
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return staged, nil
+}
+
 func ForbiddenRelativePath(path string) bool {
 	clean := filepath.ToSlash(filepath.Clean(filepath.FromSlash(strings.TrimSpace(path))))
 	clean = strings.TrimPrefix(clean, "./")

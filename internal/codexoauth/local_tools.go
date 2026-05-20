@@ -116,7 +116,7 @@ func localToolDefinitions(extra []LocalTool) []any {
 		map[string]any{
 			"type":        "function",
 			"name":        "exec_command",
-			"description": "Run a read-only shell command inside the scoped agent workspace. Prefer rg, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.",
+			"description": "Run a read-only shell command inside the scoped agent workspace. Curated story files and active lorepack files may appear under story/, scenarists/, and lorepack/. Prefer rg, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.",
 			"parameters": map[string]any{
 				"type":                 "object",
 				"additionalProperties": false,

@@ -110,6 +110,7 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"dependent follow-up with that path in relevant_paths",
 		"scenario fidelity is uncertain",
 		"ask_lore_expert",
+		"lorepack/",
 		"You own the final packet shape",
 	} {
 		if !strings.Contains(got, required) {
@@ -124,6 +125,7 @@ func TestNarratorPromptUsesLoreFidelityLanguage(t *testing.T) {
 		"Honor any lorepack scenario contract",
 		"reinforce its pressure and consequences",
 		"Use lore references to preserve fidelity to the active scenario",
+		"curated lorepack/ files",
 		"LOREPACK SCENARIO CONTRACT",
 	} {
 		if !strings.Contains(got, required) {

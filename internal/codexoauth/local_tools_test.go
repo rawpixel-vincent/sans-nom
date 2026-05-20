@@ -91,8 +91,17 @@ func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("ok"), 0o644); err != nil {
 		t.Fatal(err)
 	}
+	if err := os.MkdirAll(filepath.Join(root, "lorepack"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "lorepack", "lore-pack.json"), []byte("active pack"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	if _, err := toolExecCommand(context.Background(), root, `{"cmd":"cat notes.md"}`); err != nil {
 		t.Fatalf("scoped file should be readable: %v", err)
+	}
+	if _, err := toolExecCommand(context.Background(), root, `{"cmd":"cat lorepack/lore-pack.json"}`); err != nil {
+		t.Fatalf("staged lorepack file should be readable: %v", err)
 	}
 	for _, cmd := range []string{
 		`cat /Users/vincent/dev/sans-nom/README.md`,

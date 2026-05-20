@@ -70,10 +70,12 @@ func TestScenaristSystemPromptExposesLoreExpertWhenAvailable(t *testing.T) {
 	}
 }
 
-func TestScenaristSystemPromptDoesNotExposeLorePackPointers(t *testing.T) {
+func TestScenaristSystemPromptExposesCuratedLorepackWorkspace(t *testing.T) {
 	system := ScenaristSystemPrompt("/repo", true, true)
 	for _, required := range []string{
-		"Use @LoreExpert for lorepack reference questions",
+		"active lorepack files explicitly named in the request",
+		"Curated lorepack files live under lorepack/",
+		"Use @LoreExpert for focused interpretation",
 		"Read for files and LS or Grep for artifact directories",
 		"Workspace root: /repo",
 	} {
@@ -100,6 +102,7 @@ func TestScenaristQueryGuidesEmptyRelevantPaths(t *testing.T) {
 	for _, required := range []string{
 		"No request-specific files were provided",
 		"ask @LoreExpert",
+		"specific lorepack/ path",
 		"instead of guessing filenames",
 	} {
 		if !strings.Contains(query, required) {
@@ -564,13 +567,22 @@ func TestToolRunnerRejectsAfterConfiguredCallLimit(t *testing.T) {
 func TestToolRunnerRejectsRelevantPathsOutsideAgentWorkspace(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	workspaceRoot := filepath.Join(t.TempDir(), "agent")
+	if err := os.MkdirAll(filepath.Join(workspaceRoot, "lorepack"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "lorepack", "lore-pack.json"), []byte("active pack"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	tool := (&ToolRunner{
 		Runner:        &fakeScenaristRunner{response: "material"},
 		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
 		WorkspaceRoot: workspaceRoot,
-		MaxCalls:      1,
+		MaxCalls:      32,
 		Logger:        logger,
 	}).LocalTool()
+	if _, err := tool.Handler(context.Background(), workspaceRoot, `{"topic_id":"good","topic":"Good","request":"use active pack","hard_boundaries":["preserve scenario"],"relevant_paths":["lorepack/lore-pack.json"]}`); err != nil {
+		t.Fatalf("expected staged lorepack path to be accepted: %v", err)
+	}
 	for _, path := range []string{
 		"/Users/vincent/dev/sans-nom/README.md",
 		"lore/packs/metabarons/lore-pack.json",

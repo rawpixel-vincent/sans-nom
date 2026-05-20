@@ -21,6 +21,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
+	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scenarist"
@@ -210,6 +211,37 @@ func TestScenaristProviderRunnersUseArtifactDirsNotLoreDir(t *testing.T) {
 	}
 	if !containsStringWith(runners[0].AddDirs, filepath.ToSlash(workspaceRoot)) {
 		t.Fatalf("scenarist runner missing workspace root: %#v", runners[0].AddDirs)
+	}
+}
+
+func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
+	source := filepath.Join(t.TempDir(), "pack")
+	if err := os.MkdirAll(filepath.Join(source, "wiki"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(source, "lore-pack.json"), []byte(`{"id":"pack"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(source, "wiki", "lore.md"), []byte("lore"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "writer").WithVisiblePaths("story")
+
+	staged, err := stageLorePackForAgent(scope, lorepack.Pack{ID: "pack", Path: filepath.Join(source, "lore-pack.json")})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md"} {
+		abs, err := staged.Abs(rel)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if _, err := os.Stat(abs); err != nil {
+			t.Fatalf("missing staged %s: %v", rel, err)
+		}
+	}
+	if !containsStringWith(staged.VisiblePaths, "lorepack") {
+		t.Fatalf("visible paths missing lorepack: %#v", staged.VisiblePaths)
 	}
 }
 

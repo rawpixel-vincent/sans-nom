@@ -47,8 +47,12 @@ Runtime flow:
    contract, and relevant lore references.
 2. Writer branches inside the lorepack's choice logic instead of inventing a new
    premise.
-3. Narrator receives scene-local context plus lore-fidelity constraints.
-4. Only rolled-out Narrator text and witnessed scene facts become canon.
+3. Writer, Narrator, and Scenarist file tools read curated workspace files only.
+   The active pack is staged inside that workspace as `lorepack/`; raw repo-root
+   paths such as `lore/packs/...`, `cmd/`, `internal/`, old stories, and old
+   seed runs remain blocked.
+4. Narrator receives scene-local context plus lore-fidelity constraints.
+5. Only rolled-out Narrator text and witnessed scene facts become canon.
 
 ## Lorepack Scenario Contract
 
@@ -116,6 +120,9 @@ Exit criteria:
 - Writer refresh receives the active scenario contract and current arc position.
 - Narrator receives lore-fidelity scene constraints alongside current packet
   and scene context.
+- Agent workspaces stage the active lorepack under `lorepack/` so Writer,
+  Narrator, and Scenarist can inspect the actual pack material without seeing
+  the repository root or unrelated stories.
 - Choice generation and verification use `choice_principles`.
 - LoreExpert is reframed as lore authority/reference support for fidelity
   checks. It can still retrieve source references, but its output is no longer
@@ -127,6 +134,8 @@ Exit criteria:
 
 - Writer refresh tests show contract context is present.
 - Narrator prompt tests show scene constraints are present.
+- Tool tests show `lorepack/...` is readable from agent workspaces while raw
+  `lore/packs/...` remains rejected.
 - Backstage shows lore-fidelity checks as model/tool events.
 
 ### Phase 4: Cleanup And Simplification
@@ -202,5 +211,7 @@ Exit criteria:
 - The current Writer/Narrator split remains the architecture.
 - Honcho receives only rolled-out canon, not unused Writer branches or planning
   material.
+- Active lorepack files may be visible to model file tools only through the
+  scoped agent workspace path `lorepack/`.
 - The first implementation should support one scenario per lorepack. Multiple
   scenarios can be added later.

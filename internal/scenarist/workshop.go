@@ -44,7 +44,7 @@ func ScenaristSystemPrompt(workspaceRoot string, tools bool, loreExpert bool) st
 		b.WriteString("\nA cached Nerd Lore Expert is available for focused lore-reference questions. When source grounding would sharpen your staging or critique, write a line beginning `@LoreExpert:` followed by one concise fidelity question. The runtime will answer and let you continue. Use this for source patterns, tone lineage, relationship pressure, and contradiction checks; keep creative invention and criticism in your own voice.\n")
 	}
 	if tools {
-		b.WriteString("\nRead-only tools are available for workshop and story artifacts explicitly named in the request. Use @LoreExpert for lorepack reference questions instead of reading lore-pack files directly. Direct file access: use Read for files and LS or Grep for artifact directories.\n")
+		b.WriteString("\nRead-only tools are available for workspace artifacts and active lorepack files explicitly named in the request. Curated lorepack files live under lorepack/ when provided. Use @LoreExpert for focused interpretation, retrieval, or contradiction checks across source references. Direct file access: use Read for files and LS or Grep for artifact directories.\n")
 		if workspaceRoot != "" {
 			fmt.Fprintf(&b, "Workspace root: %s\n", workspaceRoot)
 		}
@@ -60,7 +60,7 @@ func ScenaristToolQuery(contextText string, request ToolRequest) string {
 	writeList(&b, "Hard boundaries", request.HardBoundaries)
 	writeList(&b, "Relevant paths", request.RelevantPaths)
 	if len(request.RelevantPaths) == 0 {
-		b.WriteString("\nNo request-specific files were provided. For source influence, ask @LoreExpert instead of guessing filenames.\n")
+		b.WriteString("\nNo request-specific files were provided. If source grounding is needed, ask @LoreExpert or request a specific lorepack/ path from the Writer instead of guessing filenames.\n")
 	}
 	if contextText != "" {
 		fmt.Fprintf(&b, "\nCurated writer context:\n%s\n", contextText)
