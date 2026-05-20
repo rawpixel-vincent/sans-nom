@@ -922,18 +922,23 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	})
 	contextText := buildSeedContextForPack(pack)
 	scenaristOutputDir := seedScenaristOutputDir(storyRoot, cfg.ScenaristOutputRoot)
-	workshopOutputDir := seedWorkshopOutputDir(scenaristOutputDir)
 	agentScope := seedAgentScopeFromScenaristOutputDir(scenaristOutputDir)
 	loreExpertTool := seedLoreExpertToolRunner(cfg, pack, globalCollection, logger)
-	scenaristTool, err := seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, agentScope, logger, loreExpertTool)
-	if err != nil {
-		return story.SeedBundle{}, err
+	var scenaristTool *scenarist.ToolRunner
+	var workshopRunner prompt.Runner
+	workshopOutputDir := ""
+	if !faithfulSeedMode(pack) {
+		workshopOutputDir = seedWorkshopOutputDir(scenaristOutputDir)
+		scenaristTool, err = seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, agentScope, logger, loreExpertTool)
+		if err != nil {
+			return story.SeedBundle{}, err
+		}
+		workshopRunner, err = seedWorkshopRunner(cfg, agentScope, scenaristTool, loreExpertTool, logger)
+		if err != nil {
+			return story.SeedBundle{}, err
+		}
 	}
 	writerRunner, err := seedWriterRunner(cfg, agentScope, scenaristTool, loreExpertTool, logger)
-	if err != nil {
-		return story.SeedBundle{}, err
-	}
-	workshopRunner, err := seedWorkshopRunner(cfg, agentScope, scenaristTool, loreExpertTool, logger)
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
@@ -949,6 +954,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 			"writer_scenarist_calls":    cfg.WriterScenaristCalls,
 			"scenarist_output_dir":      filepath.ToSlash(scenaristOutputDir),
 			"workshop_output_dir":       filepath.ToSlash(workshopOutputDir),
+			"faithful_seed_mode":        faithfulSeedMode(pack),
 			"agent_workspace_root":      filepath.ToSlash(agentScope.Root),
 			"writer_tools_attached":     writerRunnerHasTools(writerRunner),
 			"scenarist_tool_attached":   scenaristTool != nil,
@@ -1002,7 +1008,17 @@ func buildSeedContext(ctx context.Context, retriever lore.Retriever) string {
 func buildSeedContextForPack(pack lorepack.Pack) string {
 	var b strings.Builder
 	b.WriteString(seed.ContextText())
-	b.WriteString("\n\nGround-lore DNA summary:\n")
+	if scenario := pack.ScenarioContractText(); scenario != "" {
+		b.WriteString("\n\n")
+		b.WriteString(scenario)
+		b.WriteString("\n\nSeed fidelity instructions:\n")
+		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise, protagonist role, opening pressure, and choice logic.\n")
+		b.WriteString("- The seed Writer stages and structures that authored scenario; it does not invent a replacement premise.\n")
+		b.WriteString("- Use ask_lore_expert as a lore authority/reference check when fidelity is uncertain.\n")
+		b.WriteString("- Preserve must_honor, avoid must_not_violate, and make choices express the listed choice_principles.\n")
+		return b.String()
+	}
+	b.WriteString("\n\nLegacy ground-lore influence summary:\n")
 	if pack.ID != "" || pack.Label != "" {
 		fmt.Fprintf(&b, "- selected lore pack: %s (%s)\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	}
@@ -1018,6 +1034,10 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
 	b.WriteString("- no raw source lore is injected here; concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
 	return b.String()
+}
+
+func faithfulSeedMode(pack lorepack.Pack) bool {
+	return pack.GameplayMode == lorepack.GameplayModeFaithfulCanonPrototype
 }
 
 func seedWriterRunner(cfg seedRuntimeConfig, scope agentfs.Scope, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {

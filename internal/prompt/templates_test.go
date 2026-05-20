@@ -14,16 +14,15 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 		t.Fatalf("seed prompt should not assign seed writing to Scenarist:\n%s", got)
 	}
 	for _, required := range []string{
-		"Choose the strongest story seed",
-		"clear player, desire, place, pressure, opposition, and character-revealing choice",
-		"raw ore",
+		"selected lorepack scenario",
+		"Stage the authored lorepack scenario contract",
+		"Do not replace its central premise",
+		"Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles",
+		"Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character",
 		"own the StoryBible and StoryPacket",
-		"Do not delegate final story design",
-		"advisory planning references only",
-		"Use ask_lore_expert when the question depends on the selected ground-lore pack",
-		"reference research",
-		"original binding doctrine",
-		"support element for character conflict",
+		"Use ask_lore_expert when fidelity to the selected lorepack is uncertain",
+		"lore authority/reference support",
+		"binding lore principles in original_laws",
 		"cause, social practice, cost, emotional credibility, and consequence",
 		"exactly 5 scene nodes",
 		"three-turn runway",
@@ -35,6 +34,16 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("seed prompt missing %q:\n%s", required, got)
+		}
+	}
+	for _, forbidden := range []string{
+		"Choose the strongest story seed",
+		"creative DNA",
+		"Use new characters, new places",
+		"Do not use Metabarons canon names",
+	} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("seed prompt kept premise-invention wording %q:\n%s", forbidden, got)
 		}
 	}
 }
@@ -109,7 +118,12 @@ func TestSeedVerifierRejectsPlaceholderContinuationTargets(t *testing.T) {
 		"any choice targets a missing node",
 		"any choice uses a placeholder or sentinel target",
 		"follow-up choices whose target nodes are missing",
-		"original binding doctrine",
+		"lorepack scenario contract",
+		"replacement central premise",
+		"must_honor",
+		"must_not_violate",
+		"choice_principles",
+		"binding lore principles",
 		"law/doctrine is the dominant dramatic subject",
 		"turn_1_intro",
 		"turn_2_decision",

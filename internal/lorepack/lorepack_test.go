@@ -3,6 +3,7 @@ package lorepack
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -23,6 +24,18 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	contract := pack.ScenarioContract()
 	if contract.GameSynopsis == "" || len(contract.MustHonor) == 0 || len(contract.ChoicePrinciples) == 0 {
 		t.Fatalf("missing scenario contract: %#v", contract)
+	}
+	contractText := pack.ScenarioContractText()
+	for _, required := range []string{
+		"Lorepack Scenario Contract",
+		"gameplay_mode: faithful_canon_prototype",
+		"game_synopsis:",
+		"must_honor:",
+		"choice_principles:",
+	} {
+		if !strings.Contains(contractText, required) {
+			t.Fatalf("contract text missing %q:\n%s", required, contractText)
+		}
 	}
 }
 

@@ -104,28 +104,23 @@ Return compact JSON:
 func SeedWriterPrompt(contextText string) string {
 	return fmt.Sprintf(`You are the Creative Writer for the first playable Sans-Nom CLI slice.
 
-Create the durable StoryBible and opening StoryPacket for a new speculative adventure story with science-fantasy flavor.
+Create the durable StoryBible and opening StoryPacket for the selected lorepack scenario.
 
 Your creative job:
-- Choose the strongest story seed from the workshop material.
-- Compress it into a playable opening with a clear player, desire, place, pressure, opposition, and character-revealing choice.
-- Make the story visually memorable, emotionally specific, and strange-but-lived-in.
-- Let any binding doctrine support the player character's conflict; it should sharpen desire, opposition, and cost rather than dominate the premise.
-- The workshop files are raw ore. Use them selectively, discard repetitive motifs, and author the final story yourself.
+- Stage the authored lorepack scenario contract into a playable opening. Do not replace its central premise.
+- Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles.
+- Make the opening visually memorable, emotionally specific, and strange-but-lived-in through concrete action.
+- Let binding rites, laws, or doctrines sharpen desire, opposition, and cost rather than becoming exposition.
+- If legacy workshop files are present, treat them as optional staging notes only. The lorepack scenario contract wins.
 
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
-- You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to a scenarist.
-- If a Seed Workshop Manifest is present, use those files as advisory planning references only. They are not canon, final structure, or requirements.
-- Use ask_lore_expert when the question depends on the selected ground-lore pack: source-pattern analysis, influence references, tone lineage, relationship pressure, or anti-copy checks. Treat the answer as reference research, not as the creative room.
-- The StoryBible must include title, premise, player character, player-world connection, world basics, original story laws, factions, relationships, tone doctrine, source-lore influence refs, forbidden literal canon terms, and resume metadata.
-- Include at least one original binding doctrine as a support element for character conflict. It should belong to the player character's lived order and sharpen the story, not become the whole premise.
-- Make strange material legible through cause, social practice, cost, emotional credibility, and consequence.
-- Choose the story's dominant material condition from its own premise: infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.
+- You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
+- Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
+- The StoryBible must include title, premise, player character, player-world connection, world basics, binding lore principles in original_laws, factions, relationships, tone doctrine, source-lore refs, and resume metadata.
+- Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
+- Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
 - Return one StoryPacket with exactly 5 scene nodes.
-- The Metabarons lore context is creative DNA: passion, taste, contradiction, refusal under expectation, spectacle, material cost, and consequential choices.
-- Do not literalize the source lore. Use new characters, new places, new factions, new conflicts, and new proper nouns.
-- Do not use Metabarons canon names, places, factions, dynasty events, council mechanics, all-cast fanout, resurrection-roster assumptions, or direct equivalents.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
 - Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
@@ -185,16 +180,18 @@ Return only Markdown workshop material.`, turnTitle, promptShape, priorManifest,
 func SeedVerifierPrompt(bundleJSON string, contextText string) string {
 	return fmt.Sprintf(`You are the NerdVerifier for the first playable Sans-Nom CLI slice.
 
-Review the proposed opening StoryBible plus StoryPacket against the original-story boundary.
+Review the proposed opening StoryBible plus StoryPacket against the lorepack scenario contract.
 
 Reject if:
 - the JSON is not a valid top-level object with bible and packet;
-- the StoryBible lacks a strong original binding doctrine that supports the player character's conflict;
+- the StoryBible or packet invents a replacement central premise instead of staging the lorepack scenario contract;
+- the proposal contradicts any must_honor item from the scenario contract;
+- the proposal violates any must_not_violate item from the scenario contract;
+- choices are generic navigation or tactics instead of expressing the scenario's choice_principles;
+- the StoryBible lacks binding lore principles that support the player character's conflict;
 - the opening lacks player desire, place, pressure, active opposition, or choices that reveal character;
 - law/doctrine is the dominant dramatic subject instead of serving character conflict;
 - the first turn is mostly system explanation, civic procedure, or invented terminology;
-- the proposed law is merely cruel instead of meaningful inside the player character's lived order;
-- the proposed law is copied literally from source canon instead of original story doctrine;
 - the player character's world, law, technology, or character behavior damages reader plausibility because it lacks internal cause, social enforcement, cost, or consequence;
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with exactly 5 nodes;
@@ -207,10 +204,8 @@ Reject if:
 - any first-choice target node has follow-up choices whose target nodes are missing from this same packet;
 - every first-choice target node is terminal without revision_notes requiring Writer continuation;
 - any node has actor_needs; original actor peer cards are not available in this seed pass;
-- it uses any Metabarons canon name, place, faction, dynastic event, or direct equivalent as story content;
-- it uses council mechanics, all-cast fanout, resurrected dynasty roster assumptions, or canon from unused branches;
 - it writes final polished prose instead of structural beats;
-- it treats source lore as story canon instead of creative influence.
+- it treats unused lore references as automatic canon instead of honoring only the active scenario contract and retrieved support.
 
 Context:
 %s

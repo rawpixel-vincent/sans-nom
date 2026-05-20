@@ -94,26 +94,26 @@ func TestValidateOriginalSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
 func TestContextTextIsCreativeOnly(t *testing.T) {
 	text := ContextText()
 	for _, required := range []string{
-		"Opening aim: a practical situation already in motion",
+		"lore-faithful staging",
+		"lorepack scenario contract is the source of truth",
+		"does not invent a replacement premise",
+		"Opening aim: player, desire, place, pressure",
 		"Reader plausibility",
 		"daily practice, emotional credibility, visible cost, and consequence",
-		"Material imagination",
-		"infrastructure, ecology, transport, weather",
-		"supports conflict rather than replacing story with procedure",
+		"support character conflict rather than replacing story with procedure",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
 		}
 	}
 	for _, forbidden := range []string{
-		"StoryPacket",
-		"StoryBible",
-		"three-turn runway",
-		"turn_1_intro",
-		"target_node_id",
+		"creative DNA",
+		"new characters, places",
+		"ask_scenarist",
+		"workshop",
 	} {
 		if strings.Contains(text, forbidden) {
-			t.Fatalf("seed context leaked final bundle contract %q:\n%s", forbidden, text)
+			t.Fatalf("seed context kept legacy premise-invention wording %q:\n%s", forbidden, text)
 		}
 	}
 }
@@ -124,8 +124,8 @@ func TestSeedWriterPromptForbidsPlaceholderContinuationTargets(t *testing.T) {
 		"Every choice target_node_id must point to a scene node included in this same packet",
 		"Each turn_3 branch node has no choices and has revision_notes",
 		"Do not use placeholder targets",
-		"original binding doctrine",
-		"support element for character conflict",
+		"lorepack scenario contract",
+		"binding lore principles in original_laws",
 		"three-turn runway",
 		"turn_1_intro",
 		"turn_2_decision",

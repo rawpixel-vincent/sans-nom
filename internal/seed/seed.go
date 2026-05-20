@@ -134,7 +134,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		}
 		if err := story.ValidateBundle(bundle); err != nil {
 			previousRaw = raw
-			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create an original StoryBible plus opening StoryPacket. Keep source lore as influence only."}
+			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create a lore-faithful StoryBible plus opening StoryPacket. Preserve the same scenario contract and fix the structural issue."}
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
 				Category: "model",
@@ -513,13 +513,12 @@ func containsForbidden(text string, banned string) bool {
 }
 
 func ContextText() string {
-	return `First playable vertical slice: original speculative adventure with science-fantasy flavor.
-The selected ground-lore pack is creative DNA for the writer and narrator: passion, pressure, contradiction, refusal, spectacle, and consequential choices.
-Source lore is influence material, not canon for the generated story. The new story uses new characters, places, factions, conflicts, and proper nouns.
-Opening aim: a practical situation already in motion, a player with something urgent to do, a specific person making it harder, and a choice that reveals character.
+	return `First playable vertical slice: lore-faithful staging for the selected lorepack scenario.
+The lorepack scenario contract is the source of truth for premise, protagonist role, opening pressure, must-honor rules, and choice logic.
+The seed Writer packages that authored scenario into durable story state and a bounded three-turn packet; it does not invent a replacement premise.
+Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
 Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, visible cost, and consequence.
-Material imagination should arise from the story premise: infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.
-Any binding doctrine belongs to the player character's lived order, such as family, workplace, trade, crew, office, or local community. It supports conflict rather than replacing story with procedure.
+Binding rites, laws, or doctrines should support character conflict rather than replacing story with procedure.
 For this first seed, original actor peer cards are not generated yet. Characters may be present as story material, but no actor agent should be invoked.`
 }
 

@@ -180,6 +180,24 @@ func (p Pack) ScenarioContract() ScenarioContract {
 	}
 }
 
+func (p Pack) ScenarioContractText() string {
+	if strings.TrimSpace(p.GameplayMode) == "" {
+		return ""
+	}
+	var b strings.Builder
+	fmt.Fprintf(&b, "Lorepack Scenario Contract: %s (%s)\n", firstNonEmpty(p.Label, p.ID), firstNonEmpty(p.ID, "unknown"))
+	fmt.Fprintf(&b, "- gameplay_mode: %s\n", p.GameplayMode)
+	fmt.Fprintf(&b, "- game_synopsis: %s\n", strings.TrimSpace(p.GameSynopsis))
+	fmt.Fprintf(&b, "- protagonist_role: %s\n", strings.TrimSpace(p.ProtagonistRole))
+	fmt.Fprintf(&b, "- opening_situation: %s\n", strings.TrimSpace(p.OpeningSituation))
+	fmt.Fprintf(&b, "- initial_pressure: %s\n", strings.TrimSpace(p.InitialPressure))
+	writeScenarioList(&b, "story_lines", p.StoryLines)
+	writeScenarioList(&b, "must_honor", p.MustHonor)
+	writeScenarioList(&b, "must_not_violate", p.MustNotViolate)
+	writeScenarioList(&b, "choice_principles", p.ChoicePrinciples)
+	return strings.TrimSpace(b.String())
+}
+
 func (p Pack) validateActiveScenarioContract() error {
 	required := map[string]string{
 		"gameplay_mode":     p.GameplayMode,
@@ -217,6 +235,26 @@ func hasNonEmpty(values []string) bool {
 		}
 	}
 	return false
+}
+
+func writeScenarioList(b *strings.Builder, label string, values []string) {
+	fmt.Fprintf(b, "- %s:\n", label)
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		fmt.Fprintf(b, "  - %s\n", value)
+	}
+}
+
+func firstNonEmpty(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return strings.TrimSpace(value)
+		}
+	}
+	return ""
 }
 
 func packRank(pack Pack) int {

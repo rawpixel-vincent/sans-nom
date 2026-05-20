@@ -432,7 +432,7 @@ func TestBridgeListenAddressOnlySupportsLocalhost(t *testing.T) {
 	}
 }
 
-func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
+func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 	retriever := &seedContextRetriever{hits: []lore.Snippet{{
 		ID:     "wiki_lore:bushitaka",
 		Kind:   "wiki_lore",
@@ -456,20 +456,31 @@ func TestBuildSeedContextUsesPackDNANotRawLore(t *testing.T) {
 	if strings.Contains(text, "A binding law works") {
 		t.Fatalf("seed context should not inject raw lore snippets:\n%s", text)
 	}
-	if !strings.Contains(text, "Ground-lore DNA summary") || !strings.Contains(text, "ask_lore_expert") || !strings.Contains(text, "ask_scenarist") {
-		t.Fatalf("seed context missing DNA/tool guidance:\n%s", text)
+	if !strings.Contains(text, "Lorepack Scenario Contract") || !strings.Contains(text, "ask_lore_expert") {
+		t.Fatalf("seed context missing scenario/tool guidance:\n%s", text)
 	}
 	for _, required := range []string{
-		"binding doctrine",
-		"support for the player character's conflict",
-		"creative workshop",
-		"ask Scenarists first",
-		"reader plausibility",
-		"material imagination",
-		"visible cost, and consequence",
+		"game_synopsis",
+		"protagonist_role",
+		"opening_situation",
+		"initial_pressure",
+		"must_honor",
+		"must_not_violate",
+		"choice_principles",
+		"does not invent a replacement premise",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
+		}
+	}
+	for _, forbidden := range []string{
+		"Ground-lore DNA summary",
+		"creative DNA",
+		"ask Scenarists first",
+		"source lore is craft DNA",
+	} {
+		if strings.Contains(text, forbidden) {
+			t.Fatalf("seed context kept legacy influence wording %q:\n%s", forbidden, text)
 		}
 	}
 	if retriever.query != "" || retriever.k != 0 {
