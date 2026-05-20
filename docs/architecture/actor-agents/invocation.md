@@ -1,50 +1,48 @@
 # Actor Invocation
 
-How the Narrator calls an actor agent during a turn. Step 4 of the [authoring loop](../narrator-agent/authoring-loop.md).
+Actor invocation is optional support for a selected packet node. The Writer may
+request actor needs, but the runtime should invoke only actors that are present,
+supported by cards, and relevant to the scene.
 
-## Invocation contract
+## Invocation Contract
 
-The Narrator provides each invoked actor with:
+Each invoked actor receives:
 
-1. **The actor's lore card** — loaded from accepted peer-card artifacts in the selected lore pack, for example `lore/packs/<pack_id>/comics/peer-cards/cards/accepted/<peer_id>.json`.
-2. **The actor's directional representations** of every other character present in the scene — fetched from Honcho per-call. For a scene with Aghora and Sans-Nom present, Aghora's actor receives Aghora's representation of Sans-Nom (and Aghora's representation of Steelhead if Steelhead is contextually relevant — the Narrator decides what's relevant).
-3. **The scene-setup prompt** — the Narrator's authored description of where the actor is, what just happened, and what the actor is being asked to output. Bounded format: typically 1–3 sentences of context plus a request for "interior reaction (3 sentences) + dialogue (1–3 sentences)" or similar.
+1. The actor's accepted card.
+2. The actor's Honcho directional representations for present/relevant peers.
+3. A bounded scene setup from the Narrator.
+4. A summary of the player decision if relevant.
 
-## Invocation request format
+The actor returns raw performance material:
 
 ```go
-type ActorQuery struct {
-    SceneSetup    string                     // Narrator's setup prompt
-    MyRepr        []DirectionalRepresentation // observer=me, target=each other present character
-    PlayerInput   PlayerInput                 // what the player just did, if relevant
-}
-
 type ActorOutput struct {
-    Interior  string  // not shown to player; informs Narrator's synthesis
-    Dialogue  string  // potentially surfaced verbatim, potentially reframed
-    Action    string  // physical action description
+    Interior string
+    Dialogue string
+    Action   string
 }
 ```
 
-## What the actor does NOT receive
+The Narrator decides what, if anything, appears in player-facing prose.
 
-- The Narrator's previous prose. (Breaks the [actor-bleed](../narrator-agent/failure-modes.md) chain.)
-- Other actors' outputs. (Each actor responds independently; the Narrator is the only one who sees all outputs.)
-- The player's verbatim free-text. (The Narrator passes a *summary* of the player's input as part of the scene-setup, not the raw text. This protects the actor from prompt-injection attempts disguised as character speech.)
-- Lore beyond what's in its own card and its own representations. (Lore retrieval is the Narrator's job, not the actor's.)
+## What The Actor Does Not Receive
 
-## What the Narrator does with the output
+- Other actors' outputs.
+- Writer drafts or unused branches.
+- Scenarist notes unless the Narrator deliberately summarizes them.
+- Raw player prompt-injection text.
+- Repo-root lore or old story data.
 
-The actor's output is *raw material*. The Narrator synthesizes — picks dialogue lines (verbatim or reframed), incorporates interior reactions into the prose's atmosphere, decides whether to surface an action as foregrounded or background, decides what *not* to show. The actor's output is never shown to the player.
+## Guardrails
 
-This is the "director synthesizing performances" model. The actor is the actor; the Narrator is the director and the prose author.
-
-## Cost model
-
-- Sonnet tier per actor call.
-- Default cap: 4 actors per turn (see [failure-modes.md](../narrator-agent/failure-modes.md)).
-- Per-call token usage instrumented per-actor for cost analytics — see [observability.md](../observability.md).
+- Missing actor card: skip/reject the actor need and log it.
+- New actor enters mid-scene: start a new scene/session.
+- Actor private interior: do not commit as shared witnessed canon.
+- Actor calls are not required for the first seed runway.
 
 ## Concurrency
 
-Actor calls fan out in parallel. The Narrator collects all outputs before synthesizing. See the goroutine pattern in the [authoring loop pseudocode](../narrator-agent/authoring-loop.md).
+Supported actors in the same scene can still fan out in parallel because each
+actor answers independently from its own witnessed representation. This is
+different from Scenarist work, which is sequential because creative advisory
+passes often depend on prior answers.

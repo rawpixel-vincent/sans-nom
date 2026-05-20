@@ -18,20 +18,26 @@ The Go server watches story state and pack/index artifacts that affect context a
 
 Production deployment ships the card baked into the Docker image. Card revisions are deploys. This is intentional — production card changes affect every player and should go through the regression corpus first. See [Phase 0 deliverables](../../phases/phase-0-preproduction/deliverables.md) for the corpus spec.
 
-## CLI testbed for fast iteration
+## CLI/TUI testbed for fast iteration
 
-`cmd/cli/` is a Bubble Tea testbed. It can:
+`cmd/cli/` is the primary local testbed. Normal human play uses the full-screen
+Bubble Tea TUI; raw output remains for scripted/debug paths. It can:
 
 - Replay a regression scene from the corpus with the current Narrator card.
 - Diff the Narrator's output against the corpus's reference output.
-- Step through a manual scene at terminal speed (no UI to wait on).
+- Step through manual play with narration, choices, free text, and live status.
+- Run scripted/debug flows in raw mode for tests and traces.
 - Run the full corpus with a summary pass/fail.
 
 This is the designer's primary workspace during Phase 0. Bubble Tea is reused from Council of Castaka — see `external/references/council of castaka/` Go source for the patterns.
 
-## Lore-retrieval iteration
+## Lorepack and retrieval iteration
 
-Lore corpus changes (new comic page transcripts, new character card edits) also hot-reload via file watching. The vector index rebuilds incrementally — only touched files re-embed. See [lore-retrieval.md](../lore-retrieval.md).
+Lorepack contract changes are picked up by new seed/runtime context assembly.
+The active pack is staged as `lorepack/` inside model-visible agent workspaces.
+Future vector-indexed corpus changes can hot-reload under the same contract
+boundary. See [lore-retrieval.md](../lore-retrieval.md) and
+[agent-filesystem.md](../agent-filesystem.md).
 
 ## Actor card iteration
 

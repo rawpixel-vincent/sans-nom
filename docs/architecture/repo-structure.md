@@ -1,73 +1,101 @@
 # Repo Structure
 
-The Go monorepo layout. Adapted from Council of Castaka patterns.
+The repo is a Go-first monorepo with a small Python sidecar and a Svelte admin
+UI. The current implementation is centered on lorepack-authored scenario
+contracts, bounded story packets, scoped model-visible workspaces, and Honcho
+scene memory.
 
-```
+```text
 sans-nom/
-├── cmd/
-│   ├── cli/              # Phase 0 Bubble Tea testbed
-│   └── server/           # Phase 1+ web backend
-├── internal/
-│   ├── narrator/         # Narrator agent: peer card, scene-build loop
-│   ├── actors/           # Actor agent registry, per-character invocation
-│   ├── scene/            # Scene state, choice generation, free-text resolution
-│   ├── lore/             # Canon retrieval — vector search over character cards + comic transcripts
-│   ├── bridge/           # HTTP client for the Python sidecar (Honcho + image gen + TTS)
-│   ├── prompt/           # Prompt assembly — adapted from council-of-castaka/internal/council/prompt.go
-│   └── ui/               # Bubble Tea components — adapted from council-of-castaka/internal/ui
-├── bridge/               # Python sidecar (uv-managed)
-│   ├── pyproject.toml
-│   ├── src/bridge/
-│   │   ├── main.py       # FastAPI app
-│   │   ├── honcho_ops.py # SDK wrapper exposing the 6 endpoints
-│   │   ├── images.py     # Phase 2
-│   │   └── tts.py        # Phase 3
-│   └── tests/
-├── lore/                 # Source of truth — copied/symlinked from council-of-castaka
-│   ├── narrator/
-│   │   └── peer-card.md  # The Narrator's peer card; hot-reloaded in dev
-│   ├── actors/           # Per-character cards (one per file)
-│   ├── relations/        # The directional relationship matrix
-│   └── canon/
-│       └── comics/       # Comic page transcripts (extracted text + page refs)
-├── scripts/
-│   ├── seed-honcho.go    # One-shot: bootstrap workspace with seeded peer cards
-│   └── eval-narrator.go  # Run the Narrator against the test-scene corpus
-├── testdata/
-│   └── scenes/           # Phase 0 hand-authored test scenes (the regression set)
-├── docs/                 # This documentation tree
-├── Makefile              # `make dev` boots both Go and Python
-├── docker-compose.yml    # Local dev: Go + Python + (optional) Qdrant
-└── README.md
+|-- admin/                 # Svelte admin UI, including Behind The Scenes
+|-- bridge/                # Python FastAPI sidecar for Honcho, lore index, TTS
+|-- cmd/
+|   |-- cli/               # Interactive CLI and full-screen TUI play mode
+|   |-- prompt-eval/       # Prompt/provider diagnostic runner
+|   |-- codex-*            # Codex probe utilities
+|   `-- provider-*         # Provider prompt probes
+|-- data/
+|   |-- seed-runs/         # Generated seed artifacts and agent workspaces
+|   `-- stories/           # Story state, packets, turns, audio, agent workspaces
+|-- docs/                  # Project documentation
+|-- internal/
+|   |-- actors/            # Actor registry and invocation support
+|   |-- admin/             # Admin API, logs, backstage transcript mapping
+|   |-- agentfs/           # Curated per-run model-visible workspaces
+|   |-- bridge/            # Go HTTP client for the Python sidecar
+|   |-- clitui/            # Bubble Tea launcher and play UI
+|   |-- codexoauth/        # Codex-backed model runner and scoped local tools
+|   |-- gamelog/           # JSONL/detail logging and redaction
+|   |-- lore/              # Lore search/client plumbing
+|   |-- loreexpert/        # Lore authority/reference tool
+|   |-- lorepack/          # Pack loading, validation, scenario contract
+|   |-- modelmeta/         # Provider/model/reasoning metadata extraction
+|   |-- narrator/          # Narrator rollout
+|   |-- prompt/            # Prompt assembly for Writer/Narrator
+|   |-- scenarist/         # Sequential Scenarist tool/session support
+|   |-- scene/             # Story packet/node schemas and decisions
+|   |-- seed/              # Seed generation and verification
+|   |-- story/             # Story workspace persistence
+|   |-- storyapp/          # Shared play operations
+|   |-- telemetry/         # Runtime events
+|   |-- tts/               # Voice synthesis
+|   `-- writer/            # Writer refresh runners
+`-- lore/
+    `-- packs/
+        `-- metabarons/
+            `-- lore-pack.json
 ```
 
-## Why this layout
+## Runtime Data
 
-- `cmd/` separates the CLI testbed from the server. Both share `internal/`.
-- `internal/` keeps Go packages private. Public API is via the server's HTTP/WebSocket interface, not Go imports.
-- `bridge/` is a sibling Python project, not nested under `internal/`. Independent dependency management via `uv`.
-- `lore/` is git-versioned content — narrative designer's working area. Hot-reloaded by the Go server in dev. See [dev-loop-ergonomics](narrator-agent/dev-loop-ergonomics.md).
-- `testdata/scenes/` is the regression corpus. See [Phase 0 deliverables](../phases/phase-0-preproduction/deliverables.md).
-- `docs/` is this tree.
+`data/` is runtime output, not source design material:
 
-## What's *not* in the repo
+- `data/seed-runs/<seed_id>/agent/` is the scoped workspace visible to seed
+  Writer and Scenarist tools.
+- `data/stories/<story_id>/agent/<role>/<run_id-or-turn>/` is the scoped
+  workspace visible to runtime Writer/Narrator tools.
+- `data/stories/<story_id>/packets/` stores accepted packets.
+- `data/stories/<story_id>/turns/` stores player-facing narrated turns.
+- `data/stories/<story_id>/audio/` stores generated TTS output.
 
-- The 446 comic page scans. Those live in `external/` (gitignored or LFS-managed; decision in Phase 0). Transcripts go in `lore/canon/comics/` and *are* committed.
-- The Council of Castaka source. Linked via the `external/references/` directory but not vendored.
-- Honcho's hosted state. Lives in Honcho's hosted backend.
+The application can read old story and seed data for resume/debugging, but model
+tools should only see staged files inside the current agent workspace.
 
-## What links the Go and Python sides
+## Lorepacks
 
-- HTTP over `127.0.0.1`. The Python sidecar binds local-only by default.
-- `Makefile` boots both with one command (`make dev`).
-- Docker Compose for local integration testing with optional Qdrant.
-- Production deploy: single Docker image containing both binaries. See [stack.md](stack.md).
+`lore/packs/<pack_id>/lore-pack.json` is the source of truth for pack metadata
+and the authored gameplay contract. In Faithful Canon Prototype mode, the pack
+contract defines the story premise, protagonist role, opening situation,
+must-honor constraints, must-not-violate constraints, and choice principles.
 
-## Repo bootstrapping
+Model-visible tools do not read raw `lore/packs/...` paths. The active pack is
+copied into the current agent workspace as `lorepack/`.
 
-Phase 0 deliverable: a `scripts/init.sh` that:
+## Go And Python Boundary
 
-1. Verifies Go 1.22+ and `uv` are installed.
-2. Initializes the Go module and Python venv.
-3. Builds or validates the selected `lore/packs/<pack_id>/` index and seeds Honcho from accepted peer-card artifacts.
-4. Runs `seed-honcho` against a fresh workspace to verify end-to-end.
+- Go owns CLI/TUI, story persistence, prompt assembly, model orchestration, and
+  admin APIs.
+- The Python sidecar wraps Honcho SDK operations and auxiliary services that are
+  Python-native.
+- Communication is local HTTP over `127.0.0.1`.
+
+## What Is Not In The Repo
+
+- Raw comic page scans. They belong under ignored external asset storage.
+- Honcho hosted state. It lives in Honcho and is addressed by story/session ids.
+- Model provider secrets. Local env/config supplies them.
+
+## Bootstrap Shape
+
+A local dev loop typically:
+
+1. Starts the bridge sidecar.
+2. Runs `go run ./cmd/cli` for interactive play or `go run ./cmd/cli -admin`
+   for the admin server.
+3. Selects a lorepack.
+4. Validates the lorepack scenario contract.
+5. Creates a seed or resumes a story.
+6. Stages scoped agent workspaces as model calls happen.
+
+See [agent-filesystem](agent-filesystem.md), [writer-narrator-split](writer-narrator-split.md),
+and [python-sidecar](python-sidecar.md).

@@ -1,67 +1,117 @@
 # Agent Topology
 
+Current Sans-Nom uses a Writer/Narrator split. The Writer plans bounded story
+structure. The Narrator turns one accepted node into player-facing prose. Actor
+agents and LoreExpert/Lore Authority are support roles, not the main authoring
+surface.
+
+```text
+                 +-------------------------------+
+                 |            PLAYER             |
+                 |     choice or free text        |
+                 +---------------+---------------+
+                                 |
+                                 v
+                 +-------------------------------+
+                 |          PLAY CONTROLLER       |
+                 | packet follow, refresh trigger |
+                 +-------+---------------+-------+
+                         |               |
+          needs packet   |               | selected packet node
+                         v               v
+          +---------------------+   +----------------------+
+          |       WRITER        |   |       NARRATOR       |
+          | StoryBible/Packet   |   | player-facing prose  |
+          | refresh planning    |   | choices + commit     |
+          +----+-----------+----+   +----------+-----------+
+               |           |                   |
+               |           | optional          | optional actor_needs
+               v           v                   v
+       +-------------+  +------------+   +----------------+
+       | Scenarist   |  | LoreExpert |   | Actor agents   |
+       | scene ideas |  | authority  |   | witnessed role |
+       +-------------+  +------------+   +-------+--------+
+                                                |
+                                                v
+                                      +------------------+
+                                      |      HONCHO      |
+                                      | scene memory and |
+                                      | representations  |
+                                      +------------------+
 ```
-                   ┌───────────────────────────────┐
-                   │           PLAYER              │
-                   │  (free-text + choice input)   │
-                   └───────────────┬───────────────┘
-                                   │
-                                   ▼
-                   ┌───────────────────────────────┐
-                   │         NARRATOR AGENT        │
-                   │  (Claude Opus, lore-soaked,   │
-                   │   passion-trait peer card)    │
-                   └────┬─────────┬────────────────┘
-                        │         │
-            queries     │         │   commits scene
-            actors      │         │   to Honcho
-                        ▼         ▼
-        ┌───────────────────┐   ┌──────────────────────┐
-        │   ACTOR AGENTS    │   │      HONCHO          │
-        │ (one per char,    │   │  (memory, peer       │
-        │  Sonnet-tier,     │   │   cards, scoped      │
-        │  scoped repr)     │   │   representations)   │
-        └─────────┬─────────┘   └──────────┬───────────┘
-                  │                        │
-                  └────────────────────────┘
-                  actors read their own
-                  representations from Honcho
-```
 
-## What each layer does
+## Roles
 
-**The Narrator** is the only agent the player ever sees. Claude Opus tier. Its peer card encodes a *creative-writer-with-passion* persona — specifically, a Metabarons devotee who treats the IP's sacred laws as creative non-negotiables. The Narrator:
+**Play controller**
 
-- Receives the player's input.
-- Decides which actors are present in the current scene.
-- Queries those actors privately, providing them with their scoped Honcho representation of the player and any other present characters.
-- Synthesizes the actors' outputs into a scene the way a director synthesizes performances.
-- Writes the scene's prose. The actors' raw text *never* appears to the player.
-- Decides on the choices to offer (2–4 options + free-text).
-- Commits the canonical version of the scene to Honcho with the right peer-attribution and witnessing structure.
+- Loads the current story state.
+- Follows valid in-packet choice targets before calling Writer refresh.
+- Triggers Writer refresh for free text, missing targets, terminal handoff, or
+  exhausted packets.
+- Persists displayed turns before model-heavy work so resume is safe.
 
-See [`narrator-agent/`](narrator-agent/) for the Narrator's peer card, authoring loop, failure-mode defenses, and dev-loop ergonomics.
+**Writer**
 
-**Actor agents** are one per named character. Sonnet-tier (cost-controlled). Their peer cards are seeded from the user's existing character lore. New characters the Narrator invents during play get peer cards generated on first appearance and persisted thereafter. Each actor:
+- Owns structure: `StoryBible`, bounded `StoryPacket`, node graph, choices,
+  actor needs, memory intents, and continuation notes.
+- In Faithful Canon Prototype mode, packages the selected lorepack's authored
+  scenario contract instead of inventing a fresh premise.
+- Uses scoped read tools in the active agent workspace, including staged
+  `lorepack/`, `story/`, `workshop/`, and `scenarists/` material when present.
+- May ask Scenarist for one focused advisory pass at a time.
+- May ask LoreExpert for source-grounded fidelity checks.
 
-- Receives only the Narrator's scene-setup prompt and its own Honcho-scoped representation of the player and other present characters.
-- Outputs how it would speak/act given that input.
-- Never writes prose for the player to read. Its output is raw — interior monologue, dialogue, reaction. The Narrator decides what surfaces.
+**Narrator**
 
-See [`actor-agents/`](actor-agents/) for invocation contracts and card seeding.
+- Owns final prose for one selected packet node.
+- Receives current canon, the active packet node, relevant lore-fidelity
+  constraints, and any scoped actor output.
+- Presents choices exactly from the accepted packet node.
+- Prepares the scene commit and TTS material.
 
-**Honcho** is the memory substrate. Specifically:
+**Scenarist**
 
-- One peer per character (including the player as `sans-nom`).
-- `observe_others=true` enabled at the session level for every character present in a scene. This is what produces directional representations.
-- Each scene is a message; sessions group scenes by location/arc.
-- Peer cards evolve during play via Honcho's *dreaming* + targeted manual updates.
-- Directional peer cards (`alice.set_card([...], target="bob")`) are used for the relationship matrix.
+- Brainstorms, criticizes, stress-tests, and suggests staging.
+- Does not own final story structure.
+- Reads only explicitly staged workspace paths. Source-pattern grounding should
+  go through LoreExpert unless the Writer has deliberately staged a `lorepack/`
+  path for the current request.
 
-See [`honcho-integration/`](honcho-integration/) for peer, session, representation, and dreaming details.
+**LoreExpert / Lore Authority**
 
-## Why this topology
+- Answers focused lore and fidelity questions from the active pack.
+- In Faithful Canon Prototype mode, acts as a reference authority rather than an
+  "influence-only" helper.
+- Helps identify contradictions, missing pressures, and choices that do not
+  matter inside the lore contract.
 
-The Narrator is the puppeteer; the actors are the puppets-with-souls; Honcho is the thread that makes a puppet remember. Every emotionally specific moment in the game is a function of one or more actors generating output using their witness-bound representation, then the Narrator synthesizing those outputs into prose.
+**Actor agents**
 
-The architecture is the design statement. See [Pillar 2](../principles/pillars/02-characters-witness-bound.md) and [honcho-mapping](../mechanics/memory-model/honcho-mapping.md).
+- Optional scene participants invoked only when the accepted packet node has
+  `actor_needs` and the referenced actor has a valid card.
+- Receive their own card and witness-bound Honcho representations.
+- Return raw performance material. The Narrator decides what surfaces.
+- Are not used for the first seed runway unless the packet explicitly has
+  supported actor needs.
+
+**Honcho**
+
+- Receives only rolled-out canon: player decision, final Narrator prose,
+  surfaced actions/speech, scene metadata, and witness lists.
+- Does not receive Writer drafts, unused packet branches, Scenarist notes, or
+  actor private interiors as shared scene memory.
+- Uses scene-scoped sessions so only characters present in a scene observe that
+  scene.
+
+## Admin And Observability
+
+The admin "Behind The Scenes" view normalizes model calls, tool calls, provider
+metadata, prompts, responses, and errors into an office-chat transcript. Raw
+JSONL/detail logs remain the forensic source of truth.
+
+See also:
+
+- [Writer / Narrator split](writer-narrator-split.md)
+- [Agent filesystem](agent-filesystem.md)
+- [Honcho sessions](honcho-integration/sessions.md)
+- [Actor invocation](actor-agents/invocation.md)

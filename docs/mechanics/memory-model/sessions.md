@@ -1,29 +1,40 @@
-# Sessions — Game-Side Rationale
+# Sessions - Game-Side Rationale
 
-A session is the game-design unit of *a stretch of time in one place with a stable cast*. Mechanically (in Honcho) it is a session object; narratively it is a chapter of Sans-Nom's life.
+A session is the witness boundary for a scene: who was present, what they could
+observe, and which memories Honcho may update from that scene.
 
-For the implementation side — API boundaries, cross-session inheritance, cost — see [`architecture/honcho-integration/sessions.md`](../../architecture/honcho-integration/sessions.md).
+For the implementation side, see
+[`architecture/honcho-integration/sessions.md`](../../architecture/honcho-integration/sessions.md).
 
-## What makes a session
+## What Makes A Session
 
-A session is opened when:
+A new session opens when the witnessed scene changes:
 
-- The location changes durably (Sans-Nom leaves the compound to travel; a session ends and a new one opens at the destination).
-- A long [Wait](../verbs/wait.md) compresses time enough that the cast has shifted.
+- the player moves into a materially different scene;
+- the cast changes in a way that would give a new character access to prior
+  events they did not witness;
+- a long wait or time compression changes who is present;
+- the current packet/node changes to a new committed scene.
 
-A session is *not* opened when:
+A session is not a player-facing save slot. It is an authoring and memory
+boundary.
 
-- The location changes briefly (Sans-Nom walks from kitchen to courtyard within the same arc — this is a scene transition, not a session boundary).
-- A new character enters or leaves a scene within the same arc.
+## Why This Matters
 
-The default vertical-slice session is "Childhood at Aghora's compound" — one session, ages 6–12, ~80 scenes. See [phase-1 slice spec](../../phases/phase-1-vertical-slice/slice-spec.md).
+The game is built on witness-bound knowledge. If an actor joins a scene late,
+that actor should not automatically know what happened before they arrived. If
+the system keeps one huge location-arc session open, the memory substrate starts
+to imply false witnesses.
 
-## Why sessions exist as game-design units
+Scene-scoped sessions keep the fiction honest:
 
-- **Memory continuity at the right granularity.** Within a session, the Narrator has working access to scene-level history. Across sessions, the Narrator queries character representations and summary state. This matches how saga storytelling actually works — chapter coherence + cross-chapter character continuity.
-- **Session boundaries are narrative beats.** A session ending is a *moment* — the moment of leaving the compound, the moment a year passes. The player should feel the weight of these.
-- **Session boundaries are checkpoints.** End-of-session is when the [scene-end checkpoint card update](card-updates.md) runs.
+- present characters observe;
+- absent characters do not;
+- later recall comes through representations, summaries, artifacts, or explicit
+  in-fiction testimony.
 
-## What players should not be told
+## Player Experience
 
-The session structure is invisible to the player. The player does not "save and quit between sessions." Sessions are an authoring unit, not a UI unit. From the player's perspective, time flows continuously and they can play across session boundaries without noticing — the Narrator handles the seam.
+The player should not see session boundaries. They see prose, choices, free
+text, and time passing. The runtime handles the session seams quietly so memory
+remains coherent underneath.

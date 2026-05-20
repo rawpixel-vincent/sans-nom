@@ -1,48 +1,100 @@
 # Observability
 
-The agent loop has more failure modes than a normal product, and most of them are silent (Narrator drift, actor-bleed, lore-retrieval misses). Instrument these from the first commit.
+The agent loop has silent failure modes: lore drift, weak choices, actor bleed,
+tool context leaks, provider-specific prompt attractors, sidecar timeouts, and
+Honcho witness mistakes. Instrumentation is part of the design, not polish.
 
-## Metrics (must instrument before Phase 1)
+## Backstage Transcript
 
-- **Per-turn token usage** by agent (Narrator vs. each actor). Bucketed by tier (Opus, Sonnet).
-- **Per-turn latency** broken into Narrator / actor-fanout / Honcho / lore-retrieval segments.
-- **Lore-retrieval hit/miss/score distribution.** A cold hit rate above 30% means the corpus or the embedding strategy needs work.
-- **Scene-length distribution.** Narrator drift toward generic sci-fi often shows up as scenes getting longer or shorter than the established baseline.
-- **Card-update events.** Every `set_card` call logged with diff. Lets you replay the dynasty's evolution.
-- **Player free-text vs. choice-pick ratio.** Tells you whether the choice-list is doing its job or being ignored.
+The admin "Behind The Scenes" view normalizes logs into a live office-chat
+transcript:
 
-## Metrics (add in Phase 1 if not already)
+- system mentions such as `@Writer`, `@Narrator`, `@Scenarist`, `@LoreExpert`,
+  and `@Voice`;
+- model responses under their role names;
+- local read-tool calls and results;
+- provider/model/reasoning/service-tier metadata;
+- pending/completed/failed status;
+- artifact and detail links.
 
-- **Generated-NPC count per session.** Too many dilutes IP flavor. See [generated-npcs](../mechanics/cast/generated-npcs.md).
-- **Actor-call-count per turn distribution.** Catches scenes that fan out beyond the cap.
-- **Audit-pass drift-flag rate.** Climbing rate is a leading indicator.
-- **Card cap hit rate.** Catches when [eviction policy](../mechanics/memory-model/card-eviction.md) is biting earlier than expected.
+Raw JSONL/detail logs remain the forensic source of truth. The transcript is an
+admin-friendly projection over those logs, with `visibility` defaulting to
+`admin_only`.
+
+## Required Log Fields
+
+Per model/tool event:
+
+- `time`;
+- story id, seed id, packet id, node id, turn, and run id when available;
+- role and speaker;
+- kind and status;
+- source event and source event id;
+- provider type, model provider, model, reasoning level, and service tier when
+  available;
+- scoped agent workspace root and visible paths for model tool events;
+- artifact paths and detail path;
+- redacted prompt/result preview.
+
+## Metrics
+
+Track at minimum:
+
+- token usage by role and provider;
+- latency by stage: context assembly, Writer, Scenarist, LoreExpert, Narrator,
+  TTS, Honcho commit;
+- tool-call count and rejected path attempts;
+- Writer refresh frequency after in-packet runway exhaustion;
+- actor-call count per turn;
+- lore-fidelity verifier failures;
+- scene/session commit duration and timeout rate;
+- choice pick vs free-text ratio.
 
 ## Traces
 
-- Trace IDs propagate Go → Python sidecar → Honcho. OpenTelemetry is the path of least resistance.
-- Each turn produces one root trace with spans for: context-assembly, lore-retrieval, actor-fanout (parent + per-actor child spans), narrator-compose, scene-commit.
-- Streaming: the streaming span covers the streamed prose only; the commit span runs after stream completion.
+Each turn should have one root trace with spans for:
 
-## Logging
+- loading story state;
+- following packet target or triggering Writer refresh;
+- staging agent workspace files;
+- model/tool calls;
+- Narrator rollout;
+- TTS;
+- Honcho context/commit;
+- checkpoint save.
 
-- Structured JSON. Required fields per turn: `turn_id`, `workspace_id`, `session_id`, `player_input` (or choice ID), `narrator_output_length`, `actors_invoked`, `tokens_total`, `latency_ms_total`.
-- Sensitive content (player input, generated prose) logged at debug level only. In prod, redacted by default. PII boundaries respected — players' free-text is the player's text, not training data.
+Trace IDs should propagate Go -> Python sidecar -> Honcho where possible.
 
-## Alerting (Phase 1+)
+## Quality Signals
 
-- Critical: sidecar down, Honcho 5xx rate > 5%, Anthropic API outages.
-- Warning: P99 turn latency > target, drift-flag rate climbing, card-update apply rate falling.
-- Informational: cohort-level metrics for beta playtest analysis.
+Useful automated checks:
 
-## Quality auto-grader
+- seed verifier rejects missing runway shape;
+- lore-fidelity verifier rejects contract contradiction;
+- Narrator quality check flags exposition-heavy or generic scenes;
+- backstage scan flags raw repo path attempts;
+- admin prompt-log inspection confirms models read `lorepack/`, not raw
+  `lore/packs/...`.
 
-A separate cheap-model agent (Sonnet) runs on a sample of in-prod scenes against the [regression corpus](../phases/phase-0-preproduction/deliverables.md). Computes a quality score (voice fit, canonical fidelity, scene cohesion). Score distribution shifts trigger an alert. See [Failure 7 in failure-modes](narrator-agent/failure-modes.md).
+## Alerting
 
-This is the closest thing to a "tests passing" signal the agent loop can have. It is not a CI gate (too expensive to run per PR) — it's a continuous health check.
+Critical:
 
-## What this rules out
+- bridge sidecar down;
+- Honcho commit timeout rate above threshold;
+- model provider outage;
+- repeated agent workspace path rejections inside one run.
 
-- "We'll add observability later." Telemetry is not a polish layer; it's the only way to detect silent failures. Ship it from commit one.
-- Anonymous scene replay for debugging. PII boundaries.
-- Storing player input long-term beyond what Honcho already retains. Workspace deletion deletes Honcho state; logs roll over per retention policy.
+Warning:
+
+- turn latency over budget;
+- lore-fidelity rejection rate climbing;
+- actor invocation requests with missing cards;
+- TTS failures;
+- repeated Writer refreshes caused by malformed packet choices.
+
+## Privacy And Retention
+
+Player input and generated prose are story content. Keep production logs
+redacted by default, retain detailed local artifacts for dev/admin workflows,
+and make deletion/archive behavior explicit when player-facing accounts exist.

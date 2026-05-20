@@ -7,7 +7,9 @@ For game-design context (what the agent loop is *for*), see [`../mechanics/`](..
 ## Contents
 
 - [`stack.md`](stack.md) — language, frameworks, providers (resolved by [ADR 0001](decisions/0001-go-vs-typescript.md))
-- [`agent-topology.md`](agent-topology.md) — Player → Narrator → Actors → Honcho diagram and roles
+- [`agent-topology.md`](agent-topology.md) — Player -> Writer/Narrator -> Actors/Honcho diagram and roles
+- [`agent-filesystem.md`](agent-filesystem.md) — scoped model-visible workspaces and Turso AgentFS reference
+- [`writer-narrator-split.md`](writer-narrator-split.md) — bounded packets vs player-facing prose
 - [`narrator-agent/`](narrator-agent/) — peer card, authoring loop, failure modes, dev-loop ergonomics
 - [`actor-agents/`](actor-agents/) — invocation contract, card seeding
 - [`honcho-integration/`](honcho-integration/) — peers, sessions, representations, dreaming

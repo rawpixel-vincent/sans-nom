@@ -2,17 +2,23 @@
 
 Honcho's first primitive. One peer per character — including the player as `sans-nom`.
 
-## Peer creation
+## Peer Creation
 
-- **At workspace bootstrap.** The `seed-honcho` script creates one peer per canonical character + Tonto + Lothar + the player. See [card-seeding.md](../actor-agents/card-seeding.md).
-- **At first appearance (generated NPCs).** The Narrator creates the peer when a generated character first becomes addressable. See [generated-npcs](../../mechanics/cast/generated-npcs.md).
+- **At story bootstrap.** The runtime creates the player peer and any supported
+  pack-defined peers needed by the active lorepack scenario.
+- **When an accepted actor card exists.** Callable actor peers come from
+  accepted lorepack artifacts and Honcho state. See
+  [card seeding](../actor-agents/card-seeding.md).
+- **At first supported appearance.** Generated or newly surfaced NPCs can become
+  peers once the runtime has enough card material to make them addressable. See
+  [generated-npcs](../../mechanics/cast/generated-npcs.md).
 
 ## Peer types
 
 | Peer | Purpose | Always queryable as actor? |
 |---|---|---|
 | `sans-nom` | The player. Has a card the Narrator updates. | No — the player is acted by the human, not by an agent |
-| Canonical character peers (`aghora`, `tonto`, etc.) | Active actors. Queryable in scenes where they are present. | Yes (scene-bound) |
+| Canonical character peers (`aghora`, `tonto`, etc.) | Pack-defined actors with accepted cards. Queryable in scenes where they are present. | Yes, when supported and scene-bound |
 | Absent canonical peers (`vicenta`, `oda`, etc.) | Reference peers. Their cards inform other characters' representations. | Only via channels in [dead-and-absent](../../mechanics/cast/dead-and-absent.md) |
 | Generated NPC peers | Same as canonical, but persisted only in this workspace. | Yes (scene-bound) |
 | `narrator` | The Narrator's own peer card. Optional — see ADR-pending question. | Special — not invoked as an actor; queried for its own representations of others |
@@ -28,7 +34,7 @@ The original draft flagged this as an open question (Appendix C.8 #5). Decision:
 - All-lowercase, hyphen-separated.
 - Canonical character peers use the character's most-common short name: `aghora`, `othon`, `vicenta` (not `dona-vicenta-gabriela-de-rokha` — too long).
 - The player is always `sans-nom` (with hyphen).
-- Generated NPC peers use a `gen-` prefix: `gen-merchant-flos-1`, `gen-soldier-road-7`.
+- Generated NPC peers use a stable generated prefix, for example `gen-merchant-flos-1`.
 - The Narrator is `narrator`.
 
 ## What peers are *not*

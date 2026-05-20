@@ -1,43 +1,47 @@
 # Actor Card Seeding
 
-Where actor peer cards come from at workspace creation, and how the seed/evolution boundary is enforced.
+Actor cards are the baseline identity material for callable character agents.
+They are distinct from lorepack scenario contracts and from Honcho's evolved
+runtime representations.
 
-## Seed sources
+## Seed Sources
 
-- **Canonical characters** (Aghora, Steelhead, Vicenta, Aghnar, Oda, Othon, Honorata, plus Sans-Nom-as-adult for canon reference) — seed verbatim from the Council of Castaka library at `external/references/council of castaka/metabarons/`. Each card is a Phase-0 deliverable: copy + lightly edit if needed (the Council cards were written for adult characters in dramatic deliberation; the game may need to seed *young* versions for some characters).
-- **Tonto** — no existing card. Phase-0 deliverable: write from scratch, drawing on comic narration sequences and Council `council_summoning_prompts.md` Tonto entries. See [tonto cast file](../../mechanics/cast/tonto.md).
-- **Lothar** — no existing card. Phase-0 deliverable: same as Tonto but smaller scope. See [lothar cast file](../../mechanics/cast/lothar.md).
-- **Generated NPCs** — Narrator generates the card at first appearance. See [generated-npcs](../../mechanics/cast/generated-npcs.md).
+Current accepted actor cards live under the selected lorepack when available,
+for example:
 
-## Workspace bootstrap
+```text
+lore/packs/<pack_id>/comics/peer-cards/cards/accepted/<peer_id>.json
+```
 
-The `seed-honcho` script (one-shot, run at workspace creation) loads each card file, creates the corresponding peer in Honcho, and sets the peer card via `set_card`. For directional cards (the relationship matrix), it loads from `lore/relations/` and calls `set_card(target=...)` for each pair.
+The active pack may be staged into model-visible workspaces as `lorepack/`, but
+actor-card loading is application-owned. Creative models should not crawl raw
+repo lore paths to discover cards.
 
-The Council of Castaka relationship matrix (full 56-pair directional matrix at `external/references/council of castaka/metabarons/relations/`) is the seed for the directional representations. This is the single largest leverage point from existing assets — the dynasty's refraction matrix is already written.
+## Bootstrap Boundary
 
-## Seed/evolution boundary
+When a story workspace initializes, the runtime can create Honcho peers and seed
+cards from accepted pack artifacts. If a pack does not contain a supported actor
+card, that actor is not callable yet.
 
-The actor card seed is **immutable per workspace**. It loads at workspace creation and is never edited during play. Evolution happens through Honcho's pipeline (dreaming + Narrator-triggered updates), which appends or replaces cards via the Honcho SDK — never by re-reading the seed file mid-playthrough.
+Initial seed packets currently avoid actor needs unless valid actor cards exist.
+This keeps seed generation from naming actors the runtime cannot call.
 
-Why: this is the [actor-bleed defense](../narrator-agent/failure-modes.md). If the seed could be edited mid-play, contamination from misinterpreted scene-setup prompts could propagate into the seed.
+## Seed/Evolution Boundary
 
-## Cross-workspace seed updates
+The seed card is immutable for a workspace. Runtime evolution happens through
+Honcho cards and directional representations. Editing a source card affects new
+workspaces, not already-evolved playthroughs.
 
-If the team revises a canonical character card during Phase 0 or 1, *new* workspaces pick up the new seed. *Existing* workspaces continue with their old seed plus accumulated evolution. This means seed revisions do not break in-progress playthroughs.
+## Generated Or Missing Actors
 
-If a revision is critical (canon error, IP commitment violated by the seed), the team can run a `re-seed` admin tool against existing workspaces — but this is a hard reset of that actor's accumulated card and should be rare. The tool emits a telemetry event and is logged.
+If a packet asks for an actor without a Honcho/local card, the runtime should
+skip or reject that actor need instead of crashing. A new actor entering a scene
+also creates a new scene/session boundary so the actor does not inherit prior
+events they did not witness.
 
-## What gets versioned
+## What Gets Versioned
 
-- Card files in `lore/` are git-versioned. Every seed change is a commit.
-- Per-workspace evolved card state is in Honcho. Honcho's own audit log captures evolution history.
+- Source card artifacts under `lore/packs/<pack_id>/...`.
+- Tests that prove actor needs are pruned or rejected when unsupported.
 
-## Phase 0 card-seeding deliverables
-
-See [Phase 0 deliverables](../../phases/phase-0-preproduction/deliverables.md). Summary:
-
-- All 8 canonical character cards copied + adapted to game-side (young versions where applicable).
-- Tonto card written from scratch.
-- Lothar card written from scratch.
-- Relationship matrix loaded into directional cards.
-- `seed-honcho` script runs end-to-end against a clean Honcho workspace.
+Per-workspace evolved card state lives in Honcho and story runtime artifacts.

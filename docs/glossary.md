@@ -61,7 +61,7 @@ Honcho's primitive for a character (player, actor, generated NPC, or Narrator-as
 What one peer holds about another. Generated/maintained by Honcho when `observe_others=true` is set on a session. Used to inform actor invocations. See [representations](architecture/honcho-integration/representations.md).
 
 ### Session
-A stretch of time in one location with a stable cast. Mechanically a Honcho session; narratively a chapter of Sans-Nom's life. See [sessions (game-side)](mechanics/memory-model/sessions.md), [sessions (impl)](architecture/honcho-integration/sessions.md).
+A witnessed scene boundary. Mechanically a Honcho session; narratively invisible to the player. If a new actor enters and should not know prior events, a new scene/session opens. See [sessions (game-side)](mechanics/memory-model/sessions.md), [sessions (impl)](architecture/honcho-integration/sessions.md).
 
 ### Workspace
 Honcho's top-level container. One per playthrough. Holds all peers, all sessions, all cards for that boy. See [multiple Sans-Noms](mechanics/player-character/multiple-sans-noms.md).
@@ -69,9 +69,10 @@ Honcho's top-level container. One per playthrough. Holds all peers, all sessions
 ### Other
 
 - **Actor agent** — a Sonnet-tier agent invoked by the Narrator to voice a character. See [invocation](architecture/actor-agents/invocation.md).
+- **Agent workspace** — a curated filesystem root staged for one model role/run. Model tools read `story/`, `scenarists/`, `workshop/`, and `lorepack/` there instead of repo-root files. See [agent filesystem](architecture/agent-filesystem.md).
 - **Audit pass** — the cheap-model agent that reads the last N scenes and flags drift. See [failure modes](architecture/narrator-agent/failure-modes.md).
 - **Generated NPC** — character invented by the Narrator during play; persisted in the workspace. See [generated NPCs](mechanics/cast/generated-npcs.md).
-- **Narrator** — the Opus-tier agent that orchestrates actors and writes the player-facing prose. See [agent topology](architecture/agent-topology.md), [Narrator peer card](architecture/narrator-agent/peer-card.md).
+- **Narrator** — the prose agent that rolls out one accepted packet node into player-facing text and choices. See [agent topology](architecture/agent-topology.md), [Narrator peer card](architecture/narrator-agent/peer-card.md).
 - **Peer card** — see "Card" above.
 - **Pre-filter** — the rule-based filter that catches obvious abuse and prompt-injection patterns before reaching the Narrator. See [edge cases](mechanics/input/edge-cases.md).
 - **Regression corpus** — the ~20 hand-authored test scenes used as the eval set for Narrator card iterations. See [Phase 0 deliverables](phases/phase-0-preproduction/deliverables.md).

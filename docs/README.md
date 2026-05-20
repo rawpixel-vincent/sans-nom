@@ -8,7 +8,7 @@ This `docs/` tree supersedes the monolithic [`initial-draft.md`](../initial-draf
 
 ## Pitch in one paragraph
 
-You begin as a child Sans-Nom, before the Bushitaka has been broken, before the dynasty has chosen its end. The story is generated turn by turn by a Narrator agent with deep canonical passion who refuses to compromise the IP's sacred laws — but otherwise has total freedom. Each character you meet is its own actor agent with its own evolving understanding of you, scoped only to what that character has actually witnessed. There is no win condition. There is only what you become before you die.
+You begin inside a lorepack-authored scenario, before the dynasty has chosen its end. The selected lorepack defines the playable contract: protagonist role, opening pressure, story lines, honored truths, forbidden contradictions, and choice principles. The Writer branches that contract into bounded packets; the Narrator renders the accepted node as prose; Honcho remembers only what each character witnessed. There is no win condition. There is only what you become before you die.
 
 ## Top-level subtrees
 
@@ -16,7 +16,7 @@ You begin as a child Sans-Nom, before the Bushitaka has been broken, before the 
 |---|---|---|
 | [`principles/`](principles/README.md) | Designer | Vision pillars, player fantasy, tonal fidelity, why this team |
 | [`mechanics/`](mechanics/README.md) | Designer | Core loop, verbs, input, player character, cast, memory model, world |
-| [`architecture/`](architecture/README.md) | Lead engineer | Agent topology, Narrator/actor agents, Honcho integration, stack, ADRs |
+| [`architecture/`](architecture/README.md) | Lead engineer | Agent topology, Writer/Narrator/actor agents, scoped agent filesystems, Honcho integration, stack, ADRs |
 | [`phases/`](phases/README.md) | Producer + Engineer | Phase 0 (preproduction) → Phase 3 (dynasty's weight) + v1.0 |
 | [`project/`](project/README.md) | Producer | Team roles, risks, cost, monetization, decisions log |
 
@@ -47,6 +47,8 @@ You begin as a child Sans-Nom, before the Bushitaka has been broken, before the 
 
 - [Stack](architecture/stack.md) — single source of truth, resolved by ADR 0001
 - [Agent topology](architecture/agent-topology.md)
+- [Agent filesystem](architecture/agent-filesystem.md)
+- [Writer / Narrator split](architecture/writer-narrator-split.md)
 - **Narrator agent**: [peer card](architecture/narrator-agent/peer-card.md) · [authoring loop](architecture/narrator-agent/authoring-loop.md) · [failure modes](architecture/narrator-agent/failure-modes.md) · [dev-loop ergonomics](architecture/narrator-agent/dev-loop-ergonomics.md)
 - **Actor agents**: [invocation](architecture/actor-agents/invocation.md) · [card seeding](architecture/actor-agents/card-seeding.md)
 - **Honcho integration**: [peers](architecture/honcho-integration/peers.md) · [sessions](architecture/honcho-integration/sessions.md) · [representations](architecture/honcho-integration/representations.md) · [dreaming](architecture/honcho-integration/dreaming.md)
@@ -72,12 +74,13 @@ You begin as a child Sans-Nom, before the Bushitaka has been broken, before the 
 
 ## Source assets
 
-- `external/comics/meta-barons/` — 446 Metabarons comic page scans (raw input for the [lore corpus ingestion plan](architecture/lore-retrieval.md))
-- `external/references/council of castaka/metabarons/` — Council of Castaka character cards + relations matrix + invocation prompts + Go source. Architectural prototype for sans-nom's actor-orchestration layer; canonical character cards seed the actor peers.
+- `lore/packs/<pack_id>/lore-pack.json` — active lorepack metadata and authored gameplay contract.
+- `external/comics/meta-barons/` — Metabarons comic page scans, when present locally, for future curated corpus/reference work.
+- `external/references/council of castaka/metabarons/` — Council of Castaka character cards, relations matrix, invocation prompts, and Go source when present locally. Useful reference material, not the current model-visible workspace.
 
 ## How to navigate
 
-- **New to the project**: read [`principles/`](principles/README.md) start to finish (~15 min). Then skim [`mechanics/core-loop.md`](mechanics/core-loop.md) and [`architecture/agent-topology.md`](architecture/agent-topology.md). You'll have the shape.
+- **New to the project**: read [`principles/`](principles/README.md) start to finish (~15 min). Then skim [`mechanics/core-loop.md`](mechanics/core-loop.md), [`architecture/agent-topology.md`](architecture/agent-topology.md), and [`project/lore-faithful-engine-master-plan.md`](project/lore-faithful-engine-master-plan.md). You'll have the shape.
 - **Designer working on a character**: [`mechanics/cast/<character>.md`](mechanics/cast/README.md) is your file. Cross-link to the Council of Castaka card under `external/references/`.
 - **Engineer starting Phase 0**: read [`phases/phase-0-preproduction/`](phases/phase-0-preproduction/scope.md), then [`architecture/`](architecture/README.md) end to end.
 - **Producer planning the next phase**: [`phases/<phase>/exit-criteria.md`](phases/README.md) tells you what gate must pass; [`project/cost/`](project/README.md) tells you the burn.
@@ -87,4 +90,4 @@ You begin as a child Sans-Nom, before the Bushitaka has been broken, before the 
 - Architecture decisions go in [`architecture/decisions/`](architecture/decisions/) as ADRs (numbered, append-only, status field).
 - Cross-cutting open questions go in [`project/decisions-log.md`](project/decisions-log.md).
 - Per-phase docs follow the pattern: `scope.md` (what's in/out) + `exit-criteria.md` (gates to next phase) + optional supporting docs (`beats.md`, `slice-spec.md`, `deliverables.md`).
-- Cast files are not duplicates of the Council of Castaka cards — they are game-side overlays that link to the lore card as source of truth.
+- Cast files are not duplicates of the Council of Castaka cards; they are game-side overlays. Runtime actor cards should come from accepted lorepack artifacts and Honcho state.

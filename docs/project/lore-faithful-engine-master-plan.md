@@ -10,23 +10,49 @@ For v1, use **Faithful Canon Prototype** mode. Fidelity beats originality. The
 game must honor the selected lorepack's story, constraints, choice logic, and
 dramatic pressures.
 
-This document is the task source for the next implementation units. Keep each
-unit small enough to implement, test, and review independently.
+This document was the task source for the pivot implementation units. Keep it
+as the high-level operating model and use the status section below to separate
+completed pivot work from future cleanup/spikes.
+
+## Implementation Status - May 2026
+
+Implemented:
+
+- Lorepacks now carry authored gameplay contract fields.
+- The Metabarons pack is the first Faithful Canon Prototype pack.
+- Seed prompts use the lorepack scenario contract instead of broad premise
+  invention.
+- Writer refresh and Narrator context include lore contract material.
+- Active lorepack files are staged into scoped agent workspaces as `lorepack/`.
+- Scenarist calls are sequential advisory sessions, not parallel creative
+  batches.
+- Admin/backstage surfaces model/tool events, local read tools, provider/model
+  metadata, and artifacts.
+
+Still active:
+
+- Keep pruning old docs/tests/prompts that describe the pre-pivot influence
+  engine as current behavior.
+- Keep hardening lore-fidelity verification and choice-principle checks.
+- Evaluate Turso AgentFS as a possible audit/snapshot mirror, not as an
+  immediate replacement for `internal/agentfs`; see
+  [agent-filesystem](../architecture/agent-filesystem.md).
 
 ## Current State
 
 - Lorepacks are selectable and persisted through `ground_lore_pack_id`.
-- `lore/packs/<pack_id>/lore-pack.json` currently describes retrieval metadata,
-  artifact roots, smoke queries, forbidden literal terms, and status.
-- Seed generation still treats lorepacks as "ground-lore DNA" and asks the
-  Writer to invent an original story through free-form workshop turns.
-- LoreExpert is influence-only. Scenarist is a creative workshop helper.
+- `lore/packs/<pack_id>/lore-pack.json` now describes retrieval metadata and the
+  authored gameplay contract.
+- Faithful Canon Prototype mode treats LoreExpert as lore authority/reference
+  support.
+- Scenarist is an optional creative staging/criticism helper, not a premise
+  generator.
 - The Writer/Narrator split, bounded `StoryPacket`, agent-scoped filesystem,
   backstage view, and scene-scoped Honcho memory are valuable and should stay.
 
-The main failure mode is now clear: abstract influence prompts produce generic
-motif completion. The pivot removes broad premise invention from the LLM and
-makes the lorepack the story source of truth.
+The main historical failure mode was clear: abstract influence prompts produced
+generic motif completion. The pivot removes broad premise invention from the LLM
+and makes the lorepack the story source of truth.
 
 ## Target Engine Model
 
@@ -80,12 +106,13 @@ Metabarons is the first pack to receive this contract.
 
 ### Phase 1: Documentation And Contract Shape
 
-- Add this master plan and record the decision in the project decisions log.
-- Extend the lorepack Go type with optional scenario contract fields.
-- Add validation for active Faithful Canon Prototype packs.
-- Update `lore/packs/metabarons/lore-pack.json` with the first authored
+- Status: implemented.
+- Added this master plan and recorded the decision in the project decisions log.
+- Extended the lorepack Go type with optional scenario contract fields.
+- Added validation for active Faithful Canon Prototype packs.
+- Updated `lore/packs/metabarons/lore-pack.json` with the first authored
   gameplay contract.
-- Add tests for loading and validating the new contract fields.
+- Added tests for loading and validating the new contract fields.
 
 Exit criteria:
 
@@ -95,7 +122,8 @@ Exit criteria:
 
 ### Phase 2: Seed Engine Pivot
 
-- Replace the current premise-invention seed workshop path with:
+- Status: implemented; continue cleanup of old prompt-eval probes and docs.
+- Replaced the current premise-invention seed workshop path with:
   `lorepack scenario contract -> seed prompt -> StoryBible + StoryPacket`.
 - The seed Writer packages and stages the authored synopsis. It must not invent
   the central premise.
@@ -117,6 +145,7 @@ Exit criteria:
 
 ### Phase 3: Runtime Lore Fidelity
 
+- Status: implemented at prompt/context level; verification can keep improving.
 - Writer refresh receives the active scenario contract and current arc position.
 - Narrator receives lore-fidelity scene constraints alongside current packet
   and scene context.
@@ -140,6 +169,7 @@ Exit criteria:
 
 ### Phase 4: Cleanup And Simplification
 
+- Status: in progress.
 - Retire or remove free-form seed workshop turns whose purpose is broad premise
   generation.
 - Remove "DNA summary" language where it substitutes for explicit scenario
@@ -160,29 +190,25 @@ Exit criteria:
 
 ## Next Task Units
 
-1. **Lorepack contract schema**
-   - Extend the Go `lorepack.Pack` type.
-   - Add validation for Faithful Canon Prototype packs.
-   - Add focused tests.
-
-2. **Metabarons scenario contract**
-   - Author the first `game_synopsis`, `opening_situation`, `story_lines`,
-     `must_honor`, `must_not_violate`, and `choice_principles`.
-   - Keep it short enough to be injected into prompts directly.
-
-3. **Seed prompt pivot**
-   - Replace workshop premise invention with contract-driven seed packaging.
-   - Keep the bounded three-turn runway.
-   - Update seed verifier language and tests.
-
-4. **Runtime context pivot**
-   - Include scenario contract in Writer refresh and Narrator context.
-   - Add lore-fidelity checks to backstage/log mapping.
-
-5. **Cleanup pass**
+1. **Cleanup pass**
    - Remove retired workshop prompts, old DNA summary behavior, and obsolete
      tests.
    - Preserve `cmd/prompt-eval` for regression research.
+
+2. **Lore-fidelity verifier hardening**
+   - Expand checks for `must_honor`, `must_not_violate`, and
+     `choice_principles`.
+   - Keep qualitative rejection for generic choices and unsupported branch
+     logic.
+
+3. **Runtime telemetry follow-up**
+   - Keep surfacing lore-fidelity checks in backstage/log mapping.
+   - Add dashboards or admin filters once the event vocabulary stabilizes.
+
+4. **AgentFS spike**
+   - Mirror one seed/story agent workspace into Turso AgentFS.
+   - Record model read/tool events into AgentFS tool-call audit tables.
+   - Compare against current JSONL/detail logs before deciding adoption.
 
 ## Compatibility And Migration
 

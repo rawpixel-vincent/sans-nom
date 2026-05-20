@@ -1,117 +1,89 @@
 # Narrator Authoring Loop
 
-A single turn of the game, end to end. This is the engineering side of the [core loop](../../mechanics/core-loop.md).
+This page describes the foreground turn loop after the Writer has produced or
+refreshed a packet. For the structural planning layer, see
+[Writer / Narrator split](../writer-narrator-split.md).
 
-## The loop
+## Normal Turn
 
-```
-1. Player submits: "I ask my mother where my father is."
+```text
+1. Player chooses an offered option or enters free text.
 
-2. Narrator agent activated.
-   Context loaded:
-     - Narrator's own peer card (lore-passion traits)
-     - Current scene state: location, time, present actors
-     - Honcho representation of player from "narrator" target
-       (what the Narrator has been tracking about Sans-Nom's evolution)
-     - Recent scene history (last ~3 scenes verbatim, earlier summarized)
-     - Retrieved canonical lore relevant to "father" question
-       (vector search over the user's character lore + relevant comic
-       page transcripts)
+2. Runtime resolves the decision:
+   - if the choice target exists in the current packet, follow it;
+   - otherwise trigger Writer refresh.
 
-3. Narrator decides which actors are needed:
-   For this scene: Aghora is present (Sans-Nom's parent),
-                   Sans-Nom is present (the player).
-                   Tonto is ambient (could be addressed but not required).
+3. Runtime loads the selected packet node:
+   - StoryBible and current canon;
+   - active lorepack contract and scene constraints;
+   - packet node beats, choices, actor needs, and memory intents;
+   - recent committed turns.
 
-4. Narrator queries Aghora's actor agent:
-   Provided to Aghora:
-     - Aghora's lore card (the user's existing character file)
-     - Aghora's representation of Sans-Nom (Honcho directional, target=sans-nom)
-     - Aghora's representation of Steelhead (relevant to "father" question)
-     - The scene-setup prompt: "Sans-Nom, age 8, just asked you where his father is.
-       This is the first time he's asked. You have not yet decided what to tell him.
-       Output your interior reaction (3 sentences) and what you say aloud (1-3 sentences)."
+4. Runtime stages a scoped Narrator workspace:
+   - story/ for current state and continuity files;
+   - lorepack/ for active pack contract/reference files;
+   - scenarists/ only when relevant advisory artifacts are part of context.
 
-5. Aghora's actor returns:
-   Interior: [grief-paralysis triggered; she sees Steelhead's stasis pod in her
-   peripheral vision of the room next door; she has lied about this for eight
-   years and the lie is starting to cost her.]
-   Dialogue: "Your father is sealed away. That is all I will tell you today."
+5. Supported actor needs are resolved:
+   - unsupported/missing actor cards are skipped or rejected with logs;
+   - present actors receive only their own card, representations, and bounded
+     setup.
 
-6. Narrator synthesizes the scene:
-   Writes prose that includes Aghora's response, Sans-Nom's reaction
-   (drawing on the player's character-arc evolution), the room's
-   atmosphere, Tonto's robotic body language in the corner. Decides
-   the moment lands hard. Lengthens the scene. Ends with three choice
-   options + free-text.
+6. Narrator writes the player-facing scene:
+   - no new branch targets;
+   - choices exactly match the accepted node;
+   - lore pressure appears through action and consequence.
 
-7. Narrator commits scene to Honcho:
-   - Aghora witnessed: this exchange. Updates Aghora's representation of Sans-Nom.
-   - Sans-Nom witnessed: Aghora's verbal response only (not her interior).
-     Updates Sans-Nom's representation of Aghora ("she has secrets about my father").
-   - Tonto witnessed (ambient): updates Tonto's awareness.
-   - Stasis pod is now a known-to-player concept; flagged in Honcho.
-
-8. Narrator returns prose + choices to player.
+7. Runtime checkpoints the displayed turn, synthesizes TTS if enabled, and
+   commits the scene to Honcho with the true witness list.
 ```
 
-This is the whole loop. The architecture's elegance is that **everything that makes this game emotionally specific is happening in step 4 (actor query) and step 7 (Honcho update)**. The Narrator is the puppeteer; the actors are the puppets-with-souls; Honcho is the thread that makes a puppet remember.
-
-## In Go (pseudocode)
+## Pseudocode
 
 ```go
-// One turn of the game.
-func (g *Game) Turn(ctx context.Context, input PlayerInput) (Scene, error) {
-    // 1. Assemble Narrator context.
-    bundle, err := g.bridge.SceneContext(ctx, SceneContextRequest{
-        SessionID:        g.currentSession,
-        PlayerPeerID:     "sans-nom",
-        RecentSceneCount: 3,
-        IncludeReprFor:   []string{"sans-nom", "narrator"},
-    })
-
-    // 2. Lore retrieval.
-    loreSnippets := g.lore.Search(ctx, input.Text, k: 5)
-
-    // 3. Decide which actors are present.
-    presentActors := g.scene.PresentActors(g.currentSession)
-
-    // 4. Fan out: query each actor in parallel.
-    actorOutputs := make(chan ActorOutput, len(presentActors))
-    for _, actor := range presentActors {
-        go func(a Actor) {
-            repr, _ := g.bridge.GetRepresentation(ctx, a.ID, target: "sans-nom")
-            output := g.actors.Query(ctx, a, ActorQuery{
-                SceneSetup:   bundle.LastNarratorBeat,
-                MyRepr:       repr,
-                PlayerInput:  input,
-            })
-            actorOutputs <- output
-        }(actor)
+func (g *Game) Turn(ctx context.Context, decision PlayerDecision) (TurnView, error) {
+    target, needsRefresh := g.ResolveDecision(decision)
+    if needsRefresh {
+        packet, err := g.writer.Refresh(ctx, WriterInput{
+            Canon:        g.CurrentCanon(),
+            LoreContract: g.ActiveLorepackContract(),
+            Decision:     decision,
+        })
+        if err != nil {
+            return g.PendingTurnOrError(err)
+        }
+        target = packet.EntryNode()
     }
-    outputs := collect(actorOutputs, len(presentActors))
 
-    // 5. Narrator synthesizes.
-    scene, err := g.narrator.Compose(ctx, NarratorInput{
-        Bundle:         bundle,
-        LoreSnippets:   loreSnippets,
-        ActorOutputs:   outputs,
-        PlayerInput:    input,
+    node := g.CurrentPacket().Node(target)
+    actorOutputs := g.ResolveActorNeeds(ctx, node.ActorNeeds)
+
+    turn, err := g.narrator.Rollout(ctx, NarratorInput{
+        Canon:        g.CurrentCanon(),
+        LoreContract: g.ActiveLorepackContract(),
+        Node:         node,
+        ActorOutputs: actorOutputs,
     })
+    if err != nil {
+        return TurnView{}, err
+    }
 
-    // 6. Commit to Honcho.
+    g.story.SaveDisplayedTurn(turn)
+    g.tts.SynthesizeIfEnabled(ctx, turn)
     g.bridge.CommitScene(ctx, CommitRequest{
-        SessionID:   g.currentSession,
-        Scene:       scene,
-        Witnesses:   presentActors,
+        SessionID: g.SceneSessionID(node),
+        Scene:     turn,
+        Witnesses: g.WitnessesFor(node),
     })
-
-    return scene, nil
+    return turn, nil
 }
 ```
 
-Concrete LOC estimate for the loop itself: ~400 Go lines. The character cards + lore + prompt scaffolding are existing assets; this is glue + orchestration.
+## Streaming And Checkpointing
 
-## Streaming
+Player-facing prose may stream to the UI, but Honcho receives only the complete
+committed scene. The runtime persists displayed-turn state before expensive or
+fallible follow-up work so resume remains safe after TTS or bridge failures.
 
-Narrator prose streams to the player UI token-by-token; the committed-scene message goes to Honcho only after the stream completes. This keeps player-perceived latency low without complicating the Honcho commit semantics. See [ADR 0003](../decisions/0003-streaming-narrator-output.md).
+See [ADR 0003](../decisions/0003-streaming-narrator-output.md) for the
+stream-then-commit decision.

@@ -3,9 +3,10 @@
 ## Owns
 
 - The Narrator's [peer card](../../architecture/narrator-agent/peer-card.md). The single most load-bearing artifact in the project.
-- All [actor card seeding](../../architecture/actor-agents/card-seeding.md). The 8 canonical character cards (adapted from Council of Castaka work) plus Tonto and Lothar (written from scratch).
-- The [regression scene corpus](../phase-0-preproduction/deliverables.md). 20 hand-authored test scenes that become the eval set.
-- Lore consistency QA. Reads beta playthrough samples, surfaces canon violations, drafts Narrator card revisions to address them.
+- All [actor card seeding](../../architecture/actor-agents/card-seeding.md) from accepted lorepack artifacts.
+- Lorepack scenario contracts: synopsis, protagonist role, opening pressure, must-honor rules, must-not-violate rules, and choice principles.
+- The [regression scene corpus](../../phases/phase-0-preproduction/deliverables.md). Hand-authored test scenes that become the eval set.
+- Lore consistency QA. Reads beta playthrough samples, surfaces contract/canon violations, drafts prompt or pack revisions to address them.
 - The [glossary](../../glossary.md) and [IP commitments](../../mechanics/world/ip-commitments.md). The reference set the Narrator and the team consult.
 
 ## Collaborates with
@@ -16,7 +17,7 @@
 
 ## Phase responsibilities
 
-- **Phase 0** — Narrator card v1, regression corpus authoring, actor card seeding pass, comic OCR review.
+- **Phase 0** — Narrator card v1, lorepack contract authoring, regression corpus authoring, actor card seeding pass, comic OCR review.
 - **Phase 1** — Narrator card iteration based on beta playthrough data, regression corpus expansion as new failure modes surface.
 - **Phase 2** — Bushitaka training arc scene authoring + designer review, NPC density grading, image-style reference curation.
 - **Phase 3** — chest-crest scene authoring (each ancestor speaking *to* Sans-Nom), Aghora-mercy revelation arc, Steelhead-encounter variations.

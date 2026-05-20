@@ -1,64 +1,84 @@
-# Lore Retrieval
+# Lore Retrieval And Lore Authority
 
-Per-turn vector search over the canonical corpus. Feeds the Narrator the specific lore relevant to the current input + scene.
+Lore access now serves lore-faithful play. The active lorepack is not just a
+search corpus; it is an authored gameplay contract.
 
-## What gets retrieved
+## Source Of Truth
 
-- Canonical character cards (the 8 from `external/references/council of castaka/metabarons/`).
-- Comic page transcripts (446 pages from `external/comics/meta-barons/`, ingested per the plan below).
-- Existing council prompts and invocation docs (the Council of Castaka work, useful as canonical-tone references).
+`lore/packs/<pack_id>/lore-pack.json` defines:
 
-## Per-turn search
+- retrieval metadata;
+- authored `game_synopsis`;
+- `protagonist_role`;
+- `opening_situation`;
+- `initial_pressure`;
+- `story_lines`;
+- `must_honor`;
+- `must_not_violate`;
+- `choice_principles`.
 
-```go
-loreSnippets := g.lore.Search(ctx, input.Text, k: 5)
+In Faithful Canon Prototype mode, seed generation and Writer refresh must honor
+that contract. The LLM may stage, compress, branch, and narrate the material; it
+should not replace the premise.
+
+## Model-Visible Lore Files
+
+Writer, Narrator, and Scenarist tools do not receive raw repo-root lore paths.
+The active pack is staged into the current agent workspace as:
+
+```text
+lorepack/
 ```
 
-- `k: 5` — top 5 chunks. Tunable per Phase 1 telemetry.
-- Query is the player's free-text input (or a canonical version of the chosen choice option).
-- Results pass into the Narrator's context bundle. See [authoring loop](narrator-agent/authoring-loop.md) step 1.
+That staged folder is the model-visible way to inspect pack contract/reference
+material. Raw paths such as `lore/packs/metabarons/...` remain blocked by the
+agent filesystem policy.
 
-## Comic corpus ingestion (Phase 0 deliverable)
+## LoreExpert / Lore Authority
 
-The original draft did not specify how the 446 comic pages get extracted. Specified here:
+LoreExpert is the source-grounded role for focused questions:
 
-### Step 1 — Page-batched OCR via Claude vision
+- Does this branch contradict `must_honor`?
+- Does this choice violate the pack's pressure logic?
+- Which source pattern matters for this scene?
+- Is the Narrator drifting into generic fantasy or unsupported invention?
 
-- Iterate `external/comics/meta-barons/` page by page.
-- For each page (or 4-page batch for cost efficiency), submit to Claude vision with a prompt like: *"Transcribe all dialogue, captions, and narrator text from these comic pages. Identify panels and indicate panel transitions. Preserve speaker attribution."*
-- Output: structured markdown per page or per batch, with `## Page N` headers, panel-numbered dialogue, and any visual context worth preserving.
+In older influence-mode experiments, LoreExpert was "influence-only." In
+Faithful Canon Prototype mode, it is better understood as lore authority and
+reference support.
 
-### Step 2 — Manual canonical-quote review
+## Retrieval At Turn Time
 
-- The narrative designer reviews extracted text against the actual comic pages.
-- Corrections focus on canonical lines (the famous Bushitaka invocations, Tonto's opening narrations, the dynasty-defining moments). Errors in everyday dialogue are acceptable; errors in canonical quotes are not.
-- Output: reviewed transcripts in `lore/canon/comics/`.
+Runtime retrieval should be scoped by:
 
-### Step 3 — Embed into vector store
+- selected lorepack id;
+- current scenario/arc position;
+- current packet node;
+- player decision or free-text;
+- present actors and witnessed context.
 
-- Chunk transcripts at the page or scene boundary.
-- Embed using Anthropic's recommended embedding model.
-- Index in Qdrant or pgvector (decision in Phase 0; both are fine).
-- Output: queryable vector index that the Go server hits via the [Python sidecar](python-sidecar.md).
+Results feed Writer/Narrator context as reference and constraint material. They
+do not replace the authored scenario contract.
 
-### Step 4 — Re-embed on file change
+## Scenarist Boundary
 
-- File watcher rebuilds incrementally — only touched files re-embed.
-- See [dev-loop ergonomics](narrator-agent/dev-loop-ergonomics.md).
+Scenarist can read request-specific staged paths and can use `lorepack/` when
+the Writer explicitly includes it. Scenarist remains an idea/critique/staging
+role, not the source of lore truth.
 
-## Search at turn time
+When source grounding is central, ask LoreExpert rather than asking Scenarist to
+infer canon from broad context.
 
-- Query: player input + current scene's location/cast as context.
-- Filter: by character relevance (if a query mentions a specific character, prioritize chunks about that character).
-- Score: vector similarity + simple boost for recently-relevant chunks (cached per session).
+## What Lore Access Does Not Do
 
-## Telemetry
+- It does not expose the whole repository to model tools.
+- It does not make old seed runs or static fixtures model-visible.
+- It does not replace Honcho representations for actors.
+- It does not turn unused Writer branches into canon.
 
-- Per-query: hit/miss rate, top-K score distribution, latency.
-- A cold hit rate above 30% means the corpus or the embedding strategy needs work. See [observability.md](observability.md).
+## Future Corpus Work
 
-## What lore retrieval does *not* do
-
-- Provide the canonical truth for the scene. The Narrator uses retrieved snippets as *reference*; it does not paste them verbatim.
-- Replace actor representations. Actors get their representations of others from Honcho, not from lore retrieval. Lore retrieval informs the *Narrator*, not the actors.
-- Run during actor invocation. Only the Narrator queries the lore index.
+Comic transcript OCR, vector indexing, and per-turn retrieval still matter, but
+they sit under the lorepack contract instead of acting as a loose inspiration
+pool. See the lorepack master plan in
+[project/lore-faithful-engine-master-plan.md](../project/lore-faithful-engine-master-plan.md).
