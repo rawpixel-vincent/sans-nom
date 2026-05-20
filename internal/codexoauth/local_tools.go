@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"sort"
@@ -82,9 +83,11 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		maxRounds = defaultMaxToolRounds
 	}
 
+	visiblePaths := existingVisiblePaths(root, opts.VisiblePaths)
 	current := cloneMap(body)
-	current["tools"] = appendTools(current["tools"], localToolDefinitions(opts.ExtraTools))
+	current["tools"] = appendTools(current["tools"], localToolDefinitions(opts.ExtraTools, visiblePaths))
 	extraTools := extraToolHandlers(opts.ExtraTools)
+	opts.VisiblePaths = visiblePaths
 
 	for round := 0; round < maxRounds; round++ {
 		response, err := c.Create(ctx, current)
@@ -113,12 +116,12 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	return nil, fmt.Errorf("model exceeded %d local tool rounds", maxRounds)
 }
 
-func localToolDefinitions(extra []LocalTool) []any {
+func localToolDefinitions(extra []LocalTool, visiblePaths []string) []any {
 	tools := []any{
 		map[string]any{
 			"type":        "function",
 			"name":        "exec_command",
-			"description": "Run a read-only shell command inside the scoped agent workspace. Curated story files and active lorepack files may appear under story/, scenarists/, and lorepack/. Prefer rg, grep, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.",
+			"description": localToolDescription(visiblePaths),
 			"parameters": map[string]any{
 				"type":                 "object",
 				"additionalProperties": false,
@@ -164,6 +167,59 @@ func localToolDefinitions(extra []LocalTool) []any {
 		})
 	}
 	return tools
+}
+
+func localToolDescription(visiblePaths []string) string {
+	var b strings.Builder
+	b.WriteString("Run a read-only shell command inside the scoped agent workspace.")
+	if len(visiblePaths) == 0 {
+		b.WriteString(" No top-level material paths are currently advertised; use pwd, ls, or find . to inspect the workspace before reading files.")
+	} else {
+		b.WriteString(" Currently advertised material paths: ")
+		for i, path := range visiblePaths {
+			if i > 0 {
+				b.WriteString(", ")
+			}
+			b.WriteString(pathForDisplay(path))
+		}
+		b.WriteString(".")
+	}
+	b.WriteString(" Prefer rg, grep, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.")
+	return b.String()
+}
+
+func pathForDisplay(path string) string {
+	path = filepath.ToSlash(filepath.Clean(filepath.FromSlash(strings.TrimSpace(path))))
+	if path == "." || path == "" {
+		return "./"
+	}
+	return strings.TrimSuffix(path, "/") + "/"
+}
+
+func existingVisiblePaths(root string, visiblePaths []string) []string {
+	out := make([]string, 0, len(visiblePaths))
+	seen := map[string]struct{}{}
+	for _, path := range visiblePaths {
+		path = strings.TrimSpace(path)
+		if path == "" {
+			continue
+		}
+		clean := filepath.Clean(filepath.FromSlash(path))
+		if clean == ".." || strings.HasPrefix(clean, ".."+string(filepath.Separator)) || filepath.IsAbs(clean) {
+			continue
+		}
+		abs := filepath.Join(root, clean)
+		if _, err := os.Stat(abs); err != nil {
+			continue
+		}
+		rel := filepath.ToSlash(clean)
+		if _, ok := seen[rel]; ok {
+			continue
+		}
+		seen[rel] = struct{}{}
+		out = append(out, rel)
+	}
+	return out
 }
 
 func extraToolHandlers(extra []LocalTool) map[string]LocalTool {

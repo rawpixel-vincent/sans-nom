@@ -86,6 +86,55 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	}
 }
 
+func TestCreateWithLocalToolsAdvertisesOnlyExistingVisiblePaths(t *testing.T) {
+	root := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(root, "lorepack"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		var req map[string]any
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			t.Fatal(err)
+		}
+		tools, ok := req["tools"].([]any)
+		if !ok || len(tools) == 0 {
+			t.Fatalf("missing tools: %#v", req)
+		}
+		first, ok := tools[0].(map[string]any)
+		if !ok {
+			t.Fatalf("unexpected tool: %#v", tools[0])
+		}
+		description, _ := first["description"].(string)
+		if !strings.Contains(description, "lorepack/") {
+			t.Fatalf("description missing staged lorepack path: %s", description)
+		}
+		for _, hidden := range []string{"story/", "scenarists/", "workshop/"} {
+			if strings.Contains(description, hidden) {
+				t.Fatalf("description advertised nonexistent %s: %s", hidden, description)
+			}
+		}
+		w.Header().Set("Content-Type", "text/event-stream")
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"ok"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := client.CreateWithLocalTools(context.Background(), map[string]any{"model": "gpt-5.5", "input": "inspect"}, LocalToolOptions{
+		Root:         root,
+		VisiblePaths: []string{"story", "scenarists", "lorepack"},
+	}); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
 	root := t.TempDir()
 	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("ok"), 0o644); err != nil {

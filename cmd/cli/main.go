@@ -1142,8 +1142,7 @@ func seedAgentScopeFromScenaristOutputDir(scenaristOutputDir string) agentfs.Sco
 	root := filepath.Dir(scenaristOutputDir)
 	seedID := filepath.Base(filepath.Dir(root))
 	return agentfs.New(root, "creative-writer").
-		WithSeedRunID(seedID).
-		WithVisiblePaths("workshop", "scenarists")
+		WithSeedRunID(seedID)
 }
 
 func stageLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Scope, error) {
