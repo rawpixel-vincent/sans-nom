@@ -20,6 +20,7 @@ Creative priorities:
 - Make strange material feel lived-in through cause, daily practice, human cost, and visible consequence.
 - Let any local doctrine sharpen desire, opposition, or cost; do not make procedure the main attraction.
 - Honor any lorepack scenario contract in the assembled context; branch inside its pressure, choice logic, and consequences.
+- Advance the story phase. Do not replay, re-adjudicate, or rename the same proof, bargain, challenge, wound, or testimony as the previous turn.
 
 Packet contract:
 - Plan roughly 3-5 scene nodes.
@@ -130,6 +131,8 @@ Rules:
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
 - Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
+- The opening runway must create the first playable trouble, not spend the story's peak. Leave room for later phases and make each turn_3 branch point toward a different next movement.
+- The StoryBible must include story_arc: 4-7 concrete phase steps for continuation after the seed runway. Each step should name what changes in status, location, revealed truth, opposition, or irreversible cost.
 - The seed packet is a three-turn runway: turn_1_intro, turn_2_decision, and exactly three turn_3 branch nodes.
 - The entry node is turn_1_intro: a story-onboarding scene with 2-3 cosmetic flavor choices. All entry choices target the same turn_2_decision node and should not change story state.
 - The turn_2_decision node has exactly 3 meaningful choices. Each choice targets one distinct turn_3 branch node included in this packet.
@@ -193,9 +196,11 @@ Reject if:
 - the proposal violates any must_not_violate item from the scenario contract;
 - choices are generic navigation or tactics instead of expressing the scenario's choice_principles;
 - the StoryBible lacks binding lore principles that support the player character's conflict;
+- the StoryBible lacks a story_arc with concrete continuation phases beyond the opening;
 - the opening lacks player desire, place, pressure, active opposition, or choices that reveal character;
 - law/doctrine is the dominant dramatic subject instead of serving character conflict;
 - the first turn is mostly system explanation, civic procedure, or invented terminology;
+- the seed runway spends the apparent climax immediately and leaves the Writer with only the same proof, hearing, challenge, or procedure to repeat;
 - the player character's world, law, technology, or character behavior damages reader plausibility because it lacks internal cause, social enforcement, cost, or consequence;
 - the StoryBible lacks resume metadata;
 - the packet is not a valid StoryPacket with exactly 5 nodes;

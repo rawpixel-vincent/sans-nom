@@ -152,6 +152,7 @@ func cloneBible(bible *story.StoryBible) *story.StoryBible {
 	cloned.SourceLoreInfluenceRefs = append([]string(nil), bible.SourceLoreInfluenceRefs...)
 	cloned.ForbiddenLiteralCanonTerms = append([]string(nil), bible.ForbiddenLiteralCanonTerms...)
 	cloned.FirstTurnExposition = append([]string(nil), bible.FirstTurnExposition...)
+	cloned.StoryArc = append([]string(nil), bible.StoryArc...)
 	if bible.Metadata != nil {
 		cloned.Metadata = map[string]string{}
 		for key, value := range bible.Metadata {

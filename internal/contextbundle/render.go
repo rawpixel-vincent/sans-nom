@@ -78,13 +78,10 @@ func (c WriterContext) RenderText() string {
 	writeSection(&b, "LATEST ROLLOUT AND DECISION")
 	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
 
-	writeSection(&b, "SELECTED NODE")
-	fmt.Fprintln(&b, c.SelectedNodeID)
-
-	writeSection(&b, "CURRENT BOUNDED PACKET")
-	writeJSON(&b, c.Packet)
+	writeWriterSelectedNodeSummary(&b, c)
 
 	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
+	writeWriterProgressionContract(&b)
 	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
 	writeLoreGroups(&b, c.LoreByKind)
 	writeActorManifest(&b, c.ActorManifest)
@@ -103,7 +100,46 @@ func (c WriterContext) RenderText() string {
 
 	writeStringList(&b, "WARNINGS", c.Warnings)
 
+	writeSection(&b, "CURRENT BOUNDED PACKET REFERENCE")
+	fmt.Fprintln(&b, "The full packet JSON below is prior planning context. The selected node and recent witnessed canon above have priority when they disagree or when this section is truncated.")
+	writeJSON(&b, c.Packet)
+
 	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+}
+
+func writeWriterProgressionContract(b *strings.Builder) {
+	writeSection(b, "STORY PROGRESSION CONTRACT")
+	fmt.Fprintln(b, "- Start after the selected node's witnessed outcome; do not replay, re-adjudicate, or rename the same pending proof.")
+	fmt.Fprintln(b, "- Each refresh packet must advance at least one macro story state: location, custody/control, revealed truth, opponent advantage, resource/weapon status, witness record, or irreversible cost.")
+	fmt.Fprintln(b, "- If the previous branch accepted a challenge, petition, escape, wound, testimony, or bargain, the next packet must make that consequence happen or move to the scene where it bites.")
+	fmt.Fprintln(b, "- Do not offer three choices that are only different ways to continue observing the same mechanism. Each choice must change who can act, what proof exists, what relationship is endangered, or what cost becomes unavoidable.")
+	fmt.Fprintln(b, "- Use the Story Bible story_arc, if present, as the phase ladder. The opening crisis is not the whole story.")
+}
+
+func writeWriterSelectedNodeSummary(b *strings.Builder, c WriterContext) {
+	writeSection(b, "SELECTED NODE")
+	fmt.Fprintf(b, "selected_node_id: %s\n", c.SelectedNodeID)
+	node, err := c.Packet.Node(c.SelectedNodeID)
+	if err != nil {
+		return
+	}
+	fmt.Fprintf(b, "title: %s\n", node.Title)
+	if len(node.Choices) > 0 {
+		fmt.Fprintln(b, "choices:")
+		for _, choice := range node.Choices {
+			target := strings.TrimSpace(choice.TargetNodeID)
+			if target != "" {
+				fmt.Fprintf(b, "- %s -> %s: %s\n", choice.ID, target, choice.Label)
+			} else {
+				fmt.Fprintf(b, "- %s: %s\n", choice.ID, choice.Label)
+			}
+		}
+	}
+	writeInlineList(b, "revision_notes", node.RevisionNotes)
+	writeInlineList(b, "invalidation_notes", node.InvalidationNotes)
+	if strings.TrimSpace(node.WriterNotes) != "" {
+		fmt.Fprintf(b, "writer_notes: %s\n", strings.TrimSpace(node.WriterNotes))
+	}
 }
 
 func writeScenarioContract(b *strings.Builder, value string) {
@@ -133,6 +169,7 @@ func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
 	writeInlineList(b, "world_basics", value.WorldBasics)
 	writeInlineList(b, "tone_doctrine", value.ToneDoctrine)
 	writeInlineList(b, "first_turn_exposition", value.FirstTurnExposition)
+	writeInlineList(b, "story_arc", value.StoryArc)
 	if value.ResumeSummary != "" {
 		fmt.Fprintf(b, "resume_summary: %s\n", value.ResumeSummary)
 	}

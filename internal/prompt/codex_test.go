@@ -60,12 +60,18 @@ func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
 	if bibleProps["lore_principles"] == nil {
 		t.Fatalf("seed bible schema missing lore_principles: %#v", bibleProps)
 	}
+	if bibleProps["story_arc"] == nil {
+		t.Fatalf("seed bible schema missing story_arc: %#v", bibleProps)
+	}
+	required := bible["required"].([]string)
+	if !containsString(required, "story_arc") {
+		t.Fatalf("seed bible schema should require story_arc: %#v", required)
+	}
 	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
 		if bibleProps[legacy] != nil {
 			t.Fatalf("seed bible schema should not prompt legacy field %q: %#v", legacy, bibleProps)
 		}
 	}
-	required := bible["required"].([]string)
 	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
 		for _, field := range required {
 			if field == legacy {
@@ -171,6 +177,15 @@ func TestRetryableCodexErrorIncludesSocketDisconnects(t *testing.T) {
 type fakeLocalToolClient struct {
 	body map[string]any
 	opts codexoauth.LocalToolOptions
+}
+
+func containsString(values []string, needle string) bool {
+	for _, value := range values {
+		if value == needle {
+			return true
+		}
+	}
+	return false
 }
 
 func (c *fakeLocalToolClient) Create(context.Context, map[string]any) (map[string]any, error) {

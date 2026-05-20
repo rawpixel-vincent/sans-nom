@@ -41,6 +41,7 @@ type StoryBible struct {
 	SourceLoreInfluenceRefs    []string          `json:"source_lore_influence_refs,omitempty"`
 	ForbiddenLiteralCanonTerms []string          `json:"forbidden_literal_canon_terms,omitempty"`
 	FirstTurnExposition        []string          `json:"first_turn_exposition"`
+	StoryArc                   []string          `json:"story_arc,omitempty"`
 	ResumeSummary              string            `json:"resume_summary"`
 	Metadata                   map[string]string `json:"metadata"`
 }
@@ -231,6 +232,9 @@ func (b StoryBible) Validate() error {
 	if len(b.FirstTurnExposition) < 5 {
 		return fmt.Errorf("story bible needs at least 5 first-turn exposition requirements")
 	}
+	if len(b.StoryArc) < 4 {
+		return fmt.Errorf("story bible needs at least 4 story arc steps")
+	}
 	return nil
 }
 
@@ -326,6 +330,7 @@ func (b StoryBible) CreatedStoryText() string {
 	out = append(out, b.CoreRelationships...)
 	out = append(out, b.ToneDoctrine...)
 	out = append(out, b.FirstTurnExposition...)
+	out = append(out, b.StoryArc...)
 	out = append(out, b.ResumeSummary)
 	return strings.Join(out, "\n")
 }

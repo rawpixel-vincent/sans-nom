@@ -82,6 +82,8 @@ func TestContextTextIsCreativeOnly(t *testing.T) {
 		"Reader plausibility",
 		"daily practice, emotional credibility, visible cost, and consequence",
 		"support character conflict rather than replacing story with procedure",
+		"first trouble and branch momentum",
+		"concrete story_arc",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)

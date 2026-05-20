@@ -515,6 +515,7 @@ The seed Writer packages that authored scenario into durable story state and a b
 Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
 Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, visible cost, and consequence.
 Binding rites, laws, or doctrines should support character conflict rather than replacing story with procedure.
+The opening runway should introduce first trouble and branch momentum, not spend the story peak; the StoryBible needs a concrete story_arc for later Writer refreshes.
 For this first seed, original actor peer cards are not generated yet. Characters may be present as story material, but no actor agent should be invoked.`
 }
 
@@ -578,6 +579,12 @@ func DefaultBible() story.StoryBible {
 			"Use the first turn as a non-branching onboarding scene that lets the player choose Ila's small public posture.",
 			"Use the second turn for the real dilemma: family memory, brother's food ledger, Talik's pressure, and Sarex's illegal option.",
 			"End the seed runway with one prebuilt branch scene for each real second-turn choice.",
+		},
+		StoryArc: []string{
+			"Opening: Ila faces the first debt rite and chooses what living collateral is allowed to mean.",
+			"After the runway: the chosen cost changes Ila's legal status and forces a move out of the audit circle.",
+			"Middle pressure: Talik, Sarex, and the brother's ledger each reveal a different price for preserving memory.",
+			"Turn toward consequence: Ila must decide whether to expose the law's mercy clause, counterfeit witness marks, or rewrite the debt through her own body.",
 		},
 		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the final audit lantern warms and the city demands her left hand as living collateral.",
 		Metadata: map[string]string{

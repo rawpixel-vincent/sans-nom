@@ -66,9 +66,41 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 	if !strings.Contains(text, "StoryPacket closure rule") || !strings.Contains(text, "future packet handoffs must be terminal nodes with revision_notes") {
 		t.Fatalf("writer context missed packet closure rule:\n%s", text)
 	}
+	if !strings.Contains(text, "STORY PROGRESSION CONTRACT") ||
+		!strings.Contains(text, "Start after the selected node's witnessed outcome") {
+		t.Fatalf("writer context missed progression contract:\n%s", text)
+	}
 	if !strings.Contains(text, "Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order") ||
 		!strings.Contains(text, "visible cost, and consequence") {
 		t.Fatalf("writer context missed binding doctrine/plausibility rule:\n%s", text)
+	}
+}
+
+func TestWriterContextKeepsProgressionBeforePacketCap(t *testing.T) {
+	packet := testPacket()
+	packet.ContextSnapshot.LatestNarratorProse = "Latest canon: the first challenge was accepted and must now happen."
+	packet.Nodes[0].Beats = []scene.Beat{{Text: strings.Repeat("oversized active beat ", 400)}}
+	packet.Nodes[1].Beats = []scene.Beat{{Text: strings.Repeat("oversized unused beat ", 400)}}
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Options.WriterSoftCap = 5000
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: packet, NodeID: "active"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	for _, required := range []string{
+		"SELECTED NODE",
+		"Latest canon: the first challenge was accepted and must now happen.",
+		"STORY PROGRESSION CONTRACT",
+		"PLANNING CONSTRAINTS",
+		"[context truncated at render cap]",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("capped writer context missing %q:\n%s", required, text)
+		}
+	}
+	if strings.Index(text, "STORY PROGRESSION CONTRACT") > strings.Index(text, "[context truncated at render cap]") {
+		t.Fatalf("progression contract appeared after truncation:\n%s", text)
 	}
 }
 
@@ -463,6 +495,7 @@ func testBible() story.StoryBible {
 			NotMerelyCruel: "It can shield the powerless from erased consent.",
 		}},
 		FirstTurnExposition: []string{"world", "player", "connection", "law", "pressure"},
+		StoryArc:            []string{"opening pressure", "changed status", "wider opposition", "public consequence"},
 		ResumeSummary:       "Rin begins.",
 	}
 }

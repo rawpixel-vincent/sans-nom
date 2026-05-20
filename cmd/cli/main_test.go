@@ -1010,6 +1010,53 @@ func TestRunPlayRetriesUncommittedPendingTurnBeforeContinuing(t *testing.T) {
 	}
 }
 
+func TestRefreshStoryIndexReplacesRemoteCollection(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("replace-story-index")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "replace-story-index",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var captured struct {
+		Collection string            `json:"collection"`
+		Documents  []json.RawMessage `json:"documents"`
+		Replace    bool              `json:"replace"`
+	}
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/story/index/ingest" {
+			http.NotFound(w, r)
+			return
+		}
+		if err := json.NewDecoder(r.Body).Decode(&captured); err != nil {
+			t.Fatal(err)
+		}
+		_ = json.NewEncoder(w).Encode(map[string]any{
+			"collection": captured.Collection,
+			"count":      len(captured.Documents),
+			"replaced":   captured.Replace,
+		})
+	}))
+	defer server.Close()
+	bible := bundle.Bible
+	if err := refreshStoryIndex(context.Background(), playConfig{
+		Backend:   "codex",
+		BridgeURL: server.URL,
+		Workspace: &workspace,
+		State:     &state,
+		Bible:     &bible,
+		Logger:    gamelog.NewWriter(workspace.Dir, state.StoryID),
+	}, &state, bundle.Packet); err != nil {
+		t.Fatal(err)
+	}
+	if !captured.Replace {
+		t.Fatalf("story refresh index should replace stale remote docs: %#v", captured)
+	}
+}
+
 func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("hard-fail")
@@ -1426,6 +1473,7 @@ func cliTestBundle(id string) story.SeedBundle {
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
 			ForbiddenLiteralCanonTerms: []string{},
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
+			StoryArc:                   []string{"opening witness demand", "changed legal status", "family pressure widens", "public consequence"},
 			ResumeSummary:              "Rin stands before the witness hall.",
 			Metadata:                   map[string]string{"test": "true"},
 		},

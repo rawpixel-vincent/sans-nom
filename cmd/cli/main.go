@@ -3264,7 +3264,7 @@ func refreshStoryIndex(ctx context.Context, cfg playConfig, state *story.StorySt
 	ingestReq := bridgeclient.StoryIndexIngestRequest{
 		Collection: state.StoryCollection,
 		Documents:  bridgeStoryDocs(docs),
-		Replace:    false,
+		Replace:    true,
 	}
 	ingestResp, err := client.IngestStoryIndex(ctx, ingestReq)
 	if err != nil {
@@ -3285,7 +3285,7 @@ func refreshStoryIndex(ctx context.Context, cfg playConfig, state *story.StorySt
 		Category: "qdrant",
 		Event:    "story.index.ingested",
 		Message:  "story index ingested",
-		Fields:   map[string]any{"collection": state.StoryCollection, "document_count": len(docs), "response_count": ingestResp.Count},
+		Fields:   map[string]any{"collection": state.StoryCollection, "document_count": len(docs), "response_count": ingestResp.Count, "replace": true},
 		Detail: map[string]any{
 			"request":  ingestReq,
 			"response": ingestResp,

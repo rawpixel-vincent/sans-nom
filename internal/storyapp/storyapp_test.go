@@ -159,6 +159,7 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
 			ForbiddenLiteralCanonTerms: []string{},
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
+			StoryArc:                   []string{"opening debt rite", "changed legal status", "family pressure widens", "public consequence"},
 			ResumeSummary:              "Rin stands before the civic garden as the debt rite begins.",
 			Metadata:                   map[string]string{"test": "true"},
 		},
