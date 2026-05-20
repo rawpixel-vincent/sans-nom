@@ -84,6 +84,15 @@ class LorePack(BaseModel):
     smoke_queries: list[SmokeQuery] = Field(default_factory=list)
     forbidden_literal_terms: list[str] = Field(default_factory=list)
     status: str = "active"
+    gameplay_mode: str = ""
+    game_synopsis: str = ""
+    protagonist_role: str = ""
+    opening_situation: str = ""
+    initial_pressure: str = ""
+    story_lines: list[str] = Field(default_factory=list)
+    must_honor: list[str] = Field(default_factory=list)
+    must_not_violate: list[str] = Field(default_factory=list)
+    choice_principles: list[str] = Field(default_factory=list)
 
 
 DEFAULT_SMOKE_QUERIES = [

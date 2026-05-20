@@ -11,8 +11,9 @@ import (
 )
 
 const (
-	defaultPackID = "metabarons"
-	packsDir      = "lore/packs"
+	defaultPackID                      = "metabarons"
+	packsDir                           = "lore/packs"
+	GameplayModeFaithfulCanonPrototype = "faithful_canon_prototype"
 )
 
 type Pack struct {
@@ -26,12 +27,33 @@ type Pack struct {
 	SmokeQueries          []SmokeQuery      `json:"smoke_queries"`
 	ForbiddenLiteralTerms []string          `json:"forbidden_literal_terms"`
 	Status                string            `json:"status"`
+	GameplayMode          string            `json:"gameplay_mode,omitempty"`
+	GameSynopsis          string            `json:"game_synopsis,omitempty"`
+	ProtagonistRole       string            `json:"protagonist_role,omitempty"`
+	OpeningSituation      string            `json:"opening_situation,omitempty"`
+	InitialPressure       string            `json:"initial_pressure,omitempty"`
+	StoryLines            []string          `json:"story_lines,omitempty"`
+	MustHonor             []string          `json:"must_honor,omitempty"`
+	MustNotViolate        []string          `json:"must_not_violate,omitempty"`
+	ChoicePrinciples      []string          `json:"choice_principles,omitempty"`
 	Path                  string            `json:"path,omitempty"`
 }
 
 type SmokeQuery struct {
 	Query       string     `json:"query"`
 	ExpectedAny [][]string `json:"expected_any"`
+}
+
+type ScenarioContract struct {
+	GameplayMode     string   `json:"gameplay_mode"`
+	GameSynopsis     string   `json:"game_synopsis"`
+	ProtagonistRole  string   `json:"protagonist_role"`
+	OpeningSituation string   `json:"opening_situation"`
+	InitialPressure  string   `json:"initial_pressure"`
+	StoryLines       []string `json:"story_lines"`
+	MustHonor        []string `json:"must_honor"`
+	MustNotViolate   []string `json:"must_not_violate"`
+	ChoicePrinciples []string `json:"choice_principles"`
 }
 
 func DefaultPackID() string {
@@ -136,7 +158,65 @@ func (p Pack) Validate() error {
 	if len(p.ArtifactRoots) == 0 {
 		return errors.New("artifact_roots is required")
 	}
+	if strings.TrimSpace(p.Status) == "active" {
+		if err := p.validateActiveScenarioContract(); err != nil {
+			return err
+		}
+	}
 	return nil
+}
+
+func (p Pack) ScenarioContract() ScenarioContract {
+	return ScenarioContract{
+		GameplayMode:     p.GameplayMode,
+		GameSynopsis:     p.GameSynopsis,
+		ProtagonistRole:  p.ProtagonistRole,
+		OpeningSituation: p.OpeningSituation,
+		InitialPressure:  p.InitialPressure,
+		StoryLines:       append([]string(nil), p.StoryLines...),
+		MustHonor:        append([]string(nil), p.MustHonor...),
+		MustNotViolate:   append([]string(nil), p.MustNotViolate...),
+		ChoicePrinciples: append([]string(nil), p.ChoicePrinciples...),
+	}
+}
+
+func (p Pack) validateActiveScenarioContract() error {
+	required := map[string]string{
+		"gameplay_mode":     p.GameplayMode,
+		"game_synopsis":     p.GameSynopsis,
+		"protagonist_role":  p.ProtagonistRole,
+		"opening_situation": p.OpeningSituation,
+		"initial_pressure":  p.InitialPressure,
+	}
+	for name, value := range required {
+		if strings.TrimSpace(value) == "" {
+			return fmt.Errorf("%s is required for active lore packs", name)
+		}
+	}
+	if p.GameplayMode != GameplayModeFaithfulCanonPrototype {
+		return fmt.Errorf("unsupported gameplay_mode %q", p.GameplayMode)
+	}
+	requiredLists := map[string][]string{
+		"story_lines":       p.StoryLines,
+		"must_honor":        p.MustHonor,
+		"must_not_violate":  p.MustNotViolate,
+		"choice_principles": p.ChoicePrinciples,
+	}
+	for name, values := range requiredLists {
+		if !hasNonEmpty(values) {
+			return fmt.Errorf("%s is required for active lore packs", name)
+		}
+	}
+	return nil
+}
+
+func hasNonEmpty(values []string) bool {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return true
+		}
+	}
+	return false
 }
 
 func packRank(pack Pack) int {

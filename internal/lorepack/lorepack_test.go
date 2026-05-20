@@ -17,6 +17,13 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	if pack.Collection != "sans_nom_lore_metabarons" {
 		t.Fatalf("collection = %q", pack.Collection)
 	}
+	if pack.GameplayMode != GameplayModeFaithfulCanonPrototype {
+		t.Fatalf("gameplay_mode = %q", pack.GameplayMode)
+	}
+	contract := pack.ScenarioContract()
+	if contract.GameSynopsis == "" || len(contract.MustHonor) == 0 || len(contract.ChoicePrinciples) == 0 {
+		t.Fatalf("missing scenario contract: %#v", contract)
+	}
 }
 
 func TestListPacksRejectsDuplicateIDs(t *testing.T) {
@@ -25,6 +32,32 @@ func TestListPacksRejectsDuplicateIDs(t *testing.T) {
 	writePack(t, root, "two", `"dup"`)
 	if _, err := ListPacks(root); err == nil {
 		t.Fatal("expected duplicate id error")
+	}
+}
+
+func TestActivePackRequiresFaithfulScenarioContract(t *testing.T) {
+	root := t.TempDir()
+	path := filepath.Join(root, "lore/packs", "empty")
+	if err := os.MkdirAll(path, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	body := `{
+  "id": "empty",
+  "label": "Empty",
+  "description": "desc",
+  "collection": "collection",
+  "embedding_model": "voyage-4",
+  "artifact_roots": {"index": "index"},
+  "builder": "metabarons_comics",
+  "smoke_queries": [],
+  "forbidden_literal_terms": [],
+  "status": "active"
+}`
+	if err := os.WriteFile(filepath.Join(path, "lore-pack.json"), []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := GetPack(root, "empty"); err == nil {
+		t.Fatal("expected active pack without scenario contract to fail")
 	}
 }
 
@@ -50,7 +83,16 @@ func writePack(t *testing.T, root string, dir string, id string) {
   "builder": "metabarons_comics",
   "smoke_queries": [],
   "forbidden_literal_terms": [],
-  "status": "active"
+  "status": "active",
+  "gameplay_mode": "faithful_canon_prototype",
+  "game_synopsis": "A test heir must survive a dynasty trial.",
+  "protagonist_role": "Dynasty heir",
+  "opening_situation": "The heir is summoned to a trial chamber.",
+  "initial_pressure": "The family demands a costly proof.",
+  "story_lines": ["claim the inheritance"],
+  "must_honor": ["dynasty pressure has consequences"],
+  "must_not_violate": ["no consequence-free refusal"],
+  "choice_principles": ["choices express stance toward duty and refusal"]
 }`
 	if err := os.WriteFile(filepath.Join(path, "lore-pack.json"), []byte(body), 0o644); err != nil {
 		t.Fatal(err)
