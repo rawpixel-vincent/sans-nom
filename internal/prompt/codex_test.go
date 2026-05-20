@@ -52,6 +52,29 @@ func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
 	}
 }
 
+func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
+	schema := SeedBundleSchema()
+	props := schema["properties"].(map[string]any)
+	bible := props["bible"].(map[string]any)
+	bibleProps := bible["properties"].(map[string]any)
+	if bibleProps["lore_principles"] == nil {
+		t.Fatalf("seed bible schema missing lore_principles: %#v", bibleProps)
+	}
+	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
+		if bibleProps[legacy] != nil {
+			t.Fatalf("seed bible schema should not prompt legacy field %q: %#v", legacy, bibleProps)
+		}
+	}
+	required := bible["required"].([]string)
+	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
+		for _, field := range required {
+			if field == legacy {
+				t.Fatalf("seed bible schema should not require legacy field %q: %#v", legacy, required)
+			}
+		}
+	}
+}
+
 func TestCodexRunnerUsesLocalToolsWhenEnabled(t *testing.T) {
 	client := &fakeLocalToolClient{}
 	logger := gamelog.NewWriter(t.TempDir(), "story-1")

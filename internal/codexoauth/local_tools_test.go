@@ -137,6 +137,36 @@ func TestToolExecCommandAllowsQuotedRegexAlternation(t *testing.T) {
 	}
 }
 
+func TestToolExecCommandAllowsClassicGrep(t *testing.T) {
+	root := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(root, "lorepack", "comics", "volumes"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(root, "lorepack", "comics", "pages"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(root, "lorepack", "wiki"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "lorepack", "comics", "volumes", "volume-17.json"), []byte("Karbit\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "lorepack", "wiki", "lore.md"), []byte("Okhar\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	result, err := toolExecCommand(context.Background(), root, `{"cmd":"grep -R \"Karbit\\|Okhar\\|Okkhar\\|leodact\" -n lorepack/comics/volumes lorepack/comics/pages lorepack/wiki/lore.md"}`)
+	if err != nil {
+		t.Fatalf("classic grep should validate: %v", err)
+	}
+	stdout, _ := result["stdout"].(string)
+	for _, want := range []string{"Karbit", "Okhar"} {
+		if !strings.Contains(stdout, want) {
+			t.Fatalf("stdout missing %q: %s", want, stdout)
+		}
+	}
+}
+
 func TestToolExecCommandShellParserKeepsGuards(t *testing.T) {
 	root := t.TempDir()
 	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("ok\n"), 0o644); err != nil {

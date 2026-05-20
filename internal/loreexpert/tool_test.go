@@ -110,8 +110,18 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 		t.Fatal("second call should hit cache")
 	}
 	answerPath := secondMap["answer_path"].(string)
-	if _, err := os.Stat(answerPath); err != nil {
+	if filepath.IsAbs(answerPath) {
+		t.Fatalf("model-visible answer path should be workspace-relative, got %q", answerPath)
+	}
+	if _, err := os.Stat(filepath.Join(root, answerPath)); err != nil {
 		t.Fatalf("answer path missing: %v", err)
+	}
+	cacheAnswerPath := secondMap["cache_answer_path"].(string)
+	if !filepath.IsAbs(cacheAnswerPath) {
+		t.Fatalf("cache answer path should stay durable and absolute, got %q", cacheAnswerPath)
+	}
+	if _, err := os.Stat(cacheAnswerPath); err != nil {
+		t.Fatalf("cache answer path missing: %v", err)
 	}
 	if !strings.Contains(runner.prompt, "## Lore authority answer") ||
 		!strings.Contains(runner.prompt, "Fidelity implications") ||

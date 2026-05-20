@@ -144,6 +144,7 @@ func cloneBible(bible *story.StoryBible) *story.StoryBible {
 	}
 	cloned := *bible
 	cloned.WorldBasics = append([]string(nil), bible.WorldBasics...)
+	cloned.LorePrinciples = append([]story.OriginalLaw(nil), bible.LorePrinciples...)
 	cloned.OriginalLaws = append([]story.OriginalLaw(nil), bible.OriginalLaws...)
 	cloned.Factions = append([]story.Faction(nil), bible.Factions...)
 	cloned.CoreRelationships = append([]string(nil), bible.CoreRelationships...)

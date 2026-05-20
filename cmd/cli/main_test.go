@@ -245,6 +245,39 @@ func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
 	}
 }
 
+func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
+	bundle := cliTestBundle("agent-lorepack")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID:          "agent-lorepack",
+		Root:             t.TempDir(),
+		GroundLorePackID: "metabarons",
+		Replace:          true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	scope, err := prepareStoryAgentScope(playConfig{
+		Workspace: &workspace,
+		State:     &state,
+		Bible:     &bundle.Bible,
+	}, "narrator", "turn-000001", bundle.Packet, bundle.Packet.EntryNodeID, "context")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md"} {
+		abs, err := scope.Abs(rel)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if _, err := os.Stat(abs); err != nil {
+			t.Fatalf("missing staged %s: %v", rel, err)
+		}
+	}
+	if !containsStringWith(scope.VisiblePaths, "lorepack") {
+		t.Fatalf("visible paths missing lorepack: %#v", scope.VisiblePaths)
+	}
+}
+
 func TestLoreExpertModelRunnerDefaultsToCodexMiniLow(t *testing.T) {
 	t.Setenv("SANS_NOM_LORE_EXPERT_MODEL", "")
 	t.Setenv("SANS_NOM_LORE_EXPERT_EFFORT", "")

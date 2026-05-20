@@ -105,7 +105,7 @@ func TestSeedWriterPromptForbidsPlaceholderContinuationTargets(t *testing.T) {
 		"Each turn_3 branch node has no choices and has revision_notes",
 		"Do not use placeholder targets",
 		"lorepack scenario contract",
-		"binding lore principles in original_laws",
+		"lore_principles that bind the scenario pressure",
 		"three-turn runway",
 		"turn_1_intro",
 		"turn_2_decision",

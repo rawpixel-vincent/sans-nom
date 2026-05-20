@@ -368,7 +368,8 @@ func (r *ToolRunner) askLoreExpert(ctx context.Context, question string, request
 	if err != nil {
 		return loreExpertAnswer{}, err
 	}
-	result, err := tool.Handle(ctx, r.RepoRoot, string(data))
+	workspaceRoot := firstNonEmpty(r.WorkspaceRoot, r.OutputDir, r.RepoRoot)
+	result, err := tool.Handle(ctx, workspaceRoot, string(data))
 	if err != nil {
 		return loreExpertAnswer{}, err
 	}

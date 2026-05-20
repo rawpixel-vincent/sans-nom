@@ -89,7 +89,7 @@ Rules:
 - When local read tools are available, use curated lorepack/ files for concrete fidelity checks.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
-- Surface only dialogue/actions that should be witnessed in this scene.
+- Surface actor messages only from provided actor raw material. If actor raw material is [], surfaced_actor_messages must be [].
 
 Selected node:
 %s
@@ -101,7 +101,7 @@ Context:
 %s
 
 Return compact JSON:
-{"prose":"player-facing prose","surfaced_actor_messages":[{"actor_id":"...","surface":"...","witnesses":["..."]}],"choices":[{"id":"...","label":"..."}]}`,
+{"prose":"player-facing prose","surfaced_actor_messages":[],"choices":[{"id":"...","label":"..."}]}`,
 		string(packetBytes), actorJSON, context)
 }
 
@@ -122,7 +122,7 @@ Rules:
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
 - When local read tools are available, curated active lorepack files are under lorepack/ for concrete fidelity checks.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
-- The StoryBible must include title, premise, player character, player-world connection, world basics, binding lore principles in original_laws, factions, relationships, tone doctrine, source-lore refs, and resume metadata.
+- The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
 - Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
 - Return one StoryPacket with exactly 5 scene nodes.

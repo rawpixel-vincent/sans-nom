@@ -502,7 +502,7 @@ func DefaultBible() story.StoryBible {
 			"House debts are embodied; a function, limb, skill, or memory can be claimed when a family fails a civic rite.",
 			"Public witnesses matter more than private truth, so law in Glasswell is performed before crowds and machines.",
 		},
-		OriginalLaws: []story.OriginalLaw{{
+		LorePrinciples: []story.OriginalLaw{{
 			ID:             "law-of-living-collateral",
 			Name:           "Law of Living Collateral",
 			Description:    "A debt cannot be closed by money alone; the debtor must surrender a living function that proves the debt changed the body.",
@@ -530,12 +530,6 @@ func DefaultBible() story.StoryBible {
 			"Every law should feel spiritually heavy before it becomes tactical.",
 			"Absurd machinery is allowed, but emotional consequence must stay precise.",
 		},
-		SourceLoreInfluenceRefs: []string{
-			"global lore: Bushitaka law as structural inspiration only",
-			"global lore: witness-bound narration and actor boundary patterns",
-			"global lore: body alteration as inheritance pressure",
-		},
-		ForbiddenLiteralCanonTerms: []string{},
 		FirstTurnExposition: []string{
 			"Establish Glasswell as a city whose public law is machinery, ritual, crowd, and debt.",
 			"Introduce Ila Venn as the player character and show why her body matters to the city.",

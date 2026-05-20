@@ -124,7 +124,7 @@ func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
 	fmt.Fprintf(b, "premise: %s\n", value.Premise)
 	fmt.Fprintf(b, "player: %s (%s)\n", value.PlayerCharacter.Name, value.PlayerCharacter.PeerID)
 	fmt.Fprintf(b, "player_world_connection: %s\n", value.PlayerWorldConnection)
-	for _, law := range value.OriginalLaws {
+	for _, law := range value.BindingLorePrinciples() {
 		fmt.Fprintf(b, "law %s (%s): %s\n", law.ID, law.Name, law.Description)
 		fmt.Fprintf(b, "enforcement: %s\n", law.Enforcement)
 		fmt.Fprintf(b, "why_profound: %s\n", law.WhyProfound)
@@ -135,9 +135,6 @@ func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
 	writeInlineList(b, "first_turn_exposition", value.FirstTurnExposition)
 	if value.ResumeSummary != "" {
 		fmt.Fprintf(b, "resume_summary: %s\n", value.ResumeSummary)
-	}
-	if len(value.ForbiddenLiteralCanonTerms) > 0 {
-		fmt.Fprintf(b, "forbidden_literal_canon_terms: %s\n", strings.Join(value.ForbiddenLiteralCanonTerms, ", "))
 	}
 }
 

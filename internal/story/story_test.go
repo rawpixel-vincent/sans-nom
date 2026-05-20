@@ -9,9 +9,10 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
-func TestStoryBibleValidationRejectsMissingOriginalLaw(t *testing.T) {
+func TestStoryBibleValidationRejectsMissingLorePrinciple(t *testing.T) {
 	bundle := validBundle()
 	bundle.Bible.OriginalLaws = nil
+	bundle.Bible.LorePrinciples = nil
 
 	if err := ValidateBundle(bundle); err == nil {
 		t.Fatal("expected missing binding principle rejection")
@@ -105,7 +106,7 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 			t.Fatalf("index doc missing hashes: %#v", doc)
 		}
 	}
-	for _, kind := range []string{"story_bible", "story_law", "story_peer_card", "story_packet", "story_packet_node"} {
+	for _, kind := range []string{"story_bible", "story_lore_principle", "story_peer_card", "story_packet", "story_packet_node"} {
 		if !kinds[kind] {
 			t.Fatalf("missing index kind %s in %#v", kind, kinds)
 		}

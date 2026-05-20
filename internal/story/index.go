@@ -63,12 +63,12 @@ func BuildIndexDocuments(bible StoryBible, packet scene.StoryPacket, turns []Tur
 		"Story Bible",
 		map[string]any{"title": bible.Title},
 	))
-	for _, law := range bible.OriginalLaws {
+	for _, law := range bible.BindingLorePrinciples() {
 		docs = append(docs, newIndexDocument(
-			fmt.Sprintf("story_law:%s:%s", bible.StoryID, law.ID),
-			"story_law",
+			fmt.Sprintf("story_lore_principle:%s:%s", bible.StoryID, law.ID),
+			"story_lore_principle",
 			source,
-			originalLawIndexText(bible, law),
+			lorePrincipleIndexText(bible, law),
 			bible.StoryID,
 			"",
 			"",
@@ -149,8 +149,8 @@ type storyPeerCardDoc struct {
 }
 
 func storyPeerCardDocuments(bible StoryBible) []storyPeerCardDoc {
-	laws := make([]string, 0, len(bible.OriginalLaws))
-	for _, law := range bible.OriginalLaws {
+	laws := make([]string, 0, len(bible.BindingLorePrinciples()))
+	for _, law := range bible.BindingLorePrinciples() {
 		laws = append(laws, "INSTRUCTION: Enforce binding lore principle "+law.Name+": "+law.Enforcement)
 	}
 	narrator := []string{
@@ -312,14 +312,13 @@ func storyBibleIndexText(bible StoryBible) string {
 	writeIndexList(&b, "Core relationships", bible.CoreRelationships)
 	writeIndexList(&b, "Tone doctrine", bible.ToneDoctrine)
 	writeIndexList(&b, "First-turn exposition", bible.FirstTurnExposition)
-	writeIndexList(&b, "Source-lore influence refs", bible.SourceLoreInfluenceRefs)
 	fmt.Fprintf(&b, "Resume summary: %s\n", bible.ResumeSummary)
 	return b.String()
 }
 
-func originalLawIndexText(bible StoryBible, law OriginalLaw) string {
+func lorePrincipleIndexText(bible StoryBible, law OriginalLaw) string {
 	return strings.Join([]string{
-		"Story law: " + law.Name,
+		"Story lore principle: " + law.Name,
 		"Story: " + bible.Title,
 		"Description: " + law.Description,
 		"Enforcement: " + law.Enforcement,

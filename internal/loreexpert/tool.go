@@ -60,13 +60,13 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Lore authority for the selected lorepack. Use when a question needs scenario-fidelity checking, source references, tone lineage, relationship pressure, contradiction checks, or canon-pressure analysis. Results are cached per lorepack and returned as file paths plus a short preview.",
+		Description: "Lore authority for the selected lorepack. Use when a question needs scenario-fidelity checking, source references, tone lineage, relationship pressure, contradiction checks, or canon-pressure analysis. Results are cached per lorepack and returned as a workspace-readable answer_path plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
 }
 
-func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (any, error) {
+func (r *ToolRunner) Handle(ctx context.Context, workspaceRoot string, arguments string) (any, error) {
 	if r == nil {
 		return nil, errors.New("lore expert tool requires runner config")
 	}
@@ -93,26 +93,33 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 	metadata := r.modelMetadata()
 	if answer, err := os.ReadFile(answerPath); err == nil && strings.TrimSpace(string(answer)) != "" {
 		refs := readSourceRefs(filepath.Join(cacheDir, "sources.json"))
+		modelVisibleAnswerPath, err := r.materializeAnswer(workspaceRoot, request.PackID, cacheKey, cacheDir, string(answer), refs, true)
+		if err != nil {
+			r.logFailed(arguments, &request, cacheKey, err)
+			return nil, err
+		}
 		r.log(gamelog.Event{
 			Category: "lore",
 			Event:    "lore.expert.cache_hit",
 			Message:  "lore expert cache hit",
 			Fields: modelmeta.MergeFields(map[string]any{
-				"pack_id":     request.PackID,
-				"purpose":     request.Purpose,
-				"cache_key":   cacheKey,
-				"answer_path": filepath.ToSlash(answerPath),
+				"pack_id":                   request.PackID,
+				"purpose":                   request.Purpose,
+				"cache_key":                 cacheKey,
+				"answer_path":               filepath.ToSlash(answerPath),
+				"model_visible_answer_path": modelVisibleAnswerPath,
 			}, metadata),
 			Detail: map[string]any{
-				"request":        request,
-				"cache_key":      cacheKey,
-				"cache_dir":      filepath.ToSlash(cacheDir),
-				"answer_path":    filepath.ToSlash(answerPath),
-				"source_refs":    refs,
-				"model_metadata": metadata,
+				"request":                   request,
+				"cache_key":                 cacheKey,
+				"cache_dir":                 filepath.ToSlash(cacheDir),
+				"answer_path":               filepath.ToSlash(answerPath),
+				"model_visible_answer_path": modelVisibleAnswerPath,
+				"source_refs":               refs,
+				"model_metadata":            metadata,
 			},
 		})
-		return r.result(true, cacheDir, cacheKey, string(answer), refs), nil
+		return r.result(true, cacheDir, cacheKey, modelVisibleAnswerPath, string(answer), refs), nil
 	}
 	if r.Runner == nil {
 		err := errors.New("lore expert runner is required on cache miss")
@@ -197,26 +204,33 @@ func (r *ToolRunner) Handle(ctx context.Context, _ string, arguments string) (an
 		r.logFailed(arguments, &request, cacheKey, err)
 		return nil, err
 	}
+	modelVisibleAnswerPath, err := r.materializeAnswer(workspaceRoot, request.PackID, cacheKey, cacheDir, answer, refs, false)
+	if err != nil {
+		r.logFailed(arguments, &request, cacheKey, err)
+		return nil, err
+	}
 	r.log(gamelog.Event{
 		Category: "lore",
 		Event:    "lore.expert.response",
 		Message:  "lore expert answer written",
 		Fields: modelmeta.MergeFields(map[string]any{
-			"pack_id":      request.PackID,
-			"purpose":      request.Purpose,
-			"cache_key":    cacheKey,
-			"answer_chars": len(answer),
-			"answer_path":  filepath.ToSlash(answerPath),
+			"pack_id":                   request.PackID,
+			"purpose":                   request.Purpose,
+			"cache_key":                 cacheKey,
+			"answer_chars":              len(answer),
+			"answer_path":               filepath.ToSlash(answerPath),
+			"model_visible_answer_path": modelVisibleAnswerPath,
 		}, metadata),
 		Detail: map[string]any{
-			"request":        request,
-			"metadata":       meta,
-			"source_refs":    refs,
-			"answer":         answer,
-			"model_metadata": metadata,
+			"request":                   request,
+			"metadata":                  meta,
+			"model_visible_answer_path": modelVisibleAnswerPath,
+			"source_refs":               refs,
+			"answer":                    answer,
+			"model_metadata":            metadata,
 		},
 	})
-	return r.result(false, cacheDir, cacheKey, answer, refs), nil
+	return r.result(false, cacheDir, cacheKey, modelVisibleAnswerPath, answer, refs), nil
 }
 
 func (r *ToolRunner) validateRequest(request ToolRequest) error {
@@ -330,16 +344,55 @@ Keep the answer compact, concrete, and useful to a Creative Writer or Narrator. 
 	return strings.TrimSpace(b.String())
 }
 
-func (r *ToolRunner) result(cached bool, cacheDir string, cacheKey string, answer string, refs []SourceRef) map[string]any {
+func (r *ToolRunner) result(cached bool, cacheDir string, cacheKey string, modelVisibleAnswerPath string, answer string, refs []SourceRef) map[string]any {
+	cacheAnswerPath := filepath.ToSlash(filepath.Join(cacheDir, "answer.md"))
+	answerPath := firstNonEmpty(modelVisibleAnswerPath, cacheAnswerPath)
 	return map[string]any{
-		"ok":          true,
-		"cached":      cached,
-		"cache_key":   cacheKey,
-		"answer_path": filepath.ToSlash(filepath.Join(cacheDir, "answer.md")),
-		"source_refs": refs,
-		"preview":     preview(answer, 700),
-		"note":        "Lore expert material is reference support for scenario fidelity. It is not final prose, StoryBible doctrine, or StoryPacket structure.",
+		"ok":                 true,
+		"cached":             cached,
+		"cache_key":          cacheKey,
+		"answer_path":        answerPath,
+		"cache_answer_path":  cacheAnswerPath,
+		"model_visible_path": modelVisibleAnswerPath,
+		"model_visible_root": "lore-expert",
+		"source_refs":        refs,
+		"preview":            preview(answer, 700),
+		"note":               "Lore expert material is reference support for scenario fidelity. It is not final prose, StoryBible doctrine, or StoryPacket structure. Read answer_path from the current agent workspace when more detail is needed.",
 	}
+}
+
+func (r *ToolRunner) materializeAnswer(workspaceRoot string, packID string, cacheKey string, cacheDir string, answer string, refs []SourceRef, cached bool) (string, error) {
+	workspaceRoot = strings.TrimSpace(workspaceRoot)
+	if workspaceRoot == "" {
+		return "", nil
+	}
+	absRoot, err := filepath.Abs(workspaceRoot)
+	if err != nil {
+		return "", err
+	}
+	relDir := filepath.Join("lore-expert", safeSegment(packID), safeSegment(cacheKey))
+	absDir := filepath.Join(absRoot, relDir)
+	if err := os.MkdirAll(absDir, 0o755); err != nil {
+		return "", err
+	}
+	if err := writeTextAtomic(filepath.Join(absDir, "answer.md"), strings.TrimSpace(answer)+"\n"); err != nil {
+		return "", err
+	}
+	if err := writeJSONAtomic(filepath.Join(absDir, "sources.json"), refs); err != nil {
+		return "", err
+	}
+	metadata := map[string]any{
+		"cached":            cached,
+		"cache_answer_path": filepath.ToSlash(filepath.Join(cacheDir, "answer.md")),
+		"cache_key":         cacheKey,
+		"pack_id":           packID,
+		"created_at":        time.Now().UTC().Format(time.RFC3339Nano),
+		"planning_only":     true,
+	}
+	if err := writeJSONAtomic(filepath.Join(absDir, "metadata.json"), metadata); err != nil {
+		return "", err
+	}
+	return filepath.ToSlash(filepath.Join(relDir, "answer.md")), nil
 }
 
 func (r *ToolRunner) cacheKey(request ToolRequest) (string, error) {
@@ -568,6 +621,29 @@ func preview(text string, max int) string {
 		return text[:max]
 	}
 	return text[:max-3] + "..."
+}
+
+func safeSegment(value string) string {
+	value = strings.ToLower(strings.TrimSpace(value))
+	var b strings.Builder
+	lastDash := false
+	for _, r := range value {
+		ok := (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9')
+		if ok {
+			b.WriteRune(r)
+			lastDash = false
+			continue
+		}
+		if !lastDash {
+			b.WriteByte('-')
+			lastDash = true
+		}
+	}
+	out := strings.Trim(b.String(), "-")
+	if out == "" {
+		return "unknown"
+	}
+	return out
 }
 
 func firstNonEmpty(values ...string) string {

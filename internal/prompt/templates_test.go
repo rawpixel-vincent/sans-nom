@@ -24,7 +24,7 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 		"own the StoryBible and StoryPacket",
 		"Use ask_lore_expert when fidelity to the selected lorepack is uncertain",
 		"lore authority/reference support",
-		"binding lore principles in original_laws",
+		"lore_principles that bind the scenario pressure",
 		"cause, social practice, cost, emotional credibility, and consequence",
 		"exactly 5 scene nodes",
 		"three-turn runway",
@@ -126,6 +126,7 @@ func TestNarratorPromptUsesLoreFidelityLanguage(t *testing.T) {
 		"reinforce its pressure and consequences",
 		"Use lore references to preserve fidelity to the active scenario",
 		"curated lorepack/ files",
+		"If actor raw material is [], surfaced_actor_messages must be []",
 		"LOREPACK SCENARIO CONTRACT",
 	} {
 		if !strings.Contains(got, required) {

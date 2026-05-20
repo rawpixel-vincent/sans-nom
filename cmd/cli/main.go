@@ -632,10 +632,10 @@ func newStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 		PacketID: session.Packet.ID,
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
-			"title":      session.Bible.Title,
-			"backend":    cfg.Backend,
-			"law_count":  len(session.Bible.OriginalLaws),
-			"node_count": len(session.Packet.Nodes),
+			"title":                session.Bible.Title,
+			"backend":              cfg.Backend,
+			"lore_principle_count": len(session.Bible.BindingLorePrinciples()),
+			"node_count":           len(session.Packet.Nodes),
 		},
 	})
 	logEvent(logger, gamelog.Event{
@@ -1307,8 +1307,8 @@ func bridgeStoryDocs(docs []story.IndexDocument) []bridgeclient.StoryIndexDocume
 }
 
 func seedPeerCards(bible story.StoryBible) map[string][]string {
-	lawFacts := make([]string, 0, len(bible.OriginalLaws))
-	for _, law := range bible.OriginalLaws {
+	lawFacts := make([]string, 0, len(bible.BindingLorePrinciples()))
+	for _, law := range bible.BindingLorePrinciples() {
 		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce binding lore principle %s: %s", law.Name, law.Enforcement))
 	}
 	baseBoundaries := []string{
@@ -4063,7 +4063,11 @@ func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet sc
 	if err := scope.Ensure(); err != nil {
 		return scope, err
 	}
-	if stagedScope, err := stageLorePackForAgentByID(scope, cfg.GroundLorePackID); err == nil {
+	packID := firstNonEmpty(cfg.GroundLorePackID, lorepack.DefaultPackID())
+	if cfg.State != nil {
+		packID = firstNonEmpty(cfg.State.SourceLorePackID(), packID)
+	}
+	if stagedScope, err := stageLorePackForAgentByID(scope, packID); err == nil {
 		scope = stagedScope
 	} else {
 		logEvent(cfg.Logger, gamelog.Event{
@@ -4072,7 +4076,7 @@ func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet sc
 			Event:    "lorepack.agent_stage_failed",
 			Message:  err.Error(),
 			Fields: map[string]any{
-				"ground_lore_pack_id":  firstNonEmpty(cfg.GroundLorePackID, lorepack.DefaultPackID()),
+				"ground_lore_pack_id":  packID,
 				"agent_workspace_root": filepath.ToSlash(scope.Root),
 			},
 		})

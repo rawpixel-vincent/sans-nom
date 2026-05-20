@@ -33,12 +33,13 @@ type StoryBible struct {
 	PlayerCharacter            PlayerCharacter   `json:"player_character"`
 	PlayerWorldConnection      string            `json:"player_world_connection"`
 	WorldBasics                []string          `json:"world_basics"`
-	OriginalLaws               []OriginalLaw     `json:"original_laws"`
+	LorePrinciples             []OriginalLaw     `json:"lore_principles,omitempty"`
+	OriginalLaws               []OriginalLaw     `json:"original_laws,omitempty"`
 	Factions                   []Faction         `json:"factions"`
 	CoreRelationships          []string          `json:"core_relationships"`
 	ToneDoctrine               []string          `json:"tone_doctrine"`
-	SourceLoreInfluenceRefs    []string          `json:"source_lore_influence_refs"`
-	ForbiddenLiteralCanonTerms []string          `json:"forbidden_literal_canon_terms"`
+	SourceLoreInfluenceRefs    []string          `json:"source_lore_influence_refs,omitempty"`
+	ForbiddenLiteralCanonTerms []string          `json:"forbidden_literal_canon_terms,omitempty"`
 	FirstTurnExposition        []string          `json:"first_turn_exposition"`
 	ResumeSummary              string            `json:"resume_summary"`
 	Metadata                   map[string]string `json:"metadata"`
@@ -61,6 +62,13 @@ type OriginalLaw struct {
 	Enforcement    string `json:"enforcement"`
 	WhyProfound    string `json:"why_profound"`
 	NotMerelyCruel string `json:"not_merely_cruel"`
+}
+
+func (b StoryBible) BindingLorePrinciples() []OriginalLaw {
+	if len(b.LorePrinciples) > 0 {
+		return b.LorePrinciples
+	}
+	return b.OriginalLaws
 }
 
 type Faction struct {
@@ -202,10 +210,11 @@ func (b StoryBible) Validate() error {
 	if len(b.WorldBasics) < 3 {
 		return fmt.Errorf("story bible needs at least 3 world basics")
 	}
-	if len(b.OriginalLaws) == 0 {
+	principles := b.BindingLorePrinciples()
+	if len(principles) == 0 {
 		return errors.New("story bible needs at least one binding lore principle")
 	}
-	for _, law := range b.OriginalLaws {
+	for _, law := range principles {
 		if strings.TrimSpace(law.ID) == "" || strings.TrimSpace(law.Name) == "" {
 			return errors.New("each binding lore principle needs id and name")
 		}
@@ -308,7 +317,7 @@ func (b StoryBible) CreatedStoryText() string {
 	var out []string
 	out = append(out, b.Title, b.Premise, b.PlayerCharacter.Name, b.PlayerCharacter.Description, b.PlayerCharacter.Desire, b.PlayerCharacter.Wound, b.PlayerCharacter.Boundary, b.PlayerWorldConnection)
 	out = append(out, b.WorldBasics...)
-	for _, law := range b.OriginalLaws {
+	for _, law := range b.BindingLorePrinciples() {
 		out = append(out, law.ID, law.Name, law.Description, law.Enforcement, law.WhyProfound, law.NotMerelyCruel)
 	}
 	for _, faction := range b.Factions {
