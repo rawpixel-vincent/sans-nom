@@ -251,10 +251,34 @@ func (r *ToolRunner) normalizeRelevantPaths(workspaceRoot string, request *ToolR
 		if err != nil {
 			return fmt.Errorf("relevant_path %q rejected: %w", path, err)
 		}
+		rel, err = normalizeExistingRelevantPath(scope, rel)
+		if err != nil {
+			return fmt.Errorf("relevant_path %q rejected: %w", path, err)
+		}
 		normalized = append(normalized, rel)
 	}
 	request.RelevantPaths = normalized
 	return nil
+}
+
+func normalizeExistingRelevantPath(scope agentfs.Scope, rel string) (string, error) {
+	if stagedPathExists(scope, rel) {
+		return rel, nil
+	}
+	clean := filepath.ToSlash(filepath.Clean(filepath.FromSlash(rel)))
+	if strings.HasPrefix(clean, "packets/") && strings.HasSuffix(clean, ".json") && stagedPathExists(scope, "story/current-packet.json") {
+		return "story/current-packet.json", nil
+	}
+	return "", fmt.Errorf("path is not staged in the agent workspace: %s", rel)
+}
+
+func stagedPathExists(scope agentfs.Scope, rel string) bool {
+	abs, err := scope.Abs(rel)
+	if err != nil {
+		return false
+	}
+	_, err = os.Stat(abs)
+	return err == nil
 }
 
 func (r *ToolRunner) modelVisiblePath(workspaceRoot string, path string) string {

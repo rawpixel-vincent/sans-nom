@@ -64,9 +64,11 @@ tools should only see staged files inside the current agent workspace.
 ## Lorepacks
 
 `lore/packs/<pack_id>/lore-pack.json` is the source of truth for pack metadata
-and the authored gameplay contract. In Faithful Canon Prototype mode, the pack
-contract defines the story premise, protagonist role, opening situation,
-must-honor constraints, must-not-violate constraints, and choice principles.
+and the authored gameplay contract. In scenario-contract modes, the pack
+declares whether play is a direct `canon_adaptation`, a
+`canon_internal_original`, or a future `homage_original`, then defines the story
+premise, protagonist role, opening situation, must-honor constraints,
+must-not-violate constraints, choice principles, and optional canon anchors.
 
 Model-visible tools do not read raw `lore/packs/...` paths. The active pack is
 copied into the current agent workspace as `lorepack/`.

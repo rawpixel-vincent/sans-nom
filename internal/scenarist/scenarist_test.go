@@ -501,6 +501,12 @@ func TestToolRunnerReturnsWorkspaceRelativePaths(t *testing.T) {
 func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	workspaceRoot := filepath.Join(t.TempDir(), "agent")
+	if err := os.MkdirAll(filepath.Join(workspaceRoot, "story"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "story", "bible.json"), []byte("{}"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	tool := (&ToolRunner{
 		Runner:        &fakeScenaristRunner{response: "material"},
 		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
@@ -536,6 +542,30 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		if !strings.Contains(text, "law-check") {
 			t.Fatalf("detail missing request payload: %s", text)
 		}
+	}
+}
+
+func TestToolRunnerMapsPacketRelevantPathToStagedCurrentPacket(t *testing.T) {
+	workspaceRoot := filepath.Join(t.TempDir(), "agent")
+	if err := os.MkdirAll(filepath.Join(workspaceRoot, "story"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "story", "current-packet.json"), []byte(`{"id":"packet-1"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	runner := &fakeScenaristRunner{response: "material"}
+	tool := (&ToolRunner{
+		Runner:        runner,
+		OutputDir:     filepath.Join(workspaceRoot, "scenarists"),
+		WorkspaceRoot: workspaceRoot,
+		MaxCalls:      1,
+	}).LocalTool()
+	args := `{"topic_id":"packet","topic":"Packet","request":"Critique the current packet.","hard_boundaries":["planning only"],"relevant_paths":["packets/packet-1.json"]}`
+	if _, err := tool.Handler(context.Background(), workspaceRoot, args); err != nil {
+		t.Fatal(err)
+	}
+	if len(runner.queries) != 1 || !strings.Contains(runner.queries[0], "story/current-packet.json") {
+		t.Fatalf("scenarist query should use staged current packet path: %#v", runner.queries)
 	}
 }
 

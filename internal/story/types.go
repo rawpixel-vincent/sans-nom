@@ -42,6 +42,11 @@ type StoryBible struct {
 	ForbiddenLiteralCanonTerms []string          `json:"forbidden_literal_canon_terms,omitempty"`
 	FirstTurnExposition        []string          `json:"first_turn_exposition"`
 	StoryArc                   []string          `json:"story_arc,omitempty"`
+	CurrentArcPhase            string            `json:"current_arc_phase,omitempty"`
+	NextRequiredRevelation     string            `json:"next_required_revelation,omitempty"`
+	NextRequiredOpposition     string            `json:"next_required_opposition,omitempty"`
+	SpentMotifs                []string          `json:"spent_motifs,omitempty"`
+	OpenThreads                []string          `json:"open_threads,omitempty"`
 	ResumeSummary              string            `json:"resume_summary"`
 	Metadata                   map[string]string `json:"metadata"`
 }
@@ -331,6 +336,9 @@ func (b StoryBible) CreatedStoryText() string {
 	out = append(out, b.ToneDoctrine...)
 	out = append(out, b.FirstTurnExposition...)
 	out = append(out, b.StoryArc...)
+	out = append(out, b.CurrentArcPhase, b.NextRequiredRevelation, b.NextRequiredOpposition)
+	out = append(out, b.SpentMotifs...)
+	out = append(out, b.OpenThreads...)
 	out = append(out, b.ResumeSummary)
 	return strings.Join(out, "\n")
 }

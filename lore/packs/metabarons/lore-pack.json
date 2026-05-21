@@ -43,7 +43,7 @@
   ],
   "forbidden_literal_terms": [],
   "status": "active",
-  "gameplay_mode": "faithful_canon_prototype",
+  "gameplay_mode": "canon_internal_original",
   "game_synopsis": "The player stands inside the Metabaron dynasty's pressure field, where family, body, weapon, memory, service, and public consequence decide legitimacy. The opening story stages one immediate household crisis that forces the player to choose how inheritance, obedience, refusal, love, or sacrifice should mean anything when witnesses are watching.",
   "protagonist_role": "A contested figure bound to the dynasty's household machinery: heir, sworn servant, weapon-keeper, witness, lover, rival, or survivor whose legitimacy is under pressure.",
   "opening_situation": "A household demand turns private lineage truth into public consequence while someone close to the player needs an answer now.",
@@ -73,5 +73,27 @@
     "Choices should expose what the heir values under pressure, then make the household react.",
     "A good branch changes who witnesses the heir, what proof exists, or what cost becomes unavoidable.",
     "Lore fidelity matters more than novelty; surprise should come from staging and consequence inside the dynasty contract."
-  ]
+  ],
+  "canon_anchor": {
+    "source_volumes": [1, 2, 3, 4, 5, 6, 7, 8],
+    "source_events": [
+      "Dynasty legitimacy is repeatedly tested through bodily cost, family obedience, refusal, weapon inheritance, and public consequence.",
+      "Servants, witnesses, and narrators shape how family violence becomes remembered truth."
+    ],
+    "source_characters": [
+      "Othon",
+      "Honorata",
+      "Aghnar",
+      "Steelhead",
+      "Aghora",
+      "No-Name"
+    ],
+    "must_include_canon_facts": [
+      "The playable story must preserve the Metabaron dynasty as a world where family duty, bodily proof, weapon legitimacy, and remembered consequence are inseparable."
+    ],
+    "allowed_original_insertions": [
+      "New household figures, servants, rivals, witnesses, and local rites may be created when they do not replace or contradict established dynasty logic.",
+      "The player may be an internal original figure whose crisis exposes canon-faithful pressures rather than retelling a specific volume beat."
+    ]
+  }
 }

@@ -9,6 +9,8 @@ search corpus; it is an authored gameplay contract.
 
 - retrieval metadata;
 - authored `game_synopsis`;
+- explicit `gameplay_mode` (`canon_adaptation`, `canon_internal_original`, or
+  `homage_original`);
 - `protagonist_role`;
 - `opening_situation`;
 - `initial_pressure`;
@@ -17,9 +19,11 @@ search corpus; it is an authored gameplay contract.
 - `must_not_violate`;
 - `choice_principles`.
 
-In Faithful Canon Prototype mode, seed generation and Writer refresh must honor
-that contract. The LLM may stage, compress, branch, and narrate the material; it
-should not replace the premise.
+In scenario-contract modes, seed generation and Writer refresh must honor that
+contract. The LLM may stage, compress, branch, and narrate the material; it
+should not replace the premise. `canon_internal_original` means a new playable
+episode inside canon constraints; `canon_adaptation` means a concrete authored
+canon episode with explicit anchors.
 
 ## Model-Visible Lore Files
 
@@ -44,8 +48,8 @@ LoreExpert is the source-grounded role for focused questions:
 - Is the Narrator drifting into generic fantasy or unsupported invention?
 
 In older influence-mode experiments, LoreExpert was "influence-only." In
-Faithful Canon Prototype mode, it is better understood as lore authority and
-reference support.
+scenario-contract modes, it is better understood as lore authority and reference
+support.
 
 ## Retrieval At Turn Time
 

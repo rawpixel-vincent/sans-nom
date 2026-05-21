@@ -21,6 +21,7 @@ Creative priorities:
 - Let any local doctrine sharpen desire, opposition, or cost; do not make procedure the main attraction.
 - Honor any lorepack scenario contract in the assembled context; branch inside its pressure, choice logic, and consequences.
 - Advance the story phase. Do not replay, re-adjudicate, or rename the same proof, bargain, challenge, wound, or testimony as the previous turn.
+- Obey STORY PHASE GUIDANCE when present. If it marks a proof mechanism or motif as spent, the next packet must make someone act on that proof or shift to a new macro pressure.
 
 Packet contract:
 - Plan roughly 3-5 scene nodes.
@@ -87,7 +88,7 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
-- When local read tools are available, use curated lorepack/ files for concrete fidelity checks.
+- Use provided lore context first. When a concrete source detail is missing, read curated files such as lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface actor messages only from provided actor raw material. If actor raw material is [], surfaced_actor_messages must be [].
@@ -126,6 +127,7 @@ Rules:
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
+- Populate optional phase fields when useful: current_arc_phase, next_required_revelation, next_required_opposition, spent_motifs, and open_threads.
 - Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
 - Return one StoryPacket with exactly 5 scene nodes.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.

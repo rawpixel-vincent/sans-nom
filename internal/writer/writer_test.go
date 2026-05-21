@@ -82,6 +82,48 @@ func TestRefreshAsyncRejectsInvalidReplacement(t *testing.T) {
 	}
 }
 
+func TestRefreshAsyncRejectsSpentProofChoiceLoop(t *testing.T) {
+	packet := proofLoopPacket()
+	svc := Service{Planner: StaticPlanner{Next: packet}, Validator: ValidateProgression}
+
+	job, err := svc.RefreshAsync(context.Background(), Input{
+		SpentMotifs: []string{"witness/testimony proof", "servant/household memory"},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	result := job.Await(context.Background())
+	if result.Err == nil {
+		t.Fatal("expected spent proof loop rejection")
+	}
+	if !strings.Contains(result.Err.Error(), "spent proof mechanism") {
+		t.Fatalf("unexpected error: %v", result.Err)
+	}
+}
+
+func TestRefreshAsyncAllowsSpentProofWithMacroPressure(t *testing.T) {
+	packet := proofLoopPacket()
+	packet.Nodes[0].Choices[2] = scene.Choice{ID: "claim_weapon", Label: "Take the witness mask to the weapon locker and force the rival claimant into public contest.", TargetNodeID: "weapon"}
+	packet.Nodes[3] = scene.SceneNode{
+		ID:      "weapon",
+		Title:   "Weapon Schedule",
+		Beats:   []scene.Beat{{Text: "The weapon locker opens to reveal the altered succession blade schedule and the rival claimant waiting beside it."}},
+		Choices: []scene.Choice{},
+	}
+	svc := Service{Planner: StaticPlanner{Next: packet}, Validator: ValidateProgression}
+
+	job, err := svc.RefreshAsync(context.Background(), Input{
+		SpentMotifs: []string{"witness/testimony proof", "servant/household memory"},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	result := job.Await(context.Background())
+	if result.Err != nil {
+		t.Fatal(result.Err)
+	}
+}
+
 func TestRefreshAsyncWritesDiagnosticsForInvalidWriterPacket(t *testing.T) {
 	raw := `{
   "id": "bad",
@@ -138,4 +180,44 @@ type invalidPlanner struct{}
 
 func (invalidPlanner) Plan(context.Context, Input) (scene.StoryPacket, error) {
 	return scene.StoryPacket{}, nil
+}
+
+func proofLoopPacket() scene.StoryPacket {
+	return scene.StoryPacket{
+		ID:          "proof-loop",
+		EntryNodeID: "start",
+		Nodes: []scene.SceneNode{{
+			ID:    "start",
+			Title: "Proof Management",
+			Beats: []scene.Beat{{Text: "The servant testimony and witness mask have already been accepted by the household."}},
+			Choices: []scene.Choice{{
+				ID:           "carry_mask",
+				Label:        "Carry the witness mask to another servant ledger.",
+				TargetNodeID: "carry",
+			}, {
+				ID:           "copy_ledger",
+				Label:        "Copy the servant testimony into a hidden record.",
+				TargetNodeID: "copy",
+			}, {
+				ID:           "hide_witness",
+				Label:        "Hide the witness and preserve the mask proof.",
+				TargetNodeID: "hide",
+			}},
+		}, {
+			ID:      "carry",
+			Title:   "Carry The Mask",
+			Beats:   []scene.Beat{{Text: "The mask is carried to another servant record for preservation."}},
+			Choices: []scene.Choice{},
+		}, {
+			ID:      "copy",
+			Title:   "Copy The Ledger",
+			Beats:   []scene.Beat{{Text: "The testimony is copied into a ledger and hidden."}},
+			Choices: []scene.Choice{},
+		}, {
+			ID:      "hide",
+			Title:   "Hide The Witness",
+			Beats:   []scene.Beat{{Text: "The witness is concealed so the proof can be preserved."}},
+			Choices: []scene.Choice{},
+		}},
+	}
 }

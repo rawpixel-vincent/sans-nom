@@ -79,6 +79,7 @@ func (c WriterContext) RenderText() string {
 	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
 
 	writeWriterSelectedNodeSummary(&b, c)
+	writeStoryProgression(&b, c.Progression)
 
 	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
 	writeWriterProgressionContract(&b)
@@ -114,6 +115,23 @@ func writeWriterProgressionContract(b *strings.Builder) {
 	fmt.Fprintln(b, "- If the previous branch accepted a challenge, petition, escape, wound, testimony, or bargain, the next packet must make that consequence happen or move to the scene where it bites.")
 	fmt.Fprintln(b, "- Do not offer three choices that are only different ways to continue observing the same mechanism. Each choice must change who can act, what proof exists, what relationship is endangered, or what cost becomes unavoidable.")
 	fmt.Fprintln(b, "- Use the Story Bible story_arc, if present, as the phase ladder. The opening crisis is not the whole story.")
+}
+
+func writeStoryProgression(b *strings.Builder, progression StoryProgression) {
+	if len(progression.StoryArc) == 0 && progression.CurrentPhase == "" && progression.NextPhase == "" && len(progression.SpentMotifs) == 0 && len(progression.RequiredMovement) == 0 && len(progression.Warnings) == 0 {
+		return
+	}
+	writeSection(b, "STORY PHASE GUIDANCE")
+	writeInlineList(b, "story_arc", progression.StoryArc)
+	if progression.CurrentPhase != "" {
+		fmt.Fprintf(b, "current_phase: %s\n", progression.CurrentPhase)
+	}
+	if progression.NextPhase != "" {
+		fmt.Fprintf(b, "next_phase: %s\n", progression.NextPhase)
+	}
+	writeInlineList(b, "spent_motifs", progression.SpentMotifs)
+	writeInlineList(b, "required_next_movement", progression.RequiredMovement)
+	writeInlineList(b, "phase_warnings", progression.Warnings)
 }
 
 func writeWriterSelectedNodeSummary(b *strings.Builder, c WriterContext) {
@@ -170,6 +188,17 @@ func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
 	writeInlineList(b, "tone_doctrine", value.ToneDoctrine)
 	writeInlineList(b, "first_turn_exposition", value.FirstTurnExposition)
 	writeInlineList(b, "story_arc", value.StoryArc)
+	if strings.TrimSpace(value.CurrentArcPhase) != "" {
+		fmt.Fprintf(b, "current_arc_phase: %s\n", strings.TrimSpace(value.CurrentArcPhase))
+	}
+	if strings.TrimSpace(value.NextRequiredRevelation) != "" {
+		fmt.Fprintf(b, "next_required_revelation: %s\n", strings.TrimSpace(value.NextRequiredRevelation))
+	}
+	if strings.TrimSpace(value.NextRequiredOpposition) != "" {
+		fmt.Fprintf(b, "next_required_opposition: %s\n", strings.TrimSpace(value.NextRequiredOpposition))
+	}
+	writeInlineList(b, "spent_motifs", value.SpentMotifs)
+	writeInlineList(b, "open_threads", value.OpenThreads)
 	if value.ResumeSummary != "" {
 		fmt.Fprintf(b, "resume_summary: %s\n", value.ResumeSummary)
 	}

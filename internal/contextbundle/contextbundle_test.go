@@ -70,9 +70,50 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 		!strings.Contains(text, "Start after the selected node's witnessed outcome") {
 		t.Fatalf("writer context missed progression contract:\n%s", text)
 	}
+	if !strings.Contains(text, "STORY PHASE GUIDANCE") ||
+		!strings.Contains(text, "required_next_movement") {
+		t.Fatalf("writer context missed phase guidance:\n%s", text)
+	}
 	if !strings.Contains(text, "Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order") ||
 		!strings.Contains(text, "visible cost, and consequence") {
 		t.Fatalf("writer context missed binding doctrine/plausibility rule:\n%s", text)
+	}
+}
+
+func TestWriterContextFlagsSpentServantMemoryProof(t *testing.T) {
+	packet := testPacket()
+	packet.ContextSnapshot.LatestNarratorProse = "Saryn carried the witness mask through the service hatch while servants copied its testimony into a ledger."
+	bible := testBible()
+	bible.CurrentArcPhase = "servant schism"
+	bible.NextRequiredRevelation = "the weapon schedule was altered"
+	bible.NextRequiredOpposition = "a rival claimant uses the altered memory"
+	bible.SpentMotifs = []string{"mask testimony"}
+	bible.OpenThreads = []string{"Sava's breath-mask debt"}
+	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
+		Packet:   packet,
+		NodeID:   "active",
+		Decision: scene.PlayerDecision{ChoiceID: "choice_carry_the_mask"},
+		Bible:    &bible,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	for _, required := range []string{
+		"spent_motifs",
+		"mask testimony",
+		"witness/testimony proof",
+		"servant/household memory",
+		"Next required revelation: the weapon schedule was altered",
+		"Next required opposition: a rival claimant uses the altered memory",
+		"Keep open thread active: Sava's breath-mask debt",
+		"Servant-memory proof appears spent",
+		"Do not center another servant ledger, mask, copy, or testimony-validity debate",
+		"Shift pressure toward weapon/resource claim",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("writer context missing spent-motif guidance %q:\n%s", required, text)
+		}
 	}
 }
 

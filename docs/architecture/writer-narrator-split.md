@@ -16,9 +16,8 @@ The Writer is the slower planner. It produces and refreshes bounded
 - Actor needs, when a node truly requires actor support.
 - Lore-fidelity obligations from the active lorepack scenario contract.
 
-In Faithful Canon Prototype mode, the Writer does not invent the central
-premise. It stages and branches from the active lorepack's authored scenario
-contract.
+In scenario-contract modes, the Writer does not invent the central premise. It
+stages and branches from the active lorepack's authored scenario contract.
 
 For seeds, the accepted runway remains compact:
 

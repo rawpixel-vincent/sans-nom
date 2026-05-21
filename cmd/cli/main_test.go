@@ -306,7 +306,7 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md"} {
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/contract.md", "lorepack/relevant-excerpts.md", "lorepack/source-anchors.md"} {
 		abs, err := scope.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
@@ -314,6 +314,13 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 		if _, err := os.Stat(abs); err != nil {
 			t.Fatalf("missing staged %s: %v", rel, err)
 		}
+	}
+	wiki, err := scope.Abs("lorepack/wiki/lore.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(wiki); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("narrator scope should not stage broad wiki lore, stat err = %v", err)
 	}
 	if !containsStringWith(scope.VisiblePaths, "lorepack") {
 		t.Fatalf("visible paths missing lorepack: %#v", scope.VisiblePaths)
@@ -917,12 +924,36 @@ func TestRunPlayMarksTerminalRunwayNodeAwaitingContinuation(t *testing.T) {
 	if planner.calls != 1 {
 		t.Fatalf("writer refresh calls = %d, want 1", planner.calls)
 	}
+	if planner.lastInput.LatestDecision != "pay" {
+		t.Fatalf("writer refresh latest decision = %q, want prior branch choice", planner.lastInput.LatestDecision)
+	}
 	turns, err := workspace.LoadTurns()
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(turns) == 0 || turns[0].NodeID != "opened" || turns[0].NextDecision.FreeText != "wait" {
+	if len(turns) == 0 || turns[0].NodeID != "opened" || turns[0].Decision.ChoiceID != "pay" || !story.PlayerDecisionEmpty(turns[0].NextDecision) {
 		t.Fatalf("terminal turn was not continued correctly: %#v", turns)
+	}
+}
+
+func TestDecisionForWriterRefreshAfterSubmitFallsBackToDisplayedChoice(t *testing.T) {
+	state := &story.StoryState{LastDecision: scene.PlayerDecision{ChoiceID: "older"}}
+	got := decisionForWriterRefreshAfterSubmit(
+		scene.PlayerDecision{},
+		scene.PlayerDecision{ChoiceID: "choice_carry_the_mask"},
+		state,
+	)
+	if got.ChoiceID != "choice_carry_the_mask" || got.FreeText != "" {
+		t.Fatalf("fallback decision = %#v", got)
+	}
+
+	got = decisionForWriterRefreshAfterSubmit(
+		scene.PlayerDecision{FreeText: "force the steward into public witness"},
+		scene.PlayerDecision{ChoiceID: "choice_carry_the_mask"},
+		state,
+	)
+	if got.FreeText != "force the steward into public witness" || got.ChoiceID != "" {
+		t.Fatalf("typed direction should win, got %#v", got)
 	}
 }
 
@@ -1425,12 +1456,14 @@ func (invalidRefreshPlanner) Plan(context.Context, writer.Input) (scene.StoryPac
 }
 
 type countingPlanner struct {
-	calls int
-	next  scene.StoryPacket
+	calls     int
+	next      scene.StoryPacket
+	lastInput writer.Input
 }
 
-func (p *countingPlanner) Plan(context.Context, writer.Input) (scene.StoryPacket, error) {
+func (p *countingPlanner) Plan(_ context.Context, input writer.Input) (scene.StoryPacket, error) {
 	p.calls++
+	p.lastInput = input
 	return p.next, nil
 }
 

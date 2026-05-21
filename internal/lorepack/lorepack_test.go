@@ -18,7 +18,7 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	if pack.Collection != "sans_nom_lore_metabarons" {
 		t.Fatalf("collection = %q", pack.Collection)
 	}
-	if pack.GameplayMode != GameplayModeFaithfulCanonPrototype {
+	if pack.GameplayMode != GameplayModeCanonInternalOriginal {
 		t.Fatalf("gameplay_mode = %q", pack.GameplayMode)
 	}
 	contract := pack.ScenarioContract()
@@ -28,10 +28,12 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	contractText := pack.ScenarioContractText()
 	for _, required := range []string{
 		"Lorepack Scenario Contract",
-		"gameplay_mode: faithful_canon_prototype",
+		"gameplay_mode: canon_internal_original",
 		"game_synopsis:",
 		"must_honor:",
 		"choice_principles:",
+		"canon_anchor:",
+		"allowed_original_insertions:",
 	} {
 		if !strings.Contains(contractText, required) {
 			t.Fatalf("contract text missing %q:\n%s", required, contractText)
@@ -67,7 +69,7 @@ func TestListPacksRejectsDuplicateIDs(t *testing.T) {
 	}
 }
 
-func TestActivePackRequiresFaithfulScenarioContract(t *testing.T) {
+func TestActivePackRequiresScenarioContract(t *testing.T) {
 	root := t.TempDir()
 	path := filepath.Join(root, "lore/packs", "empty")
 	if err := os.MkdirAll(path, 0o755); err != nil {
@@ -116,7 +118,7 @@ func writePack(t *testing.T, root string, dir string, id string) {
   "smoke_queries": [],
   "forbidden_literal_terms": [],
   "status": "active",
-  "gameplay_mode": "faithful_canon_prototype",
+  "gameplay_mode": "canon_internal_original",
   "game_synopsis": "A test heir must survive a dynasty trial.",
   "protagonist_role": "Dynasty heir",
   "opening_situation": "The heir is summoned to a trial chamber.",
@@ -128,5 +130,22 @@ func writePack(t *testing.T, root string, dir string, id string) {
 }`
 	if err := os.WriteFile(filepath.Join(path, "lore-pack.json"), []byte(body), 0o644); err != nil {
 		t.Fatal(err)
+	}
+}
+
+func TestCanonAdaptationRequiresCanonAnchor(t *testing.T) {
+	root := t.TempDir()
+	writePack(t, root, "adaptation", `"adaptation"`)
+	path := filepath.Join(root, "lore/packs", "adaptation", "lore-pack.json")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	body := strings.Replace(string(data), `"gameplay_mode": "canon_internal_original"`, `"gameplay_mode": "canon_adaptation"`, 1)
+	if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := GetPack(root, "adaptation"); err == nil || !strings.Contains(err.Error(), "canon_anchor is required") {
+		t.Fatalf("expected missing canon_anchor error, got %v", err)
 	}
 }

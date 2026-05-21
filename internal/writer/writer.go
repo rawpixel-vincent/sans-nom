@@ -20,16 +20,21 @@ type Planner interface {
 	Plan(ctx context.Context, input Input) (scene.StoryPacket, error)
 }
 
+type Validator func(input Input, packet scene.StoryPacket) error
+
 type Input struct {
-	Current        scene.StoryPacket
-	LatestDecision string
-	ContextText    string
-	RunID          string
-	ArtifactDir    string
+	Current          scene.StoryPacket
+	LatestDecision   string
+	ContextText      string
+	RunID            string
+	ArtifactDir      string
+	SpentMotifs      []string
+	RequiredMovement []string
 }
 
 type Service struct {
-	Planner Planner
+	Planner   Planner
+	Validator Validator
 }
 
 type Job struct {
@@ -52,6 +57,9 @@ func (s Service) RefreshAsync(ctx context.Context, input Input) (*Job, error) {
 		packet, err := s.Planner.Plan(ctx, input)
 		if err == nil {
 			err = packet.Validate()
+		}
+		if err == nil && s.Validator != nil {
+			err = s.Validator(input, packet)
 		}
 		if writeErr := writeResultArtifacts(input, packet, err); artifactErr == nil {
 			artifactErr = writeErr
@@ -173,10 +181,12 @@ func writeResultArtifacts(input Input, packet scene.StoryPacket, runErr error) e
 		}
 	}
 	metadata := map[string]any{
-		"run_id":          input.RunID,
-		"latest_decision": input.LatestDecision,
-		"created_at":      time.Now().UTC().Format(time.RFC3339),
-		"accepted":        runErr == nil,
+		"run_id":            input.RunID,
+		"latest_decision":   input.LatestDecision,
+		"spent_motifs":      input.SpentMotifs,
+		"required_movement": input.RequiredMovement,
+		"created_at":        time.Now().UTC().Format(time.RFC3339),
+		"accepted":          runErr == nil,
 	}
 	if runErr != nil {
 		metadata["error"] = runErr.Error()

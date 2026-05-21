@@ -7,6 +7,7 @@ The HOW-WE-RUN-IT of sans-nom. Producer's home subtree.
 - [`lore-faithful-engine-master-plan.md`](lore-faithful-engine-master-plan.md) - pivot plan for making lorepacks authored scenario contracts instead of abstract influence sources
 - [`../architecture/agent-filesystem.md`](../architecture/agent-filesystem.md) - current scoped agent workspace model plus Turso AgentFS reference
 - [`team/`](team/) — one file per role (lead engineer, narrative designer, frontend/UX, producer/playtest)
+- [`playtests/`](playtests/) - working analysis docs from live story runs, with follow-up implementation steps
 - [`risks/`](risks/) — risk register + per-risk hardened mitigations
   - [`register.md`](risks/register.md) — full risk table
   - [`license.md`](risks/license.md) — three concrete tracks for the IP licensing question

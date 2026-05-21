@@ -131,6 +131,7 @@ type WriterContext struct {
 	MaxRenderChars   int                  `json:"max_render_chars,omitempty"`
 	StoryBible       *story.StoryBible    `json:"story_bible,omitempty"`
 	ScenarioContract string               `json:"scenario_contract,omitempty"`
+	Progression      StoryProgression     `json:"progression,omitempty"`
 	SceneState       SceneState           `json:"scene_state"`
 	PlayerDecision   scene.PlayerDecision `json:"player_decision,omitempty"`
 	SelectedNodeID   string               `json:"selected_node_id"`
@@ -140,6 +141,15 @@ type WriterContext struct {
 	LoreByKind       map[string][]LoreHit `json:"lore_by_kind,omitempty"`
 	ActorManifest    []ActorManifestItem  `json:"actor_manifest,omitempty"`
 	Warnings         []string             `json:"warnings,omitempty"`
+}
+
+type StoryProgression struct {
+	StoryArc         []string `json:"story_arc,omitempty"`
+	CurrentPhase     string   `json:"current_phase,omitempty"`
+	NextPhase        string   `json:"next_phase,omitempty"`
+	SpentMotifs      []string `json:"spent_motifs,omitempty"`
+	RequiredMovement []string `json:"required_movement,omitempty"`
+	Warnings         []string `json:"warnings,omitempty"`
 }
 
 type ActorManifestItem struct {

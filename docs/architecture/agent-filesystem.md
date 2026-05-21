@@ -41,11 +41,10 @@ The current agent workspace layer has three jobs:
 
 ## Lorepack Access
 
-Faithful Canon Prototype mode intentionally lets creative roles inspect the
-active lorepack, but only through the staged `lorepack/` directory. This gives
-Writer, Narrator, and Scenarist direct access to the authored scenario contract
-without giving them repo-root access to every pack, source file, test, and old
-run.
+Scenario-contract modes intentionally let creative roles inspect the active
+lorepack, but only through the staged `lorepack/` directory. This gives Writer,
+Narrator, and Scenarist direct access to the authored scenario contract without
+giving them repo-root access to every pack, source file, test, and old run.
 
 Raw paths such as `lore/packs/metabarons/lore-pack.json` should still be
 rejected by model-visible tools. The model-visible equivalent is:

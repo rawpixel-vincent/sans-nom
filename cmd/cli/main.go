@@ -946,7 +946,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	var scenaristTool *scenarist.ToolRunner
 	var workshopRunner prompt.Runner
 	workshopOutputDir := ""
-	if !faithfulSeedMode(pack) {
+	if !scenarioContractSeedMode(pack) {
 		workshopOutputDir = seedWorkshopOutputDir(scenaristOutputDir)
 		scenaristTool, err = seedScenaristToolRunner(cfg, contextText, scenaristOutputDir, agentScope, logger, loreExpertTool)
 		if err != nil {
@@ -966,18 +966,18 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 		Event:    "story.seed.context.completed",
 		Message:  "seed context ready",
 		Fields: map[string]any{
-			"backend":                   cfg.Backend,
-			"collection":                globalCollection,
-			"ground_lore_pack_id":       pack.ID,
-			"context_chars":             len(contextText),
-			"writer_scenarist_calls":    cfg.WriterScenaristCalls,
-			"scenarist_output_dir":      filepath.ToSlash(scenaristOutputDir),
-			"workshop_output_dir":       filepath.ToSlash(workshopOutputDir),
-			"faithful_seed_mode":        faithfulSeedMode(pack),
-			"agent_workspace_root":      filepath.ToSlash(agentScope.Root),
-			"writer_tools_attached":     writerRunnerHasTools(writerRunner),
-			"scenarist_tool_attached":   scenaristTool != nil,
-			"lore_expert_tool_attached": loreExpertTool != nil,
+			"backend":                     cfg.Backend,
+			"collection":                  globalCollection,
+			"ground_lore_pack_id":         pack.ID,
+			"context_chars":               len(contextText),
+			"writer_scenarist_calls":      cfg.WriterScenaristCalls,
+			"scenarist_output_dir":        filepath.ToSlash(scenaristOutputDir),
+			"workshop_output_dir":         filepath.ToSlash(workshopOutputDir),
+			"scenario_contract_seed_mode": scenarioContractSeedMode(pack),
+			"agent_workspace_root":        filepath.ToSlash(agentScope.Root),
+			"writer_tools_attached":       writerRunnerHasTools(writerRunner),
+			"scenarist_tool_attached":     scenaristTool != nil,
+			"lore_expert_tool_attached":   loreExpertTool != nil,
 		},
 		Detail: map[string]any{
 			"context":              contextText,
@@ -1065,8 +1065,8 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 	return b.String()
 }
 
-func faithfulSeedMode(pack lorepack.Pack) bool {
-	return pack.GameplayMode == lorepack.GameplayModeFaithfulCanonPrototype
+func scenarioContractSeedMode(pack lorepack.Pack) bool {
+	return strings.TrimSpace(pack.GameplayMode) != "" && strings.TrimSpace(pack.GameSynopsis) != ""
 }
 
 func scenarioContractTextForPack(packID string) string {
@@ -1183,12 +1183,86 @@ func stageLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Sco
 	return scope.WithVisiblePaths("lorepack"), nil
 }
 
-func stageLorePackForAgentByID(scope agentfs.Scope, packID string) (agentfs.Scope, error) {
+func stageNarratorLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Scope, error) {
+	if strings.TrimSpace(scope.Root) == "" || strings.TrimSpace(pack.Path) == "" {
+		return scope, nil
+	}
+	if err := scope.Ensure(); err != nil {
+		return scope, err
+	}
+	if _, err := scope.StageFile(pack.Path, "lorepack/lore-pack.json"); err != nil {
+		return scope, fmt.Errorf("stage active lorepack contract %q: %w", pack.ID, err)
+	}
+	if _, err := scope.StageText("lorepack/contract.md", pack.ScenarioContractText()+"\n"); err != nil {
+		return scope, err
+	}
+	if _, err := scope.StageText("lorepack/relevant-excerpts.md", narratorLorepackExcerpts(pack)); err != nil {
+		return scope, err
+	}
+	if _, err := scope.StageText("lorepack/source-anchors.md", lorepackSourceAnchors(pack)); err != nil {
+		return scope, err
+	}
+	return scope.WithVisiblePaths("lorepack"), nil
+}
+
+func stageLorePackForRoleByID(scope agentfs.Scope, role string, packID string) (agentfs.Scope, error) {
 	pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, lorepack.DefaultPackID()))
 	if err != nil {
 		return scope, err
 	}
+	if role == "narrator" {
+		return stageNarratorLorePackForAgent(scope, pack)
+	}
 	return stageLorePackForAgent(scope, pack)
+}
+
+func narratorLorepackExcerpts(pack lorepack.Pack) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Narrator Lorepack Excerpts: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
+	fmt.Fprintln(&b, "Use these excerpts before reading any other lorepack file. They are staged to keep narration scene-local.")
+	fmt.Fprintf(&b, "\n## Gameplay Mode\n%s\n", strings.TrimSpace(pack.GameplayMode))
+	fmt.Fprintf(&b, "\n## Synopsis\n%s\n", strings.TrimSpace(pack.GameSynopsis))
+	fmt.Fprintf(&b, "\n## Protagonist Role\n%s\n", strings.TrimSpace(pack.ProtagonistRole))
+	fmt.Fprintf(&b, "\n## Opening Situation\n%s\n", strings.TrimSpace(pack.OpeningSituation))
+	fmt.Fprintf(&b, "\n## Initial Pressure\n%s\n", strings.TrimSpace(pack.InitialPressure))
+	writeMarkdownList(&b, "Must Honor", pack.MustHonor)
+	writeMarkdownList(&b, "Must Not Violate", pack.MustNotViolate)
+	writeMarkdownList(&b, "Choice Principles", pack.ChoicePrinciples)
+	return b.String()
+}
+
+func lorepackSourceAnchors(pack lorepack.Pack) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Source Anchors: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
+	anchor := pack.CanonAnchor
+	if anchor.Empty() {
+		fmt.Fprintln(&b, "No explicit canon anchors were authored for this pack.")
+		return b.String()
+	}
+	if len(anchor.SourceVolumes) > 0 {
+		var volumes []string
+		for _, volume := range anchor.SourceVolumes {
+			volumes = append(volumes, fmt.Sprintf("%d", volume))
+		}
+		fmt.Fprintf(&b, "## Source Volumes\n%s\n", strings.Join(volumes, ", "))
+	}
+	writeMarkdownList(&b, "Source Events", anchor.SourceEvents)
+	writeMarkdownList(&b, "Source Characters", anchor.SourceCharacters)
+	writeMarkdownList(&b, "Must Include Canon Facts", anchor.MustIncludeCanonFacts)
+	writeMarkdownList(&b, "Allowed Original Insertions", anchor.AllowedOriginalInsertions)
+	return b.String()
+}
+
+func writeMarkdownList(b *strings.Builder, title string, values []string) {
+	if len(values) == 0 {
+		return
+	}
+	fmt.Fprintf(b, "\n## %s\n", title)
+	for _, value := range values {
+		if value = strings.TrimSpace(value); value != "" {
+			fmt.Fprintf(b, "- %s\n", value)
+		}
+	}
 }
 
 func writerRunnerHasTools(runner prompt.Runner) bool {
@@ -1707,7 +1781,11 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 			}
 			fmt.Println()
 			rawInput = strings.TrimSpace(line)
-			nextDecision = parseDecision(rawInput, rollout.Node)
+			if terminalHandoff && rawInput == "" {
+				nextDecision = scene.PlayerDecision{}
+			} else {
+				nextDecision = parseDecision(rawInput, rollout.Node)
+			}
 		}
 		nextNodeID := ""
 		if targetNodeID, ok := resolvedChoiceTarget(packet, rollout.Node, nextDecision); ok {
@@ -1752,7 +1830,8 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 					"model_metadata": metadata,
 				},
 			})
-			next, err := refreshPacket(ctx, packet, nodeID, nextDecision, refreshCfg)
+			writerDecision := decisionForWriterRefreshAfterSubmit(nextDecision, rollout.Commit.PlayerDecision, state)
+			next, err := refreshPacket(ctx, packet, nodeID, writerDecision, refreshCfg)
 			if err == nil {
 				nextNodeID = entryNodeID(next)
 				logEvent(cfg.Logger, gamelog.Event{
@@ -2197,7 +2276,8 @@ func (c *playLoopController) Submit(ctx context.Context, submitted clitui.Submit
 				"model_metadata": metadata,
 			},
 		})
-		next, err := refreshPacket(ctx, c.packet, c.nodeID, nextDecision, refreshCfg)
+		writerDecision := decisionForWriterRefreshAfterSubmit(nextDecision, rollout.Commit.PlayerDecision, c.state)
+		next, err := refreshPacket(ctx, c.packet, c.nodeID, writerDecision, refreshCfg)
 		if err == nil {
 			nextNodeID := entryNodeID(next)
 			logEvent(cfg.Logger, gamelog.Event{
@@ -3127,12 +3207,14 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 			return scene.StoryPacket{}, err
 		}
 	}
-	job, err := writer.Service{Planner: planner}.RefreshAsync(ctx, writer.Input{
-		Current:        packet,
-		LatestDecision: decisionText(decision.ChoiceID, decision.FreeText),
-		ContextText:    writerContext.RenderText(),
-		RunID:          runID,
-		ArtifactDir:    runDir,
+	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(ctx, writer.Input{
+		Current:          packet,
+		LatestDecision:   decisionText(decision.ChoiceID, decision.FreeText),
+		ContextText:      writerContext.RenderText(),
+		RunID:            runID,
+		ArtifactDir:      runDir,
+		SpentMotifs:      writerContext.Progression.SpentMotifs,
+		RequiredMovement: writerContext.Progression.RequiredMovement,
 	})
 	if err != nil {
 		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
@@ -3340,6 +3422,19 @@ func decisionForWriterRefresh(state *story.StoryState) scene.PlayerDecision {
 		return state.LastDecision
 	}
 	return scene.PlayerDecision{}
+}
+
+func decisionForWriterRefreshAfterSubmit(submitted scene.PlayerDecision, displayed scene.PlayerDecision, state *story.StoryState) scene.PlayerDecision {
+	if !story.PlayerDecisionEmpty(submitted) {
+		return submitted
+	}
+	if state != nil && state.HasPendingDecision() {
+		return state.PendingDecision
+	}
+	if !story.PlayerDecisionEmpty(displayed) {
+		return displayed
+	}
+	return decisionForWriterRefresh(state)
 }
 
 func savePendingDecision(cfg playConfig, state *story.StoryState, decision scene.PlayerDecision, runID string, runDir string) error {
@@ -4125,7 +4220,7 @@ func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet sc
 	if cfg.State != nil {
 		packID = firstNonEmpty(cfg.State.SourceLorePackID(), packID)
 	}
-	if stagedScope, err := stageLorePackForAgentByID(scope, packID); err == nil {
+	if stagedScope, err := stageLorePackForRoleByID(scope, role, packID); err == nil {
 		scope = stagedScope
 	} else {
 		logEvent(cfg.Logger, gamelog.Event{

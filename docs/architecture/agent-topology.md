@@ -54,7 +54,7 @@ surface.
 
 - Owns structure: `StoryBible`, bounded `StoryPacket`, node graph, choices,
   actor needs, memory intents, and continuation notes.
-- In Faithful Canon Prototype mode, packages the selected lorepack's authored
+- In scenario-contract modes, packages the selected lorepack's authored
   scenario contract instead of inventing a fresh premise.
 - Uses scoped read tools in the active agent workspace, including staged
   `lorepack/`, `story/`, `workshop/`, and `scenarists/` material when present.
@@ -80,7 +80,7 @@ surface.
 **LoreExpert / Lore Authority**
 
 - Answers focused lore and fidelity questions from the active pack.
-- In Faithful Canon Prototype mode, acts as a reference authority rather than an
+- In scenario-contract modes, acts as a reference authority rather than an
   "influence-only" helper.
 - Helps identify contradictions, missing pressures, and choices that do not
   matter inside the lore contract.

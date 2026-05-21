@@ -73,6 +73,14 @@ class SmokeQuery(BaseModel):
     expected_any: list[list[str]]
 
 
+class CanonAnchor(BaseModel):
+    source_volumes: list[int] = Field(default_factory=list)
+    source_events: list[str] = Field(default_factory=list)
+    source_characters: list[str] = Field(default_factory=list)
+    must_include_canon_facts: list[str] = Field(default_factory=list)
+    allowed_original_insertions: list[str] = Field(default_factory=list)
+
+
 class LorePack(BaseModel):
     id: str
     label: str
@@ -93,6 +101,7 @@ class LorePack(BaseModel):
     must_honor: list[str] = Field(default_factory=list)
     must_not_violate: list[str] = Field(default_factory=list)
     choice_principles: list[str] = Field(default_factory=list)
+    canon_anchor: CanonAnchor = Field(default_factory=CanonAnchor)
 
 
 DEFAULT_SMOKE_QUERIES = [

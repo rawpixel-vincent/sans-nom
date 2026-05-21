@@ -13,6 +13,9 @@ import (
 const (
 	defaultPackID                      = "metabarons"
 	packsDir                           = "lore/packs"
+	GameplayModeCanonAdaptation        = "canon_adaptation"
+	GameplayModeCanonInternalOriginal  = "canon_internal_original"
+	GameplayModeHomageOriginal         = "homage_original"
 	GameplayModeFaithfulCanonPrototype = "faithful_canon_prototype"
 )
 
@@ -36,6 +39,7 @@ type Pack struct {
 	MustHonor             []string          `json:"must_honor,omitempty"`
 	MustNotViolate        []string          `json:"must_not_violate,omitempty"`
 	ChoicePrinciples      []string          `json:"choice_principles,omitempty"`
+	CanonAnchor           CanonAnchor       `json:"canon_anchor,omitempty"`
 	Path                  string            `json:"path,omitempty"`
 }
 
@@ -45,15 +49,24 @@ type SmokeQuery struct {
 }
 
 type ScenarioContract struct {
-	GameplayMode     string   `json:"gameplay_mode"`
-	GameSynopsis     string   `json:"game_synopsis"`
-	ProtagonistRole  string   `json:"protagonist_role"`
-	OpeningSituation string   `json:"opening_situation"`
-	InitialPressure  string   `json:"initial_pressure"`
-	StoryLines       []string `json:"story_lines"`
-	MustHonor        []string `json:"must_honor"`
-	MustNotViolate   []string `json:"must_not_violate"`
-	ChoicePrinciples []string `json:"choice_principles"`
+	GameplayMode     string      `json:"gameplay_mode"`
+	GameSynopsis     string      `json:"game_synopsis"`
+	ProtagonistRole  string      `json:"protagonist_role"`
+	OpeningSituation string      `json:"opening_situation"`
+	InitialPressure  string      `json:"initial_pressure"`
+	StoryLines       []string    `json:"story_lines"`
+	MustHonor        []string    `json:"must_honor"`
+	MustNotViolate   []string    `json:"must_not_violate"`
+	ChoicePrinciples []string    `json:"choice_principles"`
+	CanonAnchor      CanonAnchor `json:"canon_anchor,omitempty"`
+}
+
+type CanonAnchor struct {
+	SourceVolumes             []int    `json:"source_volumes,omitempty"`
+	SourceEvents              []string `json:"source_events,omitempty"`
+	SourceCharacters          []string `json:"source_characters,omitempty"`
+	MustIncludeCanonFacts     []string `json:"must_include_canon_facts,omitempty"`
+	AllowedOriginalInsertions []string `json:"allowed_original_insertions,omitempty"`
 }
 
 func DefaultPackID() string {
@@ -177,6 +190,7 @@ func (p Pack) ScenarioContract() ScenarioContract {
 		MustHonor:        append([]string(nil), p.MustHonor...),
 		MustNotViolate:   append([]string(nil), p.MustNotViolate...),
 		ChoicePrinciples: append([]string(nil), p.ChoicePrinciples...),
+		CanonAnchor:      p.CanonAnchor.Clone(),
 	}
 }
 
@@ -195,6 +209,7 @@ func (p Pack) ScenarioContractText() string {
 	writeScenarioList(&b, "must_honor", p.MustHonor)
 	writeScenarioList(&b, "must_not_violate", p.MustNotViolate)
 	writeScenarioList(&b, "choice_principles", p.ChoicePrinciples)
+	writeCanonAnchor(&b, p.CanonAnchor)
 	return strings.TrimSpace(b.String())
 }
 
@@ -227,8 +242,11 @@ func (p Pack) validateActiveScenarioContract() error {
 			return fmt.Errorf("%s is required for active lore packs", name)
 		}
 	}
-	if p.GameplayMode != GameplayModeFaithfulCanonPrototype {
+	if !supportedGameplayMode(p.GameplayMode) {
 		return fmt.Errorf("unsupported gameplay_mode %q", p.GameplayMode)
+	}
+	if p.GameplayMode == GameplayModeCanonAdaptation && p.CanonAnchor.Empty() {
+		return errors.New("canon_anchor is required for canon_adaptation lore packs")
 	}
 	requiredLists := map[string][]string{
 		"story_lines":       p.StoryLines,
@@ -244,6 +262,33 @@ func (p Pack) validateActiveScenarioContract() error {
 	return nil
 }
 
+func supportedGameplayMode(mode string) bool {
+	switch strings.TrimSpace(mode) {
+	case GameplayModeCanonAdaptation, GameplayModeCanonInternalOriginal, GameplayModeHomageOriginal, GameplayModeFaithfulCanonPrototype:
+		return true
+	default:
+		return false
+	}
+}
+
+func (a CanonAnchor) Empty() bool {
+	return len(a.SourceVolumes) == 0 &&
+		!hasNonEmpty(a.SourceEvents) &&
+		!hasNonEmpty(a.SourceCharacters) &&
+		!hasNonEmpty(a.MustIncludeCanonFacts) &&
+		!hasNonEmpty(a.AllowedOriginalInsertions)
+}
+
+func (a CanonAnchor) Clone() CanonAnchor {
+	return CanonAnchor{
+		SourceVolumes:             append([]int(nil), a.SourceVolumes...),
+		SourceEvents:              append([]string(nil), a.SourceEvents...),
+		SourceCharacters:          append([]string(nil), a.SourceCharacters...),
+		MustIncludeCanonFacts:     append([]string(nil), a.MustIncludeCanonFacts...),
+		AllowedOriginalInsertions: append([]string(nil), a.AllowedOriginalInsertions...),
+	}
+}
+
 func hasNonEmpty(values []string) bool {
 	for _, value := range values {
 		if strings.TrimSpace(value) != "" {
@@ -251,6 +296,37 @@ func hasNonEmpty(values []string) bool {
 		}
 	}
 	return false
+}
+
+func writeCanonAnchor(b *strings.Builder, anchor CanonAnchor) {
+	if anchor.Empty() {
+		return
+	}
+	fmt.Fprintln(b, "- canon_anchor:")
+	if len(anchor.SourceVolumes) > 0 {
+		var values []string
+		for _, volume := range anchor.SourceVolumes {
+			values = append(values, fmt.Sprintf("%d", volume))
+		}
+		fmt.Fprintf(b, "  - source_volumes: %s\n", strings.Join(values, ", "))
+	}
+	writeScenarioNestedList(b, "source_events", anchor.SourceEvents)
+	writeScenarioNestedList(b, "source_characters", anchor.SourceCharacters)
+	writeScenarioNestedList(b, "must_include_canon_facts", anchor.MustIncludeCanonFacts)
+	writeScenarioNestedList(b, "allowed_original_insertions", anchor.AllowedOriginalInsertions)
+}
+
+func writeScenarioNestedList(b *strings.Builder, label string, values []string) {
+	if !hasNonEmpty(values) {
+		return
+	}
+	fmt.Fprintf(b, "  - %s:\n", label)
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value != "" {
+			fmt.Fprintf(b, "    - %s\n", value)
+		}
+	}
 }
 
 func writeScenarioList(b *strings.Builder, label string, values []string) {

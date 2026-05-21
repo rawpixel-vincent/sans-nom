@@ -6,9 +6,10 @@ Sans-Nom is pivoting from "LLM invents an original story from lore influence" to
 "the selected lorepack defines the playable story synopsis and lore contract;
 LLMs stage, branch, narrate, and verify lore-faithful play."
 
-For v1, use **Faithful Canon Prototype** mode. Fidelity beats originality. The
-game must honor the selected lorepack's story, constraints, choice logic, and
-dramatic pressures.
+For v1, use scenario-contract modes. Fidelity beats originality. The game must
+honor the selected lorepack's story, constraints, choice logic, and dramatic
+pressures. The current Metabarons scenario is `canon_internal_original`: a new
+playable episode inside canon constraints, not a direct retelling of one volume.
 
 This document was the task source for the pivot implementation units. Keep it
 as the high-level operating model and use the status section below to separate
@@ -19,7 +20,7 @@ completed pivot work from future cleanup/spikes.
 Implemented:
 
 - Lorepacks now carry authored gameplay contract fields.
-- The Metabarons pack is the first Faithful Canon Prototype pack.
+- The Metabarons pack is the first `canon_internal_original` scenario pack.
 - Seed prompts use the lorepack scenario contract instead of broad premise
   invention.
 - Writer refresh and Narrator context include lore contract material.
@@ -43,8 +44,7 @@ Still active:
 - Lorepacks are selectable and persisted through `ground_lore_pack_id`.
 - `lore/packs/<pack_id>/lore-pack.json` now describes retrieval metadata and the
   authored gameplay contract.
-- Faithful Canon Prototype mode treats LoreExpert as lore authority/reference
-  support.
+- Scenario-contract modes treat LoreExpert as lore authority/reference support.
 - Scenarist is an optional creative staging/criticism helper, not a premise
   generator.
 - The Writer/Narrator split, bounded `StoryPacket`, agent-scoped filesystem,
@@ -86,7 +86,8 @@ Extend `lore/packs/<pack_id>/lore-pack.json` with authored gameplay fields.
 Exact JSON shape can be refined during implementation, but the first pass must
 support these concepts:
 
-- `gameplay_mode`: `faithful_canon_prototype` for v1.
+- `gameplay_mode`: one of `canon_adaptation`, `canon_internal_original`, or
+  `homage_original`.
 - `game_synopsis`: short authored description of the playable story.
 - `protagonist_role`: who the player is in this lorepack story.
 - `opening_situation`: the starting playable situation.
@@ -96,9 +97,13 @@ support these concepts:
   every seed and continuation must preserve.
 - `must_not_violate`: contradictions or drift that should fail verification.
 - `choice_principles`: what choices should mean inside this lorepack.
+- optional `canon_anchor`: source volumes, source events, source characters,
+  must-include canon facts, and allowed original insertions.
 
-Validation rule: an active lorepack in Faithful Canon Prototype mode cannot seed
-a story unless these authored fields are present and non-empty.
+Validation rule: an active lorepack in scenario-contract mode cannot seed a
+story unless these authored fields are present and non-empty. `canon_adaptation`
+also requires `canon_anchor`; `canon_internal_original` may use `canon_anchor`
+to define what canon pressures it preserves while allowing new internal staging.
 
 Metabarons is the first pack to receive this contract.
 
@@ -109,9 +114,10 @@ Metabarons is the first pack to receive this contract.
 - Status: implemented.
 - Added this master plan and recorded the decision in the project decisions log.
 - Extended the lorepack Go type with optional scenario contract fields.
-- Added validation for active Faithful Canon Prototype packs.
+- Added validation for active scenario-contract packs.
 - Updated `lore/packs/metabarons/lore-pack.json` with the first authored
-  gameplay contract.
+  gameplay contract, now labeled `canon_internal_original` because it stages a
+  new internal episode rather than a direct canon adaptation.
 - Added tests for loading and validating the new contract fields.
 
 Exit criteria:
@@ -174,8 +180,9 @@ Exit criteria:
   generation.
 - Remove "DNA summary" language where it substitutes for explicit scenario
   contract.
-- Remove anti-copy/originality boundaries from Faithful Canon Prototype paths.
-  Keep them only for future `original_homage` or similar modes.
+- Remove anti-copy/originality boundaries from scenario-contract paths where
+  they conflict with fidelity. Keep them only for future `homage_original` or
+  similar modes.
 - Rewrite tests that assert "no raw lore injection" when the new path
   intentionally injects curated pack synopsis and contract.
 - Keep `cmd/prompt-eval` as a diagnostic tool. Mark old germ/checklist probes as
@@ -232,8 +239,8 @@ Exit criteria:
 
 ## Assumptions
 
-- Faithful Canon Prototype is a prototype mode, not a licensing decision for a
-  public product.
+- Scenario-contract modes are prototype design modes, not licensing decisions
+  for a public product.
 - The current Writer/Narrator split remains the architecture.
 - Honcho receives only rolled-out canon, not unused Writer branches or planning
   material.

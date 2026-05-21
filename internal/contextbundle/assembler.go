@@ -113,6 +113,7 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		MaxRenderChars:   opts.WriterSoftCap,
 		StoryBible:       cloneBible(req.Bible),
 		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
+		Progression:      buildStoryProgression(req.Bible, req.Packet, node, req.Decision, sceneCtx.RecentScenes),
 		SceneState:       sceneState(req.Packet),
 		PlayerDecision:   req.Decision,
 		SelectedNodeID:   node.ID,
@@ -153,6 +154,8 @@ func cloneBible(bible *story.StoryBible) *story.StoryBible {
 	cloned.ForbiddenLiteralCanonTerms = append([]string(nil), bible.ForbiddenLiteralCanonTerms...)
 	cloned.FirstTurnExposition = append([]string(nil), bible.FirstTurnExposition...)
 	cloned.StoryArc = append([]string(nil), bible.StoryArc...)
+	cloned.SpentMotifs = append([]string(nil), bible.SpentMotifs...)
+	cloned.OpenThreads = append([]string(nil), bible.OpenThreads...)
 	if bible.Metadata != nil {
 		cloned.Metadata = map[string]string{}
 		for key, value := range bible.Metadata {
