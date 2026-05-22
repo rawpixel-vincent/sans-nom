@@ -79,6 +79,19 @@ You begin inside a lorepack-authored scenario, before the dynasty has chosen its
 - `external/comics/meta-barons/` — Metabarons comic page scans, when present locally, for future curated corpus/reference work.
 - `external/references/council of castaka/metabarons/` — Council of Castaka character cards, relations matrix, invocation prompts, and Go source when present locally. Useful reference material, not the current model-visible workspace.
 
+## Runtime timeouts
+
+Hard model-agent work can take longer than ordinary narration, especially when
+the Writer performs lore orientation and calls LoreExpert before producing a
+seed or refresh packet. The default agent model timeout is 45 minutes. Override
+with millisecond environment variables:
+
+- `SANS_NOM_MODEL_TIMEOUT_MS` — shared default for model agents.
+- `SANS_NOM_CODEX_TIMEOUT_MS` — Codex Writer/Narrator/Verifier/Actor override.
+- `SANS_NOM_CLAUDE_TIMEOUT_MS` — Claude runner override.
+- `SANS_NOM_SCENARIST_TIMEOUT_MS` — Scenarist provider override.
+- `SANS_NOM_WRITER_AWAIT_TIMEOUT_MS` — Writer refresh wait override.
+
 ## How to navigate
 
 - **New to the project**: read [`principles/`](principles/README.md) start to finish (~15 min). Then skim [`mechanics/core-loop.md`](mechanics/core-loop.md), [`architecture/agent-topology.md`](architecture/agent-topology.md), and [`project/lore-faithful-engine-master-plan.md`](project/lore-faithful-engine-master-plan.md). You'll have the shape.

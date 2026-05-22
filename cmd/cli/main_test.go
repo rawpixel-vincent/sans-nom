@@ -74,6 +74,53 @@ func TestEnvBoolDefaultAllowsOptOut(t *testing.T) {
 	}
 }
 
+func TestModelTimeoutDefaultsAndOverrides(t *testing.T) {
+	t.Setenv("SANS_NOM_MODEL_TIMEOUT_MS", "")
+	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "")
+	t.Setenv("SANS_NOM_CLAUDE_TIMEOUT_MS", "")
+	t.Setenv("SANS_NOM_SCENARIST_TIMEOUT_MS", "")
+	t.Setenv("SANS_NOM_WRITER_AWAIT_TIMEOUT_MS", "")
+	if got := sharedModelTimeout(); got != 45*time.Minute {
+		t.Fatalf("shared timeout = %s", got)
+	}
+
+	t.Setenv("SANS_NOM_MODEL_TIMEOUT_MS", "1234")
+	if got := codexRunner("Test", nil).Timeout; got != 1234*time.Millisecond {
+		t.Fatalf("codex shared timeout = %s", got)
+	}
+	if got := claudeRunner().Timeout; got != 1234*time.Millisecond {
+		t.Fatalf("claude shared timeout = %s", got)
+	}
+	if got := scenaristModelTimeout(); got != 1234*time.Millisecond {
+		t.Fatalf("scenarist shared timeout = %s", got)
+	}
+	if got := writerAwaitTimeout(); got != 1234*time.Millisecond {
+		t.Fatalf("writer await shared timeout = %s", got)
+	}
+
+	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "2345")
+	t.Setenv("SANS_NOM_CLAUDE_TIMEOUT_MS", "3456")
+	t.Setenv("SANS_NOM_SCENARIST_TIMEOUT_MS", "4567")
+	t.Setenv("SANS_NOM_WRITER_AWAIT_TIMEOUT_MS", "5678")
+	if got := codexRunner("Test", nil).Timeout; got != 2345*time.Millisecond {
+		t.Fatalf("codex specific timeout = %s", got)
+	}
+	if got := claudeRunner().Timeout; got != 3456*time.Millisecond {
+		t.Fatalf("claude specific timeout = %s", got)
+	}
+	if got := scenaristModelTimeout(); got != 4567*time.Millisecond {
+		t.Fatalf("scenarist specific timeout = %s", got)
+	}
+	if got := writerAwaitTimeout(); got != 5678*time.Millisecond {
+		t.Fatalf("writer await specific timeout = %s", got)
+	}
+
+	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "not-a-number")
+	if got := codexRunner("Test", nil).Timeout; got != 1234*time.Millisecond {
+		t.Fatalf("invalid codex timeout should fall back to shared timeout, got %s", got)
+	}
+}
+
 func TestShouldUsePlayTUIDisabledForScriptedInputs(t *testing.T) {
 	cases := []struct {
 		name      string
@@ -276,31 +323,94 @@ func TestScenaristProviderRunnersUseArtifactDirsNotLoreDir(t *testing.T) {
 
 func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
 	source := filepath.Join(t.TempDir(), "pack")
-	if err := os.MkdirAll(filepath.Join(source, "wiki"), 0o755); err != nil {
-		t.Fatal(err)
+	for _, dir := range []string{
+		filepath.Join(source, "wiki"),
+		filepath.Join(source, "links"),
+		filepath.Join(source, "comics", "volumes"),
+		filepath.Join(source, "comics", "characters"),
+		filepath.Join(source, "comics", "pages"),
+		filepath.Join(source, "comics", "peer-cards", "cards", "accepted"),
+		filepath.Join(source, "comics", "peer-cards", "runs", "batch"),
+		filepath.Join(source, "comics", "peer-cards", "provenance", "inputs"),
+		filepath.Join(source, "index"),
+		filepath.Join(source, "testdata"),
+	} {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			t.Fatal(err)
+		}
 	}
-	if err := os.WriteFile(filepath.Join(source, "lore-pack.json"), []byte(`{"id":"pack"}`), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(source, "lore-pack.json"), []byte(`{"id":"pack","artifact_roots":{"comics":"comics","wiki":"wiki/lore.md","links":"links/matrix.md","summary":"LORE.md","index":"index"}}`), 0o644); err != nil {
 		t.Fatal(err)
 	}
 	if err := os.WriteFile(filepath.Join(source, "wiki", "lore.md"), []byte("lore"), 0o644); err != nil {
 		t.Fatal(err)
 	}
+	if err := os.WriteFile(filepath.Join(source, "links", "matrix.md"), []byte("links"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	if err := os.WriteFile(filepath.Join(source, "LORE.md"), []byte("# Master Lore\n\nFull pack summary."), 0o644); err != nil {
 		t.Fatal(err)
 	}
+	for rel, body := range map[string]string{
+		filepath.Join("comics", "manifest.json"):                                    `{}`,
+		filepath.Join("comics", "volumes", "volume-01.json"):                        `{}`,
+		filepath.Join("comics", "characters", "characters-volume-01.json"):          `{}`,
+		filepath.Join("comics", "pages", "001_page.json"):                           `{}`,
+		filepath.Join("comics", "peer-cards", "cards", "accepted", "tonto.json"):    `{}`,
+		filepath.Join("comics", "peer-cards", "runs", "batch", "old-run.jsonl"):     `fixture leak`,
+		filepath.Join("comics", "peer-cards", "provenance", "inputs", "tonto.json"): `fixture leak`,
+		filepath.Join("index", "manifest.json"):                                     `{}`,
+		filepath.Join("index", "documents.jsonl"):                                   `fixture leak`,
+		filepath.Join("testdata", "fixture.json"):                                   `fixture leak`,
+	} {
+		if err := os.WriteFile(filepath.Join(source, rel), []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
 	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "writer").WithVisiblePaths("story")
+	stalePath := filepath.Join(scope.Root, "lorepack", "comics", "peer-cards", "runs", "batch", "stale.jsonl")
+	if err := os.MkdirAll(filepath.Dir(stalePath), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(stalePath, []byte("stale leak"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 
 	staged, err := stageLorePackForAgent(scope, lorepack.Pack{ID: "pack", Path: filepath.Join(source, "lore-pack.json")})
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md", "lorepack/LORE.md", "lorepack/navigation.md"} {
+	for _, rel := range []string{
+		"lorepack/lore-pack.json",
+		"lorepack/wiki/lore.md",
+		"lorepack/links/matrix.md",
+		"lorepack/LORE.md",
+		"lorepack/comics/manifest.json",
+		"lorepack/comics/volumes/volume-01.json",
+		"lorepack/comics/characters/characters-volume-01.json",
+		"lorepack/comics/pages/001_page.json",
+		"lorepack/comics/peer-cards/cards/accepted/tonto.json",
+		"lorepack/index/manifest.json",
+		"lorepack/navigation.md",
+	} {
 		abs, err := staged.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
 		}
 		if _, err := os.Stat(abs); err != nil {
 			t.Fatalf("missing staged %s: %v", rel, err)
+		}
+	}
+	for _, rel := range []string{
+		"lorepack/comics/peer-cards/runs/batch/old-run.jsonl",
+		"lorepack/comics/peer-cards/runs/batch/stale.jsonl",
+		"lorepack/comics/peer-cards/provenance/inputs/tonto.json",
+		"lorepack/index/documents.jsonl",
+		"lorepack/testdata/fixture.json",
+	} {
+		abs := filepath.Join(staged.Root, filepath.FromSlash(rel))
+		if _, err := os.Stat(abs); !errors.Is(err, os.ErrNotExist) {
+			t.Fatalf("staged forbidden artifact %s, stat err = %v", rel, err)
 		}
 	}
 	if !containsStringWith(staged.VisiblePaths, "lorepack") {

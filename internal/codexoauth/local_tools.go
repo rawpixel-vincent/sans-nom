@@ -783,6 +783,10 @@ func agentWorkspaceSurface(path string) bool {
 		"internal",
 		"testdata",
 		"lore",
+		"lorepack/comics/peer-cards/runs",
+		"lorepack/comics/peer-cards/provenance",
+		"lorepack/index/documents.jsonl",
+		"lorepack/testdata",
 		"data/stories",
 		"data/seed-runs",
 	}

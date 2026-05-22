@@ -15,6 +15,10 @@ func TestScopeNormalizeRejectsRepoSurfaces(t *testing.T) {
 		"internal/seed/seed.go",
 		"testdata/sample.json",
 		"lore/packs/metabarons/lore-pack.json",
+		"lorepack/comics/peer-cards/runs/batch/old-run.jsonl",
+		"lorepack/comics/peer-cards/provenance/inputs/tonto.json",
+		"lorepack/index/documents.jsonl",
+		"lorepack/testdata/fixture.json",
 		"data/stories/story-1/bible.json",
 		"data/seed-runs/seed-1/workshop/output.md",
 	} {

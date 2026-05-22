@@ -146,6 +146,12 @@ func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(root, "lorepack", "lore-pack.json"), []byte("active pack"), 0o644); err != nil {
 		t.Fatal(err)
 	}
+	if err := os.MkdirAll(filepath.Join(root, "lorepack", "comics", "peer-cards", "runs", "batch"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "lorepack", "comics", "peer-cards", "runs", "batch", "old-run.jsonl"), []byte("fixture leak"), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	if _, err := toolExecCommand(context.Background(), root, `{"cmd":"cat notes.md"}`); err != nil {
 		t.Fatalf("scoped file should be readable: %v", err)
 	}
@@ -158,6 +164,7 @@ func TestToolExecCommandRejectsPathsOutsideScopedRoot(t *testing.T) {
 		`rg Bell lore/packs`,
 		`find data/stories`,
 		`cat internal/seed/seed.go`,
+		`cat lorepack/comics/peer-cards/runs/batch/old-run.jsonl`,
 	} {
 		args := fmt.Sprintf(`{"cmd":%q}`, cmd)
 		if _, err := toolExecCommand(context.Background(), root, args); err == nil {

@@ -17,6 +17,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -1213,13 +1214,126 @@ func stageLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Sco
 	if err := scope.Ensure(); err != nil {
 		return scope, err
 	}
-	if _, err := scope.StageDir(filepath.Dir(pack.Path), "lorepack"); err != nil {
+	if stagedRoot, err := scope.Abs("lorepack"); err == nil {
+		if err := os.RemoveAll(stagedRoot); err != nil {
+			return scope, fmt.Errorf("clear staged lorepack %q: %w", pack.ID, err)
+		}
+	}
+	if err := stageCuratedLorePack(scope, pack); err != nil {
 		return scope, fmt.Errorf("stage active lorepack %q: %w", pack.ID, err)
 	}
 	if _, err := scope.StageText("lorepack/navigation.md", lorepackNavigationGuide(pack)); err != nil {
 		return scope, fmt.Errorf("stage active lorepack navigation %q: %w", pack.ID, err)
 	}
 	return scope.WithVisiblePaths("lorepack"), nil
+}
+
+func stageCuratedLorePack(scope agentfs.Scope, pack lorepack.Pack) error {
+	base := filepath.Dir(pack.Path)
+	if _, err := scope.StageFile(pack.Path, "lorepack/lore-pack.json"); err != nil {
+		return err
+	}
+	if err := stagePackRelIfExists(scope, base, pack.MasterLoreRelPath()); err != nil {
+		return err
+	}
+	if err := stagePackRelIfExists(scope, base, packArtifactRel(pack, "wiki", "wiki/lore.md")); err != nil {
+		return err
+	}
+	if err := stagePackRelIfExists(scope, base, packArtifactRel(pack, "links", "links/matrix.md")); err != nil {
+		return err
+	}
+	comicsRoot := packArtifactRel(pack, "comics", "comics")
+	for _, rel := range []string{
+		filepath.ToSlash(filepath.Join(comicsRoot, "manifest.json")),
+		filepath.ToSlash(filepath.Join(comicsRoot, "peer-cards", "context-entrypoints.json")),
+		filepath.ToSlash(filepath.Join(packArtifactRel(pack, "index", "index"), "manifest.json")),
+	} {
+		if err := stagePackRelIfExists(scope, base, rel); err != nil {
+			return err
+		}
+	}
+	for _, pattern := range []string{
+		filepath.ToSlash(filepath.Join(comicsRoot, "volumes", "*.json")),
+		filepath.ToSlash(filepath.Join(comicsRoot, "characters", "*.json")),
+		filepath.ToSlash(filepath.Join(comicsRoot, "pages", "*.json")),
+		filepath.ToSlash(filepath.Join(comicsRoot, "peer-cards", "cards", "accepted", "*.json")),
+	} {
+		if err := stagePackGlob(scope, base, pattern); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func packArtifactRel(pack lorepack.Pack, key string, fallback string) string {
+	if pack.ArtifactRoots != nil {
+		if value := strings.TrimSpace(pack.ArtifactRoots[key]); value != "" {
+			return filepath.ToSlash(filepath.Clean(filepath.FromSlash(value)))
+		}
+	}
+	return fallback
+}
+
+func stagePackRelIfExists(scope agentfs.Scope, base string, rel string) error {
+	rel, err := cleanPackRel(rel)
+	if err != nil {
+		return err
+	}
+	source := filepath.Join(base, filepath.FromSlash(rel))
+	info, err := os.Stat(source)
+	if errors.Is(err, os.ErrNotExist) {
+		return nil
+	}
+	if err != nil {
+		return err
+	}
+	if info.IsDir() {
+		return fmt.Errorf("expected lorepack file, got directory: %s", rel)
+	}
+	_, err = scope.StageFile(source, filepath.ToSlash(filepath.Join("lorepack", filepath.FromSlash(rel))))
+	return err
+}
+
+func stagePackGlob(scope agentfs.Scope, base string, relPattern string) error {
+	relPattern, err := cleanPackRel(relPattern)
+	if err != nil {
+		return err
+	}
+	matches, err := filepath.Glob(filepath.Join(base, filepath.FromSlash(relPattern)))
+	if err != nil {
+		return err
+	}
+	sort.Strings(matches)
+	for _, source := range matches {
+		info, err := os.Stat(source)
+		if err != nil {
+			return err
+		}
+		if info.IsDir() {
+			continue
+		}
+		rel, err := filepath.Rel(base, source)
+		if err != nil {
+			return err
+		}
+		target := filepath.ToSlash(filepath.Join("lorepack", rel))
+		if _, err := scope.StageFile(source, target); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func cleanPackRel(rel string) (string, error) {
+	rel = strings.TrimSpace(rel)
+	if rel == "" {
+		return "", errors.New("lorepack relative path is required")
+	}
+	clean := filepath.Clean(filepath.FromSlash(rel))
+	if filepath.IsAbs(clean) || clean == "." || clean == ".." || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("lorepack path escapes pack root: %s", rel)
+	}
+	return filepath.ToSlash(clean), nil
 }
 
 func stageNarratorLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Scope, error) {
@@ -3364,7 +3478,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if err != nil {
 		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
 	}
-	waitCtx, cancel := context.WithTimeout(ctx, writer.DefaultAwaitTimeout())
+	waitCtx, cancel := context.WithTimeout(ctx, writerAwaitTimeout())
 	defer cancel()
 	result := job.Await(waitCtx)
 	if result.Err != nil {
@@ -4140,7 +4254,7 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 		ServiceTier: serviceTier,
 		SchemaName:  schemaName,
 		Schema:      schema,
-		Timeout:     15 * time.Minute,
+		Timeout:     codexModelTimeout(),
 	}
 }
 
@@ -4209,7 +4323,7 @@ func claudeRunner() prompt.ClaudeRunner {
 		Model:   "sonnet",
 		Effort:  "medium",
 		WorkDir: ".",
-		Timeout: 15 * time.Minute,
+		Timeout: claudeModelTimeout(),
 	}
 }
 
@@ -4318,7 +4432,7 @@ func scenaristProviderRunners(cfg playConfig, outputDir string, workspaceRoot st
 			EnvFiles: scenarist.DefaultEnvFiles("."),
 			Tools:    cfg.ScenaristTools,
 			AddDirs:  scenaristAddDirs(workDir),
-			Timeout:  15 * time.Minute,
+			Timeout:  scenaristModelTimeout(),
 			Logger:   cfg.Logger,
 		})
 	}
@@ -4476,6 +4590,28 @@ func playTTSConfigFromFlags(enabled bool, baseURL string, model string, voice st
 	}
 }
 
+const defaultAgentModelTimeout = 45 * time.Minute
+
+func sharedModelTimeout() time.Duration {
+	return envDurationMS("SANS_NOM_MODEL_TIMEOUT_MS", defaultAgentModelTimeout)
+}
+
+func codexModelTimeout() time.Duration {
+	return envDurationMS("SANS_NOM_CODEX_TIMEOUT_MS", sharedModelTimeout())
+}
+
+func claudeModelTimeout() time.Duration {
+	return envDurationMS("SANS_NOM_CLAUDE_TIMEOUT_MS", sharedModelTimeout())
+}
+
+func scenaristModelTimeout() time.Duration {
+	return envDurationMS("SANS_NOM_SCENARIST_TIMEOUT_MS", sharedModelTimeout())
+}
+
+func writerAwaitTimeout() time.Duration {
+	return envDurationMS("SANS_NOM_WRITER_AWAIT_TIMEOUT_MS", sharedModelTimeout())
+}
+
 func envBool(name string) bool {
 	switch strings.ToLower(strings.TrimSpace(os.Getenv(name))) {
 	case "1", "true", "yes", "on":
@@ -4510,6 +4646,18 @@ func envInt(name string, fallback int) int {
 		return fallback
 	}
 	return parsed
+}
+
+func envDurationMS(name string, fallback time.Duration) time.Duration {
+	value := strings.TrimSpace(os.Getenv(name))
+	if value == "" {
+		return fallback
+	}
+	parsed, err := strconv.Atoi(value)
+	if err != nil || parsed <= 0 {
+		return fallback
+	}
+	return time.Duration(parsed) * time.Millisecond
 }
 
 func defaultScenaristProviderPool() string {
