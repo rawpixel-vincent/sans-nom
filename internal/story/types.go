@@ -21,6 +21,16 @@ const (
 	StatusBlockedWriterRefresh = "blocked_writer_refresh"
 )
 
+var RequiredResumeMetadataKeys = []string{
+	"seed_version",
+	"generated_at",
+	"resume_point",
+	"current_checkpoint",
+	"continuation_hooks",
+	"canon_validated",
+	"open_threads",
+}
+
 type SeedBundle struct {
 	Bible  StoryBible        `json:"bible"`
 	Packet scene.StoryPacket `json:"packet"`
@@ -239,6 +249,14 @@ func (b StoryBible) Validate() error {
 	}
 	if len(b.StoryArc) < 4 {
 		return fmt.Errorf("story bible needs at least 4 story arc steps")
+	}
+	if len(b.Metadata) == 0 {
+		return errors.New("story bible metadata is required for resume handoff")
+	}
+	for _, key := range RequiredResumeMetadataKeys {
+		if strings.TrimSpace(b.Metadata[key]) == "" {
+			return fmt.Errorf("story bible metadata field %q is required for resume handoff", key)
+		}
 	}
 	return nil
 }

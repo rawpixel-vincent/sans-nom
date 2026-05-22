@@ -30,6 +30,19 @@ func TestStoryBibleValidationRejectsMissingPlayerWorldConnection(t *testing.T) {
 	}
 }
 
+func TestStoryBibleValidationRejectsMissingResumeMetadata(t *testing.T) {
+	bundle := validBundle()
+	bundle.Bible.Metadata = map[string]string{}
+
+	err := ValidateBundle(bundle)
+	if err == nil {
+		t.Fatal("expected missing resume metadata rejection")
+	}
+	if !strings.Contains(err.Error(), "metadata") {
+		t.Fatalf("expected metadata validation error, got: %v", err)
+	}
+}
+
 func TestSeedBundleValidationAllowsLorepackTermsInFaithfulMode(t *testing.T) {
 	bundle := validBundle()
 	bundle.Bible.Premise = "Tonto waits in the Metabunker."
@@ -248,7 +261,7 @@ func validBundle() SeedBundle {
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
 			StoryArc:                   []string{"opening debt rite", "changed legal status", "family pressure widens", "public consequence"},
 			ResumeSummary:              "Rin stands before the civic garden as the debt rite begins.",
-			Metadata:                   map[string]string{"test": "true"},
+			Metadata:                   validResumeMetadata(),
 		},
 		Packet: scene.StoryPacket{
 			ID:          "packet-1",
@@ -331,5 +344,19 @@ func validBundle() SeedBundle {
 				},
 			}},
 		},
+	}
+}
+
+func validResumeMetadata() map[string]string {
+	return map[string]string{
+		"seed_version":        "test-v1",
+		"generated_at":        "test",
+		"resume_point":        "entry",
+		"current_checkpoint":  "opening debt rite",
+		"continuation_hooks":  "continue the debt pressure",
+		"canon_validated":     "true",
+		"open_threads":        "family debt; civic witness",
+		"gameplay_mode":       "test",
+		"ground_lore_pack_id": "metabarons",
 	}
 }

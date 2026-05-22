@@ -995,7 +995,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 		Writer:          writerRunner,
 		WorkshopWriter:  workshopRunner,
 		Verifier:        seedRunnerForPack(cfg.Backend, false, pack),
-		MaxIterations:   2,
+		MaxIterations:   3,
 		Logger:          logger,
 		WorkshopDir:     workshopOutputDir,
 		AgentRoot:       agentScope.Root,

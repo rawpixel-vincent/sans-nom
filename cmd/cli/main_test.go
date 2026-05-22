@@ -1700,7 +1700,7 @@ func cliTestBundle(id string) story.SeedBundle {
 			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
 			StoryArc:                   []string{"opening witness demand", "changed legal status", "family pressure widens", "public consequence"},
 			ResumeSummary:              "Rin stands before the witness hall.",
-			Metadata:                   map[string]string{"test": "true"},
+			Metadata:                   cliTestResumeMetadata(),
 		},
 		Packet: scene.StoryPacket{
 			ID:          "packet-" + id,
@@ -1777,5 +1777,19 @@ func cliTestBundle(id string) story.SeedBundle {
 				},
 			}},
 		},
+	}
+}
+
+func cliTestResumeMetadata() map[string]string {
+	return map[string]string{
+		"seed_version":        "test-v1",
+		"generated_at":        "test",
+		"resume_point":        "entry",
+		"current_checkpoint":  "opening witness demand",
+		"continuation_hooks":  "continue the witness pressure",
+		"canon_validated":     "true",
+		"open_threads":        "family debt; civic witness",
+		"gameplay_mode":       "test",
+		"ground_lore_pack_id": "metabarons",
 	}
 }

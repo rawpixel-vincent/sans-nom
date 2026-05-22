@@ -178,6 +178,42 @@ func TestGenerateRetryPatchesPreviousWriterOutput(t *testing.T) {
 	}
 }
 
+func TestGenerateRetriesEmptyBibleMetadata(t *testing.T) {
+	invalid := DefaultBundle()
+	invalid.Bible.Metadata = map[string]string{}
+	rawInvalid, err := jsonForTest(invalid)
+	if err != nil {
+		t.Fatal(err)
+	}
+	rawValid, err := jsonForTest(DefaultBundle())
+	if err != nil {
+		t.Fatal(err)
+	}
+	runner := &sequenceRunner{responses: []string{rawInvalid, rawValid}}
+	service := Service{
+		Writer:        runner,
+		MaxIterations: 2,
+	}
+
+	if _, err := service.Generate(context.Background(), ContextText()); err != nil {
+		t.Fatal(err)
+	}
+	if len(runner.prompts) != 2 {
+		t.Fatalf("prompt count = %d", len(runner.prompts))
+	}
+	retry := runner.prompts[1]
+	for _, required := range []string{
+		"bible.metadata",
+		"seed_version",
+		"current_checkpoint",
+		"Previous raw Writer output to patch",
+	} {
+		if !strings.Contains(retry, required) {
+			t.Fatalf("retry prompt missing %q:\n%s", required, retry)
+		}
+	}
+}
+
 func TestGenerateLogsSeedWriterNotScenarist(t *testing.T) {
 	rawBundle, err := jsonForTest(DefaultBundle())
 	if err != nil {

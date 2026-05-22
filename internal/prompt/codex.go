@@ -316,7 +316,7 @@ func storyBibleSchema() map[string]any {
 			"spent_motifs":             stringArraySchema(0),
 			"open_threads":             stringArraySchema(0),
 			"resume_summary":           map[string]any{"type": "string"},
-			"metadata":                 emptyObjectSchema(),
+			"metadata":                 seedResumeMetadataSchema(),
 		},
 	}
 }
@@ -450,6 +450,37 @@ func emptyObjectSchema() map[string]any {
 		"additionalProperties": false,
 		"properties":           map[string]any{},
 		"required":             []string{},
+	}
+}
+
+func seedResumeMetadataSchema() map[string]any {
+	properties := map[string]any{
+		"seed_version":        map[string]any{"type": "string"},
+		"generated_at":        map[string]any{"type": "string"},
+		"resume_point":        map[string]any{"type": "string"},
+		"current_checkpoint":  map[string]any{"type": "string"},
+		"continuation_hooks":  map[string]any{"type": "string"},
+		"canon_validated":     map[string]any{"type": "string"},
+		"open_threads":        map[string]any{"type": "string"},
+		"gameplay_mode":       map[string]any{"type": "string"},
+		"ground_lore_pack_id": map[string]any{"type": "string"},
+	}
+	required := []string{
+		"seed_version",
+		"generated_at",
+		"resume_point",
+		"current_checkpoint",
+		"continuation_hooks",
+		"canon_validated",
+		"open_threads",
+		"gameplay_mode",
+		"ground_lore_pack_id",
+	}
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             required,
+		"properties":           properties,
 	}
 }
 

@@ -132,8 +132,8 @@ Rules:
 - Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
 - The injected master summary is broad context, not permission to dump canon; cite concrete staged files or ask_lore_expert when exact source grounding matters.
-- The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
-- Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
+- The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and concrete resume metadata.
+- Populate metadata with string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id. Do not leave metadata empty.
 - Populate optional phase fields when useful: current_arc_phase, next_required_revelation, next_required_opposition, spent_motifs, and open_threads.
 - Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
 - Return one StoryPacket with exactly 5 scene nodes.

@@ -63,6 +63,20 @@ func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
 	if bibleProps["story_arc"] == nil {
 		t.Fatalf("seed bible schema missing story_arc: %#v", bibleProps)
 	}
+	metadata, ok := bibleProps["metadata"].(map[string]any)
+	if !ok {
+		t.Fatalf("seed bible schema missing metadata object: %#v", bibleProps["metadata"])
+	}
+	metadataProps := metadata["properties"].(map[string]any)
+	metadataRequired := metadata["required"].([]string)
+	for _, field := range []string{"seed_version", "generated_at", "resume_point", "current_checkpoint", "continuation_hooks", "canon_validated", "open_threads", "gameplay_mode", "ground_lore_pack_id"} {
+		if metadataProps[field] == nil {
+			t.Fatalf("seed metadata schema missing %q: %#v", field, metadataProps)
+		}
+		if !containsString(metadataRequired, field) {
+			t.Fatalf("seed metadata schema should require %q: %#v", field, metadataRequired)
+		}
+	}
 	required := bible["required"].([]string)
 	if !containsString(required, "story_arc") {
 		t.Fatalf("seed bible schema should require story_arc: %#v", required)

@@ -538,6 +538,17 @@ func testBible() story.StoryBible {
 		FirstTurnExposition: []string{"world", "player", "connection", "law", "pressure"},
 		StoryArc:            []string{"opening pressure", "changed status", "wider opposition", "public consequence"},
 		ResumeSummary:       "Rin begins.",
+		Metadata: map[string]string{
+			"seed_version":        "test-v1",
+			"generated_at":        "test",
+			"resume_point":        "entry",
+			"current_checkpoint":  "opening pressure",
+			"continuation_hooks":  "continue the test pressure",
+			"canon_validated":     "true",
+			"open_threads":        "test thread",
+			"gameplay_mode":       "test",
+			"ground_lore_pack_id": "metabarons",
+		},
 	}
 }
 

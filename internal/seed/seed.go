@@ -143,7 +143,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		}
 		if err := story.ValidateBundle(bundle); err != nil {
 			previousRaw = raw
-			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create a lore-faithful StoryBible plus opening StoryPacket. Preserve the same scenario contract and fix the structural issue."}
+			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create a lore-faithful StoryBible plus opening StoryPacket. Preserve the same scenario contract and fix the structural issue. If the error mentions metadata, populate bible.metadata with concrete string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id."}
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
 				Category: "model",
@@ -588,7 +588,15 @@ func DefaultBible() story.StoryBible {
 		},
 		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the final audit lantern warms and the city demands her left hand as living collateral.",
 		Metadata: map[string]string{
-			"seed_mode": "static",
+			"seed_version":        "static-v1",
+			"generated_at":        "static",
+			"resume_point":        "turn_1_intro",
+			"current_checkpoint":  "opening debt rite",
+			"continuation_hooks":  "Ila's chosen collateral changes legal status after the seed runway.",
+			"canon_validated":     "true",
+			"open_threads":        "mother memory pearl; brother food ledger; Talik pressure; Sarex illegal option",
+			"gameplay_mode":       "static",
+			"ground_lore_pack_id": "metabarons",
 		},
 	}
 }
