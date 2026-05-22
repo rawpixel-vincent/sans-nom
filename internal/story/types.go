@@ -385,29 +385,6 @@ func CreatedPacketText(packet scene.StoryPacket) string {
 	return strings.Join(out, "\n")
 }
 
-func ForbiddenCanonTerms() []string {
-	return []string{
-		"aghora",
-		"aghnar",
-		"bushitaka",
-		"castaka",
-		"council of castaka",
-		"epyphite",
-		"honorata",
-		"lothar",
-		"meta-baron",
-		"metabaron",
-		"metabunker",
-		"oda",
-		"othon",
-		"roundtable",
-		"shabda-oud",
-		"steelhead",
-		"tonto",
-		"vicenta",
-	}
-}
-
 func CollectionName(storyID string) string {
 	return "sans_nom_story_" + strings.ReplaceAll(SanitizeStoryID(storyID), "-", "_")
 }

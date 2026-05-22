@@ -14,6 +14,7 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, no
 	if packet.Metadata != nil {
 		progression.CurrentPhase = firstNonEmptyProgressionValue(packet.Metadata["story_phase"], packet.Metadata["arc_phase"], packet.Metadata["current_arc_phase"])
 		progression.NextPhase = firstNonEmptyProgressionValue(packet.Metadata["next_story_phase"], packet.Metadata["next_arc_phase"])
+		progression.SpentMotifs = appendUniqueStrings(progression.SpentMotifs, splitProgressionList(packet.Metadata["spent_motifs"])...)
 	}
 	if bible != nil {
 		if progression.CurrentPhase == "" {
@@ -39,8 +40,6 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, no
 		progression.NextPhase = progression.StoryArc[1]
 	}
 
-	sourceText := progressionSignalText(packet, node, decision, recentScenes)
-	progression.SpentMotifs = appendUniqueStrings(progression.SpentMotifs, detectSpentMotifs(sourceText)...)
 	progression.RequiredMovement = appendUniqueStrings(progression.RequiredMovement, requiredMovements(progression)...)
 	if containsAllMotifs(progression.SpentMotifs, "witness/testimony proof", "servant/household memory") {
 		progression.Warnings = append(progression.Warnings, "Servant-memory proof appears spent; the next packet should make someone act on it or move to a different macro pressure.")
@@ -84,41 +83,19 @@ func storyArcFromBible(bible *story.StoryBible) []string {
 	return out
 }
 
-func progressionSignalText(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision, recentScenes []string) string {
-	var parts []string
-	parts = append(parts, recentScenes...)
-	parts = append(parts, packet.ContextSnapshot.LatestNarratorProse)
-	parts = append(parts, packet.ContextSnapshot.LastUserDecision)
-	parts = append(parts, node.Title)
-	for _, beat := range node.Beats {
-		parts = append(parts, beat.Text)
-	}
-	for _, choice := range node.Choices {
-		parts = append(parts, choice.ID, choice.Label)
-	}
-	parts = append(parts, decision.ChoiceID, decision.FreeText)
-	return strings.ToLower(strings.Join(parts, "\n"))
-}
-
-func detectSpentMotifs(text string) []string {
-	checks := []struct {
-		name     string
-		keywords []string
-	}{
-		{"witness/testimony proof", []string{"witness", "testimony", "testify", "ledger", "record", "memory", "remember", "mask"}},
-		{"servant/household memory", []string{"servant", "household", "steward", "notary", "scribe", "service"}},
-		{"rite/body cost", []string{"rite", "body", "blood", "wound", "scar", "hand", "skin", "cost"}},
-		{"dynasty/inheritance pressure", []string{"dynasty", "heir", "succession", "inheritance", "house", "family", "lineage"}},
-		{"weapon/resource claim", []string{"weapon", "blade", "key-blade", "armory", "locker", "knife", "resource"}},
-		{"rival/family authority", []string{"rival", "claimant", "father", "mother", "patriarch", "matriarch", "authority"}},
-	}
-	var out []string
-	for _, check := range checks {
-		for _, keyword := range check.keywords {
-			if strings.Contains(text, keyword) {
-				out = append(out, check.name)
-				break
-			}
+func splitProgressionList(value string) []string {
+	fields := strings.FieldsFunc(value, func(r rune) bool {
+		switch r {
+		case ';', '|', '\n':
+			return true
+		default:
+			return false
+		}
+	})
+	out := make([]string, 0, len(fields))
+	for _, field := range fields {
+		if field = strings.TrimSpace(field); field != "" {
+			out = append(out, field)
 		}
 	}
 	return out

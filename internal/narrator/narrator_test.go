@@ -50,6 +50,46 @@ func TestRolloutCommitsOnlySelectedNode(t *testing.T) {
 	}
 }
 
+func TestCosmeticIntroChoiceCanRenderWithoutCanonDecision(t *testing.T) {
+	packet := scene.StoryPacket{
+		ID:          "packet-1",
+		EntryNodeID: "entry",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID: "ws",
+			SessionID:   "session",
+		},
+		Nodes: []scene.SceneNode{{
+			ID:    "entry",
+			Beats: []scene.Beat{{Text: "Entry."}},
+			Choices: []scene.Choice{{
+				ID:           "steady_lamp",
+				Label:        "Steady the lamp.",
+				TargetNodeID: "decision",
+			}, {
+				ID:           "touch_scar",
+				Label:        "Touch the scar.",
+				TargetNodeID: "decision",
+			}},
+		}, {
+			ID:    "decision",
+			Beats: []scene.Beat{{Text: "Decision."}},
+		}},
+	}
+	renderer := &recordingRenderer{}
+	svc := Service{Renderer: renderer}
+
+	rollout, err := svc.Rollout(context.Background(), packet, "decision", scene.PlayerDecision{ChoiceID: "steady_lamp"}, "choice_id: steady_lamp")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(renderer.context, "choice_id: steady_lamp") {
+		t.Fatalf("narrator context did not receive cosmetic choice: %q", renderer.context)
+	}
+	if rollout.Commit.PlayerDecision.ChoiceID != "" || rollout.Commit.PlayerDecision.FreeText != "" {
+		t.Fatalf("cosmetic intro choice should not become canon decision: %#v", rollout.Commit.PlayerDecision)
+	}
+}
+
 func TestRolloutDoesNotCommitActorInterior(t *testing.T) {
 	reg, err := actors.NewRegistry([]actors.Actor{{ID: "tonto", Card: "card"}})
 	if err != nil {
@@ -224,4 +264,13 @@ type fixedRenderer struct {
 
 func (r fixedRenderer) Render(context.Context, scene.SceneNode, []actors.Output, string) (Draft, error) {
 	return r.draft, nil
+}
+
+type recordingRenderer struct {
+	context string
+}
+
+func (r *recordingRenderer) Render(_ context.Context, _ scene.SceneNode, _ []actors.Output, context string) (Draft, error) {
+	r.context = context
+	return Draft{Prose: "Decision.", Choices: nil}, nil
 }

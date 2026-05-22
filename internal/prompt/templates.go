@@ -28,6 +28,7 @@ Packet contract:
 - Plan roughly 3-5 scene nodes.
 - Every choice target_node_id must point to a scene node included in this same packet.
 - For future handoff, use a terminal node with no choices and revision_notes; do not use missing placeholder targets such as "node_future_*", "continue", or "writer_continuation".
+- Populate packet.metadata with Writer-owned progression strings: current_arc_phase, next_arc_phase, and spent_motifs. Use spent_motifs only for mechanisms truly spent by rolled-out canon, separated by semicolons; do not list core vocabulary just because it appeared in prose.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST; if no matching actor card exists, keep actor_needs empty and express the character/object behavior as beats.
@@ -88,6 +89,7 @@ Narration priorities:
 - Let doctrine, law, technology, or taboo appear through lived consequence rather than exposition.
 - Honor any lorepack scenario contract in context; scene detail should reinforce its pressure and consequences.
 - End at the playable pressure point and preserve the available choice ids and labels.
+- Format prose as 2-4 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
 
 Rules:
 - The Creative Writer planned structure; you own final prose.
@@ -154,6 +156,7 @@ Rules:
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and concrete resume metadata.
 - Populate metadata with string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id. Do not leave metadata empty.
 - Populate optional phase fields when useful: current_arc_phase, next_required_revelation, next_required_opposition, spent_motifs, and open_threads.
+- Populate packet.metadata with string values for current_arc_phase, next_arc_phase, and spent_motifs. Use spent_motifs only for mechanisms already spent by the seed runway; separate multiple motifs with semicolons.
 - Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
 - Return one StoryPacket with exactly 5 scene nodes.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.

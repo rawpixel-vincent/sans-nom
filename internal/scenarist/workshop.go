@@ -46,7 +46,7 @@ func ScenaristSystemPrompt(workspaceRoot string, tools bool, loreExpert bool) st
 	if tools {
 		b.WriteString("\nRead-only tools are available for workspace artifacts and active lorepack files explicitly named in the request. Curated lorepack files live under lorepack/ when provided. Use @LoreExpert for focused interpretation, retrieval, or contradiction checks across source references. Direct file access: use Read for files and LS or Grep for artifact directories.\n")
 		if workspaceRoot != "" {
-			fmt.Fprintf(&b, "Workspace root: %s\n", workspaceRoot)
+			b.WriteString("Use workspace-relative paths only; absolute host paths are outside the Scenarist contract.\n")
 		}
 	}
 	return b.String()

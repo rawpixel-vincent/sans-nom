@@ -1445,6 +1445,18 @@ func TestRunPlayRetriesBlockedWriterRefresh(t *testing.T) {
 	}
 }
 
+func TestTerminalHandoffBridgeUsesRevisionNote(t *testing.T) {
+	got := terminalHandoffBridge(scene.SceneNode{
+		RevisionNotes: []string{
+			"Next packet from this branch should pursue the armory maintenance rookery and the copied service-band phrase. Keep the moral stain active.",
+		},
+	})
+	want := "The scene carries forward: pursue the armory maintenance rookery and the copied service-band phrase."
+	if got != want {
+		t.Fatalf("bridge = %q, want %q", got, want)
+	}
+}
+
 func TestRunPlayUsesSeedRunwayBeforeWriterRefresh(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("runway")

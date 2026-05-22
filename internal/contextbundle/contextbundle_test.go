@@ -80,9 +80,11 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 	}
 }
 
-func TestWriterContextFlagsSpentServantMemoryProof(t *testing.T) {
+func TestWriterContextReadsWriterOwnedSpentMotifs(t *testing.T) {
 	packet := testPacket()
-	packet.ContextSnapshot.LatestNarratorProse = "Saryn carried the witness mask through the service hatch while servants copied its testimony into a ledger."
+	packet.Metadata = map[string]string{
+		"spent_motifs": "mask testimony; witness/testimony proof; servant/household memory",
+	}
 	bible := testBible()
 	bible.CurrentArcPhase = "servant schism"
 	bible.NextRequiredRevelation = "the weapon schedule was altered"
@@ -113,6 +115,29 @@ func TestWriterContextFlagsSpentServantMemoryProof(t *testing.T) {
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("writer context missing spent-motif guidance %q:\n%s", required, text)
+		}
+	}
+}
+
+func TestWriterContextDoesNotInferSpentMotifsFromProseKeywords(t *testing.T) {
+	packet := testPacket()
+	packet.ContextSnapshot.LatestNarratorProse = "Saryn carried the witness mask through the service hatch while servants copied its testimony into a ledger."
+	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
+		Packet: packet,
+		NodeID: "active",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	for _, forbidden := range []string{
+		"witness/testimony proof",
+		"servant/household memory",
+		"Servant-memory proof appears spent",
+		"Do not center another servant ledger",
+	} {
+		if strings.Contains(text, forbidden) {
+			t.Fatalf("writer context inferred spent motif %q from prose keywords:\n%s", forbidden, text)
 		}
 	}
 }

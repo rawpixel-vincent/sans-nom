@@ -52,6 +52,19 @@ func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
 	}
 }
 
+func TestStoryPacketSchemaAllowsStringMetadata(t *testing.T) {
+	schema := StoryPacketSchema()
+	props := schema["properties"].(map[string]any)
+	metadata, ok := props["metadata"].(map[string]any)
+	if !ok {
+		t.Fatalf("packet schema missing metadata object: %#v", props["metadata"])
+	}
+	additional, ok := metadata["additionalProperties"].(map[string]any)
+	if !ok || additional["type"] != "string" {
+		t.Fatalf("packet metadata should allow string map values: %#v", metadata)
+	}
+}
+
 func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
 	schema := SeedBundleSchema()
 	props := schema["properties"].(map[string]any)

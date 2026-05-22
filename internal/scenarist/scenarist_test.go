@@ -77,13 +77,15 @@ func TestScenaristSystemPromptExposesCuratedLorepackWorkspace(t *testing.T) {
 		"Curated lorepack files live under lorepack/",
 		"Use @LoreExpert for focused interpretation",
 		"Read for files and LS or Grep for artifact directories",
-		"Workspace root: /repo",
+		"Use workspace-relative paths only",
+		"absolute host paths are outside the Scenarist contract",
 	} {
 		if !strings.Contains(system, required) {
 			t.Fatalf("scenarist system prompt missing %q:\n%s", required, system)
 		}
 	}
 	for _, forbidden := range []string{
+		"/repo",
 		"lore/packs/metabarons",
 		"Useful real file pointers",
 	} {

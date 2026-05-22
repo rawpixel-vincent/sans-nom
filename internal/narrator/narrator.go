@@ -147,7 +147,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			},
 		})
 	}
-	commit := buildCommit(packet, node, decision, draft)
+	commit := buildCommit(packet, node, commitDecision(packet, node, decision), draft)
 	if err := commit.ValidateCanonOnly(); err != nil {
 		logEvent(s.Logger, gamelog.Event{
 			Level:    gamelog.LevelError,
@@ -276,6 +276,33 @@ func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.
 		Events:         events,
 		Witnesses:      witnesses.values(),
 	}
+}
+
+func commitDecision(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision) scene.PlayerDecision {
+	if strings.TrimSpace(decision.ChoiceID) == "" {
+		return decision
+	}
+	entry, err := packet.EntryNode()
+	if err != nil || entry.ID == node.ID || len(entry.Choices) < 2 {
+		return decision
+	}
+	target := strings.TrimSpace(entry.Choices[0].TargetNodeID)
+	if target == "" || target != node.ID {
+		return decision
+	}
+	found := false
+	for _, choice := range entry.Choices {
+		if strings.TrimSpace(choice.TargetNodeID) != target {
+			return decision
+		}
+		if choice.ID == decision.ChoiceID {
+			found = true
+		}
+	}
+	if found {
+		return scene.PlayerDecision{}
+	}
+	return decision
 }
 
 func decisionText(decision scene.PlayerDecision) string {

@@ -236,7 +236,7 @@ func StoryPacketSchema() map[string]any {
 			},
 			"revision_notes":     map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
 			"invalidation_notes": map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
-			"metadata":           emptyObjectSchema(),
+			"metadata":           stringMapSchema(),
 		},
 	}
 }
@@ -450,6 +450,13 @@ func emptyObjectSchema() map[string]any {
 		"additionalProperties": false,
 		"properties":           map[string]any{},
 		"required":             []string{},
+	}
+}
+
+func stringMapSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": map[string]any{"type": "string"},
 	}
 }
 

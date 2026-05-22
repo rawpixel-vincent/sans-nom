@@ -2037,6 +2037,11 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 			})
 		}
 		fmt.Printf("\n--- Turn %d ---\n\n%s\n", displayTurn, rollout.Draft.Prose)
+		if len(rollout.Node.Choices) == 0 && cfg.RefreshWrite {
+			if bridge := terminalHandoffBridge(rollout.Node); bridge != "" {
+				fmt.Printf("\n%s\n", bridge)
+			}
+		}
 		if len(rollout.Draft.Choices) > 0 {
 			fmt.Println("\nChoices:")
 			for _, choice := range rollout.Draft.Choices {
@@ -2142,15 +2147,11 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 		nextNodeID := ""
 		if targetNodeID, ok := resolvedChoiceTarget(packet, rollout.Node, nextDecision); ok {
 			nextNodeID = targetNodeID
-			nextRolloutDecision := nextDecision
-			if isCosmeticIntroChoice(packet, rollout.Node) {
-				nextRolloutDecision = scene.PlayerDecision{}
-			}
 			if err := persistStoryTurn(ctx, cfg, state, packet, rollout, nextNodeID, nextDecision, cfg.Commit, turnAudioPath); err != nil {
 				return err
 			}
 			nodeID = nextNodeID
-			decision = nextRolloutDecision
+			decision = nextDecision
 			if cfg.TraceJSONL {
 				if err := writePlayTrace(decisionTrace(rawInput, nextDecision, nextNodeID)); err != nil {
 					return err
@@ -2539,6 +2540,12 @@ func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, err
 			return clitui.TurnView{}, err
 		}
 	}
+	terminalHandoff := len(rollout.Node.Choices) == 0 && cfg.RefreshWrite
+	if terminalHandoff {
+		if bridge := terminalHandoffBridge(rollout.Node); bridge != "" {
+			c.addStatus("", bridge)
+		}
+	}
 	c.current = &playControllerTurn{
 		displayTurn: displayTurn,
 		rollout:     rollout,
@@ -2551,7 +2558,7 @@ func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, err
 		NodeID:          rollout.Commit.NodeID,
 		Prose:           rollout.Draft.Prose,
 		Choices:         choiceViews(rollout),
-		TerminalHandoff: len(rollout.Node.Choices) == 0 && cfg.RefreshWrite,
+		TerminalHandoff: terminalHandoff,
 		CommitLabel:     commitLabel(rollout, committed, cfg.Commit),
 		AudioPath:       filepath.ToSlash(turnAudioPath),
 		Status:          c.statusSnapshot(),
@@ -2586,15 +2593,11 @@ func (c *playLoopController) Submit(ctx context.Context, submitted clitui.Submit
 		return true, nil
 	}
 	if targetNodeID, ok := resolvedChoiceTarget(c.packet, rollout.Node, nextDecision); ok {
-		nextRolloutDecision := nextDecision
-		if isCosmeticIntroChoice(c.packet, rollout.Node) {
-			nextRolloutDecision = scene.PlayerDecision{}
-		}
 		if err := persistStoryTurn(ctx, cfg, c.state, c.packet, rollout, targetNodeID, nextDecision, cfg.Commit, c.current.audioPath); err != nil {
 			return false, err
 		}
 		c.nodeID = targetNodeID
-		c.decision = nextRolloutDecision
+		c.decision = nextDecision
 		c.current = nil
 		if cfg.TraceJSONL {
 			if err := writePlayTrace(decisionTrace(rawInput, nextDecision, targetNodeID)); err != nil {
@@ -2782,6 +2785,49 @@ func commitLabel(rollout narrator.Rollout, committed bool, commitEnabled bool) s
 		strings.Join(rollout.Commit.Witnesses, ","),
 		len(rollout.Commit.Events),
 	)
+}
+
+func terminalHandoffBridge(node scene.SceneNode) string {
+	for _, note := range node.RevisionNotes {
+		note = strings.TrimSpace(note)
+		if note == "" {
+			continue
+		}
+		note = firstSentence(note)
+		note = strings.TrimPrefix(note, "After this branch is narrated, ")
+		note = strings.TrimPrefix(note, "After this branch is narrated,")
+		note = strings.TrimPrefix(note, "Next packet from this branch should ")
+		note = strings.TrimPrefix(note, "Continuation should ")
+		note = strings.TrimSpace(note)
+		if note == "" {
+			continue
+		}
+		return "The scene carries forward: " + lowerFirst(note)
+	}
+	return ""
+}
+
+func firstSentence(text string) string {
+	text = strings.TrimSpace(text)
+	for _, sep := range []string{". ", "! ", "? ", "\n"} {
+		if index := strings.Index(text, sep); index >= 0 {
+			end := index + 1
+			if sep == "\n" {
+				end = index
+			}
+			return strings.TrimSpace(text[:end])
+		}
+	}
+	return text
+}
+
+func lowerFirst(text string) string {
+	if text == "" {
+		return ""
+	}
+	runes := []rune(text)
+	runes[0] = []rune(strings.ToLower(string(runes[0])))[0]
+	return string(runes)
 }
 
 func recoverPendingDisplayedTurnFromLogs(cfg playConfig, state *story.StoryState, packet scene.StoryPacket, nodeID string) error {
@@ -3998,23 +4044,6 @@ func resolvedChoiceTarget(packet scene.StoryPacket, node scene.SceneNode, decisi
 		return "", false
 	}
 	return choice.TargetNodeID, true
-}
-
-func isCosmeticIntroChoice(packet scene.StoryPacket, node scene.SceneNode) bool {
-	entryID := entryNodeID(packet)
-	if node.ID != entryID || len(node.Choices) < 2 || len(node.Choices) > 3 {
-		return false
-	}
-	target := strings.TrimSpace(node.Choices[0].TargetNodeID)
-	if target == "" || target == node.ID {
-		return false
-	}
-	for _, choice := range node.Choices[1:] {
-		if strings.TrimSpace(choice.TargetNodeID) != target {
-			return false
-		}
-	}
-	return true
 }
 
 func numericChoice(line string, node scene.SceneNode) (scene.Choice, bool) {
