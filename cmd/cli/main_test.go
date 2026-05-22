@@ -1376,6 +1376,75 @@ func TestRunPlayHardFailsWriterRefreshAndBlocksStory(t *testing.T) {
 	}
 }
 
+func TestRunPlayRetriesBlockedWriterRefresh(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("retry-blocked")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "retry-blocked",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	bible := bundle.Bible
+	state.Status = story.StatusBlockedWriterRefresh
+	state.BlockedReason = "model exceeded 24 local tool rounds"
+	state.BlockedWriterRunID = "turn-000003"
+	state.BlockedWriterRunPath = "model-runs/writer/turn-000003"
+	state.CurrentNodeID = "opened"
+	state.LastDecision = scene.PlayerDecision{ChoiceID: "pay"}
+	if err := workspace.SaveState(state); err != nil {
+		t.Fatal(err)
+	}
+	nextPacket := cliTestBundle("retry-next").Packet
+	planner := &countingPlanner{next: nextPacket}
+	cfg, err := retryBlockedWriterRefreshIfNeeded(context.Background(), playConfig{
+		Packet:               bundle.Packet,
+		NodeID:               "opened",
+		Backend:              "static",
+		Workspace:            &workspace,
+		State:                &state,
+		Bible:                &bible,
+		RefreshWrite:         true,
+		Commit:               false,
+		WriterScenaristCalls: 0,
+		WriterPlanner:        planner,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if planner.calls != 1 {
+		t.Fatalf("planner calls = %d", planner.calls)
+	}
+	if planner.lastInput.LatestDecision != "pay" {
+		t.Fatalf("writer latest decision = %q", planner.lastInput.LatestDecision)
+	}
+	if cfg.Packet.ID != nextPacket.ID || cfg.NodeID != nextPacket.EntryNodeID {
+		t.Fatalf("retry config packet/node = %s/%s", cfg.Packet.ID, cfg.NodeID)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "retry-blocked")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if loaded.Status != story.StatusActive {
+		t.Fatalf("status = %q", loaded.Status)
+	}
+	if loaded.BlockedReason != "" || loaded.BlockedWriterRunID != "" || loaded.BlockedWriterRunPath != "" {
+		t.Fatalf("blocked fields not cleared: %#v", loaded)
+	}
+	if loaded.CurrentPacketID != nextPacket.ID || loaded.CurrentNodeID != nextPacket.EntryNodeID {
+		t.Fatalf("loaded packet/node = %s/%s", loaded.CurrentPacketID, loaded.CurrentNodeID)
+	}
+	events, err := gamelog.Read(gamelog.NewWriter(workspace.Dir, state.StoryID).Path, gamelog.Filter{Event: "writer.refresh.completed"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 || events[0].Fields["retry"] != true {
+		t.Fatalf("retry completion event = %#v", events)
+	}
+}
+
 func TestRunPlayUsesSeedRunwayBeforeWriterRefresh(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("runway")

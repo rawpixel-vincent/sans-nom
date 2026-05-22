@@ -158,7 +158,15 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 		"terminal node with no choices and revision_notes",
 		"cause, daily practice, human cost, and visible consequence",
 		"Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST",
-		"If lorepack/navigation.md is available",
+		"assembled Writer context below is the authoritative continuation brief",
+		"Do not re-read staged story files",
+		"continuation refresh, not seed generation",
+		"Do not perform the lorepack minimum orientation pass",
+		"do not read lorepack/navigation.md as a default step",
+		"prefer 0-4 targeted tool calls",
+		"Do not run broad inventory commands",
+		"read one named story file or one named lorepack source file",
+		"Prefer one focused rg/read or ask_lore_expert",
 		"Use ask_scenarist for sparks",
 		"Ask one clear advisory question",
 		"dependent follow-up with that path in relevant_paths",
@@ -169,6 +177,24 @@ func TestWriterPromptRequiresClosedPacketTargets(t *testing.T) {
 	} {
 		if !strings.Contains(got, required) {
 			t.Fatalf("writer prompt missing %q:\n%s", required, got)
+		}
+	}
+}
+
+func TestWriterPromptDoesNotRepeatSeedLoreOrientation(t *testing.T) {
+	got, err := WriterPrompt("writer context", "choice_refuse_publicly")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, forbidden := range []string{
+		"read it before searching the lorepack",
+		"Follow the minimum orientation from lorepack/navigation.md",
+		"at least two relevant volume summaries",
+		"at least one matching character file",
+		"build a compact mental model before writing JSON",
+	} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("writer prompt kept seed-orientation wording %q:\n%s", forbidden, got)
 		}
 	}
 }

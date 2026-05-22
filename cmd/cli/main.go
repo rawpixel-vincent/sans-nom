@@ -1830,10 +1830,104 @@ func (e writerRefreshFailure) Unwrap() error {
 }
 
 func runPlay(ctx context.Context, cfg playConfig) error {
+	var err error
+	cfg, err = retryBlockedWriterRefreshIfNeeded(ctx, cfg)
+	if err != nil {
+		return err
+	}
 	if cfg.UseTUI {
 		return runPlayTUI(ctx, cfg)
 	}
 	return runPlayRaw(ctx, cfg)
+}
+
+func retryBlockedWriterRefreshIfNeeded(ctx context.Context, cfg playConfig) (playConfig, error) {
+	state := cfg.State
+	if state == nil || state.Status != story.StatusBlockedWriterRefresh {
+		return cfg, nil
+	}
+	if !cfg.RefreshWrite {
+		return cfg, fmt.Errorf("story is blocked by Writer refresh: %s (artifacts: %s)", state.BlockedReason, state.BlockedWriterRunPath)
+	}
+	if cfg.Workspace == nil {
+		return cfg, fmt.Errorf("story is blocked by Writer refresh and has no workspace to save retry results: %s", state.BlockedReason)
+	}
+	if cfg.Logger == nil {
+		cfg.Logger = storyLogger(cfg.Workspace, state)
+	}
+	refreshCfg := cfg
+	refreshCfg.State = state
+	runID, runDir := writerRunInfo(refreshCfg)
+	metadata := writerRefreshModelMetadata(refreshCfg)
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "writer",
+		Event:    "writer.refresh.started",
+		Message:  "retrying blocked Writer refresh",
+		PacketID: cfg.Packet.ID,
+		NodeID:   cfg.NodeID,
+		RunID:    runID,
+		Fields: modelmeta.MergeFields(map[string]any{
+			"artifact_dir": filepath.ToSlash(runDir),
+			"retry":        true,
+			"blocked_run":  state.BlockedWriterRunID,
+		}, metadata),
+		Detail: map[string]any{
+			"artifact_dir":   filepath.ToSlash(runDir),
+			"blocked_reason": state.BlockedReason,
+			"blocked_run":    state.BlockedWriterRunID,
+			"model_metadata": metadata,
+		},
+	})
+	next, err := refreshPacket(ctx, cfg.Packet, cfg.NodeID, decisionForWriterRefresh(state), refreshCfg)
+	if err != nil {
+		failure := writerFailure(err, runID, runDir)
+		detail := writerFailureDetails(failure)
+		detail["model_metadata"] = metadata
+		detail["retry"] = true
+		logEvent(cfg.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "writer",
+			Event:    "writer.refresh.failed",
+			Message:  failure.Err.Error(),
+			PacketID: cfg.Packet.ID,
+			NodeID:   cfg.NodeID,
+			RunID:    failure.RunID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"artifact_dir": filepath.ToSlash(failure.RunDir),
+				"retry":        true,
+			}, metadata),
+			Detail: detail,
+		})
+		if blockErr := markStoryBlocked(refreshCfg, state, failure); blockErr != nil {
+			return cfg, blockErr
+		}
+		return cfg, failure
+	}
+	nextNodeID := entryNodeID(next)
+	logEvent(cfg.Logger, gamelog.Event{
+		Category: "writer",
+		Event:    "writer.refresh.completed",
+		Message:  "blocked Writer refresh retry completed",
+		PacketID: next.ID,
+		NodeID:   nextNodeID,
+		RunID:    runID,
+		Fields: modelmeta.MergeFields(map[string]any{
+			"artifact_dir": filepath.ToSlash(runDir),
+			"retry":        true,
+		}, metadata),
+		Detail: map[string]any{
+			"artifact_dir":   filepath.ToSlash(runDir),
+			"model_metadata": metadata,
+			"retry":          true,
+		},
+	})
+	if err := saveCurrentStoryPacket(ctx, refreshCfg, state, next, nextNodeID); err != nil {
+		return cfg, err
+	}
+	cfg.Packet = next
+	cfg.NodeID = nextNodeID
+	cfg.State = state
+	return cfg, nil
 }
 
 func runPlayRaw(ctx context.Context, cfg playConfig) error {

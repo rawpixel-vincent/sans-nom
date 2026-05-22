@@ -182,7 +182,7 @@ func localToolDescription(visiblePaths []string) string {
 			}
 			b.WriteString(pathForDisplay(path))
 		}
-		b.WriteString(".")
+		b.WriteString(". Read known paths directly; avoid broad inventory commands unless you need exact file names.")
 	}
 	b.WriteString(" Prefer rg, grep, sed, jq, find, cat, ls, head, tail, wc, sort, uniq, nl, and pwd.")
 	return b.String()
