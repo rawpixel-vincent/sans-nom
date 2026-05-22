@@ -273,7 +273,7 @@ func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md"} {
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md", "lorepack/navigation.md"} {
 		abs, err := staged.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
@@ -284,6 +284,27 @@ func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
 	}
 	if !containsStringWith(staged.VisiblePaths, "lorepack") {
 		t.Fatalf("visible paths missing lorepack: %#v", staged.VisiblePaths)
+	}
+	navPath, err := staged.Abs("lorepack/navigation.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	navBytes, err := os.ReadFile(navPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	nav := string(navBytes)
+	for _, required := range []string{
+		"Minimum Orientation Before Writing",
+		"lorepack/comics/volumes/volume-XX.json",
+		"lorepack/comics/characters/characters-volume-XX.json",
+		"lorepack/comics/pages/<page_id>.json",
+		"Use the Grep tool or rg",
+		"Do not draft after reading only lorepack/lore-pack.json",
+	} {
+		if !strings.Contains(nav, required) {
+			t.Fatalf("navigation missing %q:\n%s", required, nav)
+		}
 	}
 }
 
@@ -306,7 +327,7 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/contract.md", "lorepack/relevant-excerpts.md", "lorepack/source-anchors.md"} {
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/contract.md", "lorepack/relevant-excerpts.md", "lorepack/source-anchors.md", "lorepack/navigation.md"} {
 		abs, err := scope.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
@@ -324,6 +345,17 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 	}
 	if !containsStringWith(scope.VisiblePaths, "lorepack") {
 		t.Fatalf("visible paths missing lorepack: %#v", scope.VisiblePaths)
+	}
+	navPath, err := scope.Abs("lorepack/navigation.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	navBytes, err := os.ReadFile(navPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(navBytes), "Narrator Lorepack Navigation") {
+		t.Fatalf("narrator navigation missing title:\n%s", string(navBytes))
 	}
 }
 
@@ -578,6 +610,13 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 		"pressure field for faithful play",
 		"premise logic",
 		"protagonist pressure",
+		"Before drafting, orient in the staged lorepack",
+		"lorepack/navigation.md",
+		"minimum orientation",
+		"relevant volume summaries",
+		"matching character records",
+		"do not rely on shell grep",
+		"major characters, family/story pressures, repeated laws, decisive events, and choice logic",
 		"choice_principles",
 		"copying its synopsis wording",
 	} {

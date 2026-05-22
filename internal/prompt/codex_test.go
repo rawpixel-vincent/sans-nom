@@ -67,6 +67,11 @@ func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
 	if !containsString(required, "story_arc") {
 		t.Fatalf("seed bible schema should require story_arc: %#v", required)
 	}
+	for field := range bibleProps {
+		if !containsString(required, field) {
+			t.Fatalf("strict seed bible schema property %q must also be required: %#v", field, required)
+		}
+	}
 	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
 		if bibleProps[legacy] != nil {
 			t.Fatalf("seed bible schema should not prompt legacy field %q: %#v", legacy, bibleProps)

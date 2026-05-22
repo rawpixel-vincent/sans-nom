@@ -1042,7 +1042,9 @@ func buildSeedContextForPack(pack lorepack.Pack) string {
 		b.WriteString(scenario)
 		b.WriteString("\n\nSeed fidelity instructions:\n")
 		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise logic, protagonist pressure, opening pressure, and choice logic.\n")
-		b.WriteString("- Read lorepack/lore-pack.json when local read tools are available, then stage and structure that authored scenario for playable opening turns.\n")
+		b.WriteString("- Before drafting, orient in the staged lorepack: read lorepack/navigation.md, then lorepack/lore-pack.json, then inspect reference files enough to understand major characters, family/story pressures, repeated laws, decisive events, and choice logic, then stage that understanding into playable opening turns.\n")
+		b.WriteString("- Follow the lorepack/navigation.md minimum orientation: contract, wiki overview, comics manifest, relevant volume summaries, and matching character records before drafting, unless ask_lore_expert resolves a narrow missing fact.\n")
+		b.WriteString("- Search with the Grep tool or rg-style commands; do not rely on shell grep.\n")
 		b.WriteString("- Keep the contract's pressure alive through scene choices without copying its synopsis wording into every node.\n")
 		b.WriteString("- Use ask_lore_expert as a lore authority/reference check when fidelity is uncertain.\n")
 		b.WriteString("- Preserve the contract's must_honor items, avoid must_not_violate drift, and make choices express its choice_principles.\n")
@@ -1180,6 +1182,9 @@ func stageLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (agentfs.Sco
 	if _, err := scope.StageDir(filepath.Dir(pack.Path), "lorepack"); err != nil {
 		return scope, fmt.Errorf("stage active lorepack %q: %w", pack.ID, err)
 	}
+	if _, err := scope.StageText("lorepack/navigation.md", lorepackNavigationGuide(pack)); err != nil {
+		return scope, fmt.Errorf("stage active lorepack navigation %q: %w", pack.ID, err)
+	}
 	return scope.WithVisiblePaths("lorepack"), nil
 }
 
@@ -1200,6 +1205,9 @@ func stageNarratorLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (age
 		return scope, err
 	}
 	if _, err := scope.StageText("lorepack/source-anchors.md", lorepackSourceAnchors(pack)); err != nil {
+		return scope, err
+	}
+	if _, err := scope.StageText("lorepack/navigation.md", narratorLorepackNavigationGuide(pack)); err != nil {
 		return scope, err
 	}
 	return scope.WithVisiblePaths("lorepack"), nil
@@ -1251,6 +1259,83 @@ func lorepackSourceAnchors(pack lorepack.Pack) string {
 	writeMarkdownList(&b, "Must Include Canon Facts", anchor.MustIncludeCanonFacts)
 	writeMarkdownList(&b, "Allowed Original Insertions", anchor.AllowedOriginalInsertions)
 	return b.String()
+}
+
+func lorepackNavigationGuide(pack lorepack.Pack) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Lorepack Navigation: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
+	fmt.Fprintln(&b, "Use this file before drafting. The lorepack is staged under lorepack/ inside your workspace; paths below are workspace-relative.")
+	fmt.Fprintln(&b, "\n## Minimum Orientation Before Writing")
+	fmt.Fprintln(&b, "1. Read lorepack/lore-pack.json for gameplay_mode, game_synopsis, protagonist_role, opening_situation, initial_pressure, story_lines, must_honor, must_not_violate, and choice_principles.")
+	fmt.Fprintln(&b, "2. Read lorepack/wiki/lore.md for the broad lineage, terminology, doctrine, characters, and recurring story pressures.")
+	fmt.Fprintln(&b, "3. Read lorepack/comics/manifest.json to understand available page ids, volumes, and source image coverage. Use it to choose files; do not treat it as story summary.")
+	fmt.Fprintln(&b, "4. Read at least two relevant lorepack/comics/volumes/volume-XX.json files. Volume summaries are the best first stop for chronology, locations, lore laws, major events, motifs, and page ids.")
+	fmt.Fprintln(&b, "5. Read at least one matching lorepack/comics/characters/characters-volume-XX.json file for who appears in that volume, relationship pressure, role, and character function.")
+	fmt.Fprintln(&b, "6. Open lorepack/comics/pages/<page_id>.json only after a volume summary or search points to a specific scene detail.")
+	fmt.Fprintln(&b, "7. If fidelity remains uncertain, ask_lore_expert with the exact uncertainty and source files you already checked.")
+	fmt.Fprintln(&b, "\n## File Map")
+	fmt.Fprintln(&b, "- lorepack/lore-pack.json: authored gameplay contract and hard scenario boundaries.")
+	fmt.Fprintln(&b, "- lorepack/wiki/lore.md: broad source overview; useful for names, lineage logic, doctrine, and recurring pressure.")
+	fmt.Fprintln(&b, "- lorepack/comics/volumes/volume-XX.json: volume-level summaries; use before page files.")
+	fmt.Fprintln(&b, "- lorepack/comics/characters/characters-volume-XX.json: volume-level cast and role records.")
+	fmt.Fprintln(&b, "- lorepack/comics/pages/<page_id>.json: page-level evidence; use for precise events, lines, witnesses, staging, and object details.")
+	fmt.Fprintln(&b, "- lorepack/comics/peer-cards/cards/accepted/*.json: character authority cards when the pack includes them.")
+	fmt.Fprintln(&b, "- lorepack/comics/manifest.json: page catalog; choose page ids and volumes from here.")
+	fmt.Fprintln(&b, "- lorepack/index/manifest.json: retrieval/index coverage; use to understand what the LoreExpert can see, not as plot summary.")
+	fmt.Fprintln(&b, "\n## Search Guidance")
+	fmt.Fprintln(&b, "- Use the Grep tool or rg. Do not use shell grep; it may be blocked by the read-only tool allowlist.")
+	fmt.Fprintln(&b, "- Good focused searches for this pack: succession, honor, wound, ritual, warrior, dynasty, weapon, body, refusal, servant, witness, memory, initiation, lineage.")
+	fmt.Fprintln(&b, "- Search source terms only when you need a concrete anchor. Do not let one search hit become the whole premise.")
+	fmt.Fprintln(&b, "- Prefer searches over directories that are already staged, for example lorepack/wiki/lore.md and lorepack/comics/volumes.")
+	fmt.Fprintln(&b, "\n## Useful Read-Only Commands")
+	fmt.Fprintln(&b, "- rg --files lorepack/comics/volumes")
+	fmt.Fprintln(&b, "- rg --files lorepack/comics/characters")
+	fmt.Fprintln(&b, "- rg -n \"succession|honor|wound|ritual|warrior|dynasty|weapon|body|refusal|servant|witness|memory|initiation|lineage\" lorepack/wiki/lore.md lorepack/comics/volumes")
+	fmt.Fprintln(&b, "- cat lorepack/comics/volumes/volume-01.json")
+	fmt.Fprintln(&b, "- cat lorepack/comics/characters/characters-volume-01.json")
+	fmt.Fprintln(&b, "\n## Anti-Patterns")
+	fmt.Fprintln(&b, "- Do not draft after reading only lorepack/lore-pack.json.")
+	fmt.Fprintln(&b, "- Do not browse random page files before choosing relevant volumes.")
+	fmt.Fprintln(&b, "- Do not use one isolated page as the whole story contract.")
+	fmt.Fprintln(&b, "- Do not dump unused canon into the seed. Use source detail to support playable pressure, choices, and consequence.")
+	fmt.Fprintln(&b, "- Do not replace the gameplay contract with broad mood words.")
+	writeNavigationAnchors(&b, pack)
+	return b.String()
+}
+
+func narratorLorepackNavigationGuide(pack lorepack.Pack) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "# Narrator Lorepack Navigation: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
+	fmt.Fprintln(&b, "Use staged lorepack files for scene fidelity, not source dumping.")
+	fmt.Fprintln(&b, "\n## Read Order")
+	fmt.Fprintln(&b, "1. lorepack/contract.md for the scenario pressure and hard boundaries.")
+	fmt.Fprintln(&b, "2. lorepack/relevant-excerpts.md for the current playable synopsis, role, pressure, and choice principles.")
+	fmt.Fprintln(&b, "3. lorepack/source-anchors.md for specific canon anchor facts when the scene needs them.")
+	fmt.Fprintln(&b, "4. lorepack/lore-pack.json only if a structured field is missing from the markdown summaries.")
+	fmt.Fprintln(&b, "\n## Use")
+	fmt.Fprintln(&b, "- Let source detail appear through action, witness behavior, body cost, household reaction, and consequence.")
+	fmt.Fprintln(&b, "- Keep narration scene-local. Do not recite contract fields or unused canon.")
+	writeNavigationAnchors(&b, pack)
+	return b.String()
+}
+
+func writeNavigationAnchors(b *strings.Builder, pack lorepack.Pack) {
+	anchor := pack.CanonAnchor
+	if anchor.Empty() {
+		return
+	}
+	fmt.Fprintln(b, "\n## Authored Source Anchors")
+	if len(anchor.SourceVolumes) > 0 {
+		var volumes []string
+		for _, volume := range anchor.SourceVolumes {
+			volumes = append(volumes, fmt.Sprintf("lorepack/comics/volumes/volume-%02d.json", volume))
+		}
+		fmt.Fprintf(b, "- Start with source volume summaries: %s\n", strings.Join(volumes, ", "))
+	}
+	writeMarkdownList(b, "Anchor Events", anchor.SourceEvents)
+	writeMarkdownList(b, "Anchor Characters", anchor.SourceCharacters)
+	writeMarkdownList(b, "Must Include Canon Facts", anchor.MustIncludeCanonFacts)
+	writeMarkdownList(b, "Allowed Original Insertions", anchor.AllowedOriginalInsertions)
 }
 
 func writeMarkdownList(b *strings.Builder, title string, values []string) {

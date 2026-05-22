@@ -34,6 +34,7 @@ Packet contract:
 
 Tools:
 - Local read tools can inspect curated workspace files under story/, scenarists/, and lorepack/ when available. Use lorepack/ for concrete pack contract or reference checks.
+- If lorepack/navigation.md is available, read it before searching the lorepack. It explains which lorepack files answer contract, volume, character, page, and index questions.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert for focused lore authority/reference checks when scenario fidelity is uncertain. Treat its answers as support, not story authorship.
 - You own the final packet shape. Scenarist and LoreExpert material is advisory.
@@ -88,7 +89,7 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
-- Use provided lore context first. When a concrete source detail is missing, read curated files such as lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
+- Use provided lore context first. When a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface actor messages only from provided actor raw material. If actor raw material is [], surfaced_actor_messages must be [].
@@ -123,7 +124,10 @@ Your creative job:
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
-- When local read tools are available, read lorepack/lore-pack.json for the exact scenario contract; curated active lorepack files are under lorepack/ for concrete fidelity checks.
+- Before drafting any StoryBible or StoryPacket, do a lore orientation pass. When local read tools are available, read lorepack/navigation.md first, then lorepack/lore-pack.json, then inspect staged lorepack reference files enough to understand the source's major characters, family/story pressures, repeated laws, decisive events, and choice logic.
+- Follow the minimum orientation from lorepack/navigation.md: contract, wiki overview, comics manifest, at least two relevant volume summaries, and at least one matching character file before writing JSON, unless ask_lore_expert resolves a narrow missing fact.
+- Use LS/Grep/Read on lorepack/ deliberately: prefer lorepack/wiki/lore.md, lorepack/comics/volumes/volume-XX.json, lorepack/comics/characters/characters-volume-XX.json, lorepack/comics/manifest.json, and specific lorepack/comics/pages/<page_id>.json files that answer a concrete fidelity question. Use lorepack/index/manifest.json only to understand retrieval coverage. Do not browse randomly; build a compact mental model before writing JSON.
+- Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
