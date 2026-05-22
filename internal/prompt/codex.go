@@ -236,7 +236,7 @@ func StoryPacketSchema() map[string]any {
 			},
 			"revision_notes":     map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
 			"invalidation_notes": map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
-			"metadata":           stringMapSchema(),
+			"metadata":           packetMetadataSchema(),
 		},
 	}
 }
@@ -453,10 +453,17 @@ func emptyObjectSchema() map[string]any {
 	}
 }
 
-func stringMapSchema() map[string]any {
+func packetMetadataSchema() map[string]any {
+	required := []string{"current_arc_phase", "next_arc_phase", "spent_motifs"}
 	return map[string]any{
 		"type":                 "object",
-		"additionalProperties": map[string]any{"type": "string"},
+		"additionalProperties": false,
+		"required":             required,
+		"properties": map[string]any{
+			"current_arc_phase": map[string]any{"type": "string"},
+			"next_arc_phase":    map[string]any{"type": "string"},
+			"spent_motifs":      map[string]any{"type": "string"},
+		},
 	}
 }
 

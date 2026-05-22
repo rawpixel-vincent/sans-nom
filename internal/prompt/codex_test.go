@@ -52,16 +52,37 @@ func TestSeedBundleSchemaContainsBibleAndPacket(t *testing.T) {
 	}
 }
 
-func TestStoryPacketSchemaAllowsStringMetadata(t *testing.T) {
+func TestStoryPacketSchemaRequiresClosedProgressionMetadata(t *testing.T) {
 	schema := StoryPacketSchema()
 	props := schema["properties"].(map[string]any)
 	metadata, ok := props["metadata"].(map[string]any)
 	if !ok {
 		t.Fatalf("packet schema missing metadata object: %#v", props["metadata"])
 	}
-	additional, ok := metadata["additionalProperties"].(map[string]any)
-	if !ok || additional["type"] != "string" {
-		t.Fatalf("packet metadata should allow string map values: %#v", metadata)
+	if metadata["additionalProperties"] != false {
+		t.Fatalf("packet metadata must be closed for strict response schemas: %#v", metadata)
+	}
+	metadataProps := metadata["properties"].(map[string]any)
+	metadataRequired := metadata["required"].([]string)
+	for _, field := range []string{"current_arc_phase", "next_arc_phase", "spent_motifs"} {
+		if metadataProps[field] == nil {
+			t.Fatalf("packet metadata schema missing %q: %#v", field, metadataProps)
+		}
+		if !containsString(metadataRequired, field) {
+			t.Fatalf("packet metadata schema should require %q: %#v", field, metadataRequired)
+		}
+	}
+}
+
+func TestResponseSchemasUseStrictClosedObjects(t *testing.T) {
+	for name, schema := range map[string]map[string]any{
+		"ActorOutput":   ActorOutputSchema(),
+		"NarratorDraft": NarratorDraftSchema(),
+		"SeedBundle":    SeedBundleSchema(),
+		"SeedReview":    SeedReviewSchema(),
+		"StoryPacket":   StoryPacketSchema(),
+	} {
+		assertStrictObjectSchema(t, name, schema)
 	}
 }
 
@@ -218,6 +239,44 @@ func containsString(values []string, needle string) bool {
 		}
 	}
 	return false
+}
+
+func assertStrictObjectSchema(t *testing.T, path string, schema any) {
+	t.Helper()
+	mapped, ok := schema.(map[string]any)
+	if !ok {
+		return
+	}
+	switch mapped["type"] {
+	case "object":
+		if mapped["additionalProperties"] != false {
+			t.Fatalf("%s: object schema must set additionalProperties false: %#v", path, mapped["additionalProperties"])
+		}
+		props, _ := mapped["properties"].(map[string]any)
+		required, _ := mapped["required"].([]string)
+		for prop := range props {
+			if !containsString(required, prop) {
+				t.Fatalf("%s: strict object property %q must be required: %#v", path, prop, required)
+			}
+		}
+		for _, field := range required {
+			if props[field] == nil {
+				t.Fatalf("%s: required field %q missing from properties: %#v", path, field, props)
+			}
+		}
+		for prop, child := range props {
+			assertStrictObjectSchema(t, path+"."+prop, child)
+		}
+	case "array":
+		assertStrictObjectSchema(t, path+"[]", mapped["items"])
+	default:
+		for key, child := range mapped {
+			if key == "properties" || key == "required" {
+				continue
+			}
+			assertStrictObjectSchema(t, path+"."+key, child)
+		}
+	}
 }
 
 func (c *fakeLocalToolClient) Create(context.Context, map[string]any) (map[string]any, error) {
