@@ -13,6 +13,7 @@ import (
 const (
 	defaultPackID                      = "metabarons"
 	packsDir                           = "lore/packs"
+	defaultMasterLoreFile              = "LORE.md"
 	GameplayModeCanonAdaptation        = "canon_adaptation"
 	GameplayModeCanonInternalOriginal  = "canon_internal_original"
 	GameplayModeHomageOriginal         = "homage_original"
@@ -224,9 +225,42 @@ func (p Pack) ScenarioOrientationText() string {
 		fmt.Fprintf(&b, "- pack_description: %s\n", description)
 	}
 	fmt.Fprintln(&b, "- contract_path: lorepack/lore-pack.json when local read tools are enabled")
+	fmt.Fprintf(&b, "- master_lore_path: lorepack/%s; its content is injected into model system prompts when available\n", filepath.ToSlash(p.MasterLoreRelPath()))
 	fmt.Fprintln(&b, "- use: treat the authored contract as a pressure field for faithful play, not a fixed one-scene template")
 	fmt.Fprintln(&b, "- fidelity: preserve its premise logic, protagonist pressure, public consequence, and choice principles")
 	return strings.TrimSpace(b.String())
+}
+
+func (p Pack) MasterLoreRelPath() string {
+	if p.ArtifactRoots != nil {
+		if value := strings.TrimSpace(p.ArtifactRoots["summary"]); value != "" {
+			return filepath.ToSlash(filepath.Clean(filepath.FromSlash(value)))
+		}
+	}
+	return defaultMasterLoreFile
+}
+
+func (p Pack) MasterLorePath() string {
+	if strings.TrimSpace(p.Path) == "" {
+		return ""
+	}
+	return filepath.Join(filepath.Dir(p.Path), filepath.FromSlash(p.MasterLoreRelPath()))
+}
+
+func (p Pack) MasterLoreText() (string, error) {
+	path := p.MasterLorePath()
+	if strings.TrimSpace(path) == "" {
+		return "", errors.New("lore pack path is required to read master lore")
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return "", err
+	}
+	text := strings.TrimSpace(string(data))
+	if text == "" {
+		return "", fmt.Errorf("%s is empty", path)
+	}
+	return text, nil
 }
 
 func (p Pack) validateActiveScenarioContract() error {
@@ -248,6 +282,9 @@ func (p Pack) validateActiveScenarioContract() error {
 	if p.GameplayMode == GameplayModeCanonAdaptation && p.CanonAnchor.Empty() {
 		return errors.New("canon_anchor is required for canon_adaptation lore packs")
 	}
+	if err := p.validateMasterLore(); err != nil {
+		return err
+	}
 	requiredLists := map[string][]string{
 		"story_lines":       p.StoryLines,
 		"must_honor":        p.MustHonor,
@@ -258,6 +295,29 @@ func (p Pack) validateActiveScenarioContract() error {
 		if !hasNonEmpty(values) {
 			return fmt.Errorf("%s is required for active lore packs", name)
 		}
+	}
+	return nil
+}
+
+func (p Pack) validateMasterLore() error {
+	rel := p.MasterLoreRelPath()
+	if filepath.IsAbs(rel) {
+		return fmt.Errorf("summary artifact path %q must be relative", rel)
+	}
+	clean := filepath.ToSlash(filepath.Clean(filepath.FromSlash(rel)))
+	if clean == "." || strings.HasPrefix(clean, "../") || clean == ".." {
+		return fmt.Errorf("summary artifact path %q must stay inside the lore pack", rel)
+	}
+	path := p.MasterLorePath()
+	if strings.TrimSpace(path) == "" {
+		return errors.New("LORE.md is required for active lore packs")
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return fmt.Errorf("%s is required for active lore packs: %w", filepath.ToSlash(rel), err)
+	}
+	if strings.TrimSpace(string(data)) == "" {
+		return fmt.Errorf("%s is required for active lore packs and must not be empty", filepath.ToSlash(rel))
 	}
 	return nil
 }

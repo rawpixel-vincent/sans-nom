@@ -25,6 +25,9 @@ Implemented:
   invention.
 - Writer refresh and Narrator context include lore contract material.
 - Active lorepack files are staged into scoped agent workspaces as `lorepack/`.
+- Active lorepacks now require a root `LORE.md` master summary, indexed as
+  `master_lore` and injected into story-agent system prompts as stable
+  lore-fidelity context.
 - Scenarist calls are sequential advisory sessions, not parallel creative
   batches.
 - Admin/backstage surfaces model/tool events, local read tools, provider/model
@@ -44,6 +47,8 @@ Still active:
 - Lorepacks are selectable and persisted through `ground_lore_pack_id`.
 - `lore/packs/<pack_id>/lore-pack.json` now describes retrieval metadata and the
   authored gameplay contract.
+- `lore/packs/<pack_id>/LORE.md` is the final human-readable lorepack build
+  artifact and becomes cached system-context baseline for agents.
 - Scenario-contract modes treat LoreExpert as lore authority/reference support.
 - Scenarist is an optional creative staging/criticism helper, not a premise
   generator.

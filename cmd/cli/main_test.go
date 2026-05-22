@@ -162,6 +162,24 @@ func TestSeedWriterRunnerExcludesScenaristToolAfterWorkshop(t *testing.T) {
 	}
 }
 
+func TestCodexMaterialRunnerInjectsStagedMasterLoreIntoSystemPrompt(t *testing.T) {
+	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "writer").WithVisiblePaths("lorepack")
+	if _, err := scope.StageText("lorepack/LORE.md", "# Master Lore\n\nDynasty law lives here.\n"); err != nil {
+		t.Fatal(err)
+	}
+
+	runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, nil, nil, 0)
+
+	for _, required := range []string{
+		"ACTIVE LOREPACK MASTER SUMMARY",
+		"Dynasty law lives here.",
+	} {
+		if !strings.Contains(runner.SystemPrompt, required) {
+			t.Fatalf("runner system prompt missing %q:\n%s", required, runner.SystemPrompt)
+		}
+	}
+}
+
 func TestSeedVerifierRunnerUsesVerifierCodexEnv(t *testing.T) {
 	t.Setenv("SANS_NOM_CODEX_MODEL", "writer-model")
 	t.Setenv("SANS_NOM_CODEX_EFFORT", "low")
@@ -267,13 +285,16 @@ func TestStageLorePackForAgentCopiesActivePackIntoWorkspace(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(source, "wiki", "lore.md"), []byte("lore"), 0o644); err != nil {
 		t.Fatal(err)
 	}
+	if err := os.WriteFile(filepath.Join(source, "LORE.md"), []byte("# Master Lore\n\nFull pack summary."), 0o644); err != nil {
+		t.Fatal(err)
+	}
 	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "writer").WithVisiblePaths("story")
 
 	staged, err := stageLorePackForAgent(scope, lorepack.Pack{ID: "pack", Path: filepath.Join(source, "lore-pack.json")})
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md", "lorepack/navigation.md"} {
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/wiki/lore.md", "lorepack/LORE.md", "lorepack/navigation.md"} {
 		abs, err := staged.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
@@ -327,7 +348,7 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/contract.md", "lorepack/relevant-excerpts.md", "lorepack/source-anchors.md", "lorepack/navigation.md"} {
+	for _, rel := range []string{"lorepack/lore-pack.json", "lorepack/LORE.md", "lorepack/contract.md", "lorepack/relevant-excerpts.md", "lorepack/source-anchors.md", "lorepack/navigation.md"} {
 		abs, err := scope.Abs(rel)
 		if err != nil {
 			t.Fatal(err)
@@ -359,14 +380,14 @@ func TestPrepareStoryAgentScopeStagesLorepackFromState(t *testing.T) {
 	}
 }
 
-func TestLoreExpertModelRunnerDefaultsToCodexMiniLow(t *testing.T) {
+func TestLoreExpertModelRunnerDefaultsToCodexMiniMedium(t *testing.T) {
 	t.Setenv("SANS_NOM_LORE_EXPERT_MODEL", "")
 	t.Setenv("SANS_NOM_LORE_EXPERT_EFFORT", "")
 	runner := loreExpertModelRunner()
 	if runner.Model != "gpt-5.3-codex-spark" {
 		t.Fatalf("model = %q", runner.Model)
 	}
-	if runner.Effort != "low" {
+	if runner.Effort != "medium" {
 		t.Fatalf("effort = %q", runner.Effort)
 	}
 }
@@ -377,6 +398,27 @@ func TestLoreExpertModelRunnerMapsMinimalEffortToLow(t *testing.T) {
 	runner := loreExpertModelRunner()
 	if runner.Effort != "low" {
 		t.Fatalf("effort = %q", runner.Effort)
+	}
+}
+
+func TestLoreExpertToolRunnerInjectsMasterLoreAndHashesIt(t *testing.T) {
+	tool := loreExpertToolRunner(playConfig{
+		Backend:          "codex",
+		GroundLorePackID: "metabarons",
+		BridgeURL:        "http://127.0.0.1:8787",
+	})
+	if tool == nil {
+		t.Fatal("expected lore expert tool")
+	}
+	runner, ok := tool.Runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", tool.Runner)
+	}
+	if tool.MasterLorePath == "" || !strings.HasSuffix(filepath.ToSlash(tool.MasterLorePath), "lore/packs/metabarons/LORE.md") {
+		t.Fatalf("unexpected master lore path: %q", tool.MasterLorePath)
+	}
+	if !strings.Contains(runner.SystemPrompt, "ACTIVE LOREPACK MASTER SUMMARY") || !strings.Contains(runner.SystemPrompt, "The Saga of the Metabarons") {
+		t.Fatalf("lore expert system prompt missing master lore:\n%s", runner.SystemPrompt)
 	}
 }
 
@@ -607,6 +649,7 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 	}
 	for _, required := range []string{
 		"contract_path: lorepack/lore-pack.json",
+		"master_lore_path: lorepack/LORE.md",
 		"pressure field for faithful play",
 		"premise logic",
 		"protagonist pressure",

@@ -25,6 +25,20 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	if contract.GameSynopsis == "" || len(contract.MustHonor) == 0 || len(contract.ChoicePrinciples) == 0 {
 		t.Fatalf("missing scenario contract: %#v", contract)
 	}
+	if pack.MasterLoreRelPath() != "LORE.md" {
+		t.Fatalf("master lore rel path = %q", pack.MasterLoreRelPath())
+	}
+	masterLore, err := pack.MasterLoreText()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(masterLore, "The Metabarons") || !strings.Contains(masterLore, "Bushitaka") {
+		preview := masterLore
+		if len(preview) > 200 {
+			preview = preview[:200]
+		}
+		t.Fatalf("unexpected master lore summary:\n%s", preview)
+	}
 	contractText := pack.ScenarioContractText()
 	for _, required := range []string{
 		"Lorepack Scenario Contract",
@@ -43,6 +57,7 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	for _, required := range []string{
 		"Lorepack Scenario Orientation",
 		"contract_path: lorepack/lore-pack.json",
+		"master_lore_path: lorepack/LORE.md",
 		"pressure field for faithful play",
 	} {
 		if !strings.Contains(orientationText, required) {
@@ -126,9 +141,12 @@ func writePack(t *testing.T, root string, dir string, id string) {
   "story_lines": ["claim the inheritance"],
   "must_honor": ["dynasty pressure has consequences"],
   "must_not_violate": ["no consequence-free refusal"],
-  "choice_principles": ["choices express stance toward duty and refusal"]
+	"choice_principles": ["choices express stance toward duty and refusal"]
 }`
 	if err := os.WriteFile(filepath.Join(path, "lore-pack.json"), []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(path, "LORE.md"), []byte("# Pack Lore\n\nTest master lore summary."), 0o644); err != nil {
 		t.Fatal(err)
 	}
 }

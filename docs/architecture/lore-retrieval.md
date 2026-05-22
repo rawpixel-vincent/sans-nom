@@ -8,6 +8,7 @@ search corpus; it is an authored gameplay contract.
 `lore/packs/<pack_id>/lore-pack.json` defines:
 
 - retrieval metadata;
+- path to the required master summary, normally `LORE.md`;
 - authored `game_synopsis`;
 - explicit `gameplay_mode` (`canon_adaptation`, `canon_internal_original`, or
   `homage_original`);
@@ -63,6 +64,22 @@ Runtime retrieval should be scoped by:
 
 Results feed Writer/Narrator context as reference and constraint material. They
 do not replace the authored scenario contract.
+
+## Master Lore Summary
+
+Each active lorepack must include `LORE.md` at the pack root, or an equivalent
+path declared as `artifact_roots.summary` in `lore-pack.json`. This file is the
+final human-readable build artifact for the pack: a thorough, checked summary of
+the source lore, character lines, pressure systems, and hard boundaries.
+
+Runtime agents receive the content of this file in their system prompt when the
+active pack is available. This is intentional: the master summary is stable
+prefix context, so model backends can cache it across Writer, Narrator,
+Verifier, Actor, Scenarist, and LoreExpert calls. Agents should treat it as
+background truth for lore fidelity, not as text to recite.
+
+`lore-index build` also indexes `LORE.md` as `master_lore`; missing or empty
+master lore is a build failure.
 
 ## Scenarist Boundary
 

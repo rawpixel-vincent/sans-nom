@@ -302,6 +302,7 @@ func main() {
 		return
 	}
 	runner := claudeRunner()
+	runner.SystemPrompt = masterLoreSystemPromptForPackID(state.SourceLorePackID(), runner.SystemPrompt)
 	registry, err := actorRegistry(cardStore)
 	if err != nil {
 		log.Fatal(err)
@@ -323,7 +324,7 @@ func main() {
 		actorInvoker = actors.ClaudeInvoker{Runner: runner}
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
-		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
+		actorInvoker = actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), state.SourceLorePackID())}
 		scope := agentfs.New(filepath.Dir(absOrClean(*packetPath)), "narrator").WithVisiblePaths(".")
 		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, nil, "narrator", "narrator", "Narrator", 0, packet.ID, *nodeID)}
 	}
@@ -992,7 +993,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	return seed.Service{
 		Writer:          writerRunner,
 		WorkshopWriter:  workshopRunner,
-		Verifier:        seedRunner(cfg.Backend, false),
+		Verifier:        seedRunnerForPack(cfg.Backend, false, pack),
 		MaxIterations:   2,
 		Logger:          logger,
 		WorkshopDir:     workshopOutputDir,
@@ -1079,6 +1080,37 @@ func scenarioContractTextForPack(packID string) string {
 	return pack.ScenarioContractText()
 }
 
+func masterLoreSystemPromptForPack(pack lorepack.Pack, base string) string {
+	text, err := pack.MasterLoreText()
+	if err != nil {
+		return strings.TrimSpace(base)
+	}
+	return prompt.WithMasterLoreSystemPrompt(base, pack.ID, pack.Label, text)
+}
+
+func masterLoreSystemPromptForPackID(packID string, base string) string {
+	pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, lorepack.DefaultPackID()))
+	if err != nil {
+		return strings.TrimSpace(base)
+	}
+	return masterLoreSystemPromptForPack(pack, base)
+}
+
+func masterLoreSystemPromptFromScope(scope agentfs.Scope, base string) string {
+	if strings.TrimSpace(scope.Root) == "" {
+		return strings.TrimSpace(base)
+	}
+	path, err := scope.Abs("lorepack/LORE.md")
+	if err != nil {
+		return strings.TrimSpace(base)
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return strings.TrimSpace(base)
+	}
+	return prompt.WithMasterLoreSystemPrompt(base, "", "", string(data))
+}
+
 func seedWriterRunner(cfg seedRuntimeConfig, scope agentfs.Scope, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
 	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), scope, nil, loreExpertTool, logger)
 }
@@ -1096,7 +1128,9 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 	}
 	switch cfg.Backend {
 	case "claude":
-		return claudeRunner(), nil
+		runner := claudeRunner()
+		runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
+		return runner, nil
 	default:
 		if strings.TrimSpace(scope.Root) != "" {
 			if err := scope.Ensure(); err != nil {
@@ -1198,6 +1232,9 @@ func stageNarratorLorePackForAgent(scope agentfs.Scope, pack lorepack.Pack) (age
 	if _, err := scope.StageFile(pack.Path, "lorepack/lore-pack.json"); err != nil {
 		return scope, fmt.Errorf("stage active lorepack contract %q: %w", pack.ID, err)
 	}
+	if _, err := scope.StageFile(pack.MasterLorePath(), "lorepack/LORE.md"); err != nil {
+		return scope, fmt.Errorf("stage active lorepack master lore %q: %w", pack.ID, err)
+	}
 	if _, err := scope.StageText("lorepack/contract.md", pack.ScenarioContractText()+"\n"); err != nil {
 		return scope, err
 	}
@@ -1266,14 +1303,16 @@ func lorepackNavigationGuide(pack lorepack.Pack) string {
 	fmt.Fprintf(&b, "# Lorepack Navigation: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	fmt.Fprintln(&b, "Use this file before drafting. The lorepack is staged under lorepack/ inside your workspace; paths below are workspace-relative.")
 	fmt.Fprintln(&b, "\n## Minimum Orientation Before Writing")
-	fmt.Fprintln(&b, "1. Read lorepack/lore-pack.json for gameplay_mode, game_synopsis, protagonist_role, opening_situation, initial_pressure, story_lines, must_honor, must_not_violate, and choice_principles.")
-	fmt.Fprintln(&b, "2. Read lorepack/wiki/lore.md for the broad lineage, terminology, doctrine, characters, and recurring story pressures.")
-	fmt.Fprintln(&b, "3. Read lorepack/comics/manifest.json to understand available page ids, volumes, and source image coverage. Use it to choose files; do not treat it as story summary.")
-	fmt.Fprintln(&b, "4. Read at least two relevant lorepack/comics/volumes/volume-XX.json files. Volume summaries are the best first stop for chronology, locations, lore laws, major events, motifs, and page ids.")
-	fmt.Fprintln(&b, "5. Read at least one matching lorepack/comics/characters/characters-volume-XX.json file for who appears in that volume, relationship pressure, role, and character function.")
-	fmt.Fprintln(&b, "6. Open lorepack/comics/pages/<page_id>.json only after a volume summary or search points to a specific scene detail.")
-	fmt.Fprintln(&b, "7. If fidelity remains uncertain, ask_lore_expert with the exact uncertainty and source files you already checked.")
+	fmt.Fprintln(&b, "1. Treat lorepack/LORE.md as the master lore baseline. It is also injected into system context when available, so use it as stable background rather than re-summarizing it.")
+	fmt.Fprintln(&b, "2. Read lorepack/lore-pack.json for gameplay_mode, game_synopsis, protagonist_role, opening_situation, initial_pressure, story_lines, must_honor, must_not_violate, and choice_principles.")
+	fmt.Fprintln(&b, "3. Read lorepack/wiki/lore.md for the broad lineage, terminology, doctrine, characters, and recurring story pressures.")
+	fmt.Fprintln(&b, "4. Read lorepack/comics/manifest.json to understand available page ids, volumes, and source image coverage. Use it to choose files; do not treat it as story summary.")
+	fmt.Fprintln(&b, "5. Read at least two relevant lorepack/comics/volumes/volume-XX.json files. Volume summaries are the best first stop for chronology, locations, lore laws, major events, motifs, and page ids.")
+	fmt.Fprintln(&b, "6. Read at least one matching lorepack/comics/characters/characters-volume-XX.json file for who appears in that volume, relationship pressure, role, and character function.")
+	fmt.Fprintln(&b, "7. Open lorepack/comics/pages/<page_id>.json only after a volume summary or search points to a specific scene detail.")
+	fmt.Fprintln(&b, "8. If fidelity remains uncertain, ask_lore_expert with the exact uncertainty and source files you already checked.")
 	fmt.Fprintln(&b, "\n## File Map")
+	fmt.Fprintln(&b, "- lorepack/LORE.md: master lore summary; final lorepack build artifact and system-prompt baseline.")
 	fmt.Fprintln(&b, "- lorepack/lore-pack.json: authored gameplay contract and hard scenario boundaries.")
 	fmt.Fprintln(&b, "- lorepack/wiki/lore.md: broad source overview; useful for names, lineage logic, doctrine, and recurring pressure.")
 	fmt.Fprintln(&b, "- lorepack/comics/volumes/volume-XX.json: volume-level summaries; use before page files.")
@@ -1308,10 +1347,11 @@ func narratorLorepackNavigationGuide(pack lorepack.Pack) string {
 	fmt.Fprintf(&b, "# Narrator Lorepack Navigation: %s (%s)\n\n", firstNonEmpty(pack.Label, pack.ID), firstNonEmpty(pack.ID, "unknown"))
 	fmt.Fprintln(&b, "Use staged lorepack files for scene fidelity, not source dumping.")
 	fmt.Fprintln(&b, "\n## Read Order")
-	fmt.Fprintln(&b, "1. lorepack/contract.md for the scenario pressure and hard boundaries.")
-	fmt.Fprintln(&b, "2. lorepack/relevant-excerpts.md for the current playable synopsis, role, pressure, and choice principles.")
-	fmt.Fprintln(&b, "3. lorepack/source-anchors.md for specific canon anchor facts when the scene needs them.")
-	fmt.Fprintln(&b, "4. lorepack/lore-pack.json only if a structured field is missing from the markdown summaries.")
+	fmt.Fprintln(&b, "1. lorepack/LORE.md is already injected into system context when available; use it as stable source-lore background, not narration text.")
+	fmt.Fprintln(&b, "2. lorepack/contract.md for the scenario pressure and hard boundaries.")
+	fmt.Fprintln(&b, "3. lorepack/relevant-excerpts.md for the current playable synopsis, role, pressure, and choice principles.")
+	fmt.Fprintln(&b, "4. lorepack/source-anchors.md for specific canon anchor facts when the scene needs them.")
+	fmt.Fprintln(&b, "5. lorepack/lore-pack.json only if a structured field is missing from the markdown summaries.")
 	fmt.Fprintln(&b, "\n## Use")
 	fmt.Fprintln(&b, "- Let source detail appear through action, witness behavior, body cost, household reaction, and consequence.")
 	fmt.Fprintln(&b, "- Keep narration scene-local. Do not recite contract fields or unused canon.")
@@ -1356,16 +1396,30 @@ func writerRunnerHasTools(runner prompt.Runner) bool {
 }
 
 func seedRunner(backend string, seedBundle bool) prompt.Runner {
+	pack, err := lorepack.GetPack(repoRoot(), lorepack.DefaultPackID())
+	if err != nil {
+		pack = lorepack.Pack{}
+	}
+	return seedRunnerForPack(backend, seedBundle, pack)
+}
+
+func seedRunnerForPack(backend string, seedBundle bool, pack lorepack.Pack) prompt.Runner {
 	switch backend {
 	case "static":
 		return nil
 	case "claude":
-		return claudeRunner()
+		runner := claudeRunner()
+		runner.SystemPrompt = masterLoreSystemPromptForPack(pack, runner.SystemPrompt)
+		return runner
 	default:
 		if seedBundle {
-			return codexRunner("SeedBundle", prompt.SeedBundleSchema())
+			runner := codexRunner("SeedBundle", prompt.SeedBundleSchema())
+			runner.SystemPrompt = masterLoreSystemPromptForPack(pack, runner.SystemPrompt)
+			return runner
 		}
-		return seedVerifierCodexRunner()
+		runner := seedVerifierCodexRunner()
+		runner.SystemPrompt = masterLoreSystemPromptForPack(pack, runner.SystemPrompt)
+		return runner
 	}
 }
 
@@ -1381,6 +1435,11 @@ func seedVerifierCodexRunner() prompt.CodexRunner {
 	} else {
 		runner.Effort = "xhigh"
 	}
+	serviceTier := os.Getenv("SANS_NOM_VERIFIER_CODEX_OAUTH_SERVICE_TIER")
+	if serviceTier == "" {
+		serviceTier = "fast"
+	}
+	runner.ServiceTier = serviceTier
 	return runner
 }
 
@@ -2735,10 +2794,11 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	switch cfg.Backend {
 	case "claude":
 		runner := claudeRunner()
+		runner.SystemPrompt = masterLoreSystemPromptForPackID(cfg.GroundLorePackID, runner.SystemPrompt)
 		actorInvoker = actors.ClaudeInvoker{Runner: runner}
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
-		actorInvoker = actors.ClaudeInvoker{Runner: codexRunner("ActorOutput", prompt.ActorOutputSchema())}
+		actorInvoker = actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), cfg.GroundLorePackID)}
 		scope, err := prepareStoryAgentScope(cfg, "narrator", fmt.Sprintf("turn-%06d", turn), packet, nodeID, narratorContextText)
 		if err != nil {
 			return narrator.Rollout{}, err
@@ -4046,6 +4106,7 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 	case "static":
 		return writer.StaticPlanner{}
 	case "claude":
+		claude.SystemPrompt = masterLoreSystemPromptFromScope(scope, claude.SystemPrompt)
 		if scope.Root != "" {
 			claude.PermissionMode = "dontAsk"
 			claude.AllowedTools = []string{"Read", "LS", "Grep"}
@@ -4063,11 +4124,11 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 	model := os.Getenv("SANS_NOM_CODEX_MODEL")
 	if model == "" {
-		model = "gpt-5.5"
+		model = "gpt-5.4"
 	}
 	effort := os.Getenv("SANS_NOM_CODEX_EFFORT")
 	if effort == "" {
-		effort = "medium"
+		effort = "high"
 	}
 	serviceTier := os.Getenv("SANS_NOM_CODEX_OAUTH_SERVICE_TIER")
 	if serviceTier == "" {
@@ -4083,8 +4144,15 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 	}
 }
 
+func codexRunnerWithPackLoreID(schemaName string, schema map[string]any, packID string) prompt.CodexRunner {
+	runner := codexRunner(schemaName, schema)
+	runner.SystemPrompt = masterLoreSystemPromptForPackID(packID, runner.SystemPrompt)
+	return runner
+}
+
 func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
+	runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
 	if strings.TrimSpace(scope.Root) != "" || scenaristTool != nil || loreExpertTool != nil {
 		if strings.TrimSpace(scope.Root) == "" {
 			scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "scratch"), "model").WithVisiblePaths(".")
@@ -4111,6 +4179,7 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, sco
 
 func codexRunnerWithReadTools(schemaName string, schema map[string]any, scope agentfs.Scope, logger *gamelog.Writer, category string, role string, speaker string, turn int, packetID string, nodeID string) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
+	runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
 	if strings.TrimSpace(scope.Root) == "" {
 		scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "read-tools"), role).WithVisiblePaths(".")
 	}
@@ -4189,8 +4258,10 @@ func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
 	}
 	collection := firstNonEmpty(cfg.GlobalCollection, pack.Collection, story.DefaultGroundLoreCollection)
 	packDir := filepath.Dir(pack.Path)
+	runner := loreExpertModelRunner()
+	runner.SystemPrompt = masterLoreSystemPromptForPack(pack, runner.SystemPrompt)
 	return &loreexpert.ToolRunner{
-		Runner:            loreExpertModelRunner(),
+		Runner:            runner,
 		Retriever:         seedLoreRetriever(cfg.BridgeURL, collection),
 		CacheRoot:         filepath.Join(repoRoot(), ".cache", "sans-nom", "lore-expert"),
 		RepoRoot:          repoRoot(),
@@ -4200,6 +4271,7 @@ func loreExpertToolRunner(cfg playConfig) *loreexpert.ToolRunner {
 		Collection:        collection,
 		PackManifestPath:  pack.Path,
 		IndexManifestPath: filepath.Join(packDir, "index", "manifest.json"),
+		MasterLorePath:    pack.MasterLorePath(),
 		MaxSources:        6,
 		Logger:            cfg.Logger,
 		CallerRole:        "writer",
@@ -4217,7 +4289,7 @@ func loreExpertModelRunner() prompt.CodexRunner {
 	if effort := strings.TrimSpace(os.Getenv("SANS_NOM_LORE_EXPERT_EFFORT")); effort != "" {
 		runner.Effort = codexLoreExpertEffort(effort)
 	} else {
-		runner.Effort = "low"
+		runner.Effort = "medium"
 	}
 	if tier := strings.TrimSpace(os.Getenv("SANS_NOM_LORE_EXPERT_SERVICE_TIER")); tier != "" {
 		runner.ServiceTier = tier

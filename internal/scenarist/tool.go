@@ -15,6 +15,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
+	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 )
 
 type ToolRunner struct {
@@ -80,6 +81,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 		return nil, err
 	}
 	systemPrompt := ScenaristSystemPrompt(workspaceRoot, r.Tools, r.LoreExpert != nil)
+	systemPrompt = prompt.WithMasterLoreSystemPrompt(systemPrompt, "", "", readWorkspaceMasterLore(workspaceRoot))
 	metadata := runnerModelMetadata(r.Runner)
 	r.log(gamelog.Event{
 		Category: "scenarist",
@@ -279,6 +281,18 @@ func stagedPathExists(scope agentfs.Scope, rel string) bool {
 	}
 	_, err = os.Stat(abs)
 	return err == nil
+}
+
+func readWorkspaceMasterLore(workspaceRoot string) string {
+	workspaceRoot = strings.TrimSpace(workspaceRoot)
+	if workspaceRoot == "" {
+		return ""
+	}
+	data, err := os.ReadFile(filepath.Join(workspaceRoot, "lorepack", "LORE.md"))
+	if err != nil {
+		return ""
+	}
+	return string(data)
 }
 
 func (r *ToolRunner) modelVisiblePath(workspaceRoot string, path string) string {

@@ -61,6 +61,8 @@ def test_select_entries_limits_by_volume() -> None:
 
 def test_lore_documents_from_page(tmp_path: Path) -> None:
     paths = Paths(root=tmp_path, output_dir=tmp_path / "lore/packs/metabarons/comics")
+    (tmp_path / "lore/packs/metabarons/LORE.md").parent.mkdir(parents=True, exist_ok=True)
+    (tmp_path / "lore/packs/metabarons/LORE.md").write_text("# Master Lore\n\nFixture summary.")
     page = PageSummary(
         page_id="001_The_Metabarons_1_p01",
         volume=1,
@@ -79,9 +81,10 @@ def test_lore_documents_from_page(tmp_path: Path) -> None:
 
     docs = lore_documents(paths)
 
-    assert len(docs) == 1
-    assert docs[0]["kind"] == "comic_page"
-    assert "Tonto" in docs[0]["text"]
+    page_docs = [doc for doc in docs if doc["kind"] == "comic_page"]
+    assert len(page_docs) == 1
+    assert "Tonto" in page_docs[0]["text"]
+    assert any(doc["kind"] == "master_lore" for doc in docs)
 
 
 def test_validate_outputs_accepts_character_array(tmp_path: Path) -> None:

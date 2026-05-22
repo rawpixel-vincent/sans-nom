@@ -30,6 +30,7 @@ def test_build_documents_includes_all_lore_families(tmp_path: Path) -> None:
         "peer_card",
         "non_peer_lore",
         "identity_map_entry",
+        "master_lore",
         "wiki_lore",
         "link_matrix",
     } <= kinds
@@ -196,6 +197,7 @@ def make_minimal_corpus(root: Path) -> None:
     })
     (root / "lore/packs/metabarons/wiki/lore.md").write_text("# Wiki Lore\n\nSans Nom ends the dynasty.")
     (root / "lore/packs/metabarons/links/matrix.md").write_text("# Matrix\n\nLothar is Steelhead through hidden identity.")
+    (root / "lore/packs/metabarons/LORE.md").write_text("# Master Lore\n\nThe complete pack summary is the final lorepack build artifact.")
 
 
 def write_pack_manifest(root: Path) -> None:
@@ -209,6 +211,7 @@ def write_pack_manifest(root: Path) -> None:
             "comics": "comics",
             "wiki": "wiki/lore.md",
             "links": "links/matrix.md",
+            "summary": "LORE.md",
             "index": "index",
         },
         "builder": "metabarons_comics",

@@ -36,6 +36,7 @@ type ToolRunner struct {
 	Collection        string
 	PackManifestPath  string
 	IndexManifestPath string
+	MasterLorePath    string
 	MaxSources        int
 	Logger            *gamelog.Writer
 	CallerRole        string
@@ -403,6 +404,7 @@ func (r *ToolRunner) cacheKey(request ToolRequest) (string, error) {
 		"request":        request,
 		"pack_manifest":  fileSHA256(r.PackManifestPath),
 		"index_manifest": fileSHA256(r.IndexManifestPath),
+		"master_lore":    fileSHA256(r.MasterLorePath),
 	}
 	data, err := json.Marshal(payload)
 	if err != nil {

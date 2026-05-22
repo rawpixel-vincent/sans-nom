@@ -219,6 +219,7 @@ def build_documents(root: Path, comics_dir: Path | None = None, pack: LorePack |
     ).resolve()
     wiki_path = pack_artifact_path(root, pack, "wiki", "wiki/lore.md") if pack else root / "lore/packs/metabarons/wiki/lore.md"
     links_path = pack_artifact_path(root, pack, "links", "links/matrix.md") if pack else root / "lore/packs/metabarons/links/matrix.md"
+    summary_path = pack_artifact_path(root, pack, "summary", "LORE.md") if pack else root / "lore/packs/metabarons/LORE.md"
     paths = Paths(root=root, output_dir=comics_dir)
     docs: list[IndexDocument] = []
 
@@ -282,6 +283,7 @@ def build_documents(root: Path, comics_dir: Path | None = None, pack: LorePack |
     docs.extend(build_character_documents(root, paths))
     docs.extend(build_peer_card_documents(root, comics_dir / "peer-cards"))
     docs.extend(build_identity_map_documents(root, comics_dir / "peer-cards" / "identity-map.json"))
+    docs.extend(build_required_markdown_documents(root, summary_path, "master_lore"))
     docs.extend(build_markdown_documents(root, wiki_path, "wiki_lore"))
     docs.extend(build_markdown_documents(root, links_path, "link_matrix"))
 
@@ -452,6 +454,13 @@ def build_markdown_documents(root: Path, path: Path, kind: str) -> list[IndexDoc
             text=chunk.text,
             heading=chunk.heading,
         ))
+    return docs
+
+
+def build_required_markdown_documents(root: Path, path: Path, kind: str) -> list[IndexDocument]:
+    docs = build_markdown_documents(root, path, kind)
+    if not docs:
+        raise FileNotFoundError(f"required lorepack markdown artifact missing or empty: {path}")
     return docs
 
 

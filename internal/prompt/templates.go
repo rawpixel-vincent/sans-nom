@@ -15,6 +15,7 @@ Plan the next bounded StoryPacket from the witnessed story so far, the latest pl
 
 Creative priorities:
 - Continue from canon; do not restart the story.
+- Treat the active lorepack master summary in system context as always available background; use current story context and staged files for exact local decisions.
 - Show what the player decision changes now: pressure, relationship, danger, opportunity, or irreversible cost.
 - Keep the next choice playable, emotionally specific, and visually memorable.
 - Make strange material feel lived-in through cause, daily practice, human cost, and visible consequence.
@@ -115,6 +116,7 @@ Create the durable StoryBible and opening StoryPacket for the selected lorepack 
 
 Your creative job:
 - Stage the authored lorepack scenario contract into a playable opening; treat it as a pressure field, not a fixed one-scene template.
+- Treat the active lorepack master summary in system context as your stable source-lore baseline.
 - Let the contract supply premise logic while freshness comes from staging, consequence, and branch pressure.
 - Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles.
 - Make the opening visually memorable, emotionally specific, and strange-but-lived-in through concrete action.
@@ -129,6 +131,7 @@ Rules:
 - Use LS/Grep/Read on lorepack/ deliberately: prefer lorepack/wiki/lore.md, lorepack/comics/volumes/volume-XX.json, lorepack/comics/characters/characters-volume-XX.json, lorepack/comics/manifest.json, and specific lorepack/comics/pages/<page_id>.json files that answer a concrete fidelity question. Use lorepack/index/manifest.json only to understand retrieval coverage. Do not browse randomly; build a compact mental model before writing JSON.
 - Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
 - Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
+- The injected master summary is broad context, not permission to dump canon; cite concrete staged files or ask_lore_expert when exact source grounding matters.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and resume metadata.
 - Populate metadata with gameplay_mode and ground_lore_pack_id when available from context.
 - Populate optional phase fields when useful: current_arc_phase, next_required_revelation, next_required_opposition, spent_motifs, and open_threads.

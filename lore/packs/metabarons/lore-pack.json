@@ -8,6 +8,7 @@
     "comics": "comics",
     "wiki": "wiki/lore.md",
     "links": "links/matrix.md",
+    "summary": "LORE.md",
     "index": "index"
   },
   "builder": "metabarons_comics",

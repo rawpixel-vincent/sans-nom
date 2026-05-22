@@ -75,6 +75,7 @@ You begin inside a lorepack-authored scenario, before the dynasty has chosen its
 ## Source assets
 
 - `lore/packs/<pack_id>/lore-pack.json` — active lorepack metadata and authored gameplay contract.
+- `lore/packs/<pack_id>/LORE.md` — required master lore summary; final lorepack build artifact and stable system-prompt context for story agents.
 - `external/comics/meta-barons/` — Metabarons comic page scans, when present locally, for future curated corpus/reference work.
 - `external/references/council of castaka/metabarons/` — Council of Castaka character cards, relations matrix, invocation prompts, and Go source when present locally. Useful reference material, not the current model-visible workspace.
 

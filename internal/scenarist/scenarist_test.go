@@ -295,18 +295,27 @@ func TestClaudeStreamParserLogsReadToolUseAndResult(t *testing.T) {
 
 func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	outputDir := t.TempDir()
-	tool := (&ToolRunner{
-		Runner: &fakeScenaristRunner{
-			response: "raw free-form material\nnot json",
-			metadata: modelmeta.Metadata{
-				ProviderType:  "claude_compatible",
-				ModelProvider: "ZAI",
-				Model:         "glm-4.7",
-			},
+	workspaceRoot := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(workspaceRoot, "lorepack"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "lorepack", "LORE.md"), []byte("# Master Lore\n\nHousehold law."), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	runner := &fakeScenaristRunner{
+		response: "raw free-form material\nnot json",
+		metadata: modelmeta.Metadata{
+			ProviderType:  "claude_compatible",
+			ModelProvider: "ZAI",
+			Model:         "glm-4.7",
 		},
-		OutputDir:   outputDir,
-		ContextText: "writer context",
-		MaxCalls:    2,
+	}
+	tool := (&ToolRunner{
+		Runner:        runner,
+		OutputDir:     outputDir,
+		WorkspaceRoot: workspaceRoot,
+		ContextText:   "writer context",
+		MaxCalls:      2,
 	}).LocalTool()
 	if tool.Name != "ask_scenarist" {
 		t.Fatalf("tool name = %q", tool.Name)
@@ -336,6 +345,9 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	}
 	if len(matches) != 1 {
 		t.Fatalf("material matches = %#v", matches)
+	}
+	if len(runner.systems) != 1 || !strings.Contains(runner.systems[0], "ACTIVE LOREPACK MASTER SUMMARY") || !strings.Contains(runner.systems[0], "Household law.") {
+		t.Fatalf("scenarist system prompt missing master lore: %#v", runner.systems)
 	}
 	fileData, err := os.ReadFile(matches[0])
 	if err != nil {

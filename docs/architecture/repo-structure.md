@@ -64,11 +64,16 @@ tools should only see staged files inside the current agent workspace.
 ## Lorepacks
 
 `lore/packs/<pack_id>/lore-pack.json` is the source of truth for pack metadata
-and the authored gameplay contract. In scenario-contract modes, the pack
-declares whether play is a direct `canon_adaptation`, a
-`canon_internal_original`, or a future `homage_original`, then defines the story
-premise, protagonist role, opening situation, must-honor constraints,
-must-not-violate constraints, choice principles, and optional canon anchors.
+and the authored gameplay contract. `lore/packs/<pack_id>/LORE.md` is the
+required master lore summary: it is the final lorepack build artifact, indexed
+as `master_lore`, staged as `lorepack/LORE.md`, and injected into agent system
+prompts when the active pack is available.
+
+In scenario-contract modes, the pack declares whether play is a direct
+`canon_adaptation`, a `canon_internal_original`, or a future `homage_original`,
+then defines the story premise, protagonist role, opening situation, must-honor
+constraints, must-not-violate constraints, choice principles, and optional canon
+anchors.
 
 Model-visible tools do not read raw `lore/packs/...` paths. The active pack is
 copied into the current agent workspace as `lorepack/`.

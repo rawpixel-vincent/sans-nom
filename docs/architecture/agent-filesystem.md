@@ -51,7 +51,12 @@ rejected by model-visible tools. The model-visible equivalent is:
 
 ```text
 lorepack/lore-pack.json
+lorepack/LORE.md
 ```
+
+`LORE.md` is the pack's required master summary. Runtime agents receive its
+content in system prompt context when available, and the staged file remains
+readable for explicit checks.
 
 ## External Reference: Turso AgentFS
 

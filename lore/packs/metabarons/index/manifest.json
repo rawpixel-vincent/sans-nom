@@ -6,11 +6,12 @@
     "comic_volume": 17,
     "identity_map_entry": 106,
     "link_matrix": 11,
+    "master_lore": 66,
     "non_peer_lore": 14,
     "peer_card": 90,
     "wiki_lore": 13
   },
-  "document_count": 907,
+  "document_count": 973,
   "documents": [
     {
       "doc_id": "character_record:characters-volume-01.json#001:tonto",
@@ -4753,6 +4754,402 @@
       "text_sha256": "5c19284804fbf1a1f87fc4a691dcbdaeb611b5809ef261f75e8cb9e5d3ed44f0"
     },
     {
+      "doc_id": "master_lore:aghnar-as-mercenary",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "75eeb5f1dc7da513ad06a017c2a2be7a830fcfbf079ad699ba71b8577c136fa8"
+    },
+    {
+      "doc_id": "master_lore:aghora-s-birth-and-do-a-vicenta-s-death",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "f844b6832e0f9e23bc388a97ad8f8def300dbccdc7d36e75247a3192986b89e1"
+    },
+    {
+      "doc_id": "master_lore:berard-of-castaka-and-epyphite",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "85f5bf50cb155f4692ca0700e616449cb7e752058dde7c3502efc1d884832e44"
+    },
+    {
+      "doc_id": "master_lore:cetacyborgs",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "ad688a981ef03d457803e572a0d4e14d5a04c0b6c6595af407c62f76369aed45"
+    },
+    {
+      "doc_id": "master_lore:character-summary-table",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "f4a44aa334c096a46d7ad40b2ace614ea1a175c91734e94144ad6d2cee66c1fc"
+    },
+    {
+      "doc_id": "master_lore:cosmic-and-mystical-elements",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "2a72cde5c1ca3cb4a728654fe34ec8ec451460acf7aebe04b1b94bb07d34c902"
+    },
+    {
+      "doc_id": "master_lore:dayal-of-castaka-the-first-ancestor",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "799b5592d85845678134b2fbb4c2f13545934dfbcc513552f214677cd82da773"
+    },
+    {
+      "doc_id": "master_lore:do-a-vicenta-s-public-accusation",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "66335ffd6258a68a34a1d10754f9bff3fa933d4d9e9184e607d400d1ac923828"
+    },
+    {
+      "doc_id": "master_lore:don-nicanor-s-clone-and-the-crisis",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "6590f4c55e47d5077a06a93327b0a1e89ef8537a4799fb7343d8a9ebe9e31d1e"
+    },
+    {
+      "doc_id": "master_lore:epyphite",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "1dfce32cf559f273fcbfd62267505c710d66c66d5d0feb1c3bafc83e26fddcb7"
+    },
+    {
+      "doc_id": "master_lore:factions-and-powers",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "83b1fbf375cbdf340508b3657be0f1506b4e04194ea3d651d1a967e6a38f1ba5"
+    },
+    {
+      "doc_id": "master_lore:first-generation-aghnar-von-salza-great-grandfather",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "21cb734a683161d1ded9d3fa47d789ea13de3936809a01de71c37a1edb304e9d"
+    },
+    {
+      "doc_id": "master_lore:fourth-generation-sans-nom-the-last-metabaron",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "be6fcc1124924d884c0fa9420e670c19673263175b3d6065206b95a89722d04c"
+    },
+    {
+      "doc_id": "master_lore:generation-zero-othon-von-salza-and-the-founding-of-the-tradition",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "0fbfb0ebc6259f1e3379e30c7cac5f4524882c78667ec4614c3b0288773f5613"
+    },
+    {
+      "doc_id": "master_lore:honorata",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "9721ede9f35e26e10431d3eb4889ae266d4768d4c293bd7fc56d3d817acf280f"
+    },
+    {
+      "doc_id": "master_lore:key-concepts-and-technology",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "c6affa6754e26af1dc70bb0475fe9620874f9c755a961eaa10a03ecb902818cd"
+    },
+    {
+      "doc_id": "master_lore:oda-and-honorata-s-second-deception",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "2a5c0df839bd6dd2ac47053963624fb3cbaa42934d6f48b3069704fd8092bc58"
+    },
+    {
+      "doc_id": "master_lore:oko-mini-bombs",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "2e23bed3b5ec5739c1443f536f0d3e4ecc5fac94e41c77c9e0aea7084dbf481c"
+    },
+    {
+      "doc_id": "master_lore:overview",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "7546706040b7c70bb563bac1b3b199ce8d5dee62c0a911993e9dcf148b12448d"
+    },
+    {
+      "doc_id": "master_lore:part-one-the-castaka-origin",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "3e7988a4dd8e6d8f184cd7ac7db8949f2fff8991e9fca4cfcf09ef2f48f2a85a"
+    },
+    {
+      "doc_id": "master_lore:part-two-the-metabaron-dynasty",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "96f4f44e6fb15497ae06b24a007859c9380ca0367eb27687c09d2a7a834d6f15"
+    },
+    {
+      "doc_id": "master_lore:power-proven-through-visible-cost",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "f280c728ef4cccde50a8f7263aa355388b5edc1fee2bacd7bb2991d95a9b33a4"
+    },
+    {
+      "doc_id": "master_lore:praxis",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "7160c098abbd9015ef7334c19632af1627ac0442f1cce90ae7e8b2b6c4e2edd4"
+    },
+    {
+      "doc_id": "master_lore:second-generation-steelhead-t-te-d-acier-grandfather",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "4a547cda0ea96bfcbb5b09aae24d766acd5eba970bf4170d2ee5d34bbe44a8a4"
+    },
+    {
+      "doc_id": "master_lore:steelhead-s-return-and-lothar-s-revelation",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "ec6adf576f2df2024703fc72d9c27f3a4ab4b74f740dfbcf529ed43fdda27cf5"
+    },
+    {
+      "doc_id": "master_lore:storlon",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "49b9a15e7a1adee8fbbfe186b1c056a54794ca03723466538e0165d3fae7a74a"
+    },
+    {
+      "doc_id": "master_lore:the-bio-electrogram",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "ebc682b22c37df8d5ce39d7a81707140281075c367337a4c479931df50a3f00f"
+    },
+    {
+      "doc_id": "master_lore:the-birth-of-sans-nom",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "f48df5e336e9bcf888546709438accb5305073f050bacb33684fd5408c9719af"
+    },
+    {
+      "doc_id": "master_lore:the-bushitaka-code",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "d4d63b1bb9691d6c5b292a6c785a1846ad2c163e1f124783d8f29f3e7ae5ea25"
+    },
+    {
+      "doc_id": "master_lore:the-castaka-clan",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "73190505d137988d13651bcfb0cc6e637489149d01b70c35dcd22c5991f39767"
+    },
+    {
+      "doc_id": "master_lore:the-crest-of-castaka",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "9bccbd5d72bd643098bc897cbb35a3c08c816c2b33537de357dbed89ed038f96"
+    },
+    {
+      "doc_id": "master_lore:the-dimensional-vampires",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "a53d6827a7e835c1f2bf6a5d6919a2601fcae151fa2bf87814928348922e1cc7"
+    },
+    {
+      "doc_id": "master_lore:the-dimensional-vampires-2",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "5b9da76643ba0bff0a7afc6d29c5a7c4722c0b87eedd7709a0f7e40881fa456d"
+    },
+    {
+      "doc_id": "master_lore:the-ekonomats-and-magnates",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "81ba65fe8db8cfead4e8dcc09316de25c52cd9bf197c554205be5b00ea8de63c"
+    },
+    {
+      "doc_id": "master_lore:the-empire-the-emperoress-janus-jana",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "5566a966a74d695d50aaddf3050bf5437de9fe51d6a721fabcd58b764374631c"
+    },
+    {
+      "doc_id": "master_lore:the-failed-escape",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "312e34e517336e2bd44f0b5e847b9b7396ba2a156df16f6f5dfa2c2cb95dae8e"
+    },
+    {
+      "doc_id": "master_lore:the-framing-device-tonto-and-lothar",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "e6a39806066127d30e7597d8ce70819317496044c6a746fbc267b1be55bbfc51"
+    },
+    {
+      "doc_id": "master_lore:the-hermaphrodite-ideal",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "6f886a005cca0248610a83aa20b7b73317dfe672e7273437fdea37a0539e08fb"
+    },
+    {
+      "doc_id": "master_lore:the-hulzgemeaux",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "c17217d1a14f79105af0dc9adacc86e0cc5a359a465962312a9e49557ea0e4a4"
+    },
+    {
+      "doc_id": "master_lore:the-impasse-unable-to-kill-steelhead",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "f181b36fdc6d567f2850efdf0ae35b5399500a617308890a8adcb62ff7f15eef"
+    },
+    {
+      "doc_id": "master_lore:the-love-that-breaks-the-machine-and-the-machine-that-breaks-the-love",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "2a550eef4a41a1750254efcb6eb22142bff9abb55bf829ff7cd59dd98b806d6a"
+    },
+    {
+      "doc_id": "master_lore:the-magon-apes",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "4da376e5ae32af269663df8e2153bf47fddb7262f82dbc4645720f89cc2d2642"
+    },
+    {
+      "doc_id": "master_lore:the-metabaron-s-declaration",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "7216a715b7799cc406f9d7be10a04c76fe71a23a43c12b8437320b3ed27f5227"
+    },
+    {
+      "doc_id": "master_lore:the-metabarons-complete-lore-reference",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "795cedf28839ba04da61e30228ebe6562303ec1eebf466696c695a826c1c50ef"
+    },
+    {
+      "doc_id": "master_lore:the-metabunker",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "69921439a621f0c209d5aea869fc6c16e2b2d96f736f756b71c318ea8cbe5692"
+    },
+    {
+      "doc_id": "master_lore:the-metacraft",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "03869d5bb7feeb5f5c95871f2c4b49ea889081bd50a7287b358f5706cfe0425b"
+    },
+    {
+      "doc_id": "master_lore:the-omphale-and-the-ennead",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "1aa2627456dbac1afb7cd5bcdaed4593bf98d6af79dfa1611ebe92402c318244"
+    },
+    {
+      "doc_id": "master_lore:the-origin-of-the-crest-dayal-and-gangez",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "bf2cd8497cbba3315c5149547744d7a6c4cfd77964a8dde9b69e0daf2a099a3b"
+    },
+    {
+      "doc_id": "master_lore:the-patricide",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "530d1e572156abe00a4853343ddba16ad13812bec53c17504c43d442ba24d354"
+    },
+    {
+      "doc_id": "master_lore:the-pthagureans",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "edc361834cc5fabdf40f82b8c458730fff20883aa4101563cd73130ddd85349d"
+    },
+    {
+      "doc_id": "master_lore:the-quest-for-zaran-krleza",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "0b0534d43f8bd8b2604194e9a4927f7cc66df04007c2445cffb21673ffedba7e"
+    },
+    {
+      "doc_id": "master_lore:the-scar-the-saga-s-central-mystery",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "b6055ebde3067afb182696504f077a5abf86059b7e6e059ce1e75c75ae7e5b88"
+    },
+    {
+      "doc_id": "master_lore:the-shabda-oud",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "09f80b6c2cf5a338cd407a2b47ea1e043415806df311f43b7abd0f31cd677231"
+    },
+    {
+      "doc_id": "master_lore:the-shabda-oud-war-and-honorata-s-sacrifice",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "18d91945b3c9a1b38e5c1032ae32d8742ec84a2cb871ebfc8fcf1d43b6bed972"
+    },
+    {
+      "doc_id": "master_lore:the-superkolt",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "9edf0447258e3ba066dca930a30617e3ca41cce997d5608d84c420daf32da0a6"
+    },
+    {
+      "doc_id": "master_lore:the-supra-lice-and-the-final-battle",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "d03234dd8a60e92ae8b4ccc81185ba087272d50b6ccff5a3452f0bf1774f5117"
+    },
+    {
+      "doc_id": "master_lore:the-techno-technos",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "9130cd6f3639847660e79b9e3905bfac2be86d547a72ae1e8679a7ade3923226"
+    },
+    {
+      "doc_id": "master_lore:the-trogolosocialik-confederation",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "2f0b52be2888d8657f8a42f84f2d1a509e4917a2c095f3be9451ea647e59dc95"
+    },
+    {
+      "doc_id": "master_lore:thematic-architecture",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "688088d7c0edfd09167f8f6385226792325a937dacaa94ba5504a00f2bd3b13c"
+    },
+    {
+      "doc_id": "master_lore:third-generation-aghora-father-mother",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "7e3d7b1fba66f18e998fd326cc40f92343aaafaf46fa911cf29544949825a098"
+    },
+    {
+      "doc_id": "master_lore:timeline-orientation",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "0f8f24742155c787d4bc985ce5270a6288713d988c45e896b33f9c31f14b4bf3"
+    },
+    {
+      "doc_id": "master_lore:training-and-initiation",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "53825e47c7c8d5c45a95eb68a287fb291101e8639b313b86e31f3bd731ee3f03"
+    },
+    {
+      "doc_id": "master_lore:trans-ludens",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "271f894392762da603b2af441f90dbf7a64f8f2f40f7f238164cb03eca96f2a5"
+    },
+    {
+      "doc_id": "master_lore:upbringing",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "b8abef12eb6ba4b667ba8301d95064d7e3d5252e85a6445c287ec83e53d4ba4f"
+    },
+    {
+      "doc_id": "master_lore:weapons-of-the-metabaron-the-three-sacred-weapons",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "1ae682236a2e5cb2e9876e8b4f00488eb7deb05088b94d83c28301febd9cefaf"
+    },
+    {
+      "doc_id": "master_lore:witnesses-and-memory",
+      "kind": "master_lore",
+      "source_path": "lore/packs/metabarons/LORE.md",
+      "text_sha256": "affc69a2793e5398cecaaa9b8a60f44802222084bb490a2b0b87012b3ecb0164"
+    },
+    {
       "doc_id": "non_peer_lore:aghora-s-siamese-twin-brother-deceased",
       "kind": "non_peer_lore",
       "source_path": "lore/packs/metabarons/comics/peer-cards/cards/non-peer/aghora-s-siamese-twin-brother-deceased.json",
@@ -5456,8 +5853,12 @@
     }
   ],
   "embedding_model": "voyage-4",
-  "generated_at": "2026-05-17T08:44:32.340850+00:00",
+  "generated_at": "2026-05-22T02:15:31.304671+00:00",
   "sources": [
+    {
+      "path": "lore/packs/metabarons/LORE.md",
+      "sha256": "e3d6c74e1749b58acb13946e03e34abcd65ba1b3d0f9d7e2d47e6912cca02f27"
+    },
     {
       "path": "lore/packs/metabarons/comics/characters/characters-volume-01.json",
       "sha256": "4d92087e9d7e87cbda76394897a007c79078222b202b6f6141e6dac58a0e0823"
