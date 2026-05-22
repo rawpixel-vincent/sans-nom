@@ -82,6 +82,9 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 			}
 		}
 		writerPrompt := prompt.SeedWriterPrompt(promptText)
+		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
+			writerPrompt = prompt.SeedWriterRepairPrompt(promptText)
+		}
 		s.log(gamelog.Event{
 			Category: "model",
 			Event:    "seed.writer.request",

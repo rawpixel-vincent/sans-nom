@@ -72,6 +72,33 @@ func TestSeedWriterPromptOwnsStructuredSeed(t *testing.T) {
 	}
 }
 
+func TestSeedWriterRepairPromptDoesNotRedoFullOrientation(t *testing.T) {
+	got := SeedWriterRepairPrompt("seed context")
+	for _, required := range []string{
+		"This is a repair pass after validation/review feedback",
+		"Do not redo the full lore orientation pass from scratch",
+		"Start from the previous raw Writer output",
+		"Use staged lorepack reads or ask_lore_expert only for targeted checks",
+		"Prefer one focused search/read over repeating the full navigation sequence",
+		"Return only JSON matching the SeedBundle shape",
+	} {
+		if !strings.Contains(got, required) {
+			t.Fatalf("repair prompt missing %q:\n%s", required, got)
+		}
+	}
+	for _, forbidden := range []string{
+		"Before drafting any StoryBible or StoryPacket, do a lore orientation pass",
+		"Follow the minimum orientation from lorepack/navigation.md",
+		"at least two relevant volume summaries",
+		"at least one matching character file",
+		"build a compact mental model before writing JSON",
+	} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("repair prompt kept full-orientation wording %q:\n%s", forbidden, got)
+		}
+	}
+}
+
 func TestLegacySeedWorkshopPromptIsFreeFormAndNonSchema(t *testing.T) {
 	got := SeedWorkshopPrompt("seed context", "Staging Turn", "Stress-test the opening.", "No workshop artifacts yet.")
 	for _, required := range []string{

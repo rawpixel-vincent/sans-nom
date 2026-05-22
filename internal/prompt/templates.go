@@ -110,6 +110,26 @@ Return compact JSON:
 }
 
 func SeedWriterPrompt(contextText string) string {
+	return SeedWriterPromptWithMode(contextText, false)
+}
+
+func SeedWriterRepairPrompt(contextText string) string {
+	return SeedWriterPromptWithMode(contextText, true)
+}
+
+func SeedWriterPromptWithMode(contextText string, repair bool) string {
+	orientationRules := `- Before drafting any StoryBible or StoryPacket, do a lore orientation pass. When local read tools are available, read lorepack/navigation.md first, then lorepack/lore-pack.json, then inspect staged lorepack reference files enough to understand the source's major characters, family/story pressures, repeated laws, decisive events, and choice logic.
+- Follow the minimum orientation from lorepack/navigation.md: contract, wiki overview, comics manifest, at least two relevant volume summaries, and at least one matching character file before writing JSON, unless ask_lore_expert resolves a narrow missing fact.
+- Use LS/Grep/Read on lorepack/ deliberately: prefer lorepack/wiki/lore.md, lorepack/comics/volumes/volume-XX.json, lorepack/comics/characters/characters-volume-XX.json, lorepack/comics/manifest.json, and specific lorepack/comics/pages/<page_id>.json files that answer a concrete fidelity question. Use lorepack/index/manifest.json only to understand retrieval coverage. Do not browse randomly; build a compact mental model before writing JSON.
+- Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
+- Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.`
+	if repair {
+		orientationRules = `- This is a repair pass after validation/review feedback. Do not redo the full lore orientation pass from scratch.
+- Start from the previous raw Writer output and patch only the fields/nodes required by the feedback.
+- Preserve any already-valid structure, ids, branches, metadata, and source grounding unless the feedback specifically requires changing them.
+- Use staged lorepack reads or ask_lore_expert only for targeted checks needed to resolve a specific feedback item. Prefer one focused search/read over repeating the full navigation sequence.
+- If protagonist, premise, or branch focus must change, make the smallest coherent correction that satisfies the verifier while preserving the packet contract.`
+	}
 	return fmt.Sprintf(`You are the Creative Writer for the first playable Sans-Nom CLI slice.
 
 Create the durable StoryBible and opening StoryPacket for the selected lorepack scenario.
@@ -126,11 +146,7 @@ Your creative job:
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
 - You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
-- Before drafting any StoryBible or StoryPacket, do a lore orientation pass. When local read tools are available, read lorepack/navigation.md first, then lorepack/lore-pack.json, then inspect staged lorepack reference files enough to understand the source's major characters, family/story pressures, repeated laws, decisive events, and choice logic.
-- Follow the minimum orientation from lorepack/navigation.md: contract, wiki overview, comics manifest, at least two relevant volume summaries, and at least one matching character file before writing JSON, unless ask_lore_expert resolves a narrow missing fact.
-- Use LS/Grep/Read on lorepack/ deliberately: prefer lorepack/wiki/lore.md, lorepack/comics/volumes/volume-XX.json, lorepack/comics/characters/characters-volume-XX.json, lorepack/comics/manifest.json, and specific lorepack/comics/pages/<page_id>.json files that answer a concrete fidelity question. Use lorepack/index/manifest.json only to understand retrieval coverage. Do not browse randomly; build a compact mental model before writing JSON.
-- Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
-- Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.
+%s
 - The injected master summary is broad context, not permission to dump canon; cite concrete staged files or ask_lore_expert when exact source grounding matters.
 - The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and concrete resume metadata.
 - Populate metadata with string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id. Do not leave metadata empty.
@@ -154,7 +170,7 @@ Rules:
 Context:
 %s
 
-Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`, contextText)
+Return only JSON matching the SeedBundle shape: {"bible":{...},"packet":{...}}.`, orientationRules, contextText)
 }
 
 func SeedWorkshopPrompt(contextText string, turnTitle string, promptShape string, priorManifest string) string {

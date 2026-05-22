@@ -168,6 +168,9 @@ func TestGenerateRetryPatchesPreviousWriterOutput(t *testing.T) {
 	retry := runner.prompts[1]
 	for _, required := range []string{
 		"Continue from this attempt and revise it; do not start a new story seed from scratch",
+		"This is a repair pass after validation/review feedback",
+		"Do not redo the full lore orientation pass from scratch",
+		"Use staged lorepack reads or ask_lore_expert only for targeted checks",
 		"node_missing_handoff",
 		"Previous raw Writer output to patch",
 		"choice_missing",
@@ -175,6 +178,9 @@ func TestGenerateRetryPatchesPreviousWriterOutput(t *testing.T) {
 		if !strings.Contains(retry, required) {
 			t.Fatalf("retry prompt missing %q:\n%s", required, retry)
 		}
+	}
+	if strings.Contains(retry, "Before drafting any StoryBible or StoryPacket, do a lore orientation pass") {
+		t.Fatalf("repair retry kept full-orientation wording:\n%s", retry)
 	}
 }
 
@@ -203,6 +209,7 @@ func TestGenerateRetriesEmptyBibleMetadata(t *testing.T) {
 	}
 	retry := runner.prompts[1]
 	for _, required := range []string{
+		"Do not redo the full lore orientation pass from scratch",
 		"bible.metadata",
 		"seed_version",
 		"current_checkpoint",
