@@ -75,26 +75,77 @@ agents and marks the software beta. Its main pieces are:
 - A [manual](https://github.com/tursodatabase/agentfs/blob/main/MANUAL.md) for
   CLI and mount workflows.
 
+## External Reference: Mirage
+
+[Strukto Mirage](https://github.com/strukto-ai/mirage) is another external
+project worth tracking for the agent filesystem layer. Mirage provides a
+virtual filesystem and shell-like command executor for agents. Its design is
+closer to Sans-Nom's model-visible read tool surface than Turso AgentFS is:
+agents can use familiar commands such as `cat`, `ls`, `grep`, `find`, and
+pipelines, but the executor operates against mounted virtual resources instead
+of the host repository.
+
+Potential fit:
+
+- Replacing part of the hand-rolled read-only command validation in
+  `internal/codexoauth/local_tools.go`.
+- Mounting only the current scoped run material, such as `/story`,
+  `/lorepack`, `/scenarists`, and `/workshop`.
+- Snapshotting the exact model-visible workspace for failed seed runs,
+  regression tests, and prompt-eval replay.
+- Exposing lorepack references as virtual files without copying broad source
+  trees into each agent workspace.
+
+Not a replacement yet:
+
+- Mirage does not encode Sans-Nom's staging policy. The curated file selection
+  and forbidden-path rules in `internal/agentfs` still need to exist.
+- The current runtime is Go, while Mirage's public SDK/runtime path is centered
+  on Python and TypeScript. Live integration would likely require a sidecar or
+  a dedicated dev-only bridge first.
+- The project is early. Treat it as a spike candidate, not a production
+  dependency in the live play loop.
+
+Recommended spike:
+
+1. Build a Mirage workspace from one seed run using only already-curated staged
+   files.
+2. Mount `/lorepack`, `/story`, `/scenarists`, and `/workshop`.
+3. Run representative Writer commands:
+   - `cat lorepack/navigation.md`
+   - `rg -n "succession|honor|wound" lorepack/wiki/lore.md lorepack/comics/volumes`
+   - `find lorepack -maxdepth 4 -type f`
+4. Verify forbidden surfaces remain invisible: peer-card run logs, provenance,
+   `testdata`, repo source, and unrelated story or seed runs.
+5. Compare Mirage snapshots and logs against current backstage/detail logs.
+
 ## Fit Assessment
 
-AgentFS is interesting for Sans-Nom, but it is not a drop-in replacement for the
-current `internal/agentfs` layer.
+Both external filesystem projects are interesting for Sans-Nom, but neither is
+a drop-in replacement for the current `internal/agentfs` layer.
 
-Good fit:
+Turso AgentFS looks strongest as an audit and state substrate:
 
 - Mirroring per-run agent workspaces into one queryable `agent.db`.
 - Recording tool-call audit trails next to files and run state.
 - Snapshotting/forking model-visible workspaces during prompt experiments.
 - Giving admin/backstage a richer historical substrate later.
 
+Mirage looks strongest as the model-visible filesystem and shell surface:
+
+- Running familiar read/search commands against a virtual scoped tree.
+- Reducing custom shell parsing in local read tools.
+- Capturing and replaying exact agent-visible filesystem snapshots.
+
 Not a replacement yet:
 
 - Sans-Nom still needs real OS paths because Codex read tools and Claude-style
   tool sessions operate against mounted or local files.
-- AgentFS does not encode Sans-Nom's policy by itself; we still need the
-  allowlist/blocklist logic that decides what gets staged.
+- Neither external project encodes Sans-Nom's policy by itself; we still need
+  the allowlist/blocklist logic that decides what gets staged.
 - Mounting adds platform and operational complexity, especially on macOS.
-- The project is beta, so production use should come after a small spike.
+- Both projects are early enough that production use should come after a small
+  spike.
 
 ## Recommended Future Spike
 
