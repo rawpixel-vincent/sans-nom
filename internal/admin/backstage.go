@@ -112,6 +112,13 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "status", "skipped", firstNonEmpty(stringField(detail, "reason"), event.Message))}
 	case "actor.invoke.failed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), "Actor"), "error", "failed", errorText(event, detail))}
+	case "actor.tool.request":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@"+actorToolActorID(event, detail)+" "+actorToolRequestText(event, detail))}
+	case "actor.tool.completed":
+		return []backstageMessage{b.message(event, "actor", actorToolActorID(event, detail), "tool_response", "completed", firstNonEmpty(actorToolMaterialText(detail), event.Message))}
+	case "actor.tool.rejected", "actor.tool.failed":
+		return []backstageMessage{b.message(event, "actor", actorToolActorID(event, detail), "error", "failed", errorText(event, detail))}
 	case "scenarist.ask.started":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", "@Scenarist "+scenaristRequestText(detail))}
@@ -349,6 +356,31 @@ func scenaristRequestText(detail map[string]any) string {
 	return strings.Join(lines, "\n")
 }
 
+func actorToolActorID(event gamelog.Event, detail map[string]any) string {
+	return firstNonEmpty(
+		stringFromFields(event, "actor_id"),
+		nestedString(detail, "request", "actor_id"),
+		nestedString(detail, "material", "actor_id"),
+		nestedString(detail, "output", "actor_id"),
+		"Actor",
+	)
+}
+
+func actorToolRequestText(event gamelog.Event, detail map[string]any) string {
+	return firstNonEmpty(
+		nestedString(detail, "request", "question"),
+		nestedString(detail, "request", "scene_setup"),
+		event.Message,
+	)
+}
+
+func actorToolMaterialText(detail map[string]any) string {
+	return firstNonEmpty(
+		marshalPretty(detail["material"]),
+		marshalPretty(detail["output"]),
+	)
+}
+
 func errorText(event gamelog.Event, detail map[string]any) string {
 	return firstNonEmpty(stringField(detail, "error"), stringField(detail, "validation_error"), event.Message, event.Event)
 }
@@ -439,7 +471,7 @@ func toolOutputTruncated(detail map[string]any) bool {
 
 func artifactPaths(root string, event gamelog.Event) []string {
 	var out []string
-	for _, key := range []string{"artifact_dir", "run_dir", "output_path", "prompt_path", "answer_path", "call_dir"} {
+	for _, key := range []string{"artifact_dir", "artifact_path", "run_dir", "output_path", "prompt_path", "answer_path", "call_dir"} {
 		if value := stringFromFields(event, key); value != "" {
 			out = append(out, normalizeArtifactPath(root, value))
 		}

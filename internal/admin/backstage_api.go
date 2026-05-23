@@ -116,7 +116,7 @@ func (s *Server) handleBackstageStream(w http.ResponseWriter, r *http.Request, s
 func (s *Server) globalBackstageMessages(r *http.Request) ([]backstageMessage, error) {
 	tail := backstageTail(r)
 	writer := gamelog.NewGlobalWriter(s.StoryRoot)
-	events, err := gamelog.Read(writer.Path, gamelog.Filter{Tail: tail})
+	events, err := gamelog.Read(writer.Path, gamelog.Filter{})
 	if err != nil {
 		return nil, err
 	}
@@ -131,7 +131,7 @@ func (s *Server) globalBackstageMessages(r *http.Request) ([]backstageMessage, e
 			continue
 		}
 		storyWriter := gamelog.NewWriter(ws.Dir, state.StoryID)
-		storyEvents, err := gamelog.Read(filepath.Join(ws.LogsDir(), "events.jsonl"), gamelog.Filter{Tail: tail})
+		storyEvents, err := gamelog.Read(filepath.Join(ws.LogsDir(), "events.jsonl"), gamelog.Filter{})
 		if err != nil {
 			return nil, err
 		}
@@ -167,11 +167,15 @@ func (s *Server) storyBackstageMessages(r *http.Request, storyID string) ([]back
 		return nil, err
 	}
 	writer := gamelog.NewWriter(ws.Dir, state.StoryID)
-	events, err := gamelog.Read(filepath.Join(ws.LogsDir(), "events.jsonl"), gamelog.Filter{Tail: tail})
+	events, err := gamelog.Read(filepath.Join(ws.LogsDir(), "events.jsonl"), gamelog.Filter{})
 	if err != nil {
 		return nil, err
 	}
-	return buildBackstageMessages(ws.Dir, writer, events), nil
+	messages := buildBackstageMessages(ws.Dir, writer, events)
+	if tail > 0 && len(messages) > tail {
+		messages = messages[len(messages)-tail:]
+	}
+	return messages, nil
 }
 
 func backstageTail(r *http.Request) int {

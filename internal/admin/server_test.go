@@ -518,6 +518,76 @@ func TestAdminBackstageShowsActorInvocationPrompt(t *testing.T) {
 	}
 }
 
+func TestAdminBackstageShowsActorToolCalls(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "actor",
+		Event:    "actor.tool.request",
+		Turn:     3,
+		RunID:    "run-actor",
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Fields: map[string]any{
+			"actor_id":       "tonto",
+			"caller_role":    "writer",
+			"caller_speaker": "Writer",
+			"call_dir":       filepath.Join(ws.Dir, "actors", "actor-call-001"),
+		},
+		Detail: map[string]any{
+			"caller_role":    "writer",
+			"caller_speaker": "Writer",
+			"request": map[string]any{
+				"actor_id": "tonto",
+				"question": "What does Tonto risk saying?",
+			},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{
+		Category: "actor",
+		Event:    "actor.tool.completed",
+		Turn:     3,
+		RunID:    "run-actor",
+		PacketID: "packet-1",
+		NodeID:   "node-1",
+		Fields: map[string]any{
+			"actor_id":      "tonto",
+			"artifact_path": filepath.Join(ws.Dir, "actors", "actor-call-001", "material.json"),
+		},
+		Detail: map[string]any{
+			"material": map[string]any{
+				"actor_id": "tonto",
+				"dialogue": "I remember the door.",
+				"action":   "Tonto touches the lintel.",
+			},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID+"/backstage?tail=10", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].Speaker != "Writer" || resp.Messages[0].Role != "writer" || resp.Messages[0].Kind != "tool_request" || !strings.Contains(resp.Messages[0].Text, "@tonto What does Tonto risk saying?") {
+		t.Fatalf("unexpected actor tool request bubble: %#v", resp.Messages[0])
+	}
+	if resp.Messages[1].Speaker != "tonto" || resp.Messages[1].Role != "actor" || resp.Messages[1].Kind != "tool_response" || !strings.Contains(resp.Messages[1].Text, "I remember the door.") {
+		t.Fatalf("unexpected actor tool response bubble: %#v", resp.Messages[1])
+	}
+	if len(resp.Messages[1].ArtifactPaths) != 1 || resp.Messages[1].ArtifactPaths[0] != "actors/actor-call-001/material.json" {
+		t.Fatalf("unexpected actor tool artifact paths: %#v", resp.Messages[1].ArtifactPaths)
+	}
+}
+
 func TestAdminExposesStoryBackstageArtifactsSafely(t *testing.T) {
 	root := t.TempDir()
 	ws, state := createAdminStory(t, root)
@@ -566,6 +636,65 @@ func TestAdminExposesStoryBackstageArtifactsSafely(t *testing.T) {
 		if strings.Contains(path, "..") {
 			t.Fatalf("unsafe artifact path exposed: %q", path)
 		}
+	}
+}
+
+func TestAdminStoryBackstageTailsRenderedMessagesNotRawEvents(t *testing.T) {
+	root := t.TempDir()
+	ws, state := createAdminStory(t, root)
+	logger := gamelog.NewWriter(ws.Dir, state.StoryID)
+	if err := logger.Append(gamelog.Event{
+		Category: "writer",
+		Event:    "writer.provider.tool_use",
+		Message:  "@Read cat story/context.txt",
+		Fields: map[string]any{
+			"tool_name":      "Read",
+			"target":         "cat story/context.txt",
+			"caller_role":    "writer",
+			"caller_speaker": "Writer",
+		},
+		Detail: map[string]any{
+			"tool_name":      "Read",
+			"input":          map[string]any{"cmd": "cat story/context.txt"},
+			"caller_role":    "writer",
+			"caller_speaker": "Writer",
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := logger.Append(gamelog.Event{
+		Category: "writer",
+		Event:    "writer.provider.tool_result",
+		Message:  "Read result for cat story/context.txt\n\ncontext body",
+		Fields: map[string]any{
+			"tool_name": "Read",
+			"target":    "cat story/context.txt",
+		},
+		Detail: map[string]any{
+			"tool_name": "Read",
+			"input":     map[string]any{"cmd": "cat story/context.txt"},
+			"result":    map[string]any{"stdout": "context body"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	for i := 0; i < 5; i++ {
+		if err := logger.Append(gamelog.Event{Category: "story", Event: "story.noise", Message: "raw log noise"}); err != nil {
+			t.Fatal(err)
+		}
+	}
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{}))
+	defer server.Close()
+
+	var resp struct {
+		Messages []backstageMessage `json:"messages"`
+	}
+	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID+"/backstage?tail=2", &resp)
+	if len(resp.Messages) != 2 {
+		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
+	}
+	if resp.Messages[0].SourceEvent != "writer.provider.tool_use" || resp.Messages[1].SourceEvent != "writer.provider.tool_result" {
+		t.Fatalf("writer tool calls were hidden by raw log tailing: %#v", resp.Messages)
 	}
 }
 
