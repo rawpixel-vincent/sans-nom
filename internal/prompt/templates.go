@@ -36,7 +36,7 @@ Packet contract:
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST; if no matching actor card exists, keep actor_needs empty and express the character/object behavior as beats.
-- Actors are not background flavor. When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the backstage rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.
+- Actors are not background flavor. When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:
@@ -88,7 +88,7 @@ func NarratorPrompt(node scene.SceneNode, actorJSON string, context string) stri
 	packetBytes, _ := json.MarshalIndent(node, "", "  ")
 	return fmt.Sprintf(`You are the Narrator for Sans-Nom.
 
-You receive one selected StoryPacket node and an actor rehearsal bundle. Turn it into the player-facing scene.
+You receive one selected StoryPacket node and a Director rehearsal bundle. Turn it into the player-facing scene.
 
 Narration priorities:
 - This is a game: keep the player character at the center of the scene, make the moment entertaining to play, and aim every pressure point at player agency.
@@ -105,19 +105,19 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
-- Actor rehearsal material is not canon by itself. Use usable actor dialogue/action when it serves the player-facing scene, but only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
+- Director rehearsal material is not canon by itself. Use usable actor dialogue/action when it serves the player-facing scene, but only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
 - Do not let actor performance steal protagonism from the player character; actors should sharpen pressure, opposition, temptation, humor, or consequence around the player.
 - Use curated_card_updates only for concise facts the rolled-out scene just proved about an actor or a directional relationship. Do not copy private interiors, unused alternatives, Writer drafts, or unsurfaced actor material into card updates.
 - When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json. If a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use provided lore context first after that grounding read; do not run broad inventory commands unless exact file names are missing.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
-- Surface actor messages only from provided actor rehearsal outputs. If rehearsal actor_outputs is [], surfaced_actor_messages must be [].
+- Surface actor messages only from provided Director rehearsal outputs. If rehearsal actor_outputs is [], surfaced_actor_messages must be [].
 
 Selected node:
 %s
 
-Actor rehearsal bundle:
+Director rehearsal bundle:
 %s
 
 Context:

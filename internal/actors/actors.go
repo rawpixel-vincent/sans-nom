@@ -174,6 +174,7 @@ type Service struct {
 	Logger            *gamelog.Writer
 	PacketID          string
 	Turn              int
+	RunID             string
 	SkipMissingActors bool
 }
 
@@ -203,6 +204,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					Turn:     s.Turn,
 					PacketID: s.PacketID,
 					NodeID:   node.ID,
+					RunID:    s.RunID,
 					Fields: map[string]any{
 						"actor_id": need.ActorID,
 						"mode":     need.Mode,
@@ -231,6 +233,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 				Turn:     s.Turn,
 				PacketID: s.PacketID,
 				NodeID:   node.ID,
+				RunID:    s.RunID,
 				Fields: modelmeta.MergeFields(map[string]any{
 					"actor_id": actor.ID,
 					"mode":     need.Mode,
@@ -257,6 +260,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 					Turn:     s.Turn,
 					PacketID: s.PacketID,
 					NodeID:   node.ID,
+					RunID:    s.RunID,
 					Fields: modelmeta.MergeFields(map[string]any{
 						"actor_id": actor.ID,
 						"mode":     need.Mode,
@@ -283,6 +287,7 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 				Turn:     s.Turn,
 				PacketID: s.PacketID,
 				NodeID:   node.ID,
+				RunID:    s.RunID,
 				Fields: modelmeta.MergeFields(map[string]any{
 					"actor_id": actor.ID,
 					"mode":     need.Mode,

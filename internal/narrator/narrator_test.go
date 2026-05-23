@@ -3,8 +3,6 @@ package narrator
 import (
 	"context"
 	"encoding/json"
-	"os"
-	"path/filepath"
 	"strings"
 	"testing"
 
@@ -41,7 +39,7 @@ func TestRolloutCommitsOnlySelectedNode(t *testing.T) {
 	}
 	svc := Service{Renderer: StaticRenderer{}}
 
-	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "go"}, "")
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "go"}, "", RehearsalResult{})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -80,7 +78,7 @@ func TestCosmeticIntroChoiceCanRenderWithoutCanonDecision(t *testing.T) {
 	renderer := &recordingRenderer{}
 	svc := Service{Renderer: renderer}
 
-	rollout, err := svc.Rollout(context.Background(), packet, "decision", scene.PlayerDecision{ChoiceID: "steady_lamp"}, "choice_id: steady_lamp")
+	rollout, err := svc.Rollout(context.Background(), packet, "decision", scene.PlayerDecision{ChoiceID: "steady_lamp"}, "choice_id: steady_lamp", RehearsalResult{})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -93,10 +91,6 @@ func TestCosmeticIntroChoiceCanRenderWithoutCanonDecision(t *testing.T) {
 }
 
 func TestRolloutDoesNotCommitActorInterior(t *testing.T) {
-	reg, err := actors.NewRegistry([]actors.Actor{{ID: "tonto", Card: "card"}})
-	if err != nil {
-		t.Fatal(err)
-	}
 	packet := scene.StoryPacket{
 		ID: "packet-1",
 		ContextSnapshot: scene.ContextSnapshot{
@@ -113,96 +107,25 @@ func TestRolloutDoesNotCommitActorInterior(t *testing.T) {
 			}},
 		}},
 	}
-	svc := Service{
-		Actors: &actors.Service{
-			Registry: reg,
-			Invoker: actors.StaticInvoker{Outputs: map[string]actors.Output{
-				"tonto": {
-					Interior: "This private thought must not be committed.",
-					Dialogue: "I will tell you only what you can bear.",
-				},
-			}},
-		},
-		Renderer: StaticRenderer{},
+	rehearsal := RehearsalResult{
+		PacketID: "packet-1",
+		NodeID:   "selected",
+		ActorOutputs: []actors.Output{{
+			ActorID:  "tonto",
+			Interior: "This private thought must not be committed.",
+			Dialogue: "I will tell you only what you can bear.",
+		}},
+		ObserverPeerIDs: []string{"tonto"},
 	}
+	svc := Service{Renderer: StaticRenderer{}}
 
-	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "listen"}, "")
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "listen"}, "", rehearsal)
 	if err != nil {
 		t.Fatal(err)
 	}
 	encoded := commitText(rollout.Commit)
 	if strings.Contains(encoded, "private thought") {
 		t.Fatalf("actor interior leaked into commit: %s", encoded)
-	}
-}
-
-func TestRolloutRunsRehearsalWithArtifactsAndLogs(t *testing.T) {
-	logger := gamelog.NewWriter(t.TempDir(), "story-1")
-	reg, err := actors.NewRegistry([]actors.Actor{{ID: "tonto", DisplayName: "Tonto", Card: "card"}})
-	if err != nil {
-		t.Fatal(err)
-	}
-	artifactDir := t.TempDir()
-	packet := scene.StoryPacket{
-		ID: "packet-1",
-		ContextSnapshot: scene.ContextSnapshot{
-			WorkspaceID:   "ws",
-			SessionID:     "session",
-			PresentActors: []string{"tonto"},
-		},
-		Nodes: []scene.SceneNode{{
-			ID:    "selected",
-			Beats: []scene.Beat{{Text: "Tonto watches."}},
-			ActorNeeds: []scene.ActorNeed{{
-				ActorID: "tonto",
-				Mode:    scene.ActorModePresent,
-				Reason:  "Tonto must decide what the record preserves.",
-			}},
-		}},
-	}
-	renderer := &recordingRenderer{}
-	svc := Service{
-		Actors: &actors.Service{
-			Registry: reg,
-			Invoker: actors.StaticInvoker{Outputs: map[string]actors.Output{
-				"tonto": {Dialogue: "I record what survives.", Action: "Tonto angles his lens toward the scar."},
-			}},
-			Logger: logger,
-		},
-		Renderer:             renderer,
-		Logger:               logger,
-		Turn:                 11,
-		RunID:                "turn-000011",
-		ActorContextText:     "actor-specific context",
-		RehearsalArtifactDir: artifactDir,
-	}
-
-	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{}, "narrator context")
-	if err != nil {
-		t.Fatal(err)
-	}
-	if len(rollout.Rehearsal.ActorOutputs) != 1 || rollout.Rehearsal.ActorOutputs[0].ActorID != "tonto" {
-		t.Fatalf("unexpected rehearsal outputs: %#v", rollout.Rehearsal.ActorOutputs)
-	}
-	if renderer.rehearsal.ActorOutputs[0].Dialogue != "I record what survives." {
-		t.Fatalf("renderer did not receive rehearsal bundle: %#v", renderer.rehearsal)
-	}
-	for _, name := range []string{"selected-node.json", "actor-outputs.json", "manifest.json"} {
-		if _, err := os.Stat(filepath.Join(artifactDir, name)); err != nil {
-			t.Fatalf("missing rehearsal artifact %s: %v", name, err)
-		}
-	}
-	for _, eventName := range []string{"rehearsal.started", "rehearsal.actor.request", "rehearsal.actor.completed", "rehearsal.completed"} {
-		events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: eventName})
-		if err != nil {
-			t.Fatal(err)
-		}
-		if len(events) == 0 {
-			t.Fatalf("missing %s log event", eventName)
-		}
-		if events[0].Turn != 11 || events[0].PacketID != "packet-1" || events[0].NodeID != "selected" || events[0].RunID != "turn-000011" {
-			t.Fatalf("unexpected %s metadata: %#v", eventName, events[0])
-		}
 	}
 }
 
@@ -228,7 +151,7 @@ func TestRolloutUsesSceneScopedSessionAndFiltersUnsupportedActorSurfaces(t *test
 		}},
 	}}}
 
-	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "wait"}, "")
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "wait"}, "", RehearsalResult{})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -246,11 +169,7 @@ func TestRolloutUsesSceneScopedSessionAndFiltersUnsupportedActorSurfaces(t *test
 	}
 }
 
-func TestRolloutAddsOnlyRegisteredPresentActorsAsObservers(t *testing.T) {
-	reg, err := actors.NewRegistry([]actors.Actor{{ID: "tonto", Card: "card"}})
-	if err != nil {
-		t.Fatal(err)
-	}
+func TestRolloutUsesDirectorObserverPeerIDs(t *testing.T) {
 	packet := scene.StoryPacket{
 		ID: "packet-1",
 		ContextSnapshot: scene.ContextSnapshot{
@@ -263,12 +182,14 @@ func TestRolloutAddsOnlyRegisteredPresentActorsAsObservers(t *testing.T) {
 			Beats: []scene.Beat{{Text: "Tonto witnesses silently."}},
 		}},
 	}
-	svc := Service{
-		Actors:   &actors.Service{Registry: reg, Invoker: actors.StaticInvoker{}},
-		Renderer: StaticRenderer{},
+	rehearsal := RehearsalResult{
+		PacketID:        "packet-1",
+		NodeID:          "selected",
+		ObserverPeerIDs: []string{"tonto"},
 	}
+	svc := Service{Renderer: StaticRenderer{}}
 
-	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{}, "")
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{}, "", rehearsal)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -298,7 +219,7 @@ func TestRolloutLogsNarratorPromptAndResponseInputs(t *testing.T) {
 		}},
 	}
 	svc := Service{Renderer: StaticRenderer{}, Logger: logger, Turn: 7}
-	if _, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "choice-a"}, "narrator context"); err != nil {
+	if _, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{ChoiceID: "choice-a"}, "narrator context", RehearsalResult{}); err != nil {
 		t.Fatal(err)
 	}
 	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "narrator.rollout.request"})
@@ -323,34 +244,6 @@ func TestRolloutLogsNarratorPromptAndResponseInputs(t *testing.T) {
 	promptText, _ := detail["prompt"].(string)
 	if !strings.Contains(promptText, "You are the Narrator for Sans-Nom") || !strings.Contains(promptText, "narrator context") {
 		t.Fatalf("narrator prompt detail missing expected text: %#v", detail)
-	}
-}
-
-func TestRolloutRejectsCouncilFanout(t *testing.T) {
-	packet := scene.StoryPacket{
-		ID: "packet-1",
-		Nodes: []scene.SceneNode{{
-			ID:    "bad",
-			Beats: []scene.Beat{{Text: "A forbidden roundtable."}},
-			ActorNeeds: []scene.ActorNeed{
-				{ActorID: "aghora", Mode: scene.ActorModePresent},
-				{ActorID: "tonto", Mode: scene.ActorModePresent},
-				{ActorID: "othon", Mode: scene.ActorModeRemembered},
-				{ActorID: "honorata", Mode: scene.ActorModeRemembered},
-				{ActorID: "oda", Mode: scene.ActorModeRemembered},
-			},
-		}},
-	}
-	reg, _ := actors.NewRegistry([]actors.Actor{
-		{ID: "aghora"}, {ID: "tonto"}, {ID: "othon"}, {ID: "honorata"}, {ID: "oda"},
-	})
-	svc := Service{
-		Actors:   &actors.Service{Registry: reg, Invoker: actors.StaticInvoker{}},
-		Renderer: StaticRenderer{},
-	}
-	_, err := svc.Rollout(context.Background(), packet, "bad", scene.PlayerDecision{}, "")
-	if err == nil {
-		t.Fatal("expected fanout cap error")
 	}
 }
 

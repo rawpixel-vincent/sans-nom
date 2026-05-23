@@ -177,7 +177,7 @@ func TestValidateProgressionRejectsRegisteredActorWithoutRehearsal(t *testing.T)
 	if err == nil {
 		t.Fatal("expected missing actor rehearsal rejection")
 	}
-	if !strings.Contains(err.Error(), "needs actor rehearsal") {
+	if !strings.Contains(err.Error(), "needs Director rehearsal") {
 		t.Fatalf("unexpected error: %v", err)
 	}
 }

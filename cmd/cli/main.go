@@ -31,6 +31,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/clitui"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/contextbundle"
+	"github.com/rawpixel-vincent/sans-nom/internal/director"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
@@ -333,21 +334,31 @@ func main() {
 		actorInvoker = actors.ClaudeInvoker{Runner: runner}
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
-		actorInvoker = actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), state.SourceLorePackID())}
+		actorInvoker = actors.ClaudeInvoker{Runner: directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), state.SourceLorePackID())}
 		scope := agentfs.New(filepath.Dir(absOrClean(*packetPath)), "narrator").WithVisiblePaths(".")
 		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, nil, "narrator", "narrator", "Narrator", 0, packet.ID, *nodeID)}
 	}
+	selected, err := packet.EntryNode()
+	if strings.TrimSpace(*nodeID) != "" {
+		selected, err = packet.Node(*nodeID)
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
+	rehearsal, err := director.Service{
+		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker},
+		ActorContextText: narratorContext.RenderActorText(),
+	}.Rehearse(context.Background(), packet, selected, narratorContext.RenderText())
+	if err != nil {
+		log.Fatal(err)
+	}
 	svc := narrator.Service{
-		Actors: &actors.Service{
-			Registry: registry,
-			Invoker:  actorInvoker,
-		},
 		Renderer: renderer,
 	}
 	rollout, err := svc.Rollout(context.Background(), packet, *nodeID, scene.PlayerDecision{
 		ChoiceID: *choiceID,
 		FreeText: *freeText,
-	}, narratorContext.RenderText())
+	}, narratorContext.RenderText(), rehearsal)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -3537,7 +3548,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		actorInvoker = actors.ClaudeInvoker{Runner: runner}
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
-		actorInvoker = actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), cfg.GroundLorePackID)}
+		actorInvoker = actors.ClaudeInvoker{Runner: directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), cfg.GroundLorePackID)}
 		scope, err := prepareStoryAgentScope(cfg, "narrator", fmt.Sprintf("turn-%06d", turn), packet, nodeID, fullNarratorContextText)
 		if err != nil {
 			return narrator.Rollout{}, err
@@ -3552,16 +3563,29 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		runner.ContextBudget = narratorBudget
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	}
+	runID := fmt.Sprintf("turn-%06d", turn)
+	selectedNode, err := packet.Node(nodeID)
+	if err != nil {
+		return narrator.Rollout{}, err
+	}
+	rehearsal, err := director.Service{
+		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, RunID: runID, SkipMissingActors: true},
+		Logger:           cfg.Logger,
+		Turn:             turn,
+		RunID:            runID,
+		ActorContextText: narratorContext.RenderActorText(),
+		ArtifactDir:      directorRunDir(cfg, turn),
+	}.Rehearse(ctx, packet, selectedNode, narratorContextText)
+	if err != nil {
+		return narrator.Rollout{}, err
+	}
 	return narrator.Service{
-		Actors:               &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
-		Renderer:             renderer,
-		Logger:               cfg.Logger,
-		Turn:                 turn,
-		RunID:                fmt.Sprintf("turn-%06d", turn),
-		ActorContextText:     narratorContext.RenderActorText(),
-		RehearsalArtifactDir: rehearsalRunDir(cfg, turn),
-		ContextBudget:        narratorBudget,
-	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
+		Renderer:      renderer,
+		Logger:        cfg.Logger,
+		Turn:          turn,
+		RunID:         runID,
+		ContextBudget: narratorBudget,
+	}.Rollout(ctx, packet, nodeID, decision, narratorContextText, rehearsal)
 }
 
 func synthesizeTurnAudio(ctx context.Context, cfg playConfig, state *story.StoryState, loopTurn int, rollout narrator.Rollout) (string, error) {
@@ -4959,6 +4983,20 @@ func narratorCodexRunner(schemaName string, schema map[string]any) prompt.CodexR
 	return runner
 }
 
+func directorCodexRunner(schemaName string, schema map[string]any, packID string) prompt.CodexRunner {
+	runner := codexRunnerWithPackLoreID(schemaName, schema, packID)
+	if model := strings.TrimSpace(os.Getenv("SANS_NOM_DIRECTOR_CODEX_MODEL")); model != "" {
+		runner.Model = model
+	}
+	if effort := firstNonEmpty(os.Getenv("SANS_NOM_DIRECTOR_CODEX_REASONING"), os.Getenv("SANS_NOM_DIRECTOR_CODEX_EFFORT")); strings.TrimSpace(effort) != "" {
+		runner.Effort = strings.TrimSpace(effort)
+	}
+	if tier := firstNonEmpty(os.Getenv("SANS_NOM_DIRECTOR_CODEX_SERVICE_TIER"), os.Getenv("SANS_NOM_DIRECTOR_CODEX_OAUTH_SERVICE_TIER")); strings.TrimSpace(tier) != "" {
+		runner.ServiceTier = strings.TrimSpace(tier)
+	}
+	return runner
+}
+
 func codexRunnerWithPackLoreID(schemaName string, schema map[string]any, packID string) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
 	runner.SystemPrompt = masterLoreSystemPromptForPackID(packID, runner.SystemPrompt)
@@ -5215,11 +5253,11 @@ func writerRunInfo(cfg playConfig) (string, string) {
 	return segment, filepath.Join(cfg.Workspace.ModelRunsDir(), "writer", segment)
 }
 
-func rehearsalRunDir(cfg playConfig, turn int) string {
+func directorRunDir(cfg playConfig, turn int) string {
 	if cfg.Workspace == nil {
 		return ""
 	}
-	return filepath.Join(cfg.Workspace.ModelRunsDir(), "rehearsal", fmt.Sprintf("turn-%06d", turn))
+	return filepath.Join(cfg.Workspace.ModelRunsDir(), "director", fmt.Sprintf("turn-%06d", turn))
 }
 
 func writerActorIDs(manifest []contextbundle.ActorManifestItem) []string {

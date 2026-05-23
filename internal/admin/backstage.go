@@ -132,16 +132,16 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
 	case "scenarist.provider.tool_result":
 		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
-	case "rehearsal.started":
-		return []backstageMessage{b.message(event, "rehearsal", "Rehearsal", "status", "pending", event.Message)}
-	case "rehearsal.actor.request":
-		return []backstageMessage{b.message(event, "rehearsal", "Rehearsal", "tool_request", "pending", "@"+firstNonEmpty(stringFromFields(event, "actor_id"), nestedString(detail, "need", "actor_id"), "Actor")+" "+firstNonEmpty(nestedString(detail, "need", "reason"), event.Message))}
-	case "rehearsal.actor.completed":
+	case "director.rehearsal.started", "rehearsal.started":
+		return []backstageMessage{b.message(event, "director", "Director", "status", "pending", event.Message)}
+	case "director.rehearsal.actor.request", "rehearsal.actor.request":
+		return []backstageMessage{b.message(event, "director", "Director", "tool_request", "pending", "@"+firstNonEmpty(stringFromFields(event, "actor_id"), nestedString(detail, "need", "actor_id"), "Actor")+" "+firstNonEmpty(nestedString(detail, "need", "reason"), event.Message))}
+	case "director.rehearsal.actor.completed", "rehearsal.actor.completed":
 		return []backstageMessage{b.message(event, "actor", firstNonEmpty(stringFromFields(event, "actor_id"), nestedString(detail, "output", "actor_id"), "Actor"), "tool_response", "completed", firstNonEmpty(marshalPretty(detail["output"]), event.Message))}
-	case "rehearsal.completed":
-		return []backstageMessage{b.message(event, "rehearsal", "Rehearsal", "status", "completed", firstNonEmpty(marshalPretty(detail["rehearsal"]), event.Message))}
-	case "rehearsal.failed":
-		return []backstageMessage{b.message(event, "rehearsal", "Rehearsal", "error", "failed", errorText(event, detail))}
+	case "director.rehearsal.completed", "rehearsal.completed":
+		return []backstageMessage{b.message(event, "director", "Director", "status", "completed", firstNonEmpty(marshalPretty(detail["rehearsal"]), event.Message))}
+	case "director.rehearsal.failed", "rehearsal.failed":
+		return []backstageMessage{b.message(event, "director", "Director", "error", "failed", errorText(event, detail))}
 	case "writer.provider.request", "narrator.provider.request", "model.provider.request", "scenarist.provider.request":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "pending", event.Message)}
@@ -283,7 +283,7 @@ func (b backstageBuilder) detail(event gamelog.Event) map[string]any {
 
 func isBackstageCategory(category string) bool {
 	switch category {
-	case "model", "writer", "narrator", "actor", "scenarist", "lore", "rehearsal":
+	case "model", "writer", "narrator", "director", "actor", "scenarist", "lore", "rehearsal":
 		return true
 	default:
 		return false
@@ -296,8 +296,8 @@ func roleForCategory(category string) string {
 		return "system"
 	case "lore":
 		return "lore-expert"
-	case "rehearsal":
-		return "rehearsal"
+	case "rehearsal", "director":
+		return "director"
 	default:
 		return category
 	}
@@ -309,8 +309,8 @@ func speakerForCategory(category string) string {
 		return "System"
 	case "lore":
 		return "Lore Expert"
-	case "rehearsal":
-		return "Rehearsal"
+	case "rehearsal", "director":
+		return "Director"
 	default:
 		return titleWords(strings.ReplaceAll(category, "-", " "))
 	}
@@ -322,6 +322,8 @@ func eventCaller(event gamelog.Event) (backstageCaller, bool) {
 		return backstageCaller{Role: "creative-writer", Speaker: "Creative Writer"}, true
 	case "writer.refresh.started":
 		return backstageCaller{Role: "writer", Speaker: "Writer"}, true
+	case "director.rehearsal.started":
+		return backstageCaller{Role: "director", Speaker: "Director"}, true
 	case "narrator.rollout.request":
 		return backstageCaller{Role: "narrator", Speaker: "Narrator"}, true
 	default:
@@ -350,6 +352,8 @@ func speakerForRole(role string) string {
 		return "Writer"
 	case "narrator":
 		return "Narrator"
+	case "director":
+		return "Director"
 	case "lore-expert":
 		return "Lore Expert"
 	case "scenarist":

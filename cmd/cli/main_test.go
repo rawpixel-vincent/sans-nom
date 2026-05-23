@@ -405,6 +405,44 @@ func TestNarratorCodexRunnerUsesNarratorEnv(t *testing.T) {
 	}
 }
 
+func TestDirectorCodexRunnerUsesDirectorEnvAndNoTools(t *testing.T) {
+	t.Setenv("SANS_NOM_CODEX_MODEL", "global-model")
+	t.Setenv("SANS_NOM_CODEX_EFFORT", "global-effort")
+	t.Setenv("SANS_NOM_CODEX_OAUTH_SERVICE_TIER", "global-tier")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_MODEL", "director-model")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_REASONING", "medium")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_EFFORT", "low")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_SERVICE_TIER", "director-tier")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_OAUTH_SERVICE_TIER", "oauth-tier")
+
+	runner := directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
+	if runner.Model != "director-model" || runner.Effort != "medium" || runner.ServiceTier != "director-tier" {
+		t.Fatalf("director runner metadata = %q/%q/%q", runner.Model, runner.Effort, runner.ServiceTier)
+	}
+	if runner.LocalTools || runner.ToolRoot != "" || len(runner.ToolVisiblePaths) != 0 || len(runner.ExtraTools) != 0 {
+		t.Fatalf("director rehearsal runner should not expose read or local tools: %#v", runner)
+	}
+
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_REASONING", "")
+	runner = directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
+	if runner.Effort != "low" {
+		t.Fatalf("director effort alias = %q", runner.Effort)
+	}
+
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_MODEL", "")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_EFFORT", "")
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_SERVICE_TIER", "")
+	runner = directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
+	if runner.ServiceTier != "oauth-tier" {
+		t.Fatalf("director service tier oauth alias = %q", runner.ServiceTier)
+	}
+	t.Setenv("SANS_NOM_DIRECTOR_CODEX_OAUTH_SERVICE_TIER", "")
+	runner = directorCodexRunner("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
+	if runner.Model != "global-model" || runner.Effort != "global-effort" || runner.ServiceTier != "global-tier" {
+		t.Fatalf("director fallback metadata = %q/%q/%q", runner.Model, runner.Effort, runner.ServiceTier)
+	}
+}
+
 func TestActorCodexRunnersStayContextOnly(t *testing.T) {
 	runner := codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
 	if runner.LocalTools || runner.ToolRoot != "" || len(runner.ToolVisiblePaths) != 0 || len(runner.ExtraTools) != 0 {

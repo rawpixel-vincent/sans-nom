@@ -54,7 +54,7 @@ func validateActorRehearsal(input Input, packet scene.StoryPacket) error {
 	}
 	for _, actorID := range packet.ContextSnapshot.PresentActors {
 		if _, ok := registered[actorKey(actorID)]; ok {
-			return fmt.Errorf("writer packet needs actor rehearsal: registered actor %q is present on playable entry node %q, so add actor_needs or a concise no actor rehearsal reason in writer_notes", actorID, entry.ID)
+			return fmt.Errorf("writer packet needs Director rehearsal: registered actor %q is present on playable entry node %q, so add actor_needs or a concise no actor rehearsal reason in writer_notes", actorID, entry.ID)
 		}
 	}
 	return nil
