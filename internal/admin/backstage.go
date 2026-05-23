@@ -132,16 +132,16 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
 	case "scenarist.provider.tool_result":
 		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
-	case "writer.provider.request", "narrator.provider.request", "model.provider.request":
+	case "writer.provider.request", "narrator.provider.request", "model.provider.request", "scenarist.provider.request":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "pending", event.Message)}
-	case "writer.provider.wait", "narrator.provider.wait", "model.provider.wait":
+	case "writer.provider.wait", "narrator.provider.wait", "model.provider.wait", "scenarist.provider.wait":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "pending", event.Message)}
-	case "writer.provider.response", "narrator.provider.response", "model.provider.response":
+	case "writer.provider.response", "narrator.provider.response", "model.provider.response", "scenarist.provider.response":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "completed", event.Message)}
-	case "writer.provider.failed", "narrator.provider.failed", "model.provider.failed":
+	case "writer.provider.failed", "narrator.provider.failed", "model.provider.failed", "scenarist.provider.failed":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "error", "failed", errorText(event, detail))}
 	case "writer.provider.tool_use", "narrator.provider.tool_use", "model.provider.tool_use":

@@ -93,7 +93,7 @@ Narration priorities:
 - Let doctrine, law, technology, or taboo appear through lived consequence rather than exposition.
 - Honor any lorepack scenario contract in context; scene detail should reinforce its pressure and consequences.
 - End at the playable pressure point and preserve the available choice ids and labels.
-- Format prose as 2-4 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
+- Format prose as 2-6 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
 - For branch continuations, give the selected node real scene weight: consequence from the prior choice, concrete action in the present location, and a new pressure turn before choices appear. Do not compress it into a mere transition summary.
 - If the selected node has no choices but turns on a moral question, accusation, vow, or confession, make the final movement answerable by the player instead of dissolving it into atmosphere.
 
@@ -103,7 +103,8 @@ Rules:
 - Do not expose actor private interiors.
 - Actor raw material is not canon by itself. Only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
 - Use curated_card_updates only for concise facts the rolled-out scene just proved about an actor or a directional relationship. Do not copy private interiors, unused alternatives, Writer drafts, or unsurfaced actor material into card updates.
-- Use provided lore context first. When a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
+- When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json. If a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
+- Use provided lore context first after that grounding read; do not run broad inventory commands unless exact file names are missing.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface actor messages only from provided actor raw material. If actor raw material is [], surfaced_actor_messages must be [].

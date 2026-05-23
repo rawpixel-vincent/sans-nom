@@ -46,6 +46,7 @@ type CodexRunner struct {
 	PacketID         string
 	NodeID           string
 	RunID            string
+	ContextBudget    map[string]any
 }
 
 func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
@@ -159,6 +160,9 @@ func (r CodexRunner) logProviderEvent(suffix string, status string, message stri
 	detail["caller_role"] = r.CallerRole
 	detail["caller_speaker"] = r.CallerSpeaker
 	detail["model_metadata"] = r.ModelMetadata()
+	if len(r.ContextBudget) > 0 {
+		detail["context_budget"] = r.ContextBudget
+	}
 	fields := modelmeta.MergeFields(map[string]any{
 		"status":          status,
 		"attempt":         detail["attempt"],
@@ -172,6 +176,12 @@ func (r CodexRunner) logProviderEvent(suffix string, status string, message stri
 		"provider_status": suffix,
 		"retryable":       detail["retryable"],
 		"will_retry":      detail["will_retry"],
+		"input_budget_tokens": func() any {
+			if len(r.ContextBudget) == 0 {
+				return nil
+			}
+			return r.ContextBudget["input_budget_tokens"]
+		}(),
 	}, r.ModelMetadata())
 	_ = r.Logger.Append(gamelog.Event{
 		Category: category,
@@ -281,6 +291,7 @@ func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {
 		NodeID:        r.NodeID,
 		RunID:         r.RunID,
 		ModelMetadata: r.ModelMetadata(),
+		ContextBudget: r.ContextBudget,
 	}
 }
 

@@ -31,6 +31,7 @@ type Service struct {
 	Logger           *gamelog.Writer
 	Turn             int
 	ActorContextText string
+	ContextBudget    any
 }
 
 type Rollout struct {
@@ -98,6 +99,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			"prompt_chars":       len([]rune(promptText)),
 			"decision_choice_id": decision.ChoiceID,
 			"decision_free_text": decision.FreeText,
+			"context_budget":     s.ContextBudget,
 		}, metadata),
 		Detail: map[string]any{
 			"prompt":         promptText,
@@ -106,6 +108,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			"actor_outputs":  actorRaw,
 			"decision":       decision,
 			"model_metadata": metadata,
+			"context_budget": s.ContextBudget,
 		},
 	})
 	draft, err := s.Renderer.Render(ctx, node, actorRaw, context)
@@ -126,6 +129,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 				"decision":       decision,
 				"error":          err.Error(),
 				"model_metadata": metadata,
+				"context_budget": s.ContextBudget,
 			},
 		})
 		return Rollout{}, err

@@ -30,6 +30,7 @@ type Input struct {
 	ArtifactDir      string
 	SpentMotifs      []string
 	RequiredMovement []string
+	ContextBudget    any
 }
 
 type Service struct {
@@ -185,6 +186,7 @@ func writeResultArtifacts(input Input, packet scene.StoryPacket, runErr error) e
 		"latest_decision":   input.LatestDecision,
 		"spent_motifs":      input.SpentMotifs,
 		"required_movement": input.RequiredMovement,
+		"context_budget":    input.ContextBudget,
 		"created_at":        time.Now().UTC().Format(time.RFC3339),
 		"accepted":          runErr == nil,
 	}

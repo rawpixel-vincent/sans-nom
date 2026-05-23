@@ -35,6 +35,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
 	"github.com/rawpixel-vincent/sans-nom/internal/loreexpert"
 	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/narrator"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
@@ -3521,22 +3522,35 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	if err != nil {
 		return narrator.Rollout{}, err
 	}
-	narratorContextText := narratorContext.RenderText()
+	fullNarratorContextText := narratorContext.RenderText()
+	narratorContextText := fullNarratorContextText
+	var narratorBudget map[string]any
 	actorInvoker := actors.Invoker(actors.StaticInvoker{})
 	renderer := narrator.Renderer(narrator.StaticRenderer{})
 	switch cfg.Backend {
 	case "claude":
 		runner := claudeRunner()
 		runner.SystemPrompt = masterLoreSystemPromptForPackID(cfg.GroundLorePackID, runner.SystemPrompt)
+		inline, report := narratorContext.RenderBudgetedText(contextBudgetFor(runner.ModelMetadata(), "narrator", false, false, 0))
+		narratorContextText = inline
+		narratorBudget = budgetReportMap(report)
 		actorInvoker = actors.ClaudeInvoker{Runner: runner}
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	case "codex":
 		actorInvoker = actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), cfg.GroundLorePackID)}
-		scope, err := prepareStoryAgentScope(cfg, "narrator", fmt.Sprintf("turn-%06d", turn), packet, nodeID, narratorContextText)
+		scope, err := prepareStoryAgentScope(cfg, "narrator", fmt.Sprintf("turn-%06d", turn), packet, nodeID, fullNarratorContextText)
 		if err != nil {
 			return narrator.Rollout{}, err
 		}
-		renderer = narrator.ClaudeRenderer{Runner: codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)}
+		runner := codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, cfg.Logger, "narrator", "narrator", "Narrator", turn, packet.ID, nodeID)
+		inline, report := narratorContext.RenderBudgetedText(contextBudgetFor(runner.ModelMetadata(), "narrator", runner.LocalTools, runner.SchemaName != "" && runner.Schema != nil, runner.MaxToolRounds))
+		if err := stageContextBudgetArtifacts(scope, &report, inline); err != nil {
+			return narrator.Rollout{}, err
+		}
+		narratorContextText = inline
+		narratorBudget = budgetReportMap(report)
+		runner.ContextBudget = narratorBudget
+		renderer = narrator.ClaudeRenderer{Runner: runner}
 	}
 	return narrator.Service{
 		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
@@ -3544,6 +3558,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		Logger:           cfg.Logger,
 		Turn:             turn,
 		ActorContextText: narratorContext.RenderActorText(),
+		ContextBudget:    narratorBudget,
 	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
 }
 
@@ -4062,14 +4077,20 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
-	scope, err := prepareStoryAgentScope(cfg, "writer", runID, packet, nodeID, writerContext.RenderText())
+	fullWriterContextText := writerContext.RenderText()
+	writerContextText, writerBudgetReport := writerContext.RenderBudgetedText(contextBudgetFor(writerRefreshModelMetadata(cfg), "writer", cfg.Backend != "static", cfg.Backend == "codex", writerToolRoundBudget(cfg.ScenaristRounds)))
+	writerBudget := budgetReportMap(writerBudgetReport)
+	scope, err := prepareStoryAgentScope(cfg, "writer", runID, packet, nodeID, fullWriterContextText)
 	if err != nil {
+		return scene.StoryPacket{}, err
+	}
+	if err := stageContextBudgetArtifacts(scope, &writerBudgetReport, writerContextText); err != nil {
 		return scene.StoryPacket{}, err
 	}
 	outputDir := filepath.Join(scope.Root, "scenarists")
 	runner := claudeRunner()
 	loreExpertTool := loreExpertToolRunner(cfg)
-	toolRunner, err := scenaristToolRunner(cfg, writerContext.RenderText(), outputDir, scope, loreExpertTool)
+	toolRunner, err := scenaristToolRunner(cfg, writerContextText, outputDir, scope, loreExpertTool)
 	if err != nil {
 		return scene.StoryPacket{}, err
 	}
@@ -4082,7 +4103,7 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		if err != nil {
 			return scene.StoryPacket{}, err
 		}
-		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, scope, toolRunner, loreExpertTool, actorTool, cfg.ScenaristRounds, cfg.Logger, runID)
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, scope, toolRunner, loreExpertTool, actorTool, cfg.ScenaristRounds, cfg.Logger, runID, writerBudget)
 	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
@@ -4092,11 +4113,12 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(ctx, writer.Input{
 		Current:          packet,
 		LatestDecision:   decisionText(decision.ChoiceID, decision.FreeText),
-		ContextText:      writerContext.RenderText(),
+		ContextText:      writerContextText,
 		RunID:            runID,
 		ArtifactDir:      runDir,
 		SpentMotifs:      writerContext.Progression.SpentMotifs,
 		RequiredMovement: writerContext.Progression.RequiredMovement,
+		ContextBudget:    writerBudget,
 	})
 	if err != nil {
 		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
@@ -4802,7 +4824,7 @@ func narratorModelMetadata(cfg playConfig) modelmeta.Metadata {
 	case "claude":
 		return claudeRunner().ModelMetadata()
 	default:
-		return codexRunner("NarratorDraft", prompt.NarratorDraftSchema()).ModelMetadata()
+		return narratorCodexRunner("NarratorDraft", prompt.NarratorDraftSchema()).ModelMetadata()
 	}
 }
 
@@ -4824,7 +4846,54 @@ func writerRefreshModelMetadata(cfg playConfig) modelmeta.Metadata {
 	}
 }
 
-func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, actorTool *actortool.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
+func contextBudgetFor(metadata modelmeta.Metadata, role string, hasTools bool, hasJSONSchema bool, maxToolRounds int) modelcap.Budget {
+	return modelcap.BudgetFor(modelcap.Request{
+		Metadata:      metadata,
+		Role:          role,
+		HasTools:      hasTools,
+		HasJSONSchema: hasJSONSchema,
+		MaxToolRounds: maxToolRounds,
+	})
+}
+
+func budgetReportMap(report contextbundle.RenderBudgetReport) map[string]any {
+	data, err := json.Marshal(report)
+	if err != nil {
+		return nil
+	}
+	var out map[string]any
+	if err := json.Unmarshal(data, &out); err != nil {
+		return nil
+	}
+	return out
+}
+
+func stageContextBudgetArtifacts(scope agentfs.Scope, report *contextbundle.RenderBudgetReport, inlineContext string) error {
+	if report == nil || strings.TrimSpace(scope.Root) == "" {
+		return nil
+	}
+	artifacts := map[string]string{
+		"full_context": "story/context.txt",
+	}
+	inlineRel, err := scope.StageText(filepath.Join("story", "context-inline.txt"), inlineContext)
+	if err != nil {
+		return err
+	}
+	artifacts["inline_context"] = inlineRel
+	artifacts["budget"] = "story/context-budget.json"
+	report.Artifacts = artifacts
+	_, err = scope.StageJSON(filepath.Join("story", "context-budget.json"), report)
+	return err
+}
+
+func writerToolRoundBudget(rounds int) int {
+	if rounds <= 0 {
+		return 24
+	}
+	return rounds
+}
+
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, actorTool *actortool.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string, contextBudget map[string]any) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
@@ -4840,6 +4909,7 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 	default:
 		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, scenaristTool, loreExpertTool, actorTool, maxToolRounds)
 		runner = configureCodexToolLogging(runner, logger, "writer", "writer", "Writer", runID, 0, "", "", "")
+		runner.ContextBudget = contextBudget
 		return writer.ClaudePlanner{Runner: runner}
 	}
 }
@@ -4865,6 +4935,20 @@ func codexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
 		Schema:      schema,
 		Timeout:     codexModelTimeout(),
 	}
+}
+
+func narratorCodexRunner(schemaName string, schema map[string]any) prompt.CodexRunner {
+	runner := codexRunner(schemaName, schema)
+	if model := strings.TrimSpace(os.Getenv("SANS_NOM_NARRATOR_CODEX_MODEL")); model != "" {
+		runner.Model = model
+	}
+	if effort := firstNonEmpty(os.Getenv("SANS_NOM_NARRATOR_CODEX_REASONING"), os.Getenv("SANS_NOM_NARRATOR_CODEX_EFFORT")); strings.TrimSpace(effort) != "" {
+		runner.Effort = strings.TrimSpace(effort)
+	}
+	if tier := firstNonEmpty(os.Getenv("SANS_NOM_NARRATOR_CODEX_SERVICE_TIER"), os.Getenv("SANS_NOM_NARRATOR_CODEX_OAUTH_SERVICE_TIER")); strings.TrimSpace(tier) != "" {
+		runner.ServiceTier = strings.TrimSpace(tier)
+	}
+	return runner
 }
 
 func codexRunnerWithPackLoreID(schemaName string, schema map[string]any, packID string) prompt.CodexRunner {
@@ -4905,6 +4989,9 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, sco
 
 func codexRunnerWithReadTools(schemaName string, schema map[string]any, scope agentfs.Scope, logger *gamelog.Writer, category string, role string, speaker string, turn int, packetID string, nodeID string) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
+	if role == "narrator" || schemaName == "NarratorDraft" {
+		runner = narratorCodexRunner(schemaName, schema)
+	}
 	runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
 	if strings.TrimSpace(scope.Root) == "" {
 		scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "read-tools"), role).WithVisiblePaths(".")

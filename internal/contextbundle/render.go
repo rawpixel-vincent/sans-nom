@@ -6,110 +6,169 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
 func (c NarratorContext) RenderText() string {
-	var b strings.Builder
-	writeSection(&b, "ROLE BOUNDARY")
-	fmt.Fprintf(&b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
-	fmt.Fprintf(&b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
-	fmt.Fprintf(&b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
-	fmt.Fprintf(&b, "Honor the lorepack scenario contract and use lore references as fidelity support for this active scenario.\n")
+	return renderSectionTexts(c.narratorSections())
+}
 
-	writeStoryBibleDoctrine(&b, c.StoryBible)
-	writeScenarioContract(&b, c.ScenarioContract)
-
-	writeSection(&b, "CURRENT SCENE STATE")
-	writeJSON(&b, c.SceneState)
-
-	writeSection(&b, "PLAYER DECISION")
-	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
-
-	writeSection(&b, "SELECTED NODE")
-	writeJSON(&b, c.SelectedNode)
-
-	writeActorContexts(&b, c.ActorContexts)
-	writeLoreGroups(&b, groupLoreByKind(c.LoreHits))
-
-	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
-	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
-	writeStringList(&b, "MEMORY AND WITNESS RULES", c.WitnessRules)
-	writeStringList(&b, "WARNINGS", c.Warnings)
-
-	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+func (c NarratorContext) RenderBudgetedText(budget modelcap.Budget) (string, RenderBudgetReport) {
+	return renderBudgetedSections("narrator", c.narratorSections(), budget)
 }
 
 func (c NarratorContext) RenderActorText() string {
-	var b strings.Builder
-	writeSection(&b, "ROLE BOUNDARY")
-	fmt.Fprintln(&b, "You are acting inside the current scene only. Use the character card, current scene beats, player decision, and provided directional representations as your available knowledge.")
-
-	writeSection(&b, "CURRENT SCENE STATE")
-	writeJSON(&b, c.SceneState)
-
-	writeSection(&b, "PLAYER DECISION")
-	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
-
-	writeSection(&b, "SELECTED NODE")
-	writeJSON(&b, c.SelectedNode)
-
-	writeActorContexts(&b, c.ActorContexts)
-	writeStringList(&b, "MEMORY AND WITNESS RULES", c.WitnessRules)
-	writeStringList(&b, "WARNINGS", c.Warnings)
-
-	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+	return renderSectionTexts(c.actorSections())
 }
 
 func (c WriterContext) RenderText() string {
-	var b strings.Builder
-	writeSection(&b, "ROLE BOUNDARY")
-	fmt.Fprintf(&b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
-	fmt.Fprintf(&b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
-	fmt.Fprintf(&b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
-	fmt.Fprintf(&b, "Honor the lorepack scenario contract; branch inside its pressure, choice logic, and consequences.\n")
+	return renderSectionTexts(c.writerSections())
+}
 
-	writeStoryBibleDoctrine(&b, c.StoryBible)
-	writeScenarioContract(&b, c.ScenarioContract)
+func (c WriterContext) RenderBudgetedText(budget modelcap.Budget) (string, RenderBudgetReport) {
+	return renderBudgetedSections("writer", c.writerSections(), budget)
+}
 
-	writeSection(&b, "CURRENT SCENE STATE")
-	writeJSON(&b, c.SceneState)
+type contextSection struct {
+	ID        string
+	Title     string
+	Text      string
+	Required  bool
+	Priority  int
+	MinTokens int
+}
 
-	writeSection(&b, "LATEST ROLLOUT AND DECISION")
-	fmt.Fprintln(&b, decisionText(c.PlayerDecision))
+func (c NarratorContext) narratorSections() []contextSection {
+	return nonEmptySections([]contextSection{
+		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
+			fmt.Fprintf(b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
+			fmt.Fprintf(b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
+			fmt.Fprintf(b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
+			fmt.Fprintf(b, "Honor the lorepack scenario contract and use lore references as fidelity support for this active scenario.\n")
+		}),
+		renderedSection("current_scene_state", "CURRENT SCENE STATE", true, 100, 700, func(b *strings.Builder) {
+			writeJSON(b, c.SceneState)
+		}),
+		renderedSection("player_decision", "PLAYER DECISION", true, 100, 400, func(b *strings.Builder) {
+			fmt.Fprintln(b, decisionText(c.PlayerDecision))
+		}),
+		renderedSection("selected_node", "SELECTED NODE", true, 100, 1400, func(b *strings.Builder) {
+			writeJSON(b, c.SelectedNode)
+		}),
+		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 90, 1200, func(b *strings.Builder) {
+			writeActorContextsBody(b, c.ActorContexts)
+		}),
+		renderedSection("recent_witnessed_canon", "RECENT WITNESSED CANON", true, 90, 1000, func(b *strings.Builder) {
+			writeStringListBody(b, c.RecentScenes)
+		}),
+		renderedSection("directional_representations", "DIRECTIONAL REPRESENTATIONS", false, 40, 800, func(b *strings.Builder) {
+			writeRepresentationsBody(b, c.Representations)
+		}),
+		renderedSection("story_bible_doctrine", "STORY BIBLE DOCTRINE", false, 30, 1200, func(b *strings.Builder) {
+			writeStoryBibleDoctrineBody(b, c.StoryBible)
+		}),
+		renderedSection("scenario_contract", "LOREPACK SCENARIO CONTRACT", false, 35, 1200, func(b *strings.Builder) {
+			writeScenarioContractBody(b, c.ScenarioContract)
+		}),
+		renderedSection("lore_references", "LORE FIDELITY REFERENCES", false, 20, 800, func(b *strings.Builder) {
+			writeLoreGroupsBody(b, groupLoreByKind(c.LoreHits))
+		}),
+		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
+			writeStringListBody(b, c.WitnessRules)
+		}),
+		renderedSection("warnings", "WARNINGS", false, 10, 300, func(b *strings.Builder) {
+			writeStringListBody(b, c.Warnings)
+		}),
+	})
+}
 
-	writeWriterSelectedNodeSummary(&b, c)
-	writeStoryProgression(&b, c.Progression)
-	writeActorManifest(&b, c.ActorManifest)
+func (c NarratorContext) actorSections() []contextSection {
+	return nonEmptySections([]contextSection{
+		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
+			fmt.Fprintln(b, "You are acting inside the current scene only. Use the character card, current scene beats, player decision, and provided directional representations as your available knowledge.")
+		}),
+		renderedSection("current_scene_state", "CURRENT SCENE STATE", true, 100, 700, func(b *strings.Builder) {
+			writeJSON(b, c.SceneState)
+		}),
+		renderedSection("player_decision", "PLAYER DECISION", true, 100, 400, func(b *strings.Builder) {
+			fmt.Fprintln(b, decisionText(c.PlayerDecision))
+		}),
+		renderedSection("selected_node", "SELECTED NODE", true, 100, 1400, func(b *strings.Builder) {
+			writeJSON(b, c.SelectedNode)
+		}),
+		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 100, 1200, func(b *strings.Builder) {
+			writeActorContextsBody(b, c.ActorContexts)
+		}),
+		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
+			writeStringListBody(b, c.WitnessRules)
+		}),
+		renderedSection("warnings", "WARNINGS", false, 10, 300, func(b *strings.Builder) {
+			writeStringListBody(b, c.Warnings)
+		}),
+	})
+}
 
-	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
-	writeWriterProgressionContract(&b)
-	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
-	writeLoreGroups(&b, c.LoreByKind)
-
-	writeSection(&b, "PLANNING CONSTRAINTS")
-	fmt.Fprintln(&b, "- Revise only the current bounded packet.")
-	fmt.Fprintln(&b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
-	fmt.Fprintln(&b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
-	fmt.Fprintln(&b, "- Preserve the scenario contract's must_honor items and avoid must_not_violate drift.")
-	fmt.Fprintln(&b, "- Make each major choice express the scenario choice_principles.")
-	fmt.Fprintln(&b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
-	fmt.Fprintln(&b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
-	fmt.Fprintln(&b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
-	fmt.Fprintln(&b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")
-	fmt.Fprintln(&b, "- Treat lore references as support for the active scenario, not as automatic all-cast inventory.")
-
-	writeStringList(&b, "WARNINGS", c.Warnings)
-
-	writeSection(&b, "CURRENT BOUNDED PACKET REFERENCE")
-	fmt.Fprintln(&b, "The full packet JSON below is prior planning context. The selected node and recent witnessed canon above have priority when they disagree or when this section is truncated.")
-	writeJSON(&b, c.Packet)
-
-	return capRenderedText(strings.TrimSpace(b.String()), c.MaxRenderChars)
+func (c WriterContext) writerSections() []contextSection {
+	return nonEmptySections([]contextSection{
+		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 600, func(b *strings.Builder) {
+			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
+			fmt.Fprintf(b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
+			fmt.Fprintf(b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
+			fmt.Fprintf(b, "Honor the lorepack scenario contract; branch inside its pressure, choice logic, and consequences.\n")
+		}),
+		renderedSection("story_bible_doctrine", "STORY BIBLE DOCTRINE", false, 30, 1400, func(b *strings.Builder) {
+			writeStoryBibleDoctrineBody(b, c.StoryBible)
+		}),
+		renderedSection("scenario_contract", "LOREPACK SCENARIO CONTRACT", false, 35, 1400, func(b *strings.Builder) {
+			writeScenarioContractBody(b, c.ScenarioContract)
+		}),
+		renderedSection("current_scene_state", "CURRENT SCENE STATE", true, 100, 700, func(b *strings.Builder) {
+			writeJSON(b, c.SceneState)
+		}),
+		renderedSection("latest_rollout_decision", "LATEST ROLLOUT AND DECISION", true, 100, 500, func(b *strings.Builder) {
+			fmt.Fprintln(b, decisionText(c.PlayerDecision))
+		}),
+		renderedSection("selected_node", "SELECTED NODE", true, 100, 1200, func(b *strings.Builder) {
+			writeWriterSelectedNodeSummaryBody(b, c)
+		}),
+		renderedSection("story_phase_guidance", "STORY PHASE GUIDANCE", true, 100, 1200, func(b *strings.Builder) {
+			writeStoryProgressionBody(b, c.Progression)
+		}),
+		renderedSection("actor_manifest", "STORY ACTOR MANIFEST", true, 95, 1000, func(b *strings.Builder) {
+			writeActorManifestBody(b, c.ActorManifest)
+		}),
+		renderedSection("recent_witnessed_canon", "RECENT WITNESSED CANON", true, 95, 1000, func(b *strings.Builder) {
+			writeStringListBody(b, c.RecentScenes)
+		}),
+		renderedSection("progression_contract", "STORY PROGRESSION CONTRACT", true, 100, 900, func(b *strings.Builder) {
+			writeWriterProgressionContractBody(b)
+		}),
+		renderedSection("directional_representations", "DIRECTIONAL REPRESENTATIONS", false, 40, 800, func(b *strings.Builder) {
+			writeRepresentationsBody(b, c.Representations)
+		}),
+		renderedSection("lore_references", "LORE FIDELITY REFERENCES", false, 20, 900, func(b *strings.Builder) {
+			writeLoreGroupsBody(b, c.LoreByKind)
+		}),
+		renderedSection("planning_constraints", "PLANNING CONSTRAINTS", true, 100, 1000, func(b *strings.Builder) {
+			writePlanningConstraintsBody(b)
+		}),
+		renderedSection("warnings", "WARNINGS", false, 10, 300, func(b *strings.Builder) {
+			writeStringListBody(b, c.Warnings)
+		}),
+		renderedSection("packet_reference", "CURRENT BOUNDED PACKET REFERENCE", false, 25, 1400, func(b *strings.Builder) {
+			fmt.Fprintln(b, "The full packet JSON below is prior planning context. The selected node and recent witnessed canon above have priority when they disagree or when this section is trimmed.")
+			writeJSON(b, c.Packet)
+		}),
+	})
 }
 
 func writeWriterProgressionContract(b *strings.Builder) {
 	writeSection(b, "STORY PROGRESSION CONTRACT")
+	writeWriterProgressionContractBody(b)
+}
+
+func writeWriterProgressionContractBody(b *strings.Builder) {
 	fmt.Fprintln(b, "- Start after the selected node's witnessed outcome; do not replay, re-adjudicate, or rename the same pending proof.")
 	fmt.Fprintln(b, "- Each refresh packet must advance at least one macro story state: location, custody/control, revealed truth, opponent advantage, resource/weapon status, witness record, or irreversible cost.")
 	fmt.Fprintln(b, "- If the previous branch accepted a challenge, petition, escape, wound, testimony, or bargain, the next packet must make that consequence happen or move to the scene where it bites.")
@@ -122,6 +181,10 @@ func writeStoryProgression(b *strings.Builder, progression StoryProgression) {
 		return
 	}
 	writeSection(b, "STORY PHASE GUIDANCE")
+	writeStoryProgressionBody(b, progression)
+}
+
+func writeStoryProgressionBody(b *strings.Builder, progression StoryProgression) {
 	writeInlineList(b, "story_arc", progression.StoryArc)
 	if progression.CurrentPhase != "" {
 		fmt.Fprintf(b, "current_phase: %s\n", progression.CurrentPhase)
@@ -136,6 +199,10 @@ func writeStoryProgression(b *strings.Builder, progression StoryProgression) {
 
 func writeWriterSelectedNodeSummary(b *strings.Builder, c WriterContext) {
 	writeSection(b, "SELECTED NODE")
+	writeWriterSelectedNodeSummaryBody(b, c)
+}
+
+func writeWriterSelectedNodeSummaryBody(b *strings.Builder, c WriterContext) {
 	fmt.Fprintf(b, "selected_node_id: %s\n", c.SelectedNodeID)
 	node, err := c.Packet.Node(c.SelectedNodeID)
 	if err != nil {
@@ -166,6 +233,14 @@ func writeScenarioContract(b *strings.Builder, value string) {
 		return
 	}
 	writeSection(b, "LOREPACK SCENARIO CONTRACT")
+	writeScenarioContractBody(b, value)
+}
+
+func writeScenarioContractBody(b *strings.Builder, value string) {
+	value = strings.TrimSpace(value)
+	if value == "" {
+		return
+	}
 	fmt.Fprintln(b, value)
 }
 
@@ -174,6 +249,13 @@ func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
 		return
 	}
 	writeSection(b, "STORY BIBLE DOCTRINE")
+	writeStoryBibleDoctrineBody(b, value)
+}
+
+func writeStoryBibleDoctrineBody(b *strings.Builder, value *story.StoryBible) {
+	if value == nil {
+		return
+	}
 	fmt.Fprintf(b, "title: %s\n", value.Title)
 	fmt.Fprintf(b, "premise: %s\n", value.Premise)
 	fmt.Fprintf(b, "player: %s (%s)\n", value.PlayerCharacter.Name, value.PlayerCharacter.PeerID)
@@ -238,6 +320,10 @@ func writeStringList(b *strings.Builder, title string, values []string) {
 		return
 	}
 	writeSection(b, title)
+	writeStringListBody(b, values)
+}
+
+func writeStringListBody(b *strings.Builder, values []string) {
 	for _, value := range values {
 		value = strings.TrimSpace(value)
 		if value == "" {
@@ -251,6 +337,14 @@ func writeRepresentations(b *strings.Builder, title string, reps []Representatio
 	if len(reps) == 0 {
 		return
 	}
+	writeSection(b, title)
+	writeRepresentationsBody(b, reps)
+}
+
+func writeRepresentationsBody(b *strings.Builder, reps []Representation) {
+	if len(reps) == 0 {
+		return
+	}
 	reps = append([]Representation(nil), reps...)
 	sort.SliceStable(reps, func(i, j int) bool {
 		if reps[i].Observer == reps[j].Observer {
@@ -258,13 +352,20 @@ func writeRepresentations(b *strings.Builder, title string, reps []Representatio
 		}
 		return reps[i].Observer < reps[j].Observer
 	})
-	writeSection(b, title)
 	for _, rep := range reps {
 		fmt.Fprintf(b, "### %s -> %s\n%s\n", rep.Observer, rep.Observed, strings.TrimSpace(rep.Text))
 	}
 }
 
 func writeActorContexts(b *strings.Builder, actors []ActorContext) {
+	if len(actors) == 0 {
+		return
+	}
+	writeSection(b, "ACTOR CONTEXTS")
+	writeActorContextsBody(b, actors)
+}
+
+func writeActorContextsBody(b *strings.Builder, actors []ActorContext) {
 	if len(actors) == 0 {
 		return
 	}
@@ -275,7 +376,6 @@ func writeActorContexts(b *strings.Builder, actors []ActorContext) {
 		}
 		return actors[i].ActorID < actors[j].ActorID
 	})
-	writeSection(b, "ACTOR CONTEXTS")
 	for _, actor := range actors {
 		fmt.Fprintf(b, "### %s\n", actor.ActorID)
 		fmt.Fprintf(b, "mode: %s\n", actor.Mode)
@@ -337,12 +437,19 @@ func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
 	if len(byKind) == 0 {
 		return
 	}
+	writeSection(b, "LORE FIDELITY REFERENCES")
+	writeLoreGroupsBody(b, byKind)
+}
+
+func writeLoreGroupsBody(b *strings.Builder, byKind map[string][]LoreHit) {
+	if len(byKind) == 0 {
+		return
+	}
 	kinds := make([]string, 0, len(byKind))
 	for kind := range byKind {
 		kinds = append(kinds, kind)
 	}
 	sort.Strings(kinds)
-	writeSection(b, "LORE FIDELITY REFERENCES")
 	for _, kind := range kinds {
 		hits := append([]LoreHit(nil), byKind[kind]...)
 		sortLore(hits)
@@ -360,6 +467,14 @@ func writeActorManifest(b *strings.Builder, actors []ActorManifestItem) {
 	if len(actors) == 0 {
 		return
 	}
+	writeSection(b, "STORY ACTOR MANIFEST")
+	writeActorManifestBody(b, actors)
+}
+
+func writeActorManifestBody(b *strings.Builder, actors []ActorManifestItem) {
+	if len(actors) == 0 {
+		return
+	}
 	actors = append([]ActorManifestItem(nil), actors...)
 	sort.SliceStable(actors, func(i, j int) bool {
 		if actors[i].Explicit != actors[j].Explicit {
@@ -367,7 +482,6 @@ func writeActorManifest(b *strings.Builder, actors []ActorManifestItem) {
 		}
 		return actors[i].PeerID < actors[j].PeerID
 	})
-	writeSection(b, "STORY ACTOR MANIFEST")
 	for _, actor := range actors {
 		marker := ""
 		if actor.Explicit {
@@ -387,13 +501,178 @@ func writeActorManifest(b *strings.Builder, actors []ActorManifestItem) {
 	}
 }
 
-func capRenderedText(text string, max int) string {
-	if max <= 0 || len(text) <= max {
+func writePlanningConstraintsBody(b *strings.Builder) {
+	fmt.Fprintln(b, "- Revise only the current bounded packet.")
+	fmt.Fprintln(b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
+	fmt.Fprintln(b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
+	fmt.Fprintln(b, "- Preserve the scenario contract's must_honor items and avoid must_not_violate drift.")
+	fmt.Fprintln(b, "- Make each major choice express the scenario choice_principles.")
+	fmt.Fprintln(b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
+	fmt.Fprintln(b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
+	fmt.Fprintln(b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
+	fmt.Fprintln(b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")
+	fmt.Fprintln(b, "- Treat lore references as support for the active scenario, not as automatic all-cast inventory.")
+}
+
+func renderedSection(id string, title string, required bool, priority int, minTokens int, write func(*strings.Builder)) contextSection {
+	var b strings.Builder
+	if write != nil {
+		write(&b)
+	}
+	body := strings.TrimSpace(b.String())
+	if body == "" {
+		return contextSection{}
+	}
+	return contextSection{
+		ID:        id,
+		Title:     title,
+		Text:      "## " + title + "\n" + body,
+		Required:  required,
+		Priority:  priority,
+		MinTokens: minTokens,
+	}
+}
+
+func nonEmptySections(sections []contextSection) []contextSection {
+	out := make([]contextSection, 0, len(sections))
+	for _, section := range sections {
+		if strings.TrimSpace(section.Text) != "" {
+			out = append(out, section)
+		}
+	}
+	return out
+}
+
+func renderSectionTexts(sections []contextSection) string {
+	var texts []string
+	for _, section := range sections {
+		if strings.TrimSpace(section.Text) != "" {
+			texts = append(texts, strings.TrimSpace(section.Text))
+		}
+	}
+	return strings.TrimSpace(strings.Join(texts, "\n\n"))
+}
+
+func renderBudgetedSections(role string, sections []contextSection, budget modelcap.Budget) (string, RenderBudgetReport) {
+	full := renderSectionTexts(sections)
+	fullTokens := modelcap.EstimateTokens(full)
+	rendered := append([]contextSection(nil), sections...)
+	decisions := sectionDecisions(sections, rendered)
+	warnings := append([]string(nil), budget.Warnings...)
+	if budget.InputBudgetTokens > 0 && fullTokens > budget.InputBudgetTokens {
+		rendered, decisions = compactSections(sections, budget.InputBudgetTokens)
+	}
+	inline := renderSectionTexts(rendered)
+	inlineTokens := modelcap.EstimateTokens(inline)
+	if budget.InputBudgetTokens > 0 && inlineTokens > budget.InputBudgetTokens {
+		warnings = appendStable(warnings, "context still exceeds input budget after section compaction")
+	}
+	budget.EstimatedPromptTokens = inlineTokens
+	return inline, RenderBudgetReport{
+		Role:                role,
+		FullContextChars:    len([]rune(full)),
+		InlineContextChars:  len([]rune(inline)),
+		FullContextTokens:   fullTokens,
+		InlineContextTokens: inlineTokens,
+		Budget:              budget,
+		Sections:            decisions,
+		Warnings:            uniqueStrings(warnings),
+	}
+}
+
+func compactSections(sections []contextSection, budgetTokens int) ([]contextSection, []SectionDecision) {
+	rendered := append([]contextSection(nil), sections...)
+	for modelcap.EstimateTokens(renderSectionTexts(rendered)) > budgetTokens {
+		index, ok := nextCompactCandidate(rendered, false)
+		if !ok {
+			index, ok = nextCompactCandidate(rendered, true)
+		}
+		if !ok {
+			break
+		}
+		section := rendered[index]
+		sectionTokens := modelcap.EstimateTokens(section.Text)
+		minTokens := section.MinTokens
+		if minTokens <= 0 {
+			minTokens = 200
+		}
+		if sectionTokens > minTokens {
+			over := modelcap.EstimateTokens(renderSectionTexts(rendered)) - budgetTokens
+			target := sectionTokens - over
+			if target < minTokens {
+				target = minTokens
+			}
+			rendered[index].Text = trimSectionText(section.Text, target)
+			if modelcap.EstimateTokens(rendered[index].Text) < sectionTokens {
+				continue
+			}
+		}
+		if !section.Required {
+			rendered[index].Text = ""
+			continue
+		}
+		break
+	}
+	return rendered, sectionDecisions(sections, rendered)
+}
+
+func nextCompactCandidate(sections []contextSection, includeRequired bool) (int, bool) {
+	best := -1
+	for i, section := range sections {
+		if strings.TrimSpace(section.Text) == "" {
+			continue
+		}
+		if section.Required && !includeRequired {
+			continue
+		}
+		if best < 0 || section.Priority < sections[best].Priority || (section.Priority == sections[best].Priority && modelcap.EstimateTokens(section.Text) > modelcap.EstimateTokens(sections[best].Text)) {
+			best = i
+		}
+	}
+	return best, best >= 0
+}
+
+func trimSectionText(text string, targetTokens int) string {
+	if targetTokens <= 0 || modelcap.EstimateTokens(text) <= targetTokens {
 		return text
 	}
-	notice := "\n\n[context truncated at render cap]"
-	if max <= len(notice) {
-		return text[:max]
+	notice := "\n\n[section trimmed for context budget]"
+	maxRunes := targetTokens * 4
+	runes := []rune(text)
+	if maxRunes <= len([]rune(notice))+20 {
+		maxRunes = len([]rune(notice)) + 20
 	}
-	return strings.TrimSpace(text[:max-len(notice)]) + notice
+	if maxRunes >= len(runes) {
+		return text
+	}
+	cut := string(runes[:maxRunes-len([]rune(notice))])
+	if idx := strings.LastIndex(cut, "\n"); idx > 0 {
+		cut = cut[:idx]
+	}
+	return strings.TrimSpace(cut) + notice
+}
+
+func sectionDecisions(original []contextSection, rendered []contextSection) []SectionDecision {
+	out := make([]SectionDecision, 0, len(original))
+	for i, section := range original {
+		renderedText := ""
+		if i < len(rendered) {
+			renderedText = rendered[i].Text
+		}
+		status := "kept"
+		if strings.TrimSpace(renderedText) == "" {
+			status = "dropped"
+		} else if renderedText != section.Text {
+			status = "trimmed"
+		}
+		out = append(out, SectionDecision{
+			ID:             section.ID,
+			Title:          section.Title,
+			Status:         status,
+			Required:       section.Required,
+			OriginalTokens: modelcap.EstimateTokens(section.Text),
+			RenderedTokens: modelcap.EstimateTokens(renderedText),
+		})
+	}
+	return out
 }

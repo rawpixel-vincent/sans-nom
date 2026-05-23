@@ -320,7 +320,7 @@ func TestSeedVerifierRunnerGetsReadAndLoreTools(t *testing.T) {
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
 	scope := agentfs.New(t.TempDir(), "writer").WithVisiblePaths(".")
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, scope, &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, &actortool.ToolRunner{}, 5, logger, "run-1")
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, scope, &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, &actortool.ToolRunner{}, 5, logger, "run-1", nil)
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -360,6 +360,45 @@ func TestNarratorCodexRunnerGetsReadTools(t *testing.T) {
 	}
 	if runner.Turn != 3 || runner.PacketID != "packet-1" || runner.NodeID != "node-1" {
 		t.Fatalf("narrator missing story coordinates: %#v", runner)
+	}
+}
+
+func TestNarratorCodexRunnerUsesNarratorEnv(t *testing.T) {
+	t.Setenv("SANS_NOM_CODEX_MODEL", "global-model")
+	t.Setenv("SANS_NOM_CODEX_EFFORT", "global-effort")
+	t.Setenv("SANS_NOM_CODEX_OAUTH_SERVICE_TIER", "global-tier")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_MODEL", "narrator-model")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_REASONING", "medium")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_EFFORT", "low")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_SERVICE_TIER", "narrator-tier")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_OAUTH_SERVICE_TIER", "oauth-tier")
+
+	runner := narratorCodexRunner("NarratorDraft", prompt.NarratorDraftSchema())
+	if runner.Model != "narrator-model" || runner.Effort != "medium" || runner.ServiceTier != "narrator-tier" {
+		t.Fatalf("narrator runner metadata = %q/%q/%q", runner.Model, runner.Effort, runner.ServiceTier)
+	}
+	metadata := narratorModelMetadata(playConfig{Backend: "codex"})
+	if metadata.Model != "narrator-model" || metadata.ReasoningLevel != "medium" || metadata.ServiceTier != "narrator-tier" {
+		t.Fatalf("narrator metadata = %#v", metadata)
+	}
+
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_REASONING", "")
+	runner = narratorCodexRunner("NarratorDraft", prompt.NarratorDraftSchema())
+	if runner.Effort != "low" {
+		t.Fatalf("narrator effort alias = %q", runner.Effort)
+	}
+
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_MODEL", "")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_EFFORT", "")
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_SERVICE_TIER", "")
+	runner = narratorCodexRunner("NarratorDraft", prompt.NarratorDraftSchema())
+	if runner.ServiceTier != "oauth-tier" {
+		t.Fatalf("narrator service tier oauth alias = %q", runner.ServiceTier)
+	}
+	t.Setenv("SANS_NOM_NARRATOR_CODEX_OAUTH_SERVICE_TIER", "")
+	runner = narratorCodexRunner("NarratorDraft", prompt.NarratorDraftSchema())
+	if runner.Model != "global-model" || runner.Effort != "global-effort" || runner.ServiceTier != "global-tier" {
+		t.Fatalf("narrator fallback metadata = %q/%q/%q", runner.Model, runner.Effort, runner.ServiceTier)
 	}
 }
 

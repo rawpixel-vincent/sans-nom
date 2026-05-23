@@ -13,6 +13,7 @@ import (
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/prompt"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
@@ -85,24 +86,29 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		if len(previous.BlockingIssues) > 0 || previous.RevisionInstructions != "" {
 			writerPrompt = prompt.SeedWriterRepairPrompt(promptText)
 		}
+		writerBudget := seedPromptBudget(s.Writer, "seed_writer", writerPrompt)
 		s.log(gamelog.Event{
 			Category: "model",
 			Event:    "seed.writer.request",
 			Message:  "seed writer request prepared",
 			Fields: modelmeta.MergeFields(map[string]any{
-				"iteration":    i + 1,
-				"prompt_chars": len(writerPrompt),
+				"iteration":               i + 1,
+				"prompt_chars":            len(writerPrompt),
+				"input_budget_tokens":     writerBudget.InputBudgetTokens,
+				"estimated_prompt_tokens": writerBudget.EstimatedPromptTokens,
+				"unknown_capability":      writerBudget.UnknownCapability,
 			}, writerMetadata),
 			Detail: map[string]any{
 				"iteration":      i + 1,
 				"prompt":         writerPrompt,
 				"model_metadata": writerMetadata,
+				"context_budget": writerBudget.Map(),
 			},
 		})
 		var raw string
 		for {
 			var err error
-			raw, err = s.Writer.Run(ctx, writerPrompt)
+			raw, err = runPromptWithBudget(ctx, s.Writer, writerPrompt, writerBudget)
 			if err == nil {
 				break
 			}
@@ -168,27 +174,32 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		}
 		bundleJSON, _ := json.MarshalIndent(bundle, "", "  ")
 		verifierPrompt := prompt.SeedVerifierPrompt(string(bundleJSON), contextText)
+		verifierBudget := seedPromptBudget(s.Verifier, "seed_verifier", verifierPrompt)
 		s.log(gamelog.Event{
 			Category: "model",
 			Event:    "seed.verifier.request",
 			Message:  "seed verifier request prepared",
 			Fields: modelmeta.MergeFields(map[string]any{
-				"iteration":    i + 1,
-				"prompt_chars": len(verifierPrompt),
-				"title":        bundle.Bible.Title,
-				"packet_id":    bundle.Packet.ID,
+				"iteration":               i + 1,
+				"prompt_chars":            len(verifierPrompt),
+				"title":                   bundle.Bible.Title,
+				"packet_id":               bundle.Packet.ID,
+				"input_budget_tokens":     verifierBudget.InputBudgetTokens,
+				"estimated_prompt_tokens": verifierBudget.EstimatedPromptTokens,
+				"unknown_capability":      verifierBudget.UnknownCapability,
 			}, verifierMetadata),
 			Detail: map[string]any{
 				"iteration":      i + 1,
 				"prompt":         verifierPrompt,
 				"bundle":         bundle,
 				"model_metadata": verifierMetadata,
+				"context_budget": verifierBudget.Map(),
 			},
 		})
 		var rawReview string
 		for {
 			var err error
-			rawReview, err = s.Verifier.Run(ctx, verifierPrompt)
+			rawReview, err = runPromptWithBudget(ctx, s.Verifier, verifierPrompt, verifierBudget)
 			if err == nil {
 				break
 			}
@@ -490,6 +501,36 @@ func promptRunnerMetadata(runner prompt.Runner) modelmeta.Metadata {
 		return modelmeta.Metadata{}
 	}
 	return provider.ModelMetadata()
+}
+
+func seedPromptBudget(runner prompt.Runner, role string, text string) modelcap.Budget {
+	metadata := promptRunnerMetadata(runner)
+	hasTools := false
+	hasSchema := false
+	maxToolRounds := 0
+	switch typed := runner.(type) {
+	case prompt.CodexRunner:
+		hasTools = typed.LocalTools
+		hasSchema = typed.SchemaName != "" && typed.Schema != nil
+		maxToolRounds = typed.MaxToolRounds
+	case prompt.ClaudeRunner:
+		hasTools = len(typed.AllowedTools) > 0
+	}
+	return modelcap.BudgetFor(modelcap.Request{
+		Metadata:      metadata,
+		Role:          role,
+		HasTools:      hasTools,
+		HasJSONSchema: hasSchema,
+		MaxToolRounds: maxToolRounds,
+	}).WithEstimate(text)
+}
+
+func runPromptWithBudget(ctx context.Context, runner prompt.Runner, text string, budget modelcap.Budget) (string, error) {
+	if codex, ok := runner.(prompt.CodexRunner); ok {
+		codex.ContextBudget = budget.Map()
+		return codex.Run(ctx, text)
+	}
+	return runner.Run(ctx, text)
 }
 
 func ValidateFaithfulSeed(packet scene.StoryPacket) error {

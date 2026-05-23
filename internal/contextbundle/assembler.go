@@ -25,8 +25,8 @@ func DefaultOptions() Options {
 		MaxActorCardFacts:      40,
 		MaxActorTargets:        3,
 		MaxActorManifestItems:  12,
-		NarratorSoftCap:        12000,
-		WriterSoftCap:          18000,
+		NarratorSoftCap:        0,
+		WriterSoftCap:          0,
 	}
 }
 

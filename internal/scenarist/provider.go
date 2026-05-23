@@ -17,6 +17,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
@@ -184,6 +185,19 @@ func (r ProviderRunner) runScenarist(ctx context.Context, systemPrompt string, q
 	if err != nil {
 		return "", "", err
 	}
+	metadata := r.ModelMetadata()
+	metadata.Model = model
+	budget := modelcap.BudgetFor(modelcap.Request{
+		Metadata:      metadata,
+		Role:          "scenarist",
+		HasTools:      r.Tools,
+		HasJSONSchema: false,
+		MaxToolRounds: 4,
+	})
+	var trimmed bool
+	query, trimmed = trimScenaristQueryToBudget(systemPrompt, query, budget)
+	budget = budget.WithEstimate(systemPrompt + "\n\n" + query)
+	r.logProviderRequest(metadata, budget, trimmed, len([]rune(systemPrompt)), len([]rune(query)))
 	timeout := r.Timeout
 	if timeout <= 0 {
 		timeout = 15 * time.Minute
@@ -192,6 +206,11 @@ func (r ProviderRunner) runScenarist(ctx context.Context, systemPrompt string, q
 	defer cancel()
 	if r.Tools {
 		raw, err := r.runStreamScenarist(ctx, model, systemPrompt, query)
+		if err != nil {
+			r.logProviderFailure(metadata, budget, err)
+		} else {
+			r.logProviderResponse(metadata, budget, len([]rune(raw)))
+		}
 		return raw, model, err
 	}
 
@@ -207,11 +226,122 @@ func (r ProviderRunner) runScenarist(ctx context.Context, systemPrompt string, q
 	if err := cmd.Run(); err != nil {
 		errMsg := strings.TrimSpace(stderr.String())
 		if errMsg != "" {
-			return "", model, fmt.Errorf("scenarist provider %s: %s: %w", strings.ToUpper(r.Provider), errMsg, err)
+			runErr := fmt.Errorf("scenarist provider %s: %s: %w", strings.ToUpper(r.Provider), errMsg, err)
+			r.logProviderFailure(metadata, budget, runErr)
+			return "", model, runErr
 		}
-		return "", model, fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), err)
+		runErr := fmt.Errorf("scenarist provider %s: %w", strings.ToUpper(r.Provider), err)
+		r.logProviderFailure(metadata, budget, runErr)
+		return "", model, runErr
 	}
-	return strings.TrimSpace(stdout.String()), model, nil
+	raw := strings.TrimSpace(stdout.String())
+	r.logProviderResponse(metadata, budget, len([]rune(raw)))
+	return raw, model, nil
+}
+
+func trimScenaristQueryToBudget(systemPrompt string, query string, budget modelcap.Budget) (string, bool) {
+	if budget.InputBudgetTokens <= 0 {
+		return query, false
+	}
+	systemTokens := modelcap.EstimateTokens(systemPrompt)
+	queryBudget := budget.InputBudgetTokens - systemTokens
+	if queryBudget < 512 {
+		queryBudget = 512
+	}
+	if modelcap.EstimateTokens(query) <= queryBudget {
+		return query, false
+	}
+	notice := "\n\n[scenarist query trimmed for context budget; read staged story/context.txt for full context when tools are available]"
+	maxRunes := queryBudget * 4
+	runes := []rune(query)
+	if maxRunes <= len([]rune(notice))+20 {
+		maxRunes = len([]rune(notice)) + 20
+	}
+	if maxRunes >= len(runes) {
+		return query, false
+	}
+	cut := string(runes[:maxRunes-len([]rune(notice))])
+	if idx := strings.LastIndex(cut, "\n\n"); idx > 0 {
+		cut = cut[:idx]
+	} else if idx := strings.LastIndex(cut, "\n"); idx > 0 {
+		cut = cut[:idx]
+	}
+	return strings.TrimSpace(cut) + notice, true
+}
+
+func (r ProviderRunner) logProviderRequest(metadata modelmeta.Metadata, budget modelcap.Budget, trimmed bool, systemPromptChars int, queryChars int) {
+	r.logProviderEvent("request", "pending", "Scenarist provider request started", metadata, budget, map[string]any{
+		"provider":            strings.ToUpper(r.Provider),
+		"model":               metadata.Model,
+		"caller_role":         "scenarist",
+		"caller_speaker":      "Scenarist",
+		"tools":               r.Tools,
+		"context_trimmed":     trimmed,
+		"system_prompt_chars": systemPromptChars,
+		"query_chars":         queryChars,
+	})
+}
+
+func (r ProviderRunner) logProviderResponse(metadata modelmeta.Metadata, budget modelcap.Budget, responseChars int) {
+	r.logProviderEvent("response", "completed", "Scenarist provider response received", metadata, budget, map[string]any{
+		"provider":       strings.ToUpper(r.Provider),
+		"model":          metadata.Model,
+		"caller_role":    "scenarist",
+		"caller_speaker": "Scenarist",
+		"response_chars": responseChars,
+		"tools":          r.Tools,
+	})
+}
+
+func (r ProviderRunner) logProviderFailure(metadata modelmeta.Metadata, budget modelcap.Budget, err error) {
+	if err == nil {
+		return
+	}
+	r.logProviderEvent("failed", "failed", err.Error(), metadata, budget, map[string]any{
+		"provider":       strings.ToUpper(r.Provider),
+		"model":          metadata.Model,
+		"caller_role":    "scenarist",
+		"caller_speaker": "Scenarist",
+		"error":          err.Error(),
+		"tools":          r.Tools,
+	})
+}
+
+func (r ProviderRunner) logProviderEvent(suffix string, status string, message string, metadata modelmeta.Metadata, budget modelcap.Budget, detail map[string]any) {
+	if r.Logger == nil {
+		return
+	}
+	contextBudget := budget.Map()
+	fields := modelmeta.MergeFields(map[string]any{
+		"provider":                strings.ToUpper(r.Provider),
+		"model":                   metadata.Model,
+		"caller_role":             "scenarist",
+		"caller_speaker":          "Scenarist",
+		"status":                  status,
+		"provider_status":         suffix,
+		"tools":                   r.Tools,
+		"input_budget_tokens":     budget.InputBudgetTokens,
+		"estimated_prompt_tokens": budget.EstimatedPromptTokens,
+		"unknown_capability":      budget.UnknownCapability,
+	}, metadata)
+	eventDetail := map[string]any{
+		"provider":       strings.ToUpper(r.Provider),
+		"model":          metadata.Model,
+		"model_metadata": metadata,
+		"context_budget": contextBudget,
+		"caller_role":    "scenarist",
+		"caller_speaker": "Scenarist",
+	}
+	for key, value := range detail {
+		eventDetail[key] = value
+	}
+	_ = r.Logger.Append(gamelog.Event{
+		Category: "scenarist",
+		Event:    "scenarist.provider." + suffix,
+		Message:  message,
+		Fields:   fields,
+		Detail:   eventDetail,
+	})
 }
 
 func (r ProviderRunner) runStreamScenarist(ctx context.Context, model string, systemPrompt string, query string) (string, error) {

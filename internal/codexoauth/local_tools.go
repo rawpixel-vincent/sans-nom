@@ -61,6 +61,7 @@ type LocalToolOptions struct {
 	NodeID        string
 	RunID         string
 	ModelMetadata modelmeta.Metadata
+	ContextBudget map[string]any
 }
 
 type LocalTool struct {
@@ -417,6 +418,7 @@ func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status
 		"min_call_interval_ms": detail["min_call_interval_ms"],
 		"tool_call_count":      detail["tool_call_count"],
 		"agent_workspace_root": filepath.ToSlash(opts.Root),
+		"input_budget_tokens":  contextBudgetField(opts.ContextBudget, "input_budget_tokens"),
 	}, opts.ModelMetadata)
 	eventDetail := map[string]any{
 		"caller_role":          opts.CallerRole,
@@ -424,6 +426,9 @@ func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status
 		"model_metadata":       opts.ModelMetadata,
 		"agent_workspace_root": filepath.ToSlash(opts.Root),
 		"visible_paths":        opts.VisiblePaths,
+	}
+	if len(opts.ContextBudget) > 0 {
+		eventDetail["context_budget"] = opts.ContextBudget
 	}
 	for key, value := range detail {
 		eventDetail[key] = value
@@ -440,6 +445,13 @@ func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status
 		Fields:   fields,
 		Detail:   eventDetail,
 	})
+}
+
+func contextBudgetField(budget map[string]any, key string) any {
+	if len(budget) == 0 {
+		return nil
+	}
+	return budget[key]
 }
 
 func localToolNames(extra []LocalTool) []string {

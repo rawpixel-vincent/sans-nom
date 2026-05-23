@@ -5,6 +5,7 @@ import (
 
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
@@ -71,6 +72,27 @@ type ContextBundleSummary struct {
 	ActorCount   int      `json:"actor_count"`
 	LoreHitCount int      `json:"lore_hit_count"`
 	Warnings     []string `json:"warnings,omitempty"`
+}
+
+type RenderBudgetReport struct {
+	Role                string            `json:"role"`
+	FullContextChars    int               `json:"full_context_chars"`
+	InlineContextChars  int               `json:"inline_context_chars"`
+	FullContextTokens   int               `json:"full_context_tokens"`
+	InlineContextTokens int               `json:"inline_context_tokens"`
+	Budget              modelcap.Budget   `json:"budget"`
+	Sections            []SectionDecision `json:"sections,omitempty"`
+	Warnings            []string          `json:"warnings,omitempty"`
+	Artifacts           map[string]string `json:"artifacts,omitempty"`
+}
+
+type SectionDecision struct {
+	ID             string `json:"id"`
+	Title          string `json:"title"`
+	Status         string `json:"status"`
+	Required       bool   `json:"required,omitempty"`
+	OriginalTokens int    `json:"original_tokens"`
+	RenderedTokens int    `json:"rendered_tokens"`
 }
 
 type SceneState struct {

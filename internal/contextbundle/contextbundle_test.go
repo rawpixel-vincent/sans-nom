@@ -12,6 +12,7 @@ import (
 
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
@@ -180,31 +181,29 @@ func TestWriterContextNarrowsOpenThreadsAfterAuthoredSpentMotifs(t *testing.T) {
 	}
 }
 
-func TestWriterContextKeepsProgressionBeforePacketCap(t *testing.T) {
+func TestWriterBudgetKeepsProgressionBeforePacketReference(t *testing.T) {
 	packet := testPacket()
 	packet.ContextSnapshot.LatestNarratorProse = "Latest canon: the first challenge was accepted and must now happen."
 	packet.Nodes[0].Beats = []scene.Beat{{Text: strings.Repeat("oversized active beat ", 400)}}
 	packet.Nodes[1].Beats = []scene.Beat{{Text: strings.Repeat("oversized unused beat ", 400)}}
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
-	assembler.Options.WriterSoftCap = 5000
 	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: packet, NodeID: "active"})
 	if err != nil {
 		t.Fatal(err)
 	}
-	text := ctx.RenderText()
+	text, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: 2500})
 	for _, required := range []string{
 		"SELECTED NODE",
 		"Latest canon: the first challenge was accepted and must now happen.",
 		"STORY PROGRESSION CONTRACT",
 		"PLANNING CONSTRAINTS",
-		"[context truncated at render cap]",
 	} {
 		if !strings.Contains(text, required) {
-			t.Fatalf("capped writer context missing %q:\n%s", required, text)
+			t.Fatalf("budgeted writer context missing %q:\n%s", required, text)
 		}
 	}
-	if strings.Index(text, "STORY PROGRESSION CONTRACT") > strings.Index(text, "[context truncated at render cap]") {
-		t.Fatalf("progression contract appeared after truncation:\n%s", text)
+	if !sectionWasCompacted(report, "packet_reference") {
+		t.Fatalf("packet reference should compact before required progression sections: %#v", report.Sections)
 	}
 }
 
@@ -288,9 +287,8 @@ func TestWriterContextUsesCompactActorManifest(t *testing.T) {
 	}
 }
 
-func TestWriterContextKeepsActorManifestAheadOfLongLore(t *testing.T) {
+func TestWriterBudgetKeepsActorManifestAheadOfLongLore(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
-	assembler.Options.WriterSoftCap = 6000
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
 		ID:     "big-lore",
 		Text:   strings.Repeat("lore pressure ", 1000),
@@ -303,10 +301,7 @@ func TestWriterContextKeepsActorManifestAheadOfLongLore(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	text := ctx.RenderText()
-	if !strings.Contains(text, "[context truncated at render cap]") {
-		t.Fatalf("test should exercise render cap:\n%s", text)
-	}
+	text, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: 1200})
 	manifestIndex := strings.Index(text, "STORY ACTOR MANIFEST")
 	loreIndex := strings.Index(text, "LORE FIDELITY REFERENCES")
 	if manifestIndex < 0 || !strings.Contains(text, "tonto") {
@@ -314,6 +309,69 @@ func TestWriterContextKeepsActorManifestAheadOfLongLore(t *testing.T) {
 	}
 	if loreIndex >= 0 && loreIndex < manifestIndex {
 		t.Fatalf("actor manifest should precede lore references:\n%s", text)
+	}
+	if !sectionWasCompacted(report, "lore_references") {
+		t.Fatalf("lore references should compact before actor manifest: %#v", report.Sections)
+	}
+}
+
+func TestDefaultRuntimeContextDoesNotTruncate(t *testing.T) {
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "long-lore",
+		Text:   strings.Repeat("lore pressure ", 1000),
+		Source: "long.json",
+		Score:  0.9,
+		Kind:   "world",
+	}}}
+	bible := testBible()
+	bible.WorldBasics = append(bible.WorldBasics, strings.Repeat("world pressure ", 1000))
+	ctx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{
+		Packet:               testPacket(),
+		Bible:                &bible,
+		ScenarioContractText: strings.Repeat("contract pressure ", 1000),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	if strings.Contains(text, "[context truncated at render cap]") {
+		t.Fatalf("default narrator context should not truncate:\n%s", text)
+	}
+	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "STORY BIBLE DOCTRINE", "LORE FIDELITY REFERENCES", "long-lore"} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("default narrator context missing %q:\n%s", required, text)
+		}
+	}
+}
+
+func TestNarratorBudgetKeepsSceneMaterialAheadOfOptionalSections(t *testing.T) {
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "big-lore",
+		Text:   strings.Repeat("lore pressure ", 1000),
+		Source: "fixture.md",
+		Score:  0.9,
+		Kind:   "world",
+	}}}
+	bible := testBible()
+	bible.WorldBasics = append(bible.WorldBasics, strings.Repeat("world pressure ", 1000))
+	ctx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{
+		Packet:               testPacket(),
+		Bible:                &bible,
+		ScenarioContractText: strings.Repeat("contract pressure ", 1000),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: 1800})
+	for _, required := range []string{"CURRENT SCENE STATE", "PLAYER DECISION", "SELECTED NODE", "RECENT WITNESSED CANON", "Latest prose."} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("budgeted narrator context lost scene-critical section %q:\n%s", required, text)
+		}
+	}
+	if !sectionWasCompacted(report, "lore_references") && !sectionWasCompacted(report, "story_bible_doctrine") && !sectionWasCompacted(report, "scenario_contract") {
+		t.Fatalf("optional lore/bible/contract sections should compact first: %#v", report.Sections)
 	}
 }
 
@@ -361,7 +419,7 @@ func TestAssemblerRequestsSceneScopedHonchoSession(t *testing.T) {
 	}
 }
 
-func TestRenderedContextHonorsHardCap(t *testing.T) {
+func TestBudgetedContextHonorsTokenBudget(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
 		ID:     "long",
@@ -370,13 +428,18 @@ func TestRenderedContextHonorsHardCap(t *testing.T) {
 		Score:  1,
 		Kind:   "wiki_lore",
 	}}}
-	assembler.Options.NarratorSoftCap = 900
 	ctx, err := assembler.AssembleNarrator(context.Background(), BuildRequest{Packet: testPacket()})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got := len(ctx.RenderText()); got > 900 {
-		t.Fatalf("rendered context exceeded cap: %d", got)
+	text, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: 650})
+	if got := modelcap.EstimateTokens(text); got > 650 {
+		t.Fatalf("budgeted context exceeded token budget: %d\nreport: %#v\n%s", got, report, text)
+	}
+	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "MEMORY AND WITNESS RULES"} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("budgeted context lost required section %q:\n%s", required, text)
+		}
 	}
 }
 
@@ -877,6 +940,15 @@ func containsSubstring(values []string, want string) bool {
 	for _, value := range values {
 		if strings.Contains(value, want) {
 			return true
+		}
+	}
+	return false
+}
+
+func sectionWasCompacted(report RenderBudgetReport, id string) bool {
+	for _, section := range report.Sections {
+		if section.ID == id {
+			return section.Status == "trimmed" || section.Status == "dropped"
 		}
 	}
 	return false
