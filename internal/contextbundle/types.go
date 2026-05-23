@@ -44,6 +44,7 @@ type Options struct {
 	RequireBridge          bool
 	RequireLore            bool
 	SkipMissingActorCards  bool
+	DisableCardSeeding     bool
 }
 
 type BuildRequest struct {

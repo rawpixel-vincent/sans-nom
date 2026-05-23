@@ -12,9 +12,10 @@ import (
 )
 
 type Card struct {
-	ActorID string `json:"actor_id"`
-	Text    string `json:"text"`
-	Source  string `json:"source"`
+	ActorID     string `json:"actor_id"`
+	DisplayName string `json:"display_name,omitempty"`
+	Text        string `json:"text"`
+	Source      string `json:"source"`
 }
 
 type LocalCardStore struct {
@@ -88,7 +89,7 @@ func (s *LocalCardStore) Registry() (*actors.Registry, error) {
 		card, _ := s.LocalCard(id)
 		loaded = append(loaded, actors.Actor{
 			ID:          id,
-			DisplayName: id,
+			DisplayName: firstNonEmptyCardValue(card.DisplayName, id),
 			Card:        card.Text,
 		})
 	}
@@ -126,9 +127,10 @@ func (s *LocalCardStore) loadPeerCards(dir string) error {
 			continue
 		}
 		s.cards[id] = Card{
-			ActorID: id,
-			Text:    strings.Join(facts, "\n"),
-			Source:  file,
+			ActorID:     id,
+			DisplayName: strings.TrimSpace(artifact.DisplayName),
+			Text:        strings.Join(facts, "\n"),
+			Source:      file,
 		}
 	}
 	return nil
@@ -157,12 +159,22 @@ func (s *LocalCardStore) loadMarkdownCards(dir string, override bool) error {
 			continue
 		}
 		s.cards[id] = Card{
-			ActorID: id,
-			Text:    strings.Join(lines, "\n"),
-			Source:  file,
+			ActorID:     id,
+			DisplayName: id,
+			Text:        strings.Join(lines, "\n"),
+			Source:      file,
 		}
 	}
 	return nil
+}
+
+func firstNonEmptyCardValue(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return strings.TrimSpace(value)
+		}
+	}
+	return ""
 }
 
 func trimFacts(values []string, max int) []string {

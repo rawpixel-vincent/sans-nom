@@ -19,16 +19,48 @@ import (
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lorepack"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
 )
 
 type RefreshWriterFunc func(ctx context.Context, storyID string) error
 type NewStoryFunc func(ctx context.Context, groundLorePackID string) (storyapp.StorySession, error)
+type ListActorsFunc func(ctx context.Context, storyID string) ([]ActorSummary, error)
+type ActorChatFunc func(ctx context.Context, storyID string, req ActorChatRequest) (ActorChatResponse, error)
 
 type Callbacks struct {
 	RefreshWriter RefreshWriterFunc
 	NewStory      NewStoryFunc
+	ListActors    ListActorsFunc
+	ActorChat     ActorChatFunc
+}
+
+type ActorSummary struct {
+	ActorID     string `json:"actor_id"`
+	DisplayName string `json:"display_name"`
+	CardSource  string `json:"card_source"`
+	CardPreview string `json:"card_preview"`
+}
+
+type ActorChatMessage struct {
+	Role string `json:"role"`
+	Text string `json:"text"`
+}
+
+type ActorChatRequest struct {
+	ActorID string             `json:"actor_id"`
+	Message string             `json:"message"`
+	History []ActorChatMessage `json:"history,omitempty"`
+}
+
+type ActorChatResponse struct {
+	ActorID  string             `json:"actor_id"`
+	Interior string             `json:"interior,omitempty"`
+	Dialogue string             `json:"dialogue,omitempty"`
+	Action   string             `json:"action,omitempty"`
+	Warnings []string           `json:"warnings,omitempty"`
+	Model    modelmeta.Metadata `json:"model,omitempty"`
 }
 
 type Server struct {
@@ -232,6 +264,10 @@ func (s *Server) handleStoryPath(w http.ResponseWriter, r *http.Request, parts [
 			return
 		}
 		s.handleStoryBackstage(w, r, storyID)
+	case "actors":
+		s.handleStoryActors(w, r, storyID)
+	case "actor-chat":
+		s.handleActorChat(w, r, storyID)
 	case "model-runs":
 		s.handleModelRuns(w, r, storyID)
 	case "index":
@@ -288,6 +324,63 @@ func (s *Server) handleStoryDetail(w http.ResponseWriter, r *http.Request, story
 		detail.GroundLorePack = &pack
 	}
 	writeJSON(w, detail)
+}
+
+func (s *Server) handleStoryActors(w http.ResponseWriter, r *http.Request, storyID string) {
+	if r.Method != http.MethodGet {
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+	if s.Callbacks.ListActors == nil {
+		writeError(w, http.StatusInternalServerError, "actor listing is not configured")
+		return
+	}
+	if _, _, err := story.LoadWorkspace(s.StoryRoot, storyID); err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	actors, err := s.Callbacks.ListActors(r.Context(), storyID)
+	if err != nil {
+		writeError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	writeJSON(w, map[string]any{"actors": actors})
+}
+
+func (s *Server) handleActorChat(w http.ResponseWriter, r *http.Request, storyID string) {
+	if r.Method != http.MethodPost {
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+	if s.Callbacks.ActorChat == nil {
+		writeError(w, http.StatusInternalServerError, "actor chat is not configured")
+		return
+	}
+	if _, _, err := story.LoadWorkspace(s.StoryRoot, storyID); err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	var req ActorChatRequest
+	dec := json.NewDecoder(r.Body)
+	dec.DisallowUnknownFields()
+	if err := dec.Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "invalid JSON body")
+		return
+	}
+	if strings.TrimSpace(req.ActorID) == "" {
+		writeError(w, http.StatusBadRequest, "actor_id is required")
+		return
+	}
+	if strings.TrimSpace(req.Message) == "" {
+		writeError(w, http.StatusBadRequest, "message is required")
+		return
+	}
+	response, err := s.Callbacks.ActorChat(r.Context(), storyID, req)
+	if err != nil {
+		writeError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	writeJSON(w, response)
 }
 
 func (s *Server) handleStoryFile(w http.ResponseWriter, r *http.Request, storyID string) {

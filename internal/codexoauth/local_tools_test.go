@@ -31,7 +31,6 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 		switch calls {
 		case 1:
 			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"function_call","call_id":"call_1","name":"exec_command","arguments":"{\"cmd\":\"cat notes.md\"}"}}`))
-			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
 		case 2:
 			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done"}]}}`))
 			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
@@ -68,16 +67,26 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(events) != 2 {
+	if len(events) != 6 {
 		t.Fatalf("events = %#v", events)
 	}
-	if events[0].Event != "writer.provider.tool_use" || events[0].Fields["tool_name"] != "Read" || events[0].Fields["target"] != "cat notes.md" || events[0].RunID != "run-1" {
-		t.Fatalf("unexpected tool use event: %#v", events[0])
+	if events[0].Event != "writer.provider.request" || events[0].RunID != "run-1" {
+		t.Fatalf("unexpected provider request event: %#v", events[0])
 	}
-	if events[1].Event != "writer.provider.tool_result" || !strings.Contains(events[1].Message, "workshop material") {
-		t.Fatalf("unexpected tool result event: %#v", events[1])
+	if events[1].Event != "writer.provider.response" || fmt.Sprint(events[1].Fields["tool_call_count"]) != "1" {
+		t.Fatalf("unexpected provider response event: %#v", events[1])
 	}
-	detail, err := logger.ReadDetail(events[1].DetailPath)
+	toolEvents := eventsNamed(events, "writer.provider.tool_use", "writer.provider.tool_result")
+	if len(toolEvents) != 2 {
+		t.Fatalf("tool events = %#v", toolEvents)
+	}
+	if toolEvents[0].Fields["tool_name"] != "Read" || toolEvents[0].Fields["target"] != "cat notes.md" || toolEvents[0].RunID != "run-1" {
+		t.Fatalf("unexpected tool use event: %#v", toolEvents[0])
+	}
+	if !strings.Contains(toolEvents[1].Message, "workshop material") {
+		t.Fatalf("unexpected tool result event: %#v", toolEvents[1])
+	}
+	detail, err := logger.ReadDetail(toolEvents[1].DetailPath)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -170,10 +179,14 @@ func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(events) != 2 {
+	if len(events) != 6 {
 		t.Fatalf("events = %#v", events)
 	}
-	for _, event := range events {
+	toolEvents := eventsNamed(events, "writer.provider.tool_use", "writer.provider.tool_result")
+	if len(toolEvents) != 2 {
+		t.Fatalf("tool events = %#v", toolEvents)
+	}
+	for _, event := range toolEvents {
 		if event.Fields["tool_name"] != "ask_actor" || event.Fields["raw_tool_name"] != "ask_actor" {
 			t.Fatalf("extra tool event missing tool name: %#v", event)
 		}
@@ -181,16 +194,30 @@ func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
 			t.Fatalf("extra tool event missing target/run: %#v", event)
 		}
 	}
-	if events[0].Event != "writer.provider.tool_use" || events[1].Event != "writer.provider.tool_result" {
-		t.Fatalf("unexpected extra tool events: %#v", events)
+	if toolEvents[0].Event != "writer.provider.tool_use" || toolEvents[1].Event != "writer.provider.tool_result" {
+		t.Fatalf("unexpected extra tool events: %#v", toolEvents)
 	}
-	detail, err := logger.ReadDetail(events[1].DetailPath)
+	detail, err := logger.ReadDetail(toolEvents[1].DetailPath)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if !strings.Contains(fmt.Sprint(detail), "actor-call-001/material.json") {
 		t.Fatalf("tool result detail missing actor artifact: %#v", detail)
 	}
+}
+
+func eventsNamed(events []gamelog.Event, names ...string) []gamelog.Event {
+	allowed := map[string]struct{}{}
+	for _, name := range names {
+		allowed[name] = struct{}{}
+	}
+	var out []gamelog.Event
+	for _, event := range events {
+		if _, ok := allowed[event.Event]; ok {
+			out = append(out, event)
+		}
+	}
+	return out
 }
 
 func TestCreateWithLocalToolsAdvertisesOnlyExistingVisiblePaths(t *testing.T) {

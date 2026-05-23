@@ -106,6 +106,27 @@ export type ModelMetadata = {
   service_tier?: string;
 };
 
+export type ActorSummary = {
+  actor_id: string;
+  display_name: string;
+  card_source: string;
+  card_preview: string;
+};
+
+export type ActorChatMessage = {
+  role: string;
+  text: string;
+};
+
+export type ActorChatResponse = {
+  actor_id: string;
+  interior?: string;
+  dialogue?: string;
+  action?: string;
+  warnings?: string[];
+  model?: ModelMetadata;
+};
+
 export type FileInfo = {
   path: string;
   name: string;
@@ -159,6 +180,26 @@ export async function createStory(groundLorePackID: string): Promise<{ story_id:
 
 export async function getStory(storyId: string): Promise<StoryDetail> {
   return request<StoryDetail>(`/admin/api/stories/${encodeURIComponent(storyId)}`);
+}
+
+export async function getActors(storyId: string): Promise<ActorSummary[]> {
+  const data = await request<{ actors: ActorSummary[] }>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/actors`
+  );
+  return data.actors;
+}
+
+export async function chatWithActor(
+  storyId: string,
+  body: { actor_id: string; message: string; history?: ActorChatMessage[] }
+): Promise<ActorChatResponse> {
+  return request<ActorChatResponse>(
+    `/admin/api/stories/${encodeURIComponent(storyId)}/actor-chat`,
+    {
+      method: 'POST',
+      body: JSON.stringify(body)
+    }
+  );
 }
 
 export async function getLogs(

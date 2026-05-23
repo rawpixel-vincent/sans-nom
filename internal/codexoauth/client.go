@@ -151,6 +151,16 @@ func (c *Client) Create(ctx context.Context, body map[string]any) (map[string]an
 	return aggregateStream(res.Body)
 }
 
+func (c *Client) createLocalToolRound(ctx context.Context, body map[string]any) (map[string]any, error) {
+	codexBody := c.coerceBody(body)
+	res, err := c.fetch(ctx, codexBody)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return aggregateStreamUntilFunctionCall(res.Body)
+}
+
 func (c *Client) coerceBody(params map[string]any) map[string]any {
 	body := make(map[string]any, len(params)+4)
 	for key, value := range params {
@@ -372,15 +382,27 @@ func backendError(res *http.Response) error {
 }
 
 func aggregateStream(r io.Reader) (map[string]any, error) {
+	return aggregateStreamWithOptions(r, streamAggregateOptions{})
+}
+
+func aggregateStreamUntilFunctionCall(r io.Reader) (map[string]any, error) {
+	return aggregateStreamWithOptions(r, streamAggregateOptions{ReturnOnFunctionCall: true})
+}
+
+type streamAggregateOptions struct {
+	ReturnOnFunctionCall bool
+}
+
+func aggregateStreamWithOptions(r io.Reader, opts streamAggregateOptions) (map[string]any, error) {
 	reader := bufio.NewReader(r)
 	outputItems := map[int]any{}
 	var final map[string]any
 	var frame strings.Builder
 
-	process := func(raw string) error {
+	process := func(raw string) (bool, error) {
 		raw = strings.TrimSpace(raw)
 		if raw == "" {
-			return nil
+			return false, nil
 		}
 		data := ""
 		for _, line := range strings.Split(raw, "\n") {
@@ -389,30 +411,36 @@ func aggregateStream(r io.Reader) (map[string]any, error) {
 			}
 		}
 		if data == "" || data == "[DONE]" {
-			return nil
+			return false, nil
 		}
 		var event map[string]any
 		if err := json.Unmarshal([]byte(data), &event); err != nil {
-			return nil
+			return false, nil
 		}
 		eventType, _ := event["type"].(string)
 		switch eventType {
 		case "response.output_item.done":
 			index, ok := numberAsInt(event["output_index"])
 			if !ok {
-				return nil
+				return false, nil
 			}
 			if item, ok := event["item"].(map[string]any); ok {
 				outputItems[index] = item
+				if opts.ReturnOnFunctionCall && item["type"] == "function_call" {
+					if final == nil {
+						final = map[string]any{}
+					}
+					return true, nil
+				}
 			}
 		case "response.completed":
 			if response, ok := event["response"].(map[string]any); ok {
 				final = response
 			}
 		case "response.failed":
-			return fmt.Errorf("codex response failed: %v", event["response"])
+			return false, fmt.Errorf("codex response failed: %v", event["response"])
 		}
-		return nil
+		return false, nil
 	}
 
 	for {
@@ -420,10 +448,14 @@ func aggregateStream(r io.Reader) (map[string]any, error) {
 		if len(line) > 0 {
 			trimmed := strings.TrimRight(line, "\r\n")
 			if trimmed == "" {
-				if err := process(frame.String()); err != nil {
+				done, err := process(frame.String())
+				if err != nil {
 					return nil, err
 				}
 				frame.Reset()
+				if done {
+					break
+				}
 			} else {
 				frame.WriteString(trimmed)
 				frame.WriteByte('\n')
@@ -431,8 +463,12 @@ func aggregateStream(r io.Reader) (map[string]any, error) {
 		}
 		if errors.Is(err, io.EOF) {
 			if frame.Len() > 0 {
-				if err := process(frame.String()); err != nil {
+				done, err := process(frame.String())
+				if err != nil {
 					return nil, err
+				}
+				if done {
+					break
 				}
 			}
 			break

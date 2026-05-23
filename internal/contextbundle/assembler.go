@@ -241,6 +241,7 @@ func (a Assembler) options() Options {
 	opts.RequireBridge = a.Options.RequireBridge
 	opts.RequireLore = a.Options.RequireLore
 	opts.SkipMissingActorCards = a.Options.SkipMissingActorCards
+	opts.DisableCardSeeding = a.Options.DisableCardSeeding
 	return opts
 }
 
@@ -446,7 +447,7 @@ func (a Assembler) actorCard(ctx context.Context, workspaceID, actorID string, o
 			lines := trimFacts(strings.Split(card.Text, "\n"), opts.MaxActorCardFacts)
 			card.Text = strings.Join(lines, "\n")
 			warnings := []string{"fallback card source for " + actorID + ": " + card.Source}
-			if a.Bridge != nil && len(lines) > 0 {
+			if a.Bridge != nil && !opts.DisableCardSeeding && len(lines) > 0 {
 				if seeded, err := a.Bridge.PatchCard(ctx, workspaceID, actorID, bridgeclient.PeerCardPatch{Facts: lines, Replace: true}); err != nil {
 					if opts.RequireBridge {
 						return Card{}, nil, err

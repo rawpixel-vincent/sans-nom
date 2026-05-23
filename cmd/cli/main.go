@@ -726,6 +726,12 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 			}
 			return saveCurrentStoryPacket(ctx, refreshCfg, &state, next, entryNodeID(next))
 		},
+		ListActors: func(ctx context.Context, storyID string) ([]admin.ActorSummary, error) {
+			return adminStoryActors(ctx, cfg, storyID)
+		},
+		ActorChat: func(ctx context.Context, storyID string, req admin.ActorChatRequest) (admin.ActorChatResponse, error) {
+			return adminActorChat(ctx, cfg, storyID, req)
+		},
 		NewStory: func(ctx context.Context, packID string) (storyapp.StorySession, error) {
 			pack, err := lorepack.GetPack(repoRoot(), firstNonEmpty(packID, cfg.GroundLorePackID, lorepack.DefaultPackID()))
 			if err != nil {
@@ -751,6 +757,181 @@ func runAdmin(ctx context.Context, cfg adminConfig) error {
 	})
 	fmt.Printf("Admin UI: http://%s/admin\n", cfg.Addr)
 	return http.ListenAndServe(cfg.Addr, server)
+}
+
+func adminStoryActors(ctx context.Context, cfg adminConfig, storyID string) ([]admin.ActorSummary, error) {
+	session, cardStore, err := adminStorySessionCards(ctx, cfg, storyID)
+	if err != nil {
+		return nil, err
+	}
+	_ = session
+	ids := cardStore.ActorIDs()
+	out := make([]admin.ActorSummary, 0, len(ids))
+	for _, id := range ids {
+		card, ok := cardStore.LocalCard(id)
+		if !ok {
+			continue
+		}
+		out = append(out, admin.ActorSummary{
+			ActorID:     id,
+			DisplayName: firstNonEmpty(card.DisplayName, id),
+			CardSource:  filepath.ToSlash(card.Source),
+			CardPreview: cardPreview(card.Text, 360),
+		})
+	}
+	sort.SliceStable(out, func(i, j int) bool {
+		if out[i].DisplayName == out[j].DisplayName {
+			return out[i].ActorID < out[j].ActorID
+		}
+		return out[i].DisplayName < out[j].DisplayName
+	})
+	return out, nil
+}
+
+func adminActorChat(ctx context.Context, cfg adminConfig, storyID string, req admin.ActorChatRequest) (admin.ActorChatResponse, error) {
+	session, cardStore, err := adminStorySessionCards(ctx, cfg, storyID)
+	if err != nil {
+		return admin.ActorChatResponse{}, err
+	}
+	registry, err := actorRegistry(cardStore)
+	if err != nil {
+		return admin.ActorChatResponse{}, err
+	}
+	localActor, ok := registry.Actor(req.ActorID)
+	if !ok {
+		return admin.ActorChatResponse{}, fmt.Errorf("actor %q is not available for story %q", req.ActorID, storyID)
+	}
+	node, err := session.Packet.Node(session.NodeID)
+	if err != nil {
+		node, err = session.Packet.EntryNode()
+	}
+	if err != nil {
+		return admin.ActorChatResponse{}, err
+	}
+	node.ActorNeeds = nil
+	node.MemoryIntents = nil
+	node.Beats = append(node.Beats, scene.Beat{
+		ID:   "admin_actor_chat",
+		Text: adminActorChatPromptText(req),
+	})
+	need := scene.ActorNeed{
+		ActorID: req.ActorID,
+		Mode:    scene.ActorModeContext,
+		Reason:  "Admin transient actor chat: " + strings.TrimSpace(req.Message),
+	}
+	assembler := contextAssembler(
+		cfg.BridgeURL,
+		false,
+		cardStore,
+		sourceLoreCollection(&session.State, cfg.GlobalCollection),
+		resolvedStoryCollection(&session.State, cfg.StoryCollection),
+		nil,
+	)
+	assembler.Options.DisableCardSeeding = true
+	actorContext, contextText, warnings, err := assembler.AssembleActorCall(ctx, contextbundle.ActorCallBuildRequest{
+		Packet:               session.Packet,
+		Node:                 node,
+		Need:                 need,
+		Decision:             decisionForWriterRefresh(&session.State),
+		Bible:                &session.Bible,
+		ScenarioContractText: scenarioContractTextForPack(session.State.SourceLorePackID()),
+	})
+	if err != nil {
+		return admin.ActorChatResponse{}, err
+	}
+	invoker := adminActorInvoker(cfg.Backend, session.State.SourceLorePackID())
+	actor := localActor
+	actor.Card = actorContext.Card
+	output, err := invoker.Invoke(ctx, actor, node, need, contextText)
+	if err != nil {
+		return admin.ActorChatResponse{}, err
+	}
+	return admin.ActorChatResponse{
+		ActorID:  actor.ID,
+		Interior: output.Interior,
+		Dialogue: output.Dialogue,
+		Action:   output.Action,
+		Warnings: warnings,
+		Model:    adminActorInvokerMetadata(invoker),
+	}, nil
+}
+
+func adminStorySessionCards(ctx context.Context, cfg adminConfig, storyID string) (storyapp.StorySession, *contextbundle.LocalCardStore, error) {
+	session, err := storyapp.ResumeStory(ctx, storyID, storyapp.StoryActionOptions{StoryRoot: cfg.StoryRoot})
+	if err != nil {
+		return storyapp.StorySession{}, nil, err
+	}
+	store, err := contextbundle.LoadStoryCardStore(cfg.CardStore, session.Workspace.Dir)
+	if err != nil {
+		return storyapp.StorySession{}, nil, err
+	}
+	return session, store, nil
+}
+
+func adminActorInvoker(backend string, packID string) actors.Invoker {
+	switch backend {
+	case "claude":
+		runner := claudeRunner()
+		runner.SystemPrompt = masterLoreSystemPromptForPackID(packID, runner.SystemPrompt)
+		return actors.ClaudeInvoker{Runner: runner}
+	case "codex":
+		return actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), packID)}
+	default:
+		return actors.StaticInvoker{}
+	}
+}
+
+func adminActorInvokerMetadata(invoker actors.Invoker) modelmeta.Metadata {
+	if provider, ok := invoker.(interface {
+		ModelMetadata() modelmeta.Metadata
+	}); ok {
+		return provider.ModelMetadata()
+	}
+	return modelmeta.Metadata{}
+}
+
+func adminActorChatPromptText(req admin.ActorChatRequest) string {
+	var lines []string
+	history := req.History
+	if len(history) > 8 {
+		history = history[len(history)-8:]
+	}
+	for _, item := range history {
+		role := strings.TrimSpace(item.Role)
+		text := strings.TrimSpace(item.Text)
+		if role == "" || text == "" {
+			continue
+		}
+		lines = append(lines, fmt.Sprintf("%s: %s", role, truncateRunes(text, 600)))
+	}
+	lines = append(lines, "user: "+strings.TrimSpace(req.Message))
+	return "Admin transient actor chat. This exchange is not canon and must not be committed to memory.\n" + strings.Join(lines, "\n")
+}
+
+func cardPreview(text string, max int) string {
+	var parts []string
+	for _, line := range strings.Split(text, "\n") {
+		line = strings.TrimSpace(line)
+		if line != "" {
+			parts = append(parts, line)
+		}
+	}
+	return truncateRunes(strings.Join(parts, " "), max)
+}
+
+func truncateRunes(text string, max int) string {
+	text = strings.TrimSpace(text)
+	if max <= 0 {
+		return text
+	}
+	runes := []rune(text)
+	if len(runes) <= max {
+		return text
+	}
+	if max <= 3 {
+		return string(runes[:max])
+	}
+	return string(runes[:max-3]) + "..."
 }
 
 func ensureFlagBridge(ctx context.Context, cfg flagBridgeConfig) (func(), error) {

@@ -14,6 +14,7 @@ import (
 
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
+	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 	"github.com/rawpixel-vincent/sans-nom/internal/seed"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 	"github.com/rawpixel-vincent/sans-nom/internal/storyapp"
@@ -844,6 +845,115 @@ func TestAdminCreateStoryUsesSelectedPack(t *testing.T) {
 	}
 	if gotPackID != "metabarons" {
 		t.Fatalf("pack id = %q", gotPackID)
+	}
+}
+
+func TestAdminListsStoryActors(t *testing.T) {
+	root := t.TempDir()
+	_, state := createAdminStory(t, root)
+	var gotStoryID string
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{
+		ListActors: func(_ context.Context, storyID string) ([]ActorSummary, error) {
+			gotStoryID = storyID
+			return []ActorSummary{{
+				ActorID:     "tonto",
+				DisplayName: "Tonto",
+				CardSource:  "cards/tonto.md",
+				CardPreview: "Tonto tells witness-bound stories.",
+			}}, nil
+		},
+	}))
+	defer server.Close()
+
+	var resp struct {
+		Actors []ActorSummary `json:"actors"`
+	}
+	getJSON(t, server.URL+"/admin/api/stories/"+state.StoryID+"/actors", &resp)
+	if gotStoryID != state.StoryID {
+		t.Fatalf("story id = %q", gotStoryID)
+	}
+	if len(resp.Actors) != 1 || resp.Actors[0].ActorID != "tonto" || resp.Actors[0].CardSource == "" {
+		t.Fatalf("unexpected actors: %#v", resp.Actors)
+	}
+
+	missing, err := http.Get(server.URL + "/admin/api/stories/missing/actors")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer missing.Body.Close()
+	if missing.StatusCode != http.StatusNotFound {
+		t.Fatalf("expected missing story to reject actor list, got %s", missing.Status)
+	}
+}
+
+func TestAdminActorChatValidatesRequest(t *testing.T) {
+	root := t.TempDir()
+	_, state := createAdminStory(t, root)
+	called := false
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{
+		ActorChat: func(context.Context, string, ActorChatRequest) (ActorChatResponse, error) {
+			called = true
+			return ActorChatResponse{}, nil
+		},
+	}))
+	defer server.Close()
+
+	resp, err := http.Post(server.URL+"/admin/api/stories/"+state.StoryID+"/actor-chat", "application/json", strings.NewReader(`{"message":"hello"}`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusBadRequest {
+		body, _ := io.ReadAll(resp.Body)
+		t.Fatalf("expected 400, got %s: %s", resp.Status, body)
+	}
+	if called {
+		t.Fatal("actor chat callback should not run for invalid request")
+	}
+}
+
+func TestAdminActorChatInvokesCallback(t *testing.T) {
+	root := t.TempDir()
+	_, state := createAdminStory(t, root)
+	var gotStoryID string
+	var gotReq ActorChatRequest
+	server := httptest.NewServer(NewServer(root, bridgeclient.NewClient("", ""), "", Callbacks{
+		ActorChat: func(_ context.Context, storyID string, req ActorChatRequest) (ActorChatResponse, error) {
+			gotStoryID = storyID
+			gotReq = req
+			return ActorChatResponse{
+				ActorID:  req.ActorID,
+				Dialogue: "I remember the hall.",
+				Action:   "Tonto lowers his voice.",
+				Warnings: []string{"read-only"},
+				Model:    modelmeta.Metadata{ProviderType: "static", Model: "test"},
+			}, nil
+		},
+	}))
+	defer server.Close()
+
+	resp, err := http.Post(
+		server.URL+"/admin/api/stories/"+state.StoryID+"/actor-chat",
+		"application/json",
+		strings.NewReader(`{"actor_id":"tonto","message":"what do you see?","history":[{"role":"user","text":"hello"}]}`),
+	)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		t.Fatalf("expected 200, got %s: %s", resp.Status, body)
+	}
+	var out ActorChatResponse
+	if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+		t.Fatal(err)
+	}
+	if gotStoryID != state.StoryID || gotReq.ActorID != "tonto" || gotReq.Message == "" || len(gotReq.History) != 1 {
+		t.Fatalf("callback did not receive request: story=%q req=%#v", gotStoryID, gotReq)
+	}
+	if out.Dialogue == "" || out.Model.Model != "test" {
+		t.Fatalf("unexpected actor chat response: %#v", out)
 	}
 }
 

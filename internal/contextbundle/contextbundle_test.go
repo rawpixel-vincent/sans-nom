@@ -486,6 +486,41 @@ func TestActorCallSeedsHonchoCardFromLocalFallback(t *testing.T) {
 	}
 }
 
+func TestActorCallCanDisableHonchoCardSeeding(t *testing.T) {
+	packet := testPacket()
+	bridge := fakeBridge{
+		cards: map[string][]string{},
+		reps:  map[string]string{"tonto:sans-nom": "player rep"},
+	}
+	actorCtx, _, warnings, err := (Assembler{
+		Bridge: bridge,
+		Cards:  staticCards{"tonto": testCard("tonto")},
+		Options: Options{
+			DisableCardSeeding: true,
+		},
+	}).AssembleActorCall(context.Background(), ActorCallBuildRequest{
+		Packet: packet,
+		Node:   packet.Nodes[0],
+		Need: scene.ActorNeed{
+			ActorID: "tonto",
+			Mode:    scene.ActorModePresent,
+			Reason:  "voice check",
+		},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := bridge.cards["tonto"]; len(got) != 0 {
+		t.Fatalf("actor card should not be seeded in read-only mode: %#v", got)
+	}
+	if actorCtx.CardSource != "test:tonto" {
+		t.Fatalf("expected local card source, got %q", actorCtx.CardSource)
+	}
+	if !containsSubstring(warnings, "fallback card source for tonto") {
+		t.Fatalf("expected fallback warning, got %#v", warnings)
+	}
+}
+
 func TestLoreHitsDeduplicateSortAndTruncate(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{

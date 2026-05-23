@@ -90,11 +90,14 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	opts.VisiblePaths = visiblePaths
 
 	for round := 0; round < maxRounds; round++ {
-		response, err := c.Create(ctx, current)
+		logLocalToolProviderRequest(opts, round+1, maxRounds)
+		response, err := c.createLocalToolRound(ctx, current)
 		if err != nil {
+			logLocalToolProviderFailure(opts, round+1, maxRounds, err)
 			return nil, err
 		}
 		calls := collectFunctionCalls(response["output"])
+		logLocalToolProviderResponse(opts, round+1, maxRounds, calls)
 		if len(calls) == 0 {
 			return response, nil
 		}
@@ -321,6 +324,95 @@ func executeLocalTool(ctx context.Context, root string, call functionCall, extra
 		return fmt.Sprintf(`{"ok":false,"error":%q}`, marshalErr.Error())
 	}
 	return string(payload)
+}
+
+func logLocalToolProviderRequest(opts LocalToolOptions, round int, maxRounds int) {
+	logLocalToolProviderEvent(opts, "request", "pending", "Codex provider request started", map[string]any{
+		"round":           round,
+		"max_rounds":      maxRounds,
+		"available_tools": localToolNames(opts.ExtraTools),
+	})
+}
+
+func logLocalToolProviderResponse(opts LocalToolOptions, round int, maxRounds int, calls []functionCall) {
+	logLocalToolProviderEvent(opts, "response", "completed", fmt.Sprintf("Codex provider response received with %d local tool call(s)", len(calls)), map[string]any{
+		"round":           round,
+		"max_rounds":      maxRounds,
+		"tool_call_count": len(calls),
+		"tool_calls":      functionCallSummaries(opts, calls),
+	})
+}
+
+func logLocalToolProviderFailure(opts LocalToolOptions, round int, maxRounds int, err error) {
+	logLocalToolProviderEvent(opts, "failed", "failed", err.Error(), map[string]any{
+		"round":      round,
+		"max_rounds": maxRounds,
+		"error":      err.Error(),
+	})
+}
+
+func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status string, message string, detail map[string]any) {
+	if opts.Logger == nil {
+		return
+	}
+	category := firstNonEmpty(opts.ToolCategory, "model")
+	fields := modelmeta.MergeFields(map[string]any{
+		"caller_role":          opts.CallerRole,
+		"caller_speaker":       opts.CallerSpeaker,
+		"status":               status,
+		"round":                detail["round"],
+		"max_rounds":           detail["max_rounds"],
+		"tool_call_count":      detail["tool_call_count"],
+		"agent_workspace_root": filepath.ToSlash(opts.Root),
+	}, opts.ModelMetadata)
+	eventDetail := map[string]any{
+		"caller_role":          opts.CallerRole,
+		"caller_speaker":       opts.CallerSpeaker,
+		"model_metadata":       opts.ModelMetadata,
+		"agent_workspace_root": filepath.ToSlash(opts.Root),
+		"visible_paths":        opts.VisiblePaths,
+	}
+	for key, value := range detail {
+		eventDetail[key] = value
+	}
+	_ = opts.Logger.Append(gamelog.Event{
+		Category: category,
+		Event:    category + ".provider." + eventSuffix,
+		StoryID:  opts.StoryID,
+		Turn:     opts.Turn,
+		PacketID: opts.PacketID,
+		NodeID:   opts.NodeID,
+		RunID:    opts.RunID,
+		Message:  message,
+		Fields:   fields,
+		Detail:   eventDetail,
+	})
+}
+
+func localToolNames(extra []LocalTool) []string {
+	names := []string{"exec_command"}
+	for _, tool := range extra {
+		name := strings.TrimSpace(tool.Name)
+		if name != "" && tool.Handler != nil {
+			names = append(names, name)
+		}
+	}
+	sort.Strings(names)
+	return names
+}
+
+func functionCallSummaries(opts LocalToolOptions, calls []functionCall) []map[string]any {
+	out := make([]map[string]any, 0, len(calls))
+	for _, call := range calls {
+		info := localToolLogInfo(opts, call)
+		out = append(out, map[string]any{
+			"tool_use_id":   call.CallID,
+			"raw_tool_name": call.Name,
+			"tool_name":     info.DisplayName,
+			"target":        info.Target,
+		})
+	}
+	return out
 }
 
 func logLocalToolUse(opts LocalToolOptions, call functionCall) {

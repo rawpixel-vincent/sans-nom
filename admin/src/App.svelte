@@ -5,12 +5,14 @@
   import Panel from "./lib/Panel.svelte";
   import {
     backstageStreamURL,
+    chatWithActor,
     createStory,
     deleteGlobalLog,
     deleteGlobalLogs,
     deleteLog,
     deleteLogs,
     getFile,
+    getActors,
     getBackstage,
     getGlobalBackstage,
     getGlobalLogDetail,
@@ -26,11 +28,15 @@
     listStories,
     runControl,
     type AdminStatus,
+    type ActorChatMessage,
+    type ActorChatResponse,
+    type ActorSummary,
     type BackstageMessage,
     type FileInfo,
     type IndexResponse,
     type LogEvent,
     type LorePack,
+    type ModelMetadata,
     type StoryDetail,
     type StorySummary,
   } from "./lib/api";
@@ -38,6 +44,7 @@
   const tabs = [
     "overview",
     "book",
+    "actors",
     "behind-scenes",
     "logs",
     "model-runs",
@@ -65,6 +72,12 @@
   let globalLogs: LogEvent[] = [];
   let backstageMessages: BackstageMessage[] = [];
   let globalBackstageMessages: BackstageMessage[] = [];
+  let actors: ActorSummary[] = [];
+  let selectedActorId = "";
+  let actorDraft = "";
+  let actorBusy = false;
+  let actorError = "";
+  let actorChatByKey: Record<string, ActorChatBubble[]> = {};
   let selectedLog: LogEvent | null = null;
   let selectedGlobalLog: LogEvent | null = null;
   let selectedBackstageMessage: BackstageMessage | null = null;
@@ -101,8 +114,20 @@
   let storyBackstageCount = 0;
   let globalBackstageCount = 0;
 
+  type ActorChatBubble = {
+    role: "user" | "actor" | "system";
+    text: string;
+    time: string;
+    response?: ActorChatResponse;
+    pending?: boolean;
+    failed?: boolean;
+  };
+
   $: configureBackstageStream(activeTab, selectedStoryId, backstageLive, backstageTail);
   $: autoscrollBackstage();
+  $: selectedActor = actors.find((actor) => actor.actor_id === selectedActorId) ?? null;
+  $: actorChatKey = selectedStoryId && selectedActorId ? `${selectedStoryId}:${selectedActorId}` : "";
+  $: actorChatMessages = actorChatKey ? actorChatByKey[actorChatKey] ?? [] : [];
 
   onMount(() => {
     void refreshAll();
@@ -155,6 +180,7 @@
     }
     detail = await getStory(storyId);
     await Promise.all([
+      loadActors(),
       loadLogs(),
       loadBackstage(),
       loadModelRuns(),
@@ -204,6 +230,15 @@
       selectedBackstageMessage = null;
       selectedBackstageDetail = null;
     }
+  }
+
+  async function loadActors() {
+    if (!selectedStoryId) return;
+    actors = await getActors(selectedStoryId);
+    if (!actors.some((actor) => actor.actor_id === selectedActorId)) {
+      selectedActorId = actors[0]?.actor_id ?? "";
+    }
+    actorError = "";
   }
 
   async function loadGlobalBackstage() {
@@ -463,6 +498,59 @@
     });
   }
 
+  async function sendActorChat() {
+    if (!selectedStoryId || !selectedActorId || actorBusy) return;
+    const message = actorDraft.trim();
+    if (!message) return;
+    const key = actorChatKeyFor(selectedStoryId, selectedActorId);
+    const existing = actorChatByKey[key] ?? [];
+    const history = actorHistoryForAPI(existing);
+    const userBubble: ActorChatBubble = {
+      role: "user",
+      text: message,
+      time: new Date().toISOString(),
+    };
+    const pendingBubble: ActorChatBubble = {
+      role: "actor",
+      text: "Waiting for actor...",
+      time: new Date().toISOString(),
+      pending: true,
+    };
+    setActorChatMessages(key, [...existing, userBubble, pendingBubble]);
+    actorDraft = "";
+    actorBusy = true;
+    actorError = "";
+    try {
+      const response = await chatWithActor(selectedStoryId, {
+        actor_id: selectedActorId,
+        message,
+        history,
+      });
+      const doneBubble: ActorChatBubble = {
+        role: "actor",
+        text: actorResponseText(response),
+        time: new Date().toISOString(),
+        response,
+      };
+      setActorChatMessages(key, [...existing, userBubble, doneBubble]);
+    } catch (err) {
+      const text = err instanceof Error ? err.message : String(err);
+      actorError = text;
+      setActorChatMessages(key, [
+        ...existing,
+        userBubble,
+        {
+          role: "system",
+          text,
+          time: new Date().toISOString(),
+          failed: true,
+        },
+      ]);
+    } finally {
+      actorBusy = false;
+    }
+  }
+
   async function deleteSelectedStory() {
     if (!selectedStoryId) return;
     const storyId = selectedStoryId;
@@ -486,6 +574,10 @@
       selectedLogDetail = null;
       modelRuns = [];
       indexData = null;
+      actors = [];
+      selectedActorId = "";
+      actorDraft = "";
+      actorError = "";
       fileText = "";
       activeTab = "overview";
       if (selectedStoryId) {
@@ -556,6 +648,39 @@
   function pruneSelectedLogIDs(selected: Set<string>, events: LogEvent[]) {
     const visible = new Set(logEventIDs(events));
     return new Set([...selected].filter((eventID) => visible.has(eventID)));
+  }
+
+  function actorChatKeyFor(storyId: string, actorId: string) {
+    return `${storyId}:${actorId}`;
+  }
+
+  function setActorChatMessages(key: string, messages: ActorChatBubble[]) {
+    actorChatByKey = { ...actorChatByKey, [key]: messages };
+  }
+
+  function actorHistoryForAPI(messages: ActorChatBubble[]): ActorChatMessage[] {
+    return messages
+      .filter((message) => !message.pending && !message.failed)
+      .map((message) => ({
+        role: message.role === "actor" ? "actor" : "user",
+        text: message.response ? actorResponseText(message.response) : message.text,
+      }))
+      .filter((message) => message.text.trim())
+      .slice(-8);
+  }
+
+  function actorResponseText(response: ActorChatResponse) {
+    const parts = [
+      response.dialogue ? `Dialogue: ${response.dialogue}` : "",
+      response.action ? `Action: ${response.action}` : "",
+      response.interior ? `Interior: ${response.interior}` : "",
+    ].filter(Boolean);
+    return parts.join("\n\n") || "(empty actor response)";
+  }
+
+  function actorModelLabel(model?: ModelMetadata) {
+    if (!model) return "";
+    return [model.model_provider, model.model].filter(Boolean).join(" / ") || model.provider_type || "";
   }
 
   function toggleStoryLogSelection(entry: LogEvent) {
@@ -1164,6 +1289,109 @@
                 No narration files saved yet.
               </div>
             {/if}
+          </Panel>
+        {:else if activeTab === "actors"}
+          <Panel title="Actors">
+            {#if actorError}
+              <div class="mb-3 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-800">
+                {actorError}
+              </div>
+            {/if}
+            <div class="grid grid-cols-[320px_minmax(0,1fr)] gap-4">
+              <div class="min-w-0">
+                <div class="mb-3 flex items-center gap-2">
+                  <select class="input min-w-0 flex-1" bind:value={selectedActorId}>
+                    {#each actors as actor}
+                      <option value={actor.actor_id}>{actor.display_name || actor.actor_id}</option>
+                    {/each}
+                  </select>
+                  <button class="btn" disabled={busy} on:click={() => withBusy(loadActors)}>Refresh</button>
+                </div>
+                {#if selectedActor}
+                  <div class="rounded border border-slate-200 bg-slate-50 p-3">
+                    <div class="mb-1 text-sm font-semibold">{selectedActor.display_name || selectedActor.actor_id}</div>
+                    <div class="mb-2 font-mono text-[11px] text-slate-500">{selectedActor.actor_id}</div>
+                    <div class="mb-2 text-xs text-slate-500">{selectedActor.card_source}</div>
+                    <div class="whitespace-pre-wrap text-sm leading-relaxed text-slate-700">{selectedActor.card_preview}</div>
+                  </div>
+                {:else}
+                  <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                    No actor cards available.
+                  </div>
+                {/if}
+              </div>
+              <div class="min-w-0">
+                <div class="chat-room mb-3">
+                  {#each actorChatMessages as message}
+                    <div
+                      class:failed={message.failed}
+                      class:pending={message.pending}
+                      class="chat-bubble cursor-default"
+                    >
+                      <div class="mb-2 flex flex-wrap items-center gap-2">
+                        <span class="role-chip">@{message.role === "actor" ? (selectedActor?.display_name || selectedActorId || "Actor") : message.role}</span>
+                        {#if message.pending}<span class="chip">pending</span>{/if}
+                        {#if message.failed}<span class="chip-warning">failed</span>{/if}
+                        {#if message.response?.model && actorModelLabel(message.response.model)}
+                          <span class="chip">{actorModelLabel(message.response.model)}</span>
+                        {/if}
+                        <span class="ml-auto font-mono text-[11px] text-slate-500">{message.time}</span>
+                      </div>
+                      {#if message.response}
+                        <div class="space-y-3 text-sm leading-relaxed">
+                          {#if message.response.dialogue}
+                            <div>
+                              <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Dialogue</div>
+                              <div class="whitespace-pre-wrap">{message.response.dialogue}</div>
+                            </div>
+                          {/if}
+                          {#if message.response.action}
+                            <div>
+                              <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Action</div>
+                              <div class="whitespace-pre-wrap">{message.response.action}</div>
+                            </div>
+                          {/if}
+                          {#if message.response.interior}
+                            <div>
+                              <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Interior</div>
+                              <div class="whitespace-pre-wrap">{message.response.interior}</div>
+                            </div>
+                          {/if}
+                          {#if message.response.warnings?.length}
+                            <div class="flex flex-wrap gap-1">
+                              {#each message.response.warnings as warning}
+                                <span class="chip-warning">{warning}</span>
+                              {/each}
+                            </div>
+                          {/if}
+                        </div>
+                      {:else}
+                        <div class="whitespace-pre-wrap text-sm leading-relaxed">{message.text}</div>
+                      {/if}
+                    </div>
+                  {/each}
+                  {#if actorChatMessages.length === 0}
+                    <div class="rounded border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+                      No actor chat messages in this browser session.
+                    </div>
+                  {/if}
+                </div>
+                <div class="flex gap-2">
+                  <textarea
+                    class="input min-h-[88px] min-w-0 flex-1 resize-y"
+                    bind:value={actorDraft}
+                    disabled={actorBusy || !selectedActorId}
+                  ></textarea>
+                  <button
+                    class="btn self-end"
+                    disabled={actorBusy || !selectedActorId || !actorDraft.trim()}
+                    on:click={sendActorChat}
+                  >
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
           </Panel>
         {:else if activeTab === "behind-scenes"}
           <Panel title="Behind The Scenes">
