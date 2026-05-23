@@ -28,6 +28,7 @@ class HonchoOps:
     """
 
     def __init__(self) -> None:
+        self.mode = os.getenv("SANS_NOM_HONCHO_MODE", "auto").strip().lower()
         self.api_key = os.getenv("SANS_NOM_HONCHO_API_KEY") or os.getenv("HONCHO_API_KEY")
         self.environment = os.getenv("HONCHO_ENVIRONMENT", "production")
         self.base_url = os.getenv("HONCHO_BASE_URL")
@@ -36,6 +37,8 @@ class HonchoOps:
 
     @property
     def live_enabled(self) -> bool:
+        if self.mode in {"memory", "dev", "local", "off", "disabled"}:
+            return False
         return bool(self.api_key)
 
     def _client(self, workspace_id: str) -> Any:

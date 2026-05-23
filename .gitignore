@@ -55,3 +55,5 @@ lore/canon/comics/peer-cards/runs/
 *.jpg
 *.jpeg
 docs/writing/refs
+
+*.bak

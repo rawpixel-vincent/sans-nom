@@ -98,10 +98,10 @@ fi
 run "Go tests" "$go_bin" test ./...
 if [ -x "$python_bin" ] && [ -x "$pytest_bin" ]; then
 	run "Bridge compile" "$python_bin" -m compileall bridge/src
-	run "Bridge tests" "$pytest_bin" bridge/tests -q
+	run "Bridge tests" env SANS_NOM_HONCHO_API_KEY= HONCHO_API_KEY= "$pytest_bin" bridge/tests -q
 else
 	run "Bridge compile" "$uv_bin" run --project bridge python -m compileall bridge/src
-	run "Bridge tests" "$uv_bin" run --project bridge pytest bridge/tests -q
+	run "Bridge tests" env SANS_NOM_HONCHO_API_KEY= HONCHO_API_KEY= "$uv_bin" run --project bridge pytest bridge/tests -q
 fi
 run_in "$repo_root/admin" "Admin check" "$node_bin" "$svelte_check_bin" --tsconfig ./tsconfig.json
 run_in "$repo_root/admin" "Admin build" "$node_bin" "$vite_bin" build

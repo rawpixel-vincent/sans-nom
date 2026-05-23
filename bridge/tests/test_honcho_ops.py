@@ -147,6 +147,15 @@ def test_dev_card_store_uses_same_normalized_key_transparently() -> None:
     assert ops.get_card("phase0-dev", "player:saren_iku_no", "actor:mother") == ["Name: Saren"]
 
 
+def test_memory_mode_disables_live_honcho_even_with_api_key(monkeypatch) -> None:
+    monkeypatch.setenv("SANS_NOM_HONCHO_MODE", "memory")
+    monkeypatch.setenv("SANS_NOM_HONCHO_API_KEY", "test-key")
+
+    ops = HonchoOps()
+
+    assert not ops.live_enabled
+
+
 def test_representation_returns_empty_for_missing_live_honcho_peer(monkeypatch) -> None:
     ops = HonchoOps()
     ops.api_key = "test-key"
