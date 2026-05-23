@@ -23,14 +23,16 @@ type Planner interface {
 type Validator func(input Input, packet scene.StoryPacket) error
 
 type Input struct {
-	Current          scene.StoryPacket
-	LatestDecision   string
-	ContextText      string
-	RunID            string
-	ArtifactDir      string
-	SpentMotifs      []string
-	RequiredMovement []string
-	ContextBudget    any
+	Current              scene.StoryPacket
+	LatestDecision       string
+	ContextText          string
+	RunID                string
+	ArtifactDir          string
+	SpentMotifs          []string
+	RequiredMovement     []string
+	ContextBudget        any
+	RegisteredActorIDs   []string
+	ActorManifestSummary string
 }
 
 type Service struct {

@@ -52,16 +52,18 @@ type LocalToolOptions struct {
 	Logger          *gamelog.Writer
 	VisiblePaths    []string
 
-	ToolCategory  string
-	CallerRole    string
-	CallerSpeaker string
-	StoryID       string
-	Turn          int
-	PacketID      string
-	NodeID        string
-	RunID         string
-	ModelMetadata modelmeta.Metadata
-	ContextBudget map[string]any
+	ToolCategory          string
+	CallerRole            string
+	CallerSpeaker         string
+	StoryID               string
+	Turn                  int
+	PacketID              string
+	NodeID                string
+	RunID                 string
+	ModelMetadata         modelmeta.Metadata
+	ContextBudget         map[string]any
+	RequireToolUse        bool
+	ToolUseRequiredReason string
 }
 
 type LocalTool struct {
@@ -96,6 +98,8 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	current["tools"] = appendTools(current["tools"], localToolDefinitions(opts.ExtraTools, visiblePaths))
 	extraTools := extraToolHandlers(opts.ExtraTools)
 	opts.VisiblePaths = visiblePaths
+	usedAnyTool := false
+	missingToolRetrySent := false
 
 	for round := 0; round < maxRounds; round++ {
 		if err := waitBeforeLocalToolProviderRound(ctx, opts, round+1, maxRounds, minCallInterval); err != nil {
@@ -111,8 +115,25 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		calls := collectFunctionCalls(response["output"])
 		logLocalToolProviderResponse(opts, round+1, maxRounds, calls)
 		if len(calls) == 0 {
+			if opts.RequireToolUse && !usedAnyTool {
+				if !missingToolRetrySent && round+1 < maxRounds {
+					logLocalToolRequiredRetry(opts, round+1, maxRounds)
+					input := inputItems(current["input"])
+					input = append(input, map[string]any{
+						"role":    "user",
+						"content": requiredToolUseReminder(opts),
+					})
+					current["input"] = input
+					missingToolRetrySent = true
+					continue
+				}
+				err := errors.New("model returned final answer without required local tool call")
+				logLocalToolProviderFailure(opts, round+1, maxRounds, err)
+				return nil, err
+			}
 			return response, nil
 		}
+		usedAnyTool = true
 
 		input := inputItems(current["input"])
 		input = append(input, functionCallInputItems(calls)...)
@@ -129,6 +150,14 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		current["input"] = input
 	}
 	return nil, fmt.Errorf("model exceeded %d local tool rounds", maxRounds)
+}
+
+func requiredToolUseReminder(opts LocalToolOptions) string {
+	reason := strings.TrimSpace(opts.ToolUseRequiredReason)
+	if reason == "" {
+		reason = "This run is configured to require at least one local grounding tool call before final output."
+	}
+	return reason + " Use one narrow read with exec_command, preferably an exact staged file such as `cat story/current-node.json` when it exists, then return the final JSON."
 }
 
 func localToolMinCallInterval(opts LocalToolOptions) time.Duration {
@@ -393,6 +422,15 @@ func logLocalToolProviderResponse(opts LocalToolOptions, round int, maxRounds in
 		"max_rounds":      maxRounds,
 		"tool_call_count": len(calls),
 		"tool_calls":      functionCallSummaries(opts, calls),
+	})
+}
+
+func logLocalToolRequiredRetry(opts LocalToolOptions, round int, maxRounds int) {
+	logLocalToolProviderEvent(opts, "tool_required_retry", "pending", "Required grounding tool call missing; retrying Codex provider request", map[string]any{
+		"round":                    round,
+		"max_rounds":               maxRounds,
+		"tool_call_count":          0,
+		"tool_use_required_reason": opts.ToolUseRequiredReason,
 	})
 }
 

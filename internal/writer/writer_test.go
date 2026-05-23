@@ -103,7 +103,12 @@ func TestRefreshAsyncRejectsSpentProofChoiceLoop(t *testing.T) {
 
 func TestRefreshAsyncAllowsSpentProofWithMacroPressure(t *testing.T) {
 	packet := proofLoopPacket()
-	packet.Nodes[0].Choices[2] = scene.Choice{ID: "claim_weapon", Label: "Take the witness mask to the weapon locker and force the rival claimant into public contest.", TargetNodeID: "weapon"}
+	packet.Nodes[0].Choices[2] = scene.Choice{
+		ID:           "claim_weapon",
+		Label:        "Take the witness mask to the weapon locker and force the rival claimant into public contest.",
+		TargetNodeID: "weapon",
+		PlayerIntent: "Claim player agency by moving the conflict from spent witness proof to weapon succession pressure.",
+	}
 	packet.Nodes[3] = scene.SceneNode{
 		ID:      "weapon",
 		Title:   "Weapon Schedule",
@@ -166,6 +171,68 @@ func TestRefreshAsyncWritesDiagnosticsForInvalidWriterPacket(t *testing.T) {
 	}
 }
 
+func TestValidateProgressionRejectsRegisteredActorWithoutRehearsal(t *testing.T) {
+	packet := actorRehearsalPacket()
+	err := ValidateProgression(Input{RegisteredActorIDs: []string{"tonto"}}, packet)
+	if err == nil {
+		t.Fatal("expected missing actor rehearsal rejection")
+	}
+	if !strings.Contains(err.Error(), "needs actor rehearsal") {
+		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
+func TestValidateProgressionMatchesRegisteredActorCaseInsensitively(t *testing.T) {
+	packet := actorRehearsalPacket()
+	packet.ContextSnapshot.PresentActors = []string{"Tonto"}
+	err := ValidateProgression(Input{RegisteredActorIDs: []string{"tonto"}}, packet)
+	if err == nil {
+		t.Fatal("expected missing actor rehearsal rejection")
+	}
+	if !strings.Contains(err.Error(), "registered actor \"Tonto\"") {
+		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
+func TestValidateProgressionAcceptsRegisteredActorNeed(t *testing.T) {
+	packet := actorRehearsalPacket()
+	packet.Nodes[0].ActorNeeds = []scene.ActorNeed{{
+		ActorID: "tonto",
+		Mode:    scene.ActorModePresent,
+		Reason:  "Tonto's witness pressure should shape the playable beat.",
+	}}
+	if err := ValidateProgression(Input{RegisteredActorIDs: []string{"tonto"}}, packet); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestValidateProgressionAcceptsNoRegisteredActorCards(t *testing.T) {
+	packet := actorRehearsalPacket()
+	if err := ValidateProgression(Input{}, packet); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestValidateProgressionAcceptsNoActorRehearsalReason(t *testing.T) {
+	packet := actorRehearsalPacket()
+	packet.Nodes[0].WriterNotes = "No actor rehearsal: Tonto is only a distant recorder in this playable beat."
+	if err := ValidateProgression(Input{RegisteredActorIDs: []string{"tonto"}}, packet); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestValidateProgressionRejectsGenericPlayerIntent(t *testing.T) {
+	packet := actorRehearsalPacket()
+	packet.Nodes[0].Choices[1].PlayerIntent = "continue"
+	err := ValidateProgression(Input{}, packet)
+	if err == nil {
+		t.Fatal("expected generic player intent rejection")
+	}
+	if !strings.Contains(err.Error(), "player-centered player_intent") {
+		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
 type recordingPlanner struct {
 	input Input
 	next  scene.StoryPacket
@@ -194,14 +261,17 @@ func proofLoopPacket() scene.StoryPacket {
 				ID:           "carry_mask",
 				Label:        "Carry the witness mask to another servant ledger.",
 				TargetNodeID: "carry",
+				PlayerIntent: "Accept duty by moving the same witnessed cost into another servant record.",
 			}, {
 				ID:           "copy_ledger",
 				Label:        "Copy the servant testimony into a hidden record.",
 				TargetNodeID: "copy",
+				PlayerIntent: "Control household knowledge by hiding testimony as a risky private record.",
 			}, {
 				ID:           "hide_witness",
 				Label:        "Hide the witness and preserve the mask proof.",
 				TargetNodeID: "hide",
+				PlayerIntent: "Protect the witness while risking status by preserving the same proof.",
 			}},
 		}, {
 			ID:      "carry",
@@ -217,6 +287,42 @@ func proofLoopPacket() scene.StoryPacket {
 			ID:      "hide",
 			Title:   "Hide The Witness",
 			Beats:   []scene.Beat{{Text: "The witness is concealed so the proof can be preserved."}},
+			Choices: []scene.Choice{},
+		}},
+	}
+}
+
+func actorRehearsalPacket() scene.StoryPacket {
+	return scene.StoryPacket{
+		ID:          "actor-rehearsal",
+		EntryNodeID: "start",
+		ContextSnapshot: scene.ContextSnapshot{
+			PresentActors: []string{"tonto"},
+		},
+		Nodes: []scene.SceneNode{{
+			ID:    "start",
+			Title: "Witness Pressure",
+			Beats: []scene.Beat{{Text: "Tonto's lens waits while the player decides who pays for the exposed record."}},
+			Choices: []scene.Choice{{
+				ID:           "protect_record",
+				Label:        "Protect the record and make Tonto witness the cost.",
+				TargetNodeID: "record",
+				PlayerIntent: "Protect truth by forcing witness pressure onto the player's chosen cost.",
+			}, {
+				ID:           "risk_silence",
+				Label:        "Risk silence and keep the record away from Tonto.",
+				TargetNodeID: "silence",
+				PlayerIntent: "Risk loyalty and knowledge by keeping the witness away from the record.",
+			}},
+		}, {
+			ID:      "record",
+			Title:   "Record Kept",
+			Beats:   []scene.Beat{{Text: "The record remains visible, and the cost becomes public."}},
+			Choices: []scene.Choice{},
+		}, {
+			ID:      "silence",
+			Title:   "Silence Held",
+			Beats:   []scene.Beat{{Text: "The record is hidden, and trust becomes dangerous."}},
 			Choices: []scene.Choice{},
 		}},
 	}

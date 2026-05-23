@@ -98,6 +98,143 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	}
 }
 
+func TestCreateWithLocalToolsRetriesWhenRequiredToolUseMissing(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+
+	root := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(root, "story"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "story", "current-node.json"), []byte(`{"id":"turn_3"}`+"\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls int
+	var retryInput string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		var req map[string]any
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			t.Fatal(err)
+		}
+		if calls == 2 {
+			raw, err := json.Marshal(req["input"])
+			if err != nil {
+				t.Fatal(err)
+			}
+			retryInput = string(raw)
+		}
+		w.Header().Set("Content-Type", "text/event-stream")
+		switch calls {
+		case 1:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"premature"}]}}`))
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		case 2:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"function_call","call_id":"call_1","name":"exec_command","arguments":"{\"cmd\":\"cat story/current-node.json\"}"}}`))
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		case 3:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done"}]}}`))
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		default:
+			t.Fatalf("unexpected call %d", calls)
+		}
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "draft packet",
+	}, LocalToolOptions{
+		Root:                  root,
+		Logger:                logger,
+		ToolCategory:          "writer",
+		CallerRole:            "writer",
+		CallerSpeaker:         "Writer",
+		RunID:                 "run-required",
+		VisiblePaths:          []string{"story"},
+		RequireToolUse:        true,
+		ToolUseRequiredReason: "Writer refreshes must perform one narrow grounding read before drafting.",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "done" {
+		t.Fatalf("response = %#v", resp)
+	}
+	if !strings.Contains(retryInput, "Writer refreshes must perform one narrow grounding read") || !strings.Contains(retryInput, "story/current-node.json") {
+		t.Fatalf("retry input missing grounding reminder: %s", retryInput)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if retries := eventsNamed(events, "writer.provider.tool_required_retry"); len(retries) != 1 {
+		t.Fatalf("required retry events = %#v", retries)
+	}
+	if toolEvents := eventsNamed(events, "writer.provider.tool_use", "writer.provider.tool_result"); len(toolEvents) != 2 {
+		t.Fatalf("tool events = %#v", toolEvents)
+	}
+	if calls != 3 {
+		t.Fatalf("provider calls = %d", calls)
+	}
+}
+
+func TestCreateWithLocalToolsFailsWhenRequiredToolUseStillMissing(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls int
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		w.Header().Set("Content-Type", "text/event-stream")
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"still no tools"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	_, err = client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "draft packet",
+	}, LocalToolOptions{
+		Root:           root,
+		MaxRounds:      2,
+		Logger:         logger,
+		ToolCategory:   "writer",
+		RunID:          "run-required-fail",
+		RequireToolUse: true,
+	})
+	if err == nil || !strings.Contains(err.Error(), "without required local tool call") {
+		t.Fatalf("expected required tool error, got %v", err)
+	}
+	if calls != 2 {
+		t.Fatalf("provider calls = %d", calls)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if failed := eventsNamed(events, "writer.provider.failed"); len(failed) != 1 {
+		t.Fatalf("failed events = %#v", failed)
+	}
+}
+
 func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
 	t.Setenv(codexMinCallIntervalEnv, "0")
 

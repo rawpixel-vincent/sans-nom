@@ -3553,12 +3553,14 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		renderer = narrator.ClaudeRenderer{Runner: runner}
 	}
 	return narrator.Service{
-		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
-		Renderer:         renderer,
-		Logger:           cfg.Logger,
-		Turn:             turn,
-		ActorContextText: narratorContext.RenderActorText(),
-		ContextBudget:    narratorBudget,
+		Actors:               &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, SkipMissingActors: true},
+		Renderer:             renderer,
+		Logger:               cfg.Logger,
+		Turn:                 turn,
+		RunID:                fmt.Sprintf("turn-%06d", turn),
+		ActorContextText:     narratorContext.RenderActorText(),
+		RehearsalArtifactDir: rehearsalRunDir(cfg, turn),
+		ContextBudget:        narratorBudget,
 	}.Rollout(ctx, packet, nodeID, decision, narratorContextText)
 }
 
@@ -4111,14 +4113,16 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		}
 	}
 	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(ctx, writer.Input{
-		Current:          packet,
-		LatestDecision:   decisionText(decision.ChoiceID, decision.FreeText),
-		ContextText:      writerContextText,
-		RunID:            runID,
-		ArtifactDir:      runDir,
-		SpentMotifs:      writerContext.Progression.SpentMotifs,
-		RequiredMovement: writerContext.Progression.RequiredMovement,
-		ContextBudget:    writerBudget,
+		Current:              packet,
+		LatestDecision:       decisionText(decision.ChoiceID, decision.FreeText),
+		ContextText:          writerContextText,
+		RunID:                runID,
+		ArtifactDir:          runDir,
+		SpentMotifs:          writerContext.Progression.SpentMotifs,
+		RequiredMovement:     writerContext.Progression.RequiredMovement,
+		ContextBudget:        writerBudget,
+		RegisteredActorIDs:   writerActorIDs(writerContext.ActorManifest),
+		ActorManifestSummary: writerActorManifestSummary(writerContext.ActorManifest),
 	})
 	if err != nil {
 		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
@@ -4910,6 +4914,10 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, scenaristTool, loreExpertTool, actorTool, maxToolRounds)
 		runner = configureCodexToolLogging(runner, logger, "writer", "writer", "Writer", runID, 0, "", "", "")
 		runner.ContextBudget = contextBudget
+		if runner.LocalTools {
+			runner.RequireToolUse = true
+			runner.ToolUseReason = "Writer refreshes must perform one narrow grounding read before drafting so the central story planner proves it inspected staged story state."
+		}
 		return writer.ClaudePlanner{Runner: runner}
 	}
 }
@@ -5205,6 +5213,58 @@ func writerRunInfo(cfg playConfig) (string, string) {
 		return segment, ""
 	}
 	return segment, filepath.Join(cfg.Workspace.ModelRunsDir(), "writer", segment)
+}
+
+func rehearsalRunDir(cfg playConfig, turn int) string {
+	if cfg.Workspace == nil {
+		return ""
+	}
+	return filepath.Join(cfg.Workspace.ModelRunsDir(), "rehearsal", fmt.Sprintf("turn-%06d", turn))
+}
+
+func writerActorIDs(manifest []contextbundle.ActorManifestItem) []string {
+	ids := make([]string, 0, len(manifest))
+	for _, actor := range manifest {
+		if strings.TrimSpace(actor.PeerID) != "" {
+			ids = append(ids, strings.TrimSpace(actor.PeerID))
+		}
+	}
+	return uniqueWriterActorIDs(ids)
+}
+
+func writerActorManifestSummary(manifest []contextbundle.ActorManifestItem) string {
+	if len(manifest) == 0 {
+		return ""
+	}
+	var parts []string
+	for _, actor := range manifest {
+		part := strings.TrimSpace(actor.PeerID)
+		if actor.DisplayName != "" {
+			part += " (" + actor.DisplayName + ")"
+		}
+		if actor.Reason != "" {
+			part += ": " + actor.Reason
+		}
+		parts = append(parts, part)
+	}
+	return strings.Join(parts, "; ")
+}
+
+func uniqueWriterActorIDs(values []string) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(values))
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		if _, ok := seen[value]; ok {
+			continue
+		}
+		seen[value] = struct{}{}
+		out = append(out, value)
+	}
+	return out
 }
 
 func prepareStoryAgentScope(cfg playConfig, role string, runID string, packet scene.StoryPacket, nodeID string, contextText string) (agentfs.Scope, error) {

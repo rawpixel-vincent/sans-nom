@@ -43,6 +43,7 @@ func (c NarratorContext) narratorSections() []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
+			fmt.Fprintf(b, "This is a game: keep the player character centered, make the scene entertaining to play, and aim pressure at player agency.\n")
 			fmt.Fprintf(b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
 			fmt.Fprintf(b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
 			fmt.Fprintf(b, "Honor the lorepack scenario contract and use lore references as fidelity support for this active scenario.\n")
@@ -113,6 +114,7 @@ func (c WriterContext) writerSections() []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 600, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
+			fmt.Fprintf(b, "This is a game: keep the player character at the dramatic center, make the next pressure entertaining to play, and give the player agency rather than only lore procedure.\n")
 			fmt.Fprintf(b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
 			fmt.Fprintf(b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
 			fmt.Fprintf(b, "Honor the lorepack scenario contract; branch inside its pressure, choice logic, and consequences.\n")
@@ -510,6 +512,7 @@ func writePlanningConstraintsBody(b *strings.Builder) {
 	fmt.Fprintln(b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
 	fmt.Fprintln(b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
 	fmt.Fprintln(b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
+	fmt.Fprintln(b, "- When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the backstage rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.")
 	fmt.Fprintln(b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")
 	fmt.Fprintln(b, "- Treat lore references as support for the active scenario, not as automatic all-cast inventory.")
 }

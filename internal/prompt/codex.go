@@ -47,6 +47,8 @@ type CodexRunner struct {
 	NodeID           string
 	RunID            string
 	ContextBudget    map[string]any
+	RequireToolUse   bool
+	ToolUseReason    string
 }
 
 func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
@@ -277,21 +279,23 @@ func (r CodexRunner) localToolOptions() codexoauth.LocalToolOptions {
 		root = "."
 	}
 	return codexoauth.LocalToolOptions{
-		Root:          root,
-		MaxRounds:     r.MaxToolRounds,
-		ExtraTools:    r.ExtraTools,
-		VisiblePaths:  r.ToolVisiblePaths,
-		Logger:        r.Logger,
-		ToolCategory:  r.ToolCategory,
-		CallerRole:    r.CallerRole,
-		CallerSpeaker: r.CallerSpeaker,
-		StoryID:       r.StoryID,
-		Turn:          r.Turn,
-		PacketID:      r.PacketID,
-		NodeID:        r.NodeID,
-		RunID:         r.RunID,
-		ModelMetadata: r.ModelMetadata(),
-		ContextBudget: r.ContextBudget,
+		Root:                  root,
+		MaxRounds:             r.MaxToolRounds,
+		ExtraTools:            r.ExtraTools,
+		VisiblePaths:          r.ToolVisiblePaths,
+		Logger:                r.Logger,
+		ToolCategory:          r.ToolCategory,
+		CallerRole:            r.CallerRole,
+		CallerSpeaker:         r.CallerSpeaker,
+		StoryID:               r.StoryID,
+		Turn:                  r.Turn,
+		PacketID:              r.PacketID,
+		NodeID:                r.NodeID,
+		RunID:                 r.RunID,
+		ModelMetadata:         r.ModelMetadata(),
+		ContextBudget:         r.ContextBudget,
+		RequireToolUse:        r.RequireToolUse,
+		ToolUseRequiredReason: r.ToolUseReason,
 	}
 }
 

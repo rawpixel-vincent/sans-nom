@@ -15,6 +15,7 @@ Plan the next bounded StoryPacket from the witnessed story so far, the latest pl
 
 Creative priorities:
 - Continue from canon; do not restart the story.
+- This is a game: keep the player character at the dramatic center, make the next pressure entertaining to play, and give the player agency rather than only lore procedure.
 - Treat the active lorepack master summary in system context as always available background; use current story context and staged files for exact local decisions.
 - Show what the player decision changes now: pressure, relationship, danger, opportunity, or irreversible cost.
 - Keep the next choice playable, emotionally specific, and visually memorable.
@@ -35,12 +36,14 @@ Packet contract:
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
 - Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST; if no matching actor card exists, keep actor_needs empty and express the character/object behavior as beats.
+- Actors are not background flavor. When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the backstage rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:
 - The assembled Writer context below is the authoritative continuation brief. Do not re-read staged story files just to reconstruct history already present in this prompt.
 - This is a continuation refresh, not seed generation. Do not perform the lorepack minimum orientation pass here, and do not read lorepack/navigation.md as a default step.
-- Local read tools can inspect curated workspace files under story/, scenarists/, and lorepack/ when a specific fact is missing. Use them sparingly: prefer 0-4 targeted tool calls, then draft the packet.
+- When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json.
+- After that grounding read, local tools can inspect curated workspace files under story/, scenarists/, and lorepack/ when a specific fact is missing. Use them sparingly: prefer 1-4 targeted tool calls total, then draft the packet.
 - Do not run broad inventory commands such as find ., find story, find lorepack, or read every narration file. If an exact file is needed, read one named story file or one named lorepack source file.
 - Use lorepack/ only for concrete pack contract or reference checks that the assembled context cannot answer. Prefer one focused rg/read or ask_lore_expert over browsing manifests, wiki, and multiple volume summaries.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
@@ -85,9 +88,10 @@ func NarratorPrompt(node scene.SceneNode, actorJSON string, context string) stri
 	packetBytes, _ := json.MarshalIndent(node, "", "  ")
 	return fmt.Sprintf(`You are the Narrator for Sans-Nom.
 
-You receive one selected StoryPacket node and actor raw material. Turn it into the player-facing scene.
+You receive one selected StoryPacket node and an actor rehearsal bundle. Turn it into the player-facing scene.
 
 Narration priorities:
+- This is a game: keep the player character at the center of the scene, make the moment entertaining to play, and aim every pressure point at player agency.
 - Lead with scene, character action, sensory detail, and emotional movement.
 - Make the player character's situation legible through what happens, what people do, and what the place demands.
 - Let doctrine, law, technology, or taboo appear through lived consequence rather than exposition.
@@ -101,18 +105,19 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
-- Actor raw material is not canon by itself. Only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
+- Actor rehearsal material is not canon by itself. Use usable actor dialogue/action when it serves the player-facing scene, but only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
+- Do not let actor performance steal protagonism from the player character; actors should sharpen pressure, opposition, temptation, humor, or consequence around the player.
 - Use curated_card_updates only for concise facts the rolled-out scene just proved about an actor or a directional relationship. Do not copy private interiors, unused alternatives, Writer drafts, or unsurfaced actor material into card updates.
 - When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json. If a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use provided lore context first after that grounding read; do not run broad inventory commands unless exact file names are missing.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
-- Surface actor messages only from provided actor raw material. If actor raw material is [], surfaced_actor_messages must be [].
+- Surface actor messages only from provided actor rehearsal outputs. If rehearsal actor_outputs is [], surfaced_actor_messages must be [].
 
 Selected node:
 %s
 
-Actor raw material:
+Actor rehearsal bundle:
 %s
 
 Context:
@@ -150,6 +155,7 @@ Create the durable StoryBible and opening StoryPacket for the selected lorepack 
 
 Your creative job:
 - Stage the authored lorepack scenario contract into a playable opening; treat it as a pressure field, not a fixed one-scene template.
+- This is a game: keep the player character at the dramatic center, make the opening entertaining to play, and make choices feel like player agency rather than lore procedure.
 - Treat the active lorepack master summary in system context as your stable source-lore baseline.
 - Let the contract supply premise logic while freshness comes from staging, consequence, and branch pressure.
 - Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles.

@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
@@ -15,7 +17,7 @@ import (
 )
 
 type Renderer interface {
-	Render(ctx context.Context, node scene.SceneNode, actorOutputs []actors.Output, context string) (Draft, error)
+	Render(ctx context.Context, node scene.SceneNode, rehearsal RehearsalResult, context string) (Draft, error)
 }
 
 type Draft struct {
@@ -26,20 +28,37 @@ type Draft struct {
 }
 
 type Service struct {
-	Actors           *actors.Service
-	Renderer         Renderer
-	Logger           *gamelog.Writer
-	Turn             int
-	ActorContextText string
-	ContextBudget    any
+	Actors               *actors.Service
+	Renderer             Renderer
+	Logger               *gamelog.Writer
+	Turn                 int
+	RunID                string
+	ActorContextText     string
+	RehearsalArtifactDir string
+	ContextBudget        any
 }
 
 type Rollout struct {
 	Node         scene.SceneNode
 	ActorRaw     []actors.Output
+	Rehearsal    RehearsalResult
 	Draft        Draft
 	Commit       scene.Commit
 	NextChoiceID string
+}
+
+type RehearsalResult struct {
+	PacketID      string             `json:"packet_id"`
+	NodeID        string             `json:"node_id"`
+	RunID         string             `json:"run_id,omitempty"`
+	Turn          int                `json:"turn,omitempty"`
+	ActorNeeds    []scene.ActorNeed  `json:"actor_needs,omitempty"`
+	ActorOutputs  []actors.Output    `json:"actor_outputs"`
+	Warnings      []string           `json:"warnings,omitempty"`
+	ArtifactDir   string             `json:"artifact_dir,omitempty"`
+	ArtifactPaths []string           `json:"artifact_paths,omitempty"`
+	ModelMetadata modelmeta.Metadata `json:"model_metadata,omitempty"`
+	NonCanonScope string             `json:"non_canon_scope"`
 }
 
 func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, context string) (Rollout, error) {
@@ -69,21 +88,12 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 		})
 	}
 
-	var actorRaw []actors.Output
-	if s.Actors != nil {
-		actorService := *s.Actors
-		actorService.PacketID = packet.ID
-		actorService.Turn = s.Turn
-		actorContext := context
-		if strings.TrimSpace(s.ActorContextText) != "" {
-			actorContext = s.ActorContextText
-		}
-		actorRaw, err = actorService.InvokeForNode(ctx, node, actorContext)
-		if err != nil {
-			return Rollout{}, err
-		}
+	rehearsal, err := s.runRehearsal(ctx, packet, node, context)
+	if err != nil {
+		return Rollout{}, err
 	}
-	rawActors, _ := json.Marshal(actorRaw)
+	actorRaw := rehearsal.ActorOutputs
+	rawActors, _ := json.Marshal(rehearsal)
 	promptText := prompt.NarratorPrompt(node, string(rawActors), context)
 	metadata := rendererModelMetadata(s.Renderer)
 	logEvent(s.Logger, gamelog.Event{
@@ -105,13 +115,14 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			"prompt":         promptText,
 			"context_text":   context,
 			"node":           node,
+			"rehearsal":      rehearsal,
 			"actor_outputs":  actorRaw,
 			"decision":       decision,
 			"model_metadata": metadata,
 			"context_budget": s.ContextBudget,
 		},
 	})
-	draft, err := s.Renderer.Render(ctx, node, actorRaw, context)
+	draft, err := s.Renderer.Render(ctx, node, rehearsal, context)
 	if err != nil {
 		logEvent(s.Logger, gamelog.Event{
 			Level:    gamelog.LevelError,
@@ -125,6 +136,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 				"prompt":         promptText,
 				"context_text":   context,
 				"node":           node,
+				"rehearsal":      rehearsal,
 				"actor_outputs":  actorRaw,
 				"decision":       decision,
 				"error":          err.Error(),
@@ -166,6 +178,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 				"prompt":         promptText,
 				"context_text":   context,
 				"node":           node,
+				"rehearsal":      rehearsal,
 				"actor_outputs":  actorRaw,
 				"draft":          draft,
 				"decision":       decision,
@@ -175,7 +188,188 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 		})
 		return Rollout{}, err
 	}
-	return Rollout{Node: node, ActorRaw: actorRaw, Draft: draft, Commit: commit}, nil
+	return Rollout{Node: node, ActorRaw: actorRaw, Rehearsal: rehearsal, Draft: draft, Commit: commit}, nil
+}
+
+func (s Service) runRehearsal(ctx context.Context, packet scene.StoryPacket, node scene.SceneNode, narratorContext string) (RehearsalResult, error) {
+	result := RehearsalResult{
+		PacketID:      packet.ID,
+		NodeID:        node.ID,
+		RunID:         s.RunID,
+		Turn:          s.Turn,
+		ActorNeeds:    append([]scene.ActorNeed(nil), node.ActorNeeds...),
+		ActorOutputs:  []actors.Output{},
+		ArtifactDir:   filepath.ToSlash(s.RehearsalArtifactDir),
+		NonCanonScope: "Actor rehearsal is backstage planning/performance material. Only Narrator surfaced_actor_messages and curated_card_updates can become witnessed actor memory.",
+	}
+	if s.Actors == nil || len(node.ActorNeeds) == 0 {
+		return result, nil
+	}
+
+	actorService := *s.Actors
+	actorService.PacketID = packet.ID
+	actorService.Turn = s.Turn
+	actorContext := narratorContext
+	if strings.TrimSpace(s.ActorContextText) != "" {
+		actorContext = s.ActorContextText
+	}
+	metadata := actorInvokerModelMetadata(actorService.Invoker)
+	result.ModelMetadata = metadata
+
+	logEvent(s.Logger, gamelog.Event{
+		Category: "rehearsal",
+		Event:    "rehearsal.started",
+		Message:  "actor rehearsal started",
+		Turn:     s.Turn,
+		PacketID: packet.ID,
+		NodeID:   node.ID,
+		RunID:    s.RunID,
+		Fields: modelmeta.MergeFields(map[string]any{
+			"actor_need_count": len(node.ActorNeeds),
+			"artifact_dir":     filepath.ToSlash(s.RehearsalArtifactDir),
+		}, metadata),
+		Detail: map[string]any{
+			"node":            node,
+			"actor_needs":     node.ActorNeeds,
+			"actor_context":   actorContext,
+			"non_canon_scope": result.NonCanonScope,
+			"artifact_dir":    filepath.ToSlash(s.RehearsalArtifactDir),
+			"model_metadata":  metadata,
+		},
+	})
+	for _, need := range node.ActorNeeds {
+		logEvent(s.Logger, gamelog.Event{
+			Category: "rehearsal",
+			Event:    "rehearsal.actor.request",
+			Message:  "actor rehearsal requested",
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			RunID:    s.RunID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"actor_id": need.ActorID,
+				"mode":     need.Mode,
+				"reason":   need.Reason,
+			}, metadata),
+			Detail: map[string]any{
+				"need":            need,
+				"node":            node,
+				"non_canon_scope": result.NonCanonScope,
+				"model_metadata":  metadata,
+			},
+		})
+	}
+
+	outputs, err := actorService.InvokeForNode(ctx, node, actorContext)
+	if err != nil {
+		logEvent(s.Logger, gamelog.Event{
+			Level:    gamelog.LevelError,
+			Category: "rehearsal",
+			Event:    "rehearsal.failed",
+			Message:  err.Error(),
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			RunID:    s.RunID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"actor_need_count": len(node.ActorNeeds),
+			}, metadata),
+			Detail: map[string]any{
+				"node":            node,
+				"actor_needs":     node.ActorNeeds,
+				"error":           err.Error(),
+				"non_canon_scope": result.NonCanonScope,
+				"model_metadata":  metadata,
+			},
+		})
+		return result, err
+	}
+	result.ActorOutputs = outputs
+	for _, output := range outputs {
+		logEvent(s.Logger, gamelog.Event{
+			Category: "rehearsal",
+			Event:    "rehearsal.actor.completed",
+			Message:  "actor rehearsal completed",
+			Turn:     s.Turn,
+			PacketID: packet.ID,
+			NodeID:   node.ID,
+			RunID:    s.RunID,
+			Fields: modelmeta.MergeFields(map[string]any{
+				"actor_id":     output.ActorID,
+				"has_dialogue": strings.TrimSpace(output.Dialogue) != "",
+				"has_action":   strings.TrimSpace(output.Action) != "",
+				"has_interior": strings.TrimSpace(output.Interior) != "",
+			}, metadata),
+			Detail: map[string]any{
+				"output":          output,
+				"non_canon_scope": result.NonCanonScope,
+				"model_metadata":  metadata,
+			},
+		})
+	}
+	if err := s.writeRehearsalArtifacts(&result, node); err != nil {
+		result.Warnings = append(result.Warnings, "write rehearsal artifacts: "+err.Error())
+	}
+	logEvent(s.Logger, gamelog.Event{
+		Category: "rehearsal",
+		Event:    "rehearsal.completed",
+		Message:  "actor rehearsal completed",
+		Turn:     s.Turn,
+		PacketID: packet.ID,
+		NodeID:   node.ID,
+		RunID:    s.RunID,
+		Fields: modelmeta.MergeFields(map[string]any{
+			"actor_output_count": len(result.ActorOutputs),
+			"artifact_dir":       result.ArtifactDir,
+			"artifact_count":     len(result.ArtifactPaths),
+		}, metadata),
+		Detail: map[string]any{
+			"rehearsal":      result,
+			"artifact_dir":   result.ArtifactDir,
+			"artifact_paths": result.ArtifactPaths,
+			"model_metadata": metadata,
+		},
+	})
+	return result, nil
+}
+
+func (s Service) writeRehearsalArtifacts(result *RehearsalResult, node scene.SceneNode) error {
+	if strings.TrimSpace(s.RehearsalArtifactDir) == "" {
+		return nil
+	}
+	if err := os.MkdirAll(s.RehearsalArtifactDir, 0o755); err != nil {
+		return err
+	}
+	files := []struct {
+		name  string
+		value any
+	}{
+		{"selected-node.json", node},
+		{"actor-outputs.json", result.ActorOutputs},
+		{"manifest.json", result},
+	}
+	for _, file := range files {
+		path := filepath.Join(s.RehearsalArtifactDir, file.name)
+		if err := writeJSONFile(path, file.value); err != nil {
+			return err
+		}
+		result.ArtifactPaths = append(result.ArtifactPaths, filepath.ToSlash(path))
+	}
+	result.ArtifactDir = filepath.ToSlash(s.RehearsalArtifactDir)
+	return nil
+}
+
+func writeJSONFile(path string, value any) error {
+	data, err := json.MarshalIndent(value, "", "  ")
+	if err != nil {
+		return err
+	}
+	data = append(data, '\n')
+	tmp := path + ".tmp"
+	if err := os.WriteFile(tmp, data, 0o644); err != nil {
+		return err
+	}
+	return os.Rename(tmp, path)
 }
 
 func filterUnsupportedActorNeeds(node scene.SceneNode, service *actors.Service) (scene.SceneNode, []actors.UnsupportedActorNeed) {
@@ -366,6 +560,19 @@ func rendererModelMetadata(renderer Renderer) modelmeta.Metadata {
 	return provider.ModelMetadata()
 }
 
+func actorInvokerModelMetadata(invoker actors.Invoker) modelmeta.Metadata {
+	if invoker == nil {
+		return modelmeta.Metadata{}
+	}
+	provider, ok := invoker.(interface {
+		ModelMetadata() modelmeta.Metadata
+	})
+	if !ok {
+		return modelmeta.Metadata{}
+	}
+	return provider.ModelMetadata()
+}
+
 type StaticRenderer struct{}
 
 func (StaticRenderer) ModelMetadata() modelmeta.Metadata {
@@ -376,14 +583,14 @@ func (StaticRenderer) ModelMetadata() modelmeta.Metadata {
 	}
 }
 
-func (StaticRenderer) Render(_ context.Context, node scene.SceneNode, actorOutputs []actors.Output, _ string) (Draft, error) {
+func (StaticRenderer) Render(_ context.Context, node scene.SceneNode, rehearsal RehearsalResult, _ string) (Draft, error) {
 	var prose strings.Builder
 	for _, beat := range node.Beats {
 		prose.WriteString(beat.Text)
 		prose.WriteString("\n\n")
 	}
 	var surfaced []scene.ActorMessage
-	for _, output := range actorOutputs {
+	for _, output := range rehearsal.ActorOutputs {
 		surface := strings.TrimSpace(strings.Join([]string{output.Dialogue, output.Action}, " "))
 		if surface == "" {
 			continue
@@ -420,11 +627,11 @@ func (r ClaudeRenderer) ModelMetadata() modelmeta.Metadata {
 	return provider.ModelMetadata()
 }
 
-func (r ClaudeRenderer) Render(ctx context.Context, node scene.SceneNode, actorOutputs []actors.Output, context string) (Draft, error) {
+func (r ClaudeRenderer) Render(ctx context.Context, node scene.SceneNode, rehearsal RehearsalResult, context string) (Draft, error) {
 	if r.Runner == nil {
 		return Draft{}, errors.New("claude renderer needs runner")
 	}
-	rawActors, _ := json.Marshal(actorOutputs)
+	rawActors, _ := json.Marshal(rehearsal)
 	text := prompt.NarratorPrompt(node, string(rawActors), context)
 	raw, err := r.Runner.Run(ctx, text)
 	if err != nil {

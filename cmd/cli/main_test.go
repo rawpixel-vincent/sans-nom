@@ -341,6 +341,9 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "writer" || codex.RunID != "run-1" {
 		t.Fatalf("refresh writer missing tool logging metadata: %#v", codex)
 	}
+	if !codex.RequireToolUse || !strings.Contains(codex.ToolUseReason, "grounding read") {
+		t.Fatalf("refresh writer should require a grounding tool call: %#v", codex)
+	}
 }
 
 func TestNarratorCodexRunnerGetsReadTools(t *testing.T) {
@@ -2051,10 +2054,12 @@ func cliTestBundle(id string) story.SeedBundle {
 					ID:           "open",
 					Label:        "Open your hand as you enter.",
 					TargetNodeID: "decision",
+					PlayerIntent: "Claim agency by entering openly and accepting public witness pressure.",
 				}, {
 					ID:           "quiet",
 					Label:        "Keep your hand closed.",
 					TargetNodeID: "decision",
+					PlayerIntent: "Control what the hall knows by risking distrust before the public cost.",
 				}},
 			}, {
 				ID:    "decision",
@@ -2069,14 +2074,17 @@ func cliTestBundle(id string) story.SeedBundle {
 					ID:           "pay",
 					Label:        "Open the ledger.",
 					TargetNodeID: "opened",
+					PlayerIntent: "Accept duty and bodily cost to protect the record from erasure.",
 				}, {
 					ID:           "refuse",
 					Label:        "Refuse the ledger.",
 					TargetNodeID: "refused",
+					PlayerIntent: "Refuse public duty and risk status to keep agency over the record.",
 				}, {
 					ID:           "accuse",
 					Label:        "Accuse the rival clerk.",
 					TargetNodeID: "accused",
+					PlayerIntent: "Challenge the rival's control and reveal knowledge before the hall.",
 				}},
 			}, {
 				ID:      "opened",

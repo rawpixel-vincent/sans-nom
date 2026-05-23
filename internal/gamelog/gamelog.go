@@ -30,6 +30,7 @@ var categories = map[string]struct{}{
 	"writer":    {},
 	"narrator":  {},
 	"actor":     {},
+	"rehearsal": {},
 	"scenarist": {},
 	"model":     {},
 	"lore":      {},
