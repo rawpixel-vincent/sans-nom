@@ -1151,6 +1151,10 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	if err != nil {
 		return story.SeedBundle{}, err
 	}
+	verifierRunner, err := seedVerifierRunner(cfg, pack, agentScope, loreExpertTool, logger)
+	if err != nil {
+		return story.SeedBundle{}, err
+	}
 	logEvent(logger, gamelog.Event{
 		Category: "story",
 		Event:    "story.seed.context.completed",
@@ -1165,7 +1169,8 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 			"workshop_output_dir":         filepath.ToSlash(workshopOutputDir),
 			"scenario_contract_seed_mode": scenarioContractSeedMode(pack),
 			"agent_workspace_root":        filepath.ToSlash(agentScope.Root),
-			"writer_tools_attached":       writerRunnerHasTools(writerRunner),
+			"writer_tools_attached":       runnerHasLocalTools(writerRunner),
+			"verifier_tools_attached":     runnerHasLocalTools(verifierRunner),
 			"scenarist_tool_attached":     scenaristTool != nil,
 			"lore_expert_tool_attached":   loreExpertTool != nil,
 		},
@@ -1182,7 +1187,7 @@ func generateSeedBundle(ctx context.Context, cfg seedRuntimeConfig, storyRoot st
 	return seed.Service{
 		Writer:          writerRunner,
 		WorkshopWriter:  workshopRunner,
-		Verifier:        seedRunnerForPack(cfg.Backend, false, pack),
+		Verifier:        verifierRunner,
 		MaxIterations:   3,
 		Logger:          logger,
 		WorkshopDir:     workshopOutputDir,
@@ -1302,6 +1307,39 @@ func masterLoreSystemPromptFromScope(scope agentfs.Scope, base string) string {
 
 func seedWriterRunner(cfg seedRuntimeConfig, scope agentfs.Scope, _ *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
 	return seedCreativeRunner(cfg, "SeedBundle", prompt.SeedBundleSchema(), scope, nil, loreExpertTool, logger)
+}
+
+func seedVerifierRunner(cfg seedRuntimeConfig, pack lorepack.Pack, scope agentfs.Scope, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
+	switch cfg.Backend {
+	case "static":
+		return nil, nil
+	case "claude":
+		runner := claudeRunner()
+		runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
+		return runner, nil
+	default:
+		runner := seedVerifierCodexRunner()
+		runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
+		if strings.TrimSpace(scope.Root) == "" {
+			runner.SystemPrompt = masterLoreSystemPromptForPack(pack, runner.SystemPrompt)
+		} else {
+			if err := scope.Ensure(); err != nil {
+				return nil, err
+			}
+			runner.LocalTools = true
+			runner.ToolRoot = scope.Root
+			runner.ToolVisiblePaths = append([]string(nil), scope.VisiblePaths...)
+			if cfg.ScenaristRounds > 0 {
+				runner.MaxToolRounds = cfg.ScenaristRounds
+			} else {
+				runner.MaxToolRounds = 24
+			}
+			if loreExpertTool != nil {
+				runner.ExtraTools = []codexoauth.LocalTool{loreExpertTool.LocalTool()}
+			}
+		}
+		return configureCodexToolLogging(runner, logger, "model", "nerd-verifier", "Nerd Verifier", "", 0, "", "", ""), nil
+	}
 }
 
 func seedWorkshopRunner(cfg seedRuntimeConfig, scope agentfs.Scope, toolRunner *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, logger *gamelog.Writer) (prompt.Runner, error) {
@@ -1692,9 +1730,9 @@ func writeMarkdownList(b *strings.Builder, title string, values []string) {
 	}
 }
 
-func writerRunnerHasTools(runner prompt.Runner) bool {
+func runnerHasLocalTools(runner prompt.Runner) bool {
 	codex, ok := runner.(prompt.CodexRunner)
-	return ok && codex.LocalTools && len(codex.ExtraTools) > 0
+	return ok && codex.LocalTools
 }
 
 func seedRunner(backend string, seedBundle bool) prompt.Runner {
@@ -1727,6 +1765,7 @@ func seedRunnerForPack(backend string, seedBundle bool, pack lorepack.Pack) prom
 
 func seedVerifierCodexRunner() prompt.CodexRunner {
 	runner := codexRunner("SeedReview", prompt.SeedReviewSchema())
+	runner.Timeout = verifierCodexModelTimeout()
 	if model := strings.TrimSpace(os.Getenv("SANS_NOM_VERIFIER_CODEX_MODEL")); model != "" {
 		runner.Model = model
 	} else {
@@ -5198,7 +5237,10 @@ func playTTSConfigFromFlags(enabled bool, baseURL string, model string, voice st
 	}
 }
 
-const defaultAgentModelTimeout = 45 * time.Minute
+const (
+	defaultAgentModelTimeout    = 45 * time.Minute
+	defaultVerifierCodexTimeout = 5 * time.Minute
+)
 
 func sharedModelTimeout() time.Duration {
 	return envDurationMS("SANS_NOM_MODEL_TIMEOUT_MS", defaultAgentModelTimeout)
@@ -5206,6 +5248,19 @@ func sharedModelTimeout() time.Duration {
 
 func codexModelTimeout() time.Duration {
 	return envDurationMS("SANS_NOM_CODEX_TIMEOUT_MS", sharedModelTimeout())
+}
+
+func verifierCodexModelTimeout() time.Duration {
+	if strings.TrimSpace(os.Getenv("SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS")) != "" {
+		return envDurationMS("SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS", codexModelTimeout())
+	}
+	if strings.TrimSpace(os.Getenv("SANS_NOM_CODEX_TIMEOUT_MS")) != "" {
+		return codexModelTimeout()
+	}
+	if strings.TrimSpace(os.Getenv("SANS_NOM_MODEL_TIMEOUT_MS")) != "" {
+		return sharedModelTimeout()
+	}
+	return defaultVerifierCodexTimeout
 }
 
 func claudeModelTimeout() time.Duration {

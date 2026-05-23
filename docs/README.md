@@ -88,10 +88,18 @@ with millisecond environment variables:
 
 - `SANS_NOM_MODEL_TIMEOUT_MS` — shared default for model agents.
 - `SANS_NOM_CODEX_TIMEOUT_MS` — Codex Writer/Narrator/Verifier/Actor override.
+- `SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS` — seed verifier Codex override; defaults to `300000`.
 - `SANS_NOM_CODEX_MIN_CALL_INTERVAL_MS` — minimum wait between Codex local-tool provider calls; defaults to `10000`, set `0` to disable.
 - `SANS_NOM_CLAUDE_TIMEOUT_MS` — Claude runner override.
 - `SANS_NOM_SCENARIST_TIMEOUT_MS` — Scenarist provider override.
 - `SANS_NOM_WRITER_AWAIT_TIMEOUT_MS` — Writer refresh wait override.
+
+## Local Go SDK
+
+Go is pinned to the repo-local SDK installed by `scripts/install-go.sh`.
+The current pinned SDK is `go1.26.3`, installed under `.go-sdk/`, and the
+pre-commit hook plus `make test` use `.go-sdk/go/bin/go` rather than a
+system-wide `go` binary.
 
 ## How to navigate
 

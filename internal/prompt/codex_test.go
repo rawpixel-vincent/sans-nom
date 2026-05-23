@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"testing"
+	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
@@ -213,6 +214,90 @@ func TestCodexRunnerRetriesTransientNetworkFailure(t *testing.T) {
 	}
 }
 
+func TestCodexRunnerLogsDirectProviderLifecycle(t *testing.T) {
+	client := &retryClient{}
+	logger := gamelog.NewWriter(t.TempDir(), "story-1")
+	runner := CodexRunner{
+		Client:        client,
+		Model:         "gpt-5.5",
+		Effort:        "medium",
+		ServiceTier:   "priority",
+		SchemaName:    "SeedReview",
+		Logger:        logger,
+		ToolCategory:  "model",
+		CallerRole:    "nerd-verifier",
+		CallerSpeaker: "Nerd Verifier",
+	}
+
+	out, err := runner.Run(context.Background(), "verify seed")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != "ok" {
+		t.Fatalf("output = %q", out)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 2 {
+		t.Fatalf("events = %#v", events)
+	}
+	if events[0].Event != "model.provider.request" || events[0].Fields["status"] != "pending" {
+		t.Fatalf("unexpected request event: %#v", events[0])
+	}
+	if events[1].Event != "model.provider.response" || events[1].Fields["status"] != "completed" || events[1].Fields["response_chars"] != float64(2) {
+		t.Fatalf("unexpected response event: %#v", events[1])
+	}
+	detail, err := logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	mapped, ok := detail.(map[string]any)
+	if !ok || mapped["schema_name"] != "SeedReview" || mapped["caller_role"] != "nerd-verifier" || mapped["prompt"] != nil {
+		t.Fatalf("unexpected request detail: %#v", detail)
+	}
+}
+
+func TestCodexRunnerRetriesAfterAttemptTimeout(t *testing.T) {
+	client := &timeoutThenOKClient{}
+	logger := gamelog.NewWriter(t.TempDir(), "story-1")
+	runner := CodexRunner{
+		Client:        client,
+		Model:         "gpt-5.5",
+		Effort:        "medium",
+		Timeout:       10 * time.Millisecond,
+		Logger:        logger,
+		ToolCategory:  "model",
+		CallerRole:    "nerd-verifier",
+		CallerSpeaker: "Nerd Verifier",
+	}
+
+	out, err := runner.Run(context.Background(), "verify seed")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != "ok" {
+		t.Fatalf("output = %q", out)
+	}
+	if client.calls != 2 {
+		t.Fatalf("calls = %d", client.calls)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 4 {
+		t.Fatalf("events = %#v", events)
+	}
+	if events[1].Event != "model.provider.failed" || events[1].Fields["will_retry"] != true {
+		t.Fatalf("expected timeout failure with retry: %#v", events[1])
+	}
+	if events[2].Event != "model.provider.request" || events[3].Event != "model.provider.response" {
+		t.Fatalf("expected resent request and response: %#v", events)
+	}
+}
+
 func TestRetryableCodexErrorIncludesSocketDisconnects(t *testing.T) {
 	for _, message := range []string{
 		"read tcp 192.168.1.39:64645->172.64.155.209:443: read: can't assign requested address",
@@ -220,6 +305,7 @@ func TestRetryableCodexErrorIncludesSocketDisconnects(t *testing.T) {
 		"read tcp 10.0.0.2:1234->1.2.3.4:443: read: connection reset by peer",
 		"dial tcp: lookup api.openai.com: temporary failure in name resolution",
 		"dial tcp: connect: network is unreachable",
+		"context deadline exceeded",
 	} {
 		if !IsRetryableCodexError(errors.New(message)) {
 			t.Fatalf("expected retryable error for %q", message)
@@ -300,6 +386,19 @@ func (c *retryClient) Create(context.Context, map[string]any) (map[string]any, e
 		err := c.errs[0]
 		c.errs = c.errs[1:]
 		return nil, err
+	}
+	return map[string]any{"output_text": "ok"}, nil
+}
+
+type timeoutThenOKClient struct {
+	calls int
+}
+
+func (c *timeoutThenOKClient) Create(ctx context.Context, _ map[string]any) (map[string]any, error) {
+	c.calls++
+	if c.calls == 1 {
+		<-ctx.Done()
+		return nil, ctx.Err()
 	}
 	return map[string]any{"output_text": "ok"}, nil
 }

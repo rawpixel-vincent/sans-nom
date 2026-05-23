@@ -91,6 +91,8 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "nerd-verifier", "System", "mention", "pending", "@NerdVerifier "+stringField(detail, "prompt"))}
 	case "seed.verifier.response":
 		return []backstageMessage{b.message(event, "nerd-verifier", "Nerd Verifier", "response", "completed", stringField(detail, "response"))}
+	case "seed.verifier.failed":
+		return []backstageMessage{b.message(event, "nerd-verifier", "Nerd Verifier", "error", "failed", errorText(event, detail))}
 	case "writer.refresh.started":
 		return []backstageMessage{b.writerArtifactMessage(event, "System", "mention", "pending", "@Writer "+firstNonEmpty(readArtifactText(b.root, event, "artifact_dir", "input.txt"), event.Message))}
 	case "writer.refresh.completed":
@@ -130,6 +132,18 @@ func (b backstageBuilder) messagesForEvent(event gamelog.Event, activeCaller bac
 		return []backstageMessage{b.message(event, "scenarist", "Scenarist", "tool_request", "pending", providerToolUseText(event, detail))}
 	case "scenarist.provider.tool_result":
 		return []backstageMessage{b.message(event, "tool", firstNonEmpty(stringFromFields(event, "tool_name"), "Tool"), "tool_response", "completed", providerToolResultText(event, detail))}
+	case "writer.provider.request", "narrator.provider.request", "model.provider.request":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "pending", event.Message)}
+	case "writer.provider.wait", "narrator.provider.wait", "model.provider.wait":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "pending", event.Message)}
+	case "writer.provider.response", "narrator.provider.response", "model.provider.response":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "status", "completed", event.Message)}
+	case "writer.provider.failed", "narrator.provider.failed", "model.provider.failed":
+		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
+		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "error", "failed", errorText(event, detail))}
 	case "writer.provider.tool_use", "narrator.provider.tool_use", "model.provider.tool_use":
 		caller := toolCaller(event, detail, activeCaller, defaultToolCaller(event))
 		return []backstageMessage{b.message(event, caller.Role, caller.Speaker, "tool_request", "pending", providerToolUseText(event, detail))}

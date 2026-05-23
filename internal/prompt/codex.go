@@ -56,9 +56,6 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	if timeout == 0 {
 		timeout = 15 * time.Minute
 	}
-	ctx, cancel := context.WithTimeout(ctx, timeout)
-	defer cancel()
-
 	client := r.Client
 	if client == nil {
 		created, err := codexoauth.NewClient(codexoauth.Options{
@@ -76,17 +73,32 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	body := r.RequestBody(text)
 	const maxAttempts = 3
 	for attempt := 0; attempt < maxAttempts; attempt++ {
+		callCtx, cancel := context.WithTimeout(ctx, timeout)
 		if r.LocalTools {
 			toolClient, ok := client.(LocalToolCodexClient)
 			if !ok {
+				cancel()
 				return "", errors.New("codex runner local tools require a client with CreateWithLocalTools")
 			}
-			resp, err = toolClient.CreateWithLocalTools(ctx, body, r.localToolOptions())
+			resp, err = toolClient.CreateWithLocalTools(callCtx, body, r.localToolOptions())
 		} else {
-			resp, err = client.Create(ctx, body)
+			r.logProviderRequest(attempt+1, maxAttempts, len(text))
+			resp, err = client.Create(callCtx, body)
+			if err != nil {
+				retryable := retryableCodexError(err)
+				willRetry := retryable && attempt < maxAttempts-1 && ctx.Err() == nil
+				r.logProviderFailure(attempt+1, maxAttempts, err, len(text), retryable, willRetry)
+			} else {
+				r.logProviderResponse(attempt+1, maxAttempts, len(text), outputTextLength(resp))
+			}
 		}
-		if err == nil || !retryableCodexError(err) {
+		cancel()
+		retryable := retryableCodexError(err)
+		if err == nil || !retryable {
 			break
+		}
+		if ctx.Err() != nil {
+			return "", ctx.Err()
 		}
 		if attempt < maxAttempts-1 {
 			select {
@@ -107,6 +119,79 @@ func (r CodexRunner) Run(ctx context.Context, text string) (string, error) {
 	return output, nil
 }
 
+func (r CodexRunner) logProviderRequest(attempt int, maxAttempts int, promptChars int) {
+	r.logProviderEvent("request", "pending", "Codex provider request started", map[string]any{
+		"attempt":      attempt,
+		"max_attempts": maxAttempts,
+		"prompt_chars": promptChars,
+	})
+}
+
+func (r CodexRunner) logProviderResponse(attempt int, maxAttempts int, promptChars int, responseChars int) {
+	r.logProviderEvent("response", "completed", "Codex provider response received", map[string]any{
+		"attempt":        attempt,
+		"max_attempts":   maxAttempts,
+		"prompt_chars":   promptChars,
+		"response_chars": responseChars,
+	})
+}
+
+func (r CodexRunner) logProviderFailure(attempt int, maxAttempts int, err error, promptChars int, retryable bool, willRetry bool) {
+	r.logProviderEvent("failed", "failed", err.Error(), map[string]any{
+		"attempt":      attempt,
+		"max_attempts": maxAttempts,
+		"prompt_chars": promptChars,
+		"error":        err.Error(),
+		"retryable":    retryable,
+		"will_retry":   willRetry,
+	})
+}
+
+func (r CodexRunner) logProviderEvent(suffix string, status string, message string, detail map[string]any) {
+	if r.Logger == nil {
+		return
+	}
+	category := strings.TrimSpace(r.ToolCategory)
+	if category == "" {
+		category = "model"
+	}
+	detail["schema_name"] = r.SchemaName
+	detail["caller_role"] = r.CallerRole
+	detail["caller_speaker"] = r.CallerSpeaker
+	detail["model_metadata"] = r.ModelMetadata()
+	fields := modelmeta.MergeFields(map[string]any{
+		"status":          status,
+		"attempt":         detail["attempt"],
+		"max_attempts":    detail["max_attempts"],
+		"prompt_chars":    detail["prompt_chars"],
+		"response_chars":  detail["response_chars"],
+		"schema_name":     r.SchemaName,
+		"caller_role":     r.CallerRole,
+		"caller_speaker":  r.CallerSpeaker,
+		"local_tools":     r.LocalTools,
+		"provider_status": suffix,
+		"retryable":       detail["retryable"],
+		"will_retry":      detail["will_retry"],
+	}, r.ModelMetadata())
+	_ = r.Logger.Append(gamelog.Event{
+		Category: category,
+		Event:    category + ".provider." + suffix,
+		StoryID:  r.StoryID,
+		Turn:     r.Turn,
+		PacketID: r.PacketID,
+		NodeID:   r.NodeID,
+		RunID:    r.RunID,
+		Message:  message,
+		Fields:   fields,
+		Detail:   detail,
+	})
+}
+
+func outputTextLength(resp map[string]any) int {
+	output, _ := resp["output_text"].(string)
+	return len(output)
+}
+
 func retryableCodexError(err error) bool {
 	return IsRetryableCodexError(err)
 }
@@ -115,8 +200,12 @@ func IsRetryableCodexError(err error) bool {
 	if err == nil {
 		return false
 	}
+	if errors.Is(err, context.DeadlineExceeded) {
+		return true
+	}
 	message := strings.ToLower(err.Error())
 	for _, pattern := range []string{
+		"context deadline exceeded",
 		"internal_error",
 		"stream error",
 		"unexpected eof",

@@ -16,6 +16,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/actors"
 	"github.com/rawpixel-vincent/sans-nom/internal/actortool"
 	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
@@ -79,16 +80,23 @@ func TestEnvBoolDefaultAllowsOptOut(t *testing.T) {
 func TestModelTimeoutDefaultsAndOverrides(t *testing.T) {
 	t.Setenv("SANS_NOM_MODEL_TIMEOUT_MS", "")
 	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "")
+	t.Setenv("SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS", "")
 	t.Setenv("SANS_NOM_CLAUDE_TIMEOUT_MS", "")
 	t.Setenv("SANS_NOM_SCENARIST_TIMEOUT_MS", "")
 	t.Setenv("SANS_NOM_WRITER_AWAIT_TIMEOUT_MS", "")
 	if got := sharedModelTimeout(); got != 45*time.Minute {
 		t.Fatalf("shared timeout = %s", got)
 	}
+	if got := verifierCodexModelTimeout(); got != 5*time.Minute {
+		t.Fatalf("verifier default timeout = %s", got)
+	}
 
 	t.Setenv("SANS_NOM_MODEL_TIMEOUT_MS", "1234")
 	if got := codexRunner("Test", nil).Timeout; got != 1234*time.Millisecond {
 		t.Fatalf("codex shared timeout = %s", got)
+	}
+	if got := verifierCodexModelTimeout(); got != 1234*time.Millisecond {
+		t.Fatalf("verifier shared timeout = %s", got)
 	}
 	if got := claudeRunner().Timeout; got != 1234*time.Millisecond {
 		t.Fatalf("claude shared timeout = %s", got)
@@ -101,11 +109,15 @@ func TestModelTimeoutDefaultsAndOverrides(t *testing.T) {
 	}
 
 	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "2345")
+	t.Setenv("SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS", "6789")
 	t.Setenv("SANS_NOM_CLAUDE_TIMEOUT_MS", "3456")
 	t.Setenv("SANS_NOM_SCENARIST_TIMEOUT_MS", "4567")
 	t.Setenv("SANS_NOM_WRITER_AWAIT_TIMEOUT_MS", "5678")
 	if got := codexRunner("Test", nil).Timeout; got != 2345*time.Millisecond {
 		t.Fatalf("codex specific timeout = %s", got)
+	}
+	if got := verifierCodexModelTimeout(); got != 6789*time.Millisecond {
+		t.Fatalf("verifier specific timeout = %s", got)
 	}
 	if got := claudeRunner().Timeout; got != 3456*time.Millisecond {
 		t.Fatalf("claude specific timeout = %s", got)
@@ -118,8 +130,12 @@ func TestModelTimeoutDefaultsAndOverrides(t *testing.T) {
 	}
 
 	t.Setenv("SANS_NOM_CODEX_TIMEOUT_MS", "not-a-number")
+	t.Setenv("SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS", "not-a-number")
 	if got := codexRunner("Test", nil).Timeout; got != 1234*time.Millisecond {
 		t.Fatalf("invalid codex timeout should fall back to shared timeout, got %s", got)
+	}
+	if got := verifierCodexModelTimeout(); got != 1234*time.Millisecond {
+		t.Fatalf("invalid verifier timeout should fall back to codex/shared timeout, got %s", got)
 	}
 }
 
@@ -271,6 +287,36 @@ func TestSeedVerifierRunnerDefaultsToXHighGPT55(t *testing.T) {
 	}
 }
 
+func TestSeedVerifierRunnerGetsReadAndLoreTools(t *testing.T) {
+	logger := gamelog.NewWriter(t.TempDir(), "story-test")
+	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "writer").WithVisiblePaths("lorepack")
+	loreTool := &loreexpert.ToolRunner{}
+
+	runner, err := seedVerifierRunner(seedRuntimeConfig{
+		Backend:         "codex",
+		ScenaristRounds: 5,
+	}, lorepack.Pack{ID: "metabarons"}, scope, loreTool, logger)
+	if err != nil {
+		t.Fatal(err)
+	}
+	codex, ok := runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected CodexRunner, got %T", runner)
+	}
+	if !codex.LocalTools || codex.ToolRoot != scope.Root || codex.MaxToolRounds != 5 {
+		t.Fatalf("verifier local tools not configured: %#v", codex)
+	}
+	if len(codex.ToolVisiblePaths) != 1 || codex.ToolVisiblePaths[0] != "lorepack" {
+		t.Fatalf("visible paths = %#v", codex.ToolVisiblePaths)
+	}
+	if !hasTool(codex.ExtraTools, "ask_lore_expert") {
+		t.Fatalf("verifier missing lore expert tool: %#v", codex.ExtraTools)
+	}
+	if codex.Logger != logger || codex.ToolCategory != "model" || codex.CallerRole != "nerd-verifier" || codex.CallerSpeaker != "Nerd Verifier" {
+		t.Fatalf("verifier missing tool logging metadata: %#v", codex)
+	}
+}
+
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
 	scope := agentfs.New(t.TempDir(), "writer").WithVisiblePaths(".")
@@ -294,6 +340,45 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	}
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "writer" || codex.RunID != "run-1" {
 		t.Fatalf("refresh writer missing tool logging metadata: %#v", codex)
+	}
+}
+
+func TestNarratorCodexRunnerGetsReadTools(t *testing.T) {
+	logger := gamelog.NewWriter(t.TempDir(), "story-test")
+	scope := agentfs.New(filepath.Join(t.TempDir(), "agent"), "narrator").WithVisiblePaths("story", "lorepack")
+
+	runner := codexRunnerWithReadTools("NarratorDraft", prompt.NarratorDraftSchema(), scope, logger, "narrator", "narrator", "Narrator", 3, "packet-1", "node-1")
+
+	if !runner.LocalTools || runner.ToolRoot != scope.Root || runner.MaxToolRounds != 8 {
+		t.Fatalf("narrator read tools not configured: %#v", runner)
+	}
+	if len(runner.ToolVisiblePaths) != 2 || runner.ToolVisiblePaths[0] != "story" || runner.ToolVisiblePaths[1] != "lorepack" {
+		t.Fatalf("visible paths = %#v", runner.ToolVisiblePaths)
+	}
+	if runner.Logger != logger || runner.ToolCategory != "narrator" || runner.CallerRole != "narrator" || runner.CallerSpeaker != "Narrator" {
+		t.Fatalf("narrator missing tool logging metadata: %#v", runner)
+	}
+	if runner.Turn != 3 || runner.PacketID != "packet-1" || runner.NodeID != "node-1" {
+		t.Fatalf("narrator missing story coordinates: %#v", runner)
+	}
+}
+
+func TestActorCodexRunnersStayContextOnly(t *testing.T) {
+	runner := codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), "metabarons")
+	if runner.LocalTools || runner.ToolRoot != "" || len(runner.ToolVisiblePaths) != 0 || len(runner.ExtraTools) != 0 {
+		t.Fatalf("actor runner should not expose read or local tools: %#v", runner)
+	}
+
+	invoker, ok := adminActorInvoker("codex", "metabarons").(actors.ClaudeInvoker)
+	if !ok {
+		t.Fatalf("expected actor ClaudeInvoker, got %T", adminActorInvoker("codex", "metabarons"))
+	}
+	adminRunner, ok := invoker.Runner.(prompt.CodexRunner)
+	if !ok {
+		t.Fatalf("expected actor CodexRunner, got %T", invoker.Runner)
+	}
+	if adminRunner.LocalTools || adminRunner.ToolRoot != "" || len(adminRunner.ToolVisiblePaths) != 0 || len(adminRunner.ExtraTools) != 0 {
+		t.Fatalf("admin actor chat runner should remain context-only: %#v", adminRunner)
 	}
 }
 

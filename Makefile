@@ -1,12 +1,17 @@
-.PHONY: test cli sidecar dev lore-manifest lore-extract-dry-run lore-extract-volume-1 lore-validate lore-ingest lore-index-build lore-index-validate lore-index-ingest lore-index-smoke peer-identity-map peer-validate
+GO_BIN := $(CURDIR)/.go-sdk/go/bin/go
 
-test:
-	go test ./...
+.PHONY: go-sdk test cli sidecar dev lore-manifest lore-extract-dry-run lore-extract-volume-1 lore-validate lore-ingest lore-index-build lore-index-validate lore-index-ingest lore-index-smoke peer-identity-map peer-validate
+
+go-sdk:
+	scripts/install-go.sh --yes
+
+test: go-sdk
+	$(GO_BIN) test ./...
 	python3 -m compileall bridge/src
 	uv run --project bridge pytest bridge/tests -q
 
-cli:
-	go run ./cmd/cli
+cli: go-sdk
+	$(GO_BIN) run ./cmd/cli
 
 sidecar:
 	uv run --project bridge uvicorn bridge.main:app --host 127.0.0.1 --port 8787
