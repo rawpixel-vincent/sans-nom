@@ -10,6 +10,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -18,7 +19,11 @@ import (
 	"mvdan.cc/sh/v3/syntax"
 )
 
-const defaultMaxToolRounds = 24
+const (
+	codexMinCallIntervalEnv     = "SANS_NOM_CODEX_MIN_CALL_INTERVAL_MS"
+	defaultMaxToolRounds        = 24
+	defaultMinCodexCallInterval = 10 * time.Second
+)
 
 var readOnlyCommands = map[string]bool{
 	"cat":  true,
@@ -40,11 +45,12 @@ var readOnlyCommands = map[string]bool{
 // LocalToolOptions enables a minimal local shell-like tool loop for models
 // called directly through the Codex backend.
 type LocalToolOptions struct {
-	Root         string
-	MaxRounds    int
-	ExtraTools   []LocalTool
-	Logger       *gamelog.Writer
-	VisiblePaths []string
+	Root            string
+	MaxRounds       int
+	MinCallInterval time.Duration
+	ExtraTools      []LocalTool
+	Logger          *gamelog.Writer
+	VisiblePaths    []string
 
 	ToolCategory  string
 	CallerRole    string
@@ -82,6 +88,7 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	if maxRounds <= 0 {
 		maxRounds = defaultMaxToolRounds
 	}
+	minCallInterval := localToolMinCallInterval(opts)
 
 	visiblePaths := existingVisiblePaths(root, opts.VisiblePaths)
 	current := cloneMap(body)
@@ -90,6 +97,10 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 	opts.VisiblePaths = visiblePaths
 
 	for round := 0; round < maxRounds; round++ {
+		if err := waitBeforeLocalToolProviderRound(ctx, opts, round+1, maxRounds, minCallInterval); err != nil {
+			logLocalToolProviderFailure(opts, round+1, maxRounds, err)
+			return nil, err
+		}
 		logLocalToolProviderRequest(opts, round+1, maxRounds)
 		response, err := c.createLocalToolRound(ctx, current)
 		if err != nil {
@@ -117,6 +128,39 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		current["input"] = input
 	}
 	return nil, fmt.Errorf("model exceeded %d local tool rounds", maxRounds)
+}
+
+func localToolMinCallInterval(opts LocalToolOptions) time.Duration {
+	if opts.MinCallInterval > 0 {
+		return opts.MinCallInterval
+	}
+	raw, ok := os.LookupEnv(codexMinCallIntervalEnv)
+	if !ok {
+		return defaultMinCodexCallInterval
+	}
+	ms, err := strconv.ParseInt(strings.TrimSpace(raw), 10, 64)
+	if err != nil {
+		return defaultMinCodexCallInterval
+	}
+	if ms <= 0 {
+		return 0
+	}
+	return time.Duration(ms) * time.Millisecond
+}
+
+func waitBeforeLocalToolProviderRound(ctx context.Context, opts LocalToolOptions, round int, maxRounds int, interval time.Duration) error {
+	if round <= 1 || interval <= 0 {
+		return nil
+	}
+	logLocalToolProviderWait(opts, round, maxRounds, interval)
+	timer := time.NewTimer(interval)
+	defer timer.Stop()
+	select {
+	case <-ctx.Done():
+		return ctx.Err()
+	case <-timer.C:
+		return nil
+	}
 }
 
 func localToolDefinitions(extra []LocalTool, visiblePaths []string) []any {
@@ -334,6 +378,14 @@ func logLocalToolProviderRequest(opts LocalToolOptions, round int, maxRounds int
 	})
 }
 
+func logLocalToolProviderWait(opts LocalToolOptions, round int, maxRounds int, interval time.Duration) {
+	logLocalToolProviderEvent(opts, "wait", "pending", fmt.Sprintf("Waiting %s before next Codex provider request", interval), map[string]any{
+		"round":                round,
+		"max_rounds":           maxRounds,
+		"min_call_interval_ms": interval.Milliseconds(),
+	})
+}
+
 func logLocalToolProviderResponse(opts LocalToolOptions, round int, maxRounds int, calls []functionCall) {
 	logLocalToolProviderEvent(opts, "response", "completed", fmt.Sprintf("Codex provider response received with %d local tool call(s)", len(calls)), map[string]any{
 		"round":           round,
@@ -362,6 +414,7 @@ func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status
 		"status":               status,
 		"round":                detail["round"],
 		"max_rounds":           detail["max_rounds"],
+		"min_call_interval_ms": detail["min_call_interval_ms"],
 		"tool_call_count":      detail["tool_call_count"],
 		"agent_workspace_root": filepath.ToSlash(opts.Root),
 	}, opts.ModelMetadata)

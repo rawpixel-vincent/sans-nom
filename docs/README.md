@@ -88,6 +88,7 @@ with millisecond environment variables:
 
 - `SANS_NOM_MODEL_TIMEOUT_MS` — shared default for model agents.
 - `SANS_NOM_CODEX_TIMEOUT_MS` — Codex Writer/Narrator/Verifier/Actor override.
+- `SANS_NOM_CODEX_MIN_CALL_INTERVAL_MS` — minimum wait between Codex local-tool provider calls; defaults to `10000`, set `0` to disable.
 - `SANS_NOM_CLAUDE_TIMEOUT_MS` — Claude runner override.
 - `SANS_NOM_SCENARIST_TIMEOUT_MS` — Scenarist provider override.
 - `SANS_NOM_WRITER_AWAIT_TIMEOUT_MS` — Writer refresh wait override.

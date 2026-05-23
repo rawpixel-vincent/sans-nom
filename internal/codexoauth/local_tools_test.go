@@ -10,12 +10,15 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/modelmeta"
 )
 
 func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+
 	root := t.TempDir()
 	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("workshop material\n"), 0o644); err != nil {
 		t.Fatal(err)
@@ -96,6 +99,8 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 }
 
 func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+
 	root := t.TempDir()
 	authPath := filepath.Join(root, "auth.json")
 	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
@@ -203,6 +208,102 @@ func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
 	}
 	if !strings.Contains(fmt.Sprint(detail), "actor-call-001/material.json") {
 		t.Fatalf("tool result detail missing actor artifact: %#v", detail)
+	}
+}
+
+func TestCreateWithLocalToolsWaitsBetweenProviderRounds(t *testing.T) {
+	root := t.TempDir()
+	if err := os.WriteFile(filepath.Join(root, "notes.md"), []byte("workshop material\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls int
+	var callTimes []time.Time
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		callTimes = append(callTimes, time.Now())
+		w.Header().Set("Content-Type", "text/event-stream")
+		switch calls {
+		case 1:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"function_call","call_id":"call_1","name":"exec_command","arguments":"{\"cmd\":\"cat notes.md\"}"}}`))
+		case 2:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done"}]}}`))
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		default:
+			t.Fatalf("unexpected call %d", calls)
+		}
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "read notes",
+	}, LocalToolOptions{
+		Root:            root,
+		MinCallInterval: 30 * time.Millisecond,
+		Logger:          logger,
+		ToolCategory:    "writer",
+		RunID:           "run-wait",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "done" {
+		t.Fatalf("response = %#v", resp)
+	}
+	if len(callTimes) != 2 {
+		t.Fatalf("callTimes = %#v", callTimes)
+	}
+	if elapsed := callTimes[1].Sub(callTimes[0]); elapsed < 30*time.Millisecond {
+		t.Fatalf("provider calls were not spaced out: %s", elapsed)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	waitEvents := eventsNamed(events, "writer.provider.wait")
+	if len(waitEvents) != 1 {
+		t.Fatalf("wait events = %#v", waitEvents)
+	}
+	if fmt.Sprint(waitEvents[0].Fields["min_call_interval_ms"]) != "30" {
+		t.Fatalf("unexpected wait event: %#v", waitEvents[0])
+	}
+}
+
+func TestLocalToolMinCallIntervalUsesEnv(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "25")
+
+	if got := localToolMinCallInterval(LocalToolOptions{}); got != 25*time.Millisecond {
+		t.Fatalf("interval = %s", got)
+	}
+}
+
+func TestLocalToolMinCallIntervalDefaultsToTenSeconds(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "")
+
+	if got := localToolMinCallInterval(LocalToolOptions{}); got != defaultMinCodexCallInterval {
+		t.Fatalf("blank interval = %s", got)
+	}
+
+	t.Setenv(codexMinCallIntervalEnv, "not-a-number")
+	if got := localToolMinCallInterval(LocalToolOptions{}); got != defaultMinCodexCallInterval {
+		t.Fatalf("invalid interval = %s", got)
+	}
+}
+
+func TestLocalToolMinCallIntervalCanBeDisabled(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+
+	if got := localToolMinCallInterval(LocalToolOptions{}); got != 0 {
+		t.Fatalf("interval = %s", got)
 	}
 }
 
