@@ -36,6 +36,7 @@ class CommitRequest(BaseModel):
     actor_messages: list[ActorMessage] = Field(default_factory=list)
     events: list[CanonEvent] = Field(default_factory=list)
     witnesses: list[str] = Field(default_factory=list)
+    observer_peer_ids: list[str] = Field(default_factory=list)
 
 
 class SceneContextRequest(BaseModel):

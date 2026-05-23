@@ -24,6 +24,7 @@ import (
 	"time"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/actors"
+	"github.com/rawpixel-vincent/sans-nom/internal/actortool"
 	"github.com/rawpixel-vincent/sans-nom/internal/admin"
 	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
 	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
@@ -258,6 +259,12 @@ func main() {
 		}
 	} else {
 		log.Fatal("no story source: run without flags for the live menu, or pass -story-id or -packet")
+	}
+	if workspace != nil {
+		cardStore, err = contextbundle.LoadStoryCardStore(cardStore, workspace.Dir)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	decision := scene.PlayerDecision{
 		ChoiceID: *choiceID,
@@ -1138,7 +1145,7 @@ func seedCreativeRunner(cfg seedRuntimeConfig, schemaName string, schema map[str
 				return nil, err
 			}
 		}
-		runner := codexRunnerWithMaterialAccess(schemaName, schema, scope, toolRunner, loreExpertTool, cfg.ScenaristRounds)
+		runner := codexRunnerWithMaterialAccess(schemaName, schema, scope, toolRunner, loreExpertTool, nil, cfg.ScenaristRounds)
 		return configureCodexToolLogging(runner, logger, "writer", "creative-writer", "Creative Writer", "", 0, "", "", ""), nil
 	}
 }
@@ -2024,10 +2031,14 @@ func runPlayRaw(ctx context.Context, cfg playConfig) error {
 				PacketID: rollout.Commit.PacketID,
 				NodeID:   rollout.Commit.NodeID,
 				Fields: modelmeta.MergeFields(map[string]any{
-					"choice_count":       len(rollout.Draft.Choices),
-					"prose_chars":        len([]rune(rollout.Draft.Prose)),
-					"commit_event_count": len(rollout.Commit.Events),
-					"witness_count":      len(rollout.Commit.Witnesses),
+					"actor_raw_count":              len(rollout.ActorRaw),
+					"choice_count":                 len(rollout.Draft.Choices),
+					"prose_chars":                  len([]rune(rollout.Draft.Prose)),
+					"surfaced_actor_message_count": len(rollout.Draft.SurfacedActorMessages),
+					"curated_card_update_count":    len(rollout.Draft.CuratedCardUpdates),
+					"commit_event_count":           len(rollout.Commit.Events),
+					"witness_count":                len(rollout.Commit.Witnesses),
+					"observer_peer_count":          len(rollout.Commit.ObserverPeerIDs),
 				}, metadata),
 				Detail: map[string]any{
 					"draft":          rollout.Draft,
@@ -2285,9 +2296,11 @@ func commitDisplayedTurn(ctx context.Context, cfg playConfig, state *story.Story
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"session_id":    rollout.Commit.SessionID,
-			"event_count":   len(rollout.Commit.Events),
-			"witness_count": len(rollout.Commit.Witnesses),
+			"session_id":                rollout.Commit.SessionID,
+			"event_count":               len(rollout.Commit.Events),
+			"witness_count":             len(rollout.Commit.Witnesses),
+			"observer_peer_count":       len(rollout.Commit.ObserverPeerIDs),
+			"curated_card_update_count": len(rollout.Draft.CuratedCardUpdates),
 		},
 		Detail: map[string]any{
 			"request": rollout.Commit,
@@ -2325,16 +2338,233 @@ func commitDisplayedTurn(ctx context.Context, cfg playConfig, state *story.Story
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"session_id":    rollout.Commit.SessionID,
-			"elapsed_ms":    time.Since(commitStarted).Milliseconds(),
-			"event_count":   len(rollout.Commit.Events),
-			"witness_count": len(rollout.Commit.Witnesses),
+			"session_id":                rollout.Commit.SessionID,
+			"elapsed_ms":                time.Since(commitStarted).Milliseconds(),
+			"event_count":               len(rollout.Commit.Events),
+			"witness_count":             len(rollout.Commit.Witnesses),
+			"observer_peer_count":       len(rollout.Commit.ObserverPeerIDs),
+			"curated_card_update_count": len(rollout.Draft.CuratedCardUpdates),
 		},
 		Detail: map[string]any{
 			"request": rollout.Commit,
 		},
 	})
+	return applyCardUpdatesAfterCommit(ctx, cfg, state, client, rollout.Draft.CuratedCardUpdates, displayTurn, rollout.Commit.PacketID, rollout.Commit.NodeID)
+}
+
+func applyCardUpdatesAfterCommit(ctx context.Context, cfg playConfig, state *story.StoryState, client bridgeclient.Client, updates []scene.CardUpdate, displayTurn int, packetID string, nodeID string) error {
+	allUpdates := normalizeCardUpdates(updates)
+	if state != nil && len(state.PendingCardUpdates) > 0 {
+		allUpdates = append(normalizeCardUpdates(state.PendingCardUpdates), allUpdates...)
+	}
+	allUpdates = normalizeCardUpdates(allUpdates)
+	if len(allUpdates) == 0 {
+		if state != nil && len(state.PendingCardUpdates) > 0 {
+			state.PendingCardUpdates = nil
+			state.PendingCardUpdatesAt = ""
+			if cfg.Workspace != nil {
+				return cfg.Workspace.SaveState(*state)
+			}
+		}
+		return nil
+	}
+	workspaceID := ""
+	if state != nil {
+		workspaceID = state.WorkspaceID
+	}
+	if workspaceID == "" {
+		for _, update := range allUpdates {
+			logCardUpdateFailed(cfg.Logger, displayTurn, packetID, nodeID, update, errors.New("workspace_id is required"))
+		}
+		return savePendingCardUpdates(cfg, state, allUpdates)
+	}
+	var failed []scene.CardUpdate
+	for _, update := range allUpdates {
+		if err := applyCardUpdate(ctx, cfg.Logger, client, workspaceID, displayTurn, packetID, nodeID, update); err != nil {
+			failed = append(failed, update)
+		}
+	}
+	return savePendingCardUpdates(cfg, state, failed)
+}
+
+func applyCardUpdate(ctx context.Context, logger *gamelog.Writer, client bridgeclient.Client, workspaceID string, displayTurn int, packetID string, nodeID string, update scene.CardUpdate) error {
+	logEvent(logger, gamelog.Event{
+		Category: "honcho",
+		Event:    "honcho.card_update.request",
+		Message:  "curated actor card update requested",
+		Turn:     displayTurn,
+		PacketID: packetID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"peer_id":        update.PeerID,
+			"target_peer_id": update.TargetPeerID,
+			"fact_count":     len(update.Facts),
+		},
+		Detail: map[string]any{
+			"workspace_id": workspaceID,
+			"update":       update,
+		},
+	})
+	current, err := client.GetCard(ctx, workspaceID, update.PeerID, update.TargetPeerID)
+	if err != nil {
+		logCardUpdateFailed(logger, displayTurn, packetID, nodeID, update, err)
+		return err
+	}
+	merged, added := mergeCardFacts(current, update.Facts, 40)
+	if added == 0 {
+		logEvent(logger, gamelog.Event{
+			Category: "honcho",
+			Event:    "honcho.card_update.skipped",
+			Message:  "curated actor card update already present",
+			Turn:     displayTurn,
+			PacketID: packetID,
+			NodeID:   nodeID,
+			Fields: map[string]any{
+				"peer_id":        update.PeerID,
+				"target_peer_id": update.TargetPeerID,
+				"fact_count":     len(update.Facts),
+			},
+			Detail: map[string]any{
+				"workspace_id": workspaceID,
+				"update":       update,
+				"current":      current,
+			},
+		})
+		return nil
+	}
+	resp, err := client.PatchCard(ctx, workspaceID, update.PeerID, bridgeclient.PeerCardPatch{
+		Facts:   merged,
+		Replace: true,
+		Target:  update.TargetPeerID,
+	})
+	if err != nil {
+		logCardUpdateFailed(logger, displayTurn, packetID, nodeID, update, err)
+		return err
+	}
+	logEvent(logger, gamelog.Event{
+		Category: "honcho",
+		Event:    "honcho.card_update.completed",
+		Message:  "curated actor card update applied",
+		Turn:     displayTurn,
+		PacketID: packetID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"peer_id":             update.PeerID,
+			"target_peer_id":      update.TargetPeerID,
+			"added_fact_count":    added,
+			"response_fact_count": len(resp),
+		},
+		Detail: map[string]any{
+			"workspace_id": workspaceID,
+			"update":       update,
+			"response":     resp,
+		},
+	})
 	return nil
+}
+
+func logCardUpdateFailed(logger *gamelog.Writer, displayTurn int, packetID string, nodeID string, update scene.CardUpdate, err error) {
+	logEvent(logger, gamelog.Event{
+		Level:    gamelog.LevelError,
+		Category: "honcho",
+		Event:    "honcho.card_update.failed",
+		Message:  err.Error(),
+		Turn:     displayTurn,
+		PacketID: packetID,
+		NodeID:   nodeID,
+		Fields: map[string]any{
+			"peer_id":        update.PeerID,
+			"target_peer_id": update.TargetPeerID,
+			"fact_count":     len(update.Facts),
+		},
+		Detail: map[string]any{
+			"update": update,
+			"error":  err.Error(),
+		},
+	})
+}
+
+func savePendingCardUpdates(cfg playConfig, state *story.StoryState, failed []scene.CardUpdate) error {
+	if state == nil {
+		return nil
+	}
+	if len(failed) == 0 {
+		state.PendingCardUpdates = nil
+		state.PendingCardUpdatesAt = ""
+	} else {
+		state.PendingCardUpdates = normalizeCardUpdates(failed)
+		state.PendingCardUpdatesAt = story.NowString()
+	}
+	if cfg.Workspace == nil {
+		return nil
+	}
+	return cfg.Workspace.SaveState(*state)
+}
+
+func normalizeCardUpdates(updates []scene.CardUpdate) []scene.CardUpdate {
+	var out []scene.CardUpdate
+	seen := map[string]struct{}{}
+	for _, update := range updates {
+		peerID := strings.TrimSpace(update.PeerID)
+		if peerID == "" {
+			continue
+		}
+		facts := cleanFactList(update.Facts)
+		if len(facts) == 0 {
+			continue
+		}
+		target := strings.TrimSpace(update.TargetPeerID)
+		key := peerID + "\x00" + target + "\x00" + strings.Join(facts, "\x00")
+		if _, ok := seen[key]; ok {
+			continue
+		}
+		seen[key] = struct{}{}
+		out = append(out, scene.CardUpdate{
+			PeerID:       peerID,
+			TargetPeerID: target,
+			Facts:        facts,
+			Reason:       strings.TrimSpace(update.Reason),
+		})
+	}
+	return out
+}
+
+func mergeCardFacts(current []string, added []string, max int) ([]string, int) {
+	merged := cleanFactList(current)
+	seen := map[string]struct{}{}
+	for _, fact := range merged {
+		seen[fact] = struct{}{}
+	}
+	addedCount := 0
+	for _, fact := range cleanFactList(added) {
+		if _, ok := seen[fact]; ok {
+			continue
+		}
+		if max > 0 && len(merged) >= max {
+			break
+		}
+		seen[fact] = struct{}{}
+		merged = append(merged, fact)
+		addedCount++
+	}
+	return merged, addedCount
+}
+
+func cleanFactList(values []string) []string {
+	var out []string
+	seen := map[string]struct{}{}
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			continue
+		}
+		if _, ok := seen[value]; ok {
+			continue
+		}
+		seen[value] = struct{}{}
+		out = append(out, value)
+	}
+	return out
 }
 
 type playLoopController struct {
@@ -2494,10 +2724,14 @@ func (c *playLoopController) NextTurn(ctx context.Context) (clitui.TurnView, err
 			PacketID: rollout.Commit.PacketID,
 			NodeID:   rollout.Commit.NodeID,
 			Fields: modelmeta.MergeFields(map[string]any{
-				"choice_count":       len(rollout.Draft.Choices),
-				"prose_chars":        len([]rune(rollout.Draft.Prose)),
-				"commit_event_count": len(rollout.Commit.Events),
-				"witness_count":      len(rollout.Commit.Witnesses),
+				"actor_raw_count":              len(rollout.ActorRaw),
+				"choice_count":                 len(rollout.Draft.Choices),
+				"prose_chars":                  len([]rune(rollout.Draft.Prose)),
+				"surfaced_actor_message_count": len(rollout.Draft.SurfacedActorMessages),
+				"curated_card_update_count":    len(rollout.Draft.CuratedCardUpdates),
+				"commit_event_count":           len(rollout.Commit.Events),
+				"witness_count":                len(rollout.Commit.Witnesses),
+				"observer_peer_count":          len(rollout.Commit.ObserverPeerIDs),
 			}, metadata),
 			Detail: map[string]any{
 				"draft":          rollout.Draft,
@@ -2802,9 +3036,22 @@ func terminalHandoffBridge(node scene.SceneNode) string {
 		if note == "" {
 			continue
 		}
+		if isReflectionHandoff(note) {
+			return "[Reflect] " + upperFirst(firstSentence(note))
+		}
 		return "The scene carries forward: " + lowerFirst(note)
 	}
 	return ""
+}
+
+func isReflectionHandoff(note string) bool {
+	note = strings.ToLower(note)
+	for _, marker := range []string{"reflect", "answer", "moral question", "vow", "confession"} {
+		if strings.Contains(note, marker) {
+			return true
+		}
+	}
+	return false
 }
 
 func firstSentence(text string) string {
@@ -2827,6 +3074,15 @@ func lowerFirst(text string) string {
 	}
 	runes := []rune(text)
 	runes[0] = []rune(strings.ToLower(string(runes[0])))[0]
+	return string(runes)
+}
+
+func upperFirst(text string) string {
+	if text == "" {
+		return ""
+	}
+	runes := []rune(text)
+	runes[0] = []rune(strings.ToUpper(string(runes[0])))[0]
 	return string(runes)
 }
 
@@ -2949,8 +3205,9 @@ func loadPendingDisplayedRollout(cfg playConfig, state *story.StoryState, packet
 	rollout := narrator.Rollout{
 		Node: node,
 		Draft: narrator.Draft{
-			Prose:   record.Prose,
-			Choices: choices,
+			Prose:              record.Prose,
+			Choices:            choices,
+			CuratedCardUpdates: record.CardUpdates,
 		},
 		Commit: record.Commit,
 	}
@@ -2967,14 +3224,16 @@ func savePendingDisplayedTurn(cfg playConfig, state *story.StoryState, packet sc
 	}
 	awaitingContinuation := len(rollout.Node.Choices) == 0 && len(rollout.Node.RevisionNotes) > 0
 	record := story.TurnRecord{
-		Turn:      currentStoryTurnNumber(state, loopTurn),
-		StoryID:   state.StoryID,
-		PacketID:  rollout.Commit.PacketID,
-		NodeID:    rollout.Commit.NodeID,
-		Decision:  rollout.Commit.PlayerDecision,
-		Prose:     rollout.Draft.Prose,
-		Choices:   rollout.Node.Choices,
-		Commit:    rollout.Commit,
+		Turn:     currentStoryTurnNumber(state, loopTurn),
+		StoryID:  state.StoryID,
+		PacketID: rollout.Commit.PacketID,
+		NodeID:   rollout.Commit.NodeID,
+		Decision: rollout.Commit.PlayerDecision,
+		Prose:    rollout.Draft.Prose,
+		Choices:  rollout.Node.Choices,
+		Commit:   rollout.Commit,
+		CardUpdates: append([]scene.CardUpdate(nil),
+			rollout.Draft.CuratedCardUpdates...),
 		Committed: committed,
 		AudioPath: filepath.ToSlash(audioPath),
 		CreatedAt: story.NowString(),
@@ -3599,7 +3858,11 @@ func refreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	}
 	planner := cfg.WriterPlanner
 	if planner == nil {
-		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, scope, toolRunner, loreExpertTool, cfg.ScenaristRounds, cfg.Logger, runID)
+		actorTool, err := writerActorToolRunner(ctx, cfg, writerContext, scope, packet, nodeID, decision, runID)
+		if err != nil {
+			return scene.StoryPacket{}, err
+		}
+		planner = writerPlannerWithMaterialAccess(cfg.Backend, runner, scope, toolRunner, loreExpertTool, actorTool, cfg.ScenaristRounds, cfg.Logger, runID)
 	}
 	if toolRunner != nil {
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
@@ -3663,6 +3926,7 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 		Prose:        rollout.Draft.Prose,
 		Choices:      rollout.Node.Choices,
 		Commit:       rollout.Commit,
+		CardUpdates:  append([]scene.CardUpdate(nil), rollout.Draft.CuratedCardUpdates...),
 		Committed:    committed,
 		NextNodeID:   nextNodeID,
 		AudioPath:    filepath.ToSlash(turnAudioPath),
@@ -3680,12 +3944,14 @@ func persistStoryTurn(ctx context.Context, cfg playConfig, state *story.StorySta
 		PacketID: rollout.Commit.PacketID,
 		NodeID:   rollout.Commit.NodeID,
 		Fields: map[string]any{
-			"committed":          committed,
-			"next_node_id":       nextNodeID,
-			"choice_id":          rollout.Commit.PlayerDecision.ChoiceID,
-			"has_free_text":      rollout.Commit.PlayerDecision.FreeText != "",
-			"next_choice_id":     nextDecision.ChoiceID,
-			"next_has_free_text": nextDecision.FreeText != "",
+			"committed":           committed,
+			"next_node_id":        nextNodeID,
+			"choice_id":           rollout.Commit.PlayerDecision.ChoiceID,
+			"has_free_text":       rollout.Commit.PlayerDecision.FreeText != "",
+			"next_choice_id":      nextDecision.ChoiceID,
+			"next_has_free_text":  nextDecision.FreeText != "",
+			"card_update_count":   len(rollout.Draft.CuratedCardUpdates),
+			"observer_peer_count": len(rollout.Commit.ObserverPeerIDs),
 		},
 		Detail: map[string]any{
 			"turn_record":   record,
@@ -4338,7 +4604,7 @@ func writerRefreshModelMetadata(cfg playConfig) modelmeta.Metadata {
 	}
 }
 
-func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
+func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, actorTool *actortool.ToolRunner, maxToolRounds int, logger *gamelog.Writer, runID string) writer.Planner {
 	switch backend {
 	case "static":
 		return writer.StaticPlanner{}
@@ -4352,7 +4618,7 @@ func writerPlannerWithMaterialAccess(backend string, claude prompt.ClaudeRunner,
 		}
 		return writer.ClaudePlanner{Runner: claude}
 	default:
-		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, scenaristTool, loreExpertTool, maxToolRounds)
+		runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, scenaristTool, loreExpertTool, actorTool, maxToolRounds)
 		runner = configureCodexToolLogging(runner, logger, "writer", "writer", "Writer", runID, 0, "", "", "")
 		return writer.ClaudePlanner{Runner: runner}
 	}
@@ -4387,10 +4653,10 @@ func codexRunnerWithPackLoreID(schemaName string, schema map[string]any, packID 
 	return runner
 }
 
-func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, maxToolRounds int) prompt.CodexRunner {
+func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, scope agentfs.Scope, scenaristTool *scenarist.ToolRunner, loreExpertTool *loreexpert.ToolRunner, actorTool *actortool.ToolRunner, maxToolRounds int) prompt.CodexRunner {
 	runner := codexRunner(schemaName, schema)
 	runner.SystemPrompt = masterLoreSystemPromptFromScope(scope, runner.SystemPrompt)
-	if strings.TrimSpace(scope.Root) != "" || scenaristTool != nil || loreExpertTool != nil {
+	if strings.TrimSpace(scope.Root) != "" || scenaristTool != nil || loreExpertTool != nil || actorTool != nil {
 		if strings.TrimSpace(scope.Root) == "" {
 			scope = agentfs.New(filepath.Join(os.TempDir(), "sans-nom-agent", "scratch"), "model").WithVisiblePaths(".")
 		}
@@ -4408,6 +4674,9 @@ func codexRunnerWithMaterialAccess(schemaName string, schema map[string]any, sco
 		}
 		if loreExpertTool != nil {
 			tools = append(tools, loreExpertTool.LocalTool())
+		}
+		if actorTool != nil {
+			tools = append(tools, actorTool.LocalTool())
 		}
 		runner.ExtraTools = tools
 	}
@@ -4474,6 +4743,41 @@ func scenaristToolRunner(cfg playConfig, contextText string, outputDir string, s
 		Logger:        cfg.Logger,
 		CallerRole:    "writer",
 		CallerName:    "Writer",
+	}, nil
+}
+
+func writerActorToolRunner(_ context.Context, cfg playConfig, writerContext contextbundle.WriterContext, scope agentfs.Scope, packet scene.StoryPacket, nodeID string, decision scene.PlayerDecision, runID string) (*actortool.ToolRunner, error) {
+	if cfg.Backend != "codex" || cfg.CardStore == nil {
+		return nil, nil
+	}
+	registry, err := actorRegistry(cfg.CardStore)
+	if err != nil {
+		return nil, err
+	}
+	if len(registry.IDs()) == 0 {
+		return nil, nil
+	}
+	assembler := writerRefreshContextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.StoryCollection, cfg.Logger)
+	assembler.Options.SkipMissingActorCards = true
+	scenarioContract := scenarioContractTextForPack(cfg.GroundLorePackID)
+	outputDir := filepath.Join(scope.Root, "actors")
+	return &actortool.ToolRunner{
+		Registry:             registry,
+		Invoker:              actors.ClaudeInvoker{Runner: codexRunnerWithPackLoreID("ActorOutput", prompt.ActorOutputSchema(), cfg.GroundLorePackID)},
+		Assembler:            assembler,
+		Packet:               packet,
+		NodeID:               nodeID,
+		Decision:             decision,
+		Bible:                cfg.Bible,
+		ScenarioContractText: firstNonEmpty(scenarioContract, writerContext.ScenarioContract),
+		OutputDir:            outputDir,
+		WorkspaceRoot:        scope.Root,
+		VisiblePaths:         append([]string(nil), scope.VisiblePaths...),
+		Logger:               cfg.Logger,
+		CallerRole:           "writer",
+		CallerName:           "Writer",
+		RunID:                runID,
+		MaxCalls:             actors.Phase0ActorCap,
 	}, nil
 }
 

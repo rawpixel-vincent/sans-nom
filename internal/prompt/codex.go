@@ -257,7 +257,7 @@ func NarratorDraftSchema() map[string]any {
 	return map[string]any{
 		"type":                 "object",
 		"additionalProperties": false,
-		"required":             []string{"prose", "surfaced_actor_messages", "choices"},
+		"required":             []string{"prose", "surfaced_actor_messages", "choices", "curated_card_updates"},
 		"properties": map[string]any{
 			"prose": map[string]any{"type": "string"},
 			"surfaced_actor_messages": map[string]any{
@@ -267,6 +267,10 @@ func NarratorDraftSchema() map[string]any {
 			"choices": map[string]any{
 				"type":  "array",
 				"items": choiceSchema(),
+			},
+			"curated_card_updates": map[string]any{
+				"type":  "array",
+				"items": cardUpdateSchema(),
 			},
 		},
 	}
@@ -547,6 +551,20 @@ func actorNeedSchema() map[string]any {
 			"mode":     map[string]any{"type": "string", "enum": []string{"present", "remembered", "narrated", "valid_scene_context"}},
 			"reason":   map[string]any{"type": "string"},
 			"targets":  map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
+		},
+	}
+}
+
+func cardUpdateSchema() map[string]any {
+	return map[string]any{
+		"type":                 "object",
+		"additionalProperties": false,
+		"required":             []string{"peer_id", "target_peer_id", "facts", "reason"},
+		"properties": map[string]any{
+			"peer_id":        map[string]any{"type": "string"},
+			"target_peer_id": map[string]any{"type": "string"},
+			"facts":          map[string]any{"type": "array", "items": map[string]any{"type": "string"}},
+			"reason":         map[string]any{"type": "string"},
 		},
 	}
 }

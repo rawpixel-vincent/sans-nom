@@ -112,6 +112,8 @@ type StoryState struct {
 	PendingDecision      scene.PlayerDecision `json:"pending_decision,omitempty"`
 	PendingDecisionAt    string               `json:"pending_decision_at,omitempty"`
 	PendingTurnPath      string               `json:"pending_turn_path,omitempty"`
+	PendingCardUpdates   []scene.CardUpdate   `json:"pending_card_updates,omitempty"`
+	PendingCardUpdatesAt string               `json:"pending_card_updates_at,omitempty"`
 	PendingWriterRunID   string               `json:"pending_writer_run_id,omitempty"`
 	PendingWriterRunPath string               `json:"pending_writer_run_path,omitempty"`
 	BlockedReason        string               `json:"blocked_reason,omitempty"`
@@ -179,6 +181,7 @@ type TurnRecord struct {
 	Prose        string               `json:"prose"`
 	Choices      []scene.Choice       `json:"choices"`
 	Commit       scene.Commit         `json:"commit"`
+	CardUpdates  []scene.CardUpdate   `json:"card_updates,omitempty"`
 	Committed    bool                 `json:"committed"`
 	NextNodeID   string               `json:"next_node_id,omitempty"`
 	AudioPath    string               `json:"audio_path,omitempty"`

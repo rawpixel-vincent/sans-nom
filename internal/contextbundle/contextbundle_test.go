@@ -288,6 +288,35 @@ func TestWriterContextUsesCompactActorManifest(t *testing.T) {
 	}
 }
 
+func TestWriterContextKeepsActorManifestAheadOfLongLore(t *testing.T) {
+	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	assembler.Options.WriterSoftCap = 6000
+	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
+		ID:     "big-lore",
+		Text:   strings.Repeat("lore pressure ", 1000),
+		Source: "fixture.md",
+		Score:  0.9,
+		Kind:   "world",
+	}}}
+
+	ctx, err := assembler.AssembleWriter(context.Background(), BuildRequest{Packet: testPacket()})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	if !strings.Contains(text, "[context truncated at render cap]") {
+		t.Fatalf("test should exercise render cap:\n%s", text)
+	}
+	manifestIndex := strings.Index(text, "STORY ACTOR MANIFEST")
+	loreIndex := strings.Index(text, "LORE FIDELITY REFERENCES")
+	if manifestIndex < 0 || !strings.Contains(text, "tonto") {
+		t.Fatalf("writer context missed actor manifest before cap:\n%s", text)
+	}
+	if loreIndex >= 0 && loreIndex < manifestIndex {
+		t.Fatalf("actor manifest should precede lore references:\n%s", text)
+	}
+}
+
 func TestWriterContextDoesNotPromoteLorePeersToActors(t *testing.T) {
 	assembler := testAssembler(staticCards{
 		"tonto":  testCard("tonto"),
@@ -422,6 +451,41 @@ func TestActorRepresentationsKeepPlayerAndCapTargets(t *testing.T) {
 	}
 }
 
+func TestActorCallSeedsHonchoCardFromLocalFallback(t *testing.T) {
+	packet := testPacket()
+	bridge := fakeBridge{
+		cards: map[string][]string{},
+		reps:  map[string]string{"tonto:sans-nom": "player rep"},
+	}
+	actorCtx, text, warnings, err := (Assembler{
+		Bridge: bridge,
+		Cards:  staticCards{"tonto": testCard("tonto")},
+	}).AssembleActorCall(context.Background(), ActorCallBuildRequest{
+		Packet: packet,
+		Node:   packet.Nodes[0],
+		Need: scene.ActorNeed{
+			ActorID: "tonto",
+			Mode:    scene.ActorModePresent,
+			Reason:  "voice check",
+		},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := bridge.cards["tonto"]; len(got) != 1 || got[0] != "Name: tonto" {
+		t.Fatalf("local actor card was not seeded to Honcho fallback: %#v", got)
+	}
+	if !strings.Contains(actorCtx.CardSource, "honcho:tonto seeded from test:tonto") {
+		t.Fatalf("unexpected card source: %q", actorCtx.CardSource)
+	}
+	if !strings.Contains(text, "Name: tonto") {
+		t.Fatalf("actor context text missing seeded card:\n%s", text)
+	}
+	if !containsSubstring(warnings, "fallback card source for tonto") {
+		t.Fatalf("expected fallback warning, got %#v", warnings)
+	}
+}
+
 func TestLoreHitsDeduplicateSortAndTruncate(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
@@ -491,6 +555,40 @@ func TestLocalCardStoreLoadsAcceptedPeerCardsBeforeMarkdown(t *testing.T) {
 	}
 	if _, ok := store.LocalCard("aghora"); !ok {
 		t.Fatal("markdown fallback card should be loaded")
+	}
+}
+
+func TestStoryCardStoreOverlaysStoryActorCards(t *testing.T) {
+	dir := t.TempDir()
+	acceptedDir := filepath.Join(dir, "accepted")
+	if err := os.MkdirAll(acceptedDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	writePeerCard(t, filepath.Join(acceptedDir, "iri.json"), "Iri Itta", []string{"Name: Accepted Iri", "TRAIT: Old source"})
+	base, err := LoadLocalCardStore("", acceptedDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	storyDir := filepath.Join(dir, "story")
+	actorDir := filepath.Join(storyDir, "cards", "actors")
+	if err := os.MkdirAll(actorDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	writeFile(t, filepath.Join(actorDir, "Iri Itta.md"), "Name: Iri Itta\nTRAIT: Story-local agency\n")
+
+	store, err := LoadStoryCardStore(base, storyDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	card, ok := store.LocalCard("Iri Itta")
+	if !ok {
+		t.Fatal("missing story-local Iri card")
+	}
+	if !strings.Contains(card.Text, "Story-local agency") || strings.Contains(card.Text, "Old source") {
+		t.Fatalf("story card should override base card: %#v", card)
+	}
+	if _, ok := base.LocalCard("Iri Itta"); !ok {
+		t.Fatal("base store should remain intact")
 	}
 }
 
@@ -660,6 +758,16 @@ func (b fakeBridge) GetCard(_ context.Context, _ string, peerID string, _ string
 	return b.cards[peerID], nil
 }
 
+func (b fakeBridge) PatchCard(_ context.Context, _ string, peerID string, patch bridgeclient.PeerCardPatch) ([]string, error) {
+	if b.err != nil {
+		return nil, b.err
+	}
+	if b.cards != nil {
+		b.cards[peerID] = append([]string(nil), patch.Facts...)
+	}
+	return append([]string(nil), patch.Facts...), nil
+}
+
 type capturingBridge struct {
 	req bridgeclient.SceneContextRequest
 }
@@ -679,6 +787,10 @@ func (b *capturingBridge) Representation(_ context.Context, req bridgeclient.Rep
 }
 
 func (b *capturingBridge) GetCard(context.Context, string, string, string) ([]string, error) {
+	return nil, nil
+}
+
+func (b *capturingBridge) PatchCard(context.Context, string, string, bridgeclient.PeerCardPatch) ([]string, error) {
 	return nil, nil
 }
 

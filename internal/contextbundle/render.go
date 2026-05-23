@@ -80,12 +80,12 @@ func (c WriterContext) RenderText() string {
 
 	writeWriterSelectedNodeSummary(&b, c)
 	writeStoryProgression(&b, c.Progression)
+	writeActorManifest(&b, c.ActorManifest)
 
 	writeStringList(&b, "RECENT WITNESSED CANON", c.RecentScenes)
 	writeWriterProgressionContract(&b)
 	writeRepresentations(&b, "DIRECTIONAL REPRESENTATIONS", c.Representations)
 	writeLoreGroups(&b, c.LoreByKind)
-	writeActorManifest(&b, c.ActorManifest)
 
 	writeSection(&b, "PLANNING CONSTRAINTS")
 	fmt.Fprintln(&b, "- Revise only the current bounded packet.")

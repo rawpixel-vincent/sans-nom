@@ -23,11 +23,14 @@ Creative priorities:
 - Honor any lorepack scenario contract in the assembled context; branch inside its pressure, choice logic, and consequences.
 - Advance the story phase. Do not replay, re-adjudicate, or rename the same proof, bargain, challenge, wound, or testimony as the previous turn.
 - Obey STORY PHASE GUIDANCE when present. If it marks a proof mechanism or motif as spent, the next packet must make someone act on that proof or shift to a new macro pressure.
+- Preserve the story's pressure register. Do not default to clock/minute countdowns for urgency unless the current canon has already made measured time the active material. Prefer story-native thresholds: witness cycles closing, relays repeating, custody states hardening, biological/material changes, doors/laws/archives sealing, or a public record becoming irreversible.
+- If a scene asks the player a moral or identity question, do not strand that question on a terminal atmospheric leaf. Give the player an answer surface: a Reflect-style choice inside the packet, or revision_notes that explicitly carry the player's free-text answer into the next Writer packet.
 
 Packet contract:
 - Plan roughly 3-5 scene nodes.
 - Every choice target_node_id must point to a scene node included in this same packet.
 - For future handoff, use a terminal node with no choices and revision_notes; do not use missing placeholder targets such as "node_future_*", "continue", or "writer_continuation".
+- Terminal handoffs are not dead ends. If the branch's dramatic point is a question, accusation, vow, or confession, revision_notes must name the answer/reflection the next packet needs from the player.
 - Populate packet.metadata with Writer-owned progression strings: current_arc_phase, next_arc_phase, and spent_motifs. Use spent_motifs only for mechanisms truly spent by rolled-out canon, separated by semicolons; do not list core vocabulary just because it appeared in prose.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
@@ -42,6 +45,7 @@ Tools:
 - Use lorepack/ only for concrete pack contract or reference checks that the assembled context cannot answer. Prefer one focused rg/read or ask_lore_expert over browsing manifests, wiki, and multiple volume summaries.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert for focused lore authority/reference checks when scenario fidelity is uncertain. Treat its answers as support, not story authorship.
+- Use ask_actor when a listed story actor's will, memory, voice, or relationship pressure affects packet design. Actor material is planning-only; it can shape beats, choices, and actor_needs, but it is not canon unless a later Narrator rollout surfaces it.
 - You own the final packet shape. Scenarist and LoreExpert material is advisory.
 
 Latest user decision:
@@ -91,11 +95,14 @@ Narration priorities:
 - End at the playable pressure point and preserve the available choice ids and labels.
 - Format prose as 2-4 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
 - For branch continuations, give the selected node real scene weight: consequence from the prior choice, concrete action in the present location, and a new pressure turn before choices appear. Do not compress it into a mere transition summary.
+- If the selected node has no choices but turns on a moral question, accusation, vow, or confession, make the final movement answerable by the player instead of dissolving it into atmosphere.
 
 Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
+- Actor raw material is not canon by itself. Only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
+- Use curated_card_updates only for concise facts the rolled-out scene just proved about an actor or a directional relationship. Do not copy private interiors, unused alternatives, Writer drafts, or unsurfaced actor material into card updates.
 - Use provided lore context first. When a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
@@ -111,7 +118,7 @@ Context:
 %s
 
 Return compact JSON:
-{"prose":"player-facing prose","surfaced_actor_messages":[],"choices":[{"id":"...","label":"..."}]}`,
+{"prose":"player-facing prose","surfaced_actor_messages":[],"choices":[{"id":"...","label":"..."}],"curated_card_updates":[]}`,
 		string(packetBytes), actorJSON, context)
 }
 

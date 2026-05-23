@@ -32,6 +32,25 @@ type Output struct {
 	Action   string `json:"action,omitempty"`
 }
 
+type ActorCallRequest struct {
+	ActorID    string   `json:"actor_id"`
+	Mode       string   `json:"mode,omitempty"`
+	SceneSetup string   `json:"scene_setup,omitempty"`
+	Question   string   `json:"question,omitempty"`
+	Targets    []string `json:"targets,omitempty"`
+	NodeID     string   `json:"node_id,omitempty"`
+}
+
+type ActorMaterial struct {
+	ActorID             string   `json:"actor_id"`
+	Interior            string   `json:"interior,omitempty"`
+	Dialogue            string   `json:"dialogue,omitempty"`
+	Action              string   `json:"action,omitempty"`
+	UsedCardSource      string   `json:"used_card_source,omitempty"`
+	UsedRepresentations []string `json:"used_representations,omitempty"`
+	ArtifactPath        string   `json:"artifact_path,omitempty"`
+}
+
 type Invoker interface {
 	Invoke(ctx context.Context, actor Actor, node scene.SceneNode, need scene.ActorNeed, context string) (Output, error)
 }

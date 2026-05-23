@@ -16,7 +16,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/rawpixel-vincent/sans-nom/internal/actortool"
 	"github.com/rawpixel-vincent/sans-nom/internal/agentfs"
+	bridgeclient "github.com/rawpixel-vincent/sans-nom/internal/bridge"
 	"github.com/rawpixel-vincent/sans-nom/internal/codexoauth"
 	"github.com/rawpixel-vincent/sans-nom/internal/gamelog"
 	"github.com/rawpixel-vincent/sans-nom/internal/lore"
@@ -215,7 +217,7 @@ func TestCodexMaterialRunnerInjectsStagedMasterLoreIntoSystemPrompt(t *testing.T
 		t.Fatal(err)
 	}
 
-	runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, nil, nil, 0)
+	runner := codexRunnerWithMaterialAccess("StoryPacket", prompt.StoryPacketSchema(), scope, nil, nil, nil, 0)
 
 	for _, required := range []string{
 		"ACTIVE LOREPACK MASTER SUMMARY",
@@ -272,7 +274,7 @@ func TestSeedVerifierRunnerDefaultsToXHighGPT55(t *testing.T) {
 func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-test")
 	scope := agentfs.New(t.TempDir(), "writer").WithVisiblePaths(".")
-	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, scope, &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, 5, logger, "run-1")
+	planner := writerPlannerWithMaterialAccess("codex", prompt.ClaudeRunner{}, scope, &scenarist.ToolRunner{MaxCalls: 1}, &loreexpert.ToolRunner{PackID: "metabarons"}, &actortool.ToolRunner{}, 5, logger, "run-1")
 	claude, ok := planner.(writer.ClaudePlanner)
 	if !ok {
 		t.Fatalf("expected ClaudePlanner, got %T", planner)
@@ -287,7 +289,7 @@ func TestRefreshWriterPlannerGetsScenaristTool(t *testing.T) {
 	if codex.ToolRoot != scope.Root {
 		t.Fatalf("refresh writer tool root = %q, want %q", codex.ToolRoot, scope.Root)
 	}
-	if !hasTool(codex.ExtraTools, "ask_scenarist") || !hasTool(codex.ExtraTools, "ask_lore_expert") {
+	if !hasTool(codex.ExtraTools, "ask_scenarist") || !hasTool(codex.ExtraTools, "ask_lore_expert") || !hasTool(codex.ExtraTools, "ask_actor") {
 		t.Fatalf("refresh writer missing local tools: %#v", codex.ExtraTools)
 	}
 	if codex.Logger != logger || codex.ToolCategory != "writer" || codex.CallerRole != "writer" || codex.RunID != "run-1" {
@@ -1233,6 +1235,114 @@ func TestRunPlayRetriesUncommittedPendingTurnBeforeContinuing(t *testing.T) {
 	}
 }
 
+func TestApplyCardUpdatesAfterCommitDedupesAndClearsPending(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("card-update-success")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "card-update-success",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	state.PendingCardUpdates = []scene.CardUpdate{{
+		PeerID: "tonto",
+		Facts:  []string{"Already present"},
+		Reason: "retry",
+	}}
+	if err := workspace.SaveState(state); err != nil {
+		t.Fatal(err)
+	}
+	var patched bridgeclient.PeerCardPatch
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/peer/tonto/card" {
+			http.NotFound(w, r)
+			return
+		}
+		switch r.Method {
+		case http.MethodGet:
+			_ = json.NewEncoder(w).Encode(bridgeclient.PeerCardResponse{
+				PeerID: "tonto",
+				Facts:  []string{"Already present"},
+			})
+		case http.MethodPatch:
+			if err := json.NewDecoder(r.Body).Decode(&patched); err != nil {
+				t.Fatal(err)
+			}
+			_ = json.NewEncoder(w).Encode(bridgeclient.PeerCardResponse{
+				PeerID: "tonto",
+				Facts:  patched.Facts,
+			})
+		default:
+			http.NotFound(w, r)
+		}
+	}))
+	defer server.Close()
+
+	cfg := playConfig{
+		BridgeURL: server.URL,
+		Workspace: &workspace,
+		Logger:    gamelog.NewWriter(workspace.Dir, state.StoryID),
+	}
+	err = applyCardUpdatesAfterCommit(context.Background(), cfg, &state, bridgeclient.NewClient(server.URL, ""), []scene.CardUpdate{{
+		PeerID: "tonto",
+		Facts:  []string{"Already present", "Newly changed"},
+		Reason: "narrator curated",
+	}}, 1, "packet", "node")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !patched.Replace || len(patched.Facts) != 2 || patched.Facts[1] != "Newly changed" {
+		t.Fatalf("unexpected card patch: %#v", patched)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "card-update-success")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(loaded.PendingCardUpdates) != 0 || loaded.PendingCardUpdatesAt != "" {
+		t.Fatalf("pending card updates were not cleared: %#v", loaded.PendingCardUpdates)
+	}
+}
+
+func TestApplyCardUpdatesAfterCommitPersistsFailedUpdates(t *testing.T) {
+	root := t.TempDir()
+	bundle := cliTestBundle("card-update-failure")
+	workspace, state, err := story.InitWorkspace(story.InitOptions{
+		StoryID: "card-update-failure",
+		Root:    root,
+		Replace: true,
+	}, bundle)
+	if err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "bridge down", http.StatusServiceUnavailable)
+	}))
+	defer server.Close()
+
+	cfg := playConfig{
+		BridgeURL: server.URL,
+		Workspace: &workspace,
+		Logger:    gamelog.NewWriter(workspace.Dir, state.StoryID),
+	}
+	err = applyCardUpdatesAfterCommit(context.Background(), cfg, &state, bridgeclient.NewClient(server.URL, ""), []scene.CardUpdate{{
+		PeerID: "tonto",
+		Facts:  []string{"Tonto now distrusts the door."},
+		Reason: "narrator curated",
+	}}, 1, "packet", "node")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, loaded, err := story.LoadWorkspace(root, "card-update-failure")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(loaded.PendingCardUpdates) != 1 || loaded.PendingCardUpdates[0].Facts[0] != "Tonto now distrusts the door." || loaded.PendingCardUpdatesAt == "" {
+		t.Fatalf("failed card update was not persisted: %#v", loaded.PendingCardUpdates)
+	}
+}
+
 func TestRefreshStoryIndexReplacesRemoteCollection(t *testing.T) {
 	root := t.TempDir()
 	bundle := cliTestBundle("replace-story-index")
@@ -1452,6 +1562,18 @@ func TestTerminalHandoffBridgeUsesRevisionNote(t *testing.T) {
 		},
 	})
 	want := "The scene carries forward: pursue the armory maintenance rookery and the copied service-band phrase."
+	if got != want {
+		t.Fatalf("bridge = %q, want %q", got, want)
+	}
+}
+
+func TestTerminalHandoffBridgeMarksReflection(t *testing.T) {
+	got := terminalHandoffBridge(scene.SceneNode{
+		RevisionNotes: []string{
+			"Next packet from this branch should ask the player to reflect on what kind of saving still leaves Iri hers.",
+		},
+	})
+	want := "[Reflect] Ask the player to reflect on what kind of saving still leaves Iri hers."
 	if got != want {
 		t.Fatalf("bridge = %q, want %q", got, want)
 	}

@@ -98,7 +98,8 @@ class HonchoOps:
 
         honcho = self._client(req.workspace_id)
         session = honcho.session(req.session_id)
-        peer_ids = {honcho_peer_id(event.peer_id) for event in req.events}
+        observer_ids = req.observer_peer_ids or [event.peer_id for event in req.events]
+        peer_ids = {honcho_peer_id(peer_id) for peer_id in observer_ids}
         peers = [honcho.peer(peer_id) for peer_id in sorted(peer_ids)]
         if peers:
             session.add_peers([(peer, SessionPeerConfig(observe_others=True, observe_me=True)) for peer in peers])

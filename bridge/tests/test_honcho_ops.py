@@ -230,6 +230,39 @@ def test_commit_scene_does_not_add_every_witness_as_observer(monkeypatch) -> Non
     assert client.added_peer_ids == ["narrator"]
 
 
+def test_commit_scene_adds_explicit_observers_without_witness_fanout(monkeypatch) -> None:
+    ops = HonchoOps()
+    ops.api_key = "test-key"
+    client = FakeClient()
+    monkeypatch.setattr(ops, "_client", lambda workspace_id: client)
+
+    labels = ["sans-nom", "Crowd of sealed cousins", "Archive staff"]
+    ops.commit_scene(
+        CommitRequest(
+            workspace_id="story-one",
+            session_id="main",
+            packet_id="packet",
+            node_id="node",
+            player_decision={},
+            final_prose="prose",
+            witnesses=labels,
+            observer_peer_ids=["sans-nom", "narrator", "iri itta"],
+            events=[
+                CanonEvent(
+                    peer_id="narrator",
+                    content="Iri witnessed silently.",
+                    source="narrator",
+                    witnesses=labels,
+                )
+            ],
+        )
+    )
+
+    assert client.added_peer_ids == ["iri-itta", "narrator", "sans-nom"]
+    assert "crowd-of-sealed-cousins" not in client.added_peer_ids
+    assert "archive-staff" not in client.added_peer_ids
+
+
 def test_honcho_peer_id_slugifies_invalid_labels() -> None:
     assert honcho_peer_id("Admiral-Haruspex Veyr") == "admiral-haruspex-veyr"
     assert honcho_peer_id("  ") == "unknown-peer"

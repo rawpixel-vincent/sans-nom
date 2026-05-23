@@ -26,10 +26,40 @@ func LoadLocalCardStore(actorDir string, peerCardDir string) (*LocalCardStore, e
 	if err := store.loadPeerCards(peerCardDir); err != nil {
 		return nil, err
 	}
-	if err := store.loadMarkdownCards(actorDir); err != nil {
+	if err := store.loadMarkdownCards(actorDir, false); err != nil {
 		return nil, err
 	}
 	return store, nil
+}
+
+func LoadStoryCardStore(base *LocalCardStore, storyDir string) (*LocalCardStore, error) {
+	store := base.Clone()
+	if store == nil {
+		store = &LocalCardStore{cards: map[string]Card{}}
+	}
+	if storyDir == "" {
+		return store, nil
+	}
+	for _, dir := range []string{
+		filepath.Join(storyDir, "cards", "actors"),
+		filepath.Join(storyDir, "actors"),
+	} {
+		if err := store.loadMarkdownCards(dir, true); err != nil {
+			return nil, err
+		}
+	}
+	return store, nil
+}
+
+func (s *LocalCardStore) Clone() *LocalCardStore {
+	if s == nil {
+		return nil
+	}
+	clone := &LocalCardStore{cards: map[string]Card{}}
+	for id, card := range s.cards {
+		clone.cards[id] = card
+	}
+	return clone
 }
 
 func (s *LocalCardStore) LocalCard(actorID string) (Card, bool) {
@@ -104,7 +134,7 @@ func (s *LocalCardStore) loadPeerCards(dir string) error {
 	return nil
 }
 
-func (s *LocalCardStore) loadMarkdownCards(dir string) error {
+func (s *LocalCardStore) loadMarkdownCards(dir string, override bool) error {
 	if dir == "" {
 		return nil
 	}
@@ -115,7 +145,7 @@ func (s *LocalCardStore) loadMarkdownCards(dir string) error {
 	sort.Strings(files)
 	for _, file := range files {
 		id := strings.TrimSuffix(filepath.Base(file), filepath.Ext(file))
-		if _, exists := s.cards[id]; exists {
+		if _, exists := s.cards[id]; exists && !override {
 			continue
 		}
 		data, err := os.ReadFile(file)

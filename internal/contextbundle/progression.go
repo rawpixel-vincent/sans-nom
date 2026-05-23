@@ -7,7 +7,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
-func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision, recentScenes []string) StoryProgression {
+func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket) StoryProgression {
 	progression := StoryProgression{
 		StoryArc: append([]string(nil), storyArcFromBible(bible)...),
 	}

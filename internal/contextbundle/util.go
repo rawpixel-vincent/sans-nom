@@ -110,6 +110,17 @@ func uniqueStrings(values []string) []string {
 	return out
 }
 
+func nonEmptyStrings(values []string) []string {
+	var out []string
+	for _, value := range values {
+		value = strings.TrimSpace(value)
+		if value != "" {
+			out = append(out, value)
+		}
+	}
+	return out
+}
+
 func copyStringMap(in map[string]string) map[string]string {
 	out := map[string]string{}
 	for key, value := range in {

@@ -162,6 +162,13 @@ type ActorNeed struct {
 	Targets []string `json:"targets,omitempty"`
 }
 
+type CardUpdate struct {
+	PeerID       string   `json:"peer_id"`
+	TargetPeerID string   `json:"target_peer_id,omitempty"`
+	Facts        []string `json:"facts"`
+	Reason       string   `json:"reason,omitempty"`
+}
+
 type MemoryIntent struct {
 	ID             string   `json:"id,omitempty"`
 	Summary        string   `json:"summary"`
@@ -192,15 +199,16 @@ type CanonEvent struct {
 }
 
 type Commit struct {
-	WorkspaceID    string         `json:"workspace_id"`
-	SessionID      string         `json:"session_id"`
-	PacketID       string         `json:"packet_id"`
-	NodeID         string         `json:"node_id"`
-	PlayerDecision PlayerDecision `json:"player_decision"`
-	FinalProse     string         `json:"final_prose"`
-	ActorMessages  []ActorMessage `json:"actor_messages,omitempty"`
-	Events         []CanonEvent   `json:"events"`
-	Witnesses      []string       `json:"witnesses"`
+	WorkspaceID     string         `json:"workspace_id"`
+	SessionID       string         `json:"session_id"`
+	PacketID        string         `json:"packet_id"`
+	NodeID          string         `json:"node_id"`
+	PlayerDecision  PlayerDecision `json:"player_decision"`
+	FinalProse      string         `json:"final_prose"`
+	ActorMessages   []ActorMessage `json:"actor_messages,omitempty"`
+	Events          []CanonEvent   `json:"events"`
+	Witnesses       []string       `json:"witnesses"`
+	ObserverPeerIDs []string       `json:"observer_peer_ids,omitempty"`
 }
 
 func DecodeStoryPacket(r io.Reader) (StoryPacket, error) {

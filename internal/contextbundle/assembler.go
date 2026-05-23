@@ -113,7 +113,7 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		MaxRenderChars:   opts.WriterSoftCap,
 		StoryBible:       cloneBible(req.Bible),
 		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
-		Progression:      buildStoryProgression(req.Bible, req.Packet, node, req.Decision, sceneCtx.RecentScenes),
+		Progression:      buildStoryProgression(req.Bible, req.Packet),
 		SceneState:       sceneState(req.Packet),
 		PlayerDecision:   req.Decision,
 		SelectedNodeID:   node.ID,
@@ -137,6 +137,63 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		wc.Summary.Warnings = wc.Warnings
 	}
 	return wc, nil
+}
+
+func (a Assembler) AssembleActorCall(ctx context.Context, req ActorCallBuildRequest) (ActorContext, string, []string, error) {
+	opts := a.options()
+	node := req.Node
+	node.ActorNeeds = []scene.ActorNeed{req.Need}
+	if err := validateSingleActorNeed(req.Need); err != nil {
+		return ActorContext{}, "", nil, err
+	}
+	query := actorCallQueryText(req.Packet, node, req.Decision, req.Need)
+	loreHits, loreWarnings, err := a.loreHits(ctx, query, opts.NarratorLoreK, opts)
+	if err != nil {
+		return ActorContext{}, "", nil, err
+	}
+	actorContexts, actorWarnings, err := a.actorContexts(ctx, req.Packet, node, loreHits, opts)
+	if err != nil {
+		return ActorContext{}, "", nil, err
+	}
+	warnings := append([]string(nil), loreWarnings...)
+	warnings = append(warnings, actorWarnings...)
+	if len(actorContexts) != 1 {
+		return ActorContext{}, "", uniqueStrings(warnings), fmt.Errorf("actor call for %q produced %d actor contexts", req.Need.ActorID, len(actorContexts))
+	}
+	nc := NarratorContext{
+		MaxRenderChars:   opts.NarratorSoftCap,
+		StoryBible:       cloneBible(req.Bible),
+		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
+		SceneState:       sceneState(req.Packet),
+		PlayerDecision:   req.Decision,
+		SelectedNode:     publicNode(node),
+		ActorContexts:    actorContexts,
+		WitnessRules: []string{
+			"Actor material is planning/raw performance until the Narrator surfaces dialogue or action.",
+			"Private interiors are never committed to shared scene memory.",
+			"Use only witnessed canon, this actor card, and provided directional representations.",
+		},
+		Warnings: uniqueStrings(warnings),
+	}
+	return actorContexts[0], nc.RenderActorText(), nc.Warnings, nil
+}
+
+func validateSingleActorNeed(need scene.ActorNeed) error {
+	if strings.TrimSpace(need.ActorID) == "" {
+		return errors.New("actor_id is required")
+	}
+	switch need.Mode {
+	case scene.ActorModePresent, scene.ActorModeRemembered, scene.ActorModeNarrated, scene.ActorModeContext:
+		return nil
+	default:
+		return fmt.Errorf("actor %q has invalid mode %q", need.ActorID, need.Mode)
+	}
+}
+
+func actorCallQueryText(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision, need scene.ActorNeed) string {
+	parts := []string{queryText(packet, node, decision), need.ActorID, need.Reason}
+	parts = append(parts, need.Targets...)
+	return strings.Join(nonEmptyStrings(parts), "\n")
 }
 
 func cloneBible(bible *story.StoryBible) *story.StoryBible {
@@ -388,7 +445,22 @@ func (a Assembler) actorCard(ctx context.Context, workspaceID, actorID string, o
 		if card, ok := a.Cards.LocalCard(actorID); ok {
 			lines := trimFacts(strings.Split(card.Text, "\n"), opts.MaxActorCardFacts)
 			card.Text = strings.Join(lines, "\n")
-			return card, []string{"fallback card source for " + actorID + ": " + card.Source}, nil
+			warnings := []string{"fallback card source for " + actorID + ": " + card.Source}
+			if a.Bridge != nil && len(lines) > 0 {
+				if seeded, err := a.Bridge.PatchCard(ctx, workspaceID, actorID, bridgeclient.PeerCardPatch{Facts: lines, Replace: true}); err != nil {
+					if opts.RequireBridge {
+						return Card{}, nil, err
+					}
+					warnings = append(warnings, "Honcho seed card failed for "+actorID+": "+err.Error())
+				} else if len(trimFacts(seeded, opts.MaxActorCardFacts)) > 0 {
+					return Card{
+						ActorID: actorID,
+						Text:    strings.Join(trimFacts(seeded, opts.MaxActorCardFacts), "\n"),
+						Source:  "honcho:" + actorID + " seeded from " + card.Source,
+					}, warnings, nil
+				}
+			}
+			return card, warnings, nil
 		}
 	}
 	return Card{}, nil, fmt.Errorf("actor %q has no Honcho or local card", actorID)

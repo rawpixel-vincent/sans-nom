@@ -86,6 +86,113 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	}
 }
 
+func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	toolArgs, err := json.Marshal(map[string]any{
+		"actor_id":    "tonto",
+		"mode":        "present",
+		"scene_setup": "The hatch opens.",
+		"question":    "What do you risk saying?",
+		"targets":     []string{"sans-nom"},
+		"node_id":     "",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	var calls int
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		w.Header().Set("Content-Type", "text/event-stream")
+		switch calls {
+		case 1:
+			writeSSE(t, w, map[string]any{
+				"type":         "response.output_item.done",
+				"output_index": 0,
+				"item": map[string]any{
+					"type":      "function_call",
+					"call_id":   "call_actor",
+					"name":      "ask_actor",
+					"arguments": string(toolArgs),
+				},
+			})
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		case 2:
+			writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done"}]}}`))
+			writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+		default:
+			t.Fatalf("unexpected call %d", calls)
+		}
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "ask actor",
+	}, LocalToolOptions{
+		Root:          root,
+		Logger:        logger,
+		ToolCategory:  "writer",
+		CallerRole:    "writer",
+		CallerSpeaker: "Writer",
+		RunID:         "run-actor",
+		ExtraTools: []LocalTool{{
+			Name:        "ask_actor",
+			Description: "ask actor",
+			Parameters:  map[string]any{"type": "object"},
+			Handler: func(context.Context, string, string) (any, error) {
+				return map[string]any{
+					"ok": true,
+					"material": map[string]any{
+						"actor_id":      "tonto",
+						"dialogue":      "I remember the door.",
+						"artifact_path": "actors/actor-call-001/material.json",
+					},
+				}, nil
+			},
+		}},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "done" {
+		t.Fatalf("response = %#v", resp)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 2 {
+		t.Fatalf("events = %#v", events)
+	}
+	for _, event := range events {
+		if event.Fields["tool_name"] != "ask_actor" || event.Fields["raw_tool_name"] != "ask_actor" {
+			t.Fatalf("extra tool event missing tool name: %#v", event)
+		}
+		if !strings.Contains(fmt.Sprint(event.Fields["target"]), "tonto") || event.RunID != "run-actor" {
+			t.Fatalf("extra tool event missing target/run: %#v", event)
+		}
+	}
+	if events[0].Event != "writer.provider.tool_use" || events[1].Event != "writer.provider.tool_result" {
+		t.Fatalf("unexpected extra tool events: %#v", events)
+	}
+	detail, err := logger.ReadDetail(events[1].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(fmt.Sprint(detail), "actor-call-001/material.json") {
+		t.Fatalf("tool result detail missing actor artifact: %#v", detail)
+	}
+}
+
 func TestCreateWithLocalToolsAdvertisesOnlyExistingVisiblePaths(t *testing.T) {
 	root := t.TempDir()
 	if err := os.MkdirAll(filepath.Join(root, "lorepack"), 0o755); err != nil {

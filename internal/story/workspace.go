@@ -80,6 +80,7 @@ func InitWorkspace(opts InitOptions, bundle SeedBundle) (Workspace, StoryState, 
 		ws.PacketsDir(),
 		ws.ModelRunsDir(),
 		ws.NarrationDir(),
+		ws.ActorCardsDir(),
 		ws.IndexDir(),
 		ws.LogsDir(),
 	} {
@@ -157,6 +158,10 @@ func (w Workspace) ModelRunsDir() string {
 
 func (w Workspace) NarrationDir() string {
 	return filepath.Join(w.Dir, "narration")
+}
+
+func (w Workspace) ActorCardsDir() string {
+	return filepath.Join(w.Dir, "cards", "actors")
 }
 
 func (w Workspace) IndexDir() string {

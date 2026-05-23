@@ -324,10 +324,10 @@ func executeLocalTool(ctx context.Context, root string, call functionCall, extra
 }
 
 func logLocalToolUse(opts LocalToolOptions, call functionCall) {
-	if !shouldLogLocalTool(call) {
+	if !shouldLogLocalTool(opts, call) {
 		return
 	}
-	info := localToolLogInfo(call)
+	info := localToolLogInfo(opts, call)
 	logLocalToolEvent(opts, call, "tool_use", "pending", "@"+info.DisplayName+targetSuffix(info.Target), map[string]any{
 		"tool_name":     info.DisplayName,
 		"raw_tool_name": call.Name,
@@ -339,10 +339,10 @@ func logLocalToolUse(opts LocalToolOptions, call functionCall) {
 }
 
 func logLocalToolResult(opts LocalToolOptions, call functionCall, result string) {
-	if !shouldLogLocalTool(call) {
+	if !shouldLogLocalTool(opts, call) {
 		return
 	}
-	info := localToolLogInfo(call)
+	info := localToolLogInfo(opts, call)
 	resultValue := decodeToolResult(result)
 	message := info.DisplayName + " result" + targetSuffix(info.Target)
 	preview := toolResultPreview(resultValue)
@@ -361,8 +361,16 @@ func logLocalToolResult(opts LocalToolOptions, call functionCall, result string)
 	})
 }
 
-func shouldLogLocalTool(call functionCall) bool {
-	return call.Name == "exec_command"
+func shouldLogLocalTool(opts LocalToolOptions, call functionCall) bool {
+	if call.Name == "exec_command" {
+		return true
+	}
+	for _, tool := range opts.ExtraTools {
+		if tool.Name == call.Name {
+			return true
+		}
+	}
+	return false
 }
 
 type localToolInfo struct {
@@ -371,14 +379,61 @@ type localToolInfo struct {
 	Input       map[string]any
 }
 
-func localToolLogInfo(call functionCall) localToolInfo {
+func localToolLogInfo(opts LocalToolOptions, call functionCall) localToolInfo {
 	input := map[string]any{}
 	_ = json.Unmarshal([]byte(call.Arguments), &input)
+	if call.Name != "exec_command" {
+		return localToolInfo{
+			DisplayName: displayNameForExtraTool(opts.ExtraTools, call.Name),
+			Target:      extraToolTarget(input),
+			Input:       input,
+		}
+	}
 	cmd, _ := input["cmd"].(string)
 	return localToolInfo{
 		DisplayName: displayNameForCommand(cmd),
 		Target:      strings.TrimSpace(cmd),
 		Input:       input,
+	}
+}
+
+func displayNameForExtraTool(extra []LocalTool, name string) string {
+	for _, tool := range extra {
+		if tool.Name == name {
+			return tool.Name
+		}
+	}
+	return name
+}
+
+func extraToolTarget(input map[string]any) string {
+	actorID, _ := input["actor_id"].(string)
+	question, _ := input["question"].(string)
+	query, _ := input["query"].(string)
+	topic, _ := input["topic"].(string)
+	nodeID, _ := input["node_id"].(string)
+	return firstNonEmpty(
+		compactToolTarget(actorID, question),
+		compactToolTarget(actorID, query),
+		compactToolTarget(actorID, topic),
+		question,
+		query,
+		topic,
+		actorID,
+		nodeID,
+	)
+}
+
+func compactToolTarget(prefix string, text string) string {
+	prefix = strings.TrimSpace(prefix)
+	text = strings.TrimSpace(text)
+	switch {
+	case prefix == "":
+		return text
+	case text == "":
+		return prefix
+	default:
+		return prefix + ": " + text
 	}
 }
 

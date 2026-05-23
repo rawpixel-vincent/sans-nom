@@ -174,6 +174,43 @@ func TestRolloutUsesSceneScopedSessionAndFiltersUnsupportedActorSurfaces(t *test
 	}
 }
 
+func TestRolloutAddsOnlyRegisteredPresentActorsAsObservers(t *testing.T) {
+	reg, err := actors.NewRegistry([]actors.Actor{{ID: "tonto", Card: "card"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	packet := scene.StoryPacket{
+		ID: "packet-1",
+		ContextSnapshot: scene.ContextSnapshot{
+			WorkspaceID:   "ws",
+			SessionID:     "story-session",
+			PresentActors: []string{"tonto", "Crowd label"},
+		},
+		Nodes: []scene.SceneNode{{
+			ID:    "selected",
+			Beats: []scene.Beat{{Text: "Tonto witnesses silently."}},
+		}},
+	}
+	svc := Service{
+		Actors:   &actors.Service{Registry: reg, Invoker: actors.StaticInvoker{}},
+		Renderer: StaticRenderer{},
+	}
+
+	rollout, err := svc.Rollout(context.Background(), packet, "selected", scene.PlayerDecision{}, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	observers := strings.Join(rollout.Commit.ObserverPeerIDs, ",")
+	for _, want := range []string{"sans-nom", "narrator", "tonto"} {
+		if !strings.Contains(observers, want) {
+			t.Fatalf("observer peer ids missing %q: %#v", want, rollout.Commit.ObserverPeerIDs)
+		}
+	}
+	if strings.Contains(observers, "Crowd label") {
+		t.Fatalf("ambient witness label became observer: %#v", rollout.Commit.ObserverPeerIDs)
+	}
+}
+
 func TestRolloutLogsNarratorPromptAndResponseInputs(t *testing.T) {
 	logger := gamelog.NewWriter(t.TempDir(), "story-1")
 	packet := scene.StoryPacket{

@@ -22,6 +22,7 @@ type Draft struct {
 	Prose                 string               `json:"prose"`
 	SurfacedActorMessages []scene.ActorMessage `json:"surfaced_actor_messages,omitempty"`
 	Choices               []scene.Choice       `json:"choices,omitempty"`
+	CuratedCardUpdates    []scene.CardUpdate   `json:"curated_card_updates,omitempty"`
 }
 
 type Service struct {
@@ -147,7 +148,7 @@ func (s Service) Rollout(ctx context.Context, packet scene.StoryPacket, nodeID s
 			},
 		})
 	}
-	commit := buildCommit(packet, node, commitDecision(packet, node, decision), draft)
+	commit := buildCommit(packet, node, commitDecision(packet, node, decision), draft, observerPeerIDs(packet, node, actorRaw, s.Actors))
 	if err := commit.ValidateCanonOnly(); err != nil {
 		logEvent(s.Logger, gamelog.Event{
 			Level:    gamelog.LevelError,
@@ -213,11 +214,17 @@ func selectedNode(packet scene.StoryPacket, nodeID string) (scene.SceneNode, err
 	return packet.Node(nodeID)
 }
 
-func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision, draft Draft) scene.Commit {
+func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision, draft Draft, baseObserverPeerIDs []string) scene.Commit {
 	witnesses := newSet()
 	witnesses.add("sans-nom")
 	for _, actor := range packet.ContextSnapshot.PresentActors {
 		witnesses.add(actor)
+	}
+	observers := newSet()
+	observers.add("sans-nom")
+	observers.add("narrator")
+	for _, peerID := range baseObserverPeerIDs {
+		observers.add(peerID)
 	}
 
 	events := []scene.CanonEvent{{
@@ -242,6 +249,7 @@ func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.
 		}
 		msg.Interior = ""
 		surfaced = append(surfaced, msg)
+		observers.add(msg.ActorID)
 		events = append(events, scene.CanonEvent{
 			PeerID:    msg.ActorID,
 			Content:   msg.Surface,
@@ -266,16 +274,35 @@ func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.
 	}
 
 	return scene.Commit{
-		WorkspaceID:    packet.ContextSnapshot.WorkspaceID,
-		SessionID:      scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, node.ID),
-		PacketID:       packet.ID,
-		NodeID:         node.ID,
-		PlayerDecision: decision,
-		FinalProse:     draft.Prose,
-		ActorMessages:  surfaced,
-		Events:         events,
-		Witnesses:      witnesses.values(),
+		WorkspaceID:     packet.ContextSnapshot.WorkspaceID,
+		SessionID:       scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, node.ID),
+		PacketID:        packet.ID,
+		NodeID:          node.ID,
+		PlayerDecision:  decision,
+		FinalProse:      draft.Prose,
+		ActorMessages:   surfaced,
+		Events:          events,
+		Witnesses:       witnesses.values(),
+		ObserverPeerIDs: observers.values(),
 	}
+}
+
+func observerPeerIDs(packet scene.StoryPacket, node scene.SceneNode, actorRaw []actors.Output, service *actors.Service) []string {
+	ids := newSet()
+	if service != nil && service.Registry != nil {
+		for _, actorID := range packet.ContextSnapshot.PresentActors {
+			if _, ok := service.Registry.Actor(actorID); ok {
+				ids.add(actorID)
+			}
+		}
+	}
+	for _, need := range node.ActorNeeds {
+		ids.add(need.ActorID)
+	}
+	for _, output := range actorRaw {
+		ids.add(output.ActorID)
+	}
+	return ids.values()
 }
 
 func commitDecision(packet scene.StoryPacket, node scene.SceneNode, decision scene.PlayerDecision) scene.PlayerDecision {

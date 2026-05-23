@@ -13,6 +13,7 @@ type Bridge interface {
 	SceneContext(ctx context.Context, req bridgeclient.SceneContextRequest) (bridgeclient.SceneContextResponse, error)
 	Representation(ctx context.Context, req bridgeclient.RepresentationRequest) (bridgeclient.RepresentationResponse, error)
 	GetCard(ctx context.Context, workspaceID, peerID, target string) ([]string, error)
+	PatchCard(ctx context.Context, workspaceID, peerID string, patch bridgeclient.PeerCardPatch) ([]string, error)
 }
 
 type CardProvider interface {
@@ -48,6 +49,15 @@ type Options struct {
 type BuildRequest struct {
 	Packet               scene.StoryPacket    `json:"packet"`
 	NodeID               string               `json:"node_id,omitempty"`
+	Decision             scene.PlayerDecision `json:"player_decision,omitempty"`
+	Bible                *story.StoryBible    `json:"story_bible,omitempty"`
+	ScenarioContractText string               `json:"scenario_contract_text,omitempty"`
+}
+
+type ActorCallBuildRequest struct {
+	Packet               scene.StoryPacket    `json:"packet"`
+	Node                 scene.SceneNode      `json:"node"`
+	Need                 scene.ActorNeed      `json:"need"`
 	Decision             scene.PlayerDecision `json:"player_decision,omitempty"`
 	Bible                *story.StoryBible    `json:"story_bible,omitempty"`
 	ScenarioContractText string               `json:"scenario_contract_text,omitempty"`

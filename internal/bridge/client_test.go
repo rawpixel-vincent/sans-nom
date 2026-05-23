@@ -57,6 +57,42 @@ func TestCommitSceneRejectsPlanningArtifactBeforeHTTP(t *testing.T) {
 	}
 }
 
+func TestCommitSceneSendsObserverPeerIDs(t *testing.T) {
+	var got scene.Commit
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/scene/commit" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		if err := json.NewDecoder(r.Body).Decode(&got); err != nil {
+			t.Fatal(err)
+		}
+		_ = json.NewEncoder(w).Encode(map[string]string{"status": "committed"})
+	}))
+	defer server.Close()
+
+	err := NewClient(server.URL, "").CommitScene(context.Background(), scene.Commit{
+		WorkspaceID: "ws",
+		SessionID:   "session",
+		PacketID:    "packet",
+		NodeID:      "node",
+		FinalProse:  "prose",
+		Events: []scene.CanonEvent{{
+			PeerID:    "narrator",
+			Content:   "Iri watched.",
+			Source:    scene.CommitSourceNarrator,
+			Witnesses: []string{"sans-nom", "Crowd label"},
+		}},
+		Witnesses:       []string{"sans-nom", "Crowd label"},
+		ObserverPeerIDs: []string{"sans-nom", "narrator", "iri itta"},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got.ObserverPeerIDs) != 3 || got.ObserverPeerIDs[2] != "iri itta" {
+		t.Fatalf("observer peer ids were not sent: %#v", got.ObserverPeerIDs)
+	}
+}
+
 func TestHealthAcceptsMixedValuePayload(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/v1/health" {
