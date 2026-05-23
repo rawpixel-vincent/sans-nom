@@ -11,11 +11,14 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, no
 	progression := StoryProgression{
 		StoryArc: append([]string(nil), storyArcFromBible(bible)...),
 	}
+	var packetSpentMotifs []string
 	if packet.Metadata != nil {
 		progression.CurrentPhase = firstNonEmptyProgressionValue(packet.Metadata["story_phase"], packet.Metadata["arc_phase"], packet.Metadata["current_arc_phase"])
 		progression.NextPhase = firstNonEmptyProgressionValue(packet.Metadata["next_story_phase"], packet.Metadata["next_arc_phase"])
-		progression.SpentMotifs = appendUniqueStrings(progression.SpentMotifs, splitProgressionList(packet.Metadata["spent_motifs"])...)
+		packetSpentMotifs = splitProgressionList(packet.Metadata["spent_motifs"])
+		progression.SpentMotifs = appendUniqueStrings(progression.SpentMotifs, packetSpentMotifs...)
 	}
+	var openThreads []string
 	if bible != nil {
 		if progression.CurrentPhase == "" {
 			progression.CurrentPhase = strings.TrimSpace(bible.CurrentArcPhase)
@@ -29,10 +32,11 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, no
 		}
 		for _, thread := range bible.OpenThreads {
 			if thread = strings.TrimSpace(thread); thread != "" {
-				progression.RequiredMovement = append(progression.RequiredMovement, "Keep open thread active: "+thread)
+				openThreads = append(openThreads, thread)
 			}
 		}
 	}
+	progression.RequiredMovement = append(progression.RequiredMovement, openThreadMovements(openThreads, packetSpentMotifs)...)
 	if progression.CurrentPhase == "" && len(progression.StoryArc) > 0 {
 		progression.CurrentPhase = progression.StoryArc[0]
 	}
@@ -59,6 +63,31 @@ func appendUniqueStrings(values []string, more ...string) []string {
 		out = append(out, value)
 	}
 	return out
+}
+
+func openThreadMovements(openThreads []string, packetSpentMotifs []string) []string {
+	if len(openThreads) == 0 {
+		return nil
+	}
+	if shouldNarrowOpenThreads(openThreads, packetSpentMotifs) {
+		out := []string{
+			"Narrowing phase: close, disprove, merge, or make costly at least one existing open thread before opening a new one.",
+			"Do not introduce a new investigation shadow unless it directly resolves or transforms one of the listed open threads.",
+		}
+		for _, thread := range openThreads {
+			out = append(out, "Open thread available for closure: "+thread)
+		}
+		return out
+	}
+	out := make([]string, 0, len(openThreads))
+	for _, thread := range openThreads {
+		out = append(out, "Keep open thread active: "+thread)
+	}
+	return out
+}
+
+func shouldNarrowOpenThreads(openThreads []string, packetSpentMotifs []string) bool {
+	return len(openThreads) >= 3 && len(packetSpentMotifs) >= 3
 }
 
 func firstNonEmptyProgressionValue(values ...string) string {

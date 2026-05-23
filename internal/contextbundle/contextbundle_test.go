@@ -142,6 +142,44 @@ func TestWriterContextDoesNotInferSpentMotifsFromProseKeywords(t *testing.T) {
 	}
 }
 
+func TestWriterContextNarrowsOpenThreadsAfterAuthoredSpentMotifs(t *testing.T) {
+	packet := testPacket()
+	packet.Metadata = map[string]string{
+		"current_arc_phase": "record fracture",
+		"next_arc_phase":    "metasurgery investigation",
+		"spent_motifs":      "ash record established; QA-9 destroyed; service-band split",
+	}
+	bible := testBible()
+	bible.OpenThreads = []string{
+		"Who harvested Iri's wake-command?",
+		"Who heard the exterior relay?",
+		"What remains inside the missing surgical minutes?",
+	}
+	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
+		Packet: packet,
+		NodeID: "active",
+		Bible:  &bible,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	for _, required := range []string{
+		"Narrowing phase: close, disprove, merge, or make costly at least one existing open thread before opening a new one.",
+		"Do not introduce a new investigation shadow unless it directly resolves or transforms one of the listed open threads.",
+		"Open thread available for closure: Who harvested Iri's wake-command?",
+		"Open thread available for closure: Who heard the exterior relay?",
+		"Open thread available for closure: What remains inside the missing surgical minutes?",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("writer context missing narrowing guidance %q:\n%s", required, text)
+		}
+	}
+	if strings.Contains(text, "Keep open thread active: Who harvested Iri's wake-command?") {
+		t.Fatalf("writer context should narrow instead of keeping every open thread active:\n%s", text)
+	}
+}
+
 func TestWriterContextKeepsProgressionBeforePacketCap(t *testing.T) {
 	packet := testPacket()
 	packet.ContextSnapshot.LatestNarratorProse = "Latest canon: the first challenge was accepted and must now happen."

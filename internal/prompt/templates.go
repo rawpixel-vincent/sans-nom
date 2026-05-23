@@ -90,6 +90,7 @@ Narration priorities:
 - Honor any lorepack scenario contract in context; scene detail should reinforce its pressure and consequences.
 - End at the playable pressure point and preserve the available choice ids and labels.
 - Format prose as 2-4 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
+- For branch continuations, give the selected node real scene weight: consequence from the prior choice, concrete action in the present location, and a new pressure turn before choices appear. Do not compress it into a mere transition summary.
 
 Rules:
 - The Creative Writer planned structure; you own final prose.
