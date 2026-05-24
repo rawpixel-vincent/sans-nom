@@ -21,8 +21,14 @@ import (
 
 const (
 	codexMinCallIntervalEnv     = "SANS_NOM_CODEX_MIN_CALL_INTERVAL_MS"
+	codexRoundTimeoutEnv        = "SANS_NOM_CODEX_ROUND_TIMEOUT_MS"
+	codexRoundMaxAttemptsEnv    = "SANS_NOM_CODEX_ROUND_MAX_ATTEMPTS"
+	codexPendingHeartbeatEnv    = "SANS_NOM_CODEX_PENDING_HEARTBEAT_MS"
 	defaultMaxToolRounds        = 24
+	defaultRoundMaxAttempts     = 3
 	defaultMinCodexCallInterval = 10 * time.Second
+	defaultRoundTimeout         = 0
+	defaultPendingHeartbeat     = 30 * time.Second
 )
 
 var readOnlyCommands = map[string]bool{
@@ -103,13 +109,11 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 
 	for round := 0; round < maxRounds; round++ {
 		if err := waitBeforeLocalToolProviderRound(ctx, opts, round+1, maxRounds, minCallInterval); err != nil {
-			logLocalToolProviderFailure(opts, round+1, maxRounds, err)
+			logLocalToolProviderFailure(opts, round+1, maxRounds, err, 0, 0, false, false, 0)
 			return nil, err
 		}
-		logLocalToolProviderRequest(opts, round+1, maxRounds)
-		response, err := c.createLocalToolRound(ctx, current)
+		response, err := c.createLocalToolRoundWithRetries(ctx, current, opts, round+1, maxRounds)
 		if err != nil {
-			logLocalToolProviderFailure(opts, round+1, maxRounds, err)
 			return nil, err
 		}
 		calls := collectFunctionCalls(response["output"])
@@ -128,7 +132,7 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 					continue
 				}
 				err := errors.New("model returned final answer without required local tool call")
-				logLocalToolProviderFailure(opts, round+1, maxRounds, err)
+				logLocalToolProviderFailure(opts, round+1, maxRounds, err, 0, 0, false, false, 0)
 				return nil, err
 			}
 			return response, nil
@@ -150,6 +154,38 @@ func (c *Client) CreateWithLocalTools(ctx context.Context, body map[string]any, 
 		current["input"] = input
 	}
 	return nil, fmt.Errorf("model exceeded %d local tool rounds", maxRounds)
+}
+
+func (c *Client) createLocalToolRoundWithRetries(ctx context.Context, body map[string]any, opts LocalToolOptions, round int, maxRounds int) (map[string]any, error) {
+	maxAttempts := localToolRoundMaxAttempts()
+	roundTimeout := localToolRoundTimeout()
+	var lastErr error
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		requestCtx := ctx
+		cancel := func() {}
+		if roundTimeout > 0 {
+			requestCtx, cancel = context.WithTimeout(ctx, roundTimeout)
+		}
+		logLocalToolProviderRequest(opts, round, maxRounds, attempt, maxAttempts, roundTimeout)
+		stopHeartbeat := startLocalToolProviderHeartbeat(requestCtx, opts, round, maxRounds, attempt, maxAttempts, roundTimeout)
+		response, err := c.createLocalToolRound(requestCtx, body)
+		stopHeartbeat()
+		cancel()
+		if err == nil {
+			return response, nil
+		}
+		lastErr = err
+		retryable := retryableLocalToolProviderError(err)
+		willRetry := retryable && attempt < maxAttempts && ctx.Err() == nil
+		logLocalToolProviderFailure(opts, round, maxRounds, err, attempt, maxAttempts, retryable, willRetry, roundTimeout)
+		if !willRetry {
+			return nil, err
+		}
+		if err := waitBeforeLocalToolProviderRetry(ctx, attempt); err != nil {
+			return nil, err
+		}
+	}
+	return nil, lastErr
 }
 
 func requiredToolUseReminder(opts LocalToolOptions) string {
@@ -176,6 +212,128 @@ func localToolMinCallInterval(opts LocalToolOptions) time.Duration {
 		return 0
 	}
 	return time.Duration(ms) * time.Millisecond
+}
+
+func localToolRoundTimeout() time.Duration {
+	raw, ok := os.LookupEnv(codexRoundTimeoutEnv)
+	if !ok {
+		return defaultRoundTimeout
+	}
+	ms, err := strconv.ParseInt(strings.TrimSpace(raw), 10, 64)
+	if err != nil {
+		return defaultRoundTimeout
+	}
+	if ms <= 0 {
+		return 0
+	}
+	return time.Duration(ms) * time.Millisecond
+}
+
+func localToolPendingHeartbeatInterval() time.Duration {
+	raw, ok := os.LookupEnv(codexPendingHeartbeatEnv)
+	if !ok {
+		return defaultPendingHeartbeat
+	}
+	ms, err := strconv.ParseInt(strings.TrimSpace(raw), 10, 64)
+	if err != nil {
+		return defaultPendingHeartbeat
+	}
+	if ms <= 0 {
+		return 0
+	}
+	return time.Duration(ms) * time.Millisecond
+}
+
+func localToolRoundMaxAttempts() int {
+	raw, ok := os.LookupEnv(codexRoundMaxAttemptsEnv)
+	if !ok {
+		return defaultRoundMaxAttempts
+	}
+	attempts, err := strconv.Atoi(strings.TrimSpace(raw))
+	if err != nil || attempts <= 0 {
+		return defaultRoundMaxAttempts
+	}
+	return attempts
+}
+
+func waitBeforeLocalToolProviderRetry(ctx context.Context, attempt int) error {
+	delay := time.Duration(attempt) * 750 * time.Millisecond
+	timer := time.NewTimer(delay)
+	defer timer.Stop()
+	select {
+	case <-ctx.Done():
+		return ctx.Err()
+	case <-timer.C:
+		return nil
+	}
+}
+
+func startLocalToolProviderHeartbeat(ctx context.Context, opts LocalToolOptions, round int, maxRounds int, attempt int, maxAttempts int, roundTimeout time.Duration) func() {
+	interval := localToolPendingHeartbeatInterval()
+	if interval <= 0 || opts.Logger == nil {
+		return func() {}
+	}
+	done := make(chan struct{})
+	started := time.Now()
+	go func() {
+		timer := time.NewTimer(interval)
+		defer timer.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-done:
+				return
+			case <-timer.C:
+				logLocalToolProviderPending(opts, round, maxRounds, attempt, maxAttempts, roundTimeout, time.Since(started))
+				timer.Reset(interval)
+			}
+		}
+	}()
+	return func() {
+		close(done)
+	}
+}
+
+func logLocalToolProviderPending(opts LocalToolOptions, round int, maxRounds int, attempt int, maxAttempts int, roundTimeout time.Duration, elapsed time.Duration) {
+	logLocalToolProviderEvent(opts, "pending", "pending", "Codex provider request still waiting", map[string]any{
+		"round":            round,
+		"max_rounds":       maxRounds,
+		"attempt":          attempt,
+		"max_attempts":     maxAttempts,
+		"round_timeout_ms": roundTimeout.Milliseconds(),
+		"elapsed_ms":       elapsed.Milliseconds(),
+	})
+}
+
+func retryableLocalToolProviderError(err error) bool {
+	if err == nil {
+		return false
+	}
+	if errors.Is(err, context.DeadlineExceeded) {
+		return true
+	}
+	message := strings.ToLower(err.Error())
+	for _, pattern := range []string{
+		"context deadline exceeded",
+		"internal_error",
+		"stream error",
+		"unexpected eof",
+		"connection reset by peer",
+		"broken pipe",
+		"i/o timeout",
+		"operation timed out",
+		"temporary failure",
+		"network is unreachable",
+		"no route to host",
+		"server disconnected",
+		"http2: client connection lost",
+	} {
+		if strings.Contains(message, pattern) {
+			return true
+		}
+	}
+	return false
 }
 
 func waitBeforeLocalToolProviderRound(ctx context.Context, opts LocalToolOptions, round int, maxRounds int, interval time.Duration) error {
@@ -400,11 +558,14 @@ func executeLocalTool(ctx context.Context, root string, call functionCall, extra
 	return string(payload)
 }
 
-func logLocalToolProviderRequest(opts LocalToolOptions, round int, maxRounds int) {
+func logLocalToolProviderRequest(opts LocalToolOptions, round int, maxRounds int, attempt int, maxAttempts int, roundTimeout time.Duration) {
 	logLocalToolProviderEvent(opts, "request", "pending", "Codex provider request started", map[string]any{
-		"round":           round,
-		"max_rounds":      maxRounds,
-		"available_tools": localToolNames(opts.ExtraTools),
+		"round":            round,
+		"max_rounds":       maxRounds,
+		"attempt":          attempt,
+		"max_attempts":     maxAttempts,
+		"round_timeout_ms": roundTimeout.Milliseconds(),
+		"available_tools":  localToolNames(opts.ExtraTools),
 	})
 }
 
@@ -434,11 +595,16 @@ func logLocalToolRequiredRetry(opts LocalToolOptions, round int, maxRounds int) 
 	})
 }
 
-func logLocalToolProviderFailure(opts LocalToolOptions, round int, maxRounds int, err error) {
+func logLocalToolProviderFailure(opts LocalToolOptions, round int, maxRounds int, err error, attempt int, maxAttempts int, retryable bool, willRetry bool, roundTimeout time.Duration) {
 	logLocalToolProviderEvent(opts, "failed", "failed", err.Error(), map[string]any{
-		"round":      round,
-		"max_rounds": maxRounds,
-		"error":      err.Error(),
+		"round":            round,
+		"max_rounds":       maxRounds,
+		"attempt":          attempt,
+		"max_attempts":     maxAttempts,
+		"round_timeout_ms": roundTimeout.Milliseconds(),
+		"error":            err.Error(),
+		"retryable":        retryable,
+		"will_retry":       willRetry,
 	})
 }
 
@@ -453,8 +619,14 @@ func logLocalToolProviderEvent(opts LocalToolOptions, eventSuffix string, status
 		"status":               status,
 		"round":                detail["round"],
 		"max_rounds":           detail["max_rounds"],
+		"attempt":              detail["attempt"],
+		"max_attempts":         detail["max_attempts"],
+		"round_timeout_ms":     detail["round_timeout_ms"],
+		"elapsed_ms":           detail["elapsed_ms"],
 		"min_call_interval_ms": detail["min_call_interval_ms"],
 		"tool_call_count":      detail["tool_call_count"],
+		"retryable":            detail["retryable"],
+		"will_retry":           detail["will_retry"],
 		"agent_workspace_root": filepath.ToSlash(opts.Root),
 		"input_budget_tokens":  contextBudgetField(opts.ContextBudget, "input_budget_tokens"),
 	}, opts.ModelMetadata)

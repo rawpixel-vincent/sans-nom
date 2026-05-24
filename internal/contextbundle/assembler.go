@@ -358,10 +358,17 @@ func (a Assembler) loreHits(ctx context.Context, query string, k int, opts Optio
 			continue
 		}
 		seen[snippet.ID] = struct{}{}
-		text := truncate(snippet.Text, opts.MaxLoreChars, &warnings, "lore hit "+snippet.ID)
+		fullText := strings.TrimSpace(snippet.Text)
+		text := truncate(fullText, opts.MaxLoreChars, nil, "")
+		truncated := text != fullText
+		if !truncated {
+			fullText = ""
+		}
 		hits = append(hits, LoreHit{
 			ID:          snippet.ID,
 			Text:        text,
+			FullText:    fullText,
+			Truncated:   truncated,
 			Source:      snippet.Source,
 			Score:       snippet.Score,
 			Kind:        snippet.Kind,

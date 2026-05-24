@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -415,6 +416,119 @@ func TestCreateWithLocalToolsWaitsBetweenProviderRounds(t *testing.T) {
 	}
 }
 
+func TestCreateWithLocalToolsRetriesTimedOutProviderRound(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+	t.Setenv(codexRoundTimeoutEnv, "25")
+	t.Setenv(codexRoundMaxAttemptsEnv, "2")
+
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls atomic.Int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		call := calls.Add(1)
+		w.Header().Set("Content-Type", "text/event-stream")
+		if call == 1 {
+			time.Sleep(150 * time.Millisecond)
+			return
+		}
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done after retry"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "return final",
+	}, LocalToolOptions{
+		Root:         root,
+		Logger:       logger,
+		ToolCategory: "writer",
+		RunID:        "run-retry",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "done after retry" {
+		t.Fatalf("response = %#v", resp)
+	}
+	if got := calls.Load(); got != 2 {
+		t.Fatalf("calls = %d", got)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	failed := eventsNamed(events, "writer.provider.failed")
+	if len(failed) != 1 {
+		t.Fatalf("failed events = %#v", failed)
+	}
+	if failed[0].Fields["will_retry"] != true || failed[0].Fields["retryable"] != true {
+		t.Fatalf("unexpected retry fields: %#v", failed[0])
+	}
+	requests := eventsNamed(events, "writer.provider.request")
+	if len(requests) != 2 || fmt.Sprint(requests[1].Fields["attempt"]) != "2" {
+		t.Fatalf("request events = %#v", requests)
+	}
+}
+
+func TestCreateWithLocalToolsLogsPendingHeartbeatForSlowRound(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+	t.Setenv(codexPendingHeartbeatEnv, "10")
+
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/event-stream")
+		time.Sleep(60 * time.Millisecond)
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"slow done"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "return final",
+	}, LocalToolOptions{
+		Root:         root,
+		Logger:       logger,
+		ToolCategory: "writer",
+		RunID:        "run-pending",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "slow done" {
+		t.Fatalf("response = %#v", resp)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	pending := eventsNamed(events, "writer.provider.pending")
+	if len(pending) == 0 {
+		t.Fatalf("pending events = %#v", events)
+	}
+	if fmt.Sprint(pending[0].Fields["elapsed_ms"]) == "" {
+		t.Fatalf("pending event missing elapsed: %#v", pending[0])
+	}
+}
+
 func TestLocalToolMinCallIntervalUsesEnv(t *testing.T) {
 	t.Setenv(codexMinCallIntervalEnv, "25")
 
@@ -441,6 +555,30 @@ func TestLocalToolMinCallIntervalCanBeDisabled(t *testing.T) {
 
 	if got := localToolMinCallInterval(LocalToolOptions{}); got != 0 {
 		t.Fatalf("interval = %s", got)
+	}
+}
+
+func TestLocalToolRoundTimeoutUsesEnv(t *testing.T) {
+	t.Setenv(codexRoundTimeoutEnv, "1500")
+
+	if got := localToolRoundTimeout(); got != 1500*time.Millisecond {
+		t.Fatalf("round timeout = %s", got)
+	}
+}
+
+func TestLocalToolRoundTimeoutDefaultsToDisabled(t *testing.T) {
+	t.Setenv(codexRoundTimeoutEnv, "")
+
+	if got := localToolRoundTimeout(); got != 0 {
+		t.Fatalf("round timeout = %s", got)
+	}
+}
+
+func TestLocalToolRoundMaxAttemptsUsesEnv(t *testing.T) {
+	t.Setenv(codexRoundMaxAttemptsEnv, "5")
+
+	if got := localToolRoundMaxAttempts(); got != 5 {
+		t.Fatalf("round attempts = %d", got)
 	}
 }
 

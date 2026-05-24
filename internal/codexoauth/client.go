@@ -85,7 +85,7 @@ func NewClient(opts Options) (*Client, error) {
 
 	httpClient := opts.HTTPClient
 	if httpClient == nil {
-		httpClient = http.DefaultClient
+		httpClient = defaultStreamingHTTPClient()
 	}
 
 	baseURL := strings.TrimRight(opts.BaseURL, "/")
@@ -112,6 +112,44 @@ func NewClient(opts Options) (*Client, error) {
 		modelOverride: opts.ModelOverride,
 		httpClient:    httpClient,
 	}, nil
+}
+
+func defaultStreamingHTTPClient() *http.Client {
+	transport := http.DefaultTransport.(*http.Transport).Clone()
+	// Codex Responses calls are long-lived SSE streams. Local tool rounds may
+	// intentionally stop reading as soon as a function call is available, so do
+	// not reuse those half-consumed streams through the shared idle pool. Keep
+	// Go's HTTP/2 negotiation intact: chatgpt.com may select h2 during TLS.
+	transport.DisableKeepAlives = true
+	transport.MaxIdleConns = 0
+	transport.MaxIdleConnsPerHost = -1
+	return &http.Client{Transport: streamingRoundTripper{base: transport}}
+}
+
+type streamingRoundTripper struct {
+	base *http.Transport
+}
+
+func (t streamingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+	res, err := t.base.RoundTrip(req)
+	if err != nil || res == nil || res.Body == nil {
+		return res, err
+	}
+	res.Body = closeIdleBody{ReadCloser: res.Body, closeIdle: t.base.CloseIdleConnections}
+	return res, nil
+}
+
+type closeIdleBody struct {
+	io.ReadCloser
+	closeIdle func()
+}
+
+func (b closeIdleBody) Close() error {
+	err := b.ReadCloser.Close()
+	if b.closeIdle != nil {
+		b.closeIdle()
+	}
+	return err
 }
 
 // DefaultAuthPath resolves CODEX_HOME/auth.json or ~/.codex/auth.json.
@@ -244,6 +282,7 @@ func (c *Client) post(ctx context.Context, body map[string]any, auth *authState)
 	req.Header.Set("session_id", c.sessionID)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
+	req.Close = true
 	return c.httpClient.Do(req)
 }
 
@@ -314,6 +353,7 @@ func (c *Client) refreshAuth(ctx context.Context, bundle map[string]any) (*authS
 		return nil, err
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Close = true
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {

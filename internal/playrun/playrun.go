@@ -1363,7 +1363,9 @@ func RefreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 			return scene.StoryPacket{}, err
 		}
 	}
-	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(ctx, writer.Input{
+	waitCtx, cancel := context.WithTimeout(ctx, modelrun.WriterAwaitTimeout())
+	defer cancel()
+	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(waitCtx, writer.Input{
 		Current:              packet,
 		LatestDecision:       DecisionText(decision.ChoiceID, decision.FreeText),
 		ContextText:          writerContextText,
@@ -1378,8 +1380,6 @@ func RefreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	if err != nil {
 		return scene.StoryPacket{}, writerFailure(err, runID, runDir)
 	}
-	waitCtx, cancel := context.WithTimeout(ctx, modelrun.WriterAwaitTimeout())
-	defer cancel()
 	result := job.Await(waitCtx)
 	if result.Err != nil {
 		return result.Packet, writerFailure(result.Err, runID, runDir)

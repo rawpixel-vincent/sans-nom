@@ -586,6 +586,7 @@ func TestActorCallCanDisableHonchoCardSeeding(t *testing.T) {
 
 func TestLoreHitsDeduplicateSortAndTruncate(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
+	longLore := strings.TrimSpace(strings.Repeat("this text is deliberately long ", 80))
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
 		ID:     "low",
 		Text:   "short",
@@ -594,7 +595,7 @@ func TestLoreHitsDeduplicateSortAndTruncate(t *testing.T) {
 		Kind:   "wiki_lore",
 	}, {
 		ID:     "high",
-		Text:   "this text is deliberately long",
+		Text:   longLore,
 		Source: "high.json",
 		Score:  0.9,
 		Kind:   "peer_card",
@@ -617,8 +618,35 @@ func TestLoreHitsDeduplicateSortAndTruncate(t *testing.T) {
 	if !strings.HasSuffix(ctx.LoreHits[0].Text, "...") {
 		t.Fatalf("expected truncated lore hit: %#v", ctx.LoreHits[0])
 	}
-	if !hasWarning(ctx.Warnings, "lore hit high truncated") {
-		t.Fatalf("missing truncation warning: %#v", ctx.Warnings)
+	if ctx.LoreHits[0].FullText != longLore || !ctx.LoreHits[0].Truncated {
+		t.Fatalf("expected full lore to be preserved alongside inline snippet: %#v", ctx.LoreHits[0])
+	}
+	if hasWarning(ctx.Warnings, "lore hit high truncated") || hasWarning(ctx.Warnings, "inline lore hit high truncated") {
+		t.Fatalf("lore snippets should not warn before budget fallback is selected: %#v", ctx.Warnings)
+	}
+	fullText := ctx.RenderText()
+	if !strings.Contains(fullText, longLore) {
+		t.Fatalf("full context should render uncapped lore text:\n%s", fullText)
+	}
+	inlineText, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: modelcap.EstimateTokens(fullText) + 10})
+	if !strings.Contains(inlineText, longLore) {
+		t.Fatalf("inline context should use uncapped lore when it fits:\n%s", inlineText)
+	}
+	if report.FullContextChars != report.InlineContextChars {
+		t.Fatalf("expected matching full and inline context when full context fits, got full=%d inline=%d", report.FullContextChars, report.InlineContextChars)
+	}
+	compactText, compactReport := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: modelcap.EstimateTokens(fullText) - 1})
+	if strings.Contains(compactText, longLore) {
+		t.Fatalf("compact context should use capped lore snippets after budget fallback:\n%s", compactText)
+	}
+	if !strings.Contains(compactText, ctx.LoreHits[0].Text) {
+		t.Fatalf("compact context should keep the capped lore snippet:\n%s", compactText)
+	}
+	if compactReport.FullContextChars <= compactReport.InlineContextChars {
+		t.Fatalf("expected compact context to be smaller, got full=%d inline=%d", compactReport.FullContextChars, compactReport.InlineContextChars)
+	}
+	if !hasWarning(compactReport.Warnings, "full context exceeded input budget; compact inline context used") {
+		t.Fatalf("missing budget fallback warning: %#v", compactReport.Warnings)
 	}
 }
 

@@ -11,24 +11,31 @@ import (
 )
 
 func (c NarratorContext) RenderText() string {
-	return renderSectionTexts(c.narratorSections())
+	return renderSectionTexts(c.narratorSections(renderFullContext))
 }
 
 func (c NarratorContext) RenderBudgetedText(budget modelcap.Budget) (string, RenderBudgetReport) {
-	return renderBudgetedSections("narrator", c.narratorSections(), budget)
+	return renderBudgetedSections("narrator", c.narratorSections(renderFullContext), c.narratorSections(renderInlineContext), budget)
 }
 
 func (c NarratorContext) RenderActorText() string {
-	return renderSectionTexts(c.actorSections())
+	return renderSectionTexts(c.actorSections(renderFullContext))
 }
 
 func (c WriterContext) RenderText() string {
-	return renderSectionTexts(c.writerSections())
+	return renderSectionTexts(c.writerSections(renderFullContext))
 }
 
 func (c WriterContext) RenderBudgetedText(budget modelcap.Budget) (string, RenderBudgetReport) {
-	return renderBudgetedSections("writer", c.writerSections(), budget)
+	return renderBudgetedSections("writer", c.writerSections(renderFullContext), c.writerSections(renderInlineContext), budget)
 }
+
+type renderContextMode int
+
+const (
+	renderInlineContext renderContextMode = iota
+	renderFullContext
+)
 
 type contextSection struct {
 	ID        string
@@ -39,7 +46,7 @@ type contextSection struct {
 	MinTokens int
 }
 
-func (c NarratorContext) narratorSections() []contextSection {
+func (c NarratorContext) narratorSections(mode renderContextMode) []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
@@ -58,7 +65,7 @@ func (c NarratorContext) narratorSections() []contextSection {
 			writeJSON(b, c.SelectedNode)
 		}),
 		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 90, 1200, func(b *strings.Builder) {
-			writeActorContextsBody(b, c.ActorContexts)
+			writeActorContextsBody(b, c.ActorContexts, mode)
 		}),
 		renderedSection("recent_witnessed_canon", "RECENT WITNESSED CANON", true, 90, 1000, func(b *strings.Builder) {
 			writeStringListBody(b, c.RecentScenes)
@@ -73,7 +80,7 @@ func (c NarratorContext) narratorSections() []contextSection {
 			writeScenarioContractBody(b, c.ScenarioContract)
 		}),
 		renderedSection("lore_references", "LORE FIDELITY REFERENCES", false, 20, 800, func(b *strings.Builder) {
-			writeLoreGroupsBody(b, groupLoreByKind(c.LoreHits))
+			writeLoreGroupsBody(b, groupLoreByKind(c.LoreHits), mode)
 		}),
 		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
 			writeStringListBody(b, c.WitnessRules)
@@ -84,7 +91,7 @@ func (c NarratorContext) narratorSections() []contextSection {
 	})
 }
 
-func (c NarratorContext) actorSections() []contextSection {
+func (c NarratorContext) actorSections(mode renderContextMode) []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
 			fmt.Fprintln(b, "You are acting inside the current scene only. Use the character card, current scene beats, player decision, and provided directional representations as your available knowledge.")
@@ -99,7 +106,7 @@ func (c NarratorContext) actorSections() []contextSection {
 			writeJSON(b, c.SelectedNode)
 		}),
 		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 100, 1200, func(b *strings.Builder) {
-			writeActorContextsBody(b, c.ActorContexts)
+			writeActorContextsBody(b, c.ActorContexts, mode)
 		}),
 		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
 			writeStringListBody(b, c.WitnessRules)
@@ -110,7 +117,7 @@ func (c NarratorContext) actorSections() []contextSection {
 	})
 }
 
-func (c WriterContext) writerSections() []contextSection {
+func (c WriterContext) writerSections(mode renderContextMode) []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 600, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
@@ -150,7 +157,7 @@ func (c WriterContext) writerSections() []contextSection {
 			writeRepresentationsBody(b, c.Representations)
 		}),
 		renderedSection("lore_references", "LORE FIDELITY REFERENCES", false, 20, 900, func(b *strings.Builder) {
-			writeLoreGroupsBody(b, c.LoreByKind)
+			writeLoreGroupsBody(b, c.LoreByKind, mode)
 		}),
 		renderedSection("planning_constraints", "PLANNING CONSTRAINTS", true, 100, 1000, func(b *strings.Builder) {
 			writePlanningConstraintsBody(b)
@@ -364,10 +371,10 @@ func writeActorContexts(b *strings.Builder, actors []ActorContext) {
 		return
 	}
 	writeSection(b, "ACTOR CONTEXTS")
-	writeActorContextsBody(b, actors)
+	writeActorContextsBody(b, actors, renderInlineContext)
 }
 
-func writeActorContextsBody(b *strings.Builder, actors []ActorContext) {
+func writeActorContextsBody(b *strings.Builder, actors []ActorContext, mode renderContextMode) {
 	if len(actors) == 0 {
 		return
 	}
@@ -396,7 +403,7 @@ func writeActorContextsBody(b *strings.Builder, actors []ActorContext) {
 			}
 		}
 		writeInlineRepresentations(b, actor.Representations)
-		writeInlineLore(b, actor.LoreHits)
+		writeInlineLore(b, actor.LoreHits, mode)
 		if len(actor.Warnings) > 0 {
 			fmt.Fprintln(b, "warnings:")
 			for _, warning := range actor.Warnings {
@@ -423,7 +430,7 @@ func writeInlineRepresentations(b *strings.Builder, reps []Representation) {
 	}
 }
 
-func writeInlineLore(b *strings.Builder, hits []LoreHit) {
+func writeInlineLore(b *strings.Builder, hits []LoreHit, mode renderContextMode) {
 	if len(hits) == 0 {
 		return
 	}
@@ -431,7 +438,7 @@ func writeInlineLore(b *strings.Builder, hits []LoreHit) {
 	sortLore(hits)
 	fmt.Fprintln(b, "scene-valid lore:")
 	for _, hit := range hits {
-		fmt.Fprintf(b, "- %.3f %s %s: %s\n", hit.Score, hit.ID, hit.Source, strings.TrimSpace(hit.Text))
+		fmt.Fprintf(b, "- %.3f %s %s: %s\n", hit.Score, hit.ID, hit.Source, loreHitText(hit, mode))
 	}
 }
 
@@ -440,10 +447,10 @@ func writeLoreGroups(b *strings.Builder, byKind map[string][]LoreHit) {
 		return
 	}
 	writeSection(b, "LORE FIDELITY REFERENCES")
-	writeLoreGroupsBody(b, byKind)
+	writeLoreGroupsBody(b, byKind, renderInlineContext)
 }
 
-func writeLoreGroupsBody(b *strings.Builder, byKind map[string][]LoreHit) {
+func writeLoreGroupsBody(b *strings.Builder, byKind map[string][]LoreHit, mode renderContextMode) {
 	if len(byKind) == 0 {
 		return
 	}
@@ -458,11 +465,20 @@ func writeLoreGroupsBody(b *strings.Builder, byKind map[string][]LoreHit) {
 		fmt.Fprintf(b, "### %s\n", kind)
 		for _, hit := range hits {
 			fmt.Fprintf(b, "- %.3f %s %s\n", hit.Score, hit.ID, hit.Source)
-			if text := strings.TrimSpace(hit.Text); text != "" {
+			if text := loreHitText(hit, mode); text != "" {
 				fmt.Fprintf(b, "  %s\n", text)
 			}
 		}
 	}
+}
+
+func loreHitText(hit LoreHit, mode renderContextMode) string {
+	if mode == renderFullContext {
+		if text := strings.TrimSpace(hit.FullText); text != "" {
+			return text
+		}
+	}
+	return strings.TrimSpace(hit.Text)
 }
 
 func writeActorManifest(b *strings.Builder, actors []ActorManifestItem) {
@@ -556,14 +572,17 @@ func renderSectionTexts(sections []contextSection) string {
 	return strings.TrimSpace(strings.Join(texts, "\n\n"))
 }
 
-func renderBudgetedSections(role string, sections []contextSection, budget modelcap.Budget) (string, RenderBudgetReport) {
-	full := renderSectionTexts(sections)
+func renderBudgetedSections(role string, fullSections []contextSection, inlineSections []contextSection, budget modelcap.Budget) (string, RenderBudgetReport) {
+	full := renderSectionTexts(fullSections)
 	fullTokens := modelcap.EstimateTokens(full)
-	rendered := append([]contextSection(nil), sections...)
-	decisions := sectionDecisions(sections, rendered)
+	rendered := append([]contextSection(nil), fullSections...)
 	warnings := append([]string(nil), budget.Warnings...)
 	if budget.InputBudgetTokens > 0 && fullTokens > budget.InputBudgetTokens {
-		rendered, decisions = compactSections(sections, budget.InputBudgetTokens)
+		rendered = append([]contextSection(nil), inlineSections...)
+		warnings = appendStable(warnings, "full context exceeded input budget; compact inline context used")
+		if modelcap.EstimateTokens(renderSectionTexts(rendered)) > budget.InputBudgetTokens {
+			rendered = compactSections(rendered, budget.InputBudgetTokens)
+		}
 	}
 	inline := renderSectionTexts(rendered)
 	inlineTokens := modelcap.EstimateTokens(inline)
@@ -578,12 +597,12 @@ func renderBudgetedSections(role string, sections []contextSection, budget model
 		FullContextTokens:   fullTokens,
 		InlineContextTokens: inlineTokens,
 		Budget:              budget,
-		Sections:            decisions,
+		Sections:            sectionDecisions(fullSections, rendered),
 		Warnings:            uniqueStrings(warnings),
 	}
 }
 
-func compactSections(sections []contextSection, budgetTokens int) ([]contextSection, []SectionDecision) {
+func compactSections(sections []contextSection, budgetTokens int) []contextSection {
 	rendered := append([]contextSection(nil), sections...)
 	for modelcap.EstimateTokens(renderSectionTexts(rendered)) > budgetTokens {
 		index, ok := nextCompactCandidate(rendered, false)
@@ -616,7 +635,7 @@ func compactSections(sections []contextSection, budgetTokens int) ([]contextSect
 		}
 		break
 	}
-	return rendered, sectionDecisions(sections, rendered)
+	return rendered
 }
 
 func nextCompactCandidate(sections []contextSection, includeRequired bool) (int, bool) {

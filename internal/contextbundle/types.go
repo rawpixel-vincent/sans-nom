@@ -106,6 +106,8 @@ type SceneState struct {
 type LoreHit struct {
 	ID          string  `json:"id"`
 	Text        string  `json:"text"`
+	FullText    string  `json:"full_text,omitempty"`
+	Truncated   bool    `json:"truncated,omitempty"`
 	Source      string  `json:"source"`
 	Score       float64 `json:"score"`
 	Kind        string  `json:"kind,omitempty"`
