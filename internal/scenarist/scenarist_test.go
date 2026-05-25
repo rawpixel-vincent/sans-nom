@@ -301,7 +301,7 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	if err := os.MkdirAll(filepath.Join(workspaceRoot, "lorepack"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(workspaceRoot, "lorepack", "LORE.md"), []byte("# Master Lore\n\nHousehold law."), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(workspaceRoot, "lorepack", "LORE.md"), []byte("# Master Lore\n\nHousehold pressure."), 0o644); err != nil {
 		t.Fatal(err)
 	}
 	runner := &fakeScenaristRunner{
@@ -325,7 +325,7 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	if _, ok := tool.Parameters["properties"].(map[string]any)["requests"]; ok {
 		t.Fatalf("ask_scenarist schema should not expose requests[]: %#v", tool.Parameters)
 	}
-	args := `{"topic_id":"body-law","topic":"Body law","request":"Invent original pressure material with taboos, reversals, and choices for a later packet.","hard_boundaries":["Original material only.","Do not write a StoryPacket."],"relevant_paths":[]}`
+	args := `{"topic_id":"body-pressure","topic":"Body pressure","request":"Invent original pressure material with reversals and choices for a later packet.","hard_boundaries":["Original material only.","Do not write a StoryPacket."],"relevant_paths":[]}`
 	result, err := tool.Handler(context.Background(), ".", args)
 	if err != nil {
 		t.Fatal(err)
@@ -338,17 +338,17 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 	if strings.Contains(text, "raw free-form material") {
 		t.Fatalf("tool response leaked raw material:\n%s", text)
 	}
-	if !strings.Contains(text, "body-law.md") {
+	if !strings.Contains(text, "body-pressure.md") {
 		t.Fatalf("tool response missing path:\n%s", text)
 	}
-	matches, err := filepath.Glob(filepath.Join(outputDir, "tool-call-001", "*body-law.md"))
+	matches, err := filepath.Glob(filepath.Join(outputDir, "tool-call-001", "*body-pressure.md"))
 	if err != nil {
 		t.Fatal(err)
 	}
 	if len(matches) != 1 {
 		t.Fatalf("material matches = %#v", matches)
 	}
-	if len(runner.systems) != 1 || !strings.Contains(runner.systems[0], "ACTIVE LOREPACK MASTER SUMMARY") || !strings.Contains(runner.systems[0], "Household law.") {
+	if len(runner.systems) != 1 || !strings.Contains(runner.systems[0], "ACTIVE LOREPACK MASTER SUMMARY") || !strings.Contains(runner.systems[0], "Household pressure.") {
 		t.Fatalf("scenarist system prompt missing master lore: %#v", runner.systems)
 	}
 	fileData, err := os.ReadFile(matches[0])
@@ -370,11 +370,11 @@ func TestToolRunnerWritesFreeFormMaterialAndReturnsPathsOnly(t *testing.T) {
 func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 	logger := gamelog.NewGlobalWriter(t.TempDir())
 	scenaristRunner := &fakeScenaristRunner{responses: []string{
-		"@LoreExpert: How do source consequence systems make a local doctrine credible?",
+		"@LoreExpert: How do source consequences make a local custom credible?",
 		"final scenarist material after lore grounding",
 	}}
 	loreRunner := &fakeLoreExpertRunner{response: strings.Join([]string{
-		"## Lore authority answer",
+		"## Lore reference answer",
 		"consequence systems work through public cost.",
 		"## Source basis",
 		"pattern",
@@ -416,7 +416,7 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 			CallerSpeaker: "Creative Writer",
 		},
 	}).LocalTool()
-	args := `{"topic_id":"doctrine","topic":"Doctrine","request":"Brainstorm consequence systems and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["workshop/output.md"]}`
+	args := `{"topic_id":"source-custom","topic":"Source custom","request":"Brainstorm consequence patterns and ask source grounding if useful.","hard_boundaries":["Original material only."],"relevant_paths":["workshop/output.md"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -429,7 +429,7 @@ func TestToolRunnerLetsScenaristAskLoreExpert(t *testing.T) {
 	if len(scenaristRunner.queries) < 2 || !strings.Contains(scenaristRunner.queries[1], "Lore Expert answers") {
 		t.Fatalf("second scenarist query missing lore expert answer:\n%#v", scenaristRunner.queries)
 	}
-	matches, err := filepath.Glob(filepath.Join(outputDir, "tool-call-001", "*doctrine.md"))
+	matches, err := filepath.Glob(filepath.Join(outputDir, "tool-call-001", "*source-custom.md"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -530,7 +530,7 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 		CallerRole:    "writer",
 		CallerName:    "Writer",
 	}).LocalTool()
-	args := `{"topic_id":"law-check","topic":"Law check","request":"Stress test this law for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["story/bible.json"]}`
+	args := `{"topic_id":"rule-check","topic":"Rule check","request":"Stress test this source rule for reader plausibility.","hard_boundaries":["Original material only."],"relevant_paths":["story/bible.json"]}`
 	if _, err := tool.Handler(context.Background(), ".", args); err != nil {
 		t.Fatal(err)
 	}
@@ -553,7 +553,7 @@ func TestToolRunnerLogsCallsWithDetailPayloads(t *testing.T) {
 			t.Fatal(err)
 		}
 		text := string(mustJSON(t, detail))
-		if !strings.Contains(text, "law-check") {
+		if !strings.Contains(text, "rule-check") {
 			t.Fatalf("detail missing request payload: %s", text)
 		}
 	}
@@ -669,15 +669,15 @@ func TestToolRunnerSequentialCallsDoNotOverlap(t *testing.T) {
 
 func TestManifestTextDoesNotExposeMaterial(t *testing.T) {
 	manifest := Manifest{Materials: []Material{{
-		TopicID: "body-law",
-		Topic:   "Body law",
-		Path:    "data/stories/x/model-runs/scenarists/turn-000001/tool-call-001/01-body-law.md",
+		TopicID: "body-pressure",
+		Topic:   "Body pressure",
+		Path:    "data/stories/x/model-runs/scenarists/turn-000001/tool-call-001/01-body-pressure.md",
 	}}}
 	manifestText := ManifestText(manifest)
 	if strings.Contains(manifestText, "raw free-form material") {
 		t.Fatalf("manifest leaked raw material:\n%s", manifestText)
 	}
-	if !strings.Contains(manifestText, "01-body-law.md") {
+	if !strings.Contains(manifestText, "01-body-pressure.md") {
 		t.Fatalf("manifest missing path:\n%s", manifestText)
 	}
 }

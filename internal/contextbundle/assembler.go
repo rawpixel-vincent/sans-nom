@@ -69,7 +69,7 @@ func (a Assembler) AssembleNarrator(ctx context.Context, req BuildRequest) (Narr
 		Representations:  reps,
 		WitnessRules: []string{
 			"Only rolled-out narrator prose, player decisions, surfaced actor speech/actions, and explicit memory intents become canon.",
-			"Actor private interiors may inform narration but are not witnessed memory.",
+			"Actor private interiors may inform narration but are not shared scene memory.",
 			"Writer drafts and unused branches are planning artifacts and must not be committed to Honcho.",
 			"Do not infer all-cast presence from peer cards, lore hits, or dynasty identity maps.",
 		},
@@ -171,7 +171,7 @@ func (a Assembler) AssembleActorCall(ctx context.Context, req ActorCallBuildRequ
 		WitnessRules: []string{
 			"Actor material is planning/raw performance until the Narrator surfaces dialogue or action.",
 			"Private interiors are never committed to shared scene memory.",
-			"Use only witnessed canon, this actor card, and provided directional representations.",
+			"Use only rolled-out canon, this actor card, and provided directional representations.",
 		},
 		Warnings: uniqueStrings(warnings),
 	}
@@ -202,10 +202,12 @@ func cloneBible(bible *story.StoryBible) *story.StoryBible {
 	}
 	cloned := *bible
 	cloned.WorldBasics = append([]string(nil), bible.WorldBasics...)
+	cloned.StoryContext = append([]string(nil), bible.StoryContext...)
 	cloned.LorePrinciples = append([]story.OriginalLaw(nil), bible.LorePrinciples...)
 	cloned.OriginalLaws = append([]story.OriginalLaw(nil), bible.OriginalLaws...)
 	cloned.Factions = append([]story.Faction(nil), bible.Factions...)
 	cloned.CoreRelationships = append([]string(nil), bible.CoreRelationships...)
+	cloned.ToneGuidance = append([]string(nil), bible.ToneGuidance...)
 	cloned.ToneDoctrine = append([]string(nil), bible.ToneDoctrine...)
 	cloned.SourceLoreInfluenceRefs = append([]string(nil), bible.SourceLoreInfluenceRefs...)
 	cloned.ForbiddenLiteralCanonTerms = append([]string(nil), bible.ForbiddenLiteralCanonTerms...)

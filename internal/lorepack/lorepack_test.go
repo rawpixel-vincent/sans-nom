@@ -22,8 +22,8 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 		t.Fatalf("gameplay_mode = %q", pack.GameplayMode)
 	}
 	contract := pack.ScenarioContract()
-	if contract.GameSynopsis == "" || len(contract.MustHonor) == 0 || len(contract.ChoicePrinciples) == 0 {
-		t.Fatalf("missing scenario contract: %#v", contract)
+	if contract.GameSynopsis == "" || len(contract.StoryLines) == 0 || len(contract.MustNotViolate) == 0 {
+		t.Fatalf("missing scenario notes: %#v", contract)
 	}
 	if pack.MasterLoreRelPath() != "LORE.md" {
 		t.Fatalf("master lore rel path = %q", pack.MasterLoreRelPath())
@@ -41,11 +41,11 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	}
 	contractText := pack.ScenarioContractText()
 	for _, required := range []string{
-		"Lorepack Scenario Contract",
+		"Lorepack Scenario Notes",
 		"gameplay_mode: canon_internal_original",
 		"game_synopsis:",
-		"must_honor:",
-		"choice_principles:",
+		"story_lines:",
+		"avoid_drift_notes:",
 		"canon_anchor:",
 		"allowed_original_insertions:",
 	} {
@@ -58,7 +58,7 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 		"Lorepack Scenario Orientation",
 		"contract_path: lorepack/lore-pack.json",
 		"master_lore_path: lorepack/LORE.md",
-		"pressure field for faithful play",
+		"fidelity/background support for play",
 	} {
 		if !strings.Contains(orientationText, required) {
 			t.Fatalf("orientation text missing %q:\n%s", required, orientationText)
@@ -66,7 +66,6 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 	}
 	for _, tooSpecific := range []string{
 		"game_synopsis:",
-		"must_honor:",
 		"must_not_violate:",
 	} {
 		if strings.Contains(orientationText, tooSpecific) {
@@ -106,7 +105,7 @@ func TestActivePackRequiresScenarioContract(t *testing.T) {
 		t.Fatal(err)
 	}
 	if _, err := GetPack(root, "empty"); err == nil {
-		t.Fatal("expected active pack without scenario contract to fail")
+		t.Fatal("expected active pack without scenario notes to fail")
 	}
 }
 
@@ -135,13 +134,11 @@ func writePack(t *testing.T, root string, dir string, id string) {
   "status": "active",
   "gameplay_mode": "canon_internal_original",
   "game_synopsis": "A test heir must survive a dynasty trial.",
-  "protagonist_role": "Dynasty heir",
-  "opening_situation": "The heir is summoned to a trial chamber.",
-  "initial_pressure": "The family demands a costly proof.",
-  "story_lines": ["claim the inheritance"],
-  "must_honor": ["dynasty pressure has consequences"],
-  "must_not_violate": ["no consequence-free refusal"],
-	"choice_principles": ["choices express stance toward duty and refusal"]
+  "protagonist_role": "Repair apprentice",
+  "opening_situation": "The apprentice reaches a failing pump room.",
+  "initial_pressure": "The orchard will dry out unless someone acts now.",
+  "story_lines": ["save the pump room"],
+  "must_not_violate": ["no consequence-free refusal"]
 }`
 	if err := os.WriteFile(filepath.Join(path, "lore-pack.json"), []byte(body), 0o644); err != nil {
 		t.Fatal(err)

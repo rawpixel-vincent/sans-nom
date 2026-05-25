@@ -53,7 +53,7 @@ func (c NarratorContext) narratorSections(mode renderContextMode) []contextSecti
 			fmt.Fprintf(b, "This is a game: keep the player character centered, make the scene entertaining to play, and aim pressure at player agency.\n")
 			fmt.Fprintf(b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
 			fmt.Fprintf(b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
-			fmt.Fprintf(b, "Honor the lorepack scenario contract and use lore references as fidelity support for this active scenario.\n")
+			fmt.Fprintf(b, "Honor the lorepack scenario notes and use lore references as fidelity support for this active scenario.\n")
 		}),
 		renderedSection("current_scene_state", "CURRENT SCENE STATE", true, 100, 700, func(b *strings.Builder) {
 			writeJSON(b, c.SceneState)
@@ -67,22 +67,22 @@ func (c NarratorContext) narratorSections(mode renderContextMode) []contextSecti
 		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 90, 1200, func(b *strings.Builder) {
 			writeActorContextsBody(b, c.ActorContexts, mode)
 		}),
-		renderedSection("recent_witnessed_canon", "RECENT WITNESSED CANON", true, 90, 1000, func(b *strings.Builder) {
+		renderedSection("recent_rolled_out_canon", "RECENT ROLLED-OUT CANON", true, 90, 1000, func(b *strings.Builder) {
 			writeStringListBody(b, c.RecentScenes)
 		}),
 		renderedSection("directional_representations", "DIRECTIONAL REPRESENTATIONS", false, 40, 800, func(b *strings.Builder) {
 			writeRepresentationsBody(b, c.Representations)
 		}),
-		renderedSection("story_bible_doctrine", "STORY BIBLE DOCTRINE", false, 30, 1200, func(b *strings.Builder) {
-			writeStoryBibleDoctrineBody(b, c.StoryBible)
+		renderedSection("story_context_guidance", "STORY CONTEXT GUIDANCE", false, 30, 1200, func(b *strings.Builder) {
+			writeStoryBibleContextBody(b, c.StoryBible)
 		}),
-		renderedSection("scenario_contract", "LOREPACK SCENARIO CONTRACT", false, 35, 1200, func(b *strings.Builder) {
+		renderedSection("scenario_contract", "LOREPACK SCENARIO NOTES", false, 35, 1200, func(b *strings.Builder) {
 			writeScenarioContractBody(b, c.ScenarioContract)
 		}),
 		renderedSection("lore_references", "LORE FIDELITY REFERENCES", false, 20, 800, func(b *strings.Builder) {
 			writeLoreGroupsBody(b, groupLoreByKind(c.LoreHits), mode)
 		}),
-		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
+		renderedSection("memory_visibility_rules", "MEMORY AND VISIBILITY RULES", true, 100, 700, func(b *strings.Builder) {
 			writeStringListBody(b, c.WitnessRules)
 		}),
 		renderedSection("warnings", "WARNINGS", false, 10, 300, func(b *strings.Builder) {
@@ -108,7 +108,7 @@ func (c NarratorContext) actorSections(mode renderContextMode) []contextSection 
 		renderedSection("actor_contexts", "ACTOR CONTEXTS", true, 100, 1200, func(b *strings.Builder) {
 			writeActorContextsBody(b, c.ActorContexts, mode)
 		}),
-		renderedSection("witness_rules", "MEMORY AND WITNESS RULES", true, 100, 700, func(b *strings.Builder) {
+		renderedSection("memory_visibility_rules", "MEMORY AND VISIBILITY RULES", true, 100, 700, func(b *strings.Builder) {
 			writeStringListBody(b, c.WitnessRules)
 		}),
 		renderedSection("warnings", "WARNINGS", false, 10, 300, func(b *strings.Builder) {
@@ -120,16 +120,16 @@ func (c NarratorContext) actorSections(mode renderContextMode) []contextSection 
 func (c WriterContext) writerSections(mode renderContextMode) []contextSection {
 	return nonEmptySections([]contextSection{
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 600, func(b *strings.Builder) {
-			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest witnessed canon and player decision; the packet tree is planning material, not canon.\n")
+			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest rolled-out canon and player decision; the packet tree is planning material, not canon.\n")
 			fmt.Fprintf(b, "This is a game: keep the player character at the dramatic center, make the next pressure entertaining to play, and give the player agency rather than only lore procedure.\n")
 			fmt.Fprintf(b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
-			fmt.Fprintf(b, "The Narrator owns final prose. Honcho receives only rolled-out witnessed canon, never unused branches.\n")
-			fmt.Fprintf(b, "Honor the lorepack scenario contract; branch inside its pressure, choice logic, and consequences.\n")
+			fmt.Fprintf(b, "The Narrator owns final prose. Honcho receives only rolled-out canon, never unused branches.\n")
+			fmt.Fprintf(b, "Use lorepack scenario notes as fidelity/background support while keeping the scene playable.\n")
 		}),
-		renderedSection("story_bible_doctrine", "STORY BIBLE DOCTRINE", false, 30, 1400, func(b *strings.Builder) {
-			writeStoryBibleDoctrineBody(b, c.StoryBible)
+		renderedSection("story_context_guidance", "STORY CONTEXT GUIDANCE", false, 30, 1400, func(b *strings.Builder) {
+			writeStoryBibleContextBody(b, c.StoryBible)
 		}),
-		renderedSection("scenario_contract", "LOREPACK SCENARIO CONTRACT", false, 35, 1400, func(b *strings.Builder) {
+		renderedSection("scenario_contract", "LOREPACK SCENARIO NOTES", false, 35, 1400, func(b *strings.Builder) {
 			writeScenarioContractBody(b, c.ScenarioContract)
 		}),
 		renderedSection("current_scene_state", "CURRENT SCENE STATE", true, 100, 700, func(b *strings.Builder) {
@@ -147,7 +147,7 @@ func (c WriterContext) writerSections(mode renderContextMode) []contextSection {
 		renderedSection("actor_manifest", "STORY ACTOR MANIFEST", true, 95, 1000, func(b *strings.Builder) {
 			writeActorManifestBody(b, c.ActorManifest)
 		}),
-		renderedSection("recent_witnessed_canon", "RECENT WITNESSED CANON", true, 95, 1000, func(b *strings.Builder) {
+		renderedSection("recent_rolled_out_canon", "RECENT ROLLED-OUT CANON", true, 95, 1000, func(b *strings.Builder) {
 			writeStringListBody(b, c.RecentScenes)
 		}),
 		renderedSection("progression_contract", "STORY PROGRESSION CONTRACT", true, 100, 900, func(b *strings.Builder) {
@@ -166,7 +166,7 @@ func (c WriterContext) writerSections(mode renderContextMode) []contextSection {
 			writeStringListBody(b, c.Warnings)
 		}),
 		renderedSection("packet_reference", "CURRENT BOUNDED PACKET REFERENCE", false, 25, 1400, func(b *strings.Builder) {
-			fmt.Fprintln(b, "The full packet JSON below is prior planning context. The selected node and recent witnessed canon above have priority when they disagree or when this section is trimmed.")
+			fmt.Fprintln(b, "The full packet JSON below is prior planning context. The selected node and recent rolled-out canon above have priority when they disagree or when this section is trimmed.")
 			writeJSON(b, c.Packet)
 		}),
 	})
@@ -178,11 +178,11 @@ func writeWriterProgressionContract(b *strings.Builder) {
 }
 
 func writeWriterProgressionContractBody(b *strings.Builder) {
-	fmt.Fprintln(b, "- Start after the selected node's witnessed outcome; do not replay, re-adjudicate, or rename the same pending proof.")
-	fmt.Fprintln(b, "- Each refresh packet must advance at least one macro story state: location, custody/control, revealed truth, opponent advantage, resource/weapon status, witness record, or irreversible cost.")
-	fmt.Fprintln(b, "- If the previous branch accepted a challenge, petition, escape, wound, testimony, or bargain, the next packet must make that consequence happen or move to the scene where it bites.")
-	fmt.Fprintln(b, "- Do not offer three choices that are only different ways to continue observing the same mechanism. Each choice must change who can act, what proof exists, what relationship is endangered, or what cost becomes unavoidable.")
-	fmt.Fprintln(b, "- Use the Story Bible story_arc, if present, as the phase ladder. The opening crisis is not the whole story.")
+	fmt.Fprintln(b, "- Start after the selected node's rolled-out outcome; do not replay, re-adjudicate, or rename the same pending situation.")
+	fmt.Fprintln(b, "- Each refresh packet must advance at least one macro story state: location, custody/control, revealed information, opponent advantage, resource status, relationship state, or irreversible cost.")
+	fmt.Fprintln(b, "- If the previous branch accepted a challenge, petition, escape, wound, bargain, vow, or confession, the next packet must make that consequence happen or move to the scene where it bites.")
+	fmt.Fprintln(b, "- Do not offer choices that are only different ways to keep observing the same mechanism. Each choice must change who can act, what relationship is endangered, or what cost becomes unavoidable.")
+	fmt.Fprintln(b, "- Use story_arc only as optional guidance when present. The opening crisis is not the whole story.")
 }
 
 func writeStoryProgression(b *strings.Builder, progression StoryProgression) {
@@ -241,7 +241,7 @@ func writeScenarioContract(b *strings.Builder, value string) {
 	if value == "" {
 		return
 	}
-	writeSection(b, "LOREPACK SCENARIO CONTRACT")
+	writeSection(b, "LOREPACK SCENARIO NOTES")
 	writeScenarioContractBody(b, value)
 }
 
@@ -253,15 +253,15 @@ func writeScenarioContractBody(b *strings.Builder, value string) {
 	fmt.Fprintln(b, value)
 }
 
-func writeStoryBibleDoctrine(b *strings.Builder, value *story.StoryBible) {
+func writeStoryBibleContext(b *strings.Builder, value *story.StoryBible) {
 	if value == nil {
 		return
 	}
-	writeSection(b, "STORY BIBLE DOCTRINE")
-	writeStoryBibleDoctrineBody(b, value)
+	writeSection(b, "STORY CONTEXT GUIDANCE")
+	writeStoryBibleContextBody(b, value)
 }
 
-func writeStoryBibleDoctrineBody(b *strings.Builder, value *story.StoryBible) {
+func writeStoryBibleContextBody(b *strings.Builder, value *story.StoryBible) {
 	if value == nil {
 		return
 	}
@@ -269,16 +269,11 @@ func writeStoryBibleDoctrineBody(b *strings.Builder, value *story.StoryBible) {
 	fmt.Fprintf(b, "premise: %s\n", value.Premise)
 	fmt.Fprintf(b, "player: %s (%s)\n", value.PlayerCharacter.Name, value.PlayerCharacter.PeerID)
 	fmt.Fprintf(b, "player_world_connection: %s\n", value.PlayerWorldConnection)
-	for _, law := range value.BindingLorePrinciples() {
-		fmt.Fprintf(b, "law %s (%s): %s\n", law.ID, law.Name, law.Description)
-		fmt.Fprintf(b, "enforcement: %s\n", law.Enforcement)
-		fmt.Fprintf(b, "why_profound: %s\n", law.WhyProfound)
-		fmt.Fprintf(b, "not_merely_cruel: %s\n", law.NotMerelyCruel)
-	}
+	writeInlineList(b, "story_context", value.StoryContextGuidance())
 	writeInlineList(b, "world_basics", value.WorldBasics)
-	writeInlineList(b, "tone_doctrine", value.ToneDoctrine)
-	writeInlineList(b, "first_turn_exposition", value.FirstTurnExposition)
-	writeInlineList(b, "story_arc", value.StoryArc)
+	writeInlineList(b, "tone_guidance", value.ToneGuidanceLines())
+	writeInlineList(b, "opening_guidance", value.FirstTurnExposition)
+	writeInlineList(b, "story_arc_guidance", value.StoryArc)
 	if strings.TrimSpace(value.CurrentArcPhase) != "" {
 		fmt.Fprintf(b, "current_arc_phase: %s\n", strings.TrimSpace(value.CurrentArcPhase))
 	}
@@ -523,10 +518,10 @@ func writePlanningConstraintsBody(b *strings.Builder) {
 	fmt.Fprintln(b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
 	fmt.Fprintln(b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
-	fmt.Fprintln(b, "- Preserve the scenario contract's must_honor items and avoid must_not_violate drift.")
-	fmt.Fprintln(b, "- Make each major choice express the scenario choice_principles.")
-	fmt.Fprintln(b, "- Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order.")
-	fmt.Fprintln(b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, visible cost, and consequence.")
+	fmt.Fprintln(b, "- Use scenario notes and avoid-drift notes as fidelity support; do not contradict concrete source anchors.")
+	fmt.Fprintln(b, "- Make each major choice connect to current player pressure, relationship stakes, or scene consequence.")
+	fmt.Fprintln(b, "- Let rules, customs, or constraints sharpen desire and opposition only when they arise from the current story or source material.")
+	fmt.Fprintln(b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, material consequence, and follow-through.")
 	fmt.Fprintln(b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
 	fmt.Fprintln(b, "- When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.")
 	fmt.Fprintln(b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")

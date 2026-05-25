@@ -55,25 +55,12 @@
     "Navigate servants, witnesses, rivals, lovers, weapons, and family figures whose loyalty is real but never simple.",
     "Make choices whose consequences are public, bodily, and remembered by the household."
   ],
-  "must_honor": [
-    "The dynasty treats family, body, weapon, memory, and duty as inseparable.",
-    "Power is proven through visible cost rather than private intention.",
-    "Refusal matters only when it risks love, status, body, or succession.",
-    "Witnesses and servants are not scenery; they shape memory, legitimacy, and consequence.",
-    "Violence should carry philosophical and emotional pressure, not exist as spectacle alone."
-  ],
   "must_not_violate": [
     "Do not make dynasty duty consequence-free or purely decorative.",
     "Do not turn the story into generic space fantasy detached from lineage, body, ritual, and inheritance.",
     "Do not resolve family pressure with simple rebellion that costs nothing.",
     "Do not flatten servants, lovers, parents, or rivals into exposition devices.",
     "Do not offer choices that only navigate locations without changing duty, knowledge, loyalty, or cost."
-  ],
-  "choice_principles": [
-    "Each major choice should express a stance toward inheritance, obedience, refusal, love, or bodily sacrifice.",
-    "Choices should expose what the heir values under pressure, then make the household react.",
-    "A good branch changes who witnesses the heir, what proof exists, or what cost becomes unavoidable.",
-    "Lore fidelity matters more than novelty; surprise should come from staging and consequence inside the dynasty contract."
   ],
   "canon_anchor": {
     "source_volumes": [1, 2, 3, 4, 5, 6, 7, 8],

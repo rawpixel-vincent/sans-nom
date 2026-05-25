@@ -11,7 +11,7 @@ import (
 func WriterPrompt(contextText string, latestDecision string) (string, error) {
 	return fmt.Sprintf(`You are the Creative Writer for Sans-Nom.
 
-Plan the next bounded StoryPacket from the witnessed story so far, the latest player decision, its immediate consequence, and the next playable pressure. The packet is planning material, not player-facing prose.
+Plan the next bounded StoryPacket from the rolled-out story so far, the latest player decision, its immediate consequence, and the next playable pressure. The packet is planning material, not player-facing prose.
 
 Creative priorities:
 - Continue from canon; do not restart the story.
@@ -20,11 +20,11 @@ Creative priorities:
 - Show what the player decision changes now: pressure, relationship, danger, opportunity, or irreversible cost.
 - Keep the next choice playable, emotionally specific, and visually memorable.
 - Make strange material feel lived-in through cause, daily practice, human cost, and visible consequence.
-- Let any local doctrine sharpen desire, opposition, or cost; do not make procedure the main attraction.
-- Honor any lorepack scenario contract in the assembled context; branch inside its pressure, choice logic, and consequences.
-- Advance the story phase. Do not replay, re-adjudicate, or rename the same proof, bargain, challenge, wound, or testimony as the previous turn.
-- Obey STORY PHASE GUIDANCE when present. If it marks a proof mechanism or motif as spent, the next packet must make someone act on that proof or shift to a new macro pressure.
-- Preserve the story's pressure register. Do not default to clock/minute countdowns for urgency unless the current canon has already made measured time the active material. Prefer story-native thresholds: witness cycles closing, relays repeating, custody states hardening, biological/material changes, doors/laws/archives sealing, or a public record becoming irreversible.
+- Let any local rule, custom, or constraint sharpen desire, opposition, or cost; do not make procedure the main attraction.
+- Use lorepack scenario notes as fidelity/background support; branch inside current pressure, choice texture, and consequences without treating legacy fields as hard dramatic law.
+- Advance the story phase when useful. Do not replay, re-adjudicate, or rename the same bargain, challenge, wound, threat, or stalled mechanism as the previous turn.
+- Use STORY PHASE GUIDANCE as optional guidance when present. If it marks a motif as spent, the next packet must make something happen or shift to a new pressure.
+- Preserve the story's pressure register. Do not default to clock/minute countdowns for urgency unless the current canon has already made measured time the active material. Prefer story-native thresholds: relays repeating, custody states hardening, biological/material changes, doors/archives sealing, or a public record becoming irreversible.
 - If a scene asks the player a moral or identity question, do not strand that question on a terminal atmospheric leaf. Give the player an answer surface: a Reflect-style choice inside the packet, or revision_notes that explicitly carry the player's free-text answer into the next Writer packet.
 
 Packet contract:
@@ -45,7 +45,7 @@ Tools:
 - When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json.
 - After that grounding read, local tools can inspect curated workspace files under story/, scenarists/, and lorepack/ when a specific fact is missing. Use them sparingly: prefer 1-4 targeted tool calls total, then draft the packet.
 - Do not run broad inventory commands such as find ., find story, find lorepack, or read every narration file. If an exact file is needed, read one named story file or one named lorepack source file.
-- Use lorepack/ only for concrete pack contract or reference checks that the assembled context cannot answer. Prefer one focused rg/read or ask_lore_expert over browsing manifests, wiki, and multiple volume summaries.
+- Use lorepack/ only for concrete pack notes or reference checks that the assembled context cannot answer. Prefer one focused rg/read or ask_lore_expert over browsing manifests, wiki, and multiple volume summaries.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert for focused lore authority/reference checks when scenario fidelity is uncertain. Treat its answers as support, not story authorship.
 - Use ask_actor when a listed story actor's will, memory, voice, or relationship pressure affects packet design. Actor material is planning-only; it can shape beats, choices, and actor_needs, but it is not canon unless a later Narrator rollout surfaces it.
@@ -94,8 +94,8 @@ Narration priorities:
 - This is a game: keep the player character at the center of the scene, make the moment entertaining to play, and aim every pressure point at player agency.
 - Lead with scene, character action, sensory detail, and emotional movement.
 - Make the player character's situation legible through what happens, what people do, and what the place demands.
-- Let doctrine, law, technology, or taboo appear through lived consequence rather than exposition.
-- Honor any lorepack scenario contract in context; scene detail should reinforce its pressure and consequences.
+- Let rules, technology, or customs appear through lived consequence rather than exposition.
+- Use lorepack scenario notes in context as fidelity/background support; scene detail should reinforce current pressure and consequences.
 - End at the playable pressure point and preserve the available choice ids and labels.
 - Format prose as 2-6 readable paragraphs separated by blank lines. Avoid one-block walls of text and avoid restating the same lore result in multiple formulations.
 - For branch continuations, give the selected node real scene weight: consequence from the prior choice, concrete action in the present location, and a new pressure turn before choices appear. Do not compress it into a mere transition summary.
@@ -105,12 +105,12 @@ Rules:
 - The Creative Writer planned structure; you own final prose.
 - Do not expose Writer notes.
 - Do not expose actor private interiors.
-- Director rehearsal material is not canon by itself. Use usable actor dialogue/action when it serves the player-facing scene, but only dialogue/action you place in surfaced_actor_messages becomes witnessed scene memory.
+- Director rehearsal material is not canon by itself. Use usable actor dialogue/action when it serves the player-facing scene, but only dialogue/action you place in surfaced_actor_messages becomes shared scene memory.
 - Do not let actor performance steal protagonism from the player character; actors should sharpen pressure, opposition, temptation, humor, or consequence around the player.
 - Use curated_card_updates only for concise facts the rolled-out scene just proved about an actor or a directional relationship. Do not copy private interiors, unused alternatives, Writer drafts, or unsurfaced actor material into card updates.
 - When local read tools are available, perform one narrow grounding read before drafting: read story/current-node.json. If a concrete source detail is missing, read curated files such as lorepack/navigation.md, lorepack/contract.md, lorepack/relevant-excerpts.md, or lorepack/source-anchors.md.
 - Use provided lore context first after that grounding read; do not run broad inventory commands unless exact file names are missing.
-- Use lore references to preserve fidelity to the active scenario, not to dump unused canon.
+- Use lore references to preserve fidelity to the active scenario, not to dump unused canon or force a generic theme.
 - Make strange events feel causally, socially, and emotionally credible inside the created world.
 - Surface actor messages only from provided Director rehearsal outputs. If rehearsal actor_outputs is [], surfaced_actor_messages must be [].
 
@@ -137,11 +137,11 @@ func SeedWriterRepairPrompt(contextText string) string {
 }
 
 func SeedWriterPromptWithMode(contextText string, repair bool) string {
-	orientationRules := `- Before drafting any StoryBible or StoryPacket, do a lore orientation pass. When local read tools are available, read lorepack/navigation.md first, then lorepack/lore-pack.json, then inspect staged lorepack reference files enough to understand the source's major characters, family/story pressures, repeated laws, decisive events, and choice logic.
+	orientationRules := `- Before drafting any StoryBible or StoryPacket, do a lore orientation pass. When local read tools are available, read lorepack/navigation.md first, then lorepack/lore-pack.json, then inspect staged lorepack reference files enough to understand the source's major characters, premise pressures, decisive events, and choice texture.
 - Follow the minimum orientation from lorepack/navigation.md: contract, wiki overview, comics manifest, at least two relevant volume summaries, and at least one matching character file before writing JSON, unless ask_lore_expert resolves a narrow missing fact.
 - Use LS/Grep/Read on lorepack/ deliberately: prefer lorepack/wiki/lore.md, lorepack/comics/volumes/volume-XX.json, lorepack/comics/characters/characters-volume-XX.json, lorepack/comics/manifest.json, and specific lorepack/comics/pages/<page_id>.json files that answer a concrete fidelity question. Use lorepack/index/manifest.json only to understand retrieval coverage. Do not browse randomly; build a compact mental model before writing JSON.
 - Use the Grep tool or rg-style searches, not shell grep, when searching lorepack files.
-- Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore authority/reference support.`
+- Use ask_lore_expert when fidelity to the selected lorepack is uncertain. Treat it as lore reference support.`
 	if repair {
 		orientationRules = `- This is a repair pass after validation/review feedback. Do not redo the full lore orientation pass from scratch.
 - Start from the previous raw Writer output and patch only the fields/nodes required by the feedback.
@@ -154,39 +154,37 @@ func SeedWriterPromptWithMode(contextText string, repair bool) string {
 Create the durable StoryBible and opening StoryPacket for the selected lorepack scenario.
 
 Your creative job:
-- Stage the authored lorepack scenario contract into a playable opening; treat it as a pressure field, not a fixed one-scene template.
+- Stage the authored lorepack scenario notes into a playable opening; treat them as support, not a fixed one-scene template.
 - This is a game: keep the player character at the dramatic center, make the opening entertaining to play, and make choices feel like player agency rather than lore procedure.
 - Treat the active lorepack master summary in system context as your stable source-lore baseline.
 - Let the contract supply premise logic while freshness comes from staging, consequence, and branch pressure.
-- Preserve the protagonist role, opening situation, initial pressure, must_honor rules, and choice_principles.
+- Preserve the protagonist role, opening situation, and initial pressure. Treat legacy scenario-note fields as context, not mandatory dramatic rails.
 - Make the opening visually memorable, emotionally specific, and strange-but-lived-in through concrete action.
-- Let binding rites, laws, or doctrines sharpen desire, opposition, and cost rather than becoming exposition.
-- If legacy workshop files are present, treat them as optional staging notes only. The lorepack scenario contract wins.
+- Let rules, customs, or constraints sharpen desire, opposition, and cost only when they come from the lorepack or the current premise.
+- If legacy workshop files are present, treat them as optional staging notes only. The lorepack scenario notes wins.
 
 Rules:
 - Return a top-level JSON object with "bible" and "packet".
-- You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or binding doctrine to another role.
+- You, the Creative Writer, own the StoryBible and StoryPacket. Do not delegate final story design, packet structure, or story guidance to another role.
 %s
 - The injected master summary is broad context, not permission to dump canon; cite concrete staged files or ask_lore_expert when exact source grounding matters.
-- The StoryBible must include title, premise, player character, player-world connection, world basics, lore_principles that bind the scenario pressure, factions, relationships, tone doctrine, and concrete resume metadata.
+- The StoryBible must include title, premise, player character, player-world connection, world basics, story_context, factions, relationships, tone_guidance, and concrete resume metadata. story_context and tone_guidance may be compact.
 - Populate metadata with string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id. Do not leave metadata empty.
 - Populate optional phase fields when useful: current_arc_phase, next_required_revelation, next_required_opposition, spent_motifs, and open_threads.
 - Populate packet.metadata with string values for current_arc_phase, next_arc_phase, and spent_motifs. Use spent_motifs only for mechanisms already spent by the seed runway; separate multiple motifs with semicolons.
-- Make strange material legible through cause, social practice, cost, emotional credibility, and consequence inside the lorepack contract.
-- Return one StoryPacket with exactly 5 scene nodes.
+- Make strange material legible through cause, social practice, emotional credibility, material consequence, and follow-through inside the lorepack context.
+- Return one compact playable StoryPacket, usually 2-5 scene nodes.
 - For this first seed, use no actor_needs; original actor peer cards are not generated yet.
 - The Narrator owns final prose; write beats as structural scene material, not polished final narration.
 - Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
-- The opening runway must create the first playable trouble, not spend the story's peak. Leave room for later phases and make each turn_3 branch point toward a different next movement.
-- The StoryBible must include story_arc: 4-7 concrete phase steps for continuation after the seed runway. Each step should name what changes in status, location, revealed truth, opposition, or irreversible cost.
-- The seed packet is a three-turn runway: turn_1_intro, turn_2_decision, and exactly three turn_3 branch nodes.
-- The entry node is turn_1_intro: a story-onboarding scene with 2-3 cosmetic flavor choices. All entry choices target the same turn_2_decision node and should not change story state.
-- The turn_2_decision node has exactly 3 meaningful choices. Each choice targets one distinct turn_3 branch node included in this packet.
-- Each turn_3 branch node has no choices and has revision_notes explaining Writer continuation after that branch is narrated.
+- The opening must create first playable trouble, not spend the story's peak. Leave room for later movement.
+- story_arc and phase fields are optional guidance. Include them only when they help later Writer refreshes.
+- The seed packet may use any clear node ids. It needs at least one real playable choice point with valid included target nodes.
+- Terminal handoff nodes have no choices and include revision_notes explaining Writer continuation after that branch is narrated.
 - Every choice target_node_id must point to a scene node included in this same packet. Do not use placeholder targets such as "node_requires_continuation", "continue", "writer_continuation", or any missing handoff node.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
-- Use rolled_out_canon only for facts witnessed on the entry path; use planning_only for unrolled branch notes; use actor_private only with private_to_actor.
+- Use rolled_out_canon only for facts rolled out on the entry path; use planning_only for unrolled branch notes; use actor_private only with private_to_actor.
 
 Context:
 %s
@@ -200,10 +198,10 @@ func SeedWorkshopPrompt(contextText string, turnTitle string, promptShape string
 This legacy turn is for staging and critique around an existing lorepack scenario, not premise invention.
 
 Creative priorities:
-- Preserve the lorepack scenario contract as the premise source.
+- Preserve the lorepack scenario notes as the premise source.
 - Look for playable staging, scene pressure, relationship friction, reversals, and reader risks.
 - Keep emotional pressure specific and visible through what characters must do now.
-- Make choice pressure concrete: what changes, who witnesses it, and what cost follows.
+- Make choice pressure concrete: what changes, who can respond, and what consequence follows.
 
 Rules:
 - Output Markdown only.
@@ -233,34 +231,29 @@ Return only Markdown workshop material.`, turnTitle, promptShape, priorManifest,
 func SeedVerifierPrompt(bundleJSON string, contextText string) string {
 	return fmt.Sprintf(`You are the NerdVerifier for the first playable Sans-Nom CLI slice.
 
-Review the proposed opening StoryBible plus StoryPacket against the lorepack scenario contract.
+Review the proposed opening StoryBible plus StoryPacket against the lorepack scenario notes.
 
 Reject if:
 - the JSON is not a valid top-level object with bible and packet;
-- the StoryBible or packet invents a replacement central premise instead of staging the lorepack scenario contract;
-- the proposal contradicts any must_honor item from the scenario contract;
-- the proposal violates any must_not_violate item from the scenario contract;
-- choices are generic navigation or tactics instead of expressing the scenario's choice_principles;
-- the StoryBible lacks binding lore principles that support the player character's conflict;
-- the StoryBible lacks a story_arc with concrete continuation phases beyond the opening;
+- the StoryBible or packet invents a replacement central premise instead of staging the lorepack scenario notes;
+- the proposal contradicts concrete source-fidelity notes or avoid-drift notes from the lorepack;
+- choices are generic navigation or tactics instead of expressing player pressure, relationship stakes, cost, risk, or agency;
 - the opening lacks player desire, place, pressure, active opposition, or choices that reveal character;
-- law/doctrine is the dominant dramatic subject instead of serving character conflict;
-- the first turn is mostly system explanation, civic procedure, or invented terminology;
-- the seed runway spends the apparent climax immediately and leaves the Writer with only the same proof, hearing, challenge, or procedure to repeat;
-- the player character's world, law, technology, or character behavior damages reader plausibility because it lacks internal cause, social enforcement, cost, or consequence;
+- lore procedure is the dominant dramatic subject instead of serving character conflict;
+- the first scene is mostly system explanation, procedure, or invented terminology;
+- the seed spends the apparent climax immediately and leaves the Writer with only the same situation or procedure to repeat;
+- the player character's world, technology, custom, or character behavior damages reader plausibility because it lacks internal cause, social practice, cost, or consequence;
 - the StoryBible lacks resume metadata;
-- the packet is not a valid StoryPacket with exactly 5 nodes;
-- the packet does not use the seed runway shape: turn_1_intro, turn_2_decision, and three turn_3 branch nodes;
-- turn_1_intro does not have 2-3 cosmetic choices all targeting the same turn_2_decision node;
-- turn_2_decision does not have exactly 3 meaningful choices targeting the three branch nodes;
-- any turn_3 branch node has choices or lacks revision_notes for Writer continuation;
+- the packet is not a valid StoryPacket;
+- the packet lacks at least one real playable choice point;
+- any terminal handoff node lacks revision_notes for Writer continuation;
 - any choice targets a missing node;
 - any choice uses a placeholder or sentinel target such as "node_requires_continuation", "continue", or "writer_continuation" instead of an included scene node;
 - any first-choice target node has follow-up choices whose target nodes are missing from this same packet;
 - every first-choice target node is terminal without revision_notes requiring Writer continuation;
 - any node has actor_needs; original actor peer cards are not available in this seed pass;
 - it writes final polished prose instead of structural beats;
-- it treats unused lore references as automatic canon instead of honoring only the active scenario contract and retrieved support.
+- it treats unused lore references as automatic canon instead of honoring only the active scenario notes and retrieved support.
 
 Context:
 %s

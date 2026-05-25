@@ -98,10 +98,7 @@ support these concepts:
 - `opening_situation`: the starting playable situation.
 - `initial_pressure`: the immediate pressure that starts play.
 - `story_lines`: a few rough story lines that define the playable arc.
-- `must_honor`: lore truths, pressures, relationships, and consequences that
-  every seed and continuation must preserve.
 - `must_not_violate`: contradictions or drift that should fail verification.
-- `choice_principles`: what choices should mean inside this lorepack.
 - optional `canon_anchor`: source volumes, source events, source characters,
   must-include canon facts, and allowed original insertions.
 
@@ -138,14 +135,12 @@ Exit criteria:
   `lorepack scenario contract -> seed prompt -> StoryBible + StoryPacket`.
 - The seed Writer packages and stages the authored synopsis. It must not invent
   the central premise.
-- The final seed prompt includes the scenario contract directly.
+- The final seed prompt includes neutral scenario context directly.
 - The verifier rejects:
-  - contradiction of `must_honor`;
   - violation of `must_not_violate`;
-  - generic choices that do not express `choice_principles`;
+  - generic choices that do not express playable pressure;
   - drift away from the authored synopsis.
-- Keep the existing five-node, three-turn seed runway unless a later decision
-  replaces it.
+- Seed packets may be compact as long as they remain playable and valid.
 
 Exit criteria:
 
@@ -163,7 +158,8 @@ Exit criteria:
 - Agent workspaces stage the active lorepack under `lorepack/` so Writer,
   Narrator, and Scenarist can inspect the actual pack material without seeing
   the repository root or unrelated stories.
-- Choice generation and verification use `choice_principles`.
+- Choice generation and verification use playable pressure, source boundaries,
+  and concrete consequence.
 - LoreExpert is reframed as lore authority/reference support for fidelity
   checks. It can still retrieve source references, but its output is no longer
   just "influence-only" for faithful prototype mode.
@@ -208,8 +204,8 @@ Exit criteria:
    - Preserve `cmd/prompt-eval` for regression research.
 
 2. **Lore-fidelity verifier hardening**
-   - Expand checks for `must_honor`, `must_not_violate`, and
-     `choice_principles`.
+   - Expand checks for `must_not_violate`, source-fidelity boundaries, and
+     playable consequence.
    - Keep qualitative rejection for generic choices and unsupported branch
      logic.
 

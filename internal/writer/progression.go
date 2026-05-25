@@ -14,7 +14,7 @@ func ValidateProgression(input Input, packet scene.StoryPacket) error {
 	if err := validateActorRehearsal(input, packet); err != nil {
 		return err
 	}
-	if !hasServantMemoryProofRisk(input.SpentMotifs) {
+	if !hasRepeatedSituationRisk(input.SpentMotifs) {
 		return nil
 	}
 	entry, err := packet.EntryNode()
@@ -24,18 +24,18 @@ func ValidateProgression(input Input, packet scene.StoryPacket) error {
 	if len(entry.Choices) < 3 {
 		return nil
 	}
-	if !packetIntroducesMacroPressure(packet) {
-		return fmt.Errorf("writer packet repeats spent proof mechanism: after servant-memory testimony is spent, the next packet must introduce weapon/resource claim, public contest, rival claimant, family authority, lineage revelation, custody/location change, or irreversible cost")
-	}
-	proofOnly := 0
+	repeatOnly := 0
 	for _, choice := range entry.Choices {
 		text := strings.ToLower(choiceBranchText(packet, choice))
-		if proofManagementText(text) && !macroPressureText(text) {
-			proofOnly++
+		if repetitionManagementText(text) && !repeatedSituationShiftText(text) {
+			repeatOnly++
 		}
 	}
-	if proofOnly == len(entry.Choices) {
-		return fmt.Errorf("writer packet repeats spent proof mechanism: all %d entry choices are only variants of preserving, copying, hiding, carrying, or revalidating the same proof", len(entry.Choices))
+	if repeatOnly == len(entry.Choices) {
+		return fmt.Errorf("writer packet repeats a spent situation: all %d entry choices are only variants of carrying, copying, hiding, preserving, or restating the same material", len(entry.Choices))
+	}
+	if !packetIntroducesConsequenceShift(packet) {
+		return fmt.Errorf("writer packet repeats a spent situation: add consequence, new pressure, changed relationship, location/status shift, resource change, or opponent action before revisiting the same mechanism")
 	}
 	return nil
 }
@@ -115,27 +115,21 @@ func actorKey(value string) string {
 	return strings.ToLower(strings.TrimSpace(value))
 }
 
-func hasServantMemoryProofRisk(motifs []string) bool {
-	hasProof := false
-	hasServantMemory := false
+func hasRepeatedSituationRisk(motifs []string) bool {
+	if len(motifs) >= 2 {
+		return true
+	}
 	for _, motif := range motifs {
 		text := strings.ToLower(strings.TrimSpace(motif))
-		if strings.Contains(text, "witness") || strings.Contains(text, "testimony") || strings.Contains(text, "proof") || strings.Contains(text, "mask") {
-			hasProof = true
-		}
-		if strings.Contains(text, "servant") || strings.Contains(text, "household") || strings.Contains(text, "memory") || strings.Contains(text, "ledger") {
-			hasServantMemory = true
-		}
-		if strings.Contains(text, "servant-memory") || strings.Contains(text, "servant memory") {
-			hasProof = true
-			hasServantMemory = true
+		if strings.Contains(text, "repeat") || strings.Contains(text, "same situation") || strings.Contains(text, "spent") {
+			return true
 		}
 	}
-	return hasProof && hasServantMemory
+	return false
 }
 
-func packetIntroducesMacroPressure(packet scene.StoryPacket) bool {
-	return macroPressureText(strings.ToLower(packetText(packet)))
+func packetIntroducesConsequenceShift(packet scene.StoryPacket) bool {
+	return repeatedSituationShiftText(strings.ToLower(packetText(packet)))
 }
 
 func packetText(packet scene.StoryPacket) string {
@@ -181,9 +175,9 @@ func nodeText(node scene.SceneNode) string {
 	return strings.Join(parts, "\n")
 }
 
-func proofManagementText(text string) bool {
+func repetitionManagementText(text string) bool {
 	for _, keyword := range []string{
-		"archive", "ash", "carry", "conceal", "copy", "evidence", "hide", "ledger", "mark", "mask", "memory", "notary", "preserve", "proof", "record", "scribe", "servant", "steward", "testif", "witness",
+		"archive", "carry", "conceal", "copy", "hide", "inventory", "log", "mark", "preserve", "record", "repeat", "restore", "same", "store",
 	} {
 		if strings.Contains(text, keyword) {
 			return true
@@ -192,9 +186,20 @@ func proofManagementText(text string) bool {
 	return false
 }
 
-func macroPressureText(text string) bool {
+func consequenceShiftText(text string) bool {
 	for _, keyword := range []string{
-		"ambush", "armory", "arrest", "authority", "blade", "bloodline", "body", "capture", "challenge", "claimant", "contest", "custody", "duel", "exile", "execution", "family authority", "father", "gate", "inheritance", "irreversible", "key-blade", "kill", "lineage", "locker", "matriarch", "mother", "patriarch", "public contest", "rival", "sacrifice", "schedule", "scar", "succession", "weapon", "wound",
+		"ambush", "arrest", "authority", "body", "capture", "challenge", "contest", "cost", "custody", "danger", "decision", "discovery", "escape", "exile", "expose", "gate", "injury", "irreversible", "location", "opponent", "public", "relationship", "resource", "rival", "scar", "status", "tool", "wound",
+	} {
+		if strings.Contains(text, keyword) {
+			return true
+		}
+	}
+	return false
+}
+
+func repeatedSituationShiftText(text string) bool {
+	for _, keyword := range []string{
+		"ambush", "arrest", "authority", "body", "capture", "challenge", "contest", "custody", "danger", "decision", "discovery", "escape", "exile", "expose", "gate", "injury", "irreversible", "location", "opponent", "public", "relationship", "resource", "rival", "scar", "tool", "wound",
 	} {
 		if strings.Contains(text, keyword) {
 			return true

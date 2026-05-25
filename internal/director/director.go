@@ -13,7 +13,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
-const NonCanonScope = "Director rehearsal is backstage planning/performance material. Only Narrator surfaced_actor_messages and curated_card_updates can become witnessed actor memory."
+const NonCanonScope = "Director rehearsal is backstage planning/performance material. Only Narrator surfaced_actor_messages and curated_card_updates can become shared actor memory."
 
 type Service struct {
 	Actors           *actors.Service

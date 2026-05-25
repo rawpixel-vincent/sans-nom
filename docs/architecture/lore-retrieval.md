@@ -16,15 +16,13 @@ search corpus; it is an authored gameplay contract.
 - `opening_situation`;
 - `initial_pressure`;
 - `story_lines`;
-- `must_honor`;
 - `must_not_violate`;
-- `choice_principles`.
 
-In scenario-contract modes, seed generation and Writer refresh must honor that
-contract. The LLM may stage, compress, branch, and narrate the material; it
-should not replace the premise. `canon_internal_original` means a new playable
-episode inside canon constraints; `canon_adaptation` means a concrete authored
-canon episode with explicit anchors.
+In scenario-contract modes, seed generation and Writer refresh use that context
+for source fidelity and playable pressure. The LLM may stage, compress, branch,
+and narrate the material; it should not replace the premise.
+`canon_internal_original` means a new playable episode inside canon constraints;
+`canon_adaptation` means a concrete authored canon episode with explicit anchors.
 
 ## Model-Visible Lore Files
 
@@ -43,7 +41,6 @@ agent filesystem policy.
 
 LoreExpert is the source-grounded role for focused questions:
 
-- Does this branch contradict `must_honor`?
 - Does this choice violate the pack's pressure logic?
 - Which source pattern matters for this scene?
 - Is the Narrator drifting into generic fantasy or unsupported invention?

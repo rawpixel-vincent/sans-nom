@@ -37,9 +37,7 @@ type Pack struct {
 	OpeningSituation      string            `json:"opening_situation,omitempty"`
 	InitialPressure       string            `json:"initial_pressure,omitempty"`
 	StoryLines            []string          `json:"story_lines,omitempty"`
-	MustHonor             []string          `json:"must_honor,omitempty"`
 	MustNotViolate        []string          `json:"must_not_violate,omitempty"`
-	ChoicePrinciples      []string          `json:"choice_principles,omitempty"`
 	CanonAnchor           CanonAnchor       `json:"canon_anchor,omitempty"`
 	Path                  string            `json:"path,omitempty"`
 }
@@ -56,9 +54,7 @@ type ScenarioContract struct {
 	OpeningSituation string      `json:"opening_situation"`
 	InitialPressure  string      `json:"initial_pressure"`
 	StoryLines       []string    `json:"story_lines"`
-	MustHonor        []string    `json:"must_honor"`
 	MustNotViolate   []string    `json:"must_not_violate"`
-	ChoicePrinciples []string    `json:"choice_principles"`
 	CanonAnchor      CanonAnchor `json:"canon_anchor,omitempty"`
 }
 
@@ -188,9 +184,7 @@ func (p Pack) ScenarioContract() ScenarioContract {
 		OpeningSituation: p.OpeningSituation,
 		InitialPressure:  p.InitialPressure,
 		StoryLines:       append([]string(nil), p.StoryLines...),
-		MustHonor:        append([]string(nil), p.MustHonor...),
 		MustNotViolate:   append([]string(nil), p.MustNotViolate...),
-		ChoicePrinciples: append([]string(nil), p.ChoicePrinciples...),
 		CanonAnchor:      p.CanonAnchor.Clone(),
 	}
 }
@@ -200,16 +194,14 @@ func (p Pack) ScenarioContractText() string {
 		return ""
 	}
 	var b strings.Builder
-	fmt.Fprintf(&b, "Lorepack Scenario Contract: %s (%s)\n", firstNonEmpty(p.Label, p.ID), firstNonEmpty(p.ID, "unknown"))
+	fmt.Fprintf(&b, "Lorepack Scenario Notes: %s (%s)\n", firstNonEmpty(p.Label, p.ID), firstNonEmpty(p.ID, "unknown"))
 	fmt.Fprintf(&b, "- gameplay_mode: %s\n", p.GameplayMode)
 	fmt.Fprintf(&b, "- game_synopsis: %s\n", strings.TrimSpace(p.GameSynopsis))
 	fmt.Fprintf(&b, "- protagonist_role: %s\n", strings.TrimSpace(p.ProtagonistRole))
 	fmt.Fprintf(&b, "- opening_situation: %s\n", strings.TrimSpace(p.OpeningSituation))
 	fmt.Fprintf(&b, "- initial_pressure: %s\n", strings.TrimSpace(p.InitialPressure))
 	writeScenarioList(&b, "story_lines", p.StoryLines)
-	writeScenarioList(&b, "must_honor", p.MustHonor)
-	writeScenarioList(&b, "must_not_violate", p.MustNotViolate)
-	writeScenarioList(&b, "choice_principles", p.ChoicePrinciples)
+	writeScenarioList(&b, "avoid_drift_notes", p.MustNotViolate)
 	writeCanonAnchor(&b, p.CanonAnchor)
 	return strings.TrimSpace(b.String())
 }
@@ -226,8 +218,8 @@ func (p Pack) ScenarioOrientationText() string {
 	}
 	fmt.Fprintln(&b, "- contract_path: lorepack/lore-pack.json when local read tools are enabled")
 	fmt.Fprintf(&b, "- master_lore_path: lorepack/%s; its content is injected into model system prompts when available\n", filepath.ToSlash(p.MasterLoreRelPath()))
-	fmt.Fprintln(&b, "- use: treat the authored contract as a pressure field for faithful play, not a fixed one-scene template")
-	fmt.Fprintln(&b, "- fidelity: preserve its premise logic, protagonist pressure, public consequence, and choice principles")
+	fmt.Fprintln(&b, "- use: treat authored scenario notes as fidelity/background support for play, not a fixed one-scene template")
+	fmt.Fprintln(&b, "- fidelity: preserve its premise logic, protagonist pressure, source boundaries, and useful choice guidance")
 	return strings.TrimSpace(b.String())
 }
 
@@ -286,10 +278,8 @@ func (p Pack) validateActiveScenarioContract() error {
 		return err
 	}
 	requiredLists := map[string][]string{
-		"story_lines":       p.StoryLines,
-		"must_honor":        p.MustHonor,
-		"must_not_violate":  p.MustNotViolate,
-		"choice_principles": p.ChoicePrinciples,
+		"story_lines":      p.StoryLines,
+		"must_not_violate": p.MustNotViolate,
 	}
 	for name, values := range requiredLists {
 		if !hasNonEmpty(values) {
@@ -390,6 +380,9 @@ func writeScenarioNestedList(b *strings.Builder, label string, values []string) 
 }
 
 func writeScenarioList(b *strings.Builder, label string, values []string) {
+	if !hasNonEmpty(values) {
+		return
+	}
 	fmt.Fprintf(b, "- %s:\n", label)
 	for _, value := range values {
 		value = strings.TrimSpace(value)

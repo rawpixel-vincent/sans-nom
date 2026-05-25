@@ -37,17 +37,7 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket) St
 		}
 	}
 	progression.RequiredMovement = append(progression.RequiredMovement, openThreadMovements(openThreads, packetSpentMotifs)...)
-	if progression.CurrentPhase == "" && len(progression.StoryArc) > 0 {
-		progression.CurrentPhase = progression.StoryArc[0]
-	}
-	if progression.NextPhase == "" && len(progression.StoryArc) > 1 {
-		progression.NextPhase = progression.StoryArc[1]
-	}
-
 	progression.RequiredMovement = appendUniqueStrings(progression.RequiredMovement, requiredMovements(progression)...)
-	if containsAllMotifs(progression.SpentMotifs, "witness/testimony proof", "servant/household memory") {
-		progression.Warnings = append(progression.Warnings, "Servant-memory proof appears spent; the next packet should make someone act on it or move to a different macro pressure.")
-	}
 	return progression
 }
 
@@ -132,15 +122,14 @@ func splitProgressionList(value string) []string {
 
 func requiredMovements(progression StoryProgression) []string {
 	out := []string{
-		"Advance at least one macro state: location, custody/control, revealed truth, opponent advantage, resource/weapon status, witness record, or irreversible cost.",
-		"Do not spend the next packet re-proving a mechanism already accepted by witnessed canon; make the consequence happen.",
+		"Advance at least one macro state: location, custody/control, revealed information, opponent advantage, resource status, relationship state, or irreversible cost.",
+		"Do not spend the next packet replaying the same situation without consequence; make something happen or move to a pressure where it matters.",
 	}
 	if progression.NextPhase != "" {
-		out = append(out, "Aim the next packet toward story_arc next phase: "+progression.NextPhase)
+		out = append(out, "Use next phase guidance if it helps the scene move: "+progression.NextPhase)
 	}
-	if containsAllMotifs(progression.SpentMotifs, "witness/testimony proof", "servant/household memory") {
-		out = append(out, "Do not center another servant ledger, mask, copy, or testimony-validity debate unless the player explicitly asks to delay.")
-		out = append(out, "Shift pressure toward weapon/resource claim, public contest, rival claimant, family authority, lineage revelation, or a new location where the proof has consequences.")
+	if len(progression.SpentMotifs) > 0 {
+		out = append(out, "Treat spent motifs as soft guidance: if one returns, change consequence, agency, relationship, location, or resource state.")
 	}
 	return out
 }

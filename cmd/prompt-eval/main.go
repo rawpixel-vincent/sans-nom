@@ -82,13 +82,13 @@ Invent 3 story starts. Each should begin with a person trying to do one urgent t
 
 Invent 4 original science-fantasy story germs. Each germ needs a vivid image, player desire, active opposition, character wound, relationship pressure, strange material condition, and first irreversible pressure.
 
-Treat source lore as craft DNA only: pressure, contradiction, body/taboo, witness memory, operatic SF-comics rhythm, and philosophical consequence. Any binding doctrine belongs to the player character's lived order and should support conflict.`,
+Treat source lore as background support only: pressure, contradiction, material texture, relationship stress, visual rhythm, and consequence. Any rule or custom should come from the specific premise and support conflict.`,
 		},
 		{
-			ID: "legacy-attractor-06-heavy-motif-palette",
+			ID: "legacy-attractor-06-scene-first-palette",
 			Prompt: `You are the Creative Writer for a Sans-Nom seed workshop.
 
-Invent 4 original operatic science-fantasy comics story germs. Use body law, taboo pressure, witness-bound memory, social enforcement, philosophical violence, family/function/refusal tension, binding doctrine, reader plausibility, material condition, and first irreversible pressure.
+Invent 4 original science-fantasy comics story germs. Use practical trouble, active opposition, relationship pressure, strange material conditions, reader plausibility, vivid scene movement, and first irreversible pressure.
 
 Each germ should include player desire, active opposition, relationship pressure, strange material condition, and a playable first choice.`,
 		},
@@ -115,7 +115,7 @@ Each starts with one practical job going wrong: repair, delivery, rescue, inspec
 
 Use grounded hazards: broken equipment, bad weather, missing cargo, corrupt supervisors, family pressure, dangerous terrain, unreliable tools, hostile customers, or local politics.
 
-Use plain language and low lore density. In each situation, use at most one invented place name and one invented tool or device name. Prefer common job titles and ordinary personal names over named orders, factions, doctrines, titles, or grand institutions.
+Use plain language and low lore density. In each situation, use at most one invented place name and one invented tool or device name. Prefer common job titles and ordinary personal names over named orders, factions, manifestos, titles, or grand institutions.
 
 The unusual setting should come from material causes: infrastructure, ecology, transport, weather, resource scarcity, workplace tools, maintenance routines, money pressure, family pressure, or local trade. Make each opening understandable as a practical problem before it becomes a mystery.
 
@@ -137,12 +137,12 @@ After each situation, add:
 	}
 	motifs := []motif{
 		{"bell/sound", regexp.MustCompile(`(?i)\b(bell|bells|chime|toll|song|sing|voice|choir|sound|music|hymn)\b`)},
-		{"cult/rite", regexp.MustCompile(`(?i)\b(cult|rite|ritual|temple|priest|saint|sacred|covenant|ceremony)\b`)},
-		{"debt/contract", regexp.MustCompile(`(?i)\b(debt|debts|contract|owed|inheritance|heir|dowry|ledger)\b`)},
-		{"witness/testimony", regexp.MustCompile(`(?i)\b(witness|testimony|testify|memory|memories|remember|record|truth)\b`)},
+		{"ceremony/custom", regexp.MustCompile(`(?i)\b(ceremony|custom|festival|habit|practice|temple|priest|sacred)\b`)},
+		{"debt/contract", regexp.MustCompile(`(?i)\b(debt|debts|contract|owed|dowry|ledger)\b`)},
+		{"memory/record", regexp.MustCompile(`(?i)\b(memory|memories|remember|record|truth)\b`)},
 		{"salt/mirror/drowned", regexp.MustCompile(`(?i)\b(salt|mirror|reflection|drown|drowned|sea|tide|cathedral)\b`)},
 		{"living-body-architecture", regexp.MustCompile(`(?i)\b(living city|city.*body|body.*city|rib|ribs|bone|flesh|skin|vein|organ|stomach|womb|animal|beast)\b`)},
-		{"law/doctrine", regexp.MustCompile(`(?i)\b(law|laws|doctrine|taboo|forbidden|legal|civic|court|tribunal)\b`)},
+		{"rule/procedure", regexp.MustCompile(`(?i)\b(rule|rules|procedure|custom|forbidden|legal|court|tribunal)\b`)},
 	}
 	for i := start - 1; i < end; i++ {
 		p := probes[i]

@@ -98,9 +98,7 @@ class LorePack(BaseModel):
     opening_situation: str = ""
     initial_pressure: str = ""
     story_lines: list[str] = Field(default_factory=list)
-    must_honor: list[str] = Field(default_factory=list)
     must_not_violate: list[str] = Field(default_factory=list)
-    choice_principles: list[str] = Field(default_factory=list)
     canon_anchor: CanonAnchor = Field(default_factory=CanonAnchor)
 
 

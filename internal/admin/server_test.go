@@ -236,7 +236,7 @@ func TestAdminBackstageShowsLoreFidelityContext(t *testing.T) {
 		Message:  "lore fidelity contract attached to narrator context",
 		Detail: map[string]any{
 			"role":              "narrator",
-			"scenario_contract": "Lorepack Scenario Contract\n- must_honor:\n  - dynasty pressure matters",
+			"scenario_contract": "Lorepack Scenario Notes\n- story_lines:\n  - dynasty pressure matters",
 		},
 	}); err != nil {
 		t.Fatal(err)

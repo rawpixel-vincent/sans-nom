@@ -43,7 +43,7 @@ func TestActorContextIsSceneLocal(t *testing.T) {
 		t.Fatal(err)
 	}
 	text := ctx.RenderActorText()
-	if strings.Contains(text, "RECENT WITNESSED CANON") || strings.Contains(text, "Latest prose.") {
+	if strings.Contains(text, "RECENT ROLLED-OUT CANON") || strings.Contains(text, "Latest prose.") {
 		t.Fatalf("actor context leaked prior story canon:\n%s", text)
 	}
 	if !strings.Contains(text, "CURRENT SCENE STATE") || !strings.Contains(text, "SELECTED NODE") {
@@ -68,29 +68,29 @@ func TestWriterContextIncludesFullPacketAndRevisionNotes(t *testing.T) {
 		t.Fatalf("writer context missed packet closure rule:\n%s", text)
 	}
 	if !strings.Contains(text, "STORY PROGRESSION CONTRACT") ||
-		!strings.Contains(text, "Start after the selected node's witnessed outcome") {
+		!strings.Contains(text, "Start after the selected node's rolled-out outcome") {
 		t.Fatalf("writer context missed progression contract:\n%s", text)
 	}
 	if !strings.Contains(text, "STORY PHASE GUIDANCE") ||
 		!strings.Contains(text, "required_next_movement") {
 		t.Fatalf("writer context missed phase guidance:\n%s", text)
 	}
-	if !strings.Contains(text, "Let binding doctrine sharpen desire, opposition, or cost inside the player character's lived order") ||
-		!strings.Contains(text, "visible cost, and consequence") {
-		t.Fatalf("writer context missed binding doctrine/plausibility rule:\n%s", text)
+	if !strings.Contains(text, "Let rules, customs, or constraints sharpen desire and opposition") ||
+		!strings.Contains(text, "material consequence, and follow-through") {
+		t.Fatalf("writer context missed story guidance/plausibility rule:\n%s", text)
 	}
 }
 
 func TestWriterContextReadsWriterOwnedSpentMotifs(t *testing.T) {
 	packet := testPacket()
 	packet.Metadata = map[string]string{
-		"spent_motifs": "mask testimony; witness/testimony proof; servant/household memory",
+		"spent_motifs": "record loop; repeated archive handling",
 	}
 	bible := testBible()
-	bible.CurrentArcPhase = "servant schism"
+	bible.CurrentArcPhase = "repair schism"
 	bible.NextRequiredRevelation = "the weapon schedule was altered"
 	bible.NextRequiredOpposition = "a rival claimant uses the altered memory"
-	bible.SpentMotifs = []string{"mask testimony"}
+	bible.SpentMotifs = []string{"record loop"}
 	bible.OpenThreads = []string{"Sava's breath-mask debt"}
 	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
 		Packet:   packet,
@@ -104,15 +104,13 @@ func TestWriterContextReadsWriterOwnedSpentMotifs(t *testing.T) {
 	text := ctx.RenderText()
 	for _, required := range []string{
 		"spent_motifs",
-		"mask testimony",
-		"witness/testimony proof",
-		"servant/household memory",
+		"record loop",
+		"repeated archive handling",
 		"Next required revelation: the weapon schedule was altered",
 		"Next required opposition: a rival claimant uses the altered memory",
 		"Keep open thread active: Sava's breath-mask debt",
-		"Servant-memory proof appears spent",
-		"Do not center another servant ledger, mask, copy, or testimony-validity debate",
-		"Shift pressure toward weapon/resource claim",
+		"Treat spent motifs as soft guidance",
+		"change consequence, agency, relationship, location, or resource state",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("writer context missing spent-motif guidance %q:\n%s", required, text)
@@ -122,7 +120,7 @@ func TestWriterContextReadsWriterOwnedSpentMotifs(t *testing.T) {
 
 func TestWriterContextDoesNotInferSpentMotifsFromProseKeywords(t *testing.T) {
 	packet := testPacket()
-	packet.ContextSnapshot.LatestNarratorProse = "Saryn carried the witness mask through the service hatch while servants copied its testimony into a ledger."
+	packet.ContextSnapshot.LatestNarratorProse = "Mara carried the repair record through the service hatch while crews copied its contents into a ledger."
 	ctx, err := testAssembler(staticCards{"tonto": testCard("tonto")}).AssembleWriter(context.Background(), BuildRequest{
 		Packet: packet,
 		NodeID: "active",
@@ -132,10 +130,9 @@ func TestWriterContextDoesNotInferSpentMotifsFromProseKeywords(t *testing.T) {
 	}
 	text := ctx.RenderText()
 	for _, forbidden := range []string{
-		"witness/testimony proof",
-		"servant/household memory",
-		"Servant-memory proof appears spent",
-		"Do not center another servant ledger",
+		"record loop",
+		"repeated archive handling",
+		"Treat spent motifs as soft guidance",
 	} {
 		if strings.Contains(text, forbidden) {
 			t.Fatalf("writer context inferred spent motif %q from prose keywords:\n%s", forbidden, text)
@@ -207,7 +204,7 @@ func TestWriterBudgetKeepsProgressionBeforePacketReference(t *testing.T) {
 	}
 }
 
-func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T) {
+func TestContextIncludesStoryBibleGuidanceSeparateFromInfluenceLore(t *testing.T) {
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
 	assembler.Lore = fakeRetriever{snippets: []lore.Snippet{{
 		ID:     "source-law",
@@ -222,8 +219,8 @@ func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T
 		t.Fatal(err)
 	}
 	text := ctx.RenderText()
-	if !strings.Contains(text, "STORY BIBLE DOCTRINE") || !strings.Contains(text, "Law of Refusal") {
-		t.Fatalf("missing story bible doctrine:\n%s", text)
+	if !strings.Contains(text, "STORY CONTEXT GUIDANCE") || !strings.Contains(text, "Law of Refusal") {
+		t.Fatalf("missing story bible guidance:\n%s", text)
 	}
 	if !strings.Contains(text, "LORE FIDELITY REFERENCES") || !strings.Contains(text, "source-law") {
 		t.Fatalf("missing source lore fidelity section:\n%s", text)
@@ -231,7 +228,7 @@ func TestContextIncludesStoryBibleDoctrineSeparateFromInfluenceLore(t *testing.T
 }
 
 func TestRuntimeContextsIncludeScenarioContract(t *testing.T) {
-	contract := "Lorepack Scenario Contract: Test Pack\n- must_honor:\n  - family pressure matters\n- choice_principles:\n  - choices reveal inheritance"
+	contract := "Lorepack Scenario Notes: Test Pack\n- scenario_notes:\n  - family pressure matters\n- choice_guidance:\n  - choices reveal inheritance"
 	assembler := testAssembler(staticCards{"tonto": testCard("tonto")})
 	packet := testPacket()
 	bible := testBible()
@@ -255,11 +252,11 @@ func TestRuntimeContextsIncludeScenarioContract(t *testing.T) {
 		"narrator": narratorCtx.RenderText(),
 		"writer":   writerCtx.RenderText(),
 	} {
-		if !strings.Contains(text, "LOREPACK SCENARIO CONTRACT") || !strings.Contains(text, "family pressure matters") {
-			t.Fatalf("%s context missing scenario contract:\n%s", label, text)
+		if !strings.Contains(text, "LOREPACK SCENARIO NOTES") || !strings.Contains(text, "family pressure matters") {
+			t.Fatalf("%s context missing scenario notes:\n%s", label, text)
 		}
 	}
-	if !strings.Contains(writerCtx.RenderText(), "choice_principles") || !strings.Contains(writerCtx.RenderText(), "must_honor") {
+	if !strings.Contains(writerCtx.RenderText(), "choice_guidance") || !strings.Contains(writerCtx.RenderText(), "scenario_notes") {
 		t.Fatalf("writer context should carry fidelity terms:\n%s", writerCtx.RenderText())
 	}
 }
@@ -338,7 +335,7 @@ func TestDefaultRuntimeContextDoesNotTruncate(t *testing.T) {
 	if strings.Contains(text, "[context truncated at render cap]") {
 		t.Fatalf("default narrator context should not truncate:\n%s", text)
 	}
-	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "STORY BIBLE DOCTRINE", "LORE FIDELITY REFERENCES", "long-lore"} {
+	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "STORY CONTEXT GUIDANCE", "LORE FIDELITY REFERENCES", "long-lore"} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("default narrator context missing %q:\n%s", required, text)
 		}
@@ -365,12 +362,12 @@ func TestNarratorBudgetKeepsSceneMaterialAheadOfOptionalSections(t *testing.T) {
 		t.Fatal(err)
 	}
 	text, report := ctx.RenderBudgetedText(modelcap.Budget{InputBudgetTokens: 1800})
-	for _, required := range []string{"CURRENT SCENE STATE", "PLAYER DECISION", "SELECTED NODE", "RECENT WITNESSED CANON", "Latest prose."} {
+	for _, required := range []string{"CURRENT SCENE STATE", "PLAYER DECISION", "SELECTED NODE", "RECENT ROLLED-OUT CANON", "Latest prose."} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("budgeted narrator context lost scene-critical section %q:\n%s", required, text)
 		}
 	}
-	if !sectionWasCompacted(report, "lore_references") && !sectionWasCompacted(report, "story_bible_doctrine") && !sectionWasCompacted(report, "scenario_contract") {
+	if !sectionWasCompacted(report, "lore_references") && !sectionWasCompacted(report, "story_context_guidance") && !sectionWasCompacted(report, "scenario_contract") {
 		t.Fatalf("optional lore/bible/contract sections should compact first: %#v", report.Sections)
 	}
 }
@@ -436,7 +433,7 @@ func TestBudgetedContextHonorsTokenBudget(t *testing.T) {
 	if got := modelcap.EstimateTokens(text); got > 650 {
 		t.Fatalf("budgeted context exceeded token budget: %d\nreport: %#v\n%s", got, report, text)
 	}
-	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "MEMORY AND WITNESS RULES"} {
+	for _, required := range []string{"CURRENT SCENE STATE", "SELECTED NODE", "MEMORY AND VISIBILITY RULES"} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("budgeted context lost required section %q:\n%s", required, text)
 		}
@@ -818,7 +815,7 @@ func testBible() story.StoryBible {
 			Name:           "Law of Refusal",
 			Description:    "The world records what a person refuses to become.",
 			SourcePattern:  "source structure only",
-			Enforcement:    "Public witnesses remember refusals as binding debt.",
+			Enforcement:    "Public records preserve refusals as lasting debt.",
 			WhyProfound:    "It protects identity from function.",
 			NotMerelyCruel: "It can shield the powerless from erased consent.",
 		}},

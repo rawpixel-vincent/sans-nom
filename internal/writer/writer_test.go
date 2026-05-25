@@ -82,43 +82,43 @@ func TestRefreshAsyncRejectsInvalidReplacement(t *testing.T) {
 	}
 }
 
-func TestRefreshAsyncRejectsSpentProofChoiceLoop(t *testing.T) {
-	packet := proofLoopPacket()
+func TestRefreshAsyncRejectsSpentSituationChoiceLoop(t *testing.T) {
+	packet := repeatedSituationPacket()
 	svc := Service{Planner: StaticPlanner{Next: packet}, Validator: ValidateProgression}
 
 	job, err := svc.RefreshAsync(context.Background(), Input{
-		SpentMotifs: []string{"witness/testimony proof", "servant/household memory"},
+		SpentMotifs: []string{"record loop", "repeated archive handling"},
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
 	result := job.Await(context.Background())
 	if result.Err == nil {
-		t.Fatal("expected spent proof loop rejection")
+		t.Fatal("expected spent situation loop rejection")
 	}
-	if !strings.Contains(result.Err.Error(), "spent proof mechanism") {
+	if !strings.Contains(result.Err.Error(), "spent situation") {
 		t.Fatalf("unexpected error: %v", result.Err)
 	}
 }
 
-func TestRefreshAsyncAllowsSpentProofWithMacroPressure(t *testing.T) {
-	packet := proofLoopPacket()
+func TestRefreshAsyncAllowsSpentSituationWithConsequenceShift(t *testing.T) {
+	packet := repeatedSituationPacket()
 	packet.Nodes[0].Choices[2] = scene.Choice{
-		ID:           "claim_weapon",
-		Label:        "Take the witness mask to the weapon locker and force the rival claimant into public contest.",
-		TargetNodeID: "weapon",
-		PlayerIntent: "Claim player agency by moving the conflict from spent witness proof to weapon succession pressure.",
+		ID:           "force_opponent",
+		Label:        "Carry the record to the storm gate and force Orro into a public repair contest.",
+		TargetNodeID: "storm_gate",
+		PlayerIntent: "Claim player agency by moving the conflict from repeated records into opponent action and resource pressure.",
 	}
 	packet.Nodes[3] = scene.SceneNode{
-		ID:      "weapon",
-		Title:   "Weapon Schedule",
-		Beats:   []scene.Beat{{Text: "The weapon locker opens to reveal the altered succession blade schedule and the rival claimant waiting beside it."}},
+		ID:      "storm_gate",
+		Title:   "Storm Gate",
+		Beats:   []scene.Beat{{Text: "The storm gate opens to reveal Orro, a failing resource line, and a crowd demanding action before the deck tears loose."}},
 		Choices: []scene.Choice{},
 	}
 	svc := Service{Planner: StaticPlanner{Next: packet}, Validator: ValidateProgression}
 
 	job, err := svc.RefreshAsync(context.Background(), Input{
-		SpentMotifs: []string{"witness/testimony proof", "servant/household memory"},
+		SpentMotifs: []string{"record loop", "repeated archive handling"},
 	})
 	if err != nil {
 		t.Fatal(err)
@@ -199,7 +199,7 @@ func TestValidateProgressionAcceptsRegisteredActorNeed(t *testing.T) {
 	packet.Nodes[0].ActorNeeds = []scene.ActorNeed{{
 		ActorID: "tonto",
 		Mode:    scene.ActorModePresent,
-		Reason:  "Tonto's witness pressure should shape the playable beat.",
+		Reason:  "Tonto's character pressure should shape the playable beat.",
 	}}
 	if err := ValidateProgression(Input{RegisteredActorIDs: []string{"tonto"}}, packet); err != nil {
 		t.Fatal(err)
@@ -249,44 +249,44 @@ func (invalidPlanner) Plan(context.Context, Input) (scene.StoryPacket, error) {
 	return scene.StoryPacket{}, nil
 }
 
-func proofLoopPacket() scene.StoryPacket {
+func repeatedSituationPacket() scene.StoryPacket {
 	return scene.StoryPacket{
-		ID:          "proof-loop",
+		ID:          "repeated-situation",
 		EntryNodeID: "start",
 		Nodes: []scene.SceneNode{{
 			ID:    "start",
-			Title: "Proof Management",
-			Beats: []scene.Beat{{Text: "The servant testimony and witness mask have already been accepted by the household."}},
+			Title: "Record Management",
+			Beats: []scene.Beat{{Text: "The same repair record has already been accepted by the crew."}},
 			Choices: []scene.Choice{{
-				ID:           "carry_mask",
-				Label:        "Carry the witness mask to another servant ledger.",
+				ID:           "carry_record",
+				Label:        "Carry the record to another archive shelf.",
 				TargetNodeID: "carry",
-				PlayerIntent: "Accept duty by moving the same witnessed cost into another servant record.",
+				PlayerIntent: "Accept duty by moving the same recorded cost into another storage place.",
 			}, {
-				ID:           "copy_ledger",
-				Label:        "Copy the servant testimony into a hidden record.",
+				ID:           "copy_log",
+				Label:        "Copy the repair log into a hidden record.",
 				TargetNodeID: "copy",
-				PlayerIntent: "Control household knowledge by hiding testimony as a risky private record.",
+				PlayerIntent: "Control crew knowledge by hiding the same situation as a risky private record.",
 			}, {
-				ID:           "hide_witness",
-				Label:        "Hide the witness and preserve the mask proof.",
+				ID:           "hide_record",
+				Label:        "Hide the record and preserve the same account.",
 				TargetNodeID: "hide",
-				PlayerIntent: "Protect the witness while risking status by preserving the same proof.",
+				PlayerIntent: "Protect status while risking agency by preserving the same material.",
 			}},
 		}, {
 			ID:      "carry",
-			Title:   "Carry The Mask",
-			Beats:   []scene.Beat{{Text: "The mask is carried to another servant record for preservation."}},
+			Title:   "Carry The Record",
+			Beats:   []scene.Beat{{Text: "The record is carried to another shelf for preservation."}},
 			Choices: []scene.Choice{},
 		}, {
 			ID:      "copy",
-			Title:   "Copy The Ledger",
-			Beats:   []scene.Beat{{Text: "The testimony is copied into a ledger and hidden."}},
+			Title:   "Copy The Log",
+			Beats:   []scene.Beat{{Text: "The repair log is copied into a ledger and hidden."}},
 			Choices: []scene.Choice{},
 		}, {
 			ID:      "hide",
-			Title:   "Hide The Witness",
-			Beats:   []scene.Beat{{Text: "The witness is concealed so the proof can be preserved."}},
+			Title:   "Hide The Record",
+			Beats:   []scene.Beat{{Text: "The record is concealed so the same account can be preserved."}},
 			Choices: []scene.Choice{},
 		}},
 	}
@@ -301,18 +301,18 @@ func actorRehearsalPacket() scene.StoryPacket {
 		},
 		Nodes: []scene.SceneNode{{
 			ID:    "start",
-			Title: "Witness Pressure",
+			Title: "Character Pressure",
 			Beats: []scene.Beat{{Text: "Tonto's lens waits while the player decides who pays for the exposed record."}},
 			Choices: []scene.Choice{{
 				ID:           "protect_record",
-				Label:        "Protect the record and make Tonto witness the cost.",
+				Label:        "Protect the record and make Tonto answer for the cost.",
 				TargetNodeID: "record",
-				PlayerIntent: "Protect truth by forcing witness pressure onto the player's chosen cost.",
+				PlayerIntent: "Protect truth by forcing character pressure onto the player's chosen cost.",
 			}, {
 				ID:           "risk_silence",
 				Label:        "Risk silence and keep the record away from Tonto.",
 				TargetNodeID: "silence",
-				PlayerIntent: "Risk loyalty and knowledge by keeping the witness away from the record.",
+				PlayerIntent: "Risk loyalty and knowledge by keeping Tonto away from the record.",
 			}},
 		}, {
 			ID:      "record",

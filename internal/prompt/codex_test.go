@@ -87,13 +87,16 @@ func TestResponseSchemasUseStrictClosedObjects(t *testing.T) {
 	}
 }
 
-func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
+func TestSeedBundleSchemaUsesLeanStoryGuidance(t *testing.T) {
 	schema := SeedBundleSchema()
 	props := schema["properties"].(map[string]any)
 	bible := props["bible"].(map[string]any)
 	bibleProps := bible["properties"].(map[string]any)
-	if bibleProps["lore_principles"] == nil {
-		t.Fatalf("seed bible schema missing lore_principles: %#v", bibleProps)
+	if bibleProps["story_context"] == nil {
+		t.Fatalf("seed bible schema missing story_context: %#v", bibleProps)
+	}
+	if bibleProps["tone_guidance"] == nil {
+		t.Fatalf("seed bible schema missing tone_guidance: %#v", bibleProps)
 	}
 	if bibleProps["story_arc"] == nil {
 		t.Fatalf("seed bible schema missing story_arc: %#v", bibleProps)
@@ -121,12 +124,12 @@ func TestSeedBundleSchemaUsesFaithfulLorePrinciples(t *testing.T) {
 			t.Fatalf("strict seed bible schema property %q must also be required: %#v", field, required)
 		}
 	}
-	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
+	for _, legacy := range []string{"lore_principles", "tone_doctrine", "original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
 		if bibleProps[legacy] != nil {
 			t.Fatalf("seed bible schema should not prompt legacy field %q: %#v", legacy, bibleProps)
 		}
 	}
-	for _, legacy := range []string{"original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
+	for _, legacy := range []string{"lore_principles", "tone_doctrine", "original_laws", "source_lore_influence_refs", "forbidden_literal_canon_terms"} {
 		for _, field := range required {
 			if field == legacy {
 				t.Fatalf("seed bible schema should not require legacy field %q: %#v", legacy, required)

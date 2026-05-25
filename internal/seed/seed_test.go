@@ -38,52 +38,50 @@ func TestValidateFaithfulSeedRejectsActorNeedsUntilCardsExist(t *testing.T) {
 	}
 }
 
-func TestValidateFaithfulSeedRequiresRunwayIntroChoices(t *testing.T) {
+func TestValidateFaithfulSeedRejectsMissingChoiceTargets(t *testing.T) {
 	packet := DefaultPacket()
-	packet.Nodes[0].Choices[1].TargetNodeID = "turn_3_submit_hand"
+	packet.Nodes[0].Choices[1].TargetNodeID = "missing-node"
 
 	err := ValidateFaithfulSeed(packet)
-	if err == nil || !strings.Contains(err.Error(), "turn_1_intro choices must all target the same") {
-		t.Fatalf("expected cosmetic intro target rejection, got %v", err)
+	if err == nil || !strings.Contains(err.Error(), "targets missing node") {
+		t.Fatalf("expected missing target rejection, got %v", err)
 	}
 }
 
-func TestValidateFaithfulSeedRequiresThreeRealDecisionChoices(t *testing.T) {
+func TestValidateFaithfulSeedRequiresPlayableChoicePoint(t *testing.T) {
 	packet := DefaultPacket()
-	packet.Nodes[1].Choices = packet.Nodes[1].Choices[:2]
+	for i := range packet.Nodes {
+		packet.Nodes[i].Choices = nil
+	}
 
 	err := ValidateFaithfulSeed(packet)
-	if err == nil || !strings.Contains(err.Error(), "exactly 3 real choices") {
-		t.Fatalf("expected decision choice count rejection, got %v", err)
+	if err == nil || !strings.Contains(err.Error(), "playable choice point") {
+		t.Fatalf("expected playable choice point rejection, got %v", err)
 	}
 }
 
-func TestValidateFaithfulSeedRequiresTerminalThirdTurnBranches(t *testing.T) {
+func TestValidateFaithfulSeedRequiresTerminalHandoffNotes(t *testing.T) {
 	packet := DefaultPacket()
-	packet.Nodes[2].Choices = []scene.Choice{{
-		ID:           "bad_followup",
-		Label:        "Bad followup.",
-		TargetNodeID: "turn_3_steal_pearl",
-	}}
+	packet.Nodes[1].RevisionNotes = nil
 
 	err := ValidateFaithfulSeed(packet)
-	if err == nil || !strings.Contains(err.Error(), "must be terminal with no choices") {
-		t.Fatalf("expected terminal branch rejection, got %v", err)
+	if err == nil || !strings.Contains(err.Error(), "terminal seed node") {
+		t.Fatalf("expected terminal handoff rejection, got %v", err)
 	}
 }
 
 func TestContextTextIsCreativeOnly(t *testing.T) {
 	text := ContextText()
 	for _, required := range []string{
-		"lore-faithful staging",
-		"lorepack scenario contract is the source of truth",
+		"scene-first staging",
+		"lorepack scenario notes are source-fidelity/background support",
 		"does not invent a replacement premise",
 		"Opening aim: player, desire, place, pressure",
 		"Reader plausibility",
-		"daily practice, emotional credibility, visible cost, and consequence",
-		"support character conflict rather than replacing story with procedure",
+		"daily practice, emotional credibility, material consequence, and follow-through",
+		"not from generic house style",
 		"first trouble and branch momentum",
-		"concrete story_arc",
+		"story_arc and phase fields are optional guidance",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed context missing %q:\n%s", required, text)
@@ -105,14 +103,13 @@ func TestSeedWriterPromptForbidsPlaceholderContinuationTargets(t *testing.T) {
 	text := prompt.SeedWriterPrompt(ContextText())
 	for _, required := range []string{
 		"Every choice target_node_id must point to a scene node included in this same packet",
-		"Each turn_3 branch node has no choices and has revision_notes",
+		"Terminal handoff nodes have no choices and include revision_notes",
 		"Do not use placeholder targets",
-		"lorepack scenario contract",
-		"lore_principles that bind the scenario pressure",
-		"three-turn runway",
-		"turn_1_intro",
-		"turn_2_decision",
-		"exactly 3 meaningful choices",
+		"lorepack scenario notes",
+		"story_context",
+		"compact playable StoryPacket",
+		"at least one real playable choice point",
+		"Terminal handoff nodes",
 	} {
 		if !strings.Contains(text, required) {
 			t.Fatalf("seed writer prompt missing %q:\n%s", required, text)

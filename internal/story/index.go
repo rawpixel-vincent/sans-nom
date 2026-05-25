@@ -63,20 +63,6 @@ func BuildIndexDocuments(bible StoryBible, packet scene.StoryPacket, turns []Tur
 		"Story Bible",
 		map[string]any{"title": bible.Title},
 	))
-	for _, law := range bible.BindingLorePrinciples() {
-		docs = append(docs, newIndexDocument(
-			fmt.Sprintf("story_lore_principle:%s:%s", bible.StoryID, law.ID),
-			"story_lore_principle",
-			source,
-			lorePrincipleIndexText(bible, law),
-			bible.StoryID,
-			"",
-			"",
-			0,
-			law.Name,
-			map[string]any{"law_id": law.ID, "law_name": law.Name},
-		))
-	}
 	for _, card := range storyPeerCardDocuments(bible) {
 		docs = append(docs, newIndexDocument(
 			fmt.Sprintf("story_peer_card:%s:%s", bible.StoryID, card.peerID),
@@ -149,24 +135,27 @@ type storyPeerCardDoc struct {
 }
 
 func storyPeerCardDocuments(bible StoryBible) []storyPeerCardDoc {
-	laws := make([]string, 0, len(bible.BindingLorePrinciples()))
-	for _, law := range bible.BindingLorePrinciples() {
-		laws = append(laws, "INSTRUCTION: Enforce binding lore principle "+law.Name+": "+law.Enforcement)
+	var guidance []string
+	for _, note := range bible.StoryContextGuidance() {
+		guidance = append(guidance, "CONTEXT: "+note)
+	}
+	for _, note := range bible.ToneGuidanceLines() {
+		guidance = append(guidance, "TONE: "+note)
 	}
 	narrator := []string{
 		"Name: narrator",
 		"ROLE: Player-facing narrator for " + bible.Title + ".",
-		"INSTRUCTION: Render selected nodes into witnessed prose grounded in the Story Bible.",
-		"BOUNDARY: Lorepack references support the active scenario contract; unused lore is not automatic scene canon.",
+		"INSTRUCTION: Render selected nodes into scene-first prose grounded in current story context.",
+		"BOUNDARY: Lorepack references support fidelity and background; unused lore is not automatic scene canon.",
 	}
-	narrator = append(narrator, laws...)
+	narrator = append(narrator, guidance...)
 	writer := []string{
 		"Name: creative-writer",
 		"ROLE: Background planner for bounded StoryPacket revisions in " + bible.Title + ".",
-		"INSTRUCTION: Use the Story Bible and lorepack scenario contract as the active story contract.",
+		"INSTRUCTION: Use the Story Bible and lorepack notes as background support for playable scene pressure.",
 		"BOUNDARY: Writer drafts and unused branches are planning artifacts.",
 	}
-	writer = append(writer, laws...)
+	writer = append(writer, guidance...)
 	player := []string{
 		"Name: " + bible.PlayerCharacter.Name,
 		"ROLE: Player character peer " + bible.PlayerCharacter.PeerID + ".",
@@ -176,7 +165,7 @@ func storyPeerCardDocuments(bible StoryBible) []storyPeerCardDoc {
 		"BOUNDARY: " + bible.PlayerCharacter.Boundary,
 		"RELATIONSHIP: world: " + bible.PlayerWorldConnection,
 	}
-	player = append(player, laws...)
+	player = append(player, guidance...)
 	return []storyPeerCardDoc{
 		{peerID: "narrator", text: strings.Join(narrator, "\n")},
 		{peerID: "creative-writer", text: strings.Join(writer, "\n")},
@@ -309,23 +298,12 @@ func storyBibleIndexText(bible StoryBible) string {
 	fmt.Fprintf(&b, "Player description: %s\nDesire: %s\nWound: %s\nBoundary: %s\n", bible.PlayerCharacter.Description, bible.PlayerCharacter.Desire, bible.PlayerCharacter.Wound, bible.PlayerCharacter.Boundary)
 	fmt.Fprintf(&b, "Player-world connection: %s\n", bible.PlayerWorldConnection)
 	writeIndexList(&b, "World basics", bible.WorldBasics)
+	writeIndexList(&b, "Story context", bible.StoryContextGuidance())
 	writeIndexList(&b, "Core relationships", bible.CoreRelationships)
-	writeIndexList(&b, "Tone doctrine", bible.ToneDoctrine)
-	writeIndexList(&b, "First-turn exposition", bible.FirstTurnExposition)
+	writeIndexList(&b, "Tone guidance", bible.ToneGuidanceLines())
+	writeIndexList(&b, "Opening guidance", bible.FirstTurnExposition)
 	fmt.Fprintf(&b, "Resume summary: %s\n", bible.ResumeSummary)
 	return b.String()
-}
-
-func lorePrincipleIndexText(bible StoryBible, law OriginalLaw) string {
-	return strings.Join([]string{
-		"Story lore principle: " + law.Name,
-		"Story: " + bible.Title,
-		"Description: " + law.Description,
-		"Enforcement: " + law.Enforcement,
-		"Why profound: " + law.WhyProfound,
-		"Not merely cruel: " + law.NotMerelyCruel,
-		"Source pattern: " + law.SourcePattern,
-	}, "\n")
 }
 
 func packetIndexText(packet scene.StoryPacket) string {

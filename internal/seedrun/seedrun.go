@@ -128,10 +128,10 @@ func NewStorySession(ctx context.Context, opts storyapp.StoryActionOptions, cfg 
 		PacketID: session.Packet.ID,
 		NodeID:   session.NodeID,
 		Fields: map[string]any{
-			"title":                session.Bible.Title,
-			"backend":              cfg.Backend,
-			"lore_principle_count": len(session.Bible.BindingLorePrinciples()),
-			"node_count":           len(session.Packet.Nodes),
+			"title":               session.Bible.Title,
+			"backend":             cfg.Backend,
+			"story_context_count": len(session.Bible.StoryContextGuidance()),
+			"node_count":          len(session.Packet.Nodes),
 		},
 	})
 	runutil.LogEvent(logger, gamelog.Event{
@@ -293,13 +293,13 @@ func BuildContextForPack(pack lorepack.Pack) string {
 		b.WriteString("\n\n")
 		b.WriteString(scenario)
 		b.WriteString("\n\nSeed fidelity instructions:\n")
-		b.WriteString("- Treat the lorepack scenario contract as the source of truth for premise logic, protagonist pressure, opening pressure, and choice logic.\n")
-		b.WriteString("- Before drafting, orient in the staged lorepack: read lorepack/navigation.md, then lorepack/lore-pack.json, then inspect reference files enough to understand major characters, family/story pressures, repeated laws, decisive events, and choice logic, then stage that understanding into playable opening turns.\n")
+		b.WriteString("- Treat the lorepack scenario notes as the source of truth for premise logic, protagonist pressure, opening pressure, and choice logic.\n")
+		b.WriteString("- Before drafting, orient in the staged lorepack: read lorepack/navigation.md, then lorepack/lore-pack.json, then inspect reference files enough to understand major characters, premise pressures, decisive events, and choice texture, then stage that understanding into playable opening turns.\n")
 		b.WriteString("- Follow the lorepack/navigation.md minimum orientation: contract, wiki overview, comics manifest, relevant volume summaries, and matching character records before drafting, unless ask_lore_expert resolves a narrow missing fact.\n")
 		b.WriteString("- Search with the Grep tool or rg-style commands; do not rely on shell grep.\n")
 		b.WriteString("- Keep the contract's pressure alive through scene choices without copying its synopsis wording into every node.\n")
-		b.WriteString("- Use ask_lore_expert as a lore authority/reference check when fidelity is uncertain.\n")
-		b.WriteString("- Preserve the contract's must_honor items, avoid must_not_violate drift, and make choices express its choice_principles.\n")
+		b.WriteString("- Use ask_lore_expert as lore reference support when fidelity is uncertain.\n")
+		b.WriteString("- Treat legacy scenario-note fields as context; use avoid-drift notes and canon anchors as source-fidelity boundaries.\n")
 		return b.String()
 	}
 	b.WriteString("\n\nLegacy ground-lore influence summary:\n")
@@ -308,12 +308,12 @@ func BuildContextForPack(pack lorepack.Pack) string {
 	}
 	b.WriteString("- pack note: legacy pack selected for story pressure; concrete source analysis comes through tools when needed.\n")
 	b.WriteString("- influence style: heightened speculative adventure; intense family and function pressure; refusal under expectation; spectacle; material cost; credible consequence inside the protagonist's lived order.\n")
-	b.WriteString("- binding doctrine: include an original deep rule as support for the player character's conflict; it should sharpen desire, opposition, and cost rather than dominate the premise.\n")
-	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, visible cost, and consequence.\n")
+	b.WriteString("- story context: include only the guidance the opening actually needs; let rules or customs emerge from scene pressure when the source supports them.\n")
+	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, material consequence, and follow-through.\n")
 	b.WriteString("- material imagination: choose the story's dominant condition from its own premise, such as infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.\n")
 	b.WriteString("- creative workshop: use ask_scenarist as the preferred room for story heat, suggestions, critique, story seed risks, character contradictions, scene engines, choice pressure, reversals, and reader criticism.\n")
 	b.WriteString("- scenarist sequence: ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.\n")
-	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete patterns from the selected lorepack, such as source-pattern analysis, tone lineage, relationship pressure, or contradiction checks.\n")
+	b.WriteString("- source reference: use ask_lore_expert when a question depends on concrete patterns from the selected lorepack, such as source references, tone, relationship pressure, or contradiction checks.\n")
 	b.WriteString("- practical sequence: ask Scenarists first when exploring what this generated story could become; ask LoreExpert when a specific source-pack pattern needs grounding.\n")
 	b.WriteString("- concrete source analysis comes through cached ask_lore_expert calls when needed.\n")
 	return b.String()
@@ -574,29 +574,32 @@ func MaybeSeedExternalStory(ctx context.Context, backend string, bridgeURL strin
 }
 
 func SeedPeerCards(bible story.StoryBible) map[string][]string {
-	lawFacts := make([]string, 0, len(bible.BindingLorePrinciples()))
-	for _, law := range bible.BindingLorePrinciples() {
-		lawFacts = append(lawFacts, fmt.Sprintf("INSTRUCTION: Enforce binding lore principle %s: %s", law.Name, law.Enforcement))
+	var guidanceFacts []string
+	for _, note := range bible.StoryContextGuidance() {
+		guidanceFacts = append(guidanceFacts, "CONTEXT: "+note)
+	}
+	for _, note := range bible.ToneGuidanceLines() {
+		guidanceFacts = append(guidanceFacts, "TONE: "+note)
 	}
 	baseBoundaries := []string{
-		"BOUNDARY: Lorepack references support the active scenario contract; unused lore is not automatic scene canon.",
+		"BOUNDARY: Lorepack references support fidelity and background; unused lore is not automatic scene canon.",
 	}
 	narrator := []string{
 		"Name: narrator",
 		"ROLE: Player-facing narrator for " + bible.Title + ".",
-		"INSTRUCTION: Render the selected node into witnessed prose grounded in the Story Bible.",
+		"INSTRUCTION: Render the selected node into scene-first prose grounded in current story context.",
 		"INSTRUCTION: Keep private actor interiors and Writer planning out of player-facing prose.",
 	}
-	narrator = append(narrator, lawFacts...)
+	narrator = append(narrator, guidanceFacts...)
 	narrator = append(narrator, baseBoundaries...)
 
 	writer := []string{
 		"Name: creative-writer",
 		"ROLE: Background planner for bounded StoryPacket revisions in " + bible.Title + ".",
-		"INSTRUCTION: Use the Story Bible and lorepack scenario contract as the active story contract.",
-		"INSTRUCTION: Preserve witness-bound canon boundaries.",
+		"INSTRUCTION: Use the Story Bible and lorepack notes as background support for playable scene pressure.",
+		"INSTRUCTION: Preserve rolled-out canon boundaries.",
 	}
-	writer = append(writer, lawFacts...)
+	writer = append(writer, guidanceFacts...)
 	writer = append(writer, baseBoundaries...)
 
 	player := []string{
@@ -608,7 +611,7 @@ func SeedPeerCards(bible story.StoryBible) map[string][]string {
 		"BOUNDARY: " + bible.PlayerCharacter.Boundary,
 		"RELATIONSHIP: world: " + bible.PlayerWorldConnection,
 	}
-	player = append(player, lawFacts...)
+	player = append(player, guidanceFacts...)
 	return map[string][]string{
 		"narrator":                   TrimCardFacts(narrator, 40),
 		"creative-writer":            TrimCardFacts(writer, 40),

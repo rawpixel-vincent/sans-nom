@@ -9,15 +9,13 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 )
 
-func TestStoryBibleValidationRejectsMissingLorePrinciple(t *testing.T) {
+func TestStoryBibleValidationAllowsMissingLorePrinciple(t *testing.T) {
 	bundle := validBundle()
 	bundle.Bible.OriginalLaws = nil
 	bundle.Bible.LorePrinciples = nil
 
-	if err := ValidateBundle(bundle); err == nil {
-		t.Fatal("expected missing binding principle rejection")
-	} else if !strings.Contains(err.Error(), "binding lore principle") {
-		t.Fatalf("expected binding lore validation error, got: %v", err)
+	if err := ValidateBundle(bundle); err != nil {
+		t.Fatalf("missing legacy lore principles should be allowed: %v", err)
 	}
 }
 
@@ -119,7 +117,7 @@ func TestWorkspaceCreatesRequiredFilesAndResumes(t *testing.T) {
 			t.Fatalf("index doc missing hashes: %#v", doc)
 		}
 	}
-	for _, kind := range []string{"story_bible", "story_lore_principle", "story_peer_card", "story_packet", "story_packet_node"} {
+	for _, kind := range []string{"story_bible", "story_peer_card", "story_packet", "story_packet_node"} {
 		if !kinds[kind] {
 			t.Fatalf("missing index kind %s in %#v", kind, kinds)
 		}
@@ -237,30 +235,25 @@ func validBundle() SeedBundle {
 			PlayerWorldConnection: "Rin's graft makes the city recognize them as both citizen and tool.",
 			WorldBasics: []string{
 				"The city records grief in public gardens.",
-				"Debt law is performed by machines and crowds.",
-				"Family memory can be protected only by witnessed sacrifice.",
+				"Maintenance ledgers shape daily favors.",
+				"Family memory depends on shared labor and visible follow-through.",
 			},
-			OriginalLaws: []OriginalLaw{{
-				ID:             "living-tax",
-				Name:           "Law of Living Tax",
-				Description:    "A debt is settled only when a living capacity is marked by the civic garden.",
-				SourcePattern:  "binding taboo structure",
-				Enforcement:    "Public ledgers and witnesses refuse unmarked repayment.",
-				WhyProfound:    "It protects proof for the powerless at bodily cost.",
-				NotMerelyCruel: "It blocks forged mercy by the ruling houses.",
-			}},
+			StoryContext: []string{
+				"Garden ledgers are practical civic infrastructure, not a generic doctrine.",
+				"The opening pressure should stay playable and scene-local.",
+			},
 			Factions: []Faction{{
 				ID:          "ledger-gardeners",
 				Name:        "Ledger Gardeners",
 				Description: "Public clerks who keep civic memory alive.",
 			}},
 			CoreRelationships:          []string{"Rin owes love and suspicion to the same household."},
-			ToneDoctrine:               []string{"Body law should feel sacred before tactical."},
+			ToneGuidance:               []string{"Material consequences should feel lived-in before symbolic."},
 			SourceLoreInfluenceRefs:    []string{"source-law structure only"},
 			ForbiddenLiteralCanonTerms: []string{},
-			FirstTurnExposition:        []string{"world", "player", "connection", "law", "pressure"},
-			StoryArc:                   []string{"opening debt rite", "changed legal status", "family pressure widens", "public consequence"},
-			ResumeSummary:              "Rin stands before the civic garden as the debt rite begins.",
+			FirstTurnExposition:        []string{"world", "player", "connection", "pressure"},
+			StoryArc:                   []string{"opening maintenance demand", "changed household status", "family pressure widens", "public consequence"},
+			ResumeSummary:              "Rin stands before the civic garden as the maintenance demand begins.",
 			Metadata:                   validResumeMetadata(),
 		},
 		Packet: scene.StoryPacket{
@@ -276,7 +269,7 @@ func validBundle() SeedBundle {
 				ID:    "entry",
 				Title: "The garden asks",
 				Beats: []scene.Beat{
-					{ID: "b1", Text: "The city opens its public garden for debt witness."},
+					{ID: "b1", Text: "The city opens its public garden for a shared repair answer."},
 					{ID: "b2", Text: "Rin stands with the graft hidden in one palm."},
 					{ID: "b3", Text: "A friend in the crowd tries to catch Rin's eye."},
 					{ID: "b4", Text: "Rin chooses how to step into the rite before the real demand is spoken."},
@@ -291,8 +284,8 @@ func validBundle() SeedBundle {
 					TargetNodeID: "decision",
 				}},
 				MemoryIntents: []scene.MemoryIntent{{
-					ID:        "law",
-					Summary:   "Rin entered the civic garden before the debt rite.",
+					ID:        "opening",
+					Summary:   "Rin entered the civic garden before the maintenance demand.",
 					Policy:    scene.MemoryPolicyCanon,
 					Witnesses: []string{"sans-nom"},
 				}},
@@ -352,10 +345,10 @@ func validResumeMetadata() map[string]string {
 		"seed_version":        "test-v1",
 		"generated_at":        "test",
 		"resume_point":        "entry",
-		"current_checkpoint":  "opening debt rite",
+		"current_checkpoint":  "opening maintenance demand",
 		"continuation_hooks":  "continue the debt pressure",
 		"canon_validated":     "true",
-		"open_threads":        "family debt; civic witness",
+		"open_threads":        "family debt; civic record",
 		"gameplay_mode":       "test",
 		"ground_lore_pack_id": "metabarons",
 	}

@@ -152,7 +152,7 @@ func (s Service) Generate(ctx context.Context, contextText string) (story.SeedBu
 		}
 		if err := story.ValidateBundle(bundle); err != nil {
 			previousRaw = raw
-			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create a lore-faithful StoryBible plus opening StoryPacket. Preserve the same scenario contract and fix the structural issue. If the error mentions metadata, populate bible.metadata with concrete string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id."}
+			previous = Review{BlockingIssues: []string{err.Error()}, RevisionInstructions: "Revise to create a lore-faithful StoryBible plus opening StoryPacket. Preserve the same scenario notes and fix the structural issue. If the error mentions metadata, populate bible.metadata with concrete string values for seed_version, generated_at, resume_point, current_checkpoint, continuation_hooks, canon_validated, open_threads, gameplay_mode, and ground_lore_pack_id."}
 			s.log(gamelog.Event{
 				Level:    gamelog.LevelWarn,
 				Category: "model",
@@ -428,7 +428,7 @@ func workshopSummary(turn WorkshopTurn) string {
 	case "engine":
 		return "Contains focused development for the selected story engine: protagonist, opposition, relationships, material world, reversals, and scene pressure."
 	case "runway":
-		return "Contains prose-level planning for the opening three-turn runway and branch implications. Read the output file before producing the final structured bundle."
+		return "Contains prose-level planning for the compact playable opening and branch implications. Read the output file before producing the final structured bundle."
 	default:
 		title := strings.TrimSpace(turn.Title)
 		if title == "" {
@@ -553,13 +553,13 @@ func ValidateFaithfulSeed(packet scene.StoryPacket) error {
 }
 
 func ContextText() string {
-	return `First playable vertical slice: lore-faithful staging for the selected lorepack scenario.
-The lorepack scenario contract is the source of truth for premise, protagonist role, opening pressure, must-honor rules, and choice logic.
-The seed Writer packages that authored scenario into durable story state and a bounded three-turn packet; it does not invent a replacement premise.
+	return `First playable vertical slice: scene-first staging for the selected lorepack scenario.
+The lorepack scenario notes are source-fidelity/background support for premise, protagonist role, opening pressure, and choice texture.
+The seed Writer packages that authored scenario into durable story state and a compact playable packet; it does not invent a replacement premise.
 Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
-Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, visible cost, and consequence.
-Binding rites, laws, or doctrines should support character conflict rather than replacing story with procedure.
-The opening runway should introduce first trouble and branch momentum, not spend the story peak; the StoryBible needs a concrete story_arc for later Writer refreshes.
+Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, material consequence, and follow-through.
+Rules, customs, or constraints should come from the chosen lore/source material or the current premise, not from generic house style.
+The opening should introduce first trouble and branch momentum, not spend the story peak; story_arc and phase fields are optional guidance for later Writer refreshes.
 For this first seed, original actor peer cards are not generated yet. Characters may be present as story material, but no actor agent should be invoked.`
 }
 
@@ -573,72 +573,63 @@ func DefaultBundle() story.SeedBundle {
 func DefaultBible() story.StoryBible {
 	return story.StoryBible{
 		StoryID: "static-seed",
-		Title:   "The Glasswell Debt",
-		Premise: "A maintenance apprentice inside a vertical sea-city discovers that a civic law meant to preserve memory also harvests living function from the poor.",
+		Title:   "The Orchard Pump",
+		Premise: "A repair apprentice in a wind-lift orchard must keep a failing water engine alive before an ex-mentor sells its last working heart-valve.",
 		PlayerCharacter: story.PlayerCharacter{
 			PeerID:      "sans-nom",
-			Name:        "Ila Venn",
-			Description: "A junior condenser mechanic with an inherited bone-key sealed under the skin of her left wrist.",
-			Desire:      "Ila wants to keep her mother's remembrance intact without surrendering the hand that lets her work.",
-			Wound:       "She believes every lawful survival in Glasswell has already been paid for by someone weaker.",
-			Boundary:    "Ila will not let the city reduce her family into salvage inventory.",
+			Name:        "Mara Kel",
+			Description: "A tired pump apprentice who knows every cable-song in the hanging orchard but has never been trusted with the main valve.",
+			Desire:      "Mara wants to save the orchard's night crop before the lower kitchens go dry.",
+			Wound:       "She believes every adult promise is a delay tactic until someone smaller absorbs the failure.",
+			Boundary:    "Mara will not let her work become someone else's quiet excuse.",
 		},
-		PlayerWorldConnection: "Ila's family line maintained the old pressure locks, so the city treats her body as a civic instrument whenever those locks wake.",
+		PlayerWorldConnection: "Mara grew up inside the pump rigging, so the orchard responds to her hands faster than it responds to official keys.",
 		WorldBasics: []string{
-			"Glasswell is a brine-glass lock-city built around transparent tide shafts, public debt shrines, and machinery that treats memory as legal evidence.",
-			"House debts are embodied; a function, limb, skill, or memory can be claimed when a family fails a civic rite.",
-			"Public witnesses matter more than private truth, so law in Glasswell is performed before crowds and machines.",
+			"The orchard hangs from storm towers, with fruit rows, kitchens, and pump rooms swaying on separate cable decks.",
+			"Water is moved by singing pressure engines that answer to touch, pitch, and weather scars.",
+			"Repair crews settle arguments by getting machinery working before the next gust tears a deck loose.",
 		},
-		LorePrinciples: []story.OriginalLaw{{
-			ID:             "law-of-living-collateral",
-			Name:           "Law of Living Collateral",
-			Description:    "A debt cannot be closed by money alone; the debtor must surrender a living function that proves the debt changed the body.",
-			SourcePattern:  "Bushitaka-like binding law: an intimate taboo becomes civilization-scale structure.",
-			Enforcement:    "Crowds, shrines, ledgers, and machines refuse to recognize unmarked repayment; defiance isolates the debtor socially before it harms them physically.",
-			WhyProfound:    "The law makes every act of survival visibly costly and turns inheritance into a moral wound.",
-			NotMerelyCruel: "It preserves proof against ruling-house fraud, so abolishing it carelessly would also erase the poor dead from civic memory.",
-		}},
+		StoryContext: []string{
+			"Keep the opening practical: a repair job goes wrong in a specific place with a specific person blocking Mara.",
+			"The strange setting should surface through tools, weather, work rhythm, and relationship pressure.",
+		},
 		Factions: []story.Faction{{
-			ID:          "brass-choir",
-			Name:        "Brass Choir Auditors",
-			Description: "Ceremonial accountants with shared metal throats who certify debt rites in public.",
+			ID:          "saffron-kitchens",
+			Name:        "Saffron Kitchens",
+			Description: "Lower-deck cooks who depend on the orchard pumps and know exactly which repairs are being postponed.",
 		}, {
-			ID:          "red-loom",
-			Name:        "Red Loom",
-			Description: "Illicit thread-workers who counterfeit witness marks and sell partial freedom at dangerous prices.",
+			ID:          "valve-brokers",
+			Name:        "Valve Brokers",
+			Description: "Traveling parts dealers who buy failing machinery cheap and resell survival at a premium.",
 		}},
 		CoreRelationships: []string{
-			"Ila owes love to her dead mother and practical protection to a younger brother still inside the food ledgers.",
-			"Talik Oathsmith knows the law's mercy clauses but benefits when desperate families never hear them.",
-			"Sarex of the Red Loom once owed Ila tenderness and now offers illegal competence with unclear motives.",
+			"Mara owes Kesh, her younger brother in the kitchens, a working pump by nightfall.",
+			"Orro Vale, her ex-mentor, taught her the engine songs and now plans to sell the heart-valve.",
+			"Jun Pike from the rival fruit row wants the same valve for a different failing deck.",
 		},
-		ToneDoctrine: []string{
-			"Operatic science-fantasy with body technology, civic ritual, taboo, witness pressure, and desperate agency.",
-			"Every law should feel spiritually heavy before it becomes tactical.",
+		ToneGuidance: []string{
+			"Windy, tactile science-fantasy with grease, fruit rot, cable creak, practical danger, and sharp personal history.",
+			"Keep the scene legible as a repair crisis before it becomes mythic.",
 			"Absurd machinery is allowed, but emotional consequence must stay precise.",
 		},
 		FirstTurnExposition: []string{
-			"Establish Glasswell as a city whose public law is machinery, ritual, crowd, and debt.",
-			"Introduce Ila Venn as the player character and show why her body matters to the city.",
-			"Use the first turn as a non-branching onboarding scene that lets the player choose Ila's small public posture.",
-			"Use the second turn for the real dilemma: family memory, brother's food ledger, Talik's pressure, and Sarex's illegal option.",
-			"End the seed runway with one prebuilt branch scene for each real second-turn choice.",
+			"Establish the orchard deck, the pump failure, Mara's skill, Orro's pressure, and Kesh's need.",
+			"Reach a playable choice before explaining the wider world.",
 		},
 		StoryArc: []string{
-			"Opening: Ila faces the first debt rite and chooses what living collateral is allowed to mean.",
-			"After the runway: the chosen cost changes Ila's legal status and forces a move out of the audit circle.",
-			"Middle pressure: Talik, Sarex, and the brother's ledger each reveal a different price for preserving memory.",
-			"Turn toward consequence: Ila must decide whether to expose the law's mercy clause, counterfeit witness marks, or rewrite the debt through her own body.",
+			"Opening: Mara chooses how to keep water moving while Orro tries to sell the heart-valve.",
+			"After the opening: the chosen repair changes who controls the pump room.",
+			"Middle pressure: weather, kitchens, rival decks, and old mentorship debts pull the repair in different directions.",
 		},
-		ResumeSummary: "Ila stands under her mother's sealed memory pearl while the final audit lantern warms and the city demands her left hand as living collateral.",
+		ResumeSummary: "Mara reaches the orchard pump room as the heart-valve coughs dry and Orro arrives with a buyer's crate.",
 		Metadata: map[string]string{
 			"seed_version":        "static-v1",
 			"generated_at":        "static",
-			"resume_point":        "turn_1_intro",
-			"current_checkpoint":  "opening debt rite",
-			"continuation_hooks":  "Ila's chosen collateral changes legal status after the seed runway.",
+			"resume_point":        "pump_room",
+			"current_checkpoint":  "opening pump failure",
+			"continuation_hooks":  "Mara's repair choice changes who controls the heart-valve.",
 			"canon_validated":     "true",
-			"open_threads":        "mother memory pearl; brother food ledger; Talik pressure; Sarex illegal option",
+			"open_threads":        "Kesh's dry kitchens; Orro's buyer; Jun's rival deck; storm pressure",
 			"gameplay_mode":       "static",
 			"ground_lore_pack_id": "metabarons",
 		},
@@ -647,102 +638,76 @@ func DefaultBible() story.StoryBible {
 
 func DefaultPacket() scene.StoryPacket {
 	return scene.StoryPacket{
-		ID:          "storypacket_glasswell_opening_001",
-		EntryNodeID: "turn_1_intro",
+		ID:          "storypacket_orchard_pump_opening_001",
+		EntryNodeID: "pump_room",
 		ContextSnapshot: scene.ContextSnapshot{
 			WorkspaceID:   "static-seed",
 			SessionID:     "main",
-			Location:      "Veyr Tidemarket, beneath the Mourning Lantern",
-			Time:          "one audit lantern before public debt certification",
+			Location:      "North Orchard pump room",
+			Time:          "one storm gust before night irrigation",
 			PresentActors: []string{},
 		},
 		Nodes: []scene.SceneNode{{
-			ID:    "turn_1_intro",
-			Title: "Ila arrives beneath the lantern",
+			ID:    "pump_room",
+			Title: "The heart-valve coughs dry",
 			Beats: []scene.Beat{
-				{ID: "beat-world", Text: "Glasswell's tide has withdrawn from the market streets, exposing glass channels, debt shrines, stranded mirror-eels, and a crowd waiting for the mourning auction to begin."},
-				{ID: "beat-player", Text: "Ila Venn, junior condenser mechanic and inherited keeper of a sleeping bone-key, pushes through the crowd with her mother's sealed memory pearl hanging above the shrine."},
-				{ID: "beat-connection", Text: "Her brother's child-sized food-knot bumps against her belt, making the city's paperwork feel more immediate than the auditors' ceremonial brass."},
-				{ID: "beat-posture", Text: "Before anyone formally names the debt, Ila has one small choice of posture in public: how to enter the circle and let the crowd read her."},
+				{ID: "beat-world", Text: "The North Orchard deck tilts under a fresh gust, shaking green fruit into the pump-room gutters while the pressure engine coughs dry air instead of water."},
+				{ID: "beat-player", Text: "Mara Kel slides under the main pipe with a wrench in her teeth and hears the heart-valve singing off-key."},
+				{ID: "beat-opposition", Text: "Orro Vale arrives with a buyer's crate and tells Mara the valve is already sold; Jun Pike blocks the side hatch with a rival repair crew behind her."},
+				{ID: "beat-choice", Text: "The lower kitchens need water before night service, but there is only one working valve in reach and three ways to ruin someone's plan."},
 			},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices: []scene.Choice{{
-				ID:           "choice_enter_silent",
-				Label:        "Enter the witness circle without speaking.",
-				TargetNodeID: "turn_2_decision",
-				PlayerIntent: "choose a guarded public posture",
+				ID:           "choice_lock_valve",
+				Label:        "Lock the heart-valve into Mara's pump and dare Orro to stop the repair.",
+				TargetNodeID: "lock_valve",
+				PlayerIntent: "Claim agency by saving the kitchens now and openly breaking with Orro.",
 			}, {
-				ID:           "choice_enter_with_brother_knot",
-				Label:        "Hold up your brother's food-knot so the crowd sees it.",
-				TargetNodeID: "turn_2_decision",
-				PlayerIntent: "choose a pleading public posture",
+				ID:           "choice_split_flow",
+				Label:        "Cut a risky split-flow hose so both decks get half-pressure.",
+				TargetNodeID: "split_flow",
+				PlayerIntent: "Risk Mara's skill and status to protect both crews from immediate failure.",
 			}, {
-				ID:           "choice_enter_touching_wrist",
-				Label:        "Keep one hand over the bone-key hidden in your wrist.",
-				TargetNodeID: "turn_2_decision",
-				PlayerIntent: "choose a defensive public posture",
+				ID:           "choice_follow_buyer",
+				Label:        "Let the pump fail for one minute and follow Orro's buyer into the storm lift.",
+				TargetNodeID: "follow_buyer",
+				PlayerIntent: "Risk the crop to learn who is buying the orchard's survival out from under them.",
 			}},
 			MemoryIntents: []scene.MemoryIntent{{
 				ID:        "opening-arrival",
-				Summary:   "Ila Venn entered the Veyr Tidemarket mourning circle while her mother's memory pearl hung above the shrine.",
+				Summary:   "Mara Kel reached the North Orchard pump room as Orro Vale tried to sell the heart-valve.",
 				Policy:    scene.MemoryPolicyCanon,
-				Witnesses: []string{"sans-nom", "Tidemarket crowd"},
+				Witnesses: []string{"sans-nom"},
 			}},
 		}, {
-			ID:    "turn_2_decision",
-			Title: "The final audit lantern warms",
-			Beats: []scene.Beat{
-				{ID: "beat-law", Text: "Talik Oathsmith names the debt before the auditors: the city will preserve Ila's mother's pearl only if Ila surrenders the living function of her left hand."},
-				{ID: "beat-pressure", Text: "If the final audit lantern turns white first, the pearl becomes state salvage and Ila's brother is erased from the dawn food ledgers."},
-				{ID: "beat-opposition", Text: "Talik's tablet carries a fogged-over clause Ila recognizes as altered glass, while Sarex of the Red Loom watches from a stall that sells illegal witness-thread."},
-				{ID: "beat-choice", Text: "The bone-key under Ila's skin wakes early, forcing her to choose a stance before the crowd decides what courage should look like."},
-			},
-			ActorNeeds: []scene.ActorNeed{},
-			Choices: []scene.Choice{{
-				ID:           "choice_submit_hand",
-				Label:        "Offer Ila's left hand to the witness-machine and keep the funeral lawful.",
-				TargetNodeID: "turn_3_submit_hand",
-				PlayerIntent: "submit to the law to preserve family memory",
-			}, {
-				ID:           "choice_steal_pearl",
-				Label:        "Break the Mourning Lantern's seal and steal the memory pearl.",
-				TargetNodeID: "turn_3_steal_pearl",
-				PlayerIntent: "defy the law by stealing the family memory",
-			}, {
-				ID:           "choice_bargain_sarex",
-				Label:        "Go to Sarex of the Red Loom and ask for a counterfeit witness-thread.",
-				TargetNodeID: "turn_3_bargain_sarex",
-				PlayerIntent: "seek illegal technical help",
-			}},
-		}, {
-			ID:         "turn_3_submit_hand",
-			Title:      "The lawful wound",
-			Beats:      []scene.Beat{{ID: "beat-1", Text: "Ila places her wrist in the cuff, and the machine measures which memories her hand will still be allowed to hold after the cut."}},
+			ID:         "lock_valve",
+			Title:      "The pump takes Mara's side",
+			Beats:      []scene.Beat{{ID: "beat-1", Text: "Mara slams the lock-pin home, the pump drinks the valve's song, and Orro's buyer crate snaps shut on empty air."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
 			RevisionNotes: []string{
-				"Writer continuation is required after this branch.",
+				"Writer continuation is required after Mara saves the kitchens and turns Orro into an active opponent.",
 			},
 		}, {
-			ID:         "turn_3_steal_pearl",
-			Title:      "The lantern opens sideways",
-			Beats:      []scene.Beat{{ID: "beat-1", Text: "The bone-key refuses the public lock and instead opens a black side-door in the air beside the pearl, marking Ila as thief before every witness."}},
+			ID:         "split_flow",
+			Title:      "Half-pressure, full blame",
+			Beats:      []scene.Beat{{ID: "beat-1", Text: "The split-flow hose screams across both decks, saving the first water surge while marking Mara's repair as the next thing likely to burst."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
 			RevisionNotes: []string{
-				"Writer continuation is required after this branch.",
+				"Writer continuation is required after Mara buys time for both decks but creates a fragile shared failure.",
 			},
 		}, {
-			ID:         "turn_3_bargain_sarex",
-			Title:      "The red thread price",
-			Beats:      []scene.Beat{{ID: "beat-1", Text: "Sarex offers a witness-thread that can fool the machine but not the crowd, and asks which part of Ila's name may be spent as payment."}},
+			ID:         "follow_buyer",
+			Title:      "The storm lift opens",
+			Beats:      []scene.Beat{{ID: "beat-1", Text: "Mara lets the pump cough once more and dives after the buyer's crate as the storm lift opens onto rain bright enough to sting."}},
 			ActorNeeds: []scene.ActorNeed{},
 			Choices:    []scene.Choice{},
 			RevisionNotes: []string{
-				"Writer continuation is required after this branch.",
+				"Writer continuation is required after Mara risks the crop to learn who is buying the orchard's last working part.",
 			},
 		}},
-		RevisionNotes: []string{"Opening seed runway for faithful CLI playtest; no actor_needs yet.", "Turn 1 choices are cosmetic and all lead to turn_2_decision; turn 2 choices branch into three prebuilt terminal handoff nodes."},
+		RevisionNotes: []string{"Compact opening seed for CLI playtest; no actor_needs yet.", "Entry choices branch into included terminal handoff nodes with Writer continuation notes."},
 	}
 }
 

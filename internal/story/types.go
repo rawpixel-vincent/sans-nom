@@ -43,10 +43,12 @@ type StoryBible struct {
 	PlayerCharacter            PlayerCharacter   `json:"player_character"`
 	PlayerWorldConnection      string            `json:"player_world_connection"`
 	WorldBasics                []string          `json:"world_basics"`
+	StoryContext               []string          `json:"story_context,omitempty"`
 	LorePrinciples             []OriginalLaw     `json:"lore_principles,omitempty"`
 	OriginalLaws               []OriginalLaw     `json:"original_laws,omitempty"`
 	Factions                   []Faction         `json:"factions"`
 	CoreRelationships          []string          `json:"core_relationships"`
+	ToneGuidance               []string          `json:"tone_guidance,omitempty"`
 	ToneDoctrine               []string          `json:"tone_doctrine"`
 	SourceLoreInfluenceRefs    []string          `json:"source_lore_influence_refs,omitempty"`
 	ForbiddenLiteralCanonTerms []string          `json:"forbidden_literal_canon_terms,omitempty"`
@@ -85,6 +87,42 @@ func (b StoryBible) BindingLorePrinciples() []OriginalLaw {
 		return b.LorePrinciples
 	}
 	return b.OriginalLaws
+}
+
+func (b StoryBible) StoryContextGuidance() []string {
+	out := append([]string(nil), b.StoryContext...)
+	for _, note := range b.BindingLorePrinciples() {
+		var parts []string
+		if strings.TrimSpace(note.Name) != "" {
+			parts = append(parts, strings.TrimSpace(note.Name))
+		}
+		if strings.TrimSpace(note.Description) != "" {
+			parts = append(parts, strings.TrimSpace(note.Description))
+		}
+		if strings.TrimSpace(note.SourcePattern) != "" {
+			parts = append(parts, "source pattern: "+strings.TrimSpace(note.SourcePattern))
+		}
+		if strings.TrimSpace(note.Enforcement) != "" {
+			parts = append(parts, "consequence note: "+strings.TrimSpace(note.Enforcement))
+		}
+		if strings.TrimSpace(note.WhyProfound) != "" {
+			parts = append(parts, "weight note: "+strings.TrimSpace(note.WhyProfound))
+		}
+		if strings.TrimSpace(note.NotMerelyCruel) != "" {
+			parts = append(parts, "care note: "+strings.TrimSpace(note.NotMerelyCruel))
+		}
+		if len(parts) > 0 {
+			out = append(out, strings.Join(parts, " | "))
+		}
+	}
+	return out
+}
+
+func (b StoryBible) ToneGuidanceLines() []string {
+	if len(b.ToneGuidance) > 0 {
+		return b.ToneGuidance
+	}
+	return b.ToneDoctrine
 }
 
 type Faction struct {
@@ -229,30 +267,6 @@ func (b StoryBible) Validate() error {
 	if len(b.WorldBasics) < 3 {
 		return fmt.Errorf("story bible needs at least 3 world basics")
 	}
-	principles := b.BindingLorePrinciples()
-	if len(principles) == 0 {
-		return errors.New("story bible needs at least one binding lore principle")
-	}
-	for _, law := range principles {
-		if strings.TrimSpace(law.ID) == "" || strings.TrimSpace(law.Name) == "" {
-			return errors.New("each binding lore principle needs id and name")
-		}
-		if strings.TrimSpace(law.Description) == "" || strings.TrimSpace(law.Enforcement) == "" {
-			return fmt.Errorf("binding lore principle %q needs description and enforcement", law.ID)
-		}
-		if strings.TrimSpace(law.SourcePattern) == "" {
-			return fmt.Errorf("binding lore principle %q needs source pattern note", law.ID)
-		}
-		if strings.TrimSpace(law.WhyProfound) == "" || strings.TrimSpace(law.NotMerelyCruel) == "" {
-			return fmt.Errorf("binding lore principle %q must explain why it has weight and is not merely cruel", law.ID)
-		}
-	}
-	if len(b.FirstTurnExposition) < 5 {
-		return fmt.Errorf("story bible needs at least 5 first-turn exposition requirements")
-	}
-	if len(b.StoryArc) < 4 {
-		return fmt.Errorf("story bible needs at least 4 story arc steps")
-	}
 	if len(b.Metadata) == 0 {
 		return errors.New("story bible metadata is required for resume handoff")
 	}
@@ -268,68 +282,49 @@ func ValidateSeedPacket(packet scene.StoryPacket) error {
 	if err := packet.Validate(); err != nil {
 		return err
 	}
-	if len(packet.Nodes) != 5 {
-		return fmt.Errorf("seed packet must have exactly 5 runway nodes, got %d", len(packet.Nodes))
+	if len(packet.Nodes) == 0 {
+		return errors.New("seed packet needs at least one scene node")
 	}
 	entry, err := packet.EntryNode()
 	if err != nil {
 		return err
 	}
-	if len(entry.Beats) < 4 {
-		return fmt.Errorf("turn_1_intro node needs at least 4 beats for story onboarding")
+	if len(entry.Beats) == 0 {
+		return fmt.Errorf("seed entry node %q needs at least one beat", entry.ID)
 	}
-	if len(entry.Choices) < 2 || len(entry.Choices) > 3 {
-		return fmt.Errorf("turn_1_intro node needs 2-3 cosmetic choices, got %d", len(entry.Choices))
-	}
-	if err := validateSeedRunway(packet, entry); err != nil {
+	if err := validateSeedAgency(packet); err != nil {
 		return err
 	}
 	return nil
 }
 
-func validateSeedRunway(packet scene.StoryPacket, entry scene.SceneNode) error {
-	decisionID := strings.TrimSpace(entry.Choices[0].TargetNodeID)
-	if decisionID == "" {
-		return fmt.Errorf("turn_1_intro choice %q needs target_node_id", entry.Choices[0].ID)
-	}
-	for _, choice := range entry.Choices {
-		if strings.TrimSpace(choice.TargetNodeID) != decisionID {
-			return fmt.Errorf("turn_1_intro choices must all target the same turn_2_decision node")
+func validateSeedAgency(packet scene.StoryPacket) error {
+	hasChoicePoint := false
+	for _, node := range packet.Nodes {
+		if len(node.Choices) >= 2 {
+			hasChoicePoint = true
+		}
+		if len(node.Choices) == 0 {
+			if node.ID != packet.EntryNodeID && !hasNonEmptyString(node.RevisionNotes) {
+				return fmt.Errorf("terminal seed node %q needs revision_notes for Writer continuation", node.ID)
+			}
+			continue
+		}
+		for _, choice := range node.Choices {
+			targetID := strings.TrimSpace(choice.TargetNodeID)
+			if targetID == "" {
+				return fmt.Errorf("seed choice %q in node %q needs target_node_id", choice.ID, node.ID)
+			}
+			if targetID == node.ID {
+				return fmt.Errorf("seed choice %q in node %q cannot target its own node", choice.ID, node.ID)
+			}
+			if _, err := packet.Node(targetID); err != nil {
+				return fmt.Errorf("seed choice %q targets missing node %q", choice.ID, targetID)
+			}
 		}
 	}
-	if decisionID == entry.ID {
-		return fmt.Errorf("turn_1_intro cannot target itself")
-	}
-	decision, err := packet.Node(decisionID)
-	if err != nil {
-		return fmt.Errorf("turn_2_decision node %q not found", decisionID)
-	}
-	if len(decision.Choices) != 3 {
-		return fmt.Errorf("turn_2_decision node %q needs exactly 3 real choices, got %d", decision.ID, len(decision.Choices))
-	}
-	branchTargets := map[string]struct{}{}
-	for _, choice := range decision.Choices {
-		targetID := strings.TrimSpace(choice.TargetNodeID)
-		if targetID == "" {
-			return fmt.Errorf("turn_2_decision choice %q needs target_node_id", choice.ID)
-		}
-		if targetID == entry.ID || targetID == decision.ID {
-			return fmt.Errorf("turn_2_decision choice %q must target a turn_3 branch node", choice.ID)
-		}
-		if _, ok := branchTargets[targetID]; ok {
-			return fmt.Errorf("turn_2_decision choices must target three distinct turn_3 branch nodes")
-		}
-		branchTargets[targetID] = struct{}{}
-		branch, err := packet.Node(targetID)
-		if err != nil {
-			return fmt.Errorf("turn_3 branch node %q not found", targetID)
-		}
-		if len(branch.Choices) != 0 {
-			return fmt.Errorf("turn_3 branch node %q must be terminal with no choices", branch.ID)
-		}
-		if !hasNonEmptyString(branch.RevisionNotes) {
-			return fmt.Errorf("turn_3 branch node %q needs revision_notes requiring Writer continuation", branch.ID)
-		}
+	if !hasChoicePoint {
+		return errors.New("seed packet needs at least one playable choice point")
 	}
 	return nil
 }
@@ -347,14 +342,12 @@ func (b StoryBible) CreatedStoryText() string {
 	var out []string
 	out = append(out, b.Title, b.Premise, b.PlayerCharacter.Name, b.PlayerCharacter.Description, b.PlayerCharacter.Desire, b.PlayerCharacter.Wound, b.PlayerCharacter.Boundary, b.PlayerWorldConnection)
 	out = append(out, b.WorldBasics...)
-	for _, law := range b.BindingLorePrinciples() {
-		out = append(out, law.ID, law.Name, law.Description, law.Enforcement, law.WhyProfound, law.NotMerelyCruel)
-	}
+	out = append(out, b.StoryContextGuidance()...)
 	for _, faction := range b.Factions {
 		out = append(out, faction.ID, faction.Name, faction.Description)
 	}
 	out = append(out, b.CoreRelationships...)
-	out = append(out, b.ToneDoctrine...)
+	out = append(out, b.ToneGuidanceLines()...)
 	out = append(out, b.FirstTurnExposition...)
 	out = append(out, b.StoryArc...)
 	out = append(out, b.CurrentArcPhase, b.NextRequiredRevelation, b.NextRequiredOpposition)

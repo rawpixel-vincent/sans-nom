@@ -24,7 +24,7 @@ func (r *fakeRunner) Run(_ context.Context, prompt string) (string, error) {
 	if r.answer != "" {
 		return r.answer, nil
 	}
-	return `## Lore authority answer
+	return `## Lore reference answer
 This source pattern supports consequence-heavy dynasty pressure.
 
 ## Source basis
@@ -34,7 +34,7 @@ Law works through public consequence.
 The world reacts before the plot explains.
 
 ## Pressure and consequence pattern
-The cost must be witnessed.
+The cost must be visible in-scene.
 
 ## Risks or contradictions
 Do not make the law arbitrary.
@@ -73,7 +73,7 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 		Kind:   "wiki_lore",
 		Source: "lore/packs/metabarons/wiki/lore.md",
 		Score:  0.9,
-		Text:   "A source law becomes credible because the social world reacts through cost, witness, and consequence.",
+		Text:   "A source pattern becomes credible because the social world reacts through cost, pressure, and consequence.",
 	}}}
 	tool := &ToolRunner{
 		Runner:            runner,
@@ -81,12 +81,12 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 		CacheRoot:         filepath.Join(root, ".cache"),
 		PackID:            "metabarons",
 		PackLabel:         "Metabarons",
-		PackDescription:   "Body law and taboo pressure.",
+		PackDescription:   "Body pressure and difficult custom.",
 		Collection:        "sans_nom_lore_metabarons",
 		PackManifestPath:  manifest,
 		IndexManifestPath: index,
 	}
-	args := `{"question":"How does a binding law stay credible?","purpose":"law_mechanism"}`
+	args := `{"question":"How does a source rule stay credible?","purpose":"source_mechanism"}`
 	first, err := tool.Handle(context.Background(), root, args)
 	if err != nil {
 		t.Fatal(err)
@@ -123,9 +123,9 @@ func TestToolCachesLoreExpertAnswer(t *testing.T) {
 	if _, err := os.Stat(cacheAnswerPath); err != nil {
 		t.Fatalf("cache answer path missing: %v", err)
 	}
-	if !strings.Contains(runner.prompt, "## Lore authority answer") ||
+	if !strings.Contains(runner.prompt, "## Lore reference answer") ||
 		!strings.Contains(runner.prompt, "Fidelity implications") ||
-		!strings.Contains(runner.prompt, "consequence systems, initiation rules, taboos") ||
+		!strings.Contains(runner.prompt, "rules, customs, ceremonies") ||
 		!strings.Contains(runner.prompt, "scenario fidelity") {
 		t.Fatalf("prompt missing required answer contract:\n%s", runner.prompt)
 	}
@@ -156,7 +156,7 @@ func TestToolLogsCallerRole(t *testing.T) {
 		CallerRole:        "creative-writer",
 		CallerSpeaker:     "Creative Writer",
 	}
-	if _, err := tool.Handle(context.Background(), root, `{"question":"What makes a doctrine credible?","purpose":"general_lore_reference"}`); err != nil {
+	if _, err := tool.Handle(context.Background(), root, `{"question":"What makes a source custom credible?","purpose":"general_lore_reference"}`); err != nil {
 		t.Fatal(err)
 	}
 	events, err := gamelog.Read(logger.Path, gamelog.Filter{Event: "lore.expert.request"})
@@ -199,14 +199,14 @@ func TestLocalToolSchemaIsLoreAuthority(t *testing.T) {
 	if tool.Name != "ask_lore_expert" {
 		t.Fatalf("tool name = %q", tool.Name)
 	}
-	if !strings.Contains(tool.Description, "Lore authority") || !strings.Contains(tool.Description, "scenario-fidelity") || !strings.Contains(tool.Description, "contradiction checks") {
-		t.Fatalf("description should be lore-authority scoped: %s", tool.Description)
+	if !strings.Contains(tool.Description, "Lore reference support") || !strings.Contains(tool.Description, "scenario-fidelity") || !strings.Contains(tool.Description, "contradiction checks") {
+		t.Fatalf("description should be lore-reference scoped: %s", tool.Description)
 	}
 	data, err := json.Marshal(tool.Parameters)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(data), "source_pattern") || !strings.Contains(string(data), "fidelity_check") {
+	if !strings.Contains(string(data), "source_pattern") || !strings.Contains(string(data), "source_mechanism") || !strings.Contains(string(data), "fidelity_check") {
 		t.Fatalf("schema missing purpose enum: %s", data)
 	}
 	if !strings.Contains(string(data), "scenario-fidelity") {

@@ -927,7 +927,7 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 	for _, required := range []string{
 		"contract_path: lorepack/lore-pack.json",
 		"master_lore_path: lorepack/LORE.md",
-		"pressure field for faithful play",
+		"fidelity/background support for play",
 		"premise logic",
 		"protagonist pressure",
 		"Before drafting, orient in the staged lorepack",
@@ -936,8 +936,8 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 		"relevant volume summaries",
 		"matching character records",
 		"do not rely on shell grep",
-		"major characters, family/story pressures, repeated laws, decisive events, and choice logic",
-		"choice_principles",
+		"major characters, premise pressures, decisive events, and choice texture",
+		"avoid-drift notes",
 		"copying its synopsis wording",
 	} {
 		if !strings.Contains(text, required) {
@@ -946,13 +946,12 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 	}
 	for _, tooSpecific := range []string{
 		"young heir inside a brutal warrior dynasty",
-		"demanded succession rite",
-		"rite meant to prove fitness",
-		"must_honor:",
+		"demanded succession ceremony",
+		"ceremony meant to prove fitness",
 		"must_not_violate:",
 	} {
 		if strings.Contains(text, tooSpecific) {
-			t.Fatalf("seed context should not inline full scenario contract term %q:\n%s", tooSpecific, text)
+			t.Fatalf("seed context should not inline full scenario notes term %q:\n%s", tooSpecific, text)
 		}
 	}
 	for _, forbidden := range []string{

@@ -61,7 +61,7 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Lore authority for the selected lorepack. Use when a question needs scenario-fidelity checking, source references, tone lineage, relationship pressure, contradiction checks, or canon-pressure analysis. Results are cached per lorepack and returned as a workspace-readable answer_path plus a short preview.",
+		Description: "Lore reference support for the selected lorepack. Use when a question needs source references, tone, relationship pressure, contradiction checks, or scenario-fidelity support. Results are cached per lorepack and returned as a workspace-readable answer_path plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
@@ -266,7 +266,7 @@ func (r *ToolRunner) validateRequest(request ToolRequest) error {
 
 func allowedPurpose(value string) bool {
 	switch value {
-	case "", "source_pattern", "source_ref_check", "law_mechanism", "character_pressure", "relationship_matrix", "plausibility_check", "tone_pattern", "fidelity_check", "scenario_contract", "lore_reference", "general_lore_reference", "general_influence":
+	case "", "source_pattern", "source_ref_check", "source_mechanism", "law_mechanism", "character_pressure", "relationship_matrix", "plausibility_check", "tone_pattern", "fidelity_check", "scenario_contract", "lore_reference", "general_lore_reference", "general_influence":
 		return true
 	default:
 		return false
@@ -291,11 +291,11 @@ func (r *ToolRunner) searchSources(ctx context.Context, request ToolRequest) ([]
 func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "You are the Nerd Lore Expert for Sans-Nom.\n\n")
-	fmt.Fprintf(&b, "Your job is to answer reference questions about the selected lorepack so Writers and Narrators can preserve scenario fidelity.\n")
-	fmt.Fprintf(&b, "You are not writing final prose, StoryBible doctrine, StoryPacket nodes, or character cards.\n")
-	fmt.Fprintf(&b, "Answer as lore authority: explain what the source references support, what they do not support, and what would drift from the active lore contract.\n\n")
-	fmt.Fprintf(&b, "When discussing laws or doctrines, describe consequence systems, initiation rules, taboos, oaths, inheritance pressures, refusal points, and social enforcement.\n")
-	fmt.Fprintf(&b, "Focus on mechanisms, relationships, and consequences rather than ornamental scenery.\n\n")
+	fmt.Fprintf(&b, "Your job is to answer reference questions about the selected lorepack so Writers and Narrators can preserve scenario fidelity without forcing generic dramatic rails.\n")
+	fmt.Fprintf(&b, "You are not writing final prose, StoryBible guidance, StoryPacket nodes, or character cards.\n")
+	fmt.Fprintf(&b, "Answer as reference support: explain what the source references support, what they do not support, and what would drift from the active lorepack notes.\n\n")
+	fmt.Fprintf(&b, "When the source material includes rules, customs, ceremonies, family structures, or social constraints, describe only what the cited material supports and how it affects scene pressure.\n")
+	fmt.Fprintf(&b, "Focus on mechanisms, relationships, and consequences rather than ornamental scenery or invented requirements.\n\n")
 	fmt.Fprintf(&b, "Ground-lore pack:\n- id: %s\n- label: %s\n- collection: %s\n", request.PackID, r.packLabel(), r.Collection)
 	if strings.TrimSpace(r.PackDescription) != "" {
 		fmt.Fprintf(&b, "- description: %s\n", strings.TrimSpace(r.PackDescription))
@@ -319,7 +319,7 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	}
 	fmt.Fprintf(&b, "\nRetrieved source references for analysis. Distill the fidelity implications; do not dump long source text:\n")
 	if len(snippets) == 0 {
-		fmt.Fprintf(&b, "- No source snippets were available. Answer from pack-level craft doctrine only and say confidence is limited.\n")
+		fmt.Fprintf(&b, "- No source snippets were available. Answer from pack-level context only and say confidence is limited.\n")
 	} else {
 		for _, snippet := range snippets {
 			label := snippet.ID
@@ -334,7 +334,7 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	}
 	fmt.Fprintf(&b, `
 Return Markdown with exactly these sections:
-## Lore authority answer
+## Lore reference answer
 ## Source basis
 ## Fidelity implications
 ## Pressure and consequence pattern
@@ -358,7 +358,7 @@ func (r *ToolRunner) result(cached bool, cacheDir string, cacheKey string, model
 		"model_visible_root": "lore-expert",
 		"source_refs":        refs,
 		"preview":            preview(answer, 700),
-		"note":               "Lore expert material is reference support for scenario fidelity. It is not final prose, StoryBible doctrine, or StoryPacket structure. Read answer_path from the current agent workspace when more detail is needed.",
+		"note":               "Lore expert material is reference support for scenario fidelity. It is not final prose, StoryBible guidance, or StoryPacket structure. Read answer_path from the current agent workspace when more detail is needed.",
 	}
 }
 
@@ -547,14 +547,14 @@ func toolSchema() map[string]any {
 			},
 			"question": map[string]any{
 				"type":        "string",
-				"description": "Reference question. Ask for lorepack patterns, source refs, tone lineage, relationship pressure, contradiction risks, or scenario-fidelity checks.",
+				"description": "Reference question. Ask for lorepack patterns, source refs, tone, relationship pressure, contradiction risks, or scenario-fidelity checks.",
 			},
 			"purpose": map[string]any{
 				"type": "string",
 				"enum": []string{
 					"source_pattern",
 					"source_ref_check",
-					"law_mechanism",
+					"source_mechanism",
 					"character_pressure",
 					"relationship_matrix",
 					"plausibility_check",
