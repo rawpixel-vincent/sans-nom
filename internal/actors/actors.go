@@ -169,13 +169,14 @@ func NeedsForNode(node scene.SceneNode) ([]scene.ActorNeed, error) {
 }
 
 type Service struct {
-	Registry          *Registry
-	Invoker           Invoker
-	Logger            *gamelog.Writer
-	PacketID          string
-	Turn              int
-	RunID             string
-	SkipMissingActors bool
+	Registry              *Registry
+	Invoker               Invoker
+	Logger                *gamelog.Writer
+	PacketID              string
+	Turn                  int
+	RunID                 string
+	SkipMissingActors     bool
+	AllowSceneLocalActors bool
 }
 
 func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, context string) ([]Output, error) {
@@ -194,6 +195,12 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 	var wg sync.WaitGroup
 	for i, need := range needs {
 		actor, ok := s.Registry.Actor(need.ActorID)
+		if !ok {
+			if s.AllowSceneLocalActors {
+				actor = SceneLocalActor(node, need)
+				ok = true
+			}
+		}
 		if !ok {
 			if s.SkipMissingActors {
 				s.logActorEvent(gamelog.Event{
@@ -312,6 +319,51 @@ func (s Service) InvokeForNode(ctx context.Context, node scene.SceneNode, contex
 		}
 	}
 	return compactActorOutputs(outputs), nil
+}
+
+func SceneLocalActor(node scene.SceneNode, need scene.ActorNeed) Actor {
+	id := strings.TrimSpace(need.ActorID)
+	displayName := sceneLocalDisplayName(id)
+	return Actor{
+		ID:          id,
+		DisplayName: displayName,
+		Card:        sceneLocalActorCard(node, need, displayName),
+	}
+}
+
+func sceneLocalDisplayName(id string) string {
+	words := strings.Fields(strings.NewReplacer("_", " ", "-", " ").Replace(id))
+	if len(words) == 0 {
+		return "Scene-local actor"
+	}
+	for i, word := range words {
+		words[i] = strings.ToUpper(word[:1]) + word[1:]
+	}
+	return strings.Join(words, " ")
+}
+
+func sceneLocalActorCard(node scene.SceneNode, need scene.ActorNeed, displayName string) string {
+	var lines []string
+	lines = append(lines, "Name: "+displayName)
+	lines = append(lines, "Scope: Scene-local actor created from explicit actor_needs; use only this scene, provided context, and surfaced facts. Do not invent durable offscreen canon.")
+	if strings.TrimSpace(need.Mode) != "" {
+		lines = append(lines, "Mode: "+strings.TrimSpace(need.Mode))
+	}
+	if strings.TrimSpace(need.Reason) != "" {
+		lines = append(lines, "Reason: "+strings.TrimSpace(need.Reason))
+	}
+	if strings.TrimSpace(node.Title) != "" {
+		lines = append(lines, "Scene title: "+strings.TrimSpace(node.Title))
+	}
+	for i, beat := range node.Beats {
+		if i >= 3 {
+			break
+		}
+		if text := strings.TrimSpace(beat.Text); text != "" {
+			lines = append(lines, "Scene beat: "+text)
+		}
+	}
+	return strings.Join(lines, "\n")
 }
 
 func compactActorOutputs(outputs []Output) []Output {

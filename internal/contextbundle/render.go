@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/rawpixel-vincent/sans-nom/internal/modelcap"
+	"github.com/rawpixel-vincent/sans-nom/internal/scene"
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
@@ -234,9 +235,20 @@ func writeWriterSelectedNodeSummaryBody(b *strings.Builder, c WriterContext) {
 	}
 	writeInlineList(b, "revision_notes", node.RevisionNotes)
 	writeInlineList(b, "invalidation_notes", node.InvalidationNotes)
+	writeInlineList(b, "rolled_out_canon_memory", selectedNodeCanonMemorySummaries(node))
 	if strings.TrimSpace(node.WriterNotes) != "" {
 		fmt.Fprintf(b, "writer_notes: %s\n", strings.TrimSpace(node.WriterNotes))
 	}
+}
+
+func selectedNodeCanonMemorySummaries(node scene.SceneNode) []string {
+	var out []string
+	for _, intent := range node.CanonMemoryIntents() {
+		if summary := strings.TrimSpace(intent.Summary); summary != "" {
+			out = append(out, summary)
+		}
+	}
+	return out
 }
 
 func writeScenarioContract(b *strings.Builder, value string) {
@@ -520,14 +532,14 @@ func writeActorManifestBody(b *strings.Builder, actors []ActorManifestItem) {
 func writePlanningConstraintsBody(b *strings.Builder) {
 	fmt.Fprintln(b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
-	fmt.Fprintln(b, "- Game-loop fit: keep choices playable, handoffs clear, actor_needs limited to registered story actors, and memory intents tied to facts play can actually surface.")
+	fmt.Fprintln(b, "- Game-loop fit: keep choices playable, handoffs clear, actor_needs limited to registered story actors or explicit scene-local actors, and memory intents tied to facts play can actually surface.")
 	fmt.Fprintln(b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
 	fmt.Fprintln(b, "- Use scenario notes and avoid-drift notes as fidelity support; do not contradict concrete source anchors.")
 	fmt.Fprintln(b, "- Make each major choice connect to current player pressure, relationship stakes, or scene consequence.")
 	fmt.Fprintln(b, "- Let rules, customs, or constraints sharpen desire and opposition only when they arise from the current story or source material.")
 	fmt.Fprintln(b, "- Make strange material feel lived-in through internal cause, social practice, emotional credibility, material consequence, and follow-through.")
-	fmt.Fprintln(b, "- Actor agents are available only for ids listed in STORY ACTOR MANIFEST; otherwise keep actor_needs empty and write behavior as scene beats.")
-	fmt.Fprintln(b, "- When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.")
+	fmt.Fprintln(b, "- Actor agents can rehearse STORY ACTOR MANIFEST ids and explicit scene-local actors introduced by this packet. For source/lore actors, use manifest ids; for local figures without cards, choose stable lowercase story-local actor_ids and explain the role in reason.")
+	fmt.Fprintln(b, "- When a specific actor, group voice, or embodied system pressure matters to the playable node, cast it with actor_needs so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.")
 	fmt.Fprintln(b, "- Use actor cards and directional representations only for story actors explicitly present in the packet.")
 	fmt.Fprintln(b, "- Treat lore references as support for the active scenario, not as automatic all-cast inventory.")
 }

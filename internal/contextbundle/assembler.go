@@ -113,7 +113,7 @@ func (a Assembler) AssembleWriter(ctx context.Context, req BuildRequest) (Writer
 		MaxRenderChars:   opts.WriterSoftCap,
 		StoryBible:       cloneBible(req.Bible),
 		ScenarioContract: strings.TrimSpace(req.ScenarioContractText),
-		Progression:      buildStoryProgression(req.Bible, req.Packet),
+		Progression:      buildStoryProgression(req.Bible, req.Packet, node.ID),
 		SceneState:       sceneState(req.Packet),
 		PlayerDecision:   req.Decision,
 		SelectedNodeID:   node.ID,

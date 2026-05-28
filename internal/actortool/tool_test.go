@@ -119,23 +119,31 @@ func TestAskActorWritesPlanningMaterialArtifact(t *testing.T) {
 	}
 }
 
-func TestAskActorRejectsUnsupportedActor(t *testing.T) {
+func TestAskActorAllowsSceneLocalActor(t *testing.T) {
 	registry, err := actors.NewRegistry([]actors.Actor{{ID: "tonto"}})
 	if err != nil {
 		t.Fatal(err)
 	}
+	root := t.TempDir()
 	runner := &ToolRunner{
 		Registry:      registry,
-		Invoker:       actors.StaticInvoker{},
+		Invoker:       actors.StaticInvoker{Outputs: map[string]actors.Output{"selka_blankwrist": {Dialogue: "I will guide the cut, not kneel to it."}}},
 		Assembler:     contextbundle.Assembler{},
 		Packet:        actorToolPacket(),
 		NodeID:        "entry",
-		OutputDir:     t.TempDir(),
-		WorkspaceRoot: t.TempDir(),
+		OutputDir:     filepath.Join(root, "actors"),
+		WorkspaceRoot: root,
 	}
-	_, err = runner.Handle(context.Background(), runner.WorkspaceRoot, `{"actor_id":"unknown","mode":"present","scene_setup":"x","question":"y","targets":[],"node_id":""}`)
-	if err == nil || !strings.Contains(err.Error(), "story actor manifest") {
-		t.Fatalf("expected unsupported actor error, got %v", err)
+	got, err := runner.Handle(context.Background(), runner.WorkspaceRoot, `{"actor_id":"selka_blankwrist","mode":"present","scene_setup":"Selka stands in the refuge with blank wrists.","question":"What does Selka refuse?","targets":[],"node_id":""}`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	material := got.(map[string]any)["material"].(actors.ActorMaterial)
+	if material.ActorID != "selka_blankwrist" || !strings.Contains(material.Dialogue, "guide the cut") {
+		t.Fatalf("unexpected scene-local material: %#v", material)
+	}
+	if material.UsedCardSource != "scene-local:selka_blankwrist" {
+		t.Fatalf("card source = %q", material.UsedCardSource)
 	}
 }
 

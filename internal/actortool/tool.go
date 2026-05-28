@@ -46,7 +46,7 @@ type ToolRunner struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_actor",
-		Description: "Ask one story actor for raw planning/performance material grounded in that actor's Honcho card, local seed card fallback, and directional representations. Use only when character will, memory, voice, or relationship pressure affects packet design. Returned material is planning-only until Narrator later surfaces it.",
+		Description: "Ask one registered story actor or explicit scene-local actor for raw planning/performance material. Registered actors use Honcho/local cards and representations; scene-local actors use the current scene setup, question, and node beats as a temporary card. Use only when character will, memory, voice, or relationship pressure affects packet design. Returned material is planning-only until Narrator later surfaces it.",
 		Parameters:  actorToolSchema(),
 		Handler:     r.Handle,
 	}
@@ -70,12 +70,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 		r.logRejected(arguments, err)
 		return nil, err
 	}
-	localActor, ok := r.Registry.Actor(request.ActorID)
-	if !ok {
-		err := fmt.Errorf("actor %q is not in the story actor manifest", request.ActorID)
-		r.logRejected(arguments, err)
-		return nil, err
-	}
+	localActor, registeredActor := r.Registry.Actor(request.ActorID)
 	callID, callIndex, err := r.nextCallID()
 	if err != nil {
 		r.logRejected(arguments, err)
@@ -96,7 +91,21 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 		Reason:  actorReason(request),
 		Targets: cleanStrings(request.Targets),
 	}
-	actorContext, contextText, warnings, err := r.Assembler.AssembleActorCall(ctx, contextbundle.ActorCallBuildRequest{
+	assembler := r.Assembler
+	if !registeredActor {
+		localActor = actors.SceneLocalActor(node, need)
+		assembler.Cards = sceneLocalCardProvider{
+			base: assembler.Cards,
+			card: contextbundle.Card{
+				ActorID:     localActor.ID,
+				DisplayName: localActor.DisplayName,
+				Text:        localActor.Card,
+				Source:      "scene-local:" + localActor.ID,
+			},
+		}
+		assembler.Options.DisableCardSeeding = true
+	}
+	actorContext, contextText, warnings, err := assembler.AssembleActorCall(ctx, contextbundle.ActorCallBuildRequest{
 		Packet:               r.Packet,
 		Node:                 node,
 		Need:                 need,
@@ -123,6 +132,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 			"call_dir":      filepath.ToSlash(callDir),
 			"call_index":    callIndex,
 			"card_source":   actorContext.CardSource,
+			"actor_scope":   actorScope(registeredActor),
 			"target_count":  len(need.Targets),
 			"context_chars": len([]rune(contextText)),
 		}, metadata),
@@ -132,6 +142,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 			"node":           node,
 			"need":           need,
 			"actor_context":  actorContext,
+			"actor_scope":    actorScope(registeredActor),
 			"context_text":   contextText,
 			"warnings":       warnings,
 			"model_metadata": metadata,
@@ -188,6 +199,7 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 			"mode":          request.Mode,
 			"call_dir":      filepath.ToSlash(callDir),
 			"call_index":    callIndex,
+			"actor_scope":   actorScope(registeredActor),
 			"artifact_path": material.ArtifactPath,
 		}, metadata),
 		Detail: map[string]any{
@@ -205,6 +217,47 @@ func (r *ToolRunner) Handle(ctx context.Context, root string, arguments string) 
 		"material": material,
 		"note":     "Actor material is planning-only. Use it to shape the StoryPacket; do not treat it as canon.",
 	}, nil
+}
+
+type sceneLocalCardProvider struct {
+	base contextbundle.CardProvider
+	card contextbundle.Card
+}
+
+func (p sceneLocalCardProvider) LocalCard(actorID string) (contextbundle.Card, bool) {
+	if strings.TrimSpace(actorID) == p.card.ActorID {
+		return p.card, true
+	}
+	if p.base == nil {
+		return contextbundle.Card{}, false
+	}
+	return p.base.LocalCard(actorID)
+}
+
+func (p sceneLocalCardProvider) ActorIDs() []string {
+	seen := map[string]bool{}
+	var ids []string
+	if p.base != nil {
+		for _, id := range p.base.ActorIDs() {
+			id = strings.TrimSpace(id)
+			if id == "" || seen[id] {
+				continue
+			}
+			seen[id] = true
+			ids = append(ids, id)
+		}
+	}
+	if id := strings.TrimSpace(p.card.ActorID); id != "" && !seen[id] {
+		ids = append(ids, id)
+	}
+	return ids
+}
+
+func actorScope(registered bool) string {
+	if registered {
+		return "registered"
+	}
+	return "scene_local"
 }
 
 func (r *ToolRunner) actorNode(request actors.ActorCallRequest) (scene.SceneNode, error) {

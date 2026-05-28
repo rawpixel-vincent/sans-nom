@@ -1205,8 +1205,6 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 	if err != nil {
 		return narrator.Rollout{}, err
 	}
-	packet, removedNeeds := actors.PruneUnsupportedPacketNeeds(packet, registry)
-	modelrun.LogUnsupportedActorNeeds(cfg.Logger, "actor.needs.filtered", "unsupported actor_needs filtered before narrator context assembly", turn, packet.ID, nodeID, removedNeeds)
 	assembler := modelrun.ContextAssembler(cfg.BridgeURL, false, cfg.CardStore, cfg.GlobalCollection, cfg.StoryCollection, cfg.Logger)
 	assembler.Options.SkipMissingActorCards = true
 	scenarioContract := lorestage.ScenarioContractTextForPack(cfg.GroundLorePackID)
@@ -1257,7 +1255,7 @@ func rolloutOnce(ctx context.Context, packet scene.StoryPacket, nodeID string, d
 		return narrator.Rollout{}, err
 	}
 	rehearsal, err := director.Service{
-		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, RunID: runID, SkipMissingActors: true},
+		Actors:           &actors.Service{Registry: registry, Invoker: actorInvoker, Logger: cfg.Logger, PacketID: packet.ID, Turn: turn, RunID: runID, SkipMissingActors: true, AllowSceneLocalActors: true},
 		Logger:           cfg.Logger,
 		Turn:             turn,
 		RunID:            runID,
@@ -1385,11 +1383,6 @@ func RefreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 		return result.Packet, writerFailure(result.Err, runID, runDir)
 	}
 	nextPacket := result.Packet
-	if registry, err := runutil.ActorRegistry(cfg.CardStore); err == nil {
-		var removedNeeds []actors.UnsupportedActorNeed
-		nextPacket, removedNeeds = actors.PruneUnsupportedPacketNeeds(nextPacket, registry)
-		modelrun.LogUnsupportedActorNeeds(cfg.Logger, "writer.packet.actor_needs.filtered", "unsupported actor_needs filtered from Writer packet", 0, nextPacket.ID, "", removedNeeds)
-	}
 	return nextPacket, nil
 }
 

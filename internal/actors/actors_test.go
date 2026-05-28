@@ -116,6 +116,59 @@ func TestServiceSkipsMissingActorsWhenConfigured(t *testing.T) {
 	}
 }
 
+func TestServiceInvokesSceneLocalActorWhenConfigured(t *testing.T) {
+	reg, err := NewRegistry([]Actor{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	dir := t.TempDir()
+	svc := Service{
+		Registry:              reg,
+		Invoker:               StaticInvoker{Outputs: map[string]Output{"worker_mechanic": {Dialogue: "Under-vat hinge, not that vein."}}},
+		Logger:                gamelog.NewWriter(dir, "story-1"),
+		PacketID:              "packet-1",
+		Turn:                  7,
+		AllowSceneLocalActors: true,
+	}
+	node := scene.SceneNode{
+		ID:    "start",
+		Title: "Blank Wrists",
+		Beats: []scene.Beat{{Text: "A freed worker guides the cut by maintenance names."}},
+		ActorNeeds: []scene.ActorNeed{{
+			ActorID: "worker_mechanic",
+			Mode:    scene.ActorModePresent,
+			Reason:  "The worker knows the machine and challenges the player's use of the captured code.",
+		}},
+	}
+	outputs, err := svc.InvokeForNode(context.Background(), node, "actor context")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(outputs) != 1 || outputs[0].ActorID != "worker_mechanic" {
+		t.Fatalf("unexpected outputs: %#v", outputs)
+	}
+	events, err := gamelog.Read(filepath.Join(dir, "logs", "events.jsonl"), gamelog.Filter{Event: "actor.invoke.request"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("unexpected actor request logs: %#v", events)
+	}
+	detail, err := svc.Logger.ReadDetail(events[0].DetailPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	raw, _ := json.Marshal(detail)
+	var decoded map[string]any
+	if err := json.Unmarshal(raw, &decoded); err != nil {
+		t.Fatal(err)
+	}
+	promptText, _ := decoded["prompt"].(string)
+	if !strings.Contains(promptText, "Scene-local actor") || !strings.Contains(promptText, "worker knows the machine") {
+		t.Fatalf("scene-local actor card not included in prompt: %#v", decoded)
+	}
+}
+
 func TestPruneUnsupportedPacketNeedsKeepsOnlyRegisteredActors(t *testing.T) {
 	registry, err := NewRegistry([]Actor{{ID: "tonto", Card: "card"}})
 	if err != nil {

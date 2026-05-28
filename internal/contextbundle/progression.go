@@ -7,7 +7,7 @@ import (
 	"github.com/rawpixel-vincent/sans-nom/internal/story"
 )
 
-func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket) StoryProgression {
+func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket, selectedNodeID string) StoryProgression {
 	progression := StoryProgression{
 		StoryArc: append([]string(nil), storyArcFromBible(bible)...),
 	}
@@ -36,9 +36,24 @@ func buildStoryProgression(bible *story.StoryBible, packet scene.StoryPacket) St
 			}
 		}
 	}
+	progression.RequiredMovement = append(progression.RequiredMovement, selectedNodeCanonMovements(packet, selectedNodeID)...)
 	progression.RequiredMovement = append(progression.RequiredMovement, openThreadMovements(openThreads, packetSpentMotifs)...)
 	progression.RequiredMovement = appendUniqueStrings(progression.RequiredMovement, requiredMovements(progression)...)
 	return progression
+}
+
+func selectedNodeCanonMovements(packet scene.StoryPacket, selectedNodeID string) []string {
+	node, err := packet.Node(selectedNodeID)
+	if err != nil {
+		return nil
+	}
+	var out []string
+	for _, intent := range node.CanonMemoryIntents() {
+		if summary := strings.TrimSpace(intent.Summary); summary != "" {
+			out = append(out, "Continue from selected node canon: "+summary)
+		}
+	}
+	return out
 }
 
 func appendUniqueStrings(values []string, more ...string) []string {

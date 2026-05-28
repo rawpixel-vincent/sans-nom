@@ -836,6 +836,30 @@ func testBible() story.StoryBible {
 	}
 }
 
+func TestWriterContextPromotesSelectedNodeCanonMemory(t *testing.T) {
+	packet := testPacket()
+	packet.Nodes[0].MemoryIntents = []scene.MemoryIntent{{
+		ID:        "gauntlet-code",
+		Summary:   "The captured cuff-code is bonded into the player's gauntlet and the interface is damaged.",
+		Policy:    scene.MemoryPolicyCanon,
+		Witnesses: []string{"player"},
+	}}
+	ctx, err := testAssembler(nil).AssembleWriter(context.Background(), BuildRequest{Packet: packet})
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := ctx.RenderText()
+	for _, required := range []string{
+		"Continue from selected node canon: The captured cuff-code is bonded into the player's gauntlet and the interface is damaged.",
+		"rolled_out_canon_memory:",
+		"- The captured cuff-code is bonded into the player's gauntlet and the interface is damaged.",
+	} {
+		if !strings.Contains(text, required) {
+			t.Fatalf("writer context missing selected canon memory %q:\n%s", required, text)
+		}
+	}
+}
+
 type fakeRetriever struct {
 	snippets []lore.Snippet
 	err      error

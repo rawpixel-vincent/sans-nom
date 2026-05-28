@@ -37,8 +37,8 @@ Packet contract:
 - Populate packet.metadata with Writer-owned progression strings: current_arc_phase, next_arc_phase, and spent_motifs. Use spent_motifs only for mechanisms truly spent by rolled-out canon, separated by semicolons; do not list core vocabulary just because it appeared in prose.
 - Memory intent policy values must be exactly one of: rolled_out_canon, actor_private, planning_only.
 - Actor need mode values must be exactly one of: present, remembered, narrated, valid_scene_context.
-- Actor agents are available only for ids listed in the assembled STORY ACTOR MANIFEST; if no matching actor card exists, keep actor_needs empty and express the character/object behavior as beats.
-- Actors are not background flavor. When registered story actors are present and character pressure matters, cast them with actor_needs on the playable node so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.
+- Actor agents can rehearse registered actors from STORY ACTOR MANIFEST and explicit scene-local actors introduced by this packet. For source/lore actors, use manifest ids. For scene-local figures without cards, choose a stable lowercase story-local actor_id and explain the role in reason.
+- Actors are not background flavor. When a specific actor, group voice, or embodied system pressure matters to the playable node, cast it with actor_needs so the Director rehearsal can make the scene lively; otherwise put a concise no actor rehearsal reason in writer_notes.
 - Preserve the provided workspace_id, session_id, location, and slice boundaries unless the context explicitly says they changed.
 
 Tools:
@@ -50,7 +50,7 @@ Tools:
 - Use lorepack/ only for concrete pack notes or reference checks that the assembled context cannot answer. Prefer one focused rg/read or ask_lore_expert over browsing manifests, wiki, and multiple volume summaries.
 - Use ask_scenarist for sparks, criticism, alternatives, reversals, character contradictions, scene engines, choice pressure, or reader-risk checks. Ask one clear advisory question, read the returned file, then ask any dependent follow-up with that path in relevant_paths.
 - Use ask_lore_expert for focused lore authority/reference checks when scenario fidelity is uncertain. Treat its answers as support, not story authorship.
-- Use ask_actor when a listed story actor's will, memory, voice, or relationship pressure affects packet design. Actor material is planning-only; it can shape beats, choices, and actor_needs, but it is not canon unless a later Narrator rollout surfaces it.
+- Use ask_actor when a registered or scene-local actor's will, memory, voice, or relationship pressure affects packet design. Actor material is planning-only; it can shape beats, choices, and actor_needs, but it is not canon unless a later Narrator rollout surfaces it.
 - You own the final packet shape. Scenarist and LoreExpert material is advisory.
 
 Latest user decision:
