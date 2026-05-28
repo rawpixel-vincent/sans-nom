@@ -94,7 +94,7 @@ func testPacks(string) ([]lorepack.Pack, error) {
 	return []lorepack.Pack{{
 		ID:          "metabarons",
 		Label:       "Metabarons",
-		Description: "body law and dynasty pressure",
+		Description: "source-grounded story pack",
 		Collection:  "sans_nom_lore_metabarons",
 		Status:      "active",
 	}}, nil

@@ -557,6 +557,8 @@ func ContextText() string {
 The lorepack scenario notes are source-fidelity/background support for premise, protagonist role, opening pressure, and choice texture.
 The seed Writer packages that authored scenario into durable story state and a compact playable packet; it does not invent a replacement premise.
 Opening aim: player, desire, place, pressure, active opposition, and a choice that reveals character.
+Game-loop context for agents: the StoryBible provides durable story context; the StoryPacket is a bounded node graph; choices target included nodes; memory intents decide what can become shared story state; terminal handoffs tell later Writers what player-facing momentum remains.
+Do not explain those mechanics to the player unless the scene itself makes them visible.
 Reader plausibility means the unusual feels lived-in through internal cause, daily practice, emotional credibility, material consequence, and follow-through.
 Rules, customs, or constraints should come from the chosen lore/source material or the current premise, not from generic house style.
 The opening should introduce first trouble and branch momentum, not spend the story peak; story_arc and phase fields are optional guidance for later Writer refreshes.

@@ -137,16 +137,16 @@ func validBundleForStory(id string, title string) story.SeedBundle {
 			PlayerWorldConnection: "Rin's graft makes the city recognize them as both citizen and tool.",
 			WorldBasics: []string{
 				"The city records grief in public gardens.",
-				"Debt law is performed by machines and crowds.",
-				"Family memory can be protected only by witnessed sacrifice.",
+				"Debt records are managed by machines and crowds.",
+				"Family memory depends on shared action.",
 			},
 			OriginalLaws: []story.OriginalLaw{{
 				ID:             "living-tax",
 				Name:           "Law of Living Tax",
 				Description:    "A debt is settled only when a living capacity is marked by the civic garden.",
-				SourcePattern:  "binding taboo structure",
-				Enforcement:    "Public ledgers and witnesses refuse unmarked repayment.",
-				WhyProfound:    "It protects proof for the powerless at bodily cost.",
+				SourcePattern:  "source-supported structure",
+				Enforcement:    "Public ledgers reject unmarked repayment.",
+				WhyProfound:    "It protects vulnerable people from false repayment.",
 				NotMerelyCruel: "It blocks forged mercy by the ruling houses.",
 			}},
 			Factions: []story.Faction{{

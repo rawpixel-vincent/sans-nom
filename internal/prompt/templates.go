@@ -16,6 +16,8 @@ Plan the next bounded StoryPacket from the rolled-out story so far, the latest p
 Creative priorities:
 - Continue from canon; do not restart the story.
 - This is a game: keep the player character at the dramatic center, make the next pressure entertaining to play, and give the player agency rather than only lore procedure.
+- Your task runs inside the game loop: a StoryPacket is a bounded node graph, choices must target included nodes, memory intents decide what can become shared story state, actor_needs trigger Director rehearsal, and terminal nodes hand off momentum to the next Writer.
+- Shape the packet so those mechanics stay valid while remaining invisible to the player unless the scene itself makes them visible.
 - Treat the active lorepack master summary in system context as always available background; use current story context and staged files for exact local decisions.
 - Show what the player decision changes now: pressure, relationship, danger, opportunity, or irreversible cost.
 - Keep the next choice playable, emotionally specific, and visually memorable.
@@ -92,6 +94,8 @@ You receive one selected StoryPacket node and a Director rehearsal bundle. Turn 
 
 Narration priorities:
 - This is a game: keep the player character at the center of the scene, make the moment entertaining to play, and aim every pressure point at player agency.
+- Your task runs inside the game loop: render only the selected node, preserve available choice ids and labels, surface only actor dialogue/action you actually place in prose, and write card updates only for facts this scene reveals.
+- Keep those mechanics out of player-facing prose unless the scene itself makes them visible.
 - Lead with scene, character action, sensory detail, and emotional movement.
 - Make the player character's situation legible through what happens, what people do, and what the place demands.
 - Let rules, technology, or customs appear through lived consequence rather than exposition.
@@ -156,6 +160,8 @@ Create the durable StoryBible and opening StoryPacket for the selected lorepack 
 Your creative job:
 - Stage the authored lorepack scenario notes into a playable opening; treat them as support, not a fixed one-scene template.
 - This is a game: keep the player character at the dramatic center, make the opening entertaining to play, and make choices feel like player agency rather than lore procedure.
+- Your task runs inside the game loop: the StoryBible provides durable story context, the StoryPacket is a bounded node graph, choices point to included nodes, memory intents decide what can become shared story state, and terminal handoffs tell the next Writer what player-facing momentum remains.
+- Shape the opening so those mechanics are valid and useful without explaining them to the player.
 - Treat the active lorepack master summary in system context as your stable source-lore baseline.
 - Let the contract supply premise logic while freshness comes from staging, consequence, and branch pressure.
 - Preserve the protagonist role, opening situation, and initial pressure. Treat legacy scenario-note fields as context, not mandatory dramatic rails.
@@ -200,6 +206,7 @@ This legacy turn is for staging and critique around an existing lorepack scenari
 Creative priorities:
 - Preserve the lorepack scenario notes as the premise source.
 - Look for playable staging, scene pressure, relationship friction, reversals, and reader risks.
+- Treat this as game-support work: propose material that can become active nodes, choices, consequences, actor pressure, or clean Writer handoffs without writing the packet yourself.
 - Keep emotional pressure specific and visible through what characters must do now.
 - Make choice pressure concrete: what changes, who can respond, and what consequence follows.
 
@@ -237,6 +244,7 @@ Reject if:
 - the JSON is not a valid top-level object with bible and packet;
 - the StoryBible or packet invents a replacement central premise instead of staging the lorepack scenario notes;
 - the proposal contradicts concrete source-fidelity notes or avoid-drift notes from the lorepack;
+- the bundle does not work inside the game loop: unclear player involvement, stalled pacing, invalid choice targets, broken memory intent policy, actor_needs in the seed, or missing terminal handoff notes;
 - choices are generic navigation or tactics instead of expressing player pressure, relationship stakes, cost, risk, or agency;
 - the opening lacks player desire, place, pressure, active opposition, or choices that reveal character;
 - lore procedure is the dominant dramatic subject instead of serving character conflict;

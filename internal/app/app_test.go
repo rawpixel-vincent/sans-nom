@@ -945,8 +945,9 @@ func TestBuildSeedContextUsesScenarioContractNotRawLore(t *testing.T) {
 		}
 	}
 	for _, tooSpecific := range []string{
+		"pack_description:",
 		"young heir inside a brutal warrior dynasty",
-		"demanded succession ceremony",
+		"old forced ceremony wording",
 		"ceremony meant to prove fitness",
 		"must_not_violate:",
 	} {
@@ -2050,7 +2051,7 @@ func cliTestBundle(id string) story.SeedBundle {
 				ID:             "first-weight",
 				Name:           "Law of First Weight",
 				Description:    "A vow's first burden must stay with the vow-maker.",
-				SourcePattern:  "binding taboo structure",
+				SourcePattern:  "source-supported structure",
 				Enforcement:    "Public ledgers refuse dishonest transfer.",
 				WhyProfound:    "It protects the weak from inherited erasure.",
 				NotMerelyCruel: "It limits debt instead of making it endless.",
@@ -2111,7 +2112,7 @@ func cliTestBundle(id string) story.SeedBundle {
 					ID:           "pay",
 					Label:        "Open the ledger.",
 					TargetNodeID: "opened",
-					PlayerIntent: "Accept duty and bodily cost to protect the record from erasure.",
+					PlayerIntent: "Accept risk and consequence to protect the record from erasure.",
 				}, {
 					ID:           "refuse",
 					Label:        "Refuse the ledger.",

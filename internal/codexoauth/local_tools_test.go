@@ -71,14 +71,23 @@ func TestCreateWithLocalToolsLogsReadToolUseAndResult(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(events) != 6 {
+	if len(events) != 10 {
 		t.Fatalf("events = %#v", events)
 	}
 	if events[0].Event != "writer.provider.request" || events[0].RunID != "run-1" {
 		t.Fatalf("unexpected provider request event: %#v", events[0])
 	}
-	if events[1].Event != "writer.provider.response" || fmt.Sprint(events[1].Fields["tool_call_count"]) != "1" {
-		t.Fatalf("unexpected provider response event: %#v", events[1])
+	headers := eventsNamed(events, "writer.provider.headers")
+	if len(headers) != 2 || fmt.Sprint(headers[0].Fields["response_header_timeout_ms"]) == "" {
+		t.Fatalf("unexpected provider headers events: %#v", headers)
+	}
+	streams := eventsNamed(events, "writer.provider.stream")
+	if len(streams) != 2 || fmt.Sprint(streams[0].Fields["elapsed_ms"]) == "" {
+		t.Fatalf("unexpected provider stream events: %#v", streams)
+	}
+	responses := eventsNamed(events, "writer.provider.response")
+	if len(responses) != 2 || fmt.Sprint(responses[0].Fields["tool_call_count"]) != "1" {
+		t.Fatalf("unexpected provider response events: %#v", responses)
 	}
 	toolEvents := eventsNamed(events, "writer.provider.tool_use", "writer.provider.tool_result")
 	if len(toolEvents) != 2 {
@@ -322,8 +331,14 @@ func TestCreateWithLocalToolsLogsExtraToolUseAndResult(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(events) != 6 {
+	if len(events) != 10 {
 		t.Fatalf("events = %#v", events)
+	}
+	if headers := eventsNamed(events, "writer.provider.headers"); len(headers) != 2 {
+		t.Fatalf("headers events = %#v", headers)
+	}
+	if streams := eventsNamed(events, "writer.provider.stream"); len(streams) != 2 {
+		t.Fatalf("stream events = %#v", streams)
 	}
 	toolEvents := eventsNamed(events, "writer.provider.tool_use", "writer.provider.tool_result")
 	if len(toolEvents) != 2 {
@@ -479,6 +494,130 @@ func TestCreateWithLocalToolsRetriesTimedOutProviderRound(t *testing.T) {
 	}
 }
 
+func TestCreateWithLocalToolsRetriesResponseHeaderTimeout(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+	t.Setenv(codexRoundTimeoutEnv, "0")
+	t.Setenv(codexResponseHeaderTimeoutEnv, "25")
+	t.Setenv(codexRoundMaxAttemptsEnv, "2")
+
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls atomic.Int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		call := calls.Add(1)
+		if call == 1 {
+			time.Sleep(150 * time.Millisecond)
+			return
+		}
+		w.Header().Set("Content-Type", "text/event-stream")
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"done after header retry"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "return final",
+	}, LocalToolOptions{
+		Root:         root,
+		Logger:       logger,
+		ToolCategory: "writer",
+		RunID:        "run-header-retry",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "done after header retry" {
+		t.Fatalf("response = %#v", resp)
+	}
+	if got := calls.Load(); got != 2 {
+		t.Fatalf("calls = %d", got)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	failed := eventsNamed(events, "writer.provider.failed")
+	if len(failed) != 1 || failed[0].Fields["will_retry"] != true || failed[0].Fields["retryable"] != true {
+		t.Fatalf("failed events = %#v", failed)
+	}
+	headers := eventsNamed(events, "writer.provider.headers")
+	if len(headers) != 1 || fmt.Sprint(headers[0].Fields["response_header_timeout_ms"]) != "25" {
+		t.Fatalf("headers events = %#v", headers)
+	}
+}
+
+func TestCreateWithLocalToolsDoesNotRetryAfterHeadersBeforeSlowStream(t *testing.T) {
+	t.Setenv(codexMinCallIntervalEnv, "0")
+	t.Setenv(codexRoundTimeoutEnv, "0")
+	t.Setenv(codexResponseHeaderTimeoutEnv, "25")
+	t.Setenv(codexRoundMaxAttemptsEnv, "2")
+
+	root := t.TempDir()
+	authPath := filepath.Join(root, "auth.json")
+	if err := os.WriteFile(authPath, []byte(`{"tokens":{"access_token":"token","account_id":"acct"}}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var calls atomic.Int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls.Add(1)
+		w.Header().Set("Content-Type", "text/event-stream")
+		w.WriteHeader(http.StatusOK)
+		if flusher, ok := w.(http.Flusher); ok {
+			flusher.Flush()
+		}
+		time.Sleep(80 * time.Millisecond)
+		writeSSE(t, w, mapStringAny(`{"type":"response.output_item.done","output_index":0,"item":{"type":"message","content":[{"type":"output_text","text":"slow stream done"}]}}`))
+		writeSSE(t, w, mapStringAny(`{"type":"response.completed","response":{}}`))
+	}))
+	defer server.Close()
+
+	client, err := NewClient(Options{BaseURL: server.URL, AuthPath: authPath})
+	if err != nil {
+		t.Fatal(err)
+	}
+	logger := gamelog.NewWriter(root, "story-1")
+	resp, err := client.CreateWithLocalTools(context.Background(), map[string]any{
+		"model": "gpt-5.5",
+		"input": "return final",
+	}, LocalToolOptions{
+		Root:         root,
+		Logger:       logger,
+		ToolCategory: "writer",
+		RunID:        "run-slow-stream",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["output_text"] != "slow stream done" {
+		t.Fatalf("response = %#v", resp)
+	}
+	if got := calls.Load(); got != 1 {
+		t.Fatalf("calls = %d", got)
+	}
+	events, err := gamelog.Read(logger.Path, gamelog.Filter{Category: "writer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if failed := eventsNamed(events, "writer.provider.failed"); len(failed) != 0 {
+		t.Fatalf("failed events = %#v", failed)
+	}
+	if headers := eventsNamed(events, "writer.provider.headers"); len(headers) != 1 {
+		t.Fatalf("headers events = %#v", headers)
+	}
+	if streams := eventsNamed(events, "writer.provider.stream"); len(streams) != 1 {
+		t.Fatalf("stream events = %#v", streams)
+	}
+}
+
 func TestCreateWithLocalToolsLogsPendingHeartbeatForSlowRound(t *testing.T) {
 	t.Setenv(codexMinCallIntervalEnv, "0")
 	t.Setenv(codexPendingHeartbeatEnv, "10")
@@ -526,6 +665,17 @@ func TestCreateWithLocalToolsLogsPendingHeartbeatForSlowRound(t *testing.T) {
 	}
 	if fmt.Sprint(pending[0].Fields["elapsed_ms"]) == "" {
 		t.Fatalf("pending event missing elapsed: %#v", pending[0])
+	}
+}
+
+func TestRetryableLocalToolProviderErrorIncludesHeaderTimeouts(t *testing.T) {
+	for _, message := range []string{
+		"net/http: timeout awaiting response headers",
+		"Post \"https://chatgpt.com/backend-api/codex/responses\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+	} {
+		if !retryableLocalToolProviderError(fmt.Errorf("%s", message)) {
+			t.Fatalf("expected retryable header timeout for %q", message)
+		}
 	}
 }
 

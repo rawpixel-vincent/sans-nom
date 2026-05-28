@@ -20,8 +20,6 @@ type Planner interface {
 	Plan(ctx context.Context, input Input) (scene.StoryPacket, error)
 }
 
-type Validator func(input Input, packet scene.StoryPacket) error
-
 type Input struct {
 	Current              scene.StoryPacket
 	LatestDecision       string
@@ -36,8 +34,7 @@ type Input struct {
 }
 
 type Service struct {
-	Planner   Planner
-	Validator Validator
+	Planner Planner
 }
 
 type Job struct {
@@ -60,9 +57,6 @@ func (s Service) RefreshAsync(ctx context.Context, input Input) (*Job, error) {
 		packet, err := s.Planner.Plan(ctx, input)
 		if err == nil {
 			err = packet.Validate()
-		}
-		if err == nil && s.Validator != nil {
-			err = s.Validator(input, packet)
 		}
 		if writeErr := writeResultArtifacts(input, packet, err); artifactErr == nil {
 			artifactErr = writeErr

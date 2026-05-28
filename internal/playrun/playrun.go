@@ -1365,7 +1365,7 @@ func RefreshPacket(ctx context.Context, packet scene.StoryPacket, nodeID string,
 	}
 	waitCtx, cancel := context.WithTimeout(ctx, modelrun.WriterAwaitTimeout())
 	defer cancel()
-	job, err := writer.Service{Planner: planner, Validator: writer.ValidateProgression}.RefreshAsync(waitCtx, writer.Input{
+	job, err := writer.Service{Planner: planner}.RefreshAsync(waitCtx, writer.Input{
 		Current:              packet,
 		LatestDecision:       DecisionText(decision.ChoiceID, decision.FreeText),
 		ContextText:          writerContextText,

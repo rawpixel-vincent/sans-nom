@@ -8,9 +8,11 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestNewClientUsesDedicatedNoReuseHTTPTransport(t *testing.T) {
+	t.Setenv(codexResponseHeaderTimeoutEnv, "")
 	root := t.TempDir()
 	authPath := filepath.Join(root, "auth.json")
 	client, err := NewClient(Options{AuthPath: authPath})
@@ -36,6 +38,31 @@ func TestNewClientUsesDedicatedNoReuseHTTPTransport(t *testing.T) {
 	}
 	if transport.TLSNextProto != nil {
 		t.Fatalf("streaming Codex transport should not override TLS protocols: %#v", transport.TLSNextProto)
+	}
+	if transport.ResponseHeaderTimeout != defaultResponseHeaderTimeout {
+		t.Fatalf("response header timeout = %s", transport.ResponseHeaderTimeout)
+	}
+}
+
+func TestCodexResponseHeaderTimeoutDefaultsOverridesAndDisables(t *testing.T) {
+	t.Setenv(codexResponseHeaderTimeoutEnv, "")
+	if got := codexResponseHeaderTimeout(); got != defaultResponseHeaderTimeout {
+		t.Fatalf("default response header timeout = %s", got)
+	}
+
+	t.Setenv(codexResponseHeaderTimeoutEnv, "1234")
+	if got := codexResponseHeaderTimeout(); got != 1234*time.Millisecond {
+		t.Fatalf("override response header timeout = %s", got)
+	}
+
+	t.Setenv(codexResponseHeaderTimeoutEnv, "0")
+	if got := codexResponseHeaderTimeout(); got != 0 {
+		t.Fatalf("disabled response header timeout = %s", got)
+	}
+
+	t.Setenv(codexResponseHeaderTimeoutEnv, "not-a-number")
+	if got := codexResponseHeaderTimeout(); got != defaultResponseHeaderTimeout {
+		t.Fatalf("invalid response header timeout = %s", got)
 	}
 }
 

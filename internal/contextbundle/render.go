@@ -51,7 +51,8 @@ func (c NarratorContext) narratorSections(mode renderContextMode) []contextSecti
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 500, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Narrator. Turn only the selected scene node into player-facing prose.\n")
 			fmt.Fprintf(b, "This is a game: keep the player character centered, make the scene entertaining to play, and aim pressure at player agency.\n")
-			fmt.Fprintf(b, "Lead with scene, character action, sensory detail, and emotional movement; let law, technology, and taboo appear through lived consequence.\n")
+			fmt.Fprintf(b, "Your task runs inside the game loop: render only SELECTED NODE, preserve available choices, surface only actor dialogue/action used in prose, and keep planning mechanics out of player-facing prose unless the scene itself makes them visible.\n")
+			fmt.Fprintf(b, "Lead with scene, character action, sensory detail, and emotional movement; let setting rules, tools, and customs appear through lived consequence.\n")
 			fmt.Fprintf(b, "Do not expose Writer drafts, unused branches, private actor interiors, or planning notes.\n")
 			fmt.Fprintf(b, "Honor the lorepack scenario notes and use lore references as fidelity support for this active scenario.\n")
 		}),
@@ -122,6 +123,8 @@ func (c WriterContext) writerSections(mode renderContextMode) []contextSection {
 		renderedSection("role_boundary", "ROLE BOUNDARY", true, 100, 600, func(b *strings.Builder) {
 			fmt.Fprintf(b, "You are the Creative Writer. Plan the next bounded packet from the latest rolled-out canon and player decision; the packet tree is planning material, not canon.\n")
 			fmt.Fprintf(b, "This is a game: keep the player character at the dramatic center, make the next pressure entertaining to play, and give the player agency rather than only lore procedure.\n")
+			fmt.Fprintf(b, "Your task runs inside the game loop: StoryPackets are bounded node graphs, choices must target included nodes, memory intents decide what can become shared story state, actor_needs trigger Director rehearsal, and terminal nodes hand off momentum to the next Writer.\n")
+			fmt.Fprintf(b, "Shape the packet so those mechanics stay valid while remaining invisible to the player unless the scene itself makes them visible.\n")
 			fmt.Fprintf(b, "Focus on immediate consequence, next playable pressure, character desire, opposition, relationship stakes, and scene movement.\n")
 			fmt.Fprintf(b, "The Narrator owns final prose. Honcho receives only rolled-out canon, never unused branches.\n")
 			fmt.Fprintf(b, "Use lorepack scenario notes as fidelity/background support while keeping the scene playable.\n")
@@ -517,6 +520,7 @@ func writeActorManifestBody(b *strings.Builder, actors []ActorManifestItem) {
 func writePlanningConstraintsBody(b *strings.Builder) {
 	fmt.Fprintln(b, "- Revise only the current bounded packet.")
 	fmt.Fprintln(b, "- StoryPacket closure rule: every choice target_node_id must point to a node in this same packet; future packet handoffs must be terminal nodes with revision_notes, not missing target ids.")
+	fmt.Fprintln(b, "- Game-loop fit: keep choices playable, handoffs clear, actor_needs limited to registered story actors, and memory intents tied to facts play can actually surface.")
 	fmt.Fprintln(b, "- Keep all branches outside Honcho until the Narrator rolls one out.")
 	fmt.Fprintln(b, "- Use scenario notes and avoid-drift notes as fidelity support; do not contradict concrete source anchors.")
 	fmt.Fprintln(b, "- Make each major choice connect to current player pressure, relationship stakes, or scene consequence.")

@@ -61,7 +61,7 @@ type SourceRef struct {
 func (r *ToolRunner) LocalTool() codexoauth.LocalTool {
 	return codexoauth.LocalTool{
 		Name:        "ask_lore_expert",
-		Description: "Lore reference support for the selected lorepack. Use when a question needs source references, tone, relationship pressure, contradiction checks, or scenario-fidelity support. Results are cached per lorepack and returned as a workspace-readable answer_path plus a short preview.",
+		Description: "Lore reference support for the selected lorepack. Use when a question needs source references, playable context, mechanics-relevant boundaries, contradiction checks, or scenario-fidelity support. Results are cached per lorepack and returned as a workspace-readable answer_path plus a short preview.",
 		Parameters:  toolSchema(),
 		Handler:     r.Handle,
 	}
@@ -293,6 +293,7 @@ func (r *ToolRunner) promptText(request ToolRequest, snippets []lore.Snippet) st
 	fmt.Fprintf(&b, "You are the Nerd Lore Expert for Sans-Nom.\n\n")
 	fmt.Fprintf(&b, "Your job is to answer reference questions about the selected lorepack so Writers and Narrators can preserve scenario fidelity without forcing generic dramatic rails.\n")
 	fmt.Fprintf(&b, "You are not writing final prose, StoryBible guidance, StoryPacket nodes, or character cards.\n")
+	fmt.Fprintf(&b, "Your answers support a game loop: identify source facts and boundaries that help Writers/Narrators build player-facing choices, pacing, consequence, and scene pressure.\n")
 	fmt.Fprintf(&b, "Answer as reference support: explain what the source references support, what they do not support, and what would drift from the active lorepack notes.\n\n")
 	fmt.Fprintf(&b, "When the source material includes rules, customs, ceremonies, family structures, or social constraints, describe only what the cited material supports and how it affects scene pressure.\n")
 	fmt.Fprintf(&b, "Focus on mechanisms, relationships, and consequences rather than ornamental scenery or invented requirements.\n\n")

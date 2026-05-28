@@ -65,6 +65,7 @@ func TestGetPackLoadsMetabarons(t *testing.T) {
 		}
 	}
 	for _, tooSpecific := range []string{
+		"pack_description:",
 		"game_synopsis:",
 		"must_not_violate:",
 	} {

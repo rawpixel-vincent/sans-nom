@@ -72,7 +72,7 @@ Avoid explaining a whole invented system. Keep each start focused on one urgent 
 			ID: "legacy-attractor-04-source-dna-summary-lite",
 			Prompt: `You are creating a first playable vertical slice for an original science-fantasy comic story.
 
-Influence taste: intense family pressure, spectacular settings, bodies and technology under stress, refusal under impossible expectation, and consequences that feel material.
+Influence taste: source-grounded scenes, concrete work details, strained relationships, immediate action, and consequences that feel material.
 
 Invent 3 story starts. Each should begin with a person trying to do one urgent thing in a concrete place while a specific opponent interferes. Let the unusual elements arise from the work, danger, relationship, or place.`,
 		},

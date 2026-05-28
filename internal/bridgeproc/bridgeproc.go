@@ -3,6 +3,7 @@ package bridgeproc
 import (
 	"context"
 	"fmt"
+	"net/http"
 	"net/url"
 	"os"
 	"os/exec"
@@ -19,6 +20,8 @@ type Config struct {
 	Needed    bool
 }
 
+const defaultQdrantURL = "http://127.0.0.1:6333"
+
 func EnsureFlagBridge(ctx context.Context, cfg Config) (func(), error) {
 	if !cfg.Needed {
 		return func() {}, nil
@@ -29,6 +32,9 @@ func EnsureFlagBridge(ctx context.Context, cfg Config) (func(), error) {
 func Ensure(ctx context.Context, backend string, bridgeURL string) (func(), error) {
 	if backend == "static" {
 		return func() {}, nil
+	}
+	if err := EnsureQdrant(ctx); err != nil {
+		return nil, err
 	}
 	client := bridgeclient.NewClient(bridgeURL, os.Getenv("SIDECAR_TOKEN"))
 	if err := Health(ctx, client, 750*time.Millisecond); err == nil {
@@ -77,6 +83,41 @@ func Ensure(ctx context.Context, backend string, bridgeURL string) (func(), erro
 	return nil, fmt.Errorf("bridge failed to start at %s: %v\n%s", client.BaseURL, lastErr, LogTail(logPath))
 }
 
+func EnsureQdrant(ctx context.Context) error {
+	rawURL := qdrantURL()
+	if err := qdrantHealth(ctx, rawURL, 750*time.Millisecond); err == nil {
+		return nil
+	}
+	host, err := qdrantHost(rawURL)
+	if err != nil {
+		return err
+	}
+	if !localBridgeHost(host) {
+		return fmt.Errorf("qdrant %s is not reachable and cannot be auto-started for non-local host %s", rawURL, host)
+	}
+	dockerPath, err := dockerPath()
+	if err != nil {
+		return fmt.Errorf("qdrant is not reachable at %s and docker CLI was not found: %w", rawURL, err)
+	}
+	root := repoRoot()
+	cmd := exec.CommandContext(ctx, dockerPath, "compose", "up", "-d", "qdrant")
+	cmd.Dir = root
+	if output, err := cmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("qdrant is not reachable at %s and docker compose failed: %v\n%s", rawURL, err, commandOutput(output))
+	}
+	deadline := time.Now().Add(30 * time.Second)
+	var lastErr error
+	for time.Now().Before(deadline) {
+		if err := qdrantHealth(ctx, rawURL, 750*time.Millisecond); err == nil {
+			return nil
+		} else {
+			lastErr = err
+		}
+		time.Sleep(250 * time.Millisecond)
+	}
+	return fmt.Errorf("qdrant failed to become reachable at %s: %v", rawURL, lastErr)
+}
+
 func bridgeCommand(ctx context.Context, host string, port string) *exec.Cmd {
 	return exec.CommandContext(ctx,
 		filepath.Join("bridge", ".venv", "bin", "python"),
@@ -90,6 +131,43 @@ func Health(ctx context.Context, client bridgeclient.Client, timeout time.Durati
 	healthCtx, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
 	return client.Health(healthCtx)
+}
+
+func qdrantURL() string {
+	if raw := strings.TrimSpace(os.Getenv("QDRANT_URL")); raw != "" {
+		return raw
+	}
+	return defaultQdrantURL
+}
+
+func qdrantHealth(ctx context.Context, rawURL string, timeout time.Duration) error {
+	healthCtx, cancel := context.WithTimeout(ctx, timeout)
+	defer cancel()
+	req, err := http.NewRequestWithContext(healthCtx, http.MethodGet, rawURL, nil)
+	if err != nil {
+		return err
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode < 200 || resp.StatusCode > 399 {
+		return fmt.Errorf("qdrant %s returned %s", rawURL, resp.Status)
+	}
+	return nil
+}
+
+func qdrantHost(rawURL string) (string, error) {
+	parsed, err := url.Parse(rawURL)
+	if err != nil {
+		return "", err
+	}
+	host := parsed.Hostname()
+	if host == "" {
+		return "", fmt.Errorf("qdrant URL %q has no host", rawURL)
+	}
+	return host, nil
 }
 
 func ListenAddress(rawURL string) (string, string, error) {
@@ -121,6 +199,56 @@ func ListenAddress(rawURL string) (string, string, error) {
 func localBridgeHost(host string) bool {
 	host = strings.Trim(host, "[]")
 	return host == "" || host == "localhost" || host == "127.0.0.1" || host == "::1"
+}
+
+func dockerPath() (string, error) {
+	if path, err := exec.LookPath("docker"); err == nil {
+		return path, nil
+	}
+	return dockerPathFromCandidates([]string{
+		"/usr/local/bin/docker",
+		"/opt/homebrew/bin/docker",
+		"/Applications/Docker.app/Contents/Resources/bin/docker",
+	})
+}
+
+func dockerPathFromCandidates(candidates []string) (string, error) {
+	for _, candidate := range candidates {
+		if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+			return candidate, nil
+		}
+	}
+	return "", fmt.Errorf("docker not found on PATH or common macOS locations")
+}
+
+func repoRoot() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		return "."
+	}
+	for dir := wd; dir != ""; dir = filepath.Dir(dir) {
+		if fileExists(filepath.Join(dir, "docker-compose.yml")) {
+			return dir
+		}
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			break
+		}
+	}
+	return wd
+}
+
+func fileExists(path string) bool {
+	info, err := os.Stat(path)
+	return err == nil && !info.IsDir()
+}
+
+func commandOutput(data []byte) string {
+	text := strings.TrimSpace(string(data))
+	if len(text) > 4000 {
+		text = text[len(text)-4000:]
+	}
+	return text
 }
 
 func DialFailure(err error) bool {

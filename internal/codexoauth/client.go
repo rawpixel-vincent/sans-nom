@@ -16,16 +16,19 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 )
 
 const (
-	defaultBaseURL      = "https://chatgpt.com/backend-api/codex"
-	oauthClientID       = "app_EMoamEEZ73f0CkXaXp7hrann"
-	oauthRefreshURL     = "https://auth.openai.com/oauth/token"
-	defaultOriginator   = "codex_cli_rs"
-	defaultSystemPrompt = "You are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer."
+	defaultBaseURL                = "https://chatgpt.com/backend-api/codex"
+	codexResponseHeaderTimeoutEnv = "SANS_NOM_CODEX_RESPONSE_HEADER_TIMEOUT_MS"
+	oauthClientID                 = "app_EMoamEEZ73f0CkXaXp7hrann"
+	oauthRefreshURL               = "https://auth.openai.com/oauth/token"
+	defaultOriginator             = "codex_cli_rs"
+	defaultSystemPrompt           = "You are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer."
+	defaultResponseHeaderTimeout  = 30 * time.Second
 )
 
 var supportedModels = map[string]bool{
@@ -51,13 +54,14 @@ type Options struct {
 // Client is a small Responses API client for the ChatGPT Codex backend using
 // the local Codex OAuth bundle in ~/.codex/auth.json.
 type Client struct {
-	baseURL       string
-	authPath      string
-	originator    string
-	sessionID     string
-	systemPrompt  string
-	modelOverride string
-	httpClient    *http.Client
+	baseURL               string
+	authPath              string
+	originator            string
+	sessionID             string
+	systemPrompt          string
+	modelOverride         string
+	httpClient            *http.Client
+	responseHeaderTimeout time.Duration
 }
 
 type authState struct {
@@ -83,9 +87,10 @@ func NewClient(opts Options) (*Client, error) {
 		sessionID = randomSessionID()
 	}
 
+	responseHeaderTimeout := codexResponseHeaderTimeout()
 	httpClient := opts.HTTPClient
 	if httpClient == nil {
-		httpClient = defaultStreamingHTTPClient()
+		httpClient = defaultStreamingHTTPClient(responseHeaderTimeout)
 	}
 
 	baseURL := strings.TrimRight(opts.BaseURL, "/")
@@ -104,17 +109,18 @@ func NewClient(opts Options) (*Client, error) {
 	}
 
 	return &Client{
-		baseURL:       baseURL,
-		authPath:      authPath,
-		originator:    originator,
-		sessionID:     sessionID,
-		systemPrompt:  systemPrompt,
-		modelOverride: opts.ModelOverride,
-		httpClient:    httpClient,
+		baseURL:               baseURL,
+		authPath:              authPath,
+		originator:            originator,
+		sessionID:             sessionID,
+		systemPrompt:          systemPrompt,
+		modelOverride:         opts.ModelOverride,
+		httpClient:            httpClient,
+		responseHeaderTimeout: responseHeaderTimeout,
 	}, nil
 }
 
-func defaultStreamingHTTPClient() *http.Client {
+func defaultStreamingHTTPClient(responseHeaderTimeout time.Duration) *http.Client {
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	// Codex Responses calls are long-lived SSE streams. Local tool rounds may
 	// intentionally stop reading as soon as a function call is available, so do
@@ -123,7 +129,27 @@ func defaultStreamingHTTPClient() *http.Client {
 	transport.DisableKeepAlives = true
 	transport.MaxIdleConns = 0
 	transport.MaxIdleConnsPerHost = -1
+	transport.ResponseHeaderTimeout = responseHeaderTimeout
 	return &http.Client{Transport: streamingRoundTripper{base: transport}}
+}
+
+func codexResponseHeaderTimeout() time.Duration {
+	raw, ok := os.LookupEnv(codexResponseHeaderTimeoutEnv)
+	if !ok {
+		return defaultResponseHeaderTimeout
+	}
+	raw = strings.TrimSpace(raw)
+	if raw == "" {
+		return defaultResponseHeaderTimeout
+	}
+	ms, err := strconv.ParseInt(raw, 10, 64)
+	if err != nil || ms < 0 {
+		return defaultResponseHeaderTimeout
+	}
+	if ms == 0 {
+		return 0
+	}
+	return time.Duration(ms) * time.Millisecond
 }
 
 type streamingRoundTripper struct {
@@ -190,13 +216,33 @@ func (c *Client) Create(ctx context.Context, body map[string]any) (map[string]an
 }
 
 func (c *Client) createLocalToolRound(ctx context.Context, body map[string]any) (map[string]any, error) {
+	return c.createLocalToolRoundWithTrace(ctx, body, localToolRoundTrace{})
+}
+
+type localToolRoundTrace struct {
+	OnResponseHeaders func()
+	OnFirstEvent      func()
+	OnEvent           func(codexStreamEvent)
+}
+
+func (c *Client) createLocalToolRoundWithTrace(ctx context.Context, body map[string]any, trace localToolRoundTrace) (map[string]any, error) {
 	codexBody := c.coerceBody(body)
 	res, err := c.fetch(ctx, codexBody)
 	if err != nil {
 		return nil, err
 	}
+	if trace.OnResponseHeaders != nil {
+		trace.OnResponseHeaders()
+	}
 	defer res.Body.Close()
-	return aggregateStreamUntilFunctionCall(res.Body)
+	return aggregateStreamUntilFunctionCallWithTrace(res.Body, trace)
+}
+
+func (c *Client) closeIdleConnections() {
+	if c == nil || c.httpClient == nil {
+		return
+	}
+	c.httpClient.CloseIdleConnections()
 }
 
 func (c *Client) coerceBody(params map[string]any) map[string]any {
@@ -426,11 +472,26 @@ func aggregateStream(r io.Reader) (map[string]any, error) {
 }
 
 func aggregateStreamUntilFunctionCall(r io.Reader) (map[string]any, error) {
-	return aggregateStreamWithOptions(r, streamAggregateOptions{ReturnOnFunctionCall: true})
+	return aggregateStreamUntilFunctionCallWithTrace(r, localToolRoundTrace{})
+}
+
+func aggregateStreamUntilFunctionCallWithTrace(r io.Reader, trace localToolRoundTrace) (map[string]any, error) {
+	return aggregateStreamWithOptions(r, streamAggregateOptions{ReturnOnFunctionCall: true, OnFirstEvent: trace.OnFirstEvent, OnEvent: trace.OnEvent})
 }
 
 type streamAggregateOptions struct {
 	ReturnOnFunctionCall bool
+	OnFirstEvent         func()
+	OnEvent              func(codexStreamEvent)
+}
+
+type codexStreamEvent struct {
+	Type        string
+	OutputIndex int
+	ItemType    string
+	ToolName    string
+	TextPreview string
+	TextBytes   int
 }
 
 func aggregateStreamWithOptions(r io.Reader, opts streamAggregateOptions) (map[string]any, error) {
@@ -438,6 +499,7 @@ func aggregateStreamWithOptions(r io.Reader, opts streamAggregateOptions) (map[s
 	outputItems := map[int]any{}
 	var final map[string]any
 	var frame strings.Builder
+	firstEventSeen := false
 
 	process := func(raw string) (bool, error) {
 		raw = strings.TrimSpace(raw)
@@ -456,6 +518,15 @@ func aggregateStreamWithOptions(r io.Reader, opts streamAggregateOptions) (map[s
 		var event map[string]any
 		if err := json.Unmarshal([]byte(data), &event); err != nil {
 			return false, nil
+		}
+		if !firstEventSeen {
+			firstEventSeen = true
+			if opts.OnFirstEvent != nil {
+				opts.OnFirstEvent()
+			}
+		}
+		if opts.OnEvent != nil {
+			opts.OnEvent(summarizeCodexStreamEvent(event))
 		}
 		eventType, _ := event["type"].(string)
 		switch eventType {
@@ -535,6 +606,42 @@ func aggregateStreamWithOptions(r io.Reader, opts streamAggregateOptions) (map[s
 	}
 	final["output_text"] = outputText(final["output"])
 	return final, nil
+}
+
+func summarizeCodexStreamEvent(event map[string]any) codexStreamEvent {
+	summary := codexStreamEvent{OutputIndex: -1}
+	summary.Type, _ = event["type"].(string)
+	if index, ok := numberAsInt(event["output_index"]); ok {
+		summary.OutputIndex = index
+	}
+	if item, ok := event["item"].(map[string]any); ok {
+		summary.ItemType, _ = item["type"].(string)
+		summary.ToolName, _ = item["name"].(string)
+		if summary.ItemType == "message" {
+			text := outputText([]any{item})
+			summary.TextBytes = len(text)
+			summary.TextPreview = truncateStreamPreview(text)
+		}
+	}
+	if delta, ok := event["delta"].(string); ok {
+		summary.TextBytes = len(delta)
+		summary.TextPreview = truncateStreamPreview(delta)
+	}
+	if summary.ItemType == "" {
+		if itemType, ok := event["item_type"].(string); ok {
+			summary.ItemType = itemType
+		}
+	}
+	return summary
+}
+
+func truncateStreamPreview(text string) string {
+	text = strings.TrimSpace(text)
+	const limit = 240
+	if len(text) <= limit {
+		return text
+	}
+	return text[:limit-3] + "..."
 }
 
 func outputText(output any) string {

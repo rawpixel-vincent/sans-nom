@@ -213,9 +213,6 @@ func (p Pack) ScenarioOrientationText() string {
 	var b strings.Builder
 	fmt.Fprintf(&b, "Lorepack Scenario Orientation: %s (%s)\n", firstNonEmpty(p.Label, p.ID), firstNonEmpty(p.ID, "unknown"))
 	fmt.Fprintf(&b, "- gameplay_mode: %s\n", p.GameplayMode)
-	if description := strings.TrimSpace(p.Description); description != "" {
-		fmt.Fprintf(&b, "- pack_description: %s\n", description)
-	}
 	fmt.Fprintln(&b, "- contract_path: lorepack/lore-pack.json when local read tools are enabled")
 	fmt.Fprintf(&b, "- master_lore_path: lorepack/%s; its content is injected into model system prompts when available\n", filepath.ToSlash(p.MasterLoreRelPath()))
 	fmt.Fprintln(&b, "- use: treat authored scenario notes as fidelity/background support for play, not a fixed one-scene template")

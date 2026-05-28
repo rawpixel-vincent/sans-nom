@@ -25,7 +25,7 @@ func (r *fakeRunner) Run(_ context.Context, prompt string) (string, error) {
 		return r.answer, nil
 	}
 	return `## Lore reference answer
-This source pattern supports consequence-heavy dynasty pressure.
+This source pattern supports concrete consequence.
 
 ## Source basis
 Law works through public consequence.

@@ -88,6 +88,7 @@ with millisecond environment variables:
 
 - `SANS_NOM_MODEL_TIMEOUT_MS` — shared default for model agents.
 - `SANS_NOM_CODEX_TIMEOUT_MS` — Codex Writer/Director/Narrator/Verifier/Actor override.
+- `SANS_NOM_CODEX_RESPONSE_HEADER_TIMEOUT_MS` — Codex OAuth response-header watchdog; defaults to `30000`, set `0` to disable. This only limits waiting for the backend to accept the streaming request, not the full SSE response body.
 - `SANS_NOM_NARRATOR_CODEX_MODEL` — Narrator Codex model override.
 - `SANS_NOM_NARRATOR_CODEX_REASONING` — Narrator Codex reasoning override; `SANS_NOM_NARRATOR_CODEX_EFFORT` is also accepted as a compatibility alias.
 - `SANS_NOM_NARRATOR_CODEX_SERVICE_TIER` — Narrator Codex service tier override; `SANS_NOM_NARRATOR_CODEX_OAUTH_SERVICE_TIER` is also accepted as a compatibility alias.
@@ -96,6 +97,7 @@ with millisecond environment variables:
 - `SANS_NOM_DIRECTOR_CODEX_SERVICE_TIER` — Director rehearsal Codex service tier override; `SANS_NOM_DIRECTOR_CODEX_OAUTH_SERVICE_TIER` is also accepted as a compatibility alias.
 - `SANS_NOM_VERIFIER_CODEX_TIMEOUT_MS` — seed verifier Codex override; defaults to `300000`.
 - `SANS_NOM_CODEX_MIN_CALL_INTERVAL_MS` — minimum wait between Codex local-tool provider calls; defaults to `10000`, set `0` to disable.
+- `SANS_NOM_CODEX_ROUND_TIMEOUT_MS` — optional Codex local-tool per-round timeout; defaults disabled so legitimate long reasoning rounds can keep running after the stream starts.
 - `SANS_NOM_CLAUDE_TIMEOUT_MS` — Claude runner override.
 - `SANS_NOM_SCENARIST_TIMEOUT_MS` — Scenarist provider override.
 - `SANS_NOM_WRITER_AWAIT_TIMEOUT_MS` — Writer refresh wait override.

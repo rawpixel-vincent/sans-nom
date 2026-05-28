@@ -294,6 +294,8 @@ func BuildContextForPack(pack lorepack.Pack) string {
 		b.WriteString(scenario)
 		b.WriteString("\n\nSeed fidelity instructions:\n")
 		b.WriteString("- Treat the lorepack scenario notes as the source of truth for premise logic, protagonist pressure, opening pressure, and choice logic.\n")
+		b.WriteString("- The seed runs inside a game loop: the StoryBible provides durable story context, the StoryPacket is a bounded node graph, choices target included nodes, memory intents decide what can become shared story state, and terminal handoffs preserve player-facing momentum for later Writers.\n")
+		b.WriteString("- Keep the player character central, reach agency quickly, and keep the pace active; do not explain game mechanics to the player unless the scene itself makes them visible.\n")
 		b.WriteString("- Before drafting, orient in the staged lorepack: read lorepack/navigation.md, then lorepack/lore-pack.json, then inspect reference files enough to understand major characters, premise pressures, decisive events, and choice texture, then stage that understanding into playable opening turns.\n")
 		b.WriteString("- Follow the lorepack/navigation.md minimum orientation: contract, wiki overview, comics manifest, relevant volume summaries, and matching character records before drafting, unless ask_lore_expert resolves a narrow missing fact.\n")
 		b.WriteString("- Search with the Grep tool or rg-style commands; do not rely on shell grep.\n")
@@ -307,7 +309,8 @@ func BuildContextForPack(pack lorepack.Pack) string {
 		fmt.Fprintf(&b, "- selected lore pack: %s (%s)\n", runutil.FirstNonEmpty(pack.Label, pack.ID), runutil.FirstNonEmpty(pack.ID, "unknown"))
 	}
 	b.WriteString("- pack note: legacy pack selected for story pressure; concrete source analysis comes through tools when needed.\n")
-	b.WriteString("- influence style: heightened speculative adventure; intense family and function pressure; refusal under expectation; spectacle; material cost; credible consequence inside the protagonist's lived order.\n")
+	b.WriteString("- source style: infer setting-specific texture from staged lore files; keep scenes concrete, playable, and consequential.\n")
+	b.WriteString("- game-loop context: build a compact node graph with playable choices, valid targets, memory intents, and clear terminal handoffs; keep mechanics out of player-facing prose unless the scene makes them visible.\n")
 	b.WriteString("- story context: include only the guidance the opening actually needs; let rules or customs emerge from scene pressure when the source supports them.\n")
 	b.WriteString("- reader plausibility: strange material needs internal cause, social practice, emotional credibility, material consequence, and follow-through.\n")
 	b.WriteString("- material imagination: choose the story's dominant condition from its own premise, such as infrastructure, ecology, transport, weather, resource scarcity, labor, workplace tools, maintenance routines, money pressure, family pressure, or local trade.\n")

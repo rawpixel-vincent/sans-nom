@@ -226,6 +226,8 @@ func IsRetryableCodexError(err error) bool {
 		"broken pipe",
 		"i/o timeout",
 		"operation timed out",
+		"awaiting response headers",
+		"client.timeout exceeded while awaiting headers",
 		"temporary failure",
 		"network is unreachable",
 		"no route to host",

@@ -308,6 +308,8 @@ func TestRetryableCodexErrorIncludesSocketDisconnects(t *testing.T) {
 		"read tcp 10.0.0.2:1234->1.2.3.4:443: read: connection reset by peer",
 		"dial tcp: lookup api.openai.com: temporary failure in name resolution",
 		"dial tcp: connect: network is unreachable",
+		"net/http: timeout awaiting response headers",
+		"Post \"https://chatgpt.com/backend-api/codex/responses\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
 		"context deadline exceeded",
 	} {
 		if !IsRetryableCodexError(errors.New(message)) {

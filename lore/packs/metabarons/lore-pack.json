@@ -1,7 +1,6 @@
 {
   "id": "metabarons",
   "label": "Metabarons",
-  "description": "Metabarons lorepack for faithful Sans-Nom prototype play: dynasty pressure, body law, taboo, refusal, spectacle, and philosophical consequence.",
   "collection": "sans_nom_lore_metabarons",
   "embedding_model": "voyage-4",
   "artifact_roots": {
@@ -45,28 +44,28 @@
   "forbidden_literal_terms": [],
   "status": "active",
   "gameplay_mode": "canon_internal_original",
-  "game_synopsis": "The player stands inside the Metabaron dynasty's pressure field, where family, body, weapon, memory, service, and public consequence decide legitimacy. The opening story stages one immediate household crisis that forces the player to choose how inheritance, obedience, refusal, love, or sacrifice should mean anything when witnesses are watching.",
-  "protagonist_role": "A contested figure bound to the dynasty's household machinery: heir, sworn servant, weapon-keeper, witness, lover, rival, or survivor whose legitimacy is under pressure.",
-  "opening_situation": "A household demand turns private lineage truth into public consequence while someone close to the player needs an answer now.",
-  "initial_pressure": "The opening demands an irreversible visible cost before the player fully understands which family memory, duty, or betrayal is being exposed.",
+  "game_synopsis": "Use the staged lorepack files as the source material for a playable Sans-Nom story. Read the source records before drafting and ground premise, scene setup, choices, and source boundaries in those records.",
+  "protagonist_role": "Choose or create a playable role from source-supported material in the staged lorepack without replacing established source facts with an unrelated premise.",
+  "opening_situation": "Start from a concrete situation supported by staged lorepack material.",
+  "initial_pressure": "Begin with an immediate scene problem grounded in staged lorepack material.",
   "story_lines": [
-    "Move through a household crisis where legitimacy depends on visible cost, witnessed action, and family memory.",
-    "Decide whether inheritance means obedience to the dynasty, refusal of the dynasty, transformation of its purpose, or service to someone it has harmed.",
-    "Navigate servants, witnesses, rivals, lovers, weapons, and family figures whose loyalty is real but never simple.",
-    "Make choices whose consequences are public, bodily, and remembered by the household."
+    "Read the staged lorepack source files before drafting.",
+    "Build scenes from concrete source-supported characters, places, relationships, objects, events, and conflicts.",
+    "Let consequences follow from source material and rolled-out play.",
+    "Keep choices playable and consequential without replaying the same situation."
   ],
   "must_not_violate": [
-    "Do not make dynasty duty consequence-free or purely decorative.",
-    "Do not turn the story into generic space fantasy detached from lineage, body, ritual, and inheritance.",
-    "Do not resolve family pressure with simple rebellion that costs nothing.",
-    "Do not flatten servants, lovers, parents, or rivals into exposition devices.",
-    "Do not offer choices that only navigate locations without changing duty, knowledge, loyalty, or cost."
+    "Do not make major facts contradict staged source material.",
+    "Do not turn source-specific material into unrelated generic genre scenes.",
+    "Do not resolve major situations without consequences established in play.",
+    "Do not flatten characters or groups into exposition devices.",
+    "Do not offer choices that only navigate locations without changing situation, knowledge, relationships, resources, or risk."
   ],
   "canon_anchor": {
     "source_volumes": [1, 2, 3, 4, 5, 6, 7, 8],
     "source_events": [
-      "Dynasty legitimacy is repeatedly tested through bodily cost, family obedience, refusal, weapon inheritance, and public consequence.",
-      "Servants, witnesses, and narrators shape how family violence becomes remembered truth."
+      "Use staged source volumes 1-8 as the source basis for this pack.",
+      "Use staged character, page, and volume records for source-supported events."
     ],
     "source_characters": [
       "Othon",
@@ -77,11 +76,11 @@
       "No-Name"
     ],
     "must_include_canon_facts": [
-      "The playable story must preserve the Metabaron dynasty as a world where family duty, bodily proof, weapon legitimacy, and remembered consequence are inseparable."
+      "The playable story must preserve source-supported facts from the staged lorepack."
     ],
     "allowed_original_insertions": [
-      "New household figures, servants, rivals, witnesses, and local rites may be created when they do not replace or contradict established dynasty logic.",
-      "The player may be an internal original figure whose crisis exposes canon-faithful pressures rather than retelling a specific volume beat."
+      "New local figures, places, objects, and scene complications may be created when they do not replace or contradict staged source material.",
+      "Original scene details may be introduced if they are consistent with the source and do not become replacement canon."
     ]
   }
 }

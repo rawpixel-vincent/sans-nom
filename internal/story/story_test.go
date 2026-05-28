@@ -239,7 +239,7 @@ func validBundle() SeedBundle {
 				"Family memory depends on shared labor and visible follow-through.",
 			},
 			StoryContext: []string{
-				"Garden ledgers are practical civic infrastructure, not a generic doctrine.",
+				"Garden ledgers are practical civic infrastructure, not a generic rule.",
 				"The opening pressure should stay playable and scene-local.",
 			},
 			Factions: []Faction{{

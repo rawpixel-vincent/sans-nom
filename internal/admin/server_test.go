@@ -199,7 +199,7 @@ func TestAdminBackstageAttributesToolRequestsToActiveWriter(t *testing.T) {
 		Category: "lore",
 		Event:    "lore.expert.request",
 		Detail: map[string]any{
-			"request": map[string]any{"question": "What makes doctrine credible?"},
+			"request": map[string]any{"question": "What makes source context credible?"},
 		},
 	}); err != nil {
 		t.Fatal(err)
@@ -236,7 +236,7 @@ func TestAdminBackstageShowsLoreFidelityContext(t *testing.T) {
 		Message:  "lore fidelity contract attached to narrator context",
 		Detail: map[string]any{
 			"role":              "narrator",
-			"scenario_contract": "Lorepack Scenario Notes\n- story_lines:\n  - dynasty pressure matters",
+			"scenario_contract": "Lorepack Scenario Notes\n- story_lines:\n  - source-supported consequence matters",
 		},
 	}); err != nil {
 		t.Fatal(err)
@@ -251,7 +251,7 @@ func TestAdminBackstageShowsLoreFidelityContext(t *testing.T) {
 	if len(resp.Messages) != 1 {
 		t.Fatalf("unexpected backstage messages: %#v", resp.Messages)
 	}
-	if resp.Messages[0].Speaker != "Lore Authority" || resp.Messages[0].Role != "lore-authority" || !strings.Contains(resp.Messages[0].Text, "dynasty pressure matters") {
+	if resp.Messages[0].Speaker != "Lore Authority" || resp.Messages[0].Role != "lore-authority" || !strings.Contains(resp.Messages[0].Text, "source-supported consequence matters") {
 		t.Fatalf("unexpected lore fidelity message: %#v", resp.Messages[0])
 	}
 }
