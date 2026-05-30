@@ -200,6 +200,7 @@ func RetryBlockedWriterRefreshIfNeeded(ctx context.Context, cfg Config) (Config,
 func commitDisplayedTurn(ctx context.Context, cfg Config, state *story.StoryState, packet scene.StoryPacket, rollout narrator.Rollout, audioPath string, displayTurn int) error {
 	client := bridgeclient.NewClient(cfg.BridgeURL, os.Getenv("SIDECAR_TOKEN"))
 	commitStarted := time.Now()
+	const maxCommitAttempts = 5
 	runutil.LogEvent(cfg.Logger, gamelog.Event{
 		Category: "honcho",
 		Event:    "honcho.commit.started",
@@ -218,7 +219,7 @@ func commitDisplayedTurn(ctx context.Context, cfg Config, state *story.StoryStat
 			"request": rollout.Commit,
 		},
 	})
-	if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+	if err := commitSceneWithRetry(ctx, cfg, client, rollout, displayTurn, maxCommitAttempts); err != nil {
 		if saveErr := savePendingDisplayedTurn(cfg, state, packet, rollout, false, audioPath, displayTurn); saveErr != nil {
 			err = fmt.Errorf("%w; additionally failed to save pending displayed turn: %v", err, saveErr)
 		}
@@ -231,9 +232,11 @@ func commitDisplayedTurn(ctx context.Context, cfg Config, state *story.StoryStat
 			PacketID: rollout.Commit.PacketID,
 			NodeID:   rollout.Commit.NodeID,
 			Fields: map[string]any{
-				"session_id":  rollout.Commit.SessionID,
-				"elapsed_ms":  time.Since(commitStarted).Milliseconds(),
-				"event_count": len(rollout.Commit.Events),
+				"session_id":   rollout.Commit.SessionID,
+				"elapsed_ms":   time.Since(commitStarted).Milliseconds(),
+				"event_count":  len(rollout.Commit.Events),
+				"attempts":     maxCommitAttempts,
+				"max_attempts": maxCommitAttempts,
 			},
 			Detail: map[string]any{
 				"request": rollout.Commit,
@@ -262,6 +265,84 @@ func commitDisplayedTurn(ctx context.Context, cfg Config, state *story.StoryStat
 		},
 	})
 	return applyCardUpdatesAfterCommit(ctx, cfg, state, client, rollout.Draft.CuratedCardUpdates, displayTurn, rollout.Commit.PacketID, rollout.Commit.NodeID)
+}
+
+func commitSceneWithRetry(ctx context.Context, cfg Config, client bridgeclient.Client, rollout narrator.Rollout, displayTurn int, maxAttempts int) error {
+	if maxAttempts <= 0 {
+		maxAttempts = 1
+	}
+	var lastErr error
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		if err := client.CommitScene(ctx, rollout.Commit); err != nil {
+			lastErr = err
+			if attempt == maxAttempts {
+				break
+			}
+			delay := honchoCommitBackoff(attempt)
+			runutil.LogEvent(cfg.Logger, gamelog.Event{
+				Level:    gamelog.LevelWarn,
+				Category: "honcho",
+				Event:    "honcho.commit.retry",
+				Message:  fmt.Sprintf("Honcho commit attempt %d/%d failed; retrying in %s", attempt, maxAttempts, delay),
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"session_id":    rollout.Commit.SessionID,
+					"attempt":       attempt,
+					"max_attempts":  maxAttempts,
+					"next_delay_ms": delay.Milliseconds(),
+					"event_count":   len(rollout.Commit.Events),
+				},
+				Detail: map[string]any{
+					"request": rollout.Commit,
+					"error":   err.Error(),
+				},
+			})
+			timer := time.NewTimer(delay)
+			select {
+			case <-ctx.Done():
+				timer.Stop()
+				return ctx.Err()
+			case <-timer.C:
+			}
+			continue
+		}
+		if attempt > 1 {
+			runutil.LogEvent(cfg.Logger, gamelog.Event{
+				Category: "honcho",
+				Event:    "honcho.commit.retry_recovered",
+				Message:  fmt.Sprintf("Honcho commit succeeded on attempt %d/%d", attempt, maxAttempts),
+				Turn:     displayTurn,
+				PacketID: rollout.Commit.PacketID,
+				NodeID:   rollout.Commit.NodeID,
+				Fields: map[string]any{
+					"session_id":   rollout.Commit.SessionID,
+					"attempt":      attempt,
+					"max_attempts": maxAttempts,
+					"event_count":  len(rollout.Commit.Events),
+				},
+			})
+		}
+		return nil
+	}
+	return lastErr
+}
+
+func honchoCommitBackoff(attempt int) time.Duration {
+	delays := []time.Duration{
+		500 * time.Millisecond,
+		1 * time.Second,
+		2 * time.Second,
+		4 * time.Second,
+	}
+	if attempt <= 0 {
+		return delays[0]
+	}
+	if attempt > len(delays) {
+		return delays[len(delays)-1]
+	}
+	return delays[attempt-1]
 }
 
 func applyCardUpdatesAfterCommit(ctx context.Context, cfg Config, state *story.StoryState, client bridgeclient.Client, updates []scene.CardUpdate, displayTurn int, packetID string, nodeID string) error {

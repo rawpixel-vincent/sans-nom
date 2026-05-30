@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import logging
 import os
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 
-from .honcho_ops import HonchoOps
+from .honcho_ops import HonchoOps, honcho_peer_id
 from .lore_search import LoreSearchService
 from .lore_ops import qdrant_url, voyage_api_key, voyage_model
 from .story_index import delete_story_collection, ingest_story_index
@@ -24,6 +25,7 @@ from .models import (
 )
 
 app = FastAPI(title="Sans-Nom Phase 0 Bridge", version="0.1.0")
+logger = logging.getLogger(__name__)
 ops = HonchoOps()
 lore_search = LoreSearchService()
 
@@ -60,10 +62,42 @@ def scene_commit(req: CommitRequest) -> dict[str, str]:
             raise HTTPException(status_code=422, detail=f"forbidden commit source: {event.source}")
         if not event.witnesses:
             raise HTTPException(status_code=422, detail="canon events require witnesses")
+    observer_ids = req.observer_peer_ids or [event.peer_id for event in req.events]
+    session_peer_count = len({honcho_peer_id(peer_id) for peer_id in observer_ids})
+    witness_count = len({witness for event in req.events for witness in event.witnesses})
+    logger.info(
+        "scene commit requested",
+        extra={
+            "workspace_id": req.workspace_id,
+            "session_id": req.session_id,
+            "packet_id": req.packet_id,
+            "node_id": req.node_id,
+            "event_count": len(req.events),
+            "observer_peer_count": len(req.observer_peer_ids),
+            "session_peer_count": session_peer_count,
+            "witness_count": witness_count,
+            "honcho_live": ops.live_enabled,
+        },
+    )
     try:
         return ops.commit_scene(req)
     except Exception as exc:
-        raise HTTPException(status_code=503, detail=str(exc)) from exc
+        logger.exception(
+            "scene commit failed",
+            extra={
+                "workspace_id": req.workspace_id,
+                "session_id": req.session_id,
+                "packet_id": req.packet_id,
+                "node_id": req.node_id,
+                "event_count": len(req.events),
+                "observer_peer_count": len(req.observer_peer_ids),
+                "session_peer_count": session_peer_count,
+                "witness_count": witness_count,
+                "honcho_live": ops.live_enabled,
+                "exception_type": type(exc).__name__,
+            },
+        )
+        raise HTTPException(status_code=503, detail=f"{type(exc).__name__}: {exc}") from exc
 
 
 @app.get("/v1/peer/{peer_id}/card", dependencies=[Depends(authorize)])

@@ -33,12 +33,20 @@ const (
 )
 
 func SceneSessionID(baseSessionID string, packetID string, nodeID string) string {
+	return SceneSessionIDWithPeers(baseSessionID, packetID, nodeID, nil)
+}
+
+// SceneSessionIDWithPeers scopes a Honcho scene to both the selected node and
+// the peers observing that node. Honcho session peers share scene history, so a
+// changed peer set is a new scene even when packet/node ids are unchanged.
+func SceneSessionIDWithPeers(baseSessionID string, packetID string, nodeID string, peerIDs []string) string {
 	base := sessionIDPart(baseSessionID)
 	node := sessionIDPart(nodeID)
 	if node == "scene" {
 		node = sessionIDPart(packetID)
 	}
-	hash := sha1.Sum([]byte(baseSessionID + "\x00" + packetID + "\x00" + nodeID))
+	peerKey := scenePeerKey(peerIDs)
+	hash := sha1.Sum([]byte(baseSessionID + "\x00" + packetID + "\x00" + nodeID + "\x00" + peerKey))
 	suffix := hex.EncodeToString(hash[:])[:10]
 	sessionID := base + "--" + node + "--" + suffix
 	if len(sessionID) <= MaxSessionIDLength {
@@ -59,6 +67,24 @@ func SceneSessionID(baseSessionID string, packetID string, nodeID string) string
 		base = "scene"
 	}
 	return base + "--" + node + "--" + suffix
+}
+
+func scenePeerKey(peerIDs []string) string {
+	if len(peerIDs) == 0 {
+		return ""
+	}
+	seen := map[string]bool{}
+	var peers []string
+	for _, peerID := range peerIDs {
+		peer := sessionIDPart(peerID)
+		if peer == "" || seen[peer] {
+			continue
+		}
+		seen[peer] = true
+		peers = append(peers, peer)
+	}
+	sort.Strings(peers)
+	return strings.Join(peers, "\x00")
 }
 
 func sessionIDPart(value string) string {

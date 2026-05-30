@@ -146,3 +146,26 @@ func TestSceneSessionIDScopesCommitsPerNode(t *testing.T) {
 		t.Fatalf("scene session too long: %d > %d", len(first), MaxSessionIDLength)
 	}
 }
+
+func TestSceneSessionIDSplitsSceneWhenObserverPeersChange(t *testing.T) {
+	baseSession := "seed-rain-engine-second-heart-opening"
+	packetID := "packet-one"
+	nodeID := "turn_6_three_minutes_begin"
+	firstScenePeers := []string{"sans-nom", "narrator", "selka_blankwrist"}
+	sameScenePeersDifferentOrder := []string{"selka_blankwrist", "sans-nom", "narrator"}
+	newScenePeers := []string{"sans-nom", "narrator", "debt_patrol_sweep_pilot"}
+
+	firstScene := SceneSessionIDWithPeers(baseSession, packetID, nodeID, firstScenePeers)
+	sameScene := SceneSessionIDWithPeers(baseSession, packetID, nodeID, sameScenePeersDifferentOrder)
+	newScene := SceneSessionIDWithPeers(baseSession, packetID, nodeID, newScenePeers)
+
+	if firstScene != sameScene {
+		t.Fatalf("scene sessions should be stable for the same observer peer set: %q != %q", firstScene, sameScene)
+	}
+	if firstScene == newScene {
+		t.Fatalf("scene sessions must split when observer peers change; otherwise new peers can observe prior scene history: %q", firstScene)
+	}
+	if len(firstScene) > MaxSessionIDLength {
+		t.Fatalf("scene session too long: %d > %d", len(firstScene), MaxSessionIDLength)
+	}
+}

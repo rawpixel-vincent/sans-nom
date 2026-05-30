@@ -249,7 +249,7 @@ func buildCommit(packet scene.StoryPacket, node scene.SceneNode, decision scene.
 
 	return scene.Commit{
 		WorkspaceID:     packet.ContextSnapshot.WorkspaceID,
-		SessionID:       scene.SceneSessionID(packet.ContextSnapshot.SessionID, packet.ID, node.ID),
+		SessionID:       scene.SceneSessionIDWithPeers(packet.ContextSnapshot.SessionID, packet.ID, node.ID, observers.values()),
 		PacketID:        packet.ID,
 		NodeID:          node.ID,
 		PlayerDecision:  decision,
