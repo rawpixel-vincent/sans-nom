@@ -1,0 +1,9 @@
+{
+  "prefix": "",
+  "harnesses": ["claude"],
+  "excludedDirs": ["node_modules", "dist", "build"],
+  "agnostic": {
+    "allowedHomes": [],
+    "names": ["vincent"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "memory:check": "bun scripts/agents-memory-check.ts",
+    "memory:find": "bun scripts/agents-find.ts find",
+    "memory:read": "bun scripts/agents-find.ts read",
+    "memory:drift": "bun scripts/agents-find.ts drift",
+    "anchors": "bun scripts/agents-anchors.ts"
+  }
+}
