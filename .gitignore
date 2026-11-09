@@ -57,3 +57,8 @@ lore/canon/comics/peer-cards/runs/
 docs/writing/refs
 
 *.bak
+
+# BEGIN shared-agent-memory: local task briefs stay out of git
+HANDOFF-local-*
+PLAN-local-*
+# END shared-agent-memory

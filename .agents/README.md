@@ -69,7 +69,7 @@ Git is the archive: the prose of any earlier version of a unit stays available w
 - **Keep entries user- and environment-agnostic.** No personal names: write "the maintainer" when provenance matters, and use they/them. No `/Users/<name>` paths: use repo-relative paths or `~`. No machine-specific binaries or PATH details. Machine-local pointers belong in each agent's private store. Source-backed infrastructure identities and paths are allowed when their exact value is the durable contract; the homes listed in `agnostic.allowedHomes` (`.agents/shared-memory.json`) pass the guard.
 - **No secrets or credentials.**
 - **Update or delete stale entries instead of duplicating them.** Run `memory:find` first. Personal preferences and notes on how a user works stay in each agent's own store.
-- `HANDOFF-*.md` and `PLAN-*.md` files are transient task briefs. They are exempt from the format and are deleted on completion.
+- `HANDOFF-*.md` and `PLAN-*.md` files are transient task briefs. They are exempt from the format and are deleted on completion. The name decides whether git keeps one: `HANDOFF-local-*` and `PLAN-local-*` are ignored (the kit's block in `.gitignore`); without `-local-` the brief is versioned.
 
 ## Tooling
 
